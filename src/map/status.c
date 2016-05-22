@@ -1016,6 +1016,7 @@ void initChangeTables(void)
 	StatusIconChangeTable[SC_DEFSET] = SI_SET_NUM_DEF;
 	StatusIconChangeTable[SC_MDEFSET] = SI_SET_NUM_MDEF;
 	StatusIconChangeTable[SC_MONSTER_TRANSFORM] = SI_MONSTER_TRANSFORM;
+	StatusIconChangeTable[SC_ACTIVE_MONSTER_TRANSFORM] = SI_ACTIVE_MONSTER_TRANSFORM;
 	StatusIconChangeTable[SC_ALL_RIDING] = SI_ALL_RIDING;
 	StatusIconChangeTable[SC_PUSH_CART] = SI_ON_PUSH_CART;
 	StatusIconChangeTable[SC_MTF_ASPD] = SI_MTF_ASPD;
@@ -1221,6 +1222,8 @@ void initChangeTables(void)
 	StatusDisplayType[SC__MANHOLE]		  = true;
 	StatusDisplayType[SC_JYUMONJIKIRI]	  = true;
 	StatusDisplayType[SC_AKAITSUKI]		  = true;
+	StatusDisplayType[SC_MONSTER_TRANSFORM] = true;
+	StatusDisplayType[SC_ACTIVE_MONSTER_TRANSFORM] = true;
 	StatusDisplayType[SC_DARKCROW]		  = true;
 	StatusDisplayType[SC_OFFERTORIUM]	  = true;
 	StatusDisplayType[SC_TELEKINESIS_INTENSE] = true;
@@ -10354,6 +10357,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			status_change_start(bl, bl, SC_MDEFSET, 10000, 1, 0, 0, 0, tick, SCSTART_NOTICKDEF);
 			break;
 		case SC_MONSTER_TRANSFORM:
+		case SC_ACTIVE_MONSTER_TRANSFORM:
 			if( !mobdb_checkid(val1) )
 				val1 = MOBID_PORING; // Default poring
 			break;
@@ -10517,6 +10521,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		case SC_SPHERE_5:
 		case SC_LIGHTNINGWALK:
 		case SC_MONSTER_TRANSFORM:
+		case SC_ACTIVE_MONSTER_TRANSFORM:
 		case SC_EXPBOOST:
 		case SC_JEXPBOOST:
 		case SC_ITEMBOOST:
@@ -11497,6 +11502,7 @@ int status_change_end_(struct block_list* bl, enum sc_type type, int tid, const 
 				status_get_regen_data(bl)->state.overweight = 1; // Add the overweight flag back
 			break;
 		case SC_MONSTER_TRANSFORM:
+		case SC_ACTIVE_MONSTER_TRANSFORM:
 			if (sce->val2)
 				status_change_end(bl, (sc_type)sce->val2, INVALID_TIMER);
 			break;
@@ -12954,6 +12960,7 @@ void status_change_clear_buffs(struct block_list* bl, uint8 type)
 			case SC_ALL_RIDING:
 			case SC_STYLE_CHANGE:
 			case SC_MONSTER_TRANSFORM:
+			case SC_ACTIVE_MONSTER_TRANSFORM:
 			case SC_MOONSTAR:
 			case SC_SUPER_STAR:
 			case SC_MTF_ASPD:
