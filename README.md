@@ -1,7 +1,7 @@
 rAthenaCN 汉化项目组
 =======
 
-Build Status: [![Build Status](https://travis-ci.org/rathena/rathena.png?branch=master)](https://travis-ci.org/rathena/rathena)
+Build Status: [![Build Status](https://travis-ci.org/rathena/rathena.png?branch=master)](https://www.rAthenaCN.com)
 
 Table of Contents
 ---------
@@ -144,19 +144,22 @@ Examples:
 
 5. 常用链接
 ---------
-* rAthenaCN [中文主页]
+* rAthenaCN 主页 [中文]
 	* https://www.rAthenaCN.com/
 	
-* rAthenaCN [中文] GIT Repository
+* rAthenaCN 模拟器源码 [中文] GIT 代码库
 	* https://github.com/rAthenaCN/rAthenaCN.git
-	
-* ROClientPatchCN [中文] GIT Repository
+
+* ROClientFullCN 完整客户端 [中文] GIT 代码库
+	* https://github.com/rAthenaCN/ROClientFullCN.git
+
+* ROClientPatchCN 客户端补丁 [中文] GIT 代码库
 	* https://github.com/rAthenaCN/ROClientPatchCN.git
 
-* rAthena [官方论坛]
+* rAthena 论坛 [官方]
 	* https://rathena.org/
 	
-* rAthena [官方] GIT Repository
+* rAthena 模拟器源码 [英文] GIT 代码库
 	* https://github.com/rathena/rathena
 	
 * 各类系统安装说明
