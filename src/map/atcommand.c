@@ -3569,10 +3569,9 @@ ACMD_FUNC(idsearch)
 	sprintf(atcmd_output, msg_txt(sd,77), item_name); // The reference result of '%s' (name: id):
 	clif_displaymessage(fd, atcmd_output);
 	match = itemdb_searchname_array(item_array, MAX_SEARCH, item_name);
-	if (match > MAX_SEARCH) {
-		sprintf(atcmd_output, msg_txt(sd,269), MAX_SEARCH, match);
+	if (match == MAX_SEARCH) {
+		sprintf(atcmd_output, msg_txt(sd,269), MAX_SEARCH); // Displaying first %d matches
 		clif_displaymessage(fd, atcmd_output);
-		match = MAX_SEARCH;
 	}
 	for(i = 0; i < match; i++) {
 		sprintf(atcmd_output, msg_txt(sd,78), item_array[i]->jname, item_array[i]->nameid); // %s: %d
@@ -7071,8 +7070,8 @@ ACMD_FUNC(mobinfo)
 		return -1;
 	}
 
-	if (count > MAX_SEARCH) {
-		sprintf(atcmd_output, msg_txt(sd,269), MAX_SEARCH, count);
+	if (count >= MAX_SEARCH) {
+		sprintf(atcmd_output, msg_txt(sd,269), MAX_SEARCH); // Displaying first %d matches
 		clif_displaymessage(fd, atcmd_output);
 		count = MAX_SEARCH;
 	}
@@ -7594,10 +7593,9 @@ ACMD_FUNC(iteminfo)
 		return -1;
 	}
 
-	if (count > MAX_SEARCH) {
-		sprintf(atcmd_output, msg_txt(sd,269), MAX_SEARCH, count); // Displaying first %d out of %d matches
+	if (count == MAX_SEARCH) {
+		sprintf(atcmd_output, msg_txt(sd,269), MAX_SEARCH); // Displaying first %d matches
 		clif_displaymessage(fd, atcmd_output);
-		count = MAX_SEARCH;
 	}
 	for (i = 0; i < count; i++) {
 		struct item_data * item_data = item_array[i];
@@ -7611,16 +7609,17 @@ ACMD_FUNC(iteminfo)
 		sprintf(atcmd_output, msg_txt(sd,1280), item_data->value_buy, item_data->value_sell, item_data->weight/10. ); // NPC Buy:%dz, Sell:%dz | Weight: %.1f
 		clif_displaymessage(fd, atcmd_output);
 
-		if (item_data->maxchance == -1)
+		if (item_data->maxchance == -1) {
 			strcpy(atcmd_output, msg_txt(sd,1281)); //  - Available in the shops only.
+			clif_displaymessage(fd, atcmd_output);
+		}
 		else if (!battle_config.atcommand_mobinfo_type) {
 			if (item_data->maxchance)
 				sprintf(atcmd_output, msg_txt(sd,1282), (float)item_data->maxchance / 100 ); //  - Maximal monsters drop chance: %02.02f%%
 			else
 				strcpy(atcmd_output, msg_txt(sd,1283)); //  - Monsters don't drop this item.
+			clif_displaymessage(fd, atcmd_output);
 		}
-		clif_displaymessage(fd, atcmd_output);
-
 	}
 	return 0;
 }
@@ -7645,10 +7644,9 @@ ACMD_FUNC(whodrops)
 		return -1;
 	}
 
-	if (count > MAX_SEARCH) {
-		sprintf(atcmd_output, msg_txt(sd,269), MAX_SEARCH, count); // Displaying first %d out of %d matches
+	if (count == MAX_SEARCH) {
+		sprintf(atcmd_output, msg_txt(sd,269), MAX_SEARCH); // Displaying first %d matches
 		clif_displaymessage(fd, atcmd_output);
-		count = MAX_SEARCH;
 	}
 	for (i = 0; i < count; i++) {
 		item_data = item_array[i];
@@ -7707,8 +7705,8 @@ ACMD_FUNC(whereis)
 		return -1;
 	}
 
-	if (count > MAX_SEARCH) {
-		sprintf(atcmd_output, msg_txt(sd,269), MAX_SEARCH, count);
+	if (count >= MAX_SEARCH) {
+		sprintf(atcmd_output, msg_txt(sd,269), MAX_SEARCH); // Displaying first %d matches
 		clif_displaymessage(fd, atcmd_output);
 		count = MAX_SEARCH;
 	}
