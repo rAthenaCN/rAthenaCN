@@ -1,2 +1,9 @@
-// Internal default is limited to 128 lines.  If you need more, you will need to modify the MOTD_LINE_SIZE definition in pc.c
-Welcome to rAthena! Enjoy! Please report any bugs you find.
+//===========================================================================
+// rAthenaCN 登录欢迎词配置文件 [ www.rAthenaCN.com ]
+//===========================================================================
+// 
+// 玩家登录游戏后将在聊天窗口看到本文件中配置的提示信息
+// 最多只能显示 128 行文本, 就算空行也会被计算在内
+// 
+//===========================================================================
+欢迎使用 [ www.rAthenaCN.com ] 仙境传说模拟器!
