@@ -1,3 +1,9 @@
+//============================================================
+//= rAthenaCN [传送员]汉化脚本 [ www.rAthenaCN.com ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+
 //===== rAthena Script ======================================= 
 //= Warper
 //===== By: ================================================== 
@@ -27,14 +33,14 @@ function Go; function Disp; function Pick; function Restrict;
 //	Main Menu:
 // --------------------------------------------------
 
-menu	"Last Warp ^777777["+lastwarp$+"]^000000",-,
-    	" ~ Towns",Towns,
-    	" ~ Fields",Fields,
-    	" ~ Dungeons",Dungeons,
-    	" ~ Guild Castles",Castles,
-    	" ~ Guild Dungeons",Guild_Dungeons,
-    	" ~ Instances",Instances,
-    	" ~ Special Areas",Special;
+menu	"- 最后一次传送点 ^777777["+lastwarp$+"]^000000",-,
+    	"- 城镇",Towns,
+    	"- 野外",Fields,
+    	"- 洞穴",Dungeons,
+    	"- 公会城堡",Castles,
+    	"- 地下工会密穴",Guild_Dungeons,
+    	"- 副本",Instances,
+    	"- 特殊地区",Special;
 
 	if (lastwarp$ == "")
 		message strcharinfo(0),"You haven't warped anywhere yet.";
@@ -119,14 +125,14 @@ function Restrict {
 // --------------------------------------------------
 	Towns:
 // --------------------------------------------------
-menu	"Prontera",T1, "Alberta",T2, "Aldebaran",T3, "Amatsu",T4, "Ayothaya",T5,
-    	"Brasilis",T6, "Comodo",T7, "Dewata",T8, "Eclage",T9, "Einbech",T10, 
-    	"Einbroch",T11, "El Dicastes",T12, "Geffen",T13, "Gonryun",T14, "Hugel",T15,
-    	"Izlude",T16, "Jawaii",T17, "Lighthalzen",T18, "Louyang",T19, "Lutie",T20,
-    	"Malangdo",T21, "Malaya",T22, "Manuk",T23, "Midgarts Expedition Camp",T24,
-    	"Mora",T25, "Morroc",T26, "Moscovia",T27, "Nameless Island",T28,
-    	"Niflheim",T29, "Payon",T30, "Rachel",T31, "Splendide",T32, "Thor Camp",T33,
-    	"Umbala",T34, "Veins",T35, "Yuno",T36;
+menu	"普隆德拉",T1, "艾尔贝塔",T2, "艾尔帕兰",T3, "天津",T4, "哎哟泰雅",T5,
+    	"巴西里斯",T6, "克魔岛",T7, "德瓦他",T8, "艾卡拉奇",T9, "艾因贝赫",T10, 
+    	"艾因布罗克",T11, "埃迪斯特斯",T12, "吉芬",T13, "昆仑",T14, "毁葛",T15,
+    	"依斯鲁得",T16, "爪哇咿",T17, "里希塔乐镇",T18, "洛阳",T19, "姜饼城",T20,
+    	"绵绵岛",T21, "马来港",T22, "马努克",T23, "米德加尔特联合驻地",T24,
+    	"穆拉",T25, "梦罗克",T26, "莫斯科比亚",T27, "无名岛",T28,
+    	"尼芙菲姆",T29, "斐扬",T30, "拉赫",T31, "辉煌领域",T32, "托尔火山",T33,
+    	"汶巴拉",T34, "伯仁斯",T35, "朱诺",T36;
 
 T1: Go("prontera",155,183);
 T2: Go("alberta",28,234);
@@ -175,197 +181,197 @@ T36: Go("yuno",157,51);
 // --------------------------------------------------
 	Fields:
 // --------------------------------------------------
-menu	"Amatsu Fields",F1, "Ayothaya Fields",F2, "Bifrost Fields", F3,
-    	"Brasilis Fields",F4, "Comodo Fields",F5, "Dewata Fields",F6,
-    	"Eclage Fields",F7, "Einbroch Fields",F8, "El Dicastes Fields",F9,
-    	"Geffen Fields",F10, "Gonryun Fields",F11, "Hugel Fields",F12,
-    	"Lighthalzen Fields",F13, "Louyang Field",F14, "Lutie Field",F15,
-    	"Malaya Fields",F16, "Manuk Fields",F17, "Mjolnir Fields",F18,
-    	"Moscovia Fields",F19, "Niflheim Fields",F20, "Payon Forests",F21,
-    	"Prontera Fields",F22, "Rachel Fields",F23, "Sograt Deserts",F24,
-    	"Splendide Fields",F25, "Umbala Fields",F26, "Veins Fields",F27,
-    	"Yuno Fields",F28;
+menu	"天津 原野",F1, "哎哟泰雅 原野",F2, "彩虹桥 领域", F3,
+    	"巴西平原",F4, "克魔岛 森林/海边 区域",F5, "德瓦他 原野",F6,
+    	"艾卡拉奇 平原",F7, "艾音布罗克 原野",F8, "埃迪斯特斯 区域",F9,
+    	"吉芬 区域",F10, "昆仑原野",F11, "毁葛 原野",F12,
+    	"里希塔乐镇 原野",F13, "洛阳 原野",F14, "姜饼城 原野",F15,
+    	"马来亚 森林",F16, "马努克旷野",F17, "妙勒尼 山脉 区域",F18,
+    	"莫斯科比亚草原",F19, "尼芙菲姆 区域",F20, "斐扬 树林",F21,
+    	"普隆德拉 区域",F22, "拉赫 原野",F23, "苏克拉特 沙漠 区域",F24,
+    	"辉煌领域旷野",F25, "汶巴拉 森林区域",F26, "伯仁斯 旷野",F27,
+    	"朱诺 原野",F28;
 
 F1: setarray @c[2],190,197;
-	Disp("Amatsu Field",1,1); Pick("ama_fild");
+	Disp("天津 原野",1,1); Pick("ama_fild");
 F2: setarray @c[2],173,134,212,150;
-	Disp("Ayothaya Field",1,2); Pick("ayo_fild");
+	Disp("哎哟泰雅 原野",1,2); Pick("ayo_fild");
 F3: Restrict("RE");
 	setarray @c[2],193,220,220,187;
-	Disp("Bifrost Field",1,2); Pick("bif_fild");
+	Disp("彩虹桥 领域",1,2); Pick("bif_fild");
 F4: Restrict("RE");
 	setarray @c[2],74,32;
-	Disp("Brasilis Field",1,1); Pick("bra_fild");
+	Disp("巴西平原",1,1); Pick("bra_fild");
 F5: Restrict("Pre-RE",5);
 	setarray @c[2],180,178,231,160,191,172,228,194,224,203,190,223,234,177,194,175,172,172;
-	Disp("Comodo Field",1,9); Pick("cmd_fild");
+	Disp("克魔岛 森林/海边 区域",1,9); Pick("cmd_fild");
 F6: Restrict("RE");
 	setarray @c[2],371,212;
-	Disp("Dewata Field",1,1); Pick("dew_fild");
+	Disp("德瓦他 原野",1,1); Pick("dew_fild");
 F7: Restrict("RE");
 	setarray @c[2],97,314;
-	Disp("Eclage Field",1,1); Pick("ecl_fild");
+	Disp("艾卡拉奇 平原",1,1); Pick("ecl_fild");
 F8: Restrict("Pre-RE",2,10);
 	setarray @c[2],142,225,182,141,187,228,185,173,216,173,195,148,272,220,173,214,207,174,196,200;
-	Disp("Einbroch Field",1,10); Pick("ein_fild");
+	Disp("艾音布罗克 原野",1,10); Pick("ein_fild");
 F9: Restrict("RE");
 	setarray @c[2],143,132,143,217;
-	Disp("El Dicastes Field",1,2); Pick("dic_fild");
+	Disp("埃迪斯特斯 区域",1,2); Pick("dic_fild");
 F10: Restrict("Pre-RE",13,15);
 	 setarray @c[0],46,199,213,204,195,212,257,192,188,171,166,263,248,158,195,191,186,183,221,117,178,218,136,328,240,181,235,235,211,185;
-	 Disp("Geffen Field",0,14); Pick("gef_fild",1);
+	 Disp("吉芬 区域",0,14); Pick("gef_fild",1);
 F11: setarray @c[2],220,227;
-	 Disp("Gonryun Field",1,1); Pick("gon_fild");
+	 Disp("昆仑原野",1,1); Pick("gon_fild");
 F12: Restrict("Pre-RE",3,7);
 	 setarray @c[2],268,101,222,193,232,185,252,189,196,106,216,220,227,197;
-	 Disp("Hugel Field",1,7); Pick("hu_fild");
+	 Disp("毁葛 原野",1,7); Pick("hu_fild");
 F13: setarray @c[2],240,179,185,235,240,226;
-	 Disp("Lighthalzen Field",1,3); Pick("lhz_fild");
+	 Disp("里希塔乐镇 原野",1,3); Pick("lhz_fild");
 F14: setarray @c[2],229,187;
-	 Disp("Louyang Field",1,1); Pick("lou_fild");
+	 Disp("洛阳 原野",1,1); Pick("lou_fild");
 F15: setarray @c[2],115,145;
-	 Disp("Lutie Field",1,1); Pick("xmas_fild");
+	 Disp("姜饼城 原野",1,1); Pick("xmas_fild");
 F16: Restrict("RE");
 	 setarray @c[2],40,272,207,180;
-	 Disp("Malaya Field",1,2); Pick("ma_fild");
+	 Disp("马来亚 森林",1,2); Pick("ma_fild");
 F17: setarray @c[2],35,236,35,262,84,365;
-	 Disp("Manuk Field",1,3); Pick("man_fild");
+	 Disp("马努克旷野",1,3); Pick("man_fild");
 F18: setarray @c[2],204,120,175,193,208,213,179,180,181,240,195,270,235,202,188,215,205,144,245,223,180,206,196,208;
-	 Disp("Mjolnir Field",1,12); Pick("mjolnir_");
+	 Disp("妙勒尼 山脉 区域",1,12); Pick("mjolnir_");
 F19: setarray @c[2],82,104,131,147;
-	 Disp("Moscovia Field",1,2); Pick("mosk_fild");
+	 Disp("莫斯科比亚草原",1,2); Pick("mosk_fild");
 F20: setarray @c[2],215,229,167,234;
-	 Disp("Niflheim Field",1,2); Pick("nif_fild");
+	 Disp("尼芙菲姆 区域",1,2); Pick("nif_fild");
 F21: Restrict("Pre-RE",5,11);
 	 setarray @c[2],158,206,151,219,205,148,186,247,134,204,193,235,200,177,137,189,201,224,160,205,194,150;
-	 Disp("Payon Forest",1,11); Pick("pay_fild");
+	 Disp("斐扬 树林",1,11); Pick("pay_fild");
 F22: setarray @c[0],208,227,190,206,240,206,190,143,307,252,239,213,185,188,193,194,187,218,210,183,195,149,198,164;
-	 Disp("Prontera Field",0,11); Pick("prt_fild",1);
+	 Disp("普隆德拉 区域",0,11); Pick("prt_fild",1);
 F23: Restrict("Pre-RE",2,7,9,10,11,13);
 	 setarray @c[2],192,162,235,166,202,206,202,208,225,202,202,214,263,196,217,201,87,121,277,181,221,185,175,200,174,197;
 	 Disp("Rachel Field",1,13); Pick("ra_fild");
 F24: setarray @c[2],219,205,177,206,194,182,224,170,198,216,156,187,185,263,206,228,208,238,209,223,85,97,207,202,31,195,38,195;
-	 Disp("Sograt Desert 1:Sograt Desert 2:Sograt Desert 3:Sograt Desert 7:Sograt Desert 11:Sograt Desert 12:Sograt Desert 13:Sograt Desert 16:Sograt Desert 17:Sograt Desert 18:Sograt Desert 19:Sograt Desert 20:Sograt Desert 21:Sograt Desert 22");
+	 Disp("苏克拉特 沙漠 区域 1:苏克拉特 沙漠 区域 2:苏克拉特 沙漠 区域 3:苏克拉特 沙漠 区域 7:苏克拉特 沙漠 区域 11:苏克拉特 沙漠 区域 12:苏克拉特 沙漠 区域 13:苏克拉特 沙漠 区域 16:苏克拉特 沙漠 区域 17:苏克拉特 沙漠 区域 18:苏克拉特 沙漠 区域 19:苏克拉特 沙漠 区域 20:苏克拉特 沙漠 区域 21:苏克拉特 沙漠 区域 22");
 	 Pick("","moc_fild01","moc_fild02","moc_fild03","moc_fild07","moc_fild11","moc_fild12","moc_fild13","moc_fild16","moc_fild17","moc_fild18","moc_fild19","moc_fild20","moc_fild21","moc_fild22");
 F25: setarray @c[2],175,186,236,184,188,204;
-	 Disp("Splendide Field",1,3); Pick("spl_fild");
+	 Disp("辉煌领域旷野",1,3); Pick("spl_fild");
 F26: setarray @c[2],217,206,223,221,237,215,202,197;
-	 Disp("Umbala Field",1,4); Pick("um_fild");
+	 Disp("汶巴拉 森林区域",1,4); Pick("um_fild");
 F27: Restrict("Pre-RE",5);
 	 setarray @c[2],186,175,196,370,222,45,51,250,202,324,150,223,149,307;
-	 Disp("Veins Field",1,7); Pick("ve_fild");
+	 Disp("伯仁斯 旷野",1,7); Pick("ve_fild");
 F28: Restrict("Pre-RE",5,10);
 	 setarray @c[2],189,224,192,207,221,157,226,199,223,177,187,232,231,174,196,203,183,214,200,124,195,226,210,304;
-	 Disp("Yuno Field",1,12); Pick("yuno_fild");
+	 Disp("朱诺 原野",1,12); Pick("yuno_fild");
 
 // --------------------------------------------------
 	Dungeons:
 // --------------------------------------------------
-menu	"Abyss Lakes",D1, "Amatsu Dungeon",D2, "Anthell",D3,
-    	"Ayothaya Dungeon",D4, "Beach Dungeon",D5, "Bifrost Tower",D41,
-    	"Bio Labs",D6, "Brasilis Dungeon",D7, "Byalan Dungeon",D8, "Clock Tower",D9,
-    	"Coal Mines",D10, "Culvert",D11, "Cursed Abbey",D12, "Dewata Dungeon",D13,
-    	"Einbroch Dungeon",D14, "Gefenia",D15, "Geffen Dungeon",D16,
-    	"Glast Heim",D17, "Gonryun Dungeon",D18, "Hidden Dungeon",D19,
-    	"Ice Dungeon",D20, "Juperos",D21, "Kiel Dungeon",D22, "Louyang Dungeon",D23,
-    	"Magma Dungeon",D24, "Malangdo Dungeon",D25, "Moscovia Dungeon",D26,
-    	"Nidhogg's Dungeon",D27, "Odin Temple",D28, "Orc Dungeon",D29,
-    	"Payon Dungeon",D30, "Pyramids",D31, "Rachel Sanctuary",D32,
-    	"Scaraba Hole",D33, "Sphinx",D34, "Sunken Ship",D35, "Thanatos Tower",D36,
-    	"Thor Volcano",D37, "Toy Factory",D38, "Turtle Dungeon",D39, "Umbala Dungeon",D40;
+menu	"深渊湖水 地下洞穴",D1, "樱花城迷宫",D2, "蚂蚁地狱 密穴",D3,
+    	"古代神殿 迷宫",D4, "克魔岛 海边",D5, "彩虹桥高塔",D41,
+    	"生体试验 研究所",D6, "巴西瀑布洞穴",D7, "海底 洞窟",D8, "艾尔帕兰 钟塔",D9,
+    	"妙勒尼 废弃矿场",D10, "普隆德拉 地下水道",D11, "无名岛修道院",D12, "德瓦他 火山洞穴",D13,
+    	"艾音布罗克 矿山洞穴",D14, "葛帔尼亚",D15, "吉芬塔 地下 密穴",D16,
+    	"克雷斯特汉姆古城",D17, "昆仑洞穴",D18, "迷藏森林",D19,
+    	"冰洞穴",D20, "优配擂斯 废墟",D21, "机械娃娃工厂",D22, "洛阳 古都王陵",D23,
+    	"诺可罗德溶洞",D24, "绵绵岛洞穴",D25, "莫斯科森林",D26,
+    	"尼德霍格的巢穴",D27, "奥丁神殿",D28, "兽人地下洞窟",D29,
+    	"裴扬迷宫",D30, "金字塔 迷宫",D31, "拉赫 神殿圣域",D32,
+    	"甲虫洞穴",D33, "史芬克斯 密穴",D34, "沉没之船",D35, "达纳托斯之塔",D36,
+    	"伯仁斯 火山洞窟",D37, "玩具工厂",D38, "乌龟岛",D39, "汶巴拉森林",D40;
 
 D1: setarray @c[2],261,272,275,270,116,27;
-	Disp("Abyss Lakes",1,3); Pick("abyss_");
+	Disp("深渊湖水 地下洞穴",1,3); Pick("abyss_");
 D2: setarray @c[2],228,11,34,41,119,14;
-	Disp("Amatsu Dungeon",1,3); Pick("ama_dun");
+	Disp("樱花城迷宫",1,3); Pick("ama_dun");
 D3: setarray @c[2],35,262,168,170;
-	Disp("Anthell",1,2); Pick("anthell");
+	Disp("蚂蚁地狱 密穴",1,2); Pick("anthell");
 D4: setarray @c[2],275,19,24,26;
-	Disp("Ancient Shrine Maze:Inside Ancient Shrine"); Pick("ayo_dun");
+	Disp("古代神殿 迷宫:迷宫内部"); Pick("ayo_dun");
 D5: setarray @c[2],266,67,255,244,23,260;
-	Disp("Beach Dungeon",1,3); Pick("","beach_dun","beach_dun2","beach_dun3");
+	Disp("克魔岛 海边",1,3); Pick("","beach_dun","beach_dun2","beach_dun3");
 D6: Restrict("RE",4);
 	setarray @c[2],150,288,150,18,140,134,244,52;
-	Disp("Bio Lab",1,4); Pick("lhz_dun");
+	Disp("生体试验 研究所",1,4); Pick("lhz_dun");
 D7: Restrict("RE");
 	setarray @c[2],87,47,262,262;
-	Disp("Brasilis Dungeon",1,2); Pick("bra_dun");
+	Disp("巴西瀑布洞穴",1,2); Pick("bra_dun");
 D8: Restrict("RE",6);
 	setarray @c[0],168,168,253,252,236,204,32,63,26,27,141,187;
-	Disp("Byalan Dungeon",1,6); Pick("iz_dun",1);
+	Disp("海底 洞窟",1,6); Pick("iz_dun",1);
 D9: setarray @c[2],199,159,148,283,65,147,56,155,297,25,127,169,277,178,268,74;
-	Disp("Clock Tower 1:Clock Tower 2:Clock Tower 3:Clock Tower 4:Basement 1:Basement 2:Basement 3:Basement 4");
+	Disp("艾尔帕兰 钟塔 1层:艾尔帕兰 钟塔 2层:艾尔帕兰 钟塔 3层:艾尔帕兰 钟塔 4层:钟塔地下 1层:钟塔地下 2层:钟塔地下 3层:钟塔地下 4层");
 	Pick("","c_tower1","c_tower2","c_tower3","c_tower4","alde_dun01","alde_dun02","alde_dun03","alde_dun04");
 D10: setarray @c[2],52,17,381,343,302,262;
-	 Disp("Coal Mines",1,3); Pick("mjo_dun");
+	 Disp("妙勒尼 废弃矿场",1,3); Pick("mjo_dun");
 D11: setarray @c[2],131,247,19,19,180,169,100,92;
-	 Disp("Culvert",1,4); Pick("","prt_sewb1","prt_sewb2","prt_sewb3","prt_sewb4");
+	 Disp("普隆德拉 地下水道",1,4); Pick("","prt_sewb1","prt_sewb2","prt_sewb3","prt_sewb4");
 D12: setarray @c[2],51,14,150,11,120,10;
-	 Disp("Cursed Abbey",1,3); Pick("abbey");
+	 Disp("无名岛修道院",1,3); Pick("abbey");
 D13: Restrict("RE");
 	 setarray @c[2],285,160,299,29;
-	 Disp("Dewata Dungeon",1,2); Pick("dew_dun");
+	 Disp("德瓦他 火山洞穴",1,2); Pick("dew_dun");
 D14: setarray @c[2],22,14,292,290;
-	 Disp("Einbroch Dungeon",1,2); Pick("ein_dun");
+	 Disp("艾音布罗克 矿山洞穴",1,2); Pick("ein_dun");
 D15: setarray @c[2],40,103,203,34,266,168,130,272;
-	 Disp("Gefenia",1,4); Pick("gefenia",0);
+	 Disp("葛帔尼亚",1,4); Pick("gefenia",0);
 D16: setarray @c[0],104,99,115,236,106,132,203,200;
-	 Disp("Geffen Dungeon",1,4); Pick("gef_dun",1);
+	 Disp("吉芬塔 地下 密穴",1,4); Pick("gef_dun",1);
 D17: setarray @c[2],370,304,199,29,104,25,150,15,157,287,147,15,258,255,108,291,171,283,68,277,156,7,12,7,133,271,224,274,14,70,150,14;
-	 Disp("Entrance:Castle 1:Castle 2:Chivalry 1:Chivalry 2:Churchyard:Culvert 1:Culvert 2:Culvert 3:Culvert 4:St. Abbey:Staircase Dungeon:Underground Cave 1:Underground Cave 2:Underground Prison 1:Underground Prison 2");
+	 Disp("古城入口:地上楼层 1层:地上楼层 2层:骑士团 1层:骑士团 2层:地下公墓:地下水道 1层:地下水道 2层:地下水道 3层:地下水道 4层:修道院:楼梯密穴:地下洞穴 1层:地下洞穴 2层:地下监狱 1层:地下监狱 2层");
 	 Pick("","glast_01","gl_cas01","gl_cas02","gl_knt01","gl_knt02","gl_chyard","gl_sew01","gl_sew02","gl_sew03","gl_sew04","gl_church","gl_step","gl_dun01","gl_dun02","gl_prison","gl_prison1");
 D18: setarray @c[2],153,53,28,113,68,16;
-	 Disp("Gonryun Dungeon",1,3); Pick("gon_dun");
+	 Disp("昆仑洞穴",1,3); Pick("gon_dun");
 D19: setarray @c[2],176,7,93,20,23,8;
-	 Disp("Hidden Dungeon",1,3); Pick("prt_maze");
+	 Disp("迷藏森林",1,3); Pick("prt_maze");
 D20: setarray @c[2],157,14,151,155,149,22,33,158;
-	 Disp("Ice Dungeon",1,4); Pick("ice_dun");
+	 Disp("冰洞穴",1,4); Pick("ice_dun");
 D21: setarray @c[2],140,51,53,247,37,63,150,285;
-	 Disp("Entrance:Juperos 1:Juperos 2:Core");
+	 Disp("废墟入口:废墟 1层:废墟 2层:废墟核心");
 	 Pick("","jupe_cave","juperos_01","juperos_02","jupe_core");
 D22: setarray @c[2],28,226,41,198;
-	 Disp("Kiel Dungeon",1,2); Pick("kh_dun");
+	 Disp("机械娃娃工厂",1,2); Pick("kh_dun");
 D23: setarray @c[2],218,196,282,20,165,38;
-	 Disp("The Royal Tomb:Inside the Royal Tomb:Suei Long Gon"); Pick("lou_dun");
+	 Disp("古都王陵:古都王陵内部:审良宫"); Pick("lou_dun");
 D24: setarray @c[2],126,68,47,30;
-	 Disp("Magma Dungeon",1,2); Pick("mag_dun");
+	 Disp("诺可罗德溶洞",1,2); Pick("mag_dun");
 D25: Restrict("RE");
 	 setarray @c[2],33,230;
-	 Disp("Malangdo Dungeon",1,1); Pick("mal_dun");
+	 Disp("绵绵岛洞穴",1,1); Pick("mal_dun");
 D26: setarray @c[2],189,48,165,30,32,135;
-	 Disp("Moscovia Dungeon",1,3); Pick("mosk_dun");
+	 Disp("莫斯科森林",1,3); Pick("mosk_dun");
 D27: setarray @c[2],61,239,60,271;
-	 Disp("Nidhogg's Dungeon",1,2); Pick("nyd_dun");
+	 Disp("尼德霍格的巢穴",1,2); Pick("nyd_dun");
 D28: setarray @c[2],298,167,224,149,266,280;
-	 Disp("Odin Temple",1,3); Pick("odin_tem");
+	 Disp("奥丁神殿",1,3); Pick("odin_tem");
 D29: setarray @c[2],32,170,21,185;
-	 Disp("Orc Dungeon",1,2); Pick("orcsdun");
+	 Disp("兽人地下洞窟",1,2); Pick("orcsdun");
 D30: setarray @c[0],21,183,19,33,19,63,155,159,201,204;
-	 Disp("Payon Dungeon",1,5); Pick("pay_dun",1);
+	 Disp("裴扬迷宫",1,5); Pick("pay_dun",1);
 D31: Restrict("RE",7,8);
 	 setarray @c[2],192,9,10,192,100,92,181,11,94,96,192,8,94,96,192,8;
-	 Disp("Pyramids 1:Pyramids 2:Pyramids 3:Pyramids 4:Basement 1:Basement 2:Basement 1 - Nightmare Mode:Basement 2 - Nightmare Mode");
+	 Disp("金字塔 1层:金字塔 2层:金字塔 3层:金字塔 4层:金字塔地下 1层:金字塔地下 2层:金字塔地下 1层 - 梦魇:金字塔地下 2层 - 梦魇");
 	 Pick("","moc_pryd01","moc_pryd02","moc_pryd03","moc_pryd04","moc_pryd05","moc_pryd06","moc_prydn1","moc_prydn2");
 D32: setarray @c[2],140,11,32,21,8,149,204,218,150,9;
-	 Disp("Rachel Sanctuary",1,5); Pick("ra_san");
+	 Disp("拉赫 神殿圣域",1,5); Pick("ra_san");
 D33: Restrict("RE");
 	 setarray @c[2],364,44,101,141;
-	 Disp("Scaraba Hole",1,2); Pick("dic_dun");
+	 Disp("甲虫洞穴",1,2); Pick("dic_dun");
 D34: setarray @c[2],288,9,149,81,210,54,10,222,100,99;
-	 Disp("Sphinx",1,5); Pick("","in_sphinx1","in_sphinx2","in_sphinx3","in_sphinx4","in_sphinx5");
+	 Disp("史芬克斯 密穴",1,5); Pick("","in_sphinx1","in_sphinx2","in_sphinx3","in_sphinx4","in_sphinx5");
 D35: setarray @c[2],69,24,102,27;
-	 Disp("Sunken Ship",1,2); Pick("treasure");
+	 Disp("沉没之船",1,2); Pick("treasure");
 D36: setarray @c[2],150,39,150,136,220,158,59,143,62,11,89,221,35,166,93,148,29,107,159,138,19,20,130,52;
-	 Disp("Thanatos Tower",1,12); Pick("tha_t");
+	 Disp("达纳托斯之塔",1,12); Pick("tha_t");
 D37: setarray @c[2],21,228,75,205,34,272;
-	 Disp("Thor Volcano",1,3); Pick("thor_v");
+	 Disp("伯仁斯 火山洞窟",1,3); Pick("thor_v");
 D38: setarray @c[2],205,15,129,133;
-	 Disp("Toy Factory",1,2); Pick("xmas_dun");
+	 Disp("玩具工厂",1,2); Pick("xmas_dun");
 D39: setarray @c[2],154,49,148,261,132,189,100,192;
-	 Disp("Entrance:Turtle Dungeon 1:Turtle Dungeon 2:Turtle Dungeon 3"); Pick("tur_dun");
+	 Disp("入口:乌龟岛 1层:乌龟岛 2层:乌龟岛 3层"); Pick("tur_dun");
 D40: Restrict("Pre-RE",1,2);
 	 setarray @c[2],42,31,48,30,204,78;
-	 Disp("Carpenter's Shop in the Tree:Passage to a Foreign World:Hvergermil's Fountain");
+	 Disp("树木里的木工所:树木里的异界之路:天地树叶树干");
 	 Pick("","um_dun01","um_dun02","yggdrasil01");
 D41: Restrict("RE");
 	 setarray @c[2],57,13,64,88,45,14,26,23;
@@ -374,49 +380,49 @@ D41: Restrict("RE");
 // --------------------------------------------------
 	Castles:
 // --------------------------------------------------
-menu	"Aldebaran Castles",C1, "Geffen Castles",C2, "Payon Castles",C3,
-    	"Prontera Castles",C4, "Arunafeltz Castles",C5, "Schwaltzvalt Castles",C6;
+menu	"艾尔帕兰城堡",C1, "吉芬城堡",C2, "斐扬城堡",C3,
+    	"普隆德拉城堡",C4, "阿卢纳贝兹城堡",C5, "秀发兹发德城堡",C6;
 
 C1: setarray @c[2],48,83,95,249,142,85,239,242,264,90;
-	Disp("Neuschwanstein:Hohenschwangau:Nuenberg:Wuerzburg:Rothenburg");
+	Disp("娜易修番斯塔引:乎汗修番佳乌:纽蓝贝勒克:布勒刺布勒克:罗探布勒克");
 	Pick("","alde_gld","alde_gld","alde_gld","alde_gld","alde_gld");
 C2: setarray @c[2],214,75,308,240,143,240,193,278,305,87;
-	Disp("Repherion:Eeyolbriggar:Yesnelph:Bergel:Mersetzdeitz");
+	Disp("雷普立温:耀布力格:易司那普:培勒格:眉撒丝达刺");
 	Pick("","gef_fild13","gef_fild13","gef_fild13","gef_fild13","gef_fild13");
 C3: setarray @c[2],121,233,295,116,317,293,140,160,204,266;
-	Disp("Bright Arbor:Scarlet Palace:Holy Shadow:Sacred Altar:Bamboo Grove Hill");
+	Disp("明亭:天坛:佛影:红楼:竹林岘");
 	Pick("","pay_gld","pay_gld","pay_gld","pay_gld","pay_gld");
 C4: setarray @c[2],134,65,240,128,153,137,111,240,208,240;
-	Disp("Kriemhild:Swanhild:Fadhgridh:Skoegul:Gondul");
+	Disp("克林希特:斯般希特:拉兹立克斯:司葵古:关德");
 	Pick("","prt_gld","prt_gld","prt_gld","prt_gld","prt_gld");
 C5: setarray @c[2],158,272,83,47,68,155,299,345,292,107;
-	Disp("Mardol:Cyr:Horn:Gefn:Banadis");
+	Disp("马勒杜:希乐:霍伦:吉本:巴拿迪斯");
 	Pick("","aru_gld","aru_gld","aru_gld","aru_gld","aru_gld");
 C6: setarray @c[2],293,100,288,252,97,196,137,90,71,315;
-	Disp("Himinn:Andlangr:Viblainn:Hljod:Skidbladnir");
+	Disp("喜民:安得郎克:毕得布莱因:何料德:思凯提乐尼");
 	Pick("","sch_gld","sch_gld","sch_gld","sch_gld","sch_gld");
 
 // --------------------------------------------------
 	Guild_Dungeons:
 // --------------------------------------------------
-menu	"Baldur",G1, "Luina",G2, "Valkyrie",G3, "Britoniah",G4,
-    	"Arunafeltz",G5, "Schwaltzvalt",G6;
+menu	"青林湖泊",G1, "露依纳",G2, "巴基力雷恩",G3, "布哩妥利亚",G4,
+    	"发菲依雅",G5, "尼它堆",G6;
 
 G1: Restrict("RE",2,3);
 	setarray @c[2],119,93,119,93,120,130;
-	Disp("Baldur F1:Baldur F2:Hall of Abyss");
+	Disp("公会地下密穴 F1:公会地下密穴 F2:深渊回廊 太古之风");
 	Pick("","gld_dun01","gld_dun01_2","gld2_pay");
 G2: Restrict("RE",2,3);
 	setarray @c[2],39,161,39,161,147,155;
-	Disp("Luina F1:Luina F2:Hall of Abyss");
+	Disp("公会地下密穴 F1:公会地下密穴 F2:深渊回廊 英雄之泪");
 	Pick("","gld_dun02","gld_dun02_2","gld2_ald");
 G3: Restrict("RE",2,3);
 	setarray @c[2],50,44,50,44,140,132;
-	Disp("Valkyrie F1:Valkyrie F2:Hall of Abyss");
+	Disp("公会地下密穴 F1:公会地下密穴 F2:深渊回廊 战士之路");
 	Pick("","gld_dun03","gld_dun03_2","gld2_prt");
 G4: Restrict("RE",2,3);
 	setarray @c[2],116,45,116,45,152,118;
-	Disp("Britoniah F1:Britoniah F2:Hall of Abyss");
+	Disp("公会地下密穴 F1:公会地下密穴 F2:深渊回廊 王者之丘");
 	Pick("","gld_dun04","gld_dun04_2","gld2_gef");
 G5: Go("arug_dun01",199,195);
 G6: Go("schg_dun01",200,124);
@@ -424,10 +430,10 @@ G6: Go("schg_dun01",200,124);
 // --------------------------------------------------
 	Instances:
 // --------------------------------------------------
-menu	"Bakonawa Lake",I1, "Bangungot Hospital 2F",I2, "Buwaya Cave",I3,
-    	"Endless Tower",I4, "Hazy Forest",I5, "Malangdo Culvert",I6, "Nidhoggur's Nest",I7,
-    	"Octopus Cave",I8, "Old Glast Heim",I9, "Orc's Memory",I10, "Sealed Shrine",I11,
-    	"Wolfchev's Laboratory",I12;
+menu	"食月暴龙湖",I1, "噩梦医院 2F",I2, "宝箱巨鳄 洞穴",I3,
+    	"无尽之塔",I4, "迷雾森林",I5, "绵绵岛 海底洞穴",I6, "尼德霍格的巢穴",I7,
+    	"章鱼洞穴",I8, "旧克雷斯特汉姆古城",I9, "兽人的回忆",I10, "封印神殿",I11,
+    	"狼骑士的实验室",I12;
 
 I1: Restrict("RE");
 	Go("ma_scene01",172,175);
@@ -453,8 +459,8 @@ I12: Restrict("RE");
 // --------------------------------------------------
 	Special:
 // --------------------------------------------------
-menu	"Auction Hall",S1, "Battlegrounds",S2, "Casino",S3, "Eden Group Headquarters",S4,
-    	"Gonryun Arena",S5, "Izlude Arena",S6, "Monster Race Arena",S7, "Turbo Track",S8;
+menu	"精炼房",S1, "战场",S2, "赌场",S3, "乐园团总部",S4,
+    	"昆仑战斗场",S5, "依斯鲁得战斗场",S6, "魔物赛跑竞赛场",S7, "竞速场",S8;
 
 S1: Go("auction_01",22,68);
 S2: Go("bat_room",154,150);
@@ -470,51 +476,51 @@ S8: Go("turbo_room",99,114);
 // --------------------------------------------------
 //	Duplicates:
 // --------------------------------------------------
-alb2trea,57,70,6	duplicate(Warper)	Warper#tre	811
-alberta,28,240,4	duplicate(Warper)	Warper#alb	811
-aldebaran,145,118,4	duplicate(Warper)	Warper#alde	811
-amatsu,203,87,4	duplicate(Warper)	Warper#ama	811
-ayothaya,209,169,6	duplicate(Warper)	Warper#ayo	811
-comodo,194,158,4	duplicate(Warper)	Warper#com	811
-einbech,59,38,6	duplicate(Warper)	Warper#einbe	811
-einbroch,69,202,4	duplicate(Warper)	Warper#einbr	811
-gef_fild10,71,339,4	duplicate(Warper)	Warper#orc	811
-geffen,124,72,4	duplicate(Warper)	Warper#gef	811
-glast_01,372,308,4	duplicate(Warper)	Warper#glh	811
-gonryun,162,122,4	duplicate(Warper)	Warper#gon	811
-hugel,101,151,4	duplicate(Warper)	Warper#hug	811
-izlu2dun,110,92,4	duplicate(Warper)	Warper#izd	811
-izlude,134,150,4	duplicate(Warper)	Warper#izl	811	//Pre-RE: (132,120)
-jawaii,253,138,4	duplicate(Warper)	Warper#jaw	811
-lighthalzen,162,102,4	duplicate(Warper)	Warper#lhz	811
-louyang,208,103,6	duplicate(Warper)	Warper#lou	811
-manuk,274,146,6	duplicate(Warper)	Warper#man	811
-mid_camp,216,288,4	duplicate(Warper)	Warper#mid	811
-mjolnir_02,85,364,4	duplicate(Warper)	Warper#mjo	811
-moc_ruins,64,164,4	duplicate(Warper)	Warper#moc	811
-morocc,159,97,4	duplicate(Warper)	Warper#mor	811
-moscovia,229,191,4	duplicate(Warper)	Warper#mos	811
-nameless_n,259,213,4	duplicate(Warper)	Warper#nam	811
-niflheim,205,179,4	duplicate(Warper)	Warper#nif	811
-pay_arche,42,134,4	duplicate(Warper)	Warper#arc	811
-payon,182,108,4	duplicate(Warper)	Warper#pay	811
-prontera,159,192,4	duplicate(Warper)	Warper#prt	811
-prt_fild05,279,223,6	duplicate(Warper)	Warper#cul	811
-rachel,135,116,4	duplicate(Warper)	Warper#rac	811
-splendide,205,153,4	duplicate(Warper)	Warper#spl	811
-thor_camp,249,76,4	duplicate(Warper)	Warper#thor	811
-umbala,106,150,3	duplicate(Warper)	Warper#umb	811
-veins,214,123,4	duplicate(Warper)	Warper#ve	811
-xmas,150,136,6	duplicate(Warper)	Warper#xmas	811
-yuno,162,47,4	duplicate(Warper)	Warper#yuno	811
+alb2trea,57,70,6	duplicate(Warper)	传送员#tre	759
+alberta,28,240,4	duplicate(Warper)	传送员#alb	759
+aldebaran,145,118,4	duplicate(Warper)	传送员#alde	759
+amatsu,203,87,4	duplicate(Warper)	传送员#ama	759
+ayothaya,209,169,6	duplicate(Warper)	传送员#ayo	759
+comodo,194,158,4	duplicate(Warper)	传送员#com	759
+einbech,59,38,6	duplicate(Warper)	传送员#einbe	759
+einbroch,69,202,4	duplicate(Warper)	传送员#einbr	759
+gef_fild10,71,339,4	duplicate(Warper)	传送员#orc	759
+geffen,124,72,4	duplicate(Warper)	传送员#gef	759
+glast_01,372,308,4	duplicate(Warper)	传送员#glh	759
+gonryun,162,122,4	duplicate(Warper)	传送员#gon	759
+hugel,101,151,4	duplicate(Warper)	传送员#hug	759
+izlu2dun,110,92,4	duplicate(Warper)	传送员#izd	759
+izlude,134,150,4	duplicate(Warper)	传送员#izl	759	//Pre-RE: (132,120)
+jawaii,253,138,4	duplicate(Warper)	传送员#jaw	759
+lighthalzen,162,102,4	duplicate(Warper)	传送员#lhz	759
+louyang,208,103,6	duplicate(Warper)	传送员#lou	759
+manuk,274,146,6	duplicate(Warper)	传送员#man	759
+mid_camp,216,288,4	duplicate(Warper)	传送员#mid	759
+mjolnir_02,85,364,4	duplicate(Warper)	传送员#mjo	759
+moc_ruins,64,164,4	duplicate(Warper)	传送员#moc	759
+morocc,159,97,4	duplicate(Warper)	传送员#mor	759
+moscovia,229,191,4	duplicate(Warper)	传送员#mos	759
+nameless_n,259,213,4	duplicate(Warper)	传送员#nam	759
+niflheim,205,179,4	duplicate(Warper)	传送员#nif	759
+pay_arche,42,134,4	duplicate(Warper)	传送员#arc	759
+payon,182,108,4	duplicate(Warper)	传送员#pay	759
+prontera,159,192,4	duplicate(Warper)	传送员#prt	759
+prt_fild05,279,223,6	duplicate(Warper)	传送员#cul	759
+rachel,135,116,4	duplicate(Warper)	传送员#rac	759
+splendide,205,153,4	duplicate(Warper)	传送员#spl	759
+thor_camp,249,76,4	duplicate(Warper)	传送员#thor	759
+umbala,106,150,3	duplicate(Warper)	传送员#umb	759
+veins,214,123,4	duplicate(Warper)	传送员#ve	759
+xmas,150,136,6	duplicate(Warper)	传送员#xmas	759
+yuno,162,47,4	duplicate(Warper)	传送员#yuno	759
 
 // --------------------------------------------------
 //	Duplicates (Renewal):
 // --------------------------------------------------
-brasilis,201,222,4	duplicate(Warper)	Warper#bra	811
-dewata,204,186,6	duplicate(Warper)	Warper#dew	811
-dicastes01,194,194,6	duplicate(Warper)	Warper#dic	811
-ecl_in01,51,60,4	duplicate(Warper)	Warper#ecl	811
-malangdo,134,117,6	duplicate(Warper)	Warper#mal	811
-malaya,231,204,4	duplicate(Warper)	Warper#ma	811
-mora,57,152,4	duplicate(Warper)	Warper#mora	811
+brasilis,201,222,4	duplicate(Warper)	传送员#bra	759
+dewata,204,186,6	duplicate(Warper)	传送员#dew	759
+dicastes01,194,194,6	duplicate(Warper)	传送员#dic	759
+ecl_in01,51,60,4	duplicate(Warper)	传送员#ecl	759
+malangdo,134,117,6	duplicate(Warper)	传送员#mal	759
+malaya,231,204,4	duplicate(Warper)	传送员#ma	759
+mora,57,152,4	duplicate(Warper)	传送员#mora	759
