@@ -1,3 +1,9 @@
+//============================================================
+//= rAthenaCN [飞空艇]汉化脚本 [ www.rAthenaCN.com ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+
 //===== rAthena Script ======================================= 
 //= Rachel Airport NPCs
 //===== By: ================================================== 
@@ -5,20 +11,20 @@
 //===== Current Version: =====================================
 //= 1.0
 //===== Compatible With: ===================================== 
-//= rAthena Project
+//= rAthena SVN
 //===== Description: ========================================= 
 //= Rachel Airport NPCs
 //===== Additional Comments: ================================= 
 //= 1.0 First version.
 //============================================================ 
 
-ra_fild12,295,208,0	script	toairplane#rachel	45,1,1,{
+ra_fild12,295,208,0	script	飞空艇入口#rachel	45,1,1,{
 	end;
 OnTouch:
-	mes "To use the airship, you are required to pay 1,200 zeny or a Free Airship Ticket.";
-	mes "Would you like to use the service?";
+	mes "如果要搭乘飞空艇的话，需要 1,200 zeny来支付飞机票的费用呢.";
+	mes "请问是否愿意搭乘飞空艇呢?";
 	next;
-	if (select("Yes:No") == 1) {
+	if (select("是的:不要") == 1) {
 		if (countitem(7311) > 0) {
 			delitem 7311,1; //Free_Flying_Ship_Ticket
 			warp "airplane_01",245,60;
@@ -29,10 +35,10 @@ OnTouch:
 			warp "airplane_01",245,60;
 			end;
 		}
-		mes "I am sorry, but you do not have enough money.";
-		mes "Please remember, you are required to pay 1,200 zeny to use the service.";
+		mes "抱歉,您身上所带的zeny不够.";
+		mes "请记住我们的费用是 1,200 zeny.";
 		close;
 	}
-	mes "Thank you, please come again.";
+	mes "谢谢您选择了我们的服务.欢迎下次再来.";
 	close;
 }
