@@ -1,3 +1,11 @@
+//============================================================
+//= rAthenaCN [战场]汉化脚本 [ www.rAthenaCN.com ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
 //===== rAthena Script ======================================= 
 //= BattleGround System - Flavius Second
 //===== By: ================================================== 
@@ -25,10 +33,10 @@
 
 // Waiting Room NPCs
 //============================================================
-bat_room,142,227,4	script	Lieutenant Huvas	418,{
+bat_room,142,227,4	script	战场指挥官#niumowang1	418,{
 	end;
 OnInit:
-	waitingroom "Battle Station",11,"start#bat_b02::OnReadyCheck",1,0,80;
+	waitingroom "进入对抗需要组织士兵",11,"start#bat_b02::OnReadyCheck",1,0,80;
 	end;
 OnEnterBG:
 	set $@FlaviusBG2_id1, waitingroom2bg("bat_b02",10,290,"start#bat_b02::OnGuillaumeQuit","");
@@ -38,7 +46,7 @@ OnEnterBG:
 bat_room,142,204,0	script	Lieutenant Yukon	414,{
 	end;
 OnInit:
-	waitingroom "Battle Station",11,"start#bat_b02::OnReadyCheck",1,0,80;
+	waitingroom "进入对抗需要组织士兵",11,"start#bat_b02::OnReadyCheck",1,0,80;
 	end;
 OnEnterBG:
 	set $@FlaviusBG2_id2, waitingroom2bg("bat_b02",390,10,"start#bat_b02::OnCroixQuit","");

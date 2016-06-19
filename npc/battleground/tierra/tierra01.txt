@@ -1,3 +1,11 @@
+//============================================================
+//= rAthenaCN [战场]汉化脚本 [ www.rAthenaCN.com ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
 //===== rAthena Script ======================================= 
 //= BattleGround System - Tierra Gorge
 //===== By: ================================================== 
@@ -5,7 +13,7 @@
 //===== Current Version: ===================================== 
 //= 1.6
 //===== Compatible With: ===================================== 
-//= rAthena Project
+//= rAthena 1.0
 //===== Description: ========================================= 
 //= [Official Conversion]
 //= Tierra Gorge Battleground.
@@ -23,11 +31,11 @@
 
 // Waiting Room NPCs
 //============================================================
-bat_room,57,227,5	script	Lieutenant Kalos	418,{
+bat_room,57,227,5	script	战场指挥官#niumowang2	418,{
 	end;
 
 OnInit:
-	waitingroom "Battle Station",11,"start#bat_a01::OnReadyCheck",1,0,80;
+	waitingroom "进入对抗需要组织士兵",11,"start#bat_a01::OnReadyCheck",1,0,80;
 	end;
 
 OnEnterBG:
@@ -39,7 +47,7 @@ bat_room,58,204,1	script	Lieutenant Eyor	414,{
 	end;
 
 OnInit:
-	waitingroom "Battle Station",11,"start#bat_a01::OnReadyCheck",1,0,80;
+	waitingroom "进入对抗需要组织士兵",11,"start#bat_a01::OnReadyCheck",1,0,80;
 	end;
 
 OnEnterBG:

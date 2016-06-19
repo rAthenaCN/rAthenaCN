@@ -1,3 +1,11 @@
+//============================================================
+//= rAthenaCN [战场]汉化脚本 [ www.rAthenaCN.com ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
 //===== rAthena Script ======================================= 
 //= BattleGround System - KvM Entrance NPCs
 //===== By: ================================================== 
@@ -5,7 +13,7 @@
 //===== Current Version: ===================================== 
 //= 1.1
 //===== Compatible With: ===================================== 
-//= rAthena Project
+//= rAthena 1.0
 //===== Description: ========================================= 
 //= [Official Conversion]
 //= Kreiger Von Midgard Battleground Entrance NPCs
@@ -19,99 +27,99 @@
 
 // KvM Officer - Guillaume
 //============================================================
-bat_room,164,178,5	script	KVM Mercenary Officer#1	418,{
+bat_room,164,178,5	script	5V5雇佣军军官#1	418,{
 	/*
 	set .@kvm,checkquest(6026,PLAYTIME);
 	if ((.@kvm == 0) || (.@kvm == 1)) {
-		mes "[Croix Mercenary Officer]";
-		mes "I know that you've already signed with the Croix. Go back and join their team. We will not accept traitors to fight for us.";
+		mes "[5V5雇佣军军官]";
+		mes "我知道你已经在对面报了名。去加入他们的队伍。我们不会接受叛国者为我们而战。";
 		close;
 	}
 	else if (.@kvm == 2) erasequest 6026;
 	*/
 	set .@permit,checkquest(6025,PLAYTIME);
 	if ((.@permit == 0) || (.@permit == 1)) {
-		mes "[Guillaume Mercenary Officer]";
-		mes "It seems you have recently participated in a KVM battle. You must wait 5 minutes before signing up again.";
+		mes "[5V5雇佣军军官]";
+		mes "看来你最近参加了5V5的战斗。你必须等待5分钟再签约。";
 		close;
 	}
 	else if (.@permit == 2) erasequest 6025;
-	mes "[Guillaume Mercenary Officer]";
-	mes "Let them know the real might of Guillaume!";
+	mes "[5V5雇佣军军官]";
+	mes "为马洛尔的明天而战！";
 	next;
-	switch(select("I will fight with you.:End Conversation.")) {
+	switch(select("我会和你并肩作战.:结束谈话.")) {
 	case 1:
-		mes "[Guillaume Mercenary Officer]";
-		mes "Show them how strong we are.";
-		mes "Today, everyone will hear the shout of triumph from Guillaume!";
+		mes "[5V5雇佣军军官]";
+		mes "最后的胜利者绝对是我们！";
+		mes "今天，每个人都会听到胜利女神在向我们招手！";
 		close2;
 		//setquest 6025;
 		if (BaseLevel > 79)  warp "bat_room",169,223;
 		else if (BaseLevel < 60) warp "bat_room",197,223;
 		else warp "bat_room",225,223;
-		end;
+		close;
 	case 2:
-		mes "[Guillaume Mercenary Officer]";
-		mes "We will win!";
+		mes "[5V5雇佣军军官]";
+		mes "我们会赢的！";
 		close;
 	}
 }
 
 // Guillaume Knight - KvM
 //============================================================
-bat_room,167,178,5	script	Guillaume Knight#kvm	417,{
-	mes "[Guillaume Knight]";
-	mes "Hello.";
-	mes "What do you want to know?";
+bat_room,167,178,5	script	马洛尔骑士#kvm	417,{
+	mes "[马洛尔骑士]";
+	mes "您好。";
+	mes "你想知道什么？";
 	next;
-	switch(select("Apply for KVM.:What is KVM?:How do I participate in KVM?:I want to know my Kreiger Points.")) {
+	switch(select("申请5V5。:5V5是什么？:我如何参与5V5？:我想知道我的KVM点数。")) {
 	case 1:
-		mes "[Guillaume Knight]";
-		mes "Applications are not available yet.";
-		mes "To apply, you need to go to a KVM Mercenary Officer.";
+		mes "[马洛尔骑士]";
+		mes "你好。";
+		mes "申请5V5，你需要去5V5雇佣军军官。";
 		close;
 	case 2:
-		mes "[Guillaume Knight]";
-		mes "KVM is the abbreviation of Kreiger Von Midgard.";
-		mes "Adventurer, are you aware that the way to the new world has been opened?";
+		mes "[马洛尔骑士]";
+		mes "5V5就是 5人组对抗5人组。";
+		mes "战斗结束后会获得KVM点数 可以在KVM战场后勤官那里兑换物品";
 		next;
-		mes "[Guillaume Knight]";
-		mes "We, the Guillaume Administration, have several plans to advance to the new world.";
-		mes "And KVM is one of them.";
+		mes "[马洛尔骑士]";
+		mes "我们已经提前一些军事计划。";
+		mes "派遣你参加5V5对抗就是其中之一。";
 		next;
-		mes "[Guillaume Knight]";
-		mes "It means that we, one of many countries in the Midgard continent,";
-		mes "have decided to employ many adventurers for the immediate advance to the new world.";
+		mes "[马洛尔骑士]";
+		mes "参加此战役的人来自不同的国家，";
+		mes "拥有一支军事素质过硬的队伍 是胜利的关键";
 		next;
-		mes "[Guillaume Knight]";
-		mes "Therefore, to select the best adventurers, we are holding the KVM.";
-		mes "We exspect responses from many adventurers.";
+		mes "[马洛尔骑士]";
+		mes "因此，选择最佳的冒险家，进行5V5对抗。";
+		mes "我们从许多冒险家中进行选拔。";
 		next;
-		mes "[Guillaume Knight]";
-		mes "And we will give them rewards for their participation!";
-		mes "As for the rewards, please contact a KVM Logistic Officer.";
+		mes "[马洛尔骑士]";
+		mes "我们将给予奖励！";
+		mes "作为回报，请联系KVM后勤军官。";
 		close;
 	case 3:
-		mes "[Guillaume Knight]";
-		mes "Basically, KVM is a 5 on 5 battle.";
-		mes "First, you apply with a KVM receptionist, in a group or individually.";
+		mes "[马洛尔骑士]";
+		mes "组队好5个人。";
+		mes "然后和5V5雇佣军军官那里对话进入场地。";
 		next;
-		mes "[Guillaume Knight]";
-		mes "Group applications are for when you intend to enter the KVM with your party members,";
-		mes "and a personal application is for when you intend to enter the KVM individually.";
+		mes "[马洛尔骑士]";
+		mes "进入等待地图之后";
+		mes "所有组队成员进入报名NPC的聊天频道";
 		next;
-		mes "[Guillaume Knight]";
-		mes "Please apply with a KVM officer, and he will contact you later when you are in Prontera.";
+		mes "[马洛尔骑士]";
+		mes "所有条件满足 会自动传送到目的地";
 		next;
-		mes "[Guillaume Knight]";
-		mes "Then you enter and follow the instructions in the battlefield.";
+		mes "[马洛尔骑士]";
+		mes "然后注意战场上的指示。";
 		next;
-		mes "[Guillaume Knight]";
-		mes "However, please be advised that unless you are in the KVM office, he cannot contact you.";
+		mes "[马洛尔骑士]";
+		mes "请注意，如果你不在报名NPC的聊天频道，你的队伍将无法参战。";
 		close;
 	case 4:
-		mes "[Guillaume Knight]";
-		mes "Your Kreiger Points are:";
+		mes "[马洛尔骑士]";
+		mes "你的KVM点:";
 		mes ""+kvm_point+".";
 		close;
 	}
@@ -119,99 +127,99 @@ bat_room,167,178,5	script	Guillaume Knight#kvm	417,{
 
 // KvM Officer - Croix
 //============================================================
-bat_room,164,121,1	script	KVM Mercenary Officer#2	414,{
+bat_room,164,121,1	script	5V5雇佣军军官#2	414,{
 	/*
 	set .@kvm,checkquest(6025,PLAYTIME);
 	if ((.@kvm == 0) || (.@kvm == 1)) {
-		mes "[Croix Mercenary Officer]";
-		mes "I know that you've already signed with the Guillaume. Go back and join their team. We will not accept traitors to fight for us.";
+		mes "[5V5雇佣军军官]";
+		mes "我知道你已经在对面报了名。去加入他们的队伍。我们不会接受叛国者为我们而战。";
 		close;
 	}
 	else if (.@kvm == 2) erasequest 6025;
 	*/
 	set .@permit,checkquest(6025,PLAYTIME);
 	if ((.@permit == 0) || (.@permit == 1)) {
-		mes "[Croix Mercenary Officer]";
-		mes "It seems you have recently participated in a KVM battle. You must wait 5 minutes before signing up again.";
+		mes "[5V5雇佣军军官]";
+		mes "看来你最近参加了5V5的战斗。你必须等待5分钟再签约。";
 		close;
 	}
 	else if (.@permit == 2) erasequest 6025;
-	mes "[Croix Mercenary Officer]";
-	mes "Let them know the real might of Croix!";
+	mes "[5V5雇佣军军官]";
+	mes "为马洛尔的明天而战！";
 	next;
-	switch(select("I will fight with you.:End Conversation.")) {
+	switch(select("我会和你并肩作战.:结束谈话.")) {
 	case 1:
-		mes "[Croix Mercenary Officer]";
-		mes "Show them how strong we are.";
-		mes "Today, everyone will hear the shout of triumph from Croix!";
+		mes "[5V5雇佣军军官]";
+		mes "最后的胜利者绝对是我们！";
+		mes "今天，每个人都会听到胜利女神在向我们招手！";
 		close2;
 		//setquest 6026;
 		if (BaseLevel > 79) warp "bat_room",169,207;
 		else if (BaseLevel < 60) warp "bat_room",197,207;
 		else warp "bat_room",225,207;
-		end;
+		close;
 	case 2:
-		mes "[Croix Mercenary Officer]";
-		mes "We will win!";
+		mes "[5V5雇佣军军官]";
+		mes "我们会赢的！";
 		close;
 	}
 }
 
 // Croix Knight - KvM
 //============================================================
-bat_room,167,121,1	script	Croix Knight#kvm	413,{
-	mes "[Croix Knight]";
-	mes "Hello.";
-	mes "What do you want to know?";
+bat_room,167,121,1	script	十字骑士#kvm	413,{
+	mes "[十字骑士]";
+	mes "您好。";
+	mes "你想知道什么？";
 	next;
-	switch(select("Apply for KVM.:What is KVM?:How do I participate in KVM?:I want to know my Kreiger Points.")) {
+	switch(select("申请5V5。:5V5是什么？:我如何参与5V5？:我想知道我的KVM点数。")) {
 	case 1:
-		mes "[Croix Knight]";
-		mes "Applications are not available yet.";
-		mes "To apply, you need to go to a KVM Mercenary Officer.";
+		mes "[十字骑士]";
+		mes "你好。";
+		mes "申请5V5，你需要去5V5雇佣军军官。";
 		close;
 	case 2:
-		mes "[Croix Knight]";
-		mes "KVM is the abbreviation of Kreiger Von Midgard.";
-		mes "Adventurer, are you aware that the way to the new world has been opened?";
+		mes "[十字骑士]";
+		mes "5V5就是 5人组对抗5人组。";
+		mes "战斗结束后会获得KVM点数 可以在KVM战场后勤官那里兑换物品";
 		next;
-		mes "[Croix Knight]";
-		mes "We, the Croix Administration, have several plans to advance to the new world.";
-		mes "And KVM is one of them.";
+		mes "[十字骑士]";
+		mes "我们已经提前一些军事计划。";
+		mes "派遣你参加5V5对抗就是其中之一。";
 		next;
-		mes "[Croix Knight]";
-		mes "It means that we, one of many countries in the Midgard continent,";
-		mes "have decided to employ many adventurers for the immediate advance to the new world.";
+		mes "[十字骑士]";
+		mes "参加此战役的人来自不同的国家，";
+		mes "拥有一支军事素质过硬的队伍 是胜利的关键";
 		next;
-		mes "[Croix Knight]";
-		mes "Therefore, to select the best adventurers, we are holding the KVM.";
-		mes "We exspect responses from many adventurers.";
+		mes "[十字骑士]";
+		mes "因此，选择最佳的冒险家，进行5V5对抗。";
+		mes "我们从许多冒险家中进行选拔。";
 		next;
-		mes "[Croix Knight]";
-		mes "And we will give them rewards for their participation!";
-		mes "As for the rewards, please contact a KVM Logistic Officer.";
+		mes "[十字骑士]";
+		mes "我们将给予奖励！";
+		mes "作为回报，请联系KVM后勤军官。";
 		close;
 	case 3:
-		mes "[Croix Knight]";
-		mes "Basically, KVM is a 5 on 5 battle.";
-		mes "First, you apply with a KVM receptionist, in a group or individually.";
+		mes "[十字骑士]";
+		mes "组队好5个人。";
+		mes "然后和5V5雇佣军军官那里对话进入场地。";
 		next;
-		mes "[Croix Knight]";
-		mes "Group applications are for when you intend to enter the KVM with your party members,";
-		mes "and a personal application is for when you intend to enter the KVM individually.";
+		mes "[十字骑士]";
+		mes "进入等待地图之后";
+		mes "所有组队成员进入报名NPC的聊天频道";
 		next;
-		mes "[Croix Knight]";
-		mes "Please apply with a KVM officer, and he will contact you later when you are in Prontera.";
+		mes "[十字骑士]";
+		mes "所有条件满足 会自动传送到目的地";
 		next;
-		mes "[Croix Knight]";
-		mes "Then you enter and follow the instructions in the battlefield.";
+		mes "[十字骑士]";
+		mes "然后注意战场上的指示。";
 		next;
-		mes "[Croix Knight]";
-		mes "However, please be advised that unless you are in the KVM office, he cannot contact you.";
+		mes "[十字骑士]";
+		mes "请注意，如果你不在报名NPC的聊天频道，你的队伍将无法参战。";
 		close;
 	case 4:
-		mes "[Croix Knight]";
-		mes "Your Kreiger Points are:";
+		mes "[十字骑士]";
+		mes "你的KVM点:";
 		mes ""+kvm_point+".";
 		close;
 	}
