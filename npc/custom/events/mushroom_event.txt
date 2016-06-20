@@ -1,39 +1,45 @@
-//===== rAthena Script ======================================= 
+//============================================================
+//= rAthenaCN [寻找宝物箱子]汉化脚本 [ www.rAthenaCN.com ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
+//===== Hercules Script ======================================
 //= Find the Mushroom
-//===== By: ================================================== 
+//===== By: ==================================================
 //= Mysterious
-//===== Current Version: ===================================== 
+//===== Current Version: =====================================
 //= 3.6a
-//===== Compatible With: ===================================== 
-//= rAthena Project
-//===== Description: ========================================= 
+//===== Description: =========================================
 //= Find the Mushroom - random amount of Mushrooms spawns in random maps.
 //= Players need to find these mushrooms and kill them to gain prizes!
 //===== Additional Comments: =================================
 //= 3.0 Fully Functional with Rewritten script. [Mysterious]
 //= 3.6a Slightly edited. [Euphy]
-//============================================================ 
+//============================================================
 
-prontera,142,228,6	script	Find the Mushroom	1084,{
-	mes "[ Find The Mushroom ]";
+prontera,142,228,6	script	寻找宝物箱子	BLACK_MUSHROOM,{
+	mes "[ 寻找宝物箱子 ]";
 	if (!.Status)
-		mes "There is no event at the moment!";
+		mes "现在没有任何活动!";
 	else {
-		mes "There are "+.Spawn+" Mushrooms left in "+.Map$+"!";
-		mes "Find and kill the mushrooms to gain "+getitemname(.Prize)+"!";
+		mes "有 "+.Spawn+" 宝物箱子存在 "+.Map$+"!";
+		mes "找到宝物箱子并杀死获得的"+getitemname(.Prize)+"!";
 	}
 	if (.Status || getgmlevel() < .GM) close;
-	mes "Start the event?";
+	mes "准备开始?";
 	next;
-	if(select("- No:- Yes") == 1) close;
+	if(select("- 不:- 是") == 1) close;
 	donpcevent strnpcinfo(0)+"::OnMinute10";
-	mes "[ Find The Mushroom ]";
-	mes "Event started!";
+	mes "[ 寻找宝物箱子 ]";
+	mes "开始!";
 	close;
 
 OnInit:
-	set .Prize,512;	// Reward item ID
-	set .Amount,10;	// Reward item amount
+	set .Prize,12339;	// Reward item ID
+	set .Amount,1;	// Reward item amount
 	set .GM,60;	// GM level required to access NPC
 	setarray .Maps$[0],"izlude","geffen","morocc","prontera"; // Possible maps
 	end;
@@ -43,19 +49,19 @@ OnMinute10:	// Start time (every hour)
 	set .Status,1;
 	set .Spawn,rand(1,10);	// How many Mushrooms should spawn?
 	set .Map$,.Maps$[rand(getarraysize(.Maps$))];
-	killmonster .Map$,"All";
-	monster .Map$,0,0,"Please don't kill me!",1084,.Spawn,strnpcinfo(0)+"::OnMobKilled";
-	announce "Find the Mushroom : Total of "+.Spawn+" Mushrooms have been spawned in "+.Map$+"!",0;
+	killmonster .Map$,"全部";
+	monster .Map$,0,0,"请不要碰我!",1324,.Spawn,strnpcinfo(0)+"::OnMobKilled";
+	announce "寻找宝物箱子: 总共 "+.Spawn+" 个宝物箱子刷新在 "+.Map$+"!",0;
 	sleep 2500;
-	announce "Find the Mushroom : Every Mushroom you kill will give you "+getitemname(.Prize)+"!",0;
+	announce "寻找宝物箱子: 你每抓住一个宝物箱子都会给你"+.Amount+"个"+getitemname(.Prize)+"!",0;
 	end;
 
 OnMobKilled:
 	set .Spawn, .Spawn - 1;
 	getitem .Prize, .Amount;
-	if (.Spawn) announce "[ "+strcharinfo(0)+" ] has killed a Mushroom. There are now "+.Spawn+" Mushroom(s) left.",bc_map;
+	if (.Spawn) announce "[ "+strcharinfo(0)+" ] 杀死了宝物箱子. 现在还剩 "+.Spawn+" 宝物箱子.",bc_map;
 	else {
-		announce "The Find the Mushroom Event has ended. All the Mushrooms have been killed.",0;
+		announce "寻找宝物箱子活动已经结束. 所有的宝物箱子已被杀死.",0;
 		set .Status,0;
 	}
 	end;
