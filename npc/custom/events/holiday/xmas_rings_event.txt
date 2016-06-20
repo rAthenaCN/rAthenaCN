@@ -1,11 +1,17 @@
-//===== rAthena Script =======================================
+//============================================================
+//= rAthenaCN [圣诞戒指任务]汉化脚本 [ www.rAthenaCN.com ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
+//===== Hercules Script ======================================
 //= Karachun Event (Xmas Rings Quest)
 //===== By: ==================================================
 //= Lupus (1.0)
 //===== Current Version: =====================================
 //= 1.2
-//===== Compatible With: =====================================
-//= rAthena Project; SVN r4880+
 //===== Description: =========================================
 //= Custom event: Karachun (from 8 Dec till 8 Jan), X-Mas, HNY
 //===== Additional Comments: =================================
@@ -14,63 +20,63 @@
 //= 1.2 Fixed double quotes not being escaped [brianluau]
 //============================================================
 
-prontera,156,174,4	script	Snower	713,{
-	mes "[Snower]";
-	if (Q_XMSRINGS == 2) {
-		mes "Oh... is it true? You've helped my sis Sneewy? Thank you.";
-	} else if (Q_XMSRINGS == 3) {
-		mes "Snoowy's sent me a bird with a message. She told me about your help...";
-		mes "I'll tell you a secret of the magic rings.";
+prontera,156,174,4	script	雪诺尔	4_M_06,{
+	mes "[雪诺尔]";
+	if(Q_XMSRINGS==2){
+		mes "哦...这是真的吗? 你帮助了我的姐妹雪伊? 谢谢.";
+	}else if(Q_XMSRINGS==3){
+		mes "雪诺伊已经让她的小鸟送信来告诉我你帮忙的事情了...";
+		mes "让我来告诉你一个魔戒的秘密.";
 		emotion e_no1;
 		next;
-		mes "[Snower]";
-		mes "They have magic power only from 8 December till 8 January.";
+		mes "[雪诺尔]";
+		mes "它们的魔力只有在12月8日到1月8日之间才存在.";
 		next;
-		mes "[Snower]";
-		mes "By the way, just put on Santa's Hat to discover their true power.";
+		mes "[雪诺尔]";
+		mes "顺便告诉你, 只要把圣诞帽带上你就能发现它们真正的魔力了.";
 		next;
-		mes "[Snower]";
-		mes "If you put on both rings their power would be doubled.";
-		mes "Have a nice day!";
+		mes "[雪诺尔]";
+		mes "如果你把两个戒指都带上, 他们的魔力也会加倍.";
+		mes "祝你今天过的开心!";
 		close;
-	} else {
-		mes "Hi! Two my sisters and I are preparing gifts for the whole 3 holidays!";
+	}else{
+		mes "你好! 我和我的两个姐妹正在为全部三个节日准备礼物!";
 	}
 	emotion e_sob;
 	next;
-	menu "Where are your sisters?",-, "What holidays?",M_PR,"What gifts?",M_WRAP,"May I help you?",M_QUEST;
+	menu "- 你的姐妹在哪里?",-, "- 什么节日?",M_PR,"- 什么礼物?",M_WRAP,"- 我可以帮什么吗?",M_QUEST;
 
-	mes "[Snower]";
-	mes "My younger sis Sneewy's left to some faraway land to prepare gifts for their poor children... I don't know where. You should ask my elder sis and her birdies.";
+	mes "[雪诺尔]";
+	mes "我的妹妹雪伊去了一个遥远的地方为那里的穷孩子准备礼物了... 我也不知道在哪里. 你可以去问问我的姐姐和她的小鸟们.";
 	next;
-	mes "[Snower]";
-	mes "My elder sis? Her name's Snoowy. She's sailed to some green island... She's talking about some gifts for dolphins or something...";
+	mes "[雪诺尔]";
+	mes "我的姐姐? 她的名字是雪诺伊. 她航海去了某个绿色的小岛... 她似乎提起过要为孤儿们准备一些礼物...";
 	close;
 
 M_PR:
-	mes "[Snower]";
-	mes "The whole three holidays? Well they come one after another!";
-	mes "^000080The Christmas^000000, ^FF0000Karachun^000000 and ^008000New Year Eve^000000!";
+	mes "[雪诺尔]";
+	mes "那三个节日? 好吧, 它们一个接着一个!";
+	mes "^000080圣诞节^000000, ^FF0000Karachun^000000 和 ^008000新年前夕^000000!";
 	next;
-	mes "[Snower]";
-	mes "^FF0000Karachun^000000? Heh... This is an old pagans festival. They used to celebrate it before the appearance of HNY and XMas, you know.";
+	mes "[雪诺尔]";
+	mes "^FF0000Karachun^000000? 嘿... 这是一个古老的异教徒的节日. 你知道, 曾经他们会在圣诞和新年到来之前庆祝它.";
 	next;
 	goto M_QUEST;
 
 M_WRAP:
-	mes "[Snower]";
-	mes "My sisters say that all the gifts should look the same way. Or else some children might fight for fancy ones!";
+	mes "[雪诺尔]";
+	mes "我的姐妹说所有的礼物都应该看起来一模一样, 不然有些孩子可能会去抢那些漂亮的!";
 	next;
-	mes "[Snower]";
-	mes "Would you like me to wrap your fancy gift boxes with a gray paper?";
+	mes "[雪诺尔]";
+	mes "你想要我帮你把你漂亮的礼物盒子用灰纸包起来吗?";
 	next;
-	menu "Wrap them, please!",-, "No, thanks.",M_QUEST;
+	menu "- 请包起来吧!",-, "- 不用, 谢谢.",M_QUEST;
 
 	set @prizes, countitem(664)+countitem(665)+countitem(666)+countitem(667);
-	if (@prizes == 0) {
-		mes "[Snower]";
-		mes "I don't see any gifts in fancy boxes on you...";
-		if(countitem(644))mes "You've got only gray boxes.";
+	if( @prizes == 0){
+		mes "[雪诺尔]";
+		mes "我没发现你身上有什么礼物在漂亮盒子里...";
+		if(countitem(644))mes "你只有灰色的盒子.";
 		close;
 	}
 	delitem 664,countitem(664);
@@ -79,14 +85,14 @@ M_WRAP:
 	delitem 667,countitem(667);
 	getitem 644,@prizes;
 
-	mes "[Snower]";
-	mes "*shuffle* Here you go.";
+	mes "[雪诺尔]";
+	mes "*晃了晃* 给你.";
 	next;
 
 M_QUEST:
-	mes "[Snower]";
-	mes "I wish you find my sisters ASAP... They need help.";
-	if (Q_XMSRINGS == 0) set Q_XMSRINGS,1;
+	mes "[雪诺尔]";
+	mes "希望你能尽快找到我的姐妹们, 他们需要你的帮助.";
+	if(Q_XMSRINGS==0) set Q_XMSRINGS,1;
 	close;
 
 OnInit:
@@ -99,25 +105,25 @@ OnInit:
 	end;
 }
 
-louyang,224,249,4	script	Sneewy	717,{
-	mes "[Sneewy]";
-	if (Q_XMSRINGS == 0) {
-		mes "Hi! I'm waithing for my sister's birdy with mail...";
+louyang,224,249,4	script	雪伊	4_F_KID3,{
+	mes "[雪伊]";
+	if(Q_XMSRINGS==0){
+		mes "你好! 我正在等我姐姐的小鸟送信过来...";
 		emotion e_sob;
 		close;
 	}
-	if (Q_XMSRINGS == 1) {
-		mes "I wish I had 4 more gray Gift Boxes for native children...";
+	if(Q_XMSRINGS==1){
+		mes "我真希望我还能有4个灰色礼物盒给当地的孩子们...";
 		emotion e_sob;
 		next;
-		mes "[Sneewy]";
-		mes "Oh, hello. Has my brother Snower told you everything?";
+		mes "[雪伊]";
+		mes "噢, 你好. 我的哥哥雪诺尔把事情都告诉你了吗?";
 		next;
-		menu "Here are your 4 Gift Boxes",-, "I don't know any Snowhatevers...",M_END;
+		menu "这是你的4个礼物盒",-, "我不认识什么雪...什么什么",M_End;
 
-		mes "[Sneewy]";
-		if (countitem(644) < 4) {
-			mes "Gimme 4 gifts for poor kids... Wait, you haven't got 4 of them!";
+		mes "[雪伊]";
+		if(countitem(644)<4){
+			mes "给我4个礼物送给穷孩子们吧... 等等, 你还不满4个!";
 			emotion e_sry;
 			close;
 		}
@@ -125,51 +131,51 @@ louyang,224,249,4	script	Sneewy	717,{
 		delitem 644,4;
 		getnameditem 2637,strcharinfo(0);
 		emotion e_kis2;
-		mes "Thank you! Here's my li'l something for you!";
+		mes "谢谢! 这是我送你的一点小小心意!";
 		next;
-		mes "[Sneewy]";
-		mes "By the way, if you put on 2 different rings then your holidays leveling would be easier!";
+		mes "[雪伊]";
+		mes "对了, 如果你带上2个不同的戒指, 你的节日等级提升会更容易!";
 		close;
 	}
 	emotion e_thx;
-	mes "Thanks again! No children will meet the holidays without the gifts!";
+	mes "再次感谢! 所有的孩子们都会有节日礼物啦!";
 	close;
 
-M_END:
-	mes "[Sneewy]";
-	mes "Pity... I've got a magic Santa's ring... I'd exchange it for 4 Gift Boxes...";
+M_End:
+	mes "[雪伊]";
+	mes "真可惜... 我有一个圣诞老人的魔力戒指... 我想用它来换4个礼物盒...";
 	emotion e_swt;
 	close;
 }
 
-izlu2dun,133,160,2	script	Snoowy	714,{
-	mes "[Snoowy]";
-	if (Q_XMSRINGS == 0) {
-		mes "Helloooou! Do you know my bro and sis? How so? My brother Snower's well known in Prontera!! Just ask any child there.";
+izlu2dun,133,160,2	script	雪诺伊	4_F_06,{
+	mes "[雪诺伊]";
+	if(Q_XMSRINGS==0){
+		mes "你好哦! 你认识我的弟弟和妹妹吗? 不认识? 我的弟弟雪诺尔在普隆德拉很有名气的!! 随便找个那边的孩子问问就知道了.";
 		emotion e_hmm;
 		close;
 	}
-	if (Q_XMSRINGS == 1) {
-		mes "Darn... How could poor children be more important than the marine folks.. Am I wrong?";
+	if(Q_XMSRINGS==1){
+		mes "可恶... 穷孩子们怎么可能比海军们更重要呢.. 我错了吗?";
 		next;
-		mes "[Snoowy]";
-		mes "Errr. Helloou there. My sister Sneewy's sent me a birdie message. The letter was wet and I couldn't read anything but some ending letters of her address...";
+		mes "[雪诺伊]";
+		mes "呃. 你好. 我的妹妹雪伊让她的小鸟送来一封信. 可是信已经湿了里面的内容都看不清了, 我只能分辨出她的地址的最后几个字母...";
 		next;
-		mes "[Snoowy]";
-		mes "Look, it's something like 'yang' in the very end... Hmm... She must be misspelled 'Al Doo Boryang'...";
+		mes "[雪诺伊]";
+		mes "看吧, 最后好像是'杨'什么的... 嗯... 她一定是把'洛阳'拼错了...";
 		close;
 	}
-	if (Q_XMSRINGS == 2) {
-		mes "You've helped my sis? It's just great!";
+	if(Q_XMSRINGS==2){
+		mes "你帮助了我的妹妹? 太好了!";
 		next;
-		mes "[Snoowy]";
-		mes "But I too need 3 more gifts for my marine folk friends...";
+		mes "[雪诺伊]";
+		mes "但是我还需要3个礼物给我的海军朋友们...";
 		next;
-		menu "Have these gifts!",-, "I need a li'l something in return",M_END;
+		menu "拿下这些礼物!",-, "我需要一些小小的报酬",M_End;
 
-		mes "[Snoowy]";
-		if (countitem(644) < 3) {
-			mes "Oops!! You haven't got 3 gray gift boxes on you.";
+		mes "[雪诺伊]";
+		if(countitem(644)<3){
+			mes "噢!! 你还没有收集全3个灰色礼物盒.";
 			emotion e_sry;
 			close;
 		}
@@ -177,18 +183,17 @@ izlu2dun,133,160,2	script	Snoowy	714,{
 		delitem 644,3;
 		getnameditem 2636,strcharinfo(0);
 		emotion e_kis;
-		mes "Thaank yoouu! Have this magic ring!";
+		mes "谢谢! 收下这个魔力戒指吧!";
 		close;
 	}
 	emotion e_thx;
-	mes "Oh... the whole marine folk send you their thanks! They love presents so much!!!";
-	if (rand(2))
-		mes "Didn't you know that Santa's Hat reveals the real power of the rings?";
+	mes "噢... 全体海军队员们都很感谢你! 他们非常喜欢这些礼物!!!";
+	if(rand(2))mes "你不会不知道圣诞帽能够显现出戒指的真实魔力吧?";
 	close;
 
-M_END:
-	mes "[Snoowy]";
-	mes "I'd exchange a GOLD magic ring for 3 gift boxes...";
+M_End:
+	mes "[雪诺伊]";
+	mes "我想用一个金色的魔力戒指来交换3个礼物盒...";
 	emotion e_swt;
 	close;
 }
