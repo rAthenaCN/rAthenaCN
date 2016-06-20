@@ -1,13 +1,19 @@
-//===== rAthena Script =======================================
+//============================================================
+//= rAthenaCN [极速天使]汉化脚本 [ www.rAthenaCN.com ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
+//===== Hercules Script ======================================
 //= Morroc Raceway
 //===== By: ==================================================
 //= acky
 //===== Current Version: =====================================
 //= 1.3
-//===== Compatible With: =====================================
-//= rAthena Project
 //===== Description: =========================================
-//= Lets players race around Morroc (pvp_y_1-5)
+//= Lets players race around Morroc (pvp_y_1-4)
 //===== Additional Comments: =================================
 //= If there are more than 3 players, at least 3 people
 //= must finish before a new race can be started.
@@ -21,61 +27,61 @@
 //============================================================
 
 //Warps you into race way
-morocc,166,105,6	script	Race Girl#01	116,{
-	mes "[Race Girl]";
-	mes "Would you like to visit ^0000FFMorroc Raceway^000000?";
+morocc,166,105,6	script	极速天使#01	4_F_KAFRA2,{
+	mes "[极速天使]";
+	mes "你想不想参加 ^0000FF梦罗克竞速赛^000000?";
 	next;
-	menu "Yes",L_Warp,"No",-;
-	mes "[Race Girl]";
-	mes "Alright, talk to me again when you want to go.";
+	menu "- 是",L_Warp,"- 否",-;
+	mes "[极速天使]";
+	mes "好吧, 等你什么时候改变主要了随时来找我.";
 	close;
 L_Warp:
-	warp "pvp_y_1-5",165,256;
+	warp "pvp_y_1-4",165,256;
 	close;
 }
 
 //Warps you out of raceway
-pvp_y_1-5,169,265,5	script	Race Girl#02	116,{
-	mes "[Race Girl]";
-	mes "Welcome to Morroc Raceway!";
+pvp_y_1-4,169,265,5	script	极速天使#02	4_F_KAFRA2,{
+	mes "[极速天使]";
+	mes "欢迎来到梦罗克竞速赛!";
 	next;
-	menu "Information",-,"Leave",L_Warp,"Cancel",L_Cancel;
-	mes "[Race Girl]";
-	mes "Someone must click on the Starter NPC to start the race.";
+	menu "- 情报",-,"- 离开",L_Warp,"- 取消",L_Cancel;
+	mes "[极速天使]";
+	mes "选手们必须点击开始NPC才可以开启竞赛.";
 	next;
-	mes "[Race Girl]";
-	mes "Once the race is started, run around Morroc anti-clockwise.";
+	mes "[极速天使]";
+	mes "当比赛开始后, 逆时针方向围着梦罗克竞速.";
 	next;
-	mes "[Race Girl]";
-	mes "You must reach all the checkpoints - No cheating!";
+	mes "[极速天使]";
+	mes "你必须通过所有的关卡 - 不能作弊!";
 	close;
 L_Warp:
 	warp "morocc",165,101;
 L_Cancel:
-	mes "[Race Girl]";
-	mes "Come again soon!";
+	mes "[极速天使]";
+	mes "再见!";
 	close;
 }
 
 //Counts down and starts race
-pvp_y_1-5,145,269,5	script	Starter	733,{
+pvp_y_1-4,145,269,5	script	Starter	4_M_JOB_KNIGHT1,{
 	if ($@race != 0) goto L_Started;
 	if ($@counting != 0) goto L_Started;
 	if ($@racecount == 1) goto L_Started;
 L_Menu:
-	mes "[Race Starter]";
-	mes "Please stay on the Eastern side of me.";
-	menu "Start Race",L_Count,"Cancel",-;
+	mes "[比赛开始]";
+	mes "请待在我的东面.";
+	menu "- 开始竞赛",L_Count,"- 取消",-;
 	close;
 L_Count:
 	set $@counting,1;
-	mes "Counting down...";
+	mes "倒计时...";
 	addtimer 1000, "Starter::OnCount1000";
 	addtimer 2000, "Starter::OnCount2000";
 	addtimer 3000, "Starter::OnCount3000";
 	addtimer 4000, "Starter::OnCount4000";
-	announce strcharinfo(0) + "Started a countdown",1;
-	announce "Get ready to race!",1;
+	announce strcharinfo(0) + "开始倒计时",1;
+	announce "准备好比赛!",1;
 	close;
 
 OnCount1000:
@@ -88,7 +94,7 @@ OnCount3000:
 	announce "[1]",1;
 	end;
 OnCount4000:
-	emotion e_go;
+	emotion 27;
 	specialeffect EF_CHIMTO;
 	announce "[GO!]",1;
 	set $@race,1;
@@ -98,10 +104,10 @@ OnCount4000:
 	end;
 
 L_Started:
-	if ((getmapusers("pvp_y_1-5") < 3) && ($@position > 0)) goto L_Menu;
+	if ((getmapusers("pvp_y_1-4") < 3) && ($@position > 0)) goto L_Menu;
 	if ($@position > 2) goto L_Menu;
 	mes "[Starter]";
-	mes "Race in progress";
+	mes "比赛进行中";
 	close;
 
 OnInit:
@@ -112,127 +118,127 @@ OnInit:
 }
 
 //Checkpoint 1
-pvp_y_1-5,144,262,5	script	Check Point 1	111,0,5,{
+pvp_y_1-4,144,262,5	script	起点	HIDDEN_NPC,0,5,{
 	end;
 OnTouch:
 	if (@raceid != $@raceid) goto L_Started;
 	if (@race == 6) goto L_Finished;
 	if ($@race == 1) goto L_Started;
-	mes "The race has not started, please move back.";
+	mes "比赛还没有开始, 请回起跑线.";
 	close;
 L_Started:
 	set @race,1;
 	set @raceid,$@raceid;
 	end;
 L_Finished:
-	mes "You have already completed the race.";
+	mes "你已经完成了比赛.";
 	close;
 }
 
 //Checkpoint 2
-pvp_y_1-5,73,247,5	script	Check Point 2	111,6,6,{
+pvp_y_1-4,73,247,5	script	检测点[1]	HIDDEN_NPC,6,6,{
 	end;
 OnTouch:
 	if (@race != 1) goto L_Miss;
 	set @race,2;
-	announce "[" + strcharinfo(0) +"] has reached Checkpoint [1]",1;
+	announce "[" + strcharinfo(0) +"] 已经到达检测点 [1]",1;
 	end;
 L_Miss:
-	mes "You have missed a Checkpoint. Please go back.";
+	mes "你错过了检测点[1]. 请返回.";
 	close;
 }
 
 //Checkpoint 3
-pvp_y_1-5,77,44,5	script	Check Point 3	111,6,6,{
+pvp_y_1-4,77,44,5	script	检测点[2]	HIDDEN_NPC,6,6,{
 	end;
 OnTouch:
 	if (@race != 2) goto L_Miss;
 	set @race,3;
-	announce "[" + strcharinfo(0) +"] has reached Checkpoint [2]",1;
+	announce "[" + strcharinfo(0) +"] 已经到达检测点 [2]",1;
 	end;
 L_Miss:
-	mes "You have missed a Checkpoint. Please go back.";
+	mes "你错过了检测点[2]. 请返回.";
 	close;
 }
 
 //Checkpoint 3
-pvp_y_1-5,249,60,5	script	Check Point 4	111,6,6,{
+pvp_y_1-4,249,60,5	script	检测点[3]	HIDDEN_NPC,6,6,{
 	end;
 OnTouch:
 	if (@race != 3) goto L_Miss;
 	set @race,4;
-	announce "[" + strcharinfo(0) +"] has reached Checkpoint [3]",1;
+	announce "[" + strcharinfo(0) +"] 已经到达检测点 [3]",1;
 	end;
 L_Miss:
-	mes "You have missed a Checkpoint. Please go back.";
+	mes "你错过了检测点[3]. 请返回.";
 	close;
 }
 
 //Checkpoint 4
-pvp_y_1-5,255,256,5	script	Check Point 5	111,6,6,{
+pvp_y_1-4,255,256,5	script	检测点[4]	HIDDEN_NPC,6,6,{
 	end;
 OnTouch:
 	if (@race != 4) goto L_Miss;
 	set @race,5;
-	announce "[" + strcharinfo(0) +"] has reached Checkpoint [4]",1;
+	announce "[" + strcharinfo(0) +"] 已经到达检测点 [4]",1;
 	end;
 L_Miss:
-	mes "You have missed a Checkpoint. Please go back.";
+	mes "你错过了检测点[4]. 请返回.";
 	close;
 }
 
 //Finish Line
-pvp_y_1-5,174,244,5	script	Finish Line	111,6,6,{
+pvp_y_1-4,174,244,5	script	终点	HIDDEN_NPC,6,6,{
 	end;
 OnTouch:
 	if (@raceid != $@raceid) goto L_WrongRace;
 	if (@race != 5) goto L_Miss;
 	set @race,6;
 	set $@position,$@position+1;
-	announce "[" + strcharinfo(0) +"] has reached The Finish line! [Position: " + $@position + "]",1;
+	announce "[" + strcharinfo(0) +"] 已经到达了终点! [排名: " + $@position + "]",1;
 	end;
 L_Miss:
-	mes "You have missed a Checkpoint. Please go back.";
+	mes "你错过了检测点. 请返回.";
 	close;
 L_WrongRace:
-	mes "You are not in this race.";
+	mes "你不在比赛中.";
 	close;
 }
 
 //Check Point Marker Flags
-pvp_y_1-5,144,267,4	script	Check Point 1#01	722,{
+pvp_y_1-4,144,267,4	script	起点#01	GUILD_FLAG,{
 	end;
 }
-pvp_y_1-5,144,257,4	script	Check Point 1#02	722,{
+pvp_y_1-4,144,257,4	script	起点#02	GUILD_FLAG,{
 	end;
 }
-pvp_y_1-5,70,252,3	script	Check Point 2#01	722,{
+pvp_y_1-4,70,252,3	script	检测点[1]#01	GUILD_FLAG,{
 	end;
 }
-pvp_y_1-5,77,243,3	script	Check Point 2#02	722,{
+pvp_y_1-4,77,243,3	script	检测点[1]#02	GUILD_FLAG,{
 	end;
 }
-pvp_y_1-5,81,48,1	script	Check Point 3#01	722,{
+pvp_y_1-4,81,48,1	script	检测点[2]#01	GUILD_FLAG,{
 	end;
 }
-pvp_y_1-5,72,40,1	script	Check Point 3#02	722,{
+pvp_y_1-4,72,40,1	script	检测点[2]#02	GUILD_FLAG,{
 	end;
 }
-pvp_y_1-5,244,65,7	script	Check Point 4#01	722,{
+pvp_y_1-4,244,65,7	script	检测点[3]#01	GUILD_FLAG,{
 	end;
 }
-pvp_y_1-5,252,57,7	script	Check Point 4#02	722,{
+pvp_y_1-4,252,57,7	script	检测点[3]#02	GUILD_FLAG,{
 	end;
 }
-pvp_y_1-5,259,260,5	script	Check Point 5#01	722,{
+pvp_y_1-4,259,260,5	script	检测点[4]#01	GUILD_FLAG,{
 	end;
 }
-pvp_y_1-5,251,252,5	script	Check Point 5#02	722,{
+pvp_y_1-4,251,252,5	script	检测点[4]#02	GUILD_FLAG,{
 	end;
 }
-pvp_y_1-5,174,249,4	script	Finish Line#01	722,{
+pvp_y_1-4,174,249,4	script	终点#01	GUILD_FLAG,{
 	end;
 }
-pvp_y_1-5,174,238,4	script	Finish Line#02	722,{
+pvp_y_1-4,174,238,4	script	终点#02	GUILD_FLAG,{
 	end;
 }
