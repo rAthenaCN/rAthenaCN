@@ -1,11 +1,17 @@
-//===== rAthena Script =======================================
+//============================================================
+//= rAthenaCN [城镇人员]汉化脚本 [ www.rAthenaCN.com ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
+//===== Hercules Script =======================================
 //= Jawaii Town Renewal
 //===== By: ==================================================
 //= Daegaladh, Masao
 //===== Current Version: =====================================
 //= 1.2
-//===== Compatible With: =====================================
-//= rAthena Project
 //===== Description: =========================================
 //= [Official Conversion]
 //= Jawaii town NPCs.
@@ -15,8 +21,8 @@
 //= 1.2 Added Izlude duplicates. [Euphy]
 //============================================================
 
-izlude,180,224,3	duplicate(Honeymoon_Helper_Izlude)	Honeymoon Helper#Izlude	71
-izlude_a,180,224,3	duplicate(Honeymoon_Helper_Izlude)	Honeymoon Helper#Iz_a	71
-izlude_b,180,224,3	duplicate(Honeymoon_Helper_Izlude)	Honeymoon Helper#Iz_b	71
-izlude_c,180,224,3	duplicate(Honeymoon_Helper_Izlude)	Honeymoon Helper#Iz_c	71
-izlude_d,180,224,3	duplicate(Honeymoon_Helper_Izlude)	Honeymoon Helper#Iz_d	71
+izlude,180,224,3	duplicate(Honeymoon_Helper_Izlude)	蜜月助手#Izlude	71
+izlude_a,180,224,3	duplicate(Honeymoon_Helper_Izlude)	蜜月助手#Iz_a	71
+izlude_b,180,224,3	duplicate(Honeymoon_Helper_Izlude)	蜜月助手#Iz_b	71
+izlude_c,180,224,3	duplicate(Honeymoon_Helper_Izlude)	蜜月助手#Iz_c	71
+izlude_d,180,224,3	duplicate(Honeymoon_Helper_Izlude)	蜜月助手#Iz_d	71

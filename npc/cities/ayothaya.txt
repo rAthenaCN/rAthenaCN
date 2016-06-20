@@ -1,179 +1,204 @@
-//===== rAthena Script =======================================
+//============================================================
+//= rAthenaCN [城镇人员]汉化脚本 [ www.rAthenaCN.com ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
+//===== rAthena Script ======================================= 
 //= Ayotaya Town
-//===== By: ==================================================
+//===== By: ================================================== 
 //= MasterOfMuppets
 //===== Current Version: =====================================
 //= 1.9
-//===== Compatible With: =====================================
-//= rAthena Project
-//===== Description: =========================================
+//===== Compatible With: ===================================== 
+//= rAthena SVN
+//===== Description: ========================================= 
 //= [Official Conversion]
 //= Ayotaya Town Script
-//===== Additional Comments: =================================
+//===== Additional Comments: ================================= 
 //= 1.6 Rescripted to Aegis 10.3 standards. [L0ne_W0lf]
 //= 1.7 Fixed character's anme bugs [Lupus]
 //= 1.8 Moved Alberta NPC to pre-re/re paths. [Euphy]
 //= 1.9 Updated Renewal warp coordinates.
-//============================================================
+//============================================================ 
 
 // Ayothaya Transportation
 //============================================================
 -	script	::Aibakthing_ayothaya	-1,{
-	mes "[Aibakthing]";
-	mes "Hoo! Hah! Hoo! Hah!";
-	mes "Let me take you away to";
-	mes "a distant spiritual place,";
-	mes "a land of exotic mystery,";
-	mes "my hometown Ayotaya!";
+	mes "[哎伊拜婷]";
+	mes "呵! 哈! 呵! 哈! 让我来介绍，";
+	mes "神圣又充满神秘的故乡，";
+	mes "哎哟泰雅吧!!";
 	next;
-	switch(select("About Ayotaya.:Go to Ayotaya.:Cancel.")) {
+	switch(select("有关哎哟泰雅的说明:前往哎哟泰雅:取消")) {
 	case 1:
-		mes "[Aibakthing]";
-		mes "We Ayotayans are a pious people who value peace and sincerity. We endeavor to lead simple, yet noble, lives in harmony with nature.";
+		mes "[哎伊拜婷]";
+		mes "我们是一群拥有深厚信仰,";
+		mes "过着和平生活又踏实的人,";
+		mes "虽然看起来华丽但不轻微,";
+		mes "非常温和且没有武力的气息";
 		next;
-		mes "[Aibakthing]";
-		mes "Our traditional cuisine is world famous. It's no surprise when we serve dishes like Tom Yum Goong, made of Shrimp, Lemon and Chillis, which has a tantalizing aroma and flavor beyond imagining.";
+		mes "[哎伊拜婷]";
+		mes "特别是食物很好吃,";
+		mes "用柠檬,虾子,红辣椒做出的传统食物";
+		mes "'泰式BBQ'有着不能比较的，";
+		mes "美味和香味，";
+		mes "等你有空请过去试吃看看吧";
 		next;
-		mes "[Aibakthing]";
-		mes "For those who crave adventure, there is an age old story about the Sa-mhing Tiger, an evil creature that haunts our temple ruins.";
+		mes "[哎伊拜婷]";
+		mes "另外，还流传着一个恐怖的故事，";
+		mes "有一只专门躲在遗迹里，";
+		mes "吃着人肉过活的，";
+		mes "闪亮老虎魔物";
 		next;
-		mes "[Aibakthing]";
-		mes "Hoo! Hahh! Hoo! Hahh!";
-		mes "No man alive can resist the";
-		mes "call of this beautiful land.";
-		mes "Rune-Midgardians are";
-		mes "always welcome!";
+		mes "[哎伊拜婷]";
+		mes "呵!哈!呵!哈!";
+		mes "连谁都欲罢不能的，想要来到这美妙的地";
+		mes "方!!";
+		mes "假如你也想去的话，";
+		mes "请随时拜托我就可以!";
 		close;
 	case 2:
-		mes "[Aibakthing]";
-		mes "Ah, you must pay 10,000 Zeny";
-		mes "if you wish to visit Ayotaya.";
-		mes "If you're ready, we can leave";
-		mes "right now~";
+		mes "[哎伊拜婷]";
+		mes "想要去我漂亮的故乡，";
+		mes "哎哟泰雅的话，需要10，000 金币，";
+		mes "呵!哈!呵!哈!";
 		next;
-		if (select("I'm ready, let's go!:No.") == 1) {
+		if (select("我准备好了，我们出发吧！:不想去...") == 1) {
 			if (Zeny > 9999) {
-				mes "[Aibakthing]";
-				mes "Hoo! Hah! Hoo! Hah!";
-				mes "Let us be off! Back to my";
-				mes "beautiful Ayotaya!";
+				mes "[哎伊拜婷]";
+			mes "呵!哈!呵!哈!";
+			mes "我的漂亮的故乡";
+			mes "请你等我一下吧!!";
 				close2;
-				set Zeny, Zeny-10000;
+				set zeny,zeny-10000;
 				warp "ayothaya",149,71;
 				end;
 			}
-			mes "[Aibakthing]";
-			mes "I am sorry, but you do not have the 10,000 Zeny to travel to Ayotaya. Such a price is nothing compared to the experiences that await you!";
+			mes "[哎伊拜婷]";
+			mes "我告诉过你...";
+			mes "不给我 10000 zeny的话我不能送你去那儿.";
 			close;
 		}
-		mes "[Aibakthing]";
-		mes "Have you ever dreamed";
-		mes "of a beautiful place filled";
-		mes "with spiritual serenity? You";
-		mes "must have been dreaming";
-		mes "of Ayotaya, my friend.";
+		mes "[哎伊拜婷]";
+		mes "假如每一位人都祈求一个，";
+		mes "和平又漂亮的地方的话，那个地方就是...";
+		mes "我的故乡，哎哟泰雅 啦";
 		close;
 	case 3:
-		mes "[Aibakthing]";
-		mes "Have you ever dreamed";
-		mes "of a beautiful place filled";
-		mes "with spiritual serenity? You";
-		mes "must have been dreaming";
-		mes "of Ayotaya, my friend.";
+		mes "[哎伊拜婷]";
+		mes "想要去我漂亮的故乡，";
+		mes "哎哟泰雅的话，需要10,000 金币，";
+		mes "呵! 哈! 呵! 哈!";
 		close;
 	}
 }
 
-ayothaya,152,68,1	script	Aibakthing#ayo2	843,{
-	mes "[Aibakthing]";
-	mes "Hoo! Hah! Hmm! Hah!";
-	mes "So, how did you like Ayotaya? Did you get a chance to try Tom Yum Goong? When you're ready, I shall take you back home.";
+ayothaya,152,68,1	script	哎伊拜婷#ayo2	843,{
+	mes "[哎伊拜婷]";
+	mes "呵!哈!呵!哈!狂逛了好多地方,";
+	mes "也应该吃了好多泰式BBQ 对吧?";
+	mes "怎么样要回去了吗?";
 	next;
-	if (select("Go back to Alberta.:Cancel.") == 1) {
-		mes "[Aibakthing]";
-		mes "You will be welcome to come back whenever you please. I hope that we will see each other again sometime soon. Thank you~";
+	if (select("想要回到艾尔贝塔:取消") == 1) {
+		mes "[哎伊拜婷]";
+		mes "不管你什么时候再回来，";
+		mes "我们都会留在这里的，";
+		mes "若有缘份的话，将会以幸福的表情，";
+		mes "再见面的... 呵! 哈!";
 		close2;
 		if (checkre(0))
 			warp "alberta",235,45;
 		else
 			warp "alberta",238,22;
+
 		end;
 	}
-	mes "[Aibakthing]";
-	mes "Ah yes. I understand that it is difficult to take leave of such a beautiful place. Do not worry";
-	mes "and take your time.";
+	mes "[哎伊拜婷]";
+	mes "对呀，要离开我漂亮的故乡，";
+	mes "哎哟泰雅... 是很难的一件事情，";
+	mes "即使是外地人也很不舍得离开呀，";
+	mes "请你慢慢的逛逛之后再离开吧";
 	close;
 }
 
 // Generic Ayothaya NPCs
-//============================================================
-ayothaya,189,120,3	script	Young Man#Thang	843,{
-	mes "[Thang]";
-	mes "There's an ancient,";
-	mes "dreadful building in";
-	mes "Ayotaya that no one";
-	mes "here dares approach...";
+//============================================================ 
+ayothaya,189,120,3	script	青年#Thang	843,{
+	mes "[尚]";
+	mes "在我们村落里有一栋古代建筑物";
+	mes "它是我们居民们";
+	mes "很忌讳不敢去的场所";
 	next;
-	mes "[Thang]";
-	mes "In the past, a few curious people went inside, despite the horror stories, and never returned. What on earth could be going on inside of that place?";
+	mes "[尚]";
+	mes "偶尔会有很好强的冒险家们，";
+	mes "不顾反对劝导之故而进入那里之后，";
+	mes "至今未曾有人活着回来";
 	next;
-	mes "[Thang]";
-	mes "However, if you want to prove your courage to others, confronting the danger inside might be a worthy challenge for an adventurer...";
-	mes "I think.";
+	mes "[尚]";
+	mes "是个非常恐怖的场所...";
+	mes "到底那里会出现什么呢?";
+	next;
+	mes "[尚]";
+	mes ".....尽管如此，若有人想要";
+	mes "试试自己能力的话";
+	mes "即使冒着生命的危险去挑战也不错";
 	close;
 }
-
-ayothaya,171,152,5	script	Girl#Lalitha	838,{
+	
+ayothaya,171,152,5	script	少女#Lalitha	838,{
 	set .@sit,rand(1,5);
 	if (.@sit > 0 && .@sit < 3) {
-		mes "[Lalitha]";
-		mes "Hello!";
-		mes "I don't think";
-		mes "we've met before.";
+		mes "[莱莉妲]";
+		mes "嗨!";
+		mes "我不觉得";
+		mes "我们以前见过面.";
 		next;
-		mes "[Lalitha]";
-		mes "You must be";
-		mes "from Rune-Midgard.";
-		mes "After all, I know every single person living in this village.";
-		mes "Heh heh~";
+		mes "[莱莉妲]";
+		mes "我第一次见到你呀?";
+		mes "那就是~你从";
+		mes "外地来的啰?";
+		mes "因为我对这村落的人，";
+		mes "了若指掌啊~";
 		next;
-		mes "[Lalitha]";
-		mes "Hmm...";
-		mes "May I ask about the land you";
-		mes "come from? I'm curious about";
-		mes "a lot of things in the outside world.";
-		next;
-		mes "[Lalitha]";
-		mes "You know, like the dresses and jewelry that ladies wear in other countries, whether or not the men are good looking, what kind of songs you have, what kind of girls that guys over there like...";
+		mes "[莱莉妲]";
+		mes "呵嗯..你是从哪里来的呢~";
+		mes "请问~其他国家的女孩子，";
+		mes "她们平常穿着什么样的服装呢~?";
+		mes "还有会佩带什么样的装饰品呢..";
 		emotion e_what;
 		next;
 		mes "[" +strcharinfo(0)+ "]";
 		mes ".........";
 		next;
-		mes "[Lalitha]";
+		mes "[莱莉妲]";
 		mes "..........";
 		emotion e_swt;
 		next;
-		mes "[Lalitha]";
-		mes "Okay~!";
-		mes "Take care and";
-		mes "enjoy your travels!";
+		mes "[莱莉妲]";
+		mes "那边国家的哥哥都很厉害吧?";
+		mes "有什么流行的歌曲?";
+		mes "那边的妹妹喜欢什么?";
+		mes "我很想知道!";
 		close;
 	}
 	else if (.@sit > 2 && .@sit < 6) {
-		mes "[Lalitha]";
-		mes "When you go East from this";
-		mes "village, you will arrive at the ruins of an old shrine. It is now";
-		mes "a nest full of fearsome monsters.";
+		mes "[莱莉妲]";
+		mes "往右边出村就是";
+		mes "古代遗迹";
+		mes "那里的怪物非常多";
+		mes "是个很恐怖的地方";
 		next;
-		mes "[Lalitha]";
-		mes "If you plan to venture through these ruins, you better prepare";
-		mes "as much as you can!";
+		mes "[莱莉妲]";
+		mes "如果你打算去的话";
+		mes "请准备好装备吧";
 		next;
-		mes "[Lalitha]";
-		mes "Ah...";
-		mes "I wonder where";
-		mes "my Black Knight is~";
+		mes "[莱莉妲]";
+		mes "啊...";
+		mes "像现在这样的年代，所谓有正义的勇士，";
+		mes "还会存在吗~啊啊~";
 		emotion e_lv;
 		next;
 		mes "["+strcharinfo(0)+"]";
@@ -181,130 +206,118 @@ ayothaya,171,152,5	script	Girl#Lalitha	838,{
 		mes "Knight in shining armor";
 		mes "riding a white horse?";
 		next;
-		mes "[Lalitha]";
-		mes "Hmm...?";
+		mes "[莱莉妲]";
+		mes "嗯...?";
 		mes "Oh, well...";
 		mes "I'll take them both!";
-		mes "Hee hee~!";
+		mes "嘻嘻~!";
 		close;
 	}
-	mes "[Lalitha]";
-	mes "Mmm...?";
-	mes "What's up?";
+	mes "[莱莉妲]";
+	mes "蛤...?";
+	mes "怎么了?";
 	close;
 }
-
-ayothaya,143,102,5	script	Old Man#ayothaya	842,{
-	mes "[Villager]";
-	mes "Ummm.";
-	mes "Hmmmmm...";
-	mes "Ummmmm...?";
+	
+ayothaya,143,102,5	script	老人#ayothaya	842,{
+	mes "[村民]";
+	mes "啊哼 啊哼..";
+	mes "嗯?";
+	mes "原来是外地来的人啊，";
+	mes "咳咳咳..你问我要去那里哦?";
+	mes "我正要去钓鱼场呢";
 	next;
-	mes "[Villager]";
-	mes "You must be";
-	mes "an outsider.";
-	mes "Yes. Yes, indeed.";
+	mes "[村民]";
+	mes "那..那什么来着，";
+	mes "有人从那边的鱼场里";
+	mes "钓到的鱼中,出现了戒指耶!";
+	mes "不仅如此啊";
+	mes "听说还出现许多好东西呢";
 	next;
-	mes "[Villager]";
-	mes "Did you just ask";
-	mes "where am I going?";
-	mes "Why, to the Fishing Spot";
-	mes "just ahead. That's what";
-	mes "we old men do: fish.";
+	mes "[村民]";
+	mes "我钓鱼只是为了消遣，";
+	mes "没想到还能做一夕致富的美梦耶..";
+	mes "..咳..咳..";
 	next;
-	mes "[Villager]";
-	mes "Hmmm...";
-	mes "Would you like to hear";
-	mes "something interesting? I've heard that someone found a ring inside";
-	mes "a fish he caught in the";
-	mes "Fishing Spot.";
+	mes "[村民]";
+	mes "我钓鱼只是为了消遣，";
+	mes "没想到还能做一夕致富的美梦耶..";
+	mes "..咳..咳..";
 	next;
-	mes "[Villager]";
-	mes "Supposedly, there are lots of stories about people finding valuables inside of the fish they've been catching there.";
-	next;
-	mes "[Villager]";
-	mes "If you're lucky enough,";
-	mes "you might even become";
-	mes "a millionaire.";
-	mes "Heh heh heh~";
-	next;
-	mes "[Villager]";
-	mes "...!?";
-	mes "Ah, I came into the fish market! ^666666*Sigh*^000000 It seems I went the wrong way. The Fishing Spot is on the opposite side of this village.";
-	next;
-	mes "[Villager]";
-	mes "Since I'm here, it wouldn't be";
-	mes "a bad idea to look around. All of the seafood in this market is fresh and tasty. You'll regret it if you don't try some of this seafood";
-	mes "at least once.";
+	mes "[村民]";
+	mes "喂，告诉你这里的海产";
+	mes "都很新鲜啊，";
+	mes "请你一定要尝尝之后，在离开吧";
+	mes "咳咳..";
 	close;
 }
-
-ayothaya,197,189,5	script	Young Man#1ayothaya	841,{
-	mes "[Kwan]";
-	mes "Phew, isn't it";
-	mes "soooo hot today?";
+	
+ayothaya,197,189,5	script	少年#1ayothaya	841,{
+	mes "[冠]";
+	mes "咻，很热吧?";
+	mes "你也是从外地来的人呀?";
+	mes "最近感觉村落里旅客越来越多了";
 	next;
-	mes "[Kwan]";
-	mes "You must be";
-	mes "from Rune-Midgard, huh?";
-	mes "I've seen a lot of tourists";
-	mes "coming from there recently.";
+	mes "[冠]";
+	mes "对啦，旅行时请你要小心喔，";
+	mes "到村落外面的话，丛林里有一座巨大的神";
+	mes "殿...";
+	mes "那里非常危险，像我这样的人根本就不敢";
+	mes "进去呢";
 	next;
-	mes "[Kwan]";
-	mes "You'd better be really careful if you travel outside of the village. Whatever you do, don't go into";
-	mes "the ruins of an old shrine";
-	mes "in the forest.";
+	mes "[冠]";
+	mes "不过，我好像有听过，身上带着某种符咒";
+	mes "的话，或许还能进去似的..";
 	next;
-	mes "[Kwan]";
-	mes "That place is far too";
-	mes "dangerous to visit. Still, I hear that if you had some kind of amulet, you could go there with";
-	mes "a little less worry...";
-	next;
-	mes "[Kwan]";
-	mes "Well, anyway, it's still a really good idea to stay away from that place. I hope you enjoy visiting Ayotaya, and that you keep safe~";
+	mes "[冠]";
+	mes "我也不太清楚啦";
+	mes "我劝你最好不要到太危险的地方，祝你玩";
+	mes "得愉快啊";
 	close;
 }
-
-ayothaya,214,142,5	script	Young Man#5ayothaya	843,{
-	mes "[Detzi]";
-	mes "In Ayotaya, we have our own traditional martial arts. We, the young men of the village, practice our traditional martial arts in order to become strong.";
+	
+ayothaya,214,142,5	script	青年#5ayothaya	843,{
+	mes "[爹奇]";
+	mes "我们哎哟泰雅的青年为了强健体魄，";
+	mes "都在努力的锻炼着传统武艺呢";
 	next;
-	mes "[Detzi]";
-	mes "Why don't you learn our martial arts? I guarantee that it will help you greatly in your travels.";
+	mes "[爹奇]";
+	mes "你也想变强壮的话，就学一学哎哟泰雅的";
+	mes "传统武艺吧，";
+	mes "对你绝对会有帮助的";
 	close;
 }
-
-ayothaya,241,264,5	script	Young Man#5ayothaya2	843,{
-	mes "[Eik]";
-	mes "Hey...";
-	mes "You look pretty strong";
-	mes "You wanna challenge";
-	mes "me to a match?";
+	
+ayothaya,241,264,5	script	青年#5ayothaya2	843,{
+	mes "[艾易]";
+	mes "你...";
+	mes "看起来蛮强壮的嘛";
+	mes "要不要跟我较量一下呢?";
 	next;
-	if (select("Sure!:Nah~") == 1) {
-		mes "[Eik]";
-		mes "Ow ow ow!";
-		mes "I was just";
-		mes "kidding, man!";
+	if (select("好，比一下吧！:啊？不比~~") == 1) {
+		mes "[艾易]";
+		mes "哎呦，我只是开玩笑的啦，没想到你真";
+		mes "想跟我比一下呢...";
+		mes "我不会无礼到，去随便挑衅外地人的";
 		next;
-		mes "[Eik]";
-		mes "I'm not so rude as to pick fights with strangers for no reason!";
+		mes "[艾易]";
+		mes "真正的强壮是靠着相互对练而练成的!";
 		emotion e_wah;
 		close;
 	}
-	mes "[Eik]";
-	mes "Real power is developed after having thousands of matches with other people. So, don't be afraid of fighting, okay?";
+	mes "[艾易]";
+	mes "所以请你不要怕锻练啊, 好妈?";
 	emotion e_pif;
 	close;
 }
 
-//============================================================
+//============================================================ 
 // Old changelog
-//============================================================
+//============================================================ 
 //= 0.1 Added a Sailor NPC to get back to Alberta [ZoDIaC]
 //= 0.2 fixed coords, dialogues
-//= 0.3 Fixed Warp name, ayotaya doesn't exist, even though iRO
-//=     decided to call it Ayotaya, it really is Ayothaya, like
+//= 0.3 Fixed Warp name, ayotaya doesn't exist, even though iRO 
+//=     decided to call it Ayotaya, it really is Ayothaya, like 
 //=     that Yuno/Juno thing
 //= 0.4 Added the official warp npc for Ayothaya. [MasterOfMuppets]
 //= 1.0 Added most of the official npcs. The following quests were added: [MasterOfMuppets]
@@ -316,4 +329,4 @@ ayothaya,241,264,5	script	Young Man#5ayothaya2	843,{
 //= 1.3 Removed Duplicates [Silent]
 //= 1.4 Moved quests to quests/quests_ayothaya.txt [Evera]
 //= 1.5 Moved a few NPC's to quests/quests_ayothaya.txt [MasterOfMuppets]
-//============================================================
+//============================================================ 

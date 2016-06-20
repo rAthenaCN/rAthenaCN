@@ -1,15 +1,23 @@
-//===== rAthena Script =======================================
+//============================================================
+//= rAthenaCN [城镇人员]汉化脚本 [ www.rAthenaCN.com ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
+//===== rAthena Script ======================================= 
 //= Morroc Town
-//===== By: ==================================================
+//===== By: ================================================== 
 //= kobra_k88; L0ne_W0lf
-//===== Current Version: =====================================
-//= 2.2
-//===== Compatible With: =====================================
-//= rAthena Project
-//===== Description: =========================================
+//===== Current Version: ===================================== 
+//= 2.1
+//===== Compatible With: ===================================== 
+//= rAthena SVN
+//===== Description: ========================================= 
 //= [Official Conversion]
 //= Morroc Town NPCs
-//===== Additional Comments: =================================
+//===== Additional Comments: ================================= 
 //= Fully working
 //= Fixed Lapidary sprite, Implemented ANTHELL trigger
 //= (in both NPC/Warps) [Lupus]. Removed it from NPC and put in Warp
@@ -24,759 +32,789 @@
 //= 2.0 Fixed bad NPC header data to comply with rev. 11603. [L0ne_W0lf]
 //= 2.0a Fixed outdated info about Milk [Lupus]
 //= 2.1 Updated/Added NPCs for episode 12.1. [L0ne_W0lf]
-//= 2.2 Removed duplicate bartender NPC. (bugreport:4555) [L0ne_W0lf]
 //============================================================
 
 // Morroc
 //============================================================
-morocc,150,120,5	script	Soldier - Morroc#01::MocSoldier	707,3,3,{
-	mes "[Morroc Soldier]";
-	mes "Hey, you! Stop there.";
+morocc,150,120,5	script	管制士兵#07rhea_01::Soldier	707,4,4,{
+	mes "[梦罗克 管制士兵]";
+	mes "请你站住!";
 	next;
-	mes "[Morroc Soldier]";
-	mes "This is a restricted area. You can't come any further!";
+	mes "[梦罗克 管制士兵]";
+	mes "闲杂人等请勿靠近!";
 	close;
 
 OnTouch:
-	mes "[Morroc Soldier]";
-	mes "Hey, you! Stop there.";
+	mes "[梦罗克 管制士兵]";
+	mes "请你站住!";
 	next;
-	mes "[Morroc Soldier]";
-	mes "This is a restricted area. You can't come any further!";
+	mes "[梦罗克 管制士兵]";
+	mes "闲杂人等请勿靠近!";
 	close;
 }
 
-morocc,202,244,0	script	Volunteer - Morroc#01	745,{
-	mes "[Morroc Volunteer]";
-	mes "After that terrible incident wiped out the entire Morroc, Rune-Midgard Kingdom has gathered us valunteers to help restorations.";
+morocc,165,82,0	script	梦罗克村民#07russia_25	48,{
+	mes "[梦罗克村民]";
+	mes "呵，最近不管是冒险家或旅行家，进出村落里的人次变多了，所以分辨不出谁是村民谁是旅行家";
 	next;
-	mes "[Morroc Volunteer]";
-	mes "As important as it seems, everyone's being careful but there are always some that really don't realize the situation, don't you think?";
+	mes "[梦罗克村民]";
+	mes "若不是像我在地人就无法分辨谁是新来的人了?";
 	close;
 }
 
-morocc,88,133,3	script	Volunteer - Morroc#02	748,{
-	mes "[Morroc Volunteer]";
-	mes "We're... We're flooded with work...";
+moc_ruins,94,117,0	script	脸色苍白的青年#07rhea_2	48,{
+	mes "[脸色苍白的青年]";
+	mes "... 那天是... 升起了带有血光的月亮，是个令人毛骨悚然的恐怖夜晚";
 	next;
-	mes "[Morroc Volunteer]";
-	mes "This work's like never-ending, no matter how hard we try!!!";
-	mes "People of Rune-Midgard!! Please lend us a helping hand!!";
+	mes "[脸色苍白的青年]";
+	mes "连干燥的沙漠风也没有吹，空气又是快要窒息般的难过，此时突然听到狂叫和超大水蒸气从梦罗克中央城向空中窜起来";
 	next;
-	mes "[Morroc Volunteer]";
-	mes "Haw.... Whew... Ugh...";
+	mes "[脸色苍白的青年]";
+	mes "那是一瞬间的事，中央城的绿洲蒸发掉和梦罗克村落被毁都是瞬间发生的，还有... 还有传来... 传来了那声音";
+	next;
+	mes "[脸色苍白的青年]";
+	mes "说血... 血是灵魂的货币... 还有那恐怖的笑声...";
+	mes "啊啊!!! 在我的耳际仍然... 回荡着那笑声!!! 啊啊啊啊啊啊!!!!!!";
+	next;
+	mes "- 为了让他稳定情绪，还是别再问好了-";
 	close;
 }
 
-morocc,202,110,0	script	Volunteer - Morroc#03	730,{
-	mes "[Morroc Volunteer]";
-	mes "We're still unable to estimate the overall damage.";
+morocc,202,244,9	script	梦罗克 义工#07rhea_09	745,{
+	mes "[梦罗克 义工]";
+	mes "自从那件重大事情发生后，为了重建几乎全毁的梦罗克，于是卢恩 米德加兹王国招集了义工们";
 	next;
-	mes "[Morroc Volunteer]";
-	mes "Adventurers' Union and Prontera Kingdom are putting their efforts on restorations as well as restraints of the original cause of the disaster.";
-	next;
-	mes "[Morroc Volunteer]";
-	mes "Unless we settle the original cause, the damage will even spread out of Morroc. The only thing left is to get worse.";
+	mes "[梦罗克 义工]";
+	mes "因为事态严重，大家都小心翼翼的，只是其中也有搞不清楚状的的人呢?";
 	close;
 }
 
-morocc,268,287,3	script	Volunteer - Morroc#04	727,{
-	mes "[Morroc Volunteer]";
-	mes "As bad as it seems, we can't even ask for more support.";
-	mes "This sure must be the worst thing ever happened in Rune-Midgard's history.";
+morocc,88,133,3	script	梦罗克 义工#07rhea_10	748,{
+	mes "[梦罗克 义工]";
+	mes "事... 事情超多的...";
 	next;
-	mes "[Morroc Volunteer]";
-	mes "I wish I knew how bad the damage is, but we can't even estimate it. It's like shovelling sand against the tide..";
+	mes "[梦罗克 义工]";
+	mes "事情多到做也做不完啦!!!";
+	mes "卢恩 米德加兹人民啊!! 把各位的力量借给我们吧!!!";
+	next;
+	mes "[梦罗克 义工]";
+	mes "嘻嘻... 呵呵... 嘻嘻嘻...";
 	close;
 }
 
-morocc,37,287,0	script	Volunteer - Morroc#05	79,{
-	mes "[Morroc Volunteer]";
-	mes "The town's all shattered, but the real problem is the towners.";
+morocc,202,110,3	script	梦罗克 义工#07rhea_11	730,{
+	mes "[梦罗克 义工]";
+	mes "据说受害程度目前尚未明朗";
 	next;
-	mes "[Morroc Volunteer]";
-	mes "It's a real pity to see those victims of the destroyed town, but the witnesses of the disaster are so much shocked. They're simply not normal now.";
+	mes "[梦罗克 义工]";
+	mes "冒险家公会与普隆德拉王宫方面正在秘密地进行梦罗克的重建工程，并且试图要牵制引起灾害的根本原因，但似乎不容易";
 	next;
-	mes "[Morroc Volunteer]";
-	mes "People are scared to death, but those are fortunate at least.. cause.. many others got mentally ill and stuff..";
+	mes "[梦罗克 义工]";
+	mes "在根本原因未解决之前，不仅是梦罗克，其它区域的灾害势必会越来越扩大";
 	close;
 }
 
-morocc,223,102,0	script	Volunteer - Morroc#06::MocVolunteer	741,{
-	mes "[Morroc Volunteer]";
-	mes "Ugh.. It's kinda spooky, here.. Even this dry wind of the desert seems to have a dark nature.";
+morocc,267,287,3	script	梦罗克 义工#07rhea_12	727,{
+	mes "[梦罗克 义工]";
+	mes "情况实在太糟糕，很难再获得支援，";
+	mes "这可能是卢恩 米德加兹王国史上最惨的状况吧";
 	next;
-	mes "[Morroc Volunteer]";
-	mes "Ooh!! Something... I can feel something! The dark and gloomy air flowing around this town is actually giving me a musical motiff!";
-	next;
-	mes "[Morroc Volunteer]";
-	mes "Right, I think you should hear it! The title is.. 'The Rhapsody of Morroc Satan's Rebirth'!!";
-	next;
-	mes "[Morroc Volunteer]";
-	mes "When finally wake up, it's just the same darkness";
-	mes "Failed to be reborn at the same place,";
-	mes "Gotta try harder and harder, never ever give up,";
-	mes "But even after hundreds and thousands of trying,";
-	mes "The great Satan of Morroc can't revive~";
-	next;
-	mes "[Morroc Volunteer]";
-	mes "My stupid button men are useless,";
-	mes "Against those adventurers,";
-	mes "This time I must revive,";
-	mes "Cracking the time and the space,";
-	mes "Will be saved for the last~~~";
-	next;
-	mes "[Ringing Voice]";
-	mes "Be quiet! Can't you see what's going on?!";
-	specialeffect EF_HIT2,AREA,"Volunteer - Morroc#06";
-	next;
-	mes "[Morroc Volunteer]";
-	mes "Heyyy, you're being too harsh, Senyorita. Your fist may be as fragile as you are, but it sure can hurt somebody.";
-	next;
-	mes "[Ringing Voice]";
-	mes "Anyways, isn't that a crib? I think I heard something like that before..";
-	next;
-	mes "[Morroc Volunteer]";
-	mes "No, No way!? It,, sure is not!";
+	mes "[梦罗克 义工]";
+	mes "如果能掌握确切状况该有多好，甚至连评估都有困难，所以大家都心急如焚呢?";
 	close;
 }
 
-morocc,226,102,4	duplicate(MocVolunteer)	Volunteer - Morroc#07	726
-
-moc_ruins,123,154,0	script	Young Man#moc01	99,{
-	mes "[Young Man]";
-	mes "The town's completely destroyed, but that giant triangular structure hasn't been harmed at all. Maybe it's protected by some kinda special power.";
+moc_ruins,123,154,9	script	青年#07rhea_14	99,{
+	mes "[青年]";
+	mes "虽然村落被毁了，但那边巨型三角物体却毫发无伤，可能受到某种特殊力量的保护吧";
 	next;
-	mes "[Young Man]";
-	mes "You know...Those giant, triangular buildings at the NorthWest corner of Morroc known are known to us as Pyramids...";
+	mes "[青年]";
+	mes "我们把位于村落角落上的那巨型三角物体称做为金字塔，不清楚何时出现在那里，听说我爷爷的爷爷时代就在那里了";
 	next;
-	mes "[Young Man]";
-	mes "Those things have been around here for thousands and thousands of years. No one knows when and why they were built, or who built them.";
+	mes "[青年]";
+	mes "出现的理由和目的没有人知道，但有一点可以确定的是那里面充斥着恐怖的魔物，所以无人敢靠近它";
 	next;
-	mes "[Young Man]";
-	mes "All we know is that tons of monsters live inside those weird buildings. You might wanna stay away from those really dangerous places.";
-	next;
-	mes "[Young Man]";
-	mes "Those monsters in the Pyramid would be very, very sensitive to sweet flash smell of people....";
+	mes "[青年]";
+	mes "我也奉劝你最好别接近它，";
+	mes "因金字塔里的魔物对人类的血腥味特别感兴趣，呵呵...";
 	close;
 }
 
-moc_ruins,128,153,0	script	Grampa#moc	61,{
-	mes "[Old Scholar]";
-	mes "I've devoted my life to researching the mysterious pyramids near Morroc. I haven't been able to concretely confirm anything yet, but...";
+morocc,37,287,0	script	梦罗克 义工#07rhea_15	79,{
+	mes "[梦罗克 义工]";
+	mes "不只是村落，村民们更是凄惨不已";
 	next;
-	mes "[Old Scholar]";
-	mes "I'm sure that the largest pyramid contains the tomb of the ancient king, Osiris! I'm willing to stake my life on it!";
+	mes "[梦罗克 义工]";
+	mes "那些经历过严重灾害的村民们已经够可怜了，但亲眼目睹恐怖景象而存活下来的人，也几乎变的精神异常了";
+	next;
+	mes "[梦罗克 义工]";
+	mes "还有一些遭受惊吓的人还算幸运吧?";
+	mes "至于精神崩溃的人...";
+	mes "总之那些人实在是令人鼻酸啊";
 	close;
 }
 
-moc_ruins,132,144,0	script	Wolf Young Man#moc	85,{
-	mes "[Young Man]";
-	mes "I remember I said the bandits of desert are the desert wolves.. Those bastards always roam around in a bunch and they would get so cruel and outrageous if one of them got attacked.";
+moc_ruins,128,153,0	script	伯伯#07rhea_15	61,{
+	mes "[金字塔 研究员]";
+	mes "我把一生致力于研究本村落的金字塔上，且挖掘了不少东西，虽然无法证实，但相信那金字塔是古代某王的陵寝";
 	next;
-	mes "[Young Man]";
-	mes "They are so vicious, and I'm telling ya, I'm no kidding. You can only find some bones and rotten milk in the backpack after these wolves sweep through.";
-	mes "Those things are so mean and vicious..";
-	next;
-	mes "[Young Man]";
-	mes "But the thing is that.. I even kinda feel those merciless cold-blooded monsters are nothing to be afraid of, compared to what has happened in Morroc. Morroc is already a hell.";
+	mes "[金字塔 研究员]";
+	mes "也许在那陵寝的深处沉睡着古代王俄赛里斯吧，如果我的研究正确的话...";
 	close;
 }
 
-moc_ruins,115,144,3	script	Muka Young Man#moc	83,{
-	mes "[Young Man]";
-	mes "I work in the trading business, so I always have to cross the hot, dry Morroc Desert on business.";
+moc_ruins,132,144,9	script	青年#07rhea_16	85,{
+	mes "[青年]";
+	mes "我曾经称呼沙漠的无赖为沙漠豺狼，老是集体为非作歹的恶徒们，当同类遭受攻击时就会变成凶恶的畜牲";
 	next;
-	mes "[Young Man]";
-	mes "But I can't do that anymore.";
+	mes "[青年]";
+	mes "它们毫不留情呢? 不夸张凡是被它们蹂躏过的地方，只剩下骨头和背包里的腐烂牛奶而已，";
+	mes "真是一群可恶的畜牲...";
 	next;
-	mes "[Young Man]";
-	mes "Now that I can't, I kind of miss the old days.";
-	next;
-	mes "[Young Man]";
-	mes "Like this one time, while I was in the middle of the desert, I got so thirsty that I caught a cactus.. but before I was able to cut it, it slapped me! Then it shot me in the arse with all these needles...";
-	next;
-	mes "[Young Man]";
-	mes "Later, I learned that it wasn't a normal cactus I found, but the monster we call 'Muka.'";
-	mes "Now I come to think of it, it was fun as much as dangerous.";
+	mes "[青年]";
+	mes "不过经过这次事件之后，反而觉得它们可爱哩，你看看摧毁的梦罗克，那里已成人间炼狱了";
 	close;
 }
 
-moc_ruins,109,138,0	script	Diamond Young Man#moc	99,{
-	mes "[Young Man]";
-	mes "The undisputed queen of jewels has to be the Diamond. After looking at it just once, no one can deny its beauty.";
+moc_ruins,115,144,3	script	青年#07rhea_17	83,{
+	mes "[青年]";
+	mes "我为了在这里和普隆德拉之间作生意，已经去了上百次那干燥的沙漠";
 	next;
-	mes "[Young Man]";
-	mes "Many factors determine its value, but the most important thing is its size.";
+	mes "[青年]";
+	mes "不过现在连这生意也没得做了";
 	next;
-	mes "[Young Man]";
-	mes "It should also be a perfect crystal, not cracked or chipped, if you want to sell the Diamond for a lot of zeny.";
+	mes "[青年]";
+	mes "所以反而感到怀念起来了，";
+	mes "记得有次经过沙漠时口渴想切开仙人掌汁来喝... 却不小心被刺刺到而差点客死异乡哩...";
 	next;
-	mes "[Young Man]";
-	mes "But look! The hardest stone in the world got broken in two!";
-	next;
-	mes "[Young Man]";
-	mes "I know it's not the time to worry about some gemstones but.. this.. was my everything..";
+	mes "[青年]";
+	mes "那个摩卡，酷似仙人掌的魔物，";
+	mes "现在回想起来刺激又有趣";
 	close;
 }
 
-morocc,54,251,0	script	Young Man#moc02	89,{
-	mes "[Drunken Young Man]";
-	mes "Wait a second..! Are you perhaps an adventurer? Welcome! How's your trip?";
-	mes "Heh heh~ Let me tell you a story. You know I just got out of that Tavern, there, huh?";
+moc_ruins,109,138,9	script	青年#07rhea_18	99,{
+	mes "[青年]";
+	mes "宝石中的宝石非钻石莫属，那晶莹剔透又炫丽的色泽，其它的宝石就相形失色了，所以价格当然也不斐了...";
 	next;
-	mes "[Drunken Young Man]";
-	mes "I heard the Satan Morroc has revived. It just got out of cracking the time and the space blar... hic~";
+	mes "[青年]";
+	mes "决定价格的因素有很多种，最重要的当然就是大小了";
 	next;
-	mes "[Drunken Young Man]";
-	mes "Ah... I kinda wanna see that Satan with my own eyes, but! I really shouldn't. I shouldn't even dream of seeing that Satan in person.";
+	mes "[青年]";
+	mes "哦哦... 不过再大的钻石若结晶体内有空洞或裂痕时，价格就差十万八千里了";
 	next;
-	mes "[Drunken Young Man]";
-	mes "But I think there'd be nothing to lose if you, a person of bravery, who came through the wile desert try to find it, don't you think? Teehee~ Don't forget to buy me a drink when you find it!";
-	mes "Hic!";
+	mes "[青年]";
+	mes "不过来看看这个! 世界上硬度最高的钻石竟被切成两半了!";
 	next;
-	mes "[Drunken Young Man]";
-	mes "Anyway, do you know where we are? I just had a little drink at a tavern, but all of a sudden, the whole town's disappeared when I got out.. or, some five hundred years have passed???!";
+	mes "[青年]";
+	mes "如今村落遭逢灾难下不应该关心钻石的事，不过它可是我的全部财产哩...";
 	close;
 }
 
-moc_ruins,94,117,0	script	Pale Looking Young Man	48,{
-	mes "[Pale-looking Young Man]";
-	mes "... That day... I saw the bloody moon in the sky. It was too silent that it felt so spooky.";
+morocc,54,251,9	script	青年#07rhea_19	89,{
+	mes "[饮酒青年]";
+	mes "嘻嘻... 打嗝! 你是外地来的吧? 你好! 旅途愉快吗?";
+	mes "相见自是有缘，我来告诉你一件事，这是我刚在酒店里喝一杯时偶然间听到的呢?";
 	next;
-	mes "[Pale-looking Young Man]";
-	mes "Not even a whistle of dry wind, and the air so heavy and stuffy, I could hardly breathe.";
+	mes "[饮酒青年]";
+	mes "就是魔王梦罗克复活了，好像是穿越时空的裂缝出来的吧... 打嗝";
 	next;
-	mes "[Pale-looking Young Man]";
-	mes "But then, Bang! It was right that time that I saw the enormous amount of smoke rising up at the Castle of Morroc with an earsplitting sound.";
+	mes "[饮酒青年]";
+	mes "啊... 我也想去亲眼目睹，但却比登天还难，";
+	mes "像你这样穿越沙漠有勇气的人，值得去看一看吧? 嘻嘻~ 如果有看到的话要请喝一杯喔!";
 	next;
-	mes "[Pale-looking Young Man]";
-	mes "All happened so fast. The Oasis of the Castle was all dried up and the town was destroyed. And... and that voice... I heard a voice.";
-	next;
-	mes "[Pale-looking Young Man]";
-	mes "Blood... Blood is what it takes to pay for the soul... and that dark sound of laughter...";
-	mes "Aah!!! It's... It's still ringing in my ears!!! Aahhhhh!!!!";
-	next;
-	mes "- It'd be better not to disturb him anymore -";
+	mes "[饮酒青年]";
+	mes "不过你知道这是哪里吗? 我到酒店喝了一杯出来后... 怎么村落就不见了呢...? 难道已经过了五百年了吗?!";
 	close;
 }
 
-moc_ruins,115,82,0	script	Little Girl#moc	703,{
-	mes "[Little Girl]";
-	mes "-Crying-";
+morocc,223,102,5	script	梦罗克 义工#07rhea_20	741,{
+	mes "[梦罗克 义工]";
+	mes "感觉有点不寻常呢? 连沙漠的干燥空气似乎都弥漫着黑暗的气息";
 	next;
-	mes "[Little Girl]";
-	mes "I'm so scared! Where's mom and dad...! hhooooo... Where's our house...";
+	mes "[梦罗克 义工]";
+	mes "呜呜呜!! 好像... 有感觉到! 这村落所弥漫的黑暗空气与阴森森的气息，仿佛是一场噩梦!";
 	next;
-	mes "[Little Boy]";
-	mes "Please stop crying, Eliese... You could even faint if you cry all day long, you know...";
+	mes "[梦罗克 义工]";
+	mes "你要不要听听看呢? 主题是'魔王梦罗克献唱之复活之狂想曲'!!";
 	next;
-	mes "[Little Girl]";
-	mes "No! No... Mommy... Daddy....";
+	mes "[梦罗克 义工]";
+	mes "当醒来时在同样深渊的黑暗之中，";
+	mes "以及虽然在相同地方上复活失败，";
+	mes "但是绝不轻易放弃继续尝试复活，";
+	mes "试了又试、一遍又一遍的尝试，";
+	mes "仍无法复活的魔王梦罗克~";
+	next;
+	mes "[梦罗克 义工]";
+	mes "我也曾派过手下去，";
+	mes "但还是斗不过冒险家，";
+	mes "所以这次为了复活成功，";
+	mes "时空的裂缝要保护到";
+	mes "最后啊~~~";
+	next;
+	mes "[某人的声音]";
+	mes "安静，别吵了!";
+	donpcevent "梦罗克 义工#07rhea_20::OnHit";
+	next;
+	mes "[梦罗克 义工]";
+	mes "哦哦，你好过份世纽利他，你这样会伤了我的心";
+	next;
+	mes "[某人的声音]";
+	mes "那不是某个标题吗? 好像在哪里听过?";
+	next;
+	mes "[梦罗克 义工]";
+	mes "怎，怎么可能!? 不，不是啦!";
+	close;
+
+OnHit:
+	specialeffect EF_HIT2;
+	end;
+}
+
+morocc,226,102,3	script	梦罗克 义工#07rhea_21	726,{
+	mes "[梦罗克 义工]";
+	mes "真糟糕，这次还好损毁一个村落，但下次...";
+	next;
+	mes "[梦罗克 义工]";
+	mes "冒险家们觉得怎样呢? 有什么解决的方法吗?";
+	next;
+	mes "[某人的声音]";
+	mes "有啊有啊，你要听听看吗? 主题是'魔王梦罗克献唱之复活之狂想曲'!!";
+	next;
+	mes "[某人的声音]";
+	mes "当醒来时在同样深渊的黑暗之中，";
+	mes "以及虽然在相同地方上复活失败，";
+	mes "但是绝不轻易放弃继续尝试复活，";
+	mes "试了又试、一遍又一遍的尝试，";
+	mes "魔王梦罗克仍无法复活魔王梦罗克~";
+	next;
+	mes "[某人的声音]";
+	mes "我也曾派过手下去，";
+	mes "但还是斗不过冒险家，";
+	mes "所以这次为了复活成功，";
+	mes "时空的裂缝要保护到";
+	mes "最后~~~";
+	next;
+	mes "[梦罗克 义工]";
+	mes "安静，别吵了!";
+	donpcevent "梦罗克 义工#07rhea_20::OnHit";
+	next;
+	mes "[某人的声音]";
+	mes "哦哦，你好过份世纽利他，你这样会伤了我的心";
+	next;
+	mes "[梦罗克 义工]";
+	mes "那不是某个标题吗? 好像在哪里听过?";
+	next;
+	mes "[梦罗克 义工]";
+	mes "怎，怎么可能!? 不，不是啦!";
 	close;
 }
 
-moc_ruins,118,82,1	script	Little Boy#moc	706,{
-	mes "[Little Boy]";
-	mes "............... Let's stop crying, Eliese...";
+moc_ruins,121,116,0	script	歌妮#07rhea_23	66,{
+	mes "[史比亚萍]";
+	mes "在米德加兹全区上充斥着可爱的魔物，";
+	mes "像是被击倒时会吐舌头的魔菇...";
 	next;
-	mes "[Little Girl]";
-	mes "Nooooooo... Mommy... Daddy....!!";
+	mes "[史比亚萍]";
+	mes "头上戴着自己所孵出时的蛋壳，到处蹦蹦跳跳的小鸡魔物等等...";
 	next;
-	mes "[Little Boy]";
-	mes "Mom and Dad are now...";
+	mes "[史比亚萍]";
+	mes "也有这种即可爱又不会害人的魔物，究竟是为什么呢? 没想到我们村落里也沉睡着如此恐怖的魔王! 啊啊...";
 	next;
-	mes "[Little Girl]";
-	mes "No...... noooooo...";
+	mes "[史比亚萍]";
+	mes "实在太可怕了... 我想看着可爱的波利来稳定一下情绪...";
 	next;
-	mes "[Little Boy]";
-	mes "Right, you love ice-cream, don't you? I.. I can get you an ice-cream if you stop crying. Don't cry, Eliese, please.. Ok? Don't...";
+	switch(select("天使波利是?:幽灵波利是?:取消对话")) {
+		case 1:
+			mes "[史比亚萍]";
+			mes "天使波利是指在普隆德拉南部地区波利草原上，只有稀有天使波利所活动的地方";
+			next;
+			mes "[史比亚萍]";
+			mes "由于它们是属于高等级圣属性波利，所以普通的魔法是毫无作用的";
+			mes "它们只受无属性与暗属性魔法的伤害";
+			next;
+			mes "[史比亚萍]";
+			mes "呵呵，我懂得很多吧? 因我是波利迷";
+			next;
+			break;
+		case 2:
+			mes "[史比亚萍]";
+			mes "幽灵波利是指在普隆德拉南部地区波利原野上，只有凶猛幽灵波利所活动的地方";
+			next;
+			mes "[史比亚萍]";
+			mes "由于它们是属于高等级念属性波利，因此无属性物理攻击不会起作用...";
+			mes "它们只受魔法或其它属性的伤害";
+			next;
+			mes "[史比亚萍]";
+			mes "我是波利达人的波利迷";
+			next;
+			break;
+		case 3:
+			break;
+	}
+	mes "[史比亚萍]";
+	mes "呵呵... 波利... 呵呵......";
 	close;
 }
 
-moc_ruins,121,116,4	script	Picky Lady#moc	66,{
-	mes "[Syvia]";
-	mes "The fields of Rune-Midgard are infested with wild and dangerous monsters..But, you've got to admit a bunch of them are soooo cute!";
-	mes "You know, like how Spore sticks out its tongue after you kill it..";
+moc_ruins,143,43,0	script	刺客青年#07rhea_25	118,{
+	mes "[思尔]";
+	mes "采 1 : 1 的直接攻击战斗方式，并干净俐落的解决敌人的就是刺客也!";
 	next;
-	mes "[Syvia]";
-	mes "Or, how little Picky wears that tiny egg shell sometimes?..";
+	mes "[思尔]";
+	mes "到底... 梦罗克遭受空前严重毁坏，刺客们都在做什么呢!!!";
 	next;
-	mes "[Syvia]";
-	mes "I can't believe what just has happened.. Our town used to be the one with those cute little monsters, not that kinda of visious dreadful Evil sleeping in! Whew...";
-	next;
-	mes "[Syvia]";
-	mes "I'm so scared... I just wanna ease my mind watching over those cute little Porings...";
-	next;
-	switch(select("What about Angeling?:How about Ghostring?:Quit Conversation")) {
+	switch (select("?????:刺客公会在哪里呢?:取消对话")) {
 	case 1:
-		mes "[Syvia]";
-		mes "Ooh! Angeling is just like Poring, except it has angel wings! Of course, I don't know if they can actually fly..";
+		mes "[思尔]";
+		mes "刺客具有无声无息靠近对方后不留痕迹的干掉对方的能力...";
 		next;
-		mes "[Syvia]";
-		mes "Angelings are rarely seen, but can be found among large groups of Porings living in one of the fields south of Prontera.";
-		mes "Angeling is a high level monster with Holy property, so it's immune to most magic, aside from spells that have Neutral or Shadow attack properties.";
+		mes "[思尔]";
+		mes "我寻觅刺客公会已经3年了...";
+		mes "该是出现的时候了吧?!";
 		next;
-		mes "[Syvia]";
-		mes "Hehe~ Don't you think I know a lot about Porings? I love them soooo much";
-		next;
-		mes "[Syvia]";
-		mes "Hehe... Poring... Hee......";
+		mes "[思尔]";
+		mes "难... 难道来不及了嘛...";
+		mes "村落也毁了... 现在该何去何从呢...";
 		close;
 	case 2:
-		mes "[Syvia]";
-		mes "Ghostring is an evil ghost Poring. It's rarely seen, but can be found among mass groups of Porings living in one of the fields south of Prontera.";
+		mes "[思尔]";
+		mes "那个嘛...";
+		mes "我实在找不到";
 		next;
-		mes "[Syvia]";
-		mes "Ghostring is a high-leveled monster with the Ghost property, so it can withstand all physical attacks.";
-		mes "Damage can only be caused to Ghostring through magic spells or weapons with an a specific property.";
+		mes "[思尔]";
+		mes "我听说是在这梦罗克以东的2个地图，再往南走2个地图距离后，就会出现藏于沙漠风暴中的刺客公会，也就是'苏克拉特总部海市蜃楼塔'...";
 		next;
-		mes "[Syvia]";
-		mes "Hehe~ Don't you think I know a lot about Porings? I love them soooo much~";
+		mes "[思尔]";
+		mes "据说被那里的公会会长十字刺客同意的话，即可转职为刺客了";
 		next;
-		mes "[Syvia]";
-		mes "Hehe... Poring... Teehee......";
+		mes "[思尔]";
+		mes "所谓十字刺客是只颁授给刺客中最优秀的一种高等纹章!";
+		next;
+		mes "[思尔]";
+		mes "若是不够优秀的盗贼的话，想看十字刺客的庐山真面目比登天还难哩...";
+		next;
+		mes "[思尔]";
+		mes "不过... 梦罗克被这样摧毁，十字刺客们究竟有何作为呢!!!";
 		close;
 	case 3:
-		mes "[Syvia]";
-		mes "Hehe... Poring... Teehee......";
+		mes "[思尔]";
+		mes "刺客是盗贼(Thief)可转职的一种，在 1 : 1 战斗尤其是对无属性 + 毒性的直接攻击上，属于具备多项优异技能的2转职业";
+		next;
+		mes "[思尔]";
+		mes "还有为了组员们可以隐身后独自到敌人聚集之处，进行侦探敌情及搜集情报";
+		next;
+		mes "[思尔]";
+		mes "不过... 梦罗克被这样摧毁，刺客们究竟有何作为呢!!!";
 		close;
 	}
 }
 
-moc_ruins,155,107,4	script	Ant Man#moc	47,{
-	mes "[Akira]";
-	mes "Hey, you. Did you cross the desert?";
+moc_ruins,115,82,8	script	小朋友#07rhea_31	703,{
+	mes "[小女生]";
+	mes "呜呜，哇哇哇，不要，好可怕...";
 	next;
-	mes "[Akira]";
-	mes "When you walk through the desert about one map North and 3 maps East, you'll find the entrance to Ant Hell.";
+	mes "[小女生]";
+	mes "爸妈在哪里... 呜呜呜... 我们家不见了... 呜哇哇哇哇哇哇";
 	next;
-	mes "[Akira]";
-	mes "There are two different entrances to the Ant Hell. When you get inside, the 1st and the 2nd underground levels of winding looking caves are connected to each other.";
+	mes "[小男生]";
+	mes "别哭了，尔洁... 这样会伤身体的...";
 	next;
-	mes "[Akira]";
-	mes "I'm really wondered how those entrances are after the horrible destruction, but I can't go out.. If you ever hear anything about it, please get me informed.";
+	mes "[小女生]";
+	mes "呜哇哇，不要... 妈咪... 爹地...";
+	close;
+}
+
+moc_ruins,118,82,1	script	小朋友#07rhea_32	706,{
+	mes "[小男生]";
+	mes "...............别哭了，尔洁...";
 	next;
-	switch(select("About 'Ant Hell':About Ants:End Conversation")) {
+	mes "[小女生]";
+	mes "呜哇哇哇哇哇哇... 妈咪... 爹地...";
+	next;
+	mes "[小男生]";
+	mes "妈咪爹地已经...";
+	next;
+	mes "[小女生]";
+	mes "哥哥... 呜哇哇...";
+	next;
+	mes "[小男生]";
+	mes "对，对了，你爱吃冰淇淋吧? 不哭的话我买给你吃好不好，别哭了，尔洁乖乖，嗯? 别哭了...";
+	close;
+}
+
+morocc,248,159,4	script	单身汉#magum1	86,{
+	mes "[修伊]";
+	mes "我是个喜欢周游列国的";
+	mes "旅行家，";
+	mes "这里的天气真热啊";
+	close;
+}
+
+moc_ruins,155,107,4	script	玛倚#07rhea_24	47,{
+	mes "[阿里卡哩]";
+	mes "请问你是穿越沙漠来的吗?";
+	next;
+	mes "[阿里卡哩]";
+	mes "那么从这村落起往北一个地图... 再往东三个地图距离的蚂蚁地狱密穴的现况，也许你应该会知道吧";
+	next;
+	mes "[阿里卡哩]";
+	mes "蚂蚁地狱密穴的入口有两个，入内后非常弯取的密穴会连到地下1楼和2楼";
+	next;
+	mes "[阿里卡哩]";
+	mes "那密穴的入口经过这次的折腾后，很好奇会受到什么影响，但又不放我出去... 如果你知道消息的话，告诉我一下吧";
+	next;
+	switch(select("关于'蚂蚁地狱密穴':关于蚂蚁:取消对话")) {
 	case 1:
-		mes "[Akira]";
-		mes "That cave is sure a dangerous hell, sticky and all... There are 2 underground levels.";
-		mes "Just head East till you see the bridge which connects to the Payon Forest.";
+		mes "[阿里卡哩]";
+		mes "就是通到地下1, 2楼的那个湿湿黏黏又弯弯取取的洞穴...";
+		mes "从梦罗克往东直走的话，会看到与斐扬森林面对的桥";
 		next;
-		mes "[Akira]";
-		mes "In the map right before that bridge, head north to find the entrance to Ant Hell, though I'm not sure if it's still there.";
+		mes "[阿里卡哩]";
+		mes "就在那地图之前的 4个距离地图上，再往上前进一点的话，就会出现蚂蚁地狱密穴'入口中的一个... 不知道还在不在那里";
 		close;
 	case 2:
-		mes "[Akira]";
-		mes "Ant Hell is swarming with Ant monsters. You'll notice that they all classed with different names...";
+		mes "[阿里卡哩]";
+		mes "密穴里面充斥着黑色巨蚁魔物群，当看过那些小东西们之后，感觉它们的名字都挺有个性的...";
 		next;
-		mes "[Akira]";
-		mes "Andre is the weakest, Piere is comparatively average, and Deniro is the strongest Ant. Keep that in mind so you can fight the Ants suitable to your level.";
+		mes "[阿里卡哩]";
+		mes "它们的名称依强度排序为白蚁、工蚁、兵蚁";
 		next;
-		mes "[Akira]";
-		mes "Andre is colored in Ivory, Yellowish Green is Piere, and the Red one is Deniro.";
-		mes "It's really easy to distinguish those from Bitata, the commen ants because they look very different.";
+		mes "[阿里卡哩]";
+		mes "有米白色的白蚁、黄绿色的工蚁、赤红色的兵蚁等";
+		mes "其中有个叫黑蚁的工作蚂蚁因外表差异颇大，所以很容易分辨";
 		next;
-		mes "[Akira]";
-		mes "Oh, and those ants are greedy as Porings and will try to steal your items, so keep that in mind.";
+		mes "[阿里卡哩]";
+		mes "还有蚂蚁群跟波利一样对物品很贪心，所以要考虑清楚";
 		next;
-		mes "[Akira]";
-		mes "If you ever, could cross the desert without any disturbances from the Satan...";
+		mes "[阿里卡哩]";
+		mes "前提是不受魔王的阻碍下平安的穿越沙漠...";
 		close;
 	case 3:
-		mes "[Akira]";
-		mes "There's also an old man called Guias, the spirit of the earth. He's pretty hard to deal with.";
+		mes "[阿里卡哩]";
+		mes "'蚂蚁地狱密穴' 内部不仅有蚂蚁，还有栖息着很难对付的土地精灵基尔瑟伯伯";
 		next;
-		mes "[Akira]";
-		mes "Sharp teeth and strong jaws of the ants would be something that you should be careful of, but the shovelling skills of that old granpa is very strong that you should watch out.";
+		mes "[阿里卡哩]";
+		mes "有着尖锐的牙齿和下巴，它不仅是普通的蚂蚁，基尔瑟伯伯最厉害的就是铲子要小心啰";
 		next;
-		mes "[Akira]";
-		mes "...Well, what am I talking about? What is left to be afraid when the Satan of Morroc is revived? Huh..huhhuh...";
+		mes "[阿里卡哩]";
+		mes "...在魔王梦罗克出没的危险之际，什么都得小心，呵呵呵";
 		close;
 	}
 }
 
-moc_ruins,143,43,4	script	Assassin Boy#moc	118,{
-	mes "[Slayer Kid]";
-	mes "Unbeatable in man-to-man fights, Assassins always overcome their enemies! Erm, always overcome their enemies without a trace.";
+moc_ruins,173,141,4	script	酷热先生#07rhea_26	49,{
+	mes "[蒙力]";
+	mes "梦罗克地区的沙漠是米德加兹全区中平均气温最高的地方，只要在沙地上坐下来的话，小心屁屁会烤熟喔";
 	next;
-	mes "[Slayer Kid]";
-	mes "But what did they do when this destruction happened in Morroc!!!";
-	next;
-	switch(select("?????:Where I can find the Assassin clan?:End Conversation")) {
+	switch(select("关于沙漠的沙子:关于恢复疲劳:取消对话")) {
 	case 1:
-		mes "[Slayer Kid]";
-		mes "I hear Assassins practice killing people, quietly and stealthfully..";
+		mes "[蒙力]";
+		mes "......其实那个嘛...";
+		mes "照理说热热的才是正常，但实际上并非如此!";
 		next;
-		mes "[Slayer Kid]";
-		mes "I left home three years ago, and have been searching for their secret base ever since...";
-		mes "Are they really that invisible?!";
+		mes "[蒙力]";
+		mes "理由是梦罗克沙漠的沙子因导热性很差的关系，当坐下来休息时... 屁股只是有些暖和而已";
 		next;
-		mes "[Slayer Kid]";
-		mes "Well.. Maybe it'd too late now..";
-		mes "Now that the whole town's destroyed... I don't even care what happenes next...";
+		mes "[蒙力]";
+		mes "所以大家都才可以在沙漠正中央处恢复HP和 SP";
+		next;
+		mes "[蒙力]";
+		mes "现在回想起来唯独梦罗克地区的平均温度高的原因，也许是这里魔王被封印的关系吧";
 		close;
 	case 2:
-		mes "[Slayer Kid]";
-		mes "You know what...";
-		mes "It seemed to be impossible to find.";
+		mes "[蒙力]";
+		mes "恢复疲劳!";
+		mes "那是所有药水们的期望!";
+		mes "尤其红色药水即使只有微量的恢复效果，但因低廉与重量轻的特性，一直颇受大家的欢迎";
 		next;
-		mes "[Slayer Kid]";
-		mes "Well, I hear that if you leave this town and go 2 maps east, and then 2 maps South, you should be able to find it..";
-		next;
-		mes "[Slayer Kid]";
-		mes "The 'Mirage Tower,' the head building of Sograt Desert, is supposed to appear in this awesome sandstorm! But, I still haven't found it.";
-		next;
-		mes "[Slayer Kid]";
-		mes "If you find them, and the clan master thinks you're qualified, you can become an Assassin! Or, at least, I think..";
-		next;
-		mes "[Slayer Kid]";
-		mes "And I hear the coolest Assassin of them all is the Assassin Cross! But, that's even a bigger mystery~ You won't be able to see them unless you're a great thief!";
-		next;
-		mes "[Slayer Kid]";
-		mes "But then... What the hell were they doing when Morroc was destroyed?!!!";
+		mes "[蒙力]";
+		mes "虽想跳入金字塔附近的绿洲后喝一瓶清凉的药水...";
+		mes "但目前的状况并不允许...";
 		close;
 	case 3:
-		mes "[Slayer Kid]";
-		mes "Assassin is one of the advanced jobs for Thief, and specializes in fighting with Neutral and Poison property attacks.";
+		mes "[蒙力]";
+		mes "把'大嘴鸟魔物蛋'打破时偶尔会出来'牛奶'，";
+		mes "很纳闷为何牛奶会从鸟蛋中蹦出来呢...";
 		next;
-		mes "[Slayer Kid]";
-		mes "They're also very sneaky! I hear that they're able to cloak so that no one can see them!";
-		next;
-		mes "[Slayer Kid]";
-		mes "But then... What the hell were they doing when Morroc was destroyed?!!!";
+		mes "[蒙力]";
+		mes "从蛋里竟会冒出'牛奶'来...";
+		mes "太不可思议了...";
+		mes "这都是灾后的后遗症吧...";
 		close;
 	}
 }
 
-moc_ruins,173,141,4	script	Dimitri#moc	49,{
-	mes "[Dimitri]";
-	mes "The desert of Morroc has the highest average temperature in Midgard. You might as well think twice before you sit on the sand in the middle of the desert, cause your ass will be toasted.";
+moc_ruins,174,120,4	script	苍蝇叔叔#07rhea_27	54,{
+	mes "[麻尼]";
+	mes "呃，呜呜呜呜";
 	next;
-	switch(select("About the desert sands:About the remedy for Fatigue:End Conversation")) {
+	mes "[麻尼]";
+	mes "我... 看到了... 沙漠苍蝇之王'龙蝇'竟然一瞬间化为灰烬的景况...";
+	next;
+	mes "[麻尼]";
+	mes "这世界到底是怎么了呢? 我们能生存下来吗?";
+	next;
+	switch(select("龙... 龙蝇?!")) {
 	case 1:
-		mes "[Dimitri]";
-		mes "......What I mean is that...";
-		mes "It seems like it should be all burnt, but it's not!";
+		mes "[麻尼]";
+		mes "本村落东北方有只与众不同的苍蝇!";
+		mes "它的名字是沙漠苍蝇们的大王'龙蝇'!";
 		next;
-		mes "[Dimitri]";
-		mes "You can sit down and take a rest whenever you need to and your ass won't burn. I guess the Morroc sand doesn't conduct heat as much as it should.";
+		mes "[麻尼]";
+		mes "龙蝇比其它沙漠上的首领苍蝇有着更大的战斗力";
 		next;
-		mes "[Dimitri]";
-		mes "That's why everyone could recover the HP and SP in the middle of desert.";
+		mes "[麻尼]";
+		mes "且有较低机率会掉落叫做'发夹'的珍贵宝物...";
 		next;
-		mes "[Dimitri]";
-		mes "Now I come to think of it, maybe the reason why Morroc has exceptionally high average temperature is because that Satan is sealed within.";
+		mes "[麻尼]";
+		mes "对了，你不觉得魔王梦罗克冷酷无情吗?";
+		mes "甚至连与人类为敌的魔物们也都不放过";
+		next;
+		mes "[麻尼]";
+		mes "如此惨忍的魔王竟然复活了，我们是否大祸临头了啊!";
+		close;
+	}
+}
+
+// Morroc Field
+//============================================================
+moc_fild16,199,212,4	script	资深刺客#moc	55,{
+	mes "[何西]";
+	mes "刺客！！";
+	mes "要成为好的刺客 必须要锻炼出一股杀气";
+	mes "但是，当发现要暗杀的对象时 必须要隐匿自己的杀气，以防对方察觉";
+	mes "有的人，已经锻炼出可以察觉周围是否有杀气";
+	mes "这是一种可以锻炼的反应";
+	next;
+	if (select("刺客的定义:结束对话") == 1) {
+		mes "[何西]";
+		mes "我把我的经验分享给你";
+		mes "你听看看";
+		mes "刺客必须泯灭人性";
+		mes "这是入门";
+		mes "但是，却又是最难做到的";
+		mes "我希望你能做到";
+		next;
+		mes "[何西]";
+		mes "还有一点是";
+		mes "刺客公会";
+		mes "是个神秘的组织";
+		mes "刺客公会不只是杀杀人而已";
+		mes "还有一个任务";
+		next;
+		mes "[何西]";
+		mes "这个任务就是";
+		mes "利用本身的技能";
+		mes "消灭魔物，还有情报搜集";
+		close;
+	}
+	mes "[何西]";
+	mes "很久以前";
+	mes "我曾经犯了一个错误";
+	mes "我在吃完羊肉麻辣锅后";
+	mes "跑去执行任务";
+	mes "天啊！我一想到就觉得心悸犹存";
+	mes "那时候";
+	mes "我去执行暗杀魔物任务";
+	next;
+	mes "[何西]";
+	mes "当我到达任务地点时";
+	mes "身体也隐藏起来";
+	mes "却发现";
+	mes "魔物竟然能发觉我的存在";
+	mes "那时候我拚命隐藏";
+	mes "它却能一再的发现我";
+	mes "我吓坏了";
+	next;
+	mes "[何西]";
+	mes "那次以后我就警惕在心";
+	mes "希望你能记得";
+	mes "有的魔物嗅觉很灵敏";
+	mes "你一定要小心";
+	close;
+}
+//Assassin#moc
+moc_fild16,211,254,4	script	新进刺客#moc	118,{
+	mes "[帝毕]";
+	mes "盗贼的进阶职业就是刺客";
+	mes "你转职后就会发现";
+	mes "你可以使用不同的武器了";
+	mes "很惊讶吧";
+	mes "拳刃跟短剑";
+	mes "攻击利可是有差异的喔";
+	mes "而且，拳刃看起来多帅啊";
+	next;
+	switch(select("拳刃类攻击特性:短剑类攻击特性:结束对话")) {
+	case 1:
+		mes "[帝毕]";
+		mes "在沙漠之城　梦罗克";
+		mes "在武器店里可以购买到";
+		mes "拳刃";
+		mes "拳刃是种双手武器";
+		mes "它插在双手上";
+		mes "是种适合快速砍杀技巧的武器";
+		next;
+		mes "[帝毕]";
+		mes "右手修练";
+		mes "可以补足较弱左手臂的力量";
+		mes "以加强攻击力";
+		mes "还有，因为是双手武器";
+		mes "所以不能使用盾牌之类的防具";
+		mes "你懂了吗？";
+		next;
+		mes "[帝毕]";
+		mes "装备上拳刃后";
+		mes "可以快速攻击敌人的技能";
+		mes "就是：音速投掷";
+		mes "嘿嘿";
+		mes "这招只有装备拳刃才可以使用喔";
+		mes "特别吧";
+		next;
+		mes "[帝毕]";
+		mes "音速投掷";
+		mes "你会使用？？";
+		mes "我看是你想太多了";
+		mes "那个必须先学会某项技能";
+		mes "然后，还必须修练那项技能到一定的境界";
+		mes "，才能使用的";
+		next;
+		mes "[帝毕]";
+		mes "要修练哪项技能才会出现？？";
+		mes "抱歉，我也不知道，那是一个刺客中的一";
+		mes "个佼佼者所创造出来的梦幻技能";
+		mes "我只知道它是无属性的物理性攻击技能";
 		close;
 	case 2:
-		mes "[Dimitri]";
-		mes "Recovery!";
-		mes "That's what the potions are for!";
-		mes "Red Potions have become steadily popular since they're so affordable, even though they only recover a little bit of HP.";
+		mes "[帝毕]";
+		mes "什么是短剑类攻击特性";
+		mes "你有够笨的";
+		mes "就是两手拿不同的短剑";
+		mes "懂了吧";
+		mes "是两手拿不同的短剑！！记得";
+		mes "算了";
+		mes "没看过那么笨的人";
 		next;
-		mes "[Dimitri]";
-		mes "Try this bottle of ice-cold potion when you go into the Oasis around the Pyramid...";
-		mes "Yeah.. you want this bad.. but the situation's not good...";
+		mes "[帝毕]";
+		mes "因为刺客";
+		mes "必须使用比较好隐藏的武器";
+		mes "所以短剑类是很好的选择";
+		mes "你不要小看这类武器喔";
+		mes "他们的攻击力";
+		mes "好好的搭配";
+		mes "可是具有高水准的表现";
+		next;
+		mes "[帝毕]";
+		mes "还有";
+		mes "装备短剑也许还可以装备盾牌类的防具";
+		mes "这点我就不清楚了";
+		mes "这请你自己去试看看了";
+		next;
+		mes "[帝毕]";
+		mes "刺客的武器选择";
+		mes "必须端看个人喜爱";
+		mes "没有人可以强迫你的选择";
+		mes "好好的运用你的智慧";
+		mes "创造出你的个人风格吧";
+		mes "哈哈哈哈";
 		close;
 	case 3:
-		mes "[Dimitri]";
-		mes "Sometimes 'Milk' comes out of 'PecoPeco's Egg.' Now..";
-		mes "I'm not sure how the cow's milk comes out of some bird's egg...";
-		next;
-		mes "[Dimitri]";
-		mes "I may not be a man of science, but how is that even possible?.";
-		mes "I mean, did the Milk come prepackaged with the egg, or did it get in there somehow?..";
-		mes "Oh, whatever.. It's just not the time for this.";
-		close;
-	}
-}
-
-moc_ruins,174,120,4	script	Fly Man#moc	54,{
-	mes "[Armani]";
-	mes "Ooh, Woooowwww.";
-	next;
-	mes "[Armani]";
-	mes "I... I really saw it.... The Fly Lord gets shattered in pieces in a blink of an eye...";
-	next;
-	mes "[Armani]";
-	mes "What is really going on? Would it be possible for us to survive??";
-	next;
-	switch(select("The Fly Lord?!")) {
-	case 1:
-		mes "[Armani]";
-		mes "Yes, yes! I'm talking about the Dragon Fly, master of all flies!!";
-		mes "The Dragon Fly is a special one that stays in the North-east of the town.";
-		next;
-		mes "[Armani]";
-		mes "It's so much stronger than the other flies.";
-		next;
-		mes "[Armani]";
-		mes "And when you kill it, there's even a chance that you might earn a ^880000Clip^000000 item!";
-		next;
-		mes "[Armani]";
-		mes "Anyways, don't you think the Satan Morroc is so cruel?";
-		mes "They may not be the same kind, but still isn't it cruel to take that monster's soul with a single blow?";
-		next;
-		mes "[Armani]";
-		mes "What should we do when this dreadful evil has come to life again!";
-		close;
-	}
-}
-
-moc_ruins,173,70,4	script	Uncle Morroc#moc	48,{
-	mes "[Phlanette]";
-	mes "Morroc is located in an extremely dry region, surrounded by desert.";
-	mes "No place in the world is as hot as Morroc.";
-	next;
-	mes "[Phlanette]";
-	mes "I have a hunch that this hot and dry climate in Morroc is because of that Satan sealed deeper underground for so long.";
-	next;
-	switch(select("Tell me about the desert.:Quit Conversation")) {
-	case 1:
-		mes "[Phlanette]";
-		mes "Um.. I'll briefly tell ya about the desert if you want to know.";
-		mes "Due to low annual rainfall, low humidity and high evaporation rate, little vegetation can be found in the desert.";
-		next;
-		mes "[Phlanette]";
-		mes "Nonetheless, there are a few hardy plants that can survive and grow in the desert.";
-		next;
-		mes "[Phlanette]";
-		mes "Unfortunately some of those plants growing around Morroc have been mutated into monsters.";
-		mes "One of those is Muka, the mutated cactus..";
-		next;
-		mes "[Phlanette]";
-		mes "However, now that the Satan has revived, no one's sure of what changes would be made in the life cycles of Morroc.";
-		close;
-	case 2:
-		mes "[Phlanette]";
-		mes "Here and there!";
-		mes "Sand everywhere...";
-		mes "Oh, I curse you, the desert of Morroc!!";
-		mes "Damn you!";
-		next;
-		mes "[Phlanette]";
-		mes "But our of all this hatred, I didn't want it to be completely destroyed...";
-		next;
-		mes "[Phlanette]";
-		mes "How come it's never possible to know its value while it's still around?";
-		close;
-	}
-}
-
-moc_fild16,199,212,4	script	 Uncle Assassin#moc	55,{
-	mes "[Hashisid]";
-	mes "...Assassins are trained";
-	mes "to approach their enemies steathily,";
-	mes " as well as";
-	mes "to shroad their intent.";
-	mes "For this purpose,";
-	mes "we never";
-	mes "look our targets in the eye.";
-	next;
-	switch(select("Notion of Assassin:Quit Conversation")) {
-	case 1:
-		mes "[Hashisid]";
-		mes "Well, then..";
-		mes "I'll tell you what it is!";
-		mes "Assassins ..";
-		mes "may be commonly known as";
-		mes "infiltrators and murderers";
-		mes "who kill without remorse.";
-		next;
-		mes "[Hashisid]";
-		mes "In actuality,";
-		mes "the Assassin clan";
-		mes "is forbidden to harm innocent people,";
-		mes "or at least,";
-		mes "not without good reason";
-		next;
-		mes "[Hashisid]";
-		mes "Our true directive is to assassinate evil creatures,";
-		mes "and to use our stealth to gather intelligence";
-		mes "for the good of all Rune-Midgard.";
-		close;
-	case 2:
-		mes "[Hashisid]";
-		mes "Once upon a time,";
-		mes "our ancestors would";
-		mes "smoke tobacco called 'Hashish'";
-		mes "before performing their duties.";
-		mes "However, we no longer do so,";
-		mes "since insect or animal monsters are";
-		mes "very senstive to the smell.";
-		next;
-		mes "[Hashisid]";
-		mes "We strictly prohibit";
-		mes "smoking or eating";
-		mes "anything that has";
-		mes "strong smell...";
-		mes "If you ever,";
-		mes "try eating those";
-		mes "smelly garlic bread with spicies,";
-		next;
-		mes "[Hashisid]";
-		mes "and try hiding against";
-		mes "those wild boars or wolves,";
-		mes "believe me,";
-		mes "you'll be ripped in pieces.";
-		close;
-	}
-}
-
-moc_fild16,211,254,4	script	Assassin#07rhea_30	118,{
-	mes "[La Conte]";
-	mes "Once Thiefs are promoted";
-	mes "to Assassins, which is very professional";
-	mes "they will be able to vary their battle style.";
-	mes "their battle style.";
-	mes "There are 2 main battle styles available to Assassins.";
-	mes "They may either wield dual daggers,";
-	mes "or fight with a set of Katars!";
-	next;
-	switch(select("Specialty of Katar:Specialty of Dual Daggers:Quit Conversation")) {
-	case 1:
-		mes "[La Conte]";
-		mes "A set of Katars is";
-		mes "worn on both of the hands,";
-		mes "and allows Assassins";
-		mes "to quickly slash their enemies.";
-		mes "Anyone can buy a basic set of Katars";
-		mes "in Morroc somewhere.";
-		mes "Of course, only Assassins can use them.";
-		next;
-		mes "[La Conte]";
-		mes "The right Katar";
-		mes "usually does more damage,";
-		mes "while the left Katar";
-		mes "is used for the follow-through.";
-		mes "But since Katars are equipped on both hands,";
-		mes "you can't equip a shield or an extra weapon.";
-		next;
-		mes "[La Conte]";
-		mes "Compared to Dual Daggers,";
-		mes "Katars have faster attack speed.";
-		mes "Also, the ^663399Sonic Blow^000000 skill";
-		mes "can only be used with Katars.";
-		next;
-		mes "[La Conte]";
-		mes "You can learn the Sonic Blow skill";
-		mes "at ^663399Level 4 Katar Mastery^000000.";
-		mes "If you're an Assassin,";
-		mes "it's a handy skill to know.";
-		next;
-		mes "[La Conte]";
-		mes "Sonic Blow is the skill";
-		mes "that inflicts 8 contineous hits of";
-		mes "Neutral damage.";
-		close;
-	case 2:
-		mes "[La Conte]";
-		mes "Dual Daggers";
-		mes "enables you to equip";
-		mes "2 different kinds of Daggers";
-		mes "at the same time.";
-		mes "Of course,";
-		mes "there are other weapons you can equip";
-		mes "aside from daggers,";
-		next;
-		mes "[La Conte]";
-		mes "but they'll probably";
-		mes "be lacking in attack speed.";
-		mes "So I suggest daggers.";
-		mes "Also, without a dagger";
-		mes "in your right hand,";
-		mes " you won't be able to use";
-		mes "the ^663399Double Attack^000000 skill.";
-		next;
-		mes "[La Conte]";
-		mes "So with Dual Daggers,";
-		mes "you would have a double attack";
-		mes "with the right hand dagger,";
-		mes " and a single attack with your left hand weapon.";
-		next;
-		mes "[La Conte]";
-		mes "So that's three strikes";
-		mes "in one blow!";
-		mes "You can't argue";
-		mes "against that kind of damage!";
-		close;
-	case 3:
-		mes "[La Conte]";
-		mes "Hopefully";
-		mes "you will make good use of";
-		mes "the weapons at your disposal.";
-		mes "Remember";
-		mes "the importance of";
-		mes "strategy and";
-		mes "planning your attacks.";
+		mes "[帝毕]";
+		mes "你真的不想听吗？";
+		mes "反正，我也认为你听不懂";
+		mes "我所要说的太深奥";
+		mes "去磨练过后，增长你的见识";
+		mes "再回来找我吧";
+		mes "我会在这里等你的";
+		mes "哈哈哈哈";
 		close;
 	}
 }
 
 // Other NPCs
-//============================================================
-//Bartender
-/*
-morocc_in,166,76,3	script	Bartender#02	46,{
-	mes "[Bartender]";
-	mes "What are you going to order?";
+//Bartender#02
+morocc_in,166,76,3	script	酒保#02	46,{
+	mes "[酒保]";
+	mes "请点饮料吧?";
 	next;
-	switch(select("Tropical Sograt:Vemillion the Beach:Nothing.")) {
+	switch(select("热带苏格拉特饮料:朱红色海滩饮料:取消")) {
 	case 1:
-		if (Zeny >= 1000 ) {
-			set Zeny, Zeny-1000;
+		if (zeny >= 1000 ) {
+			set zeny,zeny-1000;
 			getitem 12112,1;
-			mes "[Bartender]";
-			mes "Here you go.";
-			mes "Fruits are major ingredients,";
-			mes "but don't drink too much.";
+			mes "[酒保]";
+			mes "在这里,";
+			mes "虽然主要成分是果汁,";
+			mes "不过不要过量的饮用啊";
 			close;
 		}
 		break;
 	case 2:
-		if (Zeny >= 1000 ) {
-			set Zeny, Zeny-1000;
+		if (zeny >= 1000 ) {
+			set zeny,zeny-1000;
 			getitem 12113,1;
-			mes "[Bartender]";
-			mes "Here you go.";
-			mes "but don't drink too much.";
+			mes "[酒保]";
+			mes "在这里,";
+			mes "不过不要过量的饮用啊";
 			close;
 		}
 		break;
 	case 3:
-		mes "[Bartender]";
-		mes "Hmm...";
+		mes "[酒保]";
+		mes "哼...";
 		close;
 	}
-	mes "[Bartender]";
-	mes "Are you asking me to give it for free?";
-	mes "You are one crazy person.";
-	mes "Don't even think about drinking if you don't have 1,000 zeny.";
+	mes "[酒保]";
+	mes ".... 你有能力付得起吗?";
+	mes "请你确认一下皮夹之后再来点吧,";
+	mes "一杯要 1000金币哟";
 	close;
 }
-*/
 
-// Assassin Guild Guards
+// Lvl 4 weapon quest related NPC ================================
+//村人#06
+morocc,289,230,3	script	村人#06	92,{
+	mes "[村人]";
+	mes "跟死亡的人见面，";
+	mes "基本上应该是不可能的事情，";
+	mes "假设真的可以见面的话，";
+	mes "死亡者的灵魂，";
+	mes "跟活着的时候相比，";
+	mes "是完全没有任何记忆存在";
+	next;
+	mes "[村人]";
+	mes "如果可以让他感受到，";
+	mes "生前常接触到的事情的话，";
+	mes "会有让他重新恢复记忆的可能性...";
+	mes "这个对死亡者，";
+	mes "也包括这个事项吗?";
+	close;
+}
+
+//==================================================
+// 刺客公会守卫 ( 官方不存在 )
 //===================================================
-moc_fild16,195,281,4	script	Assassin Guardian#1::SinGuard	707,{
-	mes "[Assassin Guardian]";
+//Assassin Guardian#1::SinGuard
+/*
+moc_fild16,195,281,5	script	刺客公会守卫#1::SinGuard	707,{
+	mes "[刺客公会守卫]";
 	if(BaseJob == Job_Assassin) {
-		mes "Welcome.";
+		mes "你好.";
 		close;
 	}
 	set .@temp, rand(1,4);
 	if(.@temp == 1) mes "........";
-	if(.@temp == 2) mes "Hmmm..........";
-	if(.@temp == 3) mes "Hmmm... you shouldn't be here.....";
-	if(.@temp == 4) mes "You're trespassing on forbidden grounds.......";
+	if(.@temp == 2) mes "唔..........";
+	if(.@temp == 3) mes "唔... 你不该出现在这里.....";
+	if(.@temp == 4) mes "此处不适合你逗留.......";
 	close;
 }
 
-moc_fild16,204,281,4	duplicate(SinGuard)	Assassin Guardian#2	707
-moc_fild16,207,281,4	duplicate(SinGuard)	Assassin Guardian#3	707
-moc_fild16,216,281,4	duplicate(SinGuard)	Assassin Guardian#4	707
-moc_fild16,200,231,4	duplicate(SinGuard)	Assassin Guardian#5	707
-moc_fild16,211,231,4	duplicate(SinGuard)	Assassin Guardian#6	707
-moc_fild16,200,257,4	duplicate(SinGuard)	Assassin Guardian#7	707
-moc_fild16,211,257,4	duplicate(SinGuard)	Assassin Guardian#8	707
-
+moc_fild16,204,281,4	duplicate(SinGuard)	刺客公会守卫#2	707
+moc_fild16,207,281,5	duplicate(SinGuard)	刺客公会守卫#3	707
+moc_fild16,216,281,4	duplicate(SinGuard)	刺客公会守卫#4	707
+moc_fild16,200,231,4	duplicate(SinGuard)	刺客公会守卫#5	707
+moc_fild16,211,231,4	duplicate(SinGuard)	刺客公会守卫#6	707
+moc_fild16,200,257,5	duplicate(SinGuard)	刺客公会守卫#7	707
+moc_fild16,211,257,4	duplicate(SinGuard)	刺客公会守卫#8	707
+*/

@@ -1,15 +1,23 @@
-//===== rAthena Script =======================================
+//============================================================
+//= rAthenaCN [城镇人员]汉化脚本 [ www.rAthenaCN.com ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
+//===== rAthena Script ======================================= 
 //= Amatsu Town
-//===== By: ==================================================
+//===== By: ================================================== 
 //= rAthena Dev Team
-//===== Current Version: =====================================
+//===== Current Version: ===================================== 
 //= 1.4
-//===== Compatible With: =====================================
-//= rAthena Project
-//===== Description: =========================================
+//===== Compatible With: ===================================== 
+//= rAthena SVN
+//===== Description: ========================================= 
 //= [Official Conversion]
 //= Amatsu Town Script
-//===== Additional Comments: =================================
+//===== Additional Comments: ================================= 
 //= 1.3 Rescripted to Aegis 10.3 Standards. [L0ne_W0lf]
 //=     Moved elemental stone trader to 'elemental_trader.txt'
 //= 1.4 Moved Alberta NPC to pre-re/re paths. [Euphy]
@@ -18,124 +26,120 @@
 // Amatsu Transportation
 //============================================================
 -	script	::Sea_Captain_amatsu	-1,{
-	mes "[Walter Moers]";
-	mes "Hey, there.";
-	mes "Have you ever heard that there";
-	mes "are totally different countries";
-	mes "than the Rune-Midgard Kingdom?";
+	mes "[瓦勒特 摩尔斯]";
+	mes Sex?"嘿, 那边的小伙子~":"嘿, 那边的小姑娘~";
+	mes "你可曾听说过，在卢恩米德加尔德王国之外，有着环境、习俗完全不同的城市呢？";
 	next;
-	switch(select("About Amatsu...:Go to Amatsu:Cancel")) {
+	switch(select("询问关于天津町的事情...:我想前往天津町:结束对话")) {
 	case 1:
-		mes "[Walter Moers]";
-		mes "I heard that a drifting ship";
-		mes "accidentally discovered it...";
-		mes "The ship was totally destroyed";
-		mes "by a raging storm in heavy fog.";
-		mes " ";
+		mes "[瓦勒特 摩尔斯]";
+		mes "据说，有一位船夫迷失航路，";
+		mes "在漂流的过程中";
+		mes "无预期的被发现了...";
+		mes "在强大的暴风雨和迷雾中";
+		mes "船一定是遭殃的";
 		next;
-		mes "[Walter Moers]";
-		mes "Anyway, the ship was wrecked";
-		mes "on the beach. It was there";
-		mes "he arrived at a town called Amatsu.";
+		mes "[瓦勒特 摩尔斯]";
+		mes "反正遭沉船后";
+		mes "所到达的村落";
+		mes "就叫做天津町，";
+		mes "那个人被那边的人治疗之后痊愈，";
+		mes "后来在那边辛苦的工作，";
+		mes "据说完成了一张海图?";
 		next;
-		mes "[Walter Moers]";
-		mes "The towners took pity on him";
-		mes "and took care of his wounds.";
-		mes "He lived there until he finished making a map.";
+		mes "[瓦勒特 摩尔斯]";
+		mes "他回来后很快就就死掉了，";
+		mes "不过海图确实有传到特力斯坦 3世手上，";
+		mes "后来国王下令";
+		mes "只要是有人能开辟，";
+		mes "通往天津町航路的人就会有奖赏，";
+		mes "并且把海图的影印本发给大家了";
 		next;
-		mes "[Walter Moers]";
-		mes "He passed away when he returned";
-		mes "to Rune-Midgard. Fortunately,";
-		mes "the map was given to our king, Tristan III.";
+		mes "[瓦勒特 摩尔斯]";
+		mes "人们期望的是，并不是奖赏，";
+		mes "而是先占据和其它国家的贸易权";
+		mes "就这样赚取的利益，是无法想像的";
+		mes "所以说有很多冒险家和勇敢的船长，";
+		mes "拿着海图";
+		mes "朝向大海挑战去了...";
 		next;
-		mes "[Walter Moers]";
-		mes "King Tristan III announced";
-		mes "that he would reward any";
-		mes "person brave enough to venture to Amatsu, and spread copies of this map.";
+		mes "[瓦勒特 摩尔斯]";
+		mes "不过全部都失败了!";
+		mes "要面对巨大的海流和气象变化，";
+		mes "对航海术和大海";
+		mes "要有较多的经验才行，不过全部都为了";
+		mes "奖赏和占据贸易权瞎了眼，";
+		mes "都没有做好完全的准备";
 		next;
-		mes "[Walter Moers]";
-		mes "Many brave and adventurous";
-		mes "sea captains took the";
-		mes "challenge. Great fortune could";
-		mes "be made in trade with Amatsu, as well as the rewards from King Tristan III...";
+		mes "[瓦勒特 摩尔斯]";
+		mes "就在这个时候有人发现了，";
+		mes "通往天津町的完整的航路...";
+		mes "那个人就是我，发特 摩俄斯先生";
+		mes "就是第一次开始和天津町做交易的人!";
+		mes "哈哈哈! 就是这些话了";
 		next;
-		mes "[Walter Moers]";
-		mes "However, they all failed!";
-		mes "To overcome various currents";
-		mes "and bad weather, lots of";
-		mes "experience is required. But they were all blinded by their greed...";
-		next;
-		mes "[Walter Moers]";
-		mes "Finally, a great man discovered";
-		mes "the perfect sealane to Amatsu...";
-		mes "Right! That is me. Sir Walter";
-		mes "Moers. I started the trade with Amatsu! Hahaha! Well, that's all about Amatsu.";
-		next;
-		mes "[Walter Moers]";
-		mes "I made good money from trades";
-		mes "for years, and now I'm interested";
-		mes "in tourism. If you want to go to Amatsu, let me know~!";
+		mes "[瓦勒特 摩尔斯]";
+		mes "在这几年里在交易上赚了一点钱，";
+		mes "现在也试着对观光业";
+		mes "做一番投资，";
+		mes "假如想要去天津町的话";
+		mes "就对我说吧...!";
 		close;
 	case 2:
-		mes "[Walter Moers]";
-		mes "Oh yeah? It's a long way to";
-		mes "Amatsu. That's why we are";
-		mes "charging a fare. You don't think that crossing oceans and currents is easy, do you?";
+		mes "[瓦勒特 摩尔斯]";
+		mes "噢，是吗？";
+		mes "去天津町可是有很长一段路要走的！";
+		mes "这也是为什么需要收取船票费的原因。";
+		mes "你不会认为跨越海洋和穿越洋流是件很容易的事情，对吗？";
 		next;
-		mes "[Walter Moers]";
-		mes "10,000 zeny for a round-trip! I've";
-		mes "got a stately room in a sturdy and";
-		mes "safe trade ship for you. It is a ";
-		mes "reasonable fare when you consider";
-		mes "that this isn't a one way trip.";
+		mes "[瓦勒特 摩尔斯]";
+		mes "10,000 金币包送你来回！";
+		mes "我的贸易船很安全，上面一个舒适房间可以让你在到达之前好好休息一下。";
+		mes "另外再次强调：这不是一张单程票，所以价格是很合理的。";
 		next;
-		mes "[Walter Moers]";
-		mes "Shall we go now? You didn't forget";
-		mes "the fare, right? Let's go.";
+		mes "[瓦勒特 摩尔斯]";
+		mes "我们现在就出发吗？";
+		mes "你应该没忘记带买船票的钱吧？";
 		next;
-		if (select("All Aboard!:Cancel") == 1) {
+		if (select("出发!:取消") == 1) {
 			if (Zeny > 9999) {
-				mes "[Walter Moers]";
-				mes "Alright, I will start the engine!";
+				mes "[瓦勒特 摩尔斯]";
+				mes "好滴，我发动引擎啦，请坐好！";
 				close2;
-				set Zeny, Zeny-10000;
+				set zeny,zeny-10000;
 				warp "amatsu",197,83;
 				end;
 			}
-			mes "[Walter Moers]";
-			mes "Were you even listening to me?";
-			mes "10,000 zeny. If you got";
-			mes "nothing, find some treasure";
-			mes "somewhere, like in a wrecked ship...Show me the money!";
+			mes "[瓦勒特 摩尔斯]";
+			mes "你到底有没有听我说啊？";
+			mes "旅费是 10,000 金币。";
+			mes "如果你什么都没有，";
+			mes "那么去别的地方寻找一些宝藏吧，";
+			mes "比如失事的沉船...无论如何，";
+			mes "没钱我是不会带你去天津町的！";
 			close;
 		}
-		mes "[Walter Moers]";
-		mes "If you are an adventurer,";
-		mes "this is a great chance";
-		mes "to experience a different culture...Well, it is up to you.";
 		close;
 	case 3:
-		mes "[Walter Moers]";
-		mes "If you are tired of your daily";
-		mes "life, take a trip to a distant";
-		mes "country across the ocean.";
-		mes "Someplace like, oh I don't know, Amatsu~";
+		mes "[瓦勒特 摩尔斯]";
+		mes "如果你厌倦了自己的日常生活，";
+		mes "想要去大洋彼岸的国家做旅行~";
+		mes "那么我想天津町是个不错的选择。";
 		close;
 	}
 }
 
-amatsu,194,79,5	script	Sea Captain#ama2	709,{
-	mes "[Walter Moers]";
-	mes "You came... Did you enjoy";
-	mes "your trip to Amatsu...?";
-	mes "Alright, I will take you";
-	mes "back to Alberta.";
+amatsu,194,79,5	script	贸易船 船长#ama2	709,{
+	mes "[瓦勒特 摩尔斯]";
+	mes "你来啦... 怎么样？有好好享受";
+	mes "你在天津町的旅程吗...？";
+	mes "如果玩腻了，我能送你回到艾尔贝塔。";
 	next;
-	if (select("Back to Alberta:Cancel") == 1) {
-		mes "[Walter Moers]";
-		mes "Let's go then. You must have";
-		mes "so many things to talk about,";
-		mes "right? All aboard now.";
+	if (select("我想回到艾尔贝塔:结束对话") == 1) {
+		mes "[瓦勒特 摩尔斯]";
+		mes "那我们出发吧。你这一路应该有很多";
+		mes "有趣的事情可以和我们说说，对么？";
+		mes "好啦，开船咯~";
 		close2;
 		if (checkre(0))
 			warp "alberta",244,72;
@@ -143,259 +147,246 @@ amatsu,194,79,5	script	Sea Captain#ama2	709,{
 			warp "alberta",243,91;
 		end;
 	}
-	mes "[Walter Moers]";
-	mes "Well, take your time.";
-	mes "The ship to Alberta is";
-	mes "always ready to depart...";
+	mes "[瓦勒特 摩尔斯]";
+	mes "好吧，如你所愿~";
+	mes "开往艾尔贝塔的船已经准备好随时起航...";
 	close;
 }
 
 // Generic Amatsu NPCs
-//============================================================
-amatsu,230,160,3	script	Well-side Maiden#ama	757,{
-	mes "[Yuuko]";
-	mes "I usually come to this well to";
-	mes "draw water, but never when it's";
-	mes "foggy or rainy. For some reason";
-	mes "whenever the weather is a";
-	mes "certain way, I feel like...";
+//=====================================================
+amatsu,230,160,3	script	井边小姐#ama	757,{
+	mes "[优舞可]";
+	mes "虽然每天都会来提水";
+	mes "不过有雾的天气或下雨天";
+	mes "我不会出现在这附近的";
 	next;
-	mes "[Yuuko]";
-	mes "...someone...or some thing is";
-	mes "struggling to crawl out from";
-	mes "the bottom of this well...";
-	mes "It really gives me the creeps.";
+	mes "[优舞可]";
+	mes "好像在这井底深处有着";
+	mes "谁在采着井墙";
+	mes "爬上来的感觉";
+	mes "让人起鸡皮疙瘩";
 	close;
 }
-
-amatsu,179,107,4	script	John#ama	86,{
-	mes "[John]";
-	mes "Yo~";
-	mes "You're not from around here.";
-	mes "Heh, another outsider.";
-	mes "Just like me...";
+	
+amatsu,179,107,4	script	佑翰#ama	86,{
+	mes "[佑翰]";
+	mes "唷";
+	mes "你也好跟我一样";
+	mes "不是这里出生的啊";
 	next;
-	mes "[John]";
-	mes "It's been five long years";
-	mes "since I've started doing";
-	mes "business here...";
+	mes "[佑翰]";
+	mes "我在这个位子";
+	mes "作生意，也快有5年了";
 	next;
-	mes "[John]";
-	mes "Af first, I thought, 'What";
-	mes "a great chance!' when the";
-	mes "trade between the Rune-Midgard";
-	mes "Kingdom and Amatsu started.";
+	mes "卢恩-米德加兹王国以及";
+	mes "和这里天津町之间";
+	mes "第一认左了交易时";
+	mes "我就想到'机会包了'!";
 	next;
-	mes "[John]";
-	mes "I wanted to do something great";
-	mes "and make the most of this";
-	mes "new opportunity.";
+	mes "[佑翰]";
+	mes "想要开始做一些";
+	mes "跟别人不一样的事情";
 	next;
-	mes "[John]";
-	mes "And so, I decided to go to";
-	mes "Amatsu so I could learn to make";
-	mes "Amatsu cuisine. Then, I could";
-	mes "return to my hometown and make";
-	mes "this exotic food for everyone.";
+	mes "[佑翰]";
+	mes "所以曾经下定决心";
+	mes "来到这天津町";
+	mes "学会这里的料理";
+	mes "之后再回到故乡";
+	mes "让大家可以尝到特别的饮食";
 	next;
-	mes "[John]";
-	mes "But, I fell in love with Amatsu";
-	mes "and I ended up sticking around";
-	mes "here for the last five years.";
-	mes "During all that time, I've";
-	mes "been learning Amatsu cuisine,";
+	mes "[佑翰]";
+	mes "不过最后还是";
+	mes "就这样对这里有了感情，";
+	mes "5年后的现在";
+	mes "仍然待在这里";
 	next;
-	mes "[John]";
-	mes "and cooking these dishes for";
-	mes "the towners, and enjoying myself";
-	mes "by talking to the locals,";
-	mes "transfixed in this very spot.";
+	mes "[佑翰]";
+	mes "反正从那时开始就在这位子";
+	mes "跟村民聊东聊西的";
+	mes "放松心情";
 	next;
-	mes "[John]";
-	mes "But recently, across the street,";
-	mes "the Sushi Master opened his shop.";
-	mes "...";
-	mes "Now, my only customers are flies.";
+	mes "[佑翰]";
+	mes "不知何时从寿司名人";
+	mes "在对面开店之后";
+	mes "只看到苍蝇在这飞来飞去的";
 	next;
-	mes "[John]";
-	mes "I was hoping to fulfill my";
-	mes "dream of becoming a renowned chef";
-	mes "in Amatsu, but...";
-	mes "I guess it's over...";
+	mes "[佑翰]";
+	mes "这辈子，我人生的乐趣";
+	mes "是在这里找到的";
+	mes "现在看来也快要结束了..";
 	close;
 }
-
-amatsu,205,163,3	script	Mimi#ama	759,{
-	mes "[Mimi]";
-	mes "Puhuhu~!";
-	mes "Did you see Miss Amatsu near";
-	mes "the Harbor? Isn't she";
-	mes "preeeetty?";
+	
+amatsu,205,163,3	script	咪咪#ama	759,{
+	mes "[咪咪]";
+	mes "呼呼..";
+	mes "看到港口附近的，冠军天津町小姐了吗?";
+	mes "非常漂亮吧?";
 	next;
-	mes "[Mimi]";
-	mes "I'm going to enter the Miss";
-	mes "Amatsu Contest when I'm older.";
+	mes "[咪咪]";
+	mes "等我长大之后也要参加选美";
 	next;
-	mes "[Mimi]";
-	mes "I'm sure that I'm the prettiest";
-	mes "in this town but...";
-	mes "A lady can always use a little more makeup.";
+	mes "[咪咪]";
+	mes "虽然我觉得现在这个样子，也算是村里最漂亮的..";
+	mes "女人总是要精心打扮自己的，呼呼";
 	close;
 }
-
-amatsu,185,115,3	script	Drunken Man#ama	765,{
-	mes "[Kosake]";
-	mes "*Hiccup*...My wife is just like,";
-	mes "...like a man...*Hiccup*...";
-	mes "I'm going to really...*Hiccup*...not go home this time...Hiccup";
+	
+amatsu,185,115,3	script	喝醉酒的大叔#ama	765,{
+	mes "[酒助]";
+	mes "嗝..我这老太婆";
+	mes "只有力气最大..嗝..";
+	mes "我这次真的..嗝..决不会回家..嗝";
 	next;
-	if (select("Stop drinking and go home:Let's drink together") == 1) {
-		mes "[Kosake]";
-		mes "What?! Do you want me to get";
-		mes "hit by my wife's big fist?";
-		mes "That's right! I said 'big fist!'";
+	if(select("大叔不要再喝了，赶快回家吧:大叔我们一起喝吧!")==1) {
+		mes "[酒助]";
+		mes "什么?!";
+		mes "你叫我像我太太，被锅盖般的大手挨揍吗?";
+		mes "嗝..你没有看过是不知道的";
+		mes "我老婆年轻时";
+		mes "都用空手抓老虎的..";
 		next;
-		mes "[Kosake]";
-		mes "Sad to say, I married a woman";
-		mes "with man hands...";
-		mes "Big, strong hands that can kill a tiger.";
+		mes "[酒助]";
+		mes "我在克..克什么的村落";
+		mes "输了一点点，他就";
+		mes "可以把我打成这样..嗝";
 		next;
-		mes "[Druken Man]";
-		mes "It was in Ko...Koko-something";
-		mes "town. She hit me because I";
-		mes "lost some money...*Hiccup*";
-		next;
-		mes "[Druken Man]";
-		mes "Life~~ is~~ nothing~~~";
-		mes "What is zeny~~~~ ";
-		mes "*Hiccup*...... *Hiccup*.......";
-		mes ".......................";
-		mes "........Z.z..z...zzz...";
-		close;
+		mes "[酒助]";
+		mes "乏味~的~人生~";
+		mes "金币都是什么~~";
+		mes "嗝...嗝...";
+		mes "...............";
+		mes "......嗝.......";
 	}
-	mes "[Kosake]";
-	mes "Heh heh... nice lad...";
-	mes "But you know *Hiccup*";
-	mes "I can't give you any of mine! Heheheh...";
-	next;
-	mes "[Kosake]";
-	mes "If you buy me a drink, I will think about it...Hehehe...*Hiccup*..";
+	else {
+		mes "[酒助]";
+		mes "呵呵呵..是个好年轻人啊..";
+		mes "嗝..不过呢..嗝";
+		mes "不能把我的酒给你..嗝..";
+		next;
+		mes "[酒助]";
+		mes "如果你要请我喝酒的话我再考虑看看";
+		mes "呵呵..嗝..";
+	}
 	close;
 }
-
-amatsu,217,179,1	script	Grandma#ama	760,{
-	mes "[Hatsue]";
-	mes "I'm worried about my husband.";
-	mes "He lost a lot of money in some distant town today.";
+	
+amatsu,217,179,1	script	老太太#ama	760,{
+	mes "[初惠]";
+	mes "我老公太沉迷于赌博，真是令人担心啊";
+	mes "今天去了那遥远的村里，又是输了不少钱";
+	mes "回来..";
 	next;
-	mes "[Hatsue]";
-	mes "I got so mad at him, he ran off in";
-	mes "fear! I'm worried...what if he";
-	mes "went to the bar and starts drinking again? The man just doesn't have any backbone. *Phew*";
+	mes "[初惠]";
+	mes "因为太生气了，我也不知不觉的乱发脾气了";
+	mes "不知道是不是又在酒家喝酒";
+	mes "真是小气..呼呜.";
 	close;
 }
-
-amatsu,287,266,3	script	Jyaburo#ama	766,{
-	mes "[Jyaburo]";
-	mes "This place is special to me.";
-	mes "It's filled with memories of my wife.";
+	
+amatsu,287,266,3	script	嘉普罗#ama	766,{
+	mes "[嘉普罗]";
+	mes "这里是我跟我老婆";
+	mes "回亿的场所";
 	next;
-	mes "[Jyaburo]";
-	mes "It was under that big tree where";
-	mes "I first told her I loved her. At";
-	mes "the time, I really didn't know that she also had feelings for me.";
+	mes "[嘉普罗]";
+	mes "..在我那时在这下面的";
+	mes "树木那边跟她告白的..";
+	mes "真没想到她也";
+	mes "对我有意思";
 	next;
-	mes "[Jyaburo]";
-	mes "After that day, we had many";
-	mes "conversations here. Quiet";
-	mes "and peaceful, this was our";
-	mes "favorite place to be together.";
+	mes "[嘉普罗]";
+	mes "从那次之后我们就在这里聊了很多,";
+	mes "这里安静又和平";
+	mes "是个最棒的地点,";
+	mes "一直都有着幸福的时间";
 	next;
-	mes "[Jyaburo]";
-	mes "When I close my eyes here, I";
-	mes "can picture our good times,";
-	mes "and it feels like it all happened yesterday.";
-	mes "...";
+	mes "[嘉普罗]";
+	mes "现在也是眼睛闭起来,就会很清楚的想起";
+	mes "那时候的点点滴滴";
+	mes "就好像是昨天的事情一样...呼呼..";
 	next;
-	mes "[Jyaburo]";
-	mes "My wife passed away...";
-	mes "So now I only come here by";
-	mes "myself...But I feel like I'm with her whenever I'm here.";
+	mes "[嘉普罗]";
+	mes "虽然我老婆已不在这世上了";
+	mes "现在只有我一个人来到这里,";
+	mes "不过每次来这里我老婆就好像陪在我身边";
+	mes ",而我忧郁的心情就会不见了";
 	next;
-	mes "[Jyaburo]";
-	mes "Do you have anyone that you";
-	mes "think about? If you have a";
-	mes "special someone, don't hesitate";
-	mes "or hold back. Be sure to treat";
-	mes "that person specially.";
+	mes "[嘉普罗]";
+	mes "假如您听我讲完话之后";
+	mes "有想起来的人吗?";
+	mes "如果有的话,不要在犹豫也不要踌躇,全";
+	mes "心全力的对待她吧";
 	next;
-	mes "[Jyaburo]";
-	mes "Human beings live such short";
-	mes "lives. But we're able to laugh";
-	mes "throughout life and forget the";
-	mes "sadness.";
-	mes "...Always be happy.";
+	mes "[嘉普罗]";
+	mes "所谓人类,就算笑着过一辈子";
+	mes "那一生也真的很短,";
+	mes "甩掉忧郁的心情";
+	mes "永远过着幸福的日子吧";
 	close;
 }
 
 // Legendary Tree
-//============================================================
-amatsu,269,221,1	script	Propose Girl#ama	758,{
+//=====================================================
+amatsu,269,221,1	script	告白 少女#ama	758,{
 	set jap_tree,1;
-	mes "[Hutari Shioko]";
-	mes "It is a pleasure to meet you.";
-	mes "My name is Hutari Shioko.";
-	mes "My hobby is listening to music.";
-	mes "I'm an avid fan of classical music.";
+	mes "[乎塔利 希欧阔]";
+	mes "很高兴见到您";
+	mes "我的名字叫乎塔利 希欧阔,";
+	mes "兴趣是听音乐,";
+	mes "而我比较常听古典音乐";
 	next;
-	mes "[Hutari Shioko]";
-	mes "There is an old story about";
-	mes "the hill in our town.";
-	mes "Have you heard this story before?";
+	mes "[乎塔利 希欧阔]";
+	mes "在我们村落里的这个小山坡上";
+	mes "有着一个传说";
+	mes "您知道吗?";
 	next;
-	mes "[Hutari Shioko]";
-	mes "It is said that if you propose";
-	mes "under that tree, you and your";
-	mes "lover will live a happy life for all eternity.";
+	mes "[乎塔利 希欧阔]";
+	mes "传说中如果在那树木下告白";
+	mes "两个人就会永远";
+	mes "保持幸福的关系";
 	next;
-	mes "[Hutari Shioko]";
-	mes "However, the proposal can not be";
-	mes "done at any given time. The legend states that it can only be done on Saturday evenings.";
+	mes "[乎塔利 希欧阔]";
+	mes "不过不能随时随地告白";
+	mes "一定要礼拜六晚上";
+	mes "告白才会实现";
 	next;
-	mes "[Hutari Shioko]";
-	mes "After the proposal, the reply must";
-	mes "be answered before Sunday evening. This is the most crucial part of it.";
+	mes "[乎塔利 希欧阔]";
+	mes "还有礼拜六晚上接受";
+	mes "告白之后一定要在隔天";
+	mes "礼拜六晚上之前回应";
 	next;
 	emotion e_lv2;
-	mes "[Hutari Shioko]";
-	mes "If you like someone...";
-	mes "You should try proposing";
-	mes "under that tree. I'm sure ";
-	mes "happy things will happen, if you do.";
+	mes "[乎塔利 希欧阔]";
+	mes "如果心里有喜欢的人的话...";
+	mes "不妨约在那树下";
+	mes "再跟那个人告白,如何呢?";
+	mes "一定会发生好事的";
 	close;
 }
-
-amatsu,243,202,3	script	Drama Teacher#ama	760,{
+	
+amatsu,243,202,3	script	戏剧 老师#ama	760,{
 	set jap_tree,2;
-	mes "[Garakame sensei]";
-	mes "This is a beautiful place";
-	mes "with everlasting cherry blossoms.";
-	mes "Also, this town is the origin of";
-	mes "legendary play, 'White Dryad.' ";
+	mes "[卡拉喀梅 老师]";
+	mes "这里是一个总是";
+	mes "盛开美丽樱花的地方，";
+	mes "而且这里也是传说中的演员 '白千女'";
+	mes "诞生的地方";
 	next;
 	if (Sex) {
-		mes "[Garakame sensei]";
-		mes "If you know a girl who is";
-		mes "talented in acting, please";
-		mes "bring her to me. I have been";
-		mes "searching for a girl who could";
-		mes "play the role as the 'White Dryad.'";
+		mes "[卡拉喀梅 老师]";
+		mes "如果认识对演技";
+		mes "有天分的女孩的话，";
+		mes "请带来我这里吧，长久以来，";
+		mes "我一直在找可以演'白千女'";
+		mes "的女孩";
 		next;
-		mes "[Garakame sensei]";
-		mes "The 'White Dryad' is a nymph of";
-		mes "cherry tree... It has been hard to";
-		mes "find a girl who can perform";
-		mes "as the 'White Drayd...'";
+		mes "[卡拉喀梅 老师]";
+		mes "所谓'白千女'就是樱桃树的精灵...";
+		mes "能够演出超越";
+		mes "人类演技的这种人";
+		mes "很少...";
 		close;
 	}
 	emotion e_gasp;
@@ -419,109 +410,116 @@ amatsu,243,202,3	script	Drama Teacher#ama	760,{
 	mes "someday when you are ready.";
 	close;
 }
-
-amatsu,283,203,1	script	Bonubonu#ama1	1323,{
+	
+amatsu,283,203,1	script	宝奴宝奴#ama1	1323,{
 	end;
 }
 
-amatsu,283,203,1	script	Bonubonu#ama2	111,{
+amatsu,283,203,1	script	宝奴宝奴#ama2	111,{
 	set jap_tree,3;
 	emotion e_swt2;
-	mes "[Bonubonu]";
-	mes "That tree on the hill is";
-	mes "a very old tree. It is a big";
-	mes "cherry tree with everlasting blossoms.";
+	mes "[宝奴宝奴]";
+	mes "这山坡上的树木已经";
+	mes "很久很久了,是棵很大而";
+	mes "总是盛开着樱花的王樱花树";
 	next;
 	emotion e_swt2;
-	mes "[Bonubonu]";
-	mes "There is something about this";
-	mes "tree that makes me forget about";
-	mes "all the troubles in my life when I sit under it.";
+	mes "[宝奴宝奴]";
+	mes "而且很感激这颗树,";
+	mes "有伤心或是难过的事";
+	mes "总是会坐在那棵树下";
 	next;
 	emotion e_swt2;
-	mes "[Bonubonu]";
-	mes "Everything about this tree is";
-	mes "simply wonderful...";
-	mes "I can't really describe how";
-	mes "I feel when I look at it...";
-	mes "It just leaves me breathless...";
+	mes "[宝奴宝奴]";
+	mes "这样的话不管是伤心或难过的事";
+	mes "全部都可以忘记....";
+	mes "那棵树是会安慰我们";
+	mes "平且可以让我们忘记难过的事情";
+	mes "的神奇树";
 	next;
 	emotion e_swt2;
-	mes "[Bonubonu]";
-	mes "You should visit the tree and";
-	mes "spend some time there.";
-	mes "It is really a miraculous and gracious tree...";
+	mes "[宝奴宝奴]";
+	mes "有伤心难过的事的话";
+	mes "不妨坐在那棵树下吧";
+	mes "真的是神奇又感激的树木...";
 	close;
 }
-
-amatsu,274,178,7	script	Veterinarian#ama	735,{
+	
+amatsu,274,178,7	script	兽医#ama	735,{
 	set jap_tree,4;
-	mes "[Sakura Seiichi]";
-	mes "Ah... I'm not a weirdo so";
-	mes "don't panic. I'm just an ordinary";
-	mes "veterinarian. My job is curing";
-	mes "sick animals.";
-	mes " ";
+	mes "[撒库拉 塞宜齐]";
+	mes "啊... 我不是可疑的人,";
+	mes "请不要惊讶,我只是";
+	mes "平凡的兽医,";
+	mes "以治疗生病的";
+	mes "动物为职业";
 	next;
-	mes "[Sakura Seiichi]";
-	mes "By the way... Do you know?";
-	mes "The story about the cherry tree";
-	mes "on the hill...I guess you haven't heard about it...";
+	mes "[撒库拉 塞宜齐]";
+	mes "不过呢... 您知道吗?";
+	mes "有关山坡上的樱桃树";
+	mes "的故事... 也许您是第一次";
+	mes "听说";
 	next;
-	mes "[Sakura Seiichi]";
-	mes "That tree has a secret of";
-	mes "keeping its beauty and whiteness.";
-	mes "The secret is...";
-	mes "There are corpses buried under...";
-	mes "that tree...";
+	mes "[撒库拉 塞宜齐]";
+	mes "那颗树总是可以维持着";
+	mes "白白又美丽的样子";
+	mes "是有秘诀的...";
+	mes "那就是... 因为那颗树下面";
+	mes "埋葬着尸体...";
 	next;
-	if (select("How horrible!:You have got to be kidding.") == 1) {
-		mes "[Sakura Seiichi]";
-		mes "Kuhuhu... They could be...";
-		mes "By the way, do you want";
-		mes "make a bet on it...?";
+	if (select("被埋葬的人们会不会觉得痛苦呢?:讲这种愚蠢的话...") == 1) {
+		mes "[撒库拉 塞宜齐]";
+		mes "呼呼... 也许会吧...";
+		mes "不管怎样要我不要跟我";
+		mes "打个赌啊...?";
 		next;
 		emotion e_dots;
-		mes "[Sakura Seiichi]";
-		mes "If I..........";
+		mes "[撒库拉 塞宜齐]";
+		mes "万一我呢...";
 		mes "............";
 		mes ".........";
 		next;
-		mes "^3355FFHis voice was getting lower";
-		mes "and lower as the wind blew.";
-		mes "Finally, I couldn't even hear his voice. I can't even recall what he was trying to tell me...^000000";
+		mes "^6633FF她的笑声埋在风声里^000000";
+		mes "^6633FF逐渐的变小,^000000";
+		mes "^6633FF最后完全听不到了,^000000";
+		mes "^6633FF连他要讲什么话^000000";
+		mes "^6633FF都不太记得了...^000000";
 		close;
 	}
-	mes "[Sakura Seiichi]";
-	mes "I can't help it if you think that way. But one day, you too could be buried underneath...";
+	mes "[撒库拉 塞宜齐]";
+	mes "您听成这样,也没关系吧...";
+	mes "小心点吧,总有一天这种事";
+	mes "也会发生在您身上..";
 	next;
 	emotion e_dots;
-	mes "[Sakura Seiichi]";
-	mes "Haha... Hahaha.....";
+	mes "[撒库拉 塞宜齐]";
+	mes "哈哈哈... 哈哈哈哈.....";
 	mes "...............";
 	mes "...........";
 	next;
-	mes "^3355FFHis laugh was getting lower";
-	mes "and lower as the wind blew.";
-	mes "Finally, I couldn't even hear anything. I can't even recall what he was trying to tell me...^000000";
+	mes "^6633FF她的笑声埋在风声里^000000";
+	mes "^6633FF逐渐的变小,^000000";
+	mes "^6633FF最后完全听不到了,^000000";
+	mes "^6633FF我不晓得她跟我讲那种话^000000";
+	mes "^6633FF有什么意图...^000000";
 	close;
 }
-
-amatsu,262,197,1	script	Legendary Tree	111,{
+	
+amatsu,262,197,1	script	传说中的 树木	111,{
 	if (jap_tree == 1) {
-		mes "^3355FFAs she mentioned, this tree";
-		mes "seems to be a famous place";
-		mes "for proposing lovers.";
-		mes "There were several carved symbols";
-		mes "of hearts and initials of lovers";
-		mes "on the bark.^000000";
+		mes "^3355FF就像她说的一样";
+		mes "这棵树是很多人告白的地方";
+		mes "因此而出名";
+		mes "偶尔会看到几个淘气的";
+		mes "画着爱心写着恋人";
+		mes "名字的标记.^000000";
 		next;
-		mes "^3355FFBesides proposals, people";
-		mes "gather under this tree when";
-		mes "they discuss important";
-		mes "matters. I could listen to";
-		mes "all kinds of stories";
-		mes "in this magnificent place.^000000";
+		mes "^3355FF不只是爱情告白,";
+		mes "听说还会约在这里";
+		mes "谈一些重要的事情,";
+		mes "在这么美的场所";
+		mes "不管谁讲什么事情";
+		mes "都可以答应似的^000000";
 		close;
 	}
 	else if (jap_tree == 2) {
@@ -559,11 +557,11 @@ amatsu,262,197,1	script	Legendary Tree	111,{
 		close;
 	}
 	else if (jap_tree == 4) {
-		mes "^3355FFThis strong fragnance";
-		mes "is making me dizzy. Not like";
-		mes "other cherry trees, this tree's";
-		mes "shimmering white petals";
-		mes "felt strange.^000000";
+		mes "^3355FF这强烈的香气";
+		mes "让我感到头晕目眩";
+		mes "这棵树的花瓣闪耀着光芒";
+		mes "不同于其他的樱花树";
+		mes "特别奇怪.^000000";
 		next;
 		mes "^3355FFIt feels as if my soul is";
 		mes "being drained if I stay here";
@@ -572,23 +570,23 @@ amatsu,262,197,1	script	Legendary Tree	111,{
 		mes "mayself, 'I must get out of here quickly.'^000000";
 		close;
 	}
-	mes "^3355FFThere was a cherry tree";
-	mes "on the hill. It doesn't look";
-	mes "like the other trees.";
-	mes "This tree seems to have";
-	mes "a long history...^000000";
+	mes "^3355FF";
+	mes "山上这棵樱桃树.";
+	mes "看起来不同于.";
+	mes "其他树木";
+	mes "这棵树似乎有很长历史...^000000";
 	next;
-	mes "^3355FFAre there any people";
-	mes "who live here? I took";
-	mes "a look around and found";
-	mes "someone down the hill.";
-	mes "I better ask her about this tree.^000000";
+	mes "^3355FF";
+	mes "不知是否有人";
+	mes "居住在这里";
+	mes "刚看到有人下山.";
+	mes "来去询问关于这棵树的事情.^000000";
 	close;
 }
 
-//============================================================
+//============================================================ 
 // Old changelog
-//============================================================
+//============================================================ 
 //= Amatsu Town NPCs : Revision 2 (Fox quest fix)
 //= Translated by Makenshi and dj
 //= Revisions and edits by Valaris and Darkchild
