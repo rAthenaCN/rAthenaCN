@@ -1,3 +1,11 @@
+//============================================================
+//= rAthenaCN [自动吃药]汉化脚本 [ www.rAthenaCN.com ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
 //===== rAthena Script =======================================
 //= Auto-Potion
 //===== By: ==================================================
@@ -19,8 +27,8 @@ OnInit:
 	end;
 
 L_Help:
-	dispbottom "Available commands:";
-	dispbottom "    @autopot <item id> {<min hp % [1..100]> {<delay [50..1000]>}}";
+	dispbottom "可用的指令:";
+	dispbottom "    @autopot <药物ID> {<最低HP % [1..100]> {<延迟 [50..1000]>}}";
 	dispbottom "    @autopot <on|off>";
 	dispbottom "    @autopot list";
 	dispbottom "    @autopot info";
@@ -28,10 +36,10 @@ L_Help:
 	return;
 
 L_Info:
-	dispbottom "------ Auto-Potion Information ------";
-	dispbottom "POTION:  " + getitemname(@autopot_id) + " (" + @autopot_id + ")";
-	dispbottom "MIN HP:   " + @autopot_min + " %";
-	dispbottom "DELAY:    " + @autopot_delay + " ms";
+	dispbottom "------ 自动吃药相关信息 ------";
+	dispbottom "药物  :  " + getitemname(@autopot_id) + " (" + @autopot_id + ")";
+	dispbottom "最低HP:   " + @autopot_min + " %";
+	dispbottom "延迟  :    " + @autopot_delay + " ms";
 	dispbottom "---------------------------------------------";
 	return;
 
@@ -71,7 +79,7 @@ L_Start:
 	}
 
 	if (BaseLevel < getiteminfo(.@potion,12)) {
-		message strcharinfo(0), "Your base level is too low to use '" + getitemname(.@potion) + "'.";
+		message strcharinfo(0), "您的基本等级不够无法使用 '" + getitemname(.@potion) + "'.";
 		end;
 	}
 
@@ -82,13 +90,13 @@ L_Start:
 	@autopot_none  = 0;
 	bonus_script "{ callfunc \"start_autopot\"; }",86400,8,0,SI_INCHEALRATE;
 
-	message strcharinfo(0), "Auto-Potion started.";
+	message strcharinfo(0), "开始自动吃药.";
 	callsub L_Info;
 	return;
 
 OnCommand:
 	if (!getarraysize(.@atcmd_parameters$)) {
-		message strcharinfo(0), "Invalid syntax.";
+		message strcharinfo(0), "语法错误.";
 		callsub L_Help;
 		end;
 	}
@@ -97,24 +105,24 @@ OnCommand:
 
 	if (.@command$ == "on") {
 		if (@autopot_min)
-			message strcharinfo(0), "Auto-Potion is already on.";
+			message strcharinfo(0), "自动吃药功能已处于激活状态.";
 		else if (@autopot_min_) {
 			@autopot_min  = @autopot_min_;
 			@autopot_min_ = 0;
-			message strcharinfo(0), "Auto-Potion enabled.";
+			message strcharinfo(0), "自动吃药功能已经激活.";
 			callsub L_Info;
 		} else {
-			message strcharinfo(0), "Auto-Potion has not been set.";
+			message strcharinfo(0), "自动吃药功能尚未配置.";
 			callsub L_Help;
 		}
 		end;
 	} else if (.@command$ == "off") {
 		if (!@autopot_min)
-			message strcharinfo(0), "Auto-Potion is already off.";
+			message strcharinfo(0), "自动吃药功能已处于禁用状态.";
 		else {
 			@autopot_min_ = @autopot_min;
 			@autopot_min  = 0;
-			message strcharinfo(0), "Auto-Potion disabled.";
+			message strcharinfo(0), "自动吃药功能已经禁用.";
 		}
 		end;
 	} else if (.@command$ == "list") {  // credits to AnnieRuru
@@ -128,29 +136,29 @@ OnCommand:
 		}
 		if (.@count) {	// 'mes' window needed if player is hit during selection
 			mes "[ Auto-Potion ]";
-			mes "Select a healing item.";
-			.@select = select(.@menu$ + "   ^777777Cancel^000000") - 1;
+			mes "请选择一个治疗类道具.";
+			.@select = select(.@menu$ + "   ^777777取消^000000") - 1;
 			if (.@select != .@count)
 				callsub L_Start, .@items[.@select], 0, 0;
 			close2;
 		} else
-			message strcharinfo(0), "There are no healing items in your inventory.";
+			message strcharinfo(0), "您的背包中没有任何治疗类道具.";
 		end;
 	} else if (.@command$ == "info") {
 		if (@autopot_min) {
-			message strcharinfo(0), "Auto-Potion information is displayed below.";
+			message strcharinfo(0), "自动吃药信息显示如下.";
 			callsub L_Info;
 		} else
-			message strcharinfo(0), "Auto-Potion is not enabled.";
+			message strcharinfo(0), "自动吃药功能尚未启用.";
 		end;
 	} else if (.@command$ == "help") {
-		message strcharinfo(0), "List of commands is displayed below.";
+		message strcharinfo(0), "功能的命令列表如下显示.";
 		callsub L_Help;
 		end;
 	} else {
 		.@potion = atoi(.@atcmd_parameters$[0]);
 		if (getiteminfo(.@potion,2) != IT_HEALING) {
-			message strcharinfo(0), getitemname(.@potion) + " is not a healing item.";
+			message strcharinfo(0), getitemname(.@potion) + " 不是治疗道具.";
 			end;
 		}
 		callsub L_Start, .@potion, atoi(.@atcmd_parameters$[1]), atoi(.@atcmd_parameters$[2]);
@@ -165,7 +173,7 @@ function	script	start_autopot	{
 		if (!countitem(@autopot_id)) {
 			if (@autopot_none <= gettimetick(2)) {
 				@autopot_none = gettimetick(2) + 10;
-				dispbottom "There are no '" + getitemname(@autopot_id) + "' in your inventory.";
+				dispbottom "您背包中的 '" + getitemname(@autopot_id) + "' 已经用完.";
 			}
 			break;
 		}
