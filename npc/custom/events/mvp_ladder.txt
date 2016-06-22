@@ -323,7 +323,4 @@ OnInit:
 	for ( .@i = 0; .@i < .@size; .@i++ )
 		setmapflag .eventmap$, .@mapflag[.@i];
 	end;
-OnInit:
-	waitingroom "惨无人道的挑战",0;
-	end;
 }

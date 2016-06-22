@@ -20,7 +20,7 @@
 //= 3.6a Slightly edited. [Euphy]
 //============================================================
 
-prontera,142,228,6	script	寻找宝物箱子	BLACK_MUSHROOM,{
+prontera,142,228,6	script	寻找宝物箱子	1084,{
 	mes "[ 寻找宝物箱子 ]";
 	if (!.Status)
 		mes "现在没有任何活动!";
