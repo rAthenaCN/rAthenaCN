@@ -661,6 +661,18 @@ bool login_config_read(const char* cfgName, bool normal) {
 			login_config.vip_sys.char_increase =  cap_value(atoi(w2),0,MAX_CHARS-login_config.char_per_account);
 		}
 #endif
+
+//= 登录时[客户端]显示在线虚拟人数 ==========================================
+		else if(strcmpi(w1,"fake_user_head")==0)
+			login_config.fake_user_head = atoi(w2);
+
+		else if(strcmpi(w1,"fake_user_first")==0)
+			login_config.fake_user_first = atoi(w2);
+
+		else if(strcmpi(w1,"fake_user_second")==0)
+			login_config.fake_user_second = atoi(w2);
+//===========================================================================
+
 		else if(!strcmpi(w1, "import"))
 			login_config_read(w2, normal);
 		else {// try the account engines
