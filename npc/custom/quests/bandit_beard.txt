@@ -1,14 +1,20 @@
-//===== rAthena Script ======================================= 
+//============================================================
+//= rAthenaCN [土匪胡子任务]汉化脚本 [ www.rAthenaCN.com ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
+//===== Hercules Script ======================================
 //= Bandit Beard Quest
-//===== By: ================================================== 
+//===== By: ==================================================
 //= Mega Man Expert & Lupus
-//===== Current Version: ===================================== 
+//===== Current Version: =====================================
 //= 1.3
-//===== Compatible With: ===================================== 
-//= rAthena Project
-//===== Description: ========================================= 
+//===== Description: =========================================
 //= A harmless quest for a simply item w/o any bonuses "Bandit Beard"
-//===== Additional Comments: ================================= 
+//===== Additional Comments: =================================
 //= Fully working.
 //= 1.0 First release
 //= 1.1 Fixed some exploits, bugs and typos. Optimized 8) [Lupus]
@@ -17,61 +23,61 @@
 //= 1.3 Removed duplicates [L0ne_W0lf]
 //============================================================
 
-umbala,126,129,4	script	Bearded Man#bandit	120,{
+umbala,126,129,4	script	满脸胡子的人#bandit	2_M_PHARMACIST,{
 	if(BEARD_QUEST == 4 ) goto L_MAKE;
 	if(BEARD_QUEST >= 5 ) goto L_DONE;
 	if(BEARD_QUEST >= 1 ) goto L_THREAD;
 
-	mes "[Bearded Man]";
-	mes "Beards! Get your wonderful beards!";
-	mes "Would you like a beard?";
+	mes "[满脸胡子的人]";
+	mes "胡子! 美丽的胡子!";
+	mes "你想要胡子么?";
 	next;
-	menu "Yes, I'd like some facial hair!",-,"No thanks, thats gross!",M_NO;
+	menu "- 是的, 我想要个特别的造型!",-,"- 不了!",M_NO;
 
-	mes "[Bearded Man]";
-	mes "HoHo~ So you want some whiskers.";
-	emotion e_heh;
-	mes "Well I would give you my beards but there not cheap.";
-	mes "Matter of fact I have only one left...";
-	mes "but I'm not selling it.";
-	mes "But don't get mad! I can make you one.";
+	mes "[满脸胡子的人]";
+	mes "吼吼..你想要点络腮胡子.";
+	emotion 18;
+	mes "我会给你我的胡子但是价格不便宜哦.";
+	mes "事实上我只有一个了...";
+	mes "但是我不会卖.";
+	mes "别生气! 我可以给你做一个.";
 	next;
 	set BEARD_QUEST,1;
 L_THREAD:
-	mes "[Bearded Man]";
-	mes "I would need some ^8080FFThread^000000 for the Beard.";
-	mes "Talk to my friend in Izlude for some ^8080FFThread^000000.";
+	mes "[满脸胡子的人]";
+	mes "我需要 ^8080FF纤维^000000.";
+	mes "去找我在伊斯鲁德的朋友要 ^8080FF纤维^000000.";
 	next;
 
-	mes "[Bearded Man]";
-	mes "Also I would need you to get me some things for the beard.";
-	mes "They are:";
-L_LIST:
-	mes "^8080FFElastic Band^000000";
-	mes "^8080FF5 Animal Skins^000000";
-	mes "^8080FFBlack Dye Stuff^000000";
-	mes "^8080FFGranpa Beard^000000";
-	mes "^8080FF100 sticky Mucus^000000";
-	mes "^8080FFCounteragent^000000";
-	mes " and one ^8080FF2 Carat Diamond^000000";
+	mes "[满脸胡子的人]";
+	mes "我还需要你给我提供一些东西.";
+	mes "还要:";
+L_List:
+	mes "^8080FF橡皮筋^000000";
+	mes "^8080FF5 动物外皮^000000";
+	mes "^8080FF黑色染料^000000";
+	mes "^8080FF白胡须^000000";
+	mes "^8080FF100 粘稠液体^000000";
+	mes "^8080FF中和剂^000000";
+	mes " and one ^8080FF2克拉钻石^000000";
 	close;
 
 M_NO:
-	mes "[Bearded Man]";
-	mes "Fine, be that way!";
-	emotion e_ag;
+	mes "[满脸胡子的人]";
+	mes "好的!";
+	emotion 7;
 	close;
 
 L_DONE:
-	mes "[Bearded Man]";
-	mes "Sorry, I can only make one per person.";
-	mes "We don't want too many beards now. Right?";
-	emotion e_gg;
+	mes "[满脸胡子的人]";
+	mes "抱歉,我只能给每个人做一个.";
+	mes "我们还不想要太多的胡子?";
+	emotion 29;
 	close;
 
 L_MAKE:
-	mes "[Bearded Man]";
-	mes "Let's make you your beard!";
+	mes "[满脸胡子的人]";
+	mes "开始做胡子吧!";
 	next;
 	if(countitem(7200) < 1 || countitem(919) < 1 ||	countitem(983) < 1 || countitem(2241) < 1 ||
 	countitem(938) < 100 || countitem(973) < 1 || countitem(731) < 1) goto L_NOITEMS;
@@ -82,156 +88,156 @@ L_MAKE:
 	delitem 938, 100;
 	delitem 973, 1;
 	delitem 731, 1;
-	mes "^8080FF~You see him cutting and sewing the beard together~^000000";
+	mes "^8080FF~你看到他在裁剪并粘贴胡子~^000000";
 	next;
-	mes "^8080FF~He hands you the finished beard~^000000";
+	mes "^8080FF~他把做好的胡子交给了你~^000000";
 	next;
 	getitem 2237, 1;
 	set BEARD_QUEST, 5;
-	mes "[Bearded Man]";
-	mes "Have a nice day!";
-	emotion e_gg;
+	mes "[满脸胡子的人]";
+	mes "祝你愉快!";
+	emotion 29;
 	close;
 
 L_NOITEMS:
-	mes "[Bearded Man]";
-	mes "What the hell! I can't make a beard without the items!";
-	mes "Here is the list again:";
-	emotion e_omg;
-	goto L_LIST;
+	mes "[满脸胡子的人]";
+	mes "什么! 我做不出胡子!";
+	mes "你还要给我这些:";
+	emotion 23;
+	goto L_List;
 }  
 
 //Master Tailor----------
-izlude_in,123,175,4	script	Master Tailor#bandit	50,{
-	mes "[Master Tailor]";
-	mes "Good evening! I am the Master Tailor!";
+izlude_in,123,175,4	script	服装大师#bandit	1_M_04,{
+	mes "[服装大师]";
+	mes "晚上好! 我是服装大师!";
 	if(BEARD_QUEST != 1 ) close;
 
 	next;
-	mes "[Master Tailor]";
-	mes "What? A Bearded Man sent you...";
-	mes "Well I'm sorry to say that I am out of ^8080FFThread^000000.";
-	mes "But I have the address to where I get the shipments.";
-	mes "It is in Al de Baran Karfa Inc. warehouse area.";
-	mes "The address is: Al de Baran 59, 221";
-	mes "See you later.";
+	mes "[服装大师]";
+	mes "什么?满脸胡子的人让你来...";
+	mes "但是我没有 ^8080FF纤维^000000.";
+	mes "我有得到货物的地址.";
+	mes "在阿尔帕兰的卡普拉公司. 仓库区.";
+	mes "坐标是: 阿尔帕兰 59, 221";
+	mes "回见.";
 	set BEARD_QUEST, 2;
 	close;
 }
 // Karfa Thread Clerk---
-aldeba_in,70,179,5	script	Karfa Clerk#bandit	113,{
-	mes "[Karfa Clerk]";
+aldeba_in,70,179,5	script	卡普拉服务人员#bandit	4_F_KAFRA5,{
+	mes "[卡普拉服务人员]";
 	if(BEARD_QUEST == 3 ) goto L_REPEAT;
 	if(BEARD_QUEST > 3 ) goto L_DONE;
 
-	mes "What can I do for you?";
+	mes "有什么为你服务的?";
 	next;
-	if(BEARD_QUEST == 2 ) goto L_DELIVERY;
+	if(BEARD_QUEST == 2 ) goto L_Delivery;
 
-	menu "What's in the boxes?",-,"Nothing.",M_NOPE;
+	menu "- 盒子里有什么?",-,"- 没事.",M_NOPE;
 
-	mes "[Karfa Clerk]";
-	mes "They're empty.";
+	mes "[卡普拉服务人员]";
+	mes "他们是空的.";
 M_NOPE:
 	close;
 
-L_DELIVERY:
+L_Delivery:
 
-	mes "[Karfa Clerk]";
-	mes "Sorry but we have not received any ^8080FFThread^000000.";
-	mes "Our shipments have been put off until its safe.";
-	mes "You see we get our ^8080FFThread^000000 from Alberta and a monsters keeps attacking our merchants.";
+	mes "[卡普拉服务人员]";
+	mes "抱歉我们没有收到任何 ^8080FF纤维^000000.";
+	mes "我们的货物因为安全问题被延期了.";
+	mes "你要知道我们的 ^8080FF纤维^000000 是从阿尔贝塔运过来的，有个怪物一直攻击我们的商队.";
 	next;
-	mes "[Karfa Clerk]";
-	mes "Now this monsters has not been doing this before.";
-	mes "It may have to do with the warmer months.";
-	mes "Please help us out!";
+	mes "[卡普拉服务人员]";
+	mes "怪物以前没有这样.";
+	mes "可能是应为天气变热了.";
+	mes "请帮帮我们!";
 	set BEARD_QUEST,3;
 	next;
-	mes "[Karfa Clerk]";
+	mes "[卡普拉服务人员]";
 L_REPEAT:
-	mes "Oh by the way, that Thread Merchant is somewhere around Alberta 60 and 100...";
+	mes "另外, 那个纤维商人在 阿尔贝塔 60, 100...";
 L_DONE:
-	mes "Thank You!";
+	mes "谢谢!";
 	close;
 }
 
 //Thread Merchant ------
-alberta,65,123,6	script	Man#bandit	85,{
+alberta,65,123,6	script	男人#bandit	4_M_03,{
 	if(BEARD_QUEST == 3 && $@beardMobD) goto L_KILLED;
 	if(BEARD_QUEST > 3) goto L_DONE;
 
-	mes "[Thread Merchant]";
-	mes "ARGGG!! I can never get my stuff to Al de Baran!";
-	mes "I keep getting mobbed by some bugs.";
-	mes "They steal all my supplies and ^8080FFThread^000000.";
+	mes "[纤维商人]";
+	mes "啊啊啊!! 我不能把我的货送去阿尔帕兰!";
+	mes "有一些虫子一直攻击我.";
+	mes "他们偷走了我全部的补给和 ^8080FF纤维^000000.";
 	next;
-	mes "[Thread Merchant]";
+	mes "[纤维商人]";
 
-	if(BEARD_QUEST != 3) mes "What am I to do?";
+	if(BEARD_QUEST != 3) mes "我能干什么?";
 	if(BEARD_QUEST != 3) close;
 
-	if($@beardmob > 0) mes "Kill! Kill them already!!!";
+	if($@beardmob > 0) mes "杀光他们!!!";
 	if($@beardmob > 0) close;
-	mes "Are you here to help me?";
-	emotion e_what;
+	mes "你是来这帮我的么?";
+	emotion 1;
 	next;
-	menu "Yes",-,"No",M_NO;
+	menu "- 是的",-,"- 不是",M_NO;
 
-	mes "[Thread Merchant]";
-	mes "Oh thank the Gods!";
-	mes "If you can only just kill the bugs I would be able to make my delivery.";
+	mes "[纤维商人]";
+	mes "谢天谢地!";
+	mes "你只要杀光虫子我就能运货了.";
 	next;
-	mes "[Thread Merchant]";
-	mes "Oh NO! Here they come!!";
-	emotion e_swt2;
+	mes "[纤维商人]";
+	mes "哦!他们来了!!";
+	emotion 19;
 	donpcevent "BRDQ_MOBS::OnStart";
 	close;
 
 L_KILLED:
 	set $@beardMobD,0;
-	mes "[Thread Merchant]";
-	mes "Thank you for killing the Thief Bugs.";
-	mes "As a token of my gratitude here is a box full of ^8080FFThread^000000.";
+	mes "[纤维商人]";
+	mes "十分感谢你帮我杀了这些虫子.";
+	mes "为了表示我的感谢，我给你一箱 ^8080FF纤维^000000.";
 	set BEARD_QUEST,4;
 	close;
 
 L_DONE:
-	mes "[Thread Merchant]";
-	mes "Thank you again!";
-	emotion e_thx;
+	mes "[纤维商人]";
+	mes "再次感谢!";
+	emotion 15;
 	close;
 
 M_NO:
-	mes "[Thread Merchant]";
-	mes "What to do...";
+	mes "[纤维商人]";
+	mes "要干什么来的...";
 	close;
 }
 
 //mobsummons -------
 alberta,1,1,1	script	BRDQ_MOBS	-1,{
 OnStart:
-	set $@beardMob,10;
+	set $@beardmob,10;
 	set $@beardMobD,0;
-	monster "alberta",65,120,"Thef Bug Male",1054,1,"BRDQ_MOBS::OnDie";
-	monster "alberta",66,120,"Thef Bug Male",1054,1,"BRDQ_MOBS::OnDie";
-	monster "alberta",67,120,"Thef Bug Male",1054,1,"BRDQ_MOBS::OnDie";
-	monster "alberta",68,120,"Thef Bug Male",1054,1,"BRDQ_MOBS::OnDie";
-	monster "alberta",66,121,"Thef Bug Male",1054,1,"BRDQ_MOBS::OnDie";
-	monster "alberta",67,121,"Thef Bug Male",1054,1,"BRDQ_MOBS::OnDie";
-	monster "alberta",68,121,"Thef Bug Male",1054,1,"BRDQ_MOBS::OnDie";
-	monster "alberta",66,122,"Thef Bug Male",1054,1,"BRDQ_MOBS::OnDie";
-	monster "alberta",67,122,"Thef Bug Male",1054,1,"BRDQ_MOBS::OnDie";
-	monster "alberta",68,122,"Thef Bug Male",1054,1,"BRDQ_MOBS::OnDie";
+	monster "alberta",65,120,"公盗虫",1054,1,"BRDQ_MOBS::OnDie";
+	monster "alberta",66,120,"公盗虫",1054,1,"BRDQ_MOBS::OnDie";
+	monster "alberta",67,120,"公盗虫",1054,1,"BRDQ_MOBS::OnDie";
+	monster "alberta",68,120,"公盗虫",1054,1,"BRDQ_MOBS::OnDie";
+	monster "alberta",66,121,"公盗虫",1054,1,"BRDQ_MOBS::OnDie";
+	monster "alberta",67,121,"公盗虫",1054,1,"BRDQ_MOBS::OnDie";
+	monster "alberta",68,121,"公盗虫",1054,1,"BRDQ_MOBS::OnDie";
+	monster "alberta",66,122,"公盗虫",1054,1,"BRDQ_MOBS::OnDie";
+	monster "alberta",67,122,"公盗虫",1054,1,"BRDQ_MOBS::OnDie";
+	monster "alberta",68,122,"公盗虫",1054,1,"BRDQ_MOBS::OnDie";
 	end;
 OnDie:
 	set $@beardmob, $@beardmob - 1;
 	if($@beardmob > 0) end;
 	set $@beardMobD,1;
 	end;
-On1201:
-On0001:
-	set $@beardMob,0;
+OnClock1201:
+OnClock0001:
+	set $@beardmob,0;
 	set $@beardMobD,0;
 	end;
 }
