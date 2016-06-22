@@ -1,79 +1,85 @@
-//===== rAthena Script ======================================= 
+//============================================================
+//= rAthenaCN [国王奖励任务]汉化脚本 [ www.rAthenaCN.com ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
+//===== Hercules Script ======================================
 //= Event King Items
-//===== By: ================================================== 
+//===== By: ==================================================
 //= $ephiroth
-//===== Current Version: ===================================== 
+//===== Current Version: =====================================
 //= 1.1
-//===== Compatible With: ===================================== 
-//= rAthena Project
-//===== Description: ========================================= 
+//===== Description: =========================================
 //= Grand Circlet Quest combined with Excalibur Quest.
 //===== Additional Comments: =================================
 //= 2006/09/27: 1.0 Release and fully working. [$ephiroth]
 //= 1.1 Optimized. [Euphy]
 //============================================================
 
-prt_castle,80,170,4	script	King of Prontera	108,{
-	mes "[King of Prontera]";
-	mes "Hello, can you help me?";
+prt_castle,80,170,4	script	普隆德拉国王	1_M_PRON_KING,{
+	mes "[普隆德拉国王]";
+	mes "你好, 请问你能不能帮我?";
 	next;
-	if(select("Sure, what can I do?:Sorry, I'm busy.")==2) {
-		mes "[King of Prontera]";
-		mes "Ok, that's fine, I'm sure someone else will help.";
+	if(select("- 当然可以, 我可以为你做些什么?:- 对不起, 我很忙")==2) {
+		mes "[普隆德拉国王]";
+		mes "好的, 这太好了, 我敢肯定一定会有人帮到我的.";
 		close; }
-	mes "[King of Prontera]";
-	mes "Thank you. Well, my daughter next to me is a little rowdy...";
-	mes "If you get her these items I'm sure she'll calm down.";
-	mes "I'll give you my crown or my sword as a reward.";
+	mes "[普隆德拉国王]";
+	mes "谢谢你. 好的, 在我旁边的是我的女儿她有点吵闹..";
+	mes "如果你能给她这些东西, 我肯定她就会平静下来.";
+	mes "我将会送给你我的皇冠或者我的宝剑来当奖励.";
 	next;
-	setarray .@Items1[0],5007,742,30,741,50,753,20,732,1,710,20,629,20;
-	setarray .@Items2[0],1137,2254,1,2282,1,714,1;
-	switch(select("What do you need?:I have the items!:Forget it.")) {
+	setarray .@items1[0],5007,742,30,741,50,753,20,732,1,710,20,629,20;
+	setarray .@items2[0],1137,2254,1,2282,1,714,1;
+	switch(select("- 你需要些什么?:- 我把东西都带齐了!:- 算了")) {
 		case 1:
-			for(set .@i,1; .@i<3; set .@i,.@i+1) {
-				mes "[King of Prontera]";
-				mes "If you could get me:";
-				for(set .@j,1; .@j<getarraysize(getd(".@Items"+.@i)); set .@j,.@j+2)
-					mes " ~ ^0055FF"+getd(".@Items"+.@i+"["+(.@j+1)+"]")+"^000000x "+getitemname(getd(".@Items"+.@i+"["+.@j+"]"));
-				mes "I'll give my "+((.@i == 2 )?"sword.":"crown.");
+	for(set .@i,1; .@i<3; set .@i,.@i+1) {
+				mes "[普隆德拉国王]";
+				mes "如果你能给我：";
+				for(set .@j,1; .@j<getarraysize(getd(".@items"+.@i)); set .@j,.@j+2)
+					mes " ~ ^0055FF"+getd(".@items"+.@i+"["+(.@j+1)+"]")+"^000000x "+getitemname(getd(".@items"+.@i+"["+.@j+"]"));
+				mes "我将送出我的 "+((.@i)?"- 宝剑.":"- 皇冠.");
 				if (.@i==2) close;
 				next; }
 		case 2:
-			mes "[King of Prontera]";
-			mes "What item do you want?";
+			mes "[普隆德拉国王]";
+			mes "你想要哪个物品?";
 			next;
-			set .@i, select("Crown:Sword");
-			for(set .@j,1; .@j<getarraysize(getd(".@Items"+.@i)); set .@j,.@j+2)
-				if (countitem(getd(".@Items"+.@i+"["+.@j+"]")) < getd(".@Items"+.@i+"["+(.@j+1)+"]")) set .@nr,1;
-			mes "[King of Prontera]";
+			set .@i, select("宝剑:皇冠");
+			for(set .@j,1; .@j<getarraysize(getd(".@items"+.@i)); set .@j,.@j+2)
+				if (countitem(getd(".@items"+.@i+"["+.@j+"]")) < getd(".@items"+.@i+"["+(.@j+1)+"]")) set .@nr,1;
+			mes "[普隆德拉国王]";
 			if (.@nr) { 
-				mes "You're missing something.";
-				mes "Come back after you get ALL the items.";
+				mes "你有些东西缺少了.";
+				mes "等你收集好所有东西再回来吧.";
 				close; }
-			for(set .@j,1; .@j<getarraysize(getd(".@Items"+.@i)); set .@j,.@j+2)
-				delitem getd(".@Items"+.@i+"["+.@j+"]"), getd(".@Items"+.@i+"["+(.@j+1)+"]");
-			getitem getd(".@Items"+.@i+"[0]"),1;
-			mes "THANK YOU SOO MUCH!!";
-			mes "This will surely calm her down.";
-			mes "As promised, here is my "+((.@i==1)?"crown.":"sword.");
+			for(set .@j,1; .@j<getarraysize(getd(".@items"+.@i)); set .@j,.@j+2)
+				delitem getd(".@items"+.@i+"["+.@j+"]"), getd(".@items"+.@i+"["+(.@j+1)+"]");
+			getitem getd(".@items"+.@i+"[0]"),1;
+			mes "非常感谢你!!";
+			mes "这次肯定可以让她冷静下来的.";
+			mes "作为承诺, 这是我的 "+((.@i==1)?"宝剑.":"皇冠.");
 			close;
 		case 3:
-			mes "[King of Prontera]";
-			mes "Ok, that's fine, I'm sure someone else will help.";
+			mes "[普隆德拉国王]";
+			mes "好的, 没关系, 我确信一定会有其他人能帮到我的.";
 			close;
 	}
 }
 
-prt_castle,84,170,4	script	King's Daughter	62,{
-	mes "[King's Daughter]";
-	mes "Hmph, I hate my dad right now!!";
+prt_castle,84,170,4	script	国王的女儿	1_M_SIZ,{
+	mes "[国王的女儿]";
+	mes "哼, 我现在讨厌死我父王了!!";
 	next;
-	if(select("Why?:Whatever...")==2) {
-		mes "[King's Daughter]";
-		mes "FINE THEN! Hmph!!";
+	if(select("- 为什么?:- 无所谓..")==2) {
+		mes "[国王的女儿]";
+		mes "那好吧! 哼!!";
 		close; }
-	mes "[King's Daughter]";
-	mes "Well, he won't give me what I want!!";
-	mes "He's the King of Prontera. He should be able to get me ANYTHING!!!";
+	mes "[国王的女儿]";
+	mes "好吧, 他给不了我想要的!!";
+	mes "他是普隆德拉王国的国王. 他应该能够给我所有的东西!!!";
 	close;
 }
