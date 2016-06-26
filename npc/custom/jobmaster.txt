@@ -1,3 +1,11 @@
+//============================================================
+//= rAthenaCN [转职大师]汉化脚本 [ www.rAthenaCN.com ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
 //===== rAthena Script =======================================
 //= Job Master
 //===== By: ==================================================
@@ -16,25 +24,25 @@
 //= 1.4 Rebellion added.
 //============================================================
 
-prontera,153,193,6	script	Job Master	123,{
+prontera,153,193,6	script	转职大师	123,{
 function Job_Menu;
 
-	mes "[Job Master]";
+	mes "[转职大师]";
 	if (Class > Job_Soul_Linker) {
-		mes "No more jobs are available.";
+		mes "没有更多的职业可供选择.";
 		close;
 	}
 	if (checkfalcon() || checkcart() || checkriding() || ismounting()) {
-		mes "Please remove your " +
-			((checkfalcon()) ? "falcon" : "") +
-			((checkcart()) ? "cart" : "") +
-			((checkriding()) ? "Peco" : "") +
-			((ismounting()) ? "mount" : "") +
-			" before proceeding.";
+		mes "请先移除您的 " +
+			((checkfalcon()) ? "猎鹰" : "") +
+			((checkcart()) ? "手推车" : "") +
+			((checkriding()) ? "大嘴鸟" : "") +
+			((ismounting()) ? "坐骑" : "") +
+			" 然后继续转职.";
 		close;
 	}
 	if (.SkillPointCheck && SkillPoint) {
-		mes "Please use all your skill points before proceeding.";
+		mes "请使用完所有的技能点数才能继续转职.";
 		close;
 	}
 
@@ -44,28 +52,28 @@ function Job_Menu;
 		if (BaseLevel < .Rebirth[0] || JobLevel < .Rebirth[1]) {
 			.@blvl = .Rebirth[0] - BaseLevel;
 			.@jlvl = .Rebirth[1] - JobLevel;
-			mes "You need " +
-				((.@blvl > 0) ? .@blvl + " more base levels " + ((.@jlvl > 0) ? "/ " : "") : "") +
-				((.@jlvl > 0) ? .@jlvl + " more job levels " : "") + "to continue.";
+			mes "您的 " +
+				((.@blvl > 0) ? ("基本等级还差 " + .@blvl + " 级需要提升") + ((.@jlvl > 0) ? "/ " : "") : "") + 
+				((.@jlvl > 0) ? ("职业等级还差 " + .@jlvl + " 级需要提升") : "") + "才能继续转职.";
 			close;
 		}
 		if (Class > Job_Crusader2) {
-			mes "Switch to third class?";
+			mes "转职成三转职业?";
 			next;
 			Job_Menu(roclass(.@eac|EAJL_THIRD));
 			close;
 		}
 		while(1) {
-			mes "Select an option.";
+			mes "请选择一项.";
 			next;
-			.@i = select(" ~ ^0055FFRebirth^000000:" + ((.ThirdClass) ? " ~ ^FF0000Third Class^000000" : "") + ": ~ ^777777Cancel^000000");
+			.@i = select(" ~ ^0055FF转生^000000:" + ((.ThirdClass) ? roclass(.@eac|EAJL_UPPER)==-1 ? " ~ ^FF0000三转职业^000000" : "" : "") + ": ~ ^777777取消^000000");
 			if (.@i == 3)
 				close;
-			mes "[Job Master]";
-			mes "Are you sure?";
+			mes "[转职大师]";
+			mes "您确定了吗?";
 			next;
 			Job_Menu(((.@i == 1) ? Job_Novice_High : roclass(.@eac|EAJL_THIRD)));
-			mes "[Job Master]";
+			mes "[转职大师]";
 		}
 	}
 	.@j1 = roclass(.@eac|EAJL_2_1);
@@ -78,26 +86,26 @@ function Job_Menu;
 		if (BaseLevel < .Rebirth[0] || JobLevel < .@exp[1]) {
 			.@blvl = .Rebirth[0] - BaseLevel;
 			.@jlvl = .@exp[1] - JobLevel;
-			mes "You need " +
-				((.@blvl > 0) ? .@blvl + " more base levels " + ((.@jlvl > 0) ? "/ " : "") : "") +
-				((.@jlvl > 0) ? .@jlvl + " more job levels " : "") + "to continue.";
+			mes "您的 " + 
+				((.@blvl > 0) ? ("基本等级还差 " + .@blvl + " 级需要提升") + ((.@jlvl > 0) ? "/ " : "") : "") +
+				((.@jlvl > 0) ? ("职业等级还差 " + .@jlvl + " 级需要提升") : "") + "才能继续.";
 			close;
 		}
-		mes "Switch to " + jobname(.@exp[0]) + "?";
+		mes "转职为 " + jobname(.@exp[0]) + "?";
 		next;
 		Job_Menu(.@exp[0]);
 		close;
 	}
 	if (.@eac&EAJL_2)
 		if (.@eac&(EAJL_UPPER|EAJL_BABY) || roclass(.@eac|EAJL_UPPER) == -1) {
-			mes "No more jobs are available.";
+			mes "没有更多的职业可供选择.";
 			close;
 		}
 	if ((.@eac&EAJ_BASEMASK) == EAJ_NOVICE) {
 		if (JobLevel < .JobReq[0])
-			mes "A job level of " + .JobReq[0] + " is required to change into the 1st Class.";
+			mes "您的职业等级需要提高到 " + .JobReq[0] + " 级,才能转职为一转职业.";
 		else if (Class == Job_Novice_High && .LastJob && lastJob) {
-			mes "Switch classes now?";
+			mes "请选择要转职的职业.";
 			next;
 			Job_Menu(roclass((eaclass(lastJob)&EAJ_BASEMASK)|EAJL_UPPER));
 		} else {
@@ -139,18 +147,18 @@ function Job_Menu;
 				);
 				break;
 			default:
-				mes "An error has occurred.";
+				mes "发生了错误.";
 				break;
 			}
 		}
 		close;
 	}
 	if (roclass(.@eac|EAJL_2_1) == -1 || roclass(.@eac|EAJL_2_2) == -1)
-		mes "No more jobs are available.";
+		mes "没有更多的职业可供选择.";
 	else if (!(.@eac&EAJL_2) && JobLevel < .JobReq[1])
-		mes "A job level of " + .JobReq[1] + " is required to change into the 2nd Class.";
+		mes "您的职业等级需要提高到 " + .JobReq[1] + " 级,才能转职为二转职业.";
 	else if (.LastJob && lastJob && (.@eac&EAJL_UPPER)) {
-		mes "Switch classes now?";
+		mes "您确定了吗?";
 		next;
 		Job_Menu(lastJob + Job_Novice_High);
 	} else
@@ -160,28 +168,28 @@ function Job_Menu;
 function Job_Menu {
 	while(1) {
 		if (getargcount() > 1) {
-			mes "Select a job.";
+			mes "请选择要转职的职业.";
 			.@menu$ = "";
 			for (.@i = 0; .@i < getargcount(); .@i++)
 				.@menu$ = .@menu$ + " ~ " + jobname(getarg(.@i)) + ":";
-			.@menu$ = .@menu$+" ~ ^777777Cancel^000000";
+			.@menu$ = .@menu$+" ~ ^777777取消^000000";
 			next;
 			.@i = getarg(select(.@menu$) - 1, 0);
 			if (!.@i)
 				close;
 			if ((.@i == Job_SuperNovice || .@i == Job_Super_Baby) && BaseLevel < .SNovice) {
-				mes "[Job Master]";
-				mes "A base level of " + .SNovice + " is required to turn into a " + jobname(.@i) + ".";
+				mes "[转职大师]";
+				mes "需要基本等级达到 " + .SNovice + " 级才能转职为 " + jobname(.@i) + ".";
 				close;
 			}
-			mes "[Job Master]";
-			mes "Are you sure?";
+			mes "[转职大师]";
+			mes "您确定了吗?";
 			next;
 		} else
 			.@i = getarg(0);
-		if (select(" ~ Change into ^0055FF" + jobname(.@i) + "^000000 class: ~ ^777777" + ((getargcount() > 1) ? "Go back" : "Cancel") + "^000000") == 1) {
-			mes "[Job Master]";
-			mes "You are now " + callfunc("F_InsertArticle", jobname(.@i)) + "!";
+		if (select(" ~ 转职为 ^0055FF" + jobname(.@i) + "^000000 职业: ~ ^777777" + ((getargcount() > 1) ? "返回" : "取消") + "^000000") == 1) {
+			mes "[转职大师]";
+			mes "您现在是一名 " + jobname(.@i) + " 了!";
 			if (.@i == Job_Novice_High && .LastJob)
 				lastJob = Class;
 			jobchange .@i;
@@ -196,14 +204,59 @@ function Job_Menu {
 			specialeffect2 EF_ELECTRIC;
 			if (.Platinum)
 				callsub Get_Platinum;
+			callsub Get_3rdJobItem;
 			close;
+			
 		}
 		if (getargcount() == 1)
 			return;
-		mes "[Job Master]";
+		mes "[转职大师]";
 	}
 	end;
 }
+
+Get_3rdJobItem:
+	switch (Class) {
+		case 4054:	getitem 5746,1;	break;	//卢恩骑士
+		case 4060:	getitem 5746,1;	break;
+		
+		case 4055:	getitem 5753,1;	break;	//大法师
+		case 4061:	getitem 5753,1;	break;
+		
+		case 4056:	getitem 5748,1;	break;	//游侠
+		case 4062:	getitem 5748,1;	break;
+		
+		case 4057:	getitem 5747,1;	break;	//大主教
+		case 4063:	getitem 5747,1;	break;
+		
+		case 4058:	getitem 5749,1;	getitem 5760,1; break;	//机匠
+		case 4064:	getitem 5749,1; getitem 5760,1;	break;
+		
+		case 4059:	getitem 5755,1;	break;	//十字切割
+		case 4065:	getitem 5755,1;	break;
+		
+		case 4066:	getitem 5757,1;	break;	//皇家卫士
+		case 4073:	getitem 5757,1;	break;
+		
+		case 4067:	getitem 5756,1;	break;	//元素
+		case 4074:	getitem 5756,1;	break;
+		
+		case 4068:	getitem 5751,1;	break;	//宫廷
+		case 4075:	getitem 5751,1;	break;
+		
+		case 4069:	getitem 5758,1;	break;	//漫游
+		case 4076:	getitem 5758,1;	break;
+		
+		case 4070:	getitem 5754,1;	break;	//修罗
+		case 4077:	getitem 5754,1;	break;
+		
+		case 4071:	getitem 5752,1;	break;	//基因
+		case 4078:	getitem 5752,1;	break;
+		
+		case 4072:	getitem 5750,1;	break;	//逐影
+		case 4079:	getitem 5750,1;	break;
+	}
+return;
 
 Get_Platinum:
 	skill "NV_FIRSTAID",1,SKILL_PERM;
