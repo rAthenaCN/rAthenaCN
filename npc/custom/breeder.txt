@@ -1,3 +1,6 @@
+//============================================================
+//= rAthenaCN [道具租用师]汉化脚本 [ www.rAthenaCN.com ]
+//============================================================
 //===== rAthena Script =======================================
 //= Universal Rental NPC
 //===== By: ==================================================
@@ -10,18 +13,18 @@
 //= One-click automatic mount rentals.
 //============================================================
 
-prontera,124,201,1	script	Universal Rental NPC	726,{
+prontera,124,201,1	script	道具租用师	726,{
 	if (ismounting()) {
-		message strcharinfo(0),"You must first remove your mount.";
+		message strcharinfo(0),"您必须先卸除您的坐骑.";
 		end;
 	} else if ((eaclass()&EAJ_THIRDMASK==EAJ_RANGER) && !countitem(6124)) {
 		if (!checkfalcon() && getskilllv("HT_FALCON") && !checkwug()) {
-			if(select(" ~ Falcon: ~ Warg")==1) setfalcon;
+			if(select(" ~ 猎鹰: ~ 狼")==1) setfalcon;
 			else getitem 6124,1; //Wolf's_Flute
 		} else getitem 6124,1; //Wolf's_Flute
 	} else if ((eaclass()&EAJ_THIRDMASK==EAJ_MECHANIC) && !checkcart() && getskilllv("MC_PUSHCART")) {
 		if (!checkmadogear() && getskilllv("NC_MADOLICENCE")) {
-			if(select(" ~ Cart: ~ Mado")==1) setcart;
+			if(select(" ~ 手推车: ~ Mado")==1) setcart;
 			else setmadogear;
 		} else setcart;
 	} else if (!checkcart() && getskilllv("MC_PUSHCART")) setcart;
@@ -31,7 +34,7 @@ prontera,124,201,1	script	Universal Rental NPC	726,{
 		else setriding;
 	} else if (!checkmadogear() && getskilllv("NC_MADOLICENCE")) setmadogear;
 	else {
-		message strcharinfo(0),"You do not meet requirements to rent.";
+		message strcharinfo(0),"您不符合租用的条件.";
 		end;
 	}
 	specialeffect2 EF_TEIHIT3;
