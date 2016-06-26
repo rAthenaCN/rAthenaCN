@@ -1,3 +1,11 @@
+//============================================================
+//= rAthenaCN [情人节任务_2012]汉化脚本 [ www.rAthenaCN.com ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
 //===== rAthena Script =======================================
 //= Valentine's Day Event (2012)
 //===== By: ==================================================
@@ -14,90 +22,90 @@
 //= 1.1 Standardized and fixed. [Euphy]
 //============================================================
 
-mosk_in,21,246,5	script	Pinkamenia	71,{
-	set .@n$,"^0000FF[Pinkamenia]^000000";
+mosk_in,21,246,5	script	粉红女郎	71,{
+	set .@n$,"^0000FF[粉红女郎]^000000";
 	if (#V_QUE12==3) {
 		set .@LFlowerID,7864;
 		setarray .@SweetsID[0],538,558,539,573,559,560,12062,596,597,12414,12319;
 		setarray .@SweetsCost[0],1,2,5,10,10,10,15,15,15,20,20;
 		mes .@n$;
-		mes "Hello "+strcharinfo(0)+", do";
-		mes "you want to buy some items?";
-		mes "You'll have to give me Love";
-		mes "Flowers for them, of course!";
+		mes "你好 "+strcharinfo(0)+",";
+		mes "你想换点什么吗?";
+		mes "我这里只能使用情人花";
+		mes "才能兑换东西!";
 		next;
-		if(select("Yes, sure!","No, never mind.") == 2) close;
+		if(select("- 是的!","- 不用, 我只是路过.") == 2) close;
 		next;
 		mes .@n$;
-		mes "Select an item.";
-		mes "The amount of Love Flowers you'll need is in brackets.";
+		mes "请选择需要兑换的物品.";
+		mes "括号中显示了你需要兑换物品所需的情人花数量.";
 		for(set .@i,0; .@i < getarraysize(.@SweetsID); set .@i,.@i+1)
 			set .@menu$, .@menu$+"^00AA00["+.@SweetsCost[.@i]+"]^000000 "+getitemname(.@SweetsID[.@i])+":";
 		next;
 		set .@choice, select(.@menu$)-1;
 		mes .@n$;
 		if (countitem(.@LFlowerID) < .@SweetsCost[.@choice]) {
-			mes "You'll need more Love Flowers if you want that!";
+			mes "你需要更多的情人花才能够兑换哦!";
 			close;
 		}
-		mes "Are you sure you want to trade ^00aa00"+.@SweetsCost[.@choice]+"x Love Flower ^000000 for ^0055FF"+getitemname(.@SweetsID[.@choice])+"^000000?";
-		if(select("No, I've changed my mind.:Yes, trade!") == 1) close;
+		mes "你确定使用 ^00aa00"+.@SweetsCost[.@choice]+"x 情人花 ^000000 来兑换 ^0055FF"+getitemname(.@SweetsID[.@choice])+"^000000吗?";
+		if(select("- 不, 我改主意了.:- 是的, 兑换!") == 1) close;
 		set .@new, .@LFlowerID - .@SweetsCost[.@choice];
 		if (.@new < 0) set .@new, 0;
 		delitem .@LFlowerID, .@SweetsCost[.@choice];
 		getitem .@SweetsID[.@choice],1;
-		mes "Have fun with your item!";
+		mes "祝你七夕节快乐!";
 		close;
 	} else if (#V_QUE12==2) {
 		mes .@n$;
 		if (countitem(7864) < 15) {
-			mes "You have to bring me 15 Love Flowers!";
+			mes "你需要给我足够情人花!";
 			close;
 		}
-		mes "Thank you so much for";
-		mes "getting our Flowers back!";
+		mes "感谢你帮我们找回了情人花";
+		mes "祝你七夕节快乐!";
 		delitem 7864,15;
 		next;
 		mes .@n$;
-		mes "Take this as a little";
-		mes "'thank you'.";
+		mes "这是一点小小的心意";
+		mes "'谢谢'.";
 		getexp 500000,400000;
 		getitem 617,1;
 		getitem 12319,2;
 		next;
 		mes .@n$;
-		mes "If you get more Love";
-		mes "Flowers, you can exchange";
-		mes "them for some sweets here.";
-		mes "See you soon!";
+		mes "如果你能找到更多的情人花";
+		mes "你可以带着它来兑换更多";
+		mes "甜蜜的东西.";
+		mes "期待与你再次见面!";
 		set #V_QUE12,3;
 		close;
 	} else if (#V_QUE12==1) {
 		mes .@n$;
-		mes "Please bring a +8 Cake Hat";
-		mes "to the Baker Extraordinaire";
-		mes "standing next to me!";
+		mes "请记得佩戴 +8 蛋糕帽";
+		mes "去找英俊的贝克";
+		mes "他就在我身后!";
 		close;
 	} else if (BaseLevel >= 45) {
 		mes .@n$;
-		mes "Hello "+strcharinfo(0)+", it's";
-		mes "Valentine's Day and we";
-		mes "love to deliver sweet";
-		mes "chocolates.";
+		mes "你好 "+strcharinfo(0)+",";
+		mes "在这个美丽的七夕情人节里";
+		mes "我们准备了甜蜜的";
+		mes "巧克力.";
 		next;
 		mes .@n$;
-		mes "Our problem is that we";
-		mes "need a strong person";
-		mes "like you who could help";
-		mes "us, but first you'll have";
-		mes "to bring a +8 Cake Hat";
-		mes "to the Baker Extraordinaire, who";
-		mes "is standing right next to me!";
+		mes "不过我们碰到一个小问题,";
+		mes "希望像你这样热心,强大的";
+		mes "冒险家能够帮助我们.";
+		mes "不过首先, 你得带来一顶";
+		mes "+8 以上的蛋糕帽.";
+		mes "然后找我身后英俊的贝克";
+		mes "对话, 他会告诉你一切!";
 		set #V_QUE12,1;
 		close;
 	}
 	mes .@n$;
-	mes "Hello "+strcharinfo(0)+"!";
+	mes "你好 "+strcharinfo(0)+"!";
 	close;
 
 OnInit:
@@ -106,53 +114,53 @@ OnInit:
 	end;
 }
 
-mosk_in,21,244,3	script	Baker Extraordinaire	410,{
-	set .@n$,"^0000FF[Baker Extraordinaire]^000000";
+mosk_in,21,244,3	script	英俊的贝克	410,{
+	set .@n$,"^0000FF[英俊的贝克]^000000";
 	if(#V_QUE12==3) {
 		mes .@n$;
-		mes "Exchange your Love Flowers with Pinkamenia!";
+		mes "情人花可以找粉红女郎兑换物品!";
 		close;
 	} else if(#V_QUE12==2) {
 		mes .@n$;
-		mes "Bring 15 Love Flowers to Pinkamenia!";
+		mes "记得带着15朵以上的情人花去找粉红女郎!";
 		close;
 	} else if(#V_QUE12==1) { 
 		mes .@n$;
 		if (getequipid(EQI_HEAD_TOP) == 5024 && getequiprefinerycnt(EQI_HEAD_TOP) >= 8) {
-			mes "Ah, so Pinkamenia told you";
-			mes "to bring me the +8 Cake";
-			mes "Hat. Now I'm going";
-			mes "to exchange your +8 Cake";
-			mes "Hat for another Cake Hat.";
+			mes "啊哈, 粉红女郎已经告诉你要";
+			mes "佩戴 +8 蛋糕帽了吧.";
+			mes "现在, 我将把你的蛋糕帽";
+			mes "变成另一个新的蛋糕帽子.";
+			mes "我们开始吧.";
 			next;
 			mes .@n$;
 			delitem 5024,1;
 			getitem 5105,1;
 			equip 5105;
-			mes "Now, if you wear the";
-			mes "new Cake Hat, there";
-			mes "is a chance that";
-			mes "Demi-Human Monsters will";
-			mes "drop a Love Flower!";
+			mes "现在, 如果你佩戴这顶";
+			mes "新的庆典蛋糕帽的话,";
+			mes "就有机会";
+			mes "在与人型魔物战斗时";
+			mes "获得额外的情人花奖励!";
 			next;
 			mes .@n$;
-			mes "The mobs stole our Flowers,";
-			mes "which we need to create ";
-			mes "our chocolates. Now get";
-			mes "15 Love Flowers and bring";
-			mes "them to Pinkamenia!";
+			mes "这些怪物偷了我们的情人花,";
+			mes "情人花是我们制作七夕节巧克力";
+			mes "所需要用到的, 现在";
+			mes "请帮我们找回这些情人花";
+			mes "并把它们给粉红女郎!";
 			set #V_QUE12,2;
 			close;
 		} else {
-			mes "Sorry, but where is your";
-			mes "+8 Cake Hat? Bring";
-			mes "it to me, and remember";
-			mes "to have it equipped!";
+			mes "对不起, 你的+8 蛋糕帽在哪里?";
+			mes "带着它来找我,";
+			mes "还有请记得要装备在身上.";
+			mes "祝你七夕节快乐!";
 			close;
 		}
 	} else {
 		mes .@n$;
-		mes "Hello, "+strcharinfo(0)+"!";
+		mes "你好, "+strcharinfo(0)+"!";
 		close;
 	}
 }
