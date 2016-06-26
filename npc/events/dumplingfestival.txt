@@ -1,3 +1,11 @@
+//============================================================
+//= rAthenaCN [驱魔大师 法海]汉化脚本 [ www.rAthenaCN.com ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
 //===== rAthena Script =======================================
 //= Imitation of Dumpling Festival
 //===== By ===================================================
@@ -5,7 +13,7 @@
 //===== Version ==============================================
 //= 1.01
 //===== Compatible With ======================================
-//= rAthena Project; 0.52+
+//= rAthena 0.52+
 //===== Description ==========================================
 //= A complete redering of the Dumpling Festival.
 //===== Comments =============================================
@@ -13,94 +21,73 @@
 //= 1.01 fixed bugs [Lupus]
 //============================================================
   
-payon,93,81,4	script	Exorcist Master Fahae	834,{
-
-	mes "[Exorcist Master Fahae]";
-	mes "Greetings young warrior, I'm the Exorcist Master Fahae.";
-	mes "I have been tracking the elusive Bacsojin for some time.";
+payon,93,81,4	script	驱魔大师 法海	834,{
+	mes "[驱魔大师 法海]";
+	mes "问候我们年轻的勇士, 我是 驱魔大师 法海.";
+	mes "我被白素贞已经缠了很长时间了.";
 	next;
-	mes "[Exorcist Master Fahae]";
-	mes "I feel it is time I let another warrior try to complete";
-	mes "my quest. I have some items to assist you in my quest.";
+	mes "[驱魔大师 法海]";
+	mes "我感觉现在是我来找一位勇士来完成我任务的";
+	mes "时候了. 我这有些东西来协助你完成任务.";
 	next;
-	menu "I wish to buy",-, "No thanks",M_FIN;
-  
-	mes "[Exorcist Master Fahae]";
-	mes "I have 2 items which might become useful to you.";
+  	if (select("我想买:不, 谢谢了")==2) {
+		mes "[驱魔大师 法海]";
+		mes "文曲星的罪恶, 祝我成佛.";
+		close;
+	}
+	mes "[驱魔大师 法海]";
+	mes "我这有 2 种物品可能对你有用.";
 	next;
-	menu "Realgar Wine",-, "Exorcize Herb",M_HERB;
-  
-	mes "[Exorcist Master Fahae]";
-	mes "How many do you require?";
-	mes "You may only buy 5 at one time.";
-	mes "Each costs 20000z.";
-	mes "(Type in 0 to cancel)";
+	setarray .@item[0],682,683,20000,10000;
+	set .@i,select("雄黄酒:艾草")-1;
+	mes "[驱魔大师 法海]";
+	mes "你需要多少个?";
+	mes "你一次只能买 5 个.";
+	mes "每个 "+ .@item[3+.@i] +"";
+	mes "(输入 0 来取消)";
 	next;
 	input @input;
-	if(@input==0) close;
-	if(@input>5) goto L_SORRY;
-	if(Zeny< @input*20000) goto L_NOZENY;
-	set Zeny,Zeny-20000*@input;
+	if (@input == 0) close;
+	if (@input > 5) {
+		mes "[驱魔大师 法海]";
+		mes "你不能那么贪婪, 阿弥陀佛.";
+		close;
+	}
+	if (Zeny< @input*.@item[3+.@i]) {
+		mes "[驱魔大师 法海]";
+		mes "钱不能够给每个人带来快乐, 但我们需要它来支援我的庙和我自己. 请, 尝试杀掉魔物或者卖掉他们的掉落物.";
+		close;
+	}
+	set Zeny,Zeny-.@item[3+.@i]*@input;
 	getitem 682,@input;
-	mes "[Exorcist Master Fahae]";
-	mes "Here you go, I hope you may succeed in my quest.";
-	close;
-  
-L_SORRY:
-	mes "[Exorcist Master Fahae]";
-	mes "You must not be stingy, it is the path of God to be honest.";
-	close;
-  
-M_FIN:
-	mes "[Exorcist Master Fahae]";
-	mes "The path of fully venquishing evil is far, help me in the way of God.";
-	close;
-  
-M_HERB:
-	mes "[Exorcist Master Fahae]";
-	mes "How many do you require?";
-	mes "You may only buy 5 at one time.";
-	mes "Each costs 10000z.";
-	mes "(Type in 0 to cancel)";
-	next;
-	input @input;
-	if(@input==0) close;
-	if(@input>5) goto L_SORRY;
-	if(Zeny< @input*10000) goto L_NOZENY;
-	set Zeny,Zeny-10000*@input;
-	getitem 683,@input;
-	mes "[Exorcist Master Fahae]";
-	mes "Here you go, I hope you may succeed in my quest.";
-	close;
-
-L_NOZENY:
-	mes "[Exorcist Master Fahae]";
-	mes "Money doesn't bring joy to everyone, but we need it to support the temple and myself. Please, try to kill some monsters and take their drops.";
+	mes "[驱魔大师 法海]";
+	mes "给你东西, 我希望你能够成功完成任务.";
 	close;
 }
-  
-// Monsters
-//============================================================
-gef_fild00,0,0,0,0	monster	Dumpling	1520,20,60000,66000
-gef_fild07,0,0,0,0	monster	Dumpling	1520,20,60000,66000
-gef_fild04,0,0,0,0	monster	Dumpling	1520,20,60000,66000
-gef_fild00,0,0,0,0	monster	Dumpling	1520,20,60000,66000
-prt_fild06,0,0,0,0	monster	Dumpling	1520,20,60000,66000
-prt_fild01,0,0,0,0	monster	Dumpling	1520,20,60000,66000
-prt_fild05,0,0,0,0	monster	Dumpling	1520,20,60000,66000
-prt_fild08,0,0,0,0	monster	Dumpling	1520,20,60000,66000
-pay_fild04,0,0,0,0	monster	Dumpling	1520,20,60000,66000
-moc_fild02,0,0,0,0	monster	Dumpling	1520,20,60000,66000
-pay_fild01,0,0,0,0	monster	Dumpling	1520,20,60000,66000
-pay_fild07,0,0,0,0	monster	Dumpling	1520,20,60000,66000
-moc_fild03,0,0,0,0	monster	Dumpling	1520,20,60000,66000
-pay_fild06,0,0,0,0	monster	Dumpling	1520,20,60000,66000
-pay_fild05,0,0,0,0	monster	Dumpling	1520,20,60000,66000
-pay_fild02,0,0,0,0	monster	Dumpling	1520,20,60000,66000
-pay_fild09,0,0,0,0	monster	Dumpling	1520,20,60000,66000
 
-moc_fild03,0,0,0,0	monster	Bacsojin	1518,1,60000,66000
+// 肉粽怪
+gef_fild00,0,0,0,0	monster	肉粽怪	1520,20,60000,66000
+gef_fild07,0,0,0,0	monster	肉粽怪	1520,20,60000,66000
+gef_fild04,0,0,0,0	monster	肉粽怪	1520,20,60000,66000
+gef_fild00,0,0,0,0	monster	肉粽怪	1520,20,60000,66000
+prt_fild06,0,0,0,0	monster	肉粽怪	1520,20,60000,66000
+prt_fild01,0,0,0,0	monster	肉粽怪	1520,20,60000,66000
+prt_fild05,0,0,0,0	monster	肉粽怪	1520,20,60000,66000
+prt_fild08,0,0,0,0	monster	肉粽怪	1520,20,60000,66000
+pay_fild04,0,0,0,0	monster	肉粽怪	1520,20,60000,66000
+moc_fild02,0,0,0,0	monster	肉粽怪	1520,20,60000,66000
+pay_fild01,0,0,0,0	monster	肉粽怪	1520,20,60000,66000
+pay_fild07,0,0,0,0	monster	肉粽怪	1520,20,60000,66000
+moc_fild03,0,0,0,0	monster	肉粽怪	1520,20,60000,66000
+pay_fild06,0,0,0,0	monster	肉粽怪	1520,20,60000,66000
+pay_fild05,0,0,0,0	monster	肉粽怪	1520,20,60000,66000
+pay_fild02,0,0,0,0	monster	肉粽怪	1520,20,60000,66000
+pay_fild09,0,0,0,0	monster	肉粽怪	1520,20,60000,66000
 
-moc_fild03,0,0,0,0	monster	Chung E	1519,1,60000,66000
-moc_fild13,0,0,0,0	monster	Chung E	1519,1,60000,66000
-pay_fild01,0,0,0,0	monster	Chung E	1519,1,60000,66000
+// 白素贞
+moc_fild03,0,0,0,0	monster	白素贞	1518,1,60000,66000
+
+// 小青
+moc_fild03,0,0,0,0	monster	小青	1519,1,60000,66000
+moc_fild13,0,0,0,0	monster	小青	1519,1,60000,66000
+pay_fild01,0,0,0,0	monster	小青	1519,1,60000,66000
