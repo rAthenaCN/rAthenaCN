@@ -1,147 +1,108 @@
-//===== rAthena Script ======================================= 
+//============================================================
+//= rAthenaCN [噩梦波斯尼亚]汉化脚本 [ www.rAthenaCN.com ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
+//============================================================
 //= Bossnia Warp NPCs
-//===== By: ================================================== 
+//===== By: ==================================================
 //= Masao
-//===== Current Version: ===================================== 
-//= 1.3
-//===== Compatible With: ===================================== 
-//= rAthena Project
+//===== Current Version: =====================================
+//= 1.2
 //===== Description: ========================================= 
-//= Bossnia MVP event.
+//= Bossnia MvP event.
 //===== Additional Comments: ================================= 
 //= 1.0 Converted from the official script.
 //= 1.1 Optimized. [Euphy]
 //= 1.2 Moved spawns and warps (by Masao) to this file. [Euphy]
-//= 1.3 Added VIP features. [Euphy]
 //============================================================ 
 
 // Entrance NPCs
 //============================================================
-prontera,132,125,4	script	Bossnia Staff#1	908,{
-	mes "[Riss]";
-	mes "Hello?";
-	mes "I found some beautiful places";
-	mes "while I travelled all over the world.";
-	mes "I am an adventurer.";
-	mes "Haha~";
+prontera,132,125,4	script	波斯尼亚职员#1	4_M_PHILMAN,{
+	mes "[里斯]";
+	mes "你好?";
+	mes "我走遍了全世界";
+	mes "终于来到了这里, 这真是个非常安全的地方.";
+	mes "我也是一名冒险家.";
+	mes "哈哈~";
 	next;
-	mes "[Riss]";
-	mes "What? My name is...";
-	mes "'Bossnia Staff'?? No no...";
-	mes "Well, my name is not so important.";
-	mes "Sometimes you should be generous.";
-	mes "No time for considering that kind of small stuff";
-	mes "when you have to concentrate on more important things.";
+	mes "[里斯]";
+	mes "什么? 我的名字...";
+	mes "'波斯尼亚职员'?? 不不...";
+	mes "好吧, 我的名字并不重要.";
+	mes "有些时候你应该大方一些.";
+	mes "没有时间考虑那种小事情";
+	mes "你应该专注于更重要的事情.";
 	next;
-	mes "[Riss]";
-	mes "Hum... anyway I want to say... something..";
-	mes "While I was travelling through some places,";
-	mes "I found a really fearful place.";
+	mes "[里斯]";
+	mes "唔... 反正我想说的... 那件事..";
+	mes "当我在我的环球之旅中,";
+	mes "我发现了个可怕的地方.";
 	next;
-	mes "[Riss]";
-	mes "Most of the time when you come to a place,";
-	mes "there is one strong and fearful monster.";
-	mes "Isn't it?";
+	mes "[里斯]";
+	mes "大多数的时候在一般的地图,";
+	mes "都会有一个强大和可怕的怪物坐镇.";
+	mes "是不是?";
 	next;
-	mes "[Riss]";
-	mes "But... but... in there...";
-	mes "There are lots of fearful and strong monsters in there...";
-	mes "That was really frightful.";
+	mes "[里斯]";
+	mes "不过... 但是... 在那里...";
+	mes "在那里有很多的可怕和强大的怪物...";
+	mes "那是真心的可怕.";
 	next;
-	mes "[Riss]";
-	mes "If I had reacted a bit later... a few seconds...";
-	mes "I might have been killed.";
+	mes "[里斯]";
+	mes "如果我反应...再慢一点的话...";
+	mes "可能早就被杀了.";
 	next;
-	mes "[Riss]";
-	mes "What?";
-	mes "You want to go in there?";
-	mes "Oh~ Boy~ you didn't get me.";
-	mes "In there.......";
+	mes "[里斯]";
+	mes "什么?";
+	mes "你要到那里去?";
+	mes "噢~ 小子~ 你不知道那里.";
+	mes "我所见到的.......";
 	next;
-	mes "[Riss]";
-	mes "Uh... you already know?";
-	mes "Although you know the place, you want to go in...";
-	mes "Good, I will send you there.";
-	mes "But after you went there, don't hold";
-
-	// If the VIP system is enabled, players pay a Reset Stone for 5 entrances (with a choice of warps).
-	// If it's disabled, players pay 5,000z per entrance.
-	if (VIP_SCRIPT) {
-		mes "a grudge against me. It'll cost you 1 Reset Stone for 5 access.";
+	mes "[里斯]";
+	mes "既然你知道那个地方, 你还想去...";
+	mes "很好, 我可以送你去那里.";
+	mes "不过你去了之后, 可别抱怨";
+	mes "是我把你送过去的. ";
+	mes "进入这个区域需要波斯尼亚旅游券1张. 还有要付 50,000 zeny.";
+	next;
+	if ((Zeny > 49999)&&(countitem(7227) >= 1)) {
+		mes "[里斯]";
+		mes "你真的很喜欢接受挑战?";
+		mes "好吧, 请选择你要去的区域. 不同的区域都有能力压制.";
 		next;
-		mes "[Riss]";
-		if (bossnia_event > 0) {
-			set .@type,1;
-			mes "Remaining access: "+bossnia_event;
-		} else if (countitem(6320)) {
-			set .@type,2;
-			mes "Do you want to go?";
-		} else {
-			mes "You don't have a ticket now.....";
-			mes "So come to me again with a Reset Stone later.";
-			close;
-		}
-		next;
-		if(select("Enter:Leave") == 2)
-			close;
-		set .@i, select("First:Second:Third:Fourth");
-		switch(select("Warp 1:Warp 2:Warp 3:Warp 4")) {
-			case 1: set .@x,31; set .@y,208; break;
-			case 2: set .@x,31; set .@y,31; break;
-			case 3: set .@x,208; set .@y,31; break;
-			case 4: set .@x,208; set .@y,208; break;
-		}
-		if (.@type == 1)
-			set bossnia_event, bossnia_event-1;
-		else {
-			delitem 6320,1; //Premium_Reset_Stone
-			set bossnia_event,4;
-		}
-		specialeffect2 EF_MAXPOWER;
-		warp "bossnia_0"+.@i,.@x,.@y;
-		close;
-	} else {
-		mes "a grudge against me. Also it costs 5,000 zeny.";
-		next;
-		if (Zeny > 4999) {
-			mes "[Riss]";
-			mes "Would you really like to take the challenge?";
-			mes "Ok, just choose the course.";
-			next;
-			set .@i, select("First:Second:Third:Fourth");
-			mes "[Riss]";
-			mes "Take care, boy~";
-			mes "Don't hold a grudge against me.";
-			close2;
-			set Zeny, Zeny - 5000;
-			warp "bossnia_0"+.@i,rand(202,204),rand(202,204);
-			end;
-		} else {
-			mes "[Riss]";
-			mes "You don't have enough money...";
-			mes "Come back when you have at least 5,000 zeny.";
-			close;
-		}
+		set .@i, select("- 1st区域 - ^FFC0CB50%^000000","- 2nd区域 - ^FFB6C160%^000000","- 3rd区域 - ^FF69B470%^000000","- 4th区域 - ^DC143C80%^000000");
+		mes "[里斯]";
+		mes "小心点, 小子~";
+		mes "可别记恨我.";
+		delitem 7227,1;
+		close2;
+		Zeny -= 50000;
+		warp "bossnia_0"+.@i,rand(202,204),rand(202,204);
+		end;
 	}
+	mes "[里斯]";
+	mes "呃东西没带够就想去?...";
+	mes "至少需要 50,000 zeny.";
+	mes "和1张波斯尼亚旅游券.";
+	close;
+	
 }
-geffen,124,169,4	duplicate(Bossnia Staff#1)	Bossnia Staff#2	908
-payon,165,150,4	duplicate(Bossnia Staff#1)	Bossnia Staff#3	908
-morocc,142,100,4	duplicate(Bossnia Staff#1)	Bossnia Staff#4	908
-lighthalzen,203,140,4	duplicate(Bossnia Staff#1)	Bossnia Staff#5	908
-rachel,132,144,4	duplicate(Bossnia Staff#1)	Bossnia Staff#6	908
 
-// Warp Portals
-//============================================================
-bossnia_01,204,204,0	warp	bossnia01	1,1,prontera,155,180
-bossnia_02,204,204,0	warp	bossnia02	1,1,prontera,155,180
-bossnia_03,204,204,0	warp	bossnia03	1,1,prontera,155,180
-bossnia_04,204,204,0	warp	bossnia04	1,1,prontera,155,180
-
+geffen,124,169,4	duplicate(波斯尼亚职员#1)	波斯尼亚职员#2	4_M_PHILMAN
+payon,165,150,4	duplicate(波斯尼亚职员#1)	波斯尼亚职员#3	4_M_PHILMAN
+morocc,142,100,4	duplicate(波斯尼亚职员#1)	波斯尼亚职员#4	4_M_PHILMAN
+lighthalzen,203,140,4	duplicate(波斯尼亚职员#1)	波斯尼亚职员#5	4_M_PHILMAN
+rachel,132,144,4	duplicate(波斯尼亚职员#1)	波斯尼亚职员#6	4_M_PHILMAN
 // Monster Spawns
 //============================================================
 
 //----------------------------------------------------------------------------
-// bossnia_01 - Bossnia
+// bossnia_01 - Bossnia 01
 //----------------------------------------------------------------------------
 bossnia_01,0,0,0,0	monster	Garm	1252,5,7200000,0,1
 bossnia_01,0,0,0,0	monster	Gloom Under Night	1768,2,7200000,0,1
@@ -185,7 +146,7 @@ bossnia_01,196,122,1,1	monster	Valkyrie Randgris	1751,1,0,0,1
 bossnia_01,142,61,1,1	monster	Ifrit	1832,1,0,0,1
 
 //----------------------------------------------------------------------------
-// bossnia_02 - Bossnia
+// bossnia_02 - Bossnia 02
 //----------------------------------------------------------------------------
 bossnia_02,0,0,0,0	monster	Garm	1252,5,7200000,0,1
 bossnia_02,0,0,0,0	monster	Gloom Under Night	1768,2,7200000,0,1
@@ -229,7 +190,7 @@ bossnia_02,196,122,1,1	monster	Valkyrie Randgris	1751,1,0,0,1
 bossnia_02,142,61,1,1	monster	Ifrit	1832,1,0,0,1
 
 //----------------------------------------------------------------------------
-// bossnia_03 - Bossnia
+// bossnia_03 - Bossnia 03
 //----------------------------------------------------------------------------
 bossnia_03,0,0,0,0	monster	Garm	1252,5,7200000,0,1
 bossnia_03,0,0,0,0	monster	Gloom Under Night	1768,2,7200000,0,1
@@ -273,7 +234,7 @@ bossnia_03,196,122,1,1	monster	Valkyrie Randgris	1751,1,0,0,1
 bossnia_03,142,61,1,1	monster	Ifrit	1832,1,0,0,1
 
 //----------------------------------------------------------------------------
-// bossnia_04 - Bossnia
+// bossnia_04 - Bossnia 04
 //----------------------------------------------------------------------------
 bossnia_04,0,0,0,0	monster	Garm	1252,5,7200000,0,1
 bossnia_04,0,0,0,0	monster	Gloom Under Night	1768,2,7200000,0,1
