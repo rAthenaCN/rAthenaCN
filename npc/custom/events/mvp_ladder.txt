@@ -20,7 +20,7 @@
 //= 1.0 First version, edited. [Euphy]
 //============================================================
 
-prontera,178,125,4	script	MvP	955,{
+prontera,164,171,3	script	MvP	955,{
 	mes "[MvP]";
 	mes "œÎ≤ªœÎ ‘ ‘?";
 	next;

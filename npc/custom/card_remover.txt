@@ -1,3 +1,11 @@
+//============================================================
+//= rAthenaCN [智慧的老妇人]汉化脚本 [ www.rAthenaCN.com ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
 //===== rAthena Script =======================================
 //= Card Removal NPC
 //===== By: ==================================================
@@ -14,70 +22,73 @@
 //= 1.2a Added 'disable_items' command. [Euphy]
 //============================================================
 
-prt_in,28,73,4	script	Wise Old Woman#eAcustom	78,{
+prt_in,28,73,4	script	智慧的老妇人#eAcustom	78,{
 
-	set .zenycost,200000;    // base cost of the card remover services (in Zeny)
-	set .percardcost,25000;  // cost per card of the card remover services (in Zeny)
+	set .zenycost,500000;    // base cost of the card remover services (in Zeny)
+	set .percardcost,100000;  // cost per card of the card remover services (in Zeny)
 	set .faildestroy,1;      // should the card remover have a chance of failure that destroys items? (1=yes, 0=no)
 
 	disable_items;
-	mes "[Wise Old Woman]";
-	mes "Good day, young one. I have the power to remove cards that you have compounded onto your equipment. Does this idea please you?";
+	mes "[智慧的老妇人]";
+	mes "你好，年轻人。我能帮你把插入装备的卡片拆下来。有兴趣吗？";
 	next;
-	switch(select("Yes, it does.:What do you charge?:No thanks.")) {
+	switch(select("有兴趣哇.:要报酬吗?:不了，谢谢.")) {
 	case 1:
-		mes "[Wise Old Woman]";
-		mes "Very well. Which item shall I examine for you?";
+		mes "[智慧的老妇人]";
+		mes "好的.那你要在哪件物品上做试验?";
 		next;
 
-		setarray .@indices[1], EQI_HEAD_TOP, EQI_ARMOR, EQI_HAND_L, EQI_HAND_R, EQI_GARMENT, EQI_SHOES, EQI_ACC_L, EQI_ACC_R, EQI_HEAD_MID, EQI_HEAD_LOW;
-		for( set .@i,1; .@i <= 10; set .@i,.@i+1 ) {
-			if( getequipisequiped(.@indices[.@i]) )
-				set .@menu$, .@menu$ + F_getpositionname(.@indices[.@i]) + "-[" + getequipname(.@indices[.@i]) + "]";
+		setarray .@position$[0], "装饰品[左]","装饰品[右]","鞋子","披肩","头下","头中","头上","身体","左手","右手";
+		set .@menu$,"";
+		for( set .@i,0; .@i < 10; set .@i,.@i+1 )
+		{
+			if( getequipisequiped(.@i) )
+			set .@menu$, .@menu$ + .@position$[.@i] + "-" + "[" + getequipname(.@i) + "]";
+
 			set .@menu$, .@menu$ + ":";
 		}
-		set .@part, .@indices[ select(.@menu$) ];
+		set .@part,select(.@menu$)-1;
 		if(!getequipisequiped(.@part)) {
-			mes "[Wise Old Woman]";
-			mes "Young one... Your not wearing anything there that I can remove cards from.";
+			mes "[智慧的老妇人]";
+			mes "年轻人... 你哪里什么都不穿叫我怎么拆卡?";
 			close;
 		}
 		if(getequipcardcnt(.@part) == 0) {
-			mes "[Wise Old Woman]";
-			mes "Young one... There are no cards compounded on this item. I can do nothing with it, I'm afraid.";
+			mes "[智慧的老妇人]";
+			mes "年轻人... 你那件装备没有插卡.恐怕我什么都不能做咯.";
 			close;
 		}
 		set .@cardcount,getequipcardcnt(.@part);
 		
 		if (!checkweight(1202,(.@cardcount+1))) { 
-			mes "^3355FFJust a minute!";
-			mes "I can't offer any of my";
-			mes "services to you because";
-			mes "you're carrying too much";
-			mes "stuff. Put your extra items in";
-			mes "Kafra Storage and come again~";
+			mes "^3355FF等一下!";
+			mes "我无法帮助你,";
+			mes "因为你携带了太多的东西.";
+			mes "请把身上多余的物品";
+			mes "存到卡普拉服务员那里再来吧~";
 			close;
 		}
-		mes "[Wise Old Woman]";
-		mes "This item has " + .@cardcount + " cards compounded on it. To perform my magic, I will need " + (.zenycost+(.@cardcount * .percardcost)) + " zeny, a ^0000FFStar Crumb^000000, and a ^0000FFYellow Gemstone^000000.";
+		mes "[智慧的老妇人]";
+		mes "这件道具有 " + .@cardcount + " 张卡片.为了施法,我需要 " + (.zenycost+(.@cardcount * .percardcost)) + " zeny, 一个 ^0000FF星星的角^000000, 和一个 ^0000FF黄色魔力矿石^000000.";
 		next;
-		if(select("Very well. Do it.:Nevermind.") == 2) {
-			mes "[Wise Old Woman]";
-			mes "Very well. Return at once if you seek my services.";
+		if(select("好的,来吧.:算了.") == 2) {
+			mes "[智慧的老妇人]";
+			mes "好吧.等你想来的时候再来找我.";
 			close;
 		}
 		if((zeny < (.zenycost+(.@cardcount * .percardcost))) || (countitem(1000) < 1) || (countitem(715) < 1)) {
-			mes "[Wise Old Woman]";
-			mes "You do not have all the items I require to work my magic, child. Come again when you do.";
+			mes "[智慧的老妇人]";
+			mes "你没有我施法需要的东西哦,孩子.等你有了再来找我吧.";
 			close;
 		}
-		mes "[Wise Old Woman]";
-		mes "Before I begin, I must warn you--I may fail. If I do, I may destroy the cards, the item, or both. I do not give refunds. That being said, which is more important to you: The cards, or the item?";
+		mes "[智慧的老妇人]";
+		mes "施法前我必须警告你：我会失败. 如果我失败了,可能装备,或者卡片,或者他们全部都会消失.我可不会赔你哦,如此一来,你要先告诉我,卡片和装备谁重要?";
+		mes "如果你有^FF0000高级润滑油^000000的话，我就可以让你^FF0000百分之百^000000成功喔~!";
 		next;
-		switch(select("I changed my mind about this.:The item.:The cards.")) {
+		switch(select("我改变主意了.:装备.:卡片.")) {
 		case 1:
-			mes "[Wise Old Woman]";
-			mes "Very well. Return at once if you seek my services.";
+			mes "[智慧的老妇人]";
+			mes "好吧.等你想来的时候再来找我.";
 			close;
 		case 2:
 			set .@failtype,1;
@@ -85,8 +96,19 @@ prt_in,28,73,4	script	Wise Old Woman#eAcustom	78,{
 		case 3:
 			set .@failtype,2;
 		}
-		mes "[Wise Old Woman]";
-		mes "Very well. I shall begin.";
+		mes "[智慧的老妇人]";
+		mes "好的,我要开始了.";
+		next;
+		mes "[智慧的老妇人]";
+		if( getequipcardcnt(.@part) != .@cardcount ) {
+			mes "你给我的东西好像不是刚才了的嘛!";
+			debugmes strcharinfo(0)+" 在拆卡时试图在中途更换装备";
+			close;
+		}
+		if((zeny < (.zenycost+(.@cardcount * .percardcost))) || (countitem(1000) < 1) || (countitem(715) < 1)) {
+			mes "你没有我施法需要的东西哦,孩子.等你有了再来找我吧.";
+			close;
+		}
 		set Zeny, Zeny - (.zenycost+(.@cardcount * .percardcost));
 		delitem 1000,1; //Star_Crumb
 		delitem 715,1; //Yellow_Gemstone
@@ -95,55 +117,69 @@ prt_in,28,73,4	script	Wise Old Woman#eAcustom	78,{
 		// First value = Total failure chance (item and cards destroyed)
 		// Second value = Partial failure chance (one or the other is destroyed, player decides which one is safe)
 		// Third value = Harmless failure chance (all that's lost is your investment)
-
+		
+		if (countitem(6441)>=1)
+		{
+		mes "让我给你敷上^FF0000润滑油~~~";
+		mes "很滑、很滑、很滑。。。~~~^000000";
+		next;
+		delitem 6441,1;
+		successremovecards .@part;
+		mes "[智慧的老妇人]";
+		mes "拆卡成功!这是你的卡片和装备.再见.";
+		close;
+		}
+		else
+		{
 		set .@failchance,rand(100);
 		if (.faildestroy==1) {
-			if(.@failchance < 2) {
+			if(.@failchance < 70) {
 				next;
 				failedremovecards .@part,0;
-				mes "[Wise Old Woman]";
-				mes "The process was a total failure. I am afraid the item and the cards were destroyed.";
+				mes "[智慧的老妇人]";
+				mes "完全失败了!可能所有东西都坏了.";
 				close;
 			}
 
-			if(.@failchance < 8) {
+			if(.@failchance < 90) {
 				if (.@failtype == 1) {
 					next;
 					failedremovecards .@part,1;
-					mes "[Wise Old Woman]";
-					mes "While I have managed to remove the cards from the item, they were destroyed in the process. The item, however, is okay.";
+					mes "[智慧的老妇人]";
+					mes "我试图将卡片拆除的时候,卡片坏了,但是装备还是好的.";
 					close;
 				}
 
 				if (.@failtype == 2) {
 					next;
 					failedremovecards .@part,2;
-					mes "[Wise Old Woman]";
-					mes "Most unfortunate. I succeeded at removing the cards, but the item itself was destroyed in the process.";
+					mes "[智慧的老妇人]";
+					mes "很不幸,拆卡是成功了,但是装备本身坏了.";
 					close;
 				}
 			}
 		}
 
-		if(.@failchance < 10) {
+		if(.@failchance < 75) {
 			next;
 			failedremovecards .@part,3;
-			mes "[Wise Old Woman]";
-			mes "I have failed to remove the cards. Luckily, however, both the item and the cards are still okay.";
+			mes "[智慧的老妇人]";
+			mes "拆卡失败了.很幸运的是,他们都没有损坏.";
 			close;
 		}
 		next;
 		successremovecards .@part;
-		mes "[Wise Old Woman]";
-		mes "The process was a success. Here are your cards and your item. Farewell.";
+		mes "[智慧的老妇人]";
+		mes "拆卡成功!这是你的卡片和装备.再见.";
 		close;
+		}
 	case 2:
-		mes "[Wise Old Woman]";
-		mes "I charge a flat fee of "+callfunc("F_InsertComma",.zenycost)+" zeny, plus "+callfunc("F_InsertComma",.percardcost)+" zeny for each card I remove from the item. In addition, I need a star crumb and a yellow gemstone to work my magic.";
+		mes "[智慧的老妇人]";
+		mes "起价 "+callfunc("F_InsertComma",.zenycost)+" zeny, 每张卡片另收 "+callfunc("F_InsertComma",.percardcost)+" zeny. 另外，我需要星星的角和黄色魔力矿石来辅助施法.";
 		close;
 	case 3:
-		mes "[Wise Old Woman]";
-		mes "Very well. Return at once if you seek my services.";
+		mes "[智慧的老妇人]";
+		mes "好吧.等你想来的时候再来找我.";
 		close;
 	}
 }
