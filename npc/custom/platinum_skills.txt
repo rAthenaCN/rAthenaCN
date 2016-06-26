@@ -1,3 +1,11 @@
+//============================================================
+//= rAthenaCN [特殊技能学习]汉化脚本 [ www.rAthenaCN.com ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
 //===== rAthena Script =======================================
 //= Platinum Skills
 //===== By: ==================================================
@@ -20,14 +28,14 @@
 //= 2.8 Clustered conditionals replaced with switch to include all Upper types. [Euphy]
 //============================================================
 
-prontera,128,200,6	script	Platinum Skill NPC	94,{
-	mes "[Platinum Skill NPC]";
-	mes "I can give you the special skills available to your job.";
-	mes "Would you like these skills now?";
+prontera,128,200,6	script	特殊技能学习	94,{
+	mes "[特殊技能学习]";
+	mes "我可以为你的职业提供特殊的技能学习,";
+	mes "你现在想要学习吗?";
 	next;
-	if (select("Yes Please:No") == 2) {
-		mes "[Platinum Skill NPC]";
-		mes "Have a nice day... >.>";
+	if (select("好的:不要") == 2) {
+		mes "[特殊技能学习]";
+		mes "今天真是个好天气... >.>";
 		close;
 	}
 	skill "NV_FIRSTAID",1,SKILL_PERM;
@@ -115,7 +123,7 @@ prontera,128,200,6	script	Platinum Skill NPC	94,{
 	default:
 		break;
 	}
-	mes "[Platinum Skill NPC]";
-	mes "There you go!";
+	mes "[特殊技能学习]";
+	mes "你已经学习成功了!";
 	close;
 }
