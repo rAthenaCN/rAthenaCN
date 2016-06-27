@@ -1,11 +1,19 @@
+//============================================================
+//= rAthenaCN [公会战GVG]汉化脚本 [ www.rAthenaCN.com ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
 //===== rAthena Script =======================================
-//= War of Emperium (Al De Baran) - Nuernberg
+//= War of Emperium (Al De Baran)
 //===== By: ==================================================
 //= L0ne_W0lf
 //===== Current Version: =====================================
 //= 1.2
 //===== Compatible With: =====================================
-//= rAthena Project
+//= rAthena SVN
 //===== Description: =========================================
 //= NPCs that relate to Al De Baran Guild Castle 3
 //===== Additional Comments: =================================
@@ -16,30 +24,30 @@
 
 // Guild Flag (Outside Castle)
 //============================================================
--	script	Nuernberg#1::OutsideFlagsA3	722,{
+-	script	纽蓝贝勒克#1::OutsideFlagsA3	722,{
 
 	set .@GID, GetCastleData("aldeg_cas03",1);
 
 	if (.@GID == 0) {
-		mes "[ Edict of the Divine Rune-Midgarts Kingdom ]";
+		mes "[ 神圣卢恩·米德加兹王国法令 ]";
 		mes " ";
-		mes "1. Follow the ordinance of The Divine Rune-Midgarts Kingdom, ";
-		mes "We declare that";
-		mes "there is no formal master of this castle.";
+		mes "1. 遵循神圣卢恩·米德加兹王国法令, ";
+		mes "我们正式声明";
+		mes "此城堡没有正式拥有者.";
 		mes " ";
-		mes "2. To the one who can ";
-		mes "overcome all trials";
-		mes "and destroy the Emperium,";
-		mes "the king will endow the one with";
-		mes "ownership of this castle.";
+		mes "2. 经过所有试炼,";
+		mes "并且击碎华丽金属的勇士.";
+		mes "将会得到国王殿下的诏书";
+		mes "被授予该城堡拥有权.";
+		mes "并一同守护卢恩·米德加兹王国!";
 		close;
 	}
 	if (getcharid(2) == .@GID) {
-		mes "[ Echoing Voice ]";
-		mes "Brave ones...";
-		mes "Do you wish to return to your honorable place?";
+		mes "[ 回声 ]";
+		mes "勇士们...";
+		mes "想要回到你们的荣耀之地吗?";
 		next;
-		if(select("Return to the guild castle.:Quit.") == 1) {
+		if(select("返回公会城堡.:取消.") == 1) {
 			close2;
 			if (getcharid(2) == GetCastleData("aldeg_cas03",1)) {
 				warp "aldeg_cas03",205,186;
@@ -49,16 +57,16 @@
 		}
 		close;
 	}
-	mes "[ Edict of the Divine Rune-Midgarts Kingdom ]";
+	mes "[ 神圣卢恩·米德加兹王国法令 ]";
 	mes " ";
-	mes "1. Follow the ordinance of The Divine Rune-Midgarts Kingdom, ";
-	mes "we approve that this place is in";
-	mes "the private prossession of ^ff0000"+GetGuildName(.@GID)+"^000000 Guild.";
+	mes "1. 遵循神圣卢恩·米德加兹王国法令,";
+	mes "我们认可此处为.";
+	mes " ^ff0000"+GetGuildName(.@GID)+"^000000公会的私人领地.";
 	mes " ";
-	mes "2. The guild Master of ^ff0000"+GetGuildName(.@GID)+"^000000 Guild is";
+	mes "2. 公会 ^ff0000"+GetGuildName(.@GID)+"^000000 的领袖为:";
 	mes "^ff0000"+GetGuildMaster(.@GID)+"^000000";
-	mes "If there is anyone who objects to this,";
-	mes "prove your strength and honor with a steel blade in your hand.";
+	mes "如果任何人对此有异议.";
+	mes "请用手中的武器来证明自己的勇气和荣耀!";
 	close;
 
 OnRecvCastleA03:
@@ -66,12 +74,12 @@ OnRecvCastleA03:
 	end;
 }
 
-alde_gld,146,82,8	duplicate(OutsideFlagsA3)	Nuernberg#1-2	722
-alde_gld,138,82,8	duplicate(OutsideFlagsA3)	Nuernberg#2	722
+alde_gld,146,82,8	duplicate(OutsideFlagsA3)	纽蓝贝勒克#1-2	722
+alde_gld,138,82,8	duplicate(OutsideFlagsA3)	纽蓝贝勒克#2	722
 
 // Guild Flag (Inside Castle)
 //============================================================
--	script	Nuernberg#3::InsideFlagsA3	722,{
+-	script	纽蓝贝勒克#3::InsideFlagsA3	722,{
 	end;
 
 OnRecvCastleA03:
@@ -79,31 +87,31 @@ OnRecvCastleA03:
 	end;
 }
 
-aldeg_cas03,176,175,2	duplicate(InsideFlagsA3)	Nuernberg#3-2	722
-aldeg_cas03,77,115,2	duplicate(InsideFlagsA3)	Nuernberg#4	722
-aldeg_cas03,77,215,2	duplicate(InsideFlagsA3)	Nuernberg#5	722
-aldeg_cas03,112,107,2	duplicate(InsideFlagsA3)	Nuernberg#6	722
-aldeg_cas03,112,117,2	duplicate(InsideFlagsA3)	Nuernberg#7	722
-aldeg_cas03,69,71,2	duplicate(InsideFlagsA3)	Nuernberg#8	722
-aldeg_cas03,91,69,2	duplicate(InsideFlagsA3)	Nuernberg#9	722
-aldeg_cas03,108,60,2	duplicate(InsideFlagsA3)	Nuernberg#10	722
-aldeg_cas03,121,73,2	duplicate(InsideFlagsA3)	Nuernberg#11	722
-aldeg_cas03,121,73,2	duplicate(InsideFlagsA3)	Nuernberg#12	722
-aldeg_cas03,75,102,2	duplicate(InsideFlagsA3)	Nuernberg#13	722
-aldeg_cas03,199,169,2	duplicate(InsideFlagsA3)	Nuernberg#14	722
-aldeg_cas03,181,179,2	duplicate(InsideFlagsA3)	Nuernberg#15	722
-aldeg_cas03,192,44,2	duplicate(InsideFlagsA3)	Nuernberg#16	722
-aldeg_cas03,208,145,2	duplicate(InsideFlagsA3)	Nuernberg#17	722
-aldeg_cas03,207,75,2	duplicate(InsideFlagsA3)	Nuernberg#18	722
-aldeg_cas03,96,62,2	duplicate(InsideFlagsA3)	Nuernberg#19	722
+aldeg_cas03,176,175,2	duplicate(InsideFlagsA3)	纽蓝贝勒克#3-2	722
+aldeg_cas03,77,115,2	duplicate(InsideFlagsA3)	纽蓝贝勒克#4	722
+aldeg_cas03,77,215,2	duplicate(InsideFlagsA3)	纽蓝贝勒克#5	722
+aldeg_cas03,112,107,2	duplicate(InsideFlagsA3)	纽蓝贝勒克#6	722
+aldeg_cas03,112,117,2	duplicate(InsideFlagsA3)	纽蓝贝勒克#7	722
+aldeg_cas03,69,71,2	duplicate(InsideFlagsA3)	纽蓝贝勒克#8	722
+aldeg_cas03,91,69,2	duplicate(InsideFlagsA3)	纽蓝贝勒克#9	722
+aldeg_cas03,108,60,2	duplicate(InsideFlagsA3)	纽蓝贝勒克#10	722
+aldeg_cas03,121,73,2	duplicate(InsideFlagsA3)	纽蓝贝勒克#11	722
+aldeg_cas03,121,73,2	duplicate(InsideFlagsA3)	纽蓝贝勒克#12	722
+aldeg_cas03,75,102,2	duplicate(InsideFlagsA3)	纽蓝贝勒克#13	722
+aldeg_cas03,199,169,2	duplicate(InsideFlagsA3)	纽蓝贝勒克#14	722
+aldeg_cas03,181,179,2	duplicate(InsideFlagsA3)	纽蓝贝勒克#15	722
+aldeg_cas03,192,44,2	duplicate(InsideFlagsA3)	纽蓝贝勒克#16	722
+aldeg_cas03,208,145,2	duplicate(InsideFlagsA3)	纽蓝贝勒克#17	722
+aldeg_cas03,207,75,2	duplicate(InsideFlagsA3)	纽蓝贝勒克#18	722
+aldeg_cas03,96,62,2	duplicate(InsideFlagsA3)	纽蓝贝勒克#19	722
 
 // Guild Flag (Town)
 //============================================================
-aldebaran,134,97,4	duplicate(InsideFlagsA3)	Nuernberg#20	722
+aldebaran,134,97,4	duplicate(InsideFlagsA3)	纽蓝贝勒克#20	722
 
 // Kafra Employee
 //============================================================
-aldeg_cas03,118,76,0	duplicate(guildkafra)	Kafra Staff#aldeg_cas03	117
+aldeg_cas03,118,76,0	duplicate(guildkafra)	卡普拉 职员#aldeg_cas03	117
 
 // Steward
 //============================================================
@@ -112,10 +120,11 @@ aldeg_cas03,110,118,0	duplicate(cm)	Nahzarf#aldeg_cas03	55
 // Treasure Room Exit
 //============================================================
 aldeg_cas03,229,267,0	script	#lever_A03	111,{
+
 	mes " ";
-	mes "There's a small lever. Will you pull it?";
+	mes "这里有一个小小的控制杆, 去拉一下吗?";
 	next;
-	if(select("Pull.:Do not.") == 1) {
+	if(select("上前拉杆.:算了.") == 1) {
 		close2;
 		warp "aldeg_cas03",110,119;
 		end;
@@ -129,7 +138,7 @@ aldeg_cas03,200,177,0	duplicate(gdlever)	#aldeg_cas03	111
 
 // Guild Treasure Spawns
 //============================================================
-aldeg_cas03,225,269,0	duplicate(Gld_Trea_Spawn)	Treasure#aldeg_cas03	-1
+aldeg_cas03,225,269,0	duplicate(Gld_Trea_Spawn)	宝箱#aldeg_cas03	-1
 
 // AGIT Manager
 //============================================================
@@ -137,4 +146,4 @@ aldeg_cas03,206,32,0	duplicate(Gld_Agit_Manager)	Agit#aldeg_cas03	-1
 
 // Guardians
 //============================================================
-aldeg_cas03,110,118,0	duplicate(Gld_Guard_Template)	Guardian#aldeg_cas03	-1
+aldeg_cas03,110,118,0	duplicate(Gld_Guard_Template)	监护人#aldeg_cas03	-1
