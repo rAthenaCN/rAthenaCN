@@ -1,3 +1,11 @@
+//============================================================
+//= rAthenaCN [攻城战SE]汉化脚本 [ www.rAthenaCN.com ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
 //===== rAthena Script =======================================
 //= War of Emperium SE - Auto-Start
 //===== By: ==================================================
@@ -5,7 +13,7 @@
 //===== Current Version: =====================================
 //= 1.0
 //===== Compatible With: =====================================
-//= rAthena Project; RO Episode 11.3
+//= rAthena SVN; RO Episode 11.3
 //===== Description: =========================================
 //= Auto-start for War of Emperium SE.
 //= For instructions, see doc/woe_time_explanation.txt.
