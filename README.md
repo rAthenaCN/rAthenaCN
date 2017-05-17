@@ -1,7 +1,7 @@
 rAthenaCN 汉化项目组
 =======
 
-Build Status: [![Build Status](https://travis-ci.org/rathena/rathena.png?branch=master)](https://www.rAthenaCN.com)
+Build Status: [![Build Status](https://travis-ci.org/rathena/rathena.png?branch=master)](http://www.rAthenaCN.com)
 
 Table of Contents
 ---------
