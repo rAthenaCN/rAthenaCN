@@ -1,18 +1,18 @@
-rAthena
+rAthenaCN 汉化项目组
 =======
 
-Build Status: [![Build Status](https://travis-ci.org/rathena/rathena.png?branch=master)](https://travis-ci.org/rathena/rathena) [![Build status](https://ci.appveyor.com/api/projects/status/8574b8nlwd57loda/branch/master?svg=true)](https://ci.appveyor.com/project/rAthenaAPI/rathena/branch/master)
+Build Status: [![Build Status](https://travis-ci.org/rathena/rathena.png?branch=master)](https://www.rAthenaCN.com)
 
 Table of Contents
 ---------
-1. What is rAthena?
-2. Prerequisites
-3. Installation
-4. Troubleshooting
-5. Helpful Links
-6. More Documentation
+1. 项目普及
+2. 获取准备
+3. 安装指南
+4. 解决方案
+5. 常用链接
+6. 更多文档
 
-1. What is rAthena?
+1. 项目普及
 ---------
 rAthena is a collaborative software development project revolving around the
 creation of a robust massively multiplayer online role playing game (MMORPG)
@@ -21,7 +21,7 @@ warps and modifications. The project is jointly managed by a group of volunteers
 located around the world as well as a tremendous community providing QA and
 support. rAthena is a continuation of the eAthena project.
 
-2. Prerequisites
+2. 获取准备
 ---------
 Before installing rAthena there are certain tools and applications you will need.
 This differs between the varying operating systems available, so the following
@@ -44,7 +44,7 @@ is broken down into Windows and Linux prerequisites.
 	* zlib-devel
 	* git
 
-3. Installation 
+3. 安装指南 
 ---------
 This section is a very brief set of installation instructions. For more concise guides
 relevant to your Operation System, please refer to the Wiki (links at the end of this file).
@@ -94,7 +94,7 @@ relevant to your Operation System, please refer to the Wiki (links at the end of
 
 
 
-4. Troubleshooting
+4. 解决方案
 ---------
 If you're having problems with starting your server, the first thing you should
 do is check what's happening on your consoles. More often that not, all support issues
@@ -142,32 +142,44 @@ Examples:
 
 
 
-5. Helpful Links
+5. 常用链接
 ---------
-* rAthena Forums
+* rAthenaCN 主页 [中文]
+	* http://www.rAthenaCN.com/
+	
+* rAthenaCN 模拟器源码 [中文] GIT 代码库
+	* https://github.com/rAthenaCN/rAthenaCN.git
+
+* ROClientFullCN 完整客户端 [中文] GIT 代码库
+	* https://github.com/rAthenaCN/ROClientFullCN.git
+
+* ROClientPatchCN 客户端补丁 [中文] GIT 代码库
+	* https://github.com/rAthenaCN/ROClientPatchCN.git
+
+* rAthena 论坛 [官方]
 	* https://rathena.org/
-
-* GIT Repository
+	
+* rAthena 模拟器源码 [英文] GIT 代码库
 	* https://github.com/rathena/rathena
-
-* Full Installation Instructions
+	
+* 各类系统安装说明
 	* Windows: https://rathena.org/wiki/Installation_on_Windows
 	* CentOS: https://rathena.org/wiki/Installation_(CentOS)
 	* Debian: https://rathena.org/wiki/Installation_(Debian)
 	* FreeBSD: https://rathena.org/wiki/Installation_(FreeBSD)
 	
-* rAthena IRC Channel
+* rAthena [官方] IRC Channel
 	* irc://irc.rizon.net/rathena
 	* Web Chat: https://rathena.org/board/page/chat.html
 
-* rAthena Wiki
+* rAthena [官方] Wiki
 	https://rathena.org/board/index.php?app=ipbwiki
 
 * Fork and Pull Request Q&A
 	https://rathena.org/board/topic/86913-pull-request-qa/
 
 
-6. More Documentation
+6. 更多文档
 ---------
 rAthena has a large collection of help files and sample NPC scripts located in the /doc/
 directory. These include detailed explanations of NPC script commands, atcommands (@),
