@@ -15,560 +15,556 @@
 //= 2.0.0 Converted from Hercules Script to rAthena Script. [Capuche]
 //==============================================================================
 
-// - Captain Carocc (Ship)
+// - 卡鲁船长 (Ship)
 // -----------------------------------------------------------------------------
-iz_int,100,91,3	script	Captain Carocc#iz_int	4_M_REINDEER,{
+iz_int,100,91,3	script	卡鲁船长#iz_int	4_M_REINDEER,{
 	if (Class == Job_Novice) {
 		cutin "fly_trock", 2;
 		if (!isbegin_quest(7471)) {
-			mes "[Captain Carocc]";
-			mes "Had a good dream?";
-			mes "Soon, we will get to ^4d4fffIzlude^000000.";
+			mes "[卡鲁船长]";
+			mes "做了个好梦?";
+			mes "很快, 我们就要到 ^4d4fff伊斯鲁得^000000了.";
 			next;
-			mes "[Captain Carocc]";
-			mes "And you can talk to other people like you just talked to me.";
+			mes "[卡鲁船长]";
+			mes "然后你可以像跟我一样和别人对话.";
 			next;
 			cutin "tutorial01",3;
-			mes "!- Information -!";
-			mes "^4d4fffLeft mouse click allows basic game controls.";
-			mes "Such as conversation with NPC, movement, and attacks.^000000";
+			mes "!- 提示信息 -!";
+			mes "^4d4fff单击鼠标左键是游戏的基本控制.";
+			mes "例如和NPC对话, 移动, 还有攻击.^000000";
 			next;
 			cutin "fly_trock",2;
-			mes "[Captain Carocc]";
-			mes "Many youngsters visit the ^4d4fffRune Midgard Kingdom^000000 to chase their dreams.";
-			mes "Izlude is a satellite city of Prontera, the capital of the Rune Midgard Kingdom.";
+			mes "[卡鲁船长]";
+			mes "很多年轻人到 ^4d4fff卢恩米德加特王国^000000 来追寻他们的梦想.";
+			mes "伊斯鲁得是卢恩米德加特王国首都-普隆德拉的卫星城市.";
 			next;
-			mes "[Captain Carocc]";
-			mes "Izlude always welcomes young adventurers like you who have just started their journey to the World.";
-			mes "You are one of them of course.";
+			mes "[卡鲁船长]";
+			mes "伊斯鲁得一直欢迎像你这样刚开始他们的世界之旅的年轻冒险家.";
+			mes "你就是他们当中的一员.";
 			next;
-			mes "[Captain Carocc]";
-			mes "I would like to tell you more stories, but it's time to get ready for arrival.";
-			mes "There is an academy in Izlude for newcomers like yourself.";
+			mes "[卡鲁船长]";
+			mes "我很乐意告诉你更多的故事, 但是是时候靠岸了.";
+			mes "伊斯鲁得有一个为你这样新手提供的新手学院.";
 			next;
-			mes "[Captain Carocc]";
-			mes "Let me give you more details later.";
-			mes "See you back at the harbor deck.";
+			mes "[卡鲁船长]";
+			mes "之后我将告诉你更多详细的内容.";
+			mes "一会儿在港口的甲板再见.";
 			next;
-			mes "[Captain Carocc]";
-			mes "To get off this ship, you should enter the ^4d4fffShining Portal^000000 over there.";
-			mes "All transportation is made through the portals.";
+			mes "[卡鲁船长]";
+			mes "你可以通过前面的 ^4d4fff传送阵^000000 下船.";
+			mes "所有的交通都是通过传送阵.";
 			setquest 7471;
 			completequest 7471;
 			close2;
 			cutin "", 255;
 			end;
 		}
-		mes "[Captain Carocc]";
-		mes "Now, we are here in Izlude~";
-		mes "Go through that ^4d4fffShining Portal^000000 and exit outside.";
+		mes "[卡鲁船长]";
+		mes "现在我们已经在伊斯鲁得了~";
+		mes "通过那个 ^4d4fff传送点^000000 然后离开这里.";
 		next;
-		mes "[Captain Carocc]";
-		mes "Let's talk more when we get off to the deck.";
-		mes "There are lots of things I want to teach you.";
+		mes "[卡鲁船长]";
+		mes "让我们离开甲板后再聊吧.";
+		mes "这里有很多东西我要教你.";
 		close2;
 		cutin "", 255;
 		end;
 	}
 }
 
-iz_int01,100,91,3	duplicate(Captain Carocc#iz_int)	Captain Carocc#iz_int01	4_M_REINDEER
-iz_int02,100,91,3	duplicate(Captain Carocc#iz_int)	Captain Carocc#iz_int02	4_M_REINDEER
-iz_int03,100,91,3	duplicate(Captain Carocc#iz_int)	Captain Carocc#iz_int03	4_M_REINDEER
-iz_int04,100,91,3	duplicate(Captain Carocc#iz_int)	Captain Carocc#iz_int04	4_M_REINDEER
+iz_int01,100,91,3	duplicate(卡鲁船长#iz_int)	卡鲁船长#iz_int01	4_M_REINDEER
+iz_int02,100,91,3	duplicate(卡鲁船长#iz_int)	卡鲁船长#iz_int02	4_M_REINDEER
+iz_int03,100,91,3	duplicate(卡鲁船长#iz_int)	卡鲁船长#iz_int03	4_M_REINDEER
+iz_int04,100,91,3	duplicate(卡鲁船长#iz_int)	卡鲁船长#iz_int04	4_M_REINDEER
 
-// - Lumin (Ship)
+// - 鲁米 (Ship)
 // -----------------------------------------------------------------------------
-iz_int,91,81,3	script	Lumin#iz_int	4_M_NOV_RUMIN,{
+iz_int,91,81,3	script	鲁米#iz_int	4_M_NOV_RUMIN,{
 	if (Class == Job_Novice) {
 		if (!isbegin_quest(7471)) {
-			mes "[Lumin]";
+			mes "[鲁米]";
 			mes "............";
 			mes "...?";
 			next;
 			cutin "fly_trock",2;
-			mes "[Captain Carocc]";
-			mes "Hey, you awake now?";
-			mes "That fella without much talk, I rescued him from the ocean.";
+			mes "[卡鲁船长]";
+			mes "嗨, 你醒啦?";
+			mes "那家伙不太爱说话, 我从海洋上救起了他.";
 			next;
-			mes "[Captain Carocc]";
-			mes "Think he lost his memory.";
-			mes "I gave him a new name 'Lumin'. But, just call him Lu...";
+			mes "[卡鲁船长]";
+			mes "他好像失去记忆了.";
+			mes "我给他起了个名字叫 '鲁米'. 但是就叫他鲁...";
 			next;
-			mes "[Captain Carocc]";
-			mes "And you can talk to other people like you just talked to me.";
+			mes "[卡鲁船长]";
+			mes "然后你可以像跟我一样和别人对话.";
 			next;
 			cutin "tutorial01",3;
-			mes "!- Information -!";
-			mes "^4d4fffLeft mouse click allows basic game control.";
-			mes "Such as conversation with NPC, movement, and attacks.^000000";
+			mes "!- 提示信息 -!";
+			mes "^4d4fff单击鼠标左键是游戏的基本控制.";
+			mes "例如和NPC对话, 移动, 还有攻击.^000000";
 			next;
 			cutin "fly_trock",2;
-			mes "[Captain Carocc]";
-			mes "Many youngsters visit the ^4d4fffRune Midgard Kingdom^000000 to chase their dreams.";
-			mes "Izlude is a satellite city of Prontera, the capital of the Rune Midgard Kingdom.";
+			mes "[卡鲁船长]";
+			mes "很多年轻人到 ^4d4fff卢恩米德加特王国^000000 来追寻他们的梦想.";
+			mes "伊斯鲁得是卢恩米德加特王国首都-普隆德拉的卫星城市.";
 			next;
-			mes "[Captain Carocc]";
-			mes "Izlude always welcomes young adventurers like you who have just started their journey to the World.";
-			mes "You are one of them of course.";
+			mes "[卡鲁船长]";
+			mes "伊斯鲁得一直欢迎像你这样刚开始他们的世界之旅的年轻冒险家.";
+			mes "你就是他们当中的一员.";
 			next;
-			mes "[Captain Carocc]";
-			mes "I would like to tell you more stories, but it's time to get ready for arrival.";
-			mes "There is an academy in Izlude for newcomers like yourself.";
+			mes "[卡鲁船长]";
+			mes "我很乐意告诉你更多的故事, 但是是时候靠岸了.";
+			mes "伊斯鲁得有一个为你这样新手提供的新手学院.";
 			next;
-			mes "[Captain Carocc]";
-			mes "Let me give you more detail later.";
-			mes "See you back at the harbor deck.";
+			mes "[卡鲁船长]";
+			mes "之后我将告诉你更多详细的内容.";
+			mes "一会儿在港口的甲板再见.";
 			next;
-			mes "[Captain Carocc]";
-			mes "To get off this ship, you should enter the ^4d4fffShining Portal^000000 over there.";
-			mes "All transportation is made through those portals.";
+			mes "[卡鲁船长]";
+			mes "你可以通过前面的 ^4d4fff传送阵^000000 下船.";
+			mes "所有的交通都是通过传送阵.";
 			setquest 7471;
 			completequest 7471;
 			next;
 			cutin "nov_lumin01",0;
-			mes "[Lumin]";
-			mes "Yes.";
+			mes "[鲁米]";
+			mes "是.";
 			next;
 			cutin "fly_trock",2;
-			mes "[Carocc]";
-			mes "Oh, boy.";
-			mes "What cute reaction.";
+			mes "[卡鲁]";
+			mes "噢, 孩子.";
+			mes "多么可爱的反应.";
 			close2;
 			cutin "", 255;
 			end;
 		}
 		cutin "nov_lumin01",0;
-		mes "[Lumin]";
+		mes "[鲁米]";
 		mes ".....";
 		next;
-		select("Should I introduce myself?", "My name is ~!");
+		select("我应该介绍我自己吗?", "我的名字是 ~!");
 		mes "["+strcharinfo(0)+"]";
-		mes "I am "+strcharinfo(0)+"!";
+		mes "我是 "+strcharinfo(0)+"!";
 		next;
-		mes "[Lu]";
+		mes "[鲁米]";
 		mes ".....";
 		next;
-		mes "[Lu]";
+		mes "[鲁米]";
 		mes ".....";
-		mes "....So?";
+		mes "....所以?";
 		next;
-		mes "- Lu just walked away with a cynical look on his face.";
+		mes "- 鲁米带着一张冷漠的脸走开了.";
 		next;
 		cutin "fly_trock",2;
-		mes "[Carocc]";
-		mes "He's just shy, you know.";
-		mes "You will see him again in Izlude, be good to him please.";
+		mes "[卡鲁]";
+		mes "他只是有点害羞.";
+		mes "你会在伊斯鲁得再见到他的, 请对他友善点.";
 		next;
-		mes "[Carocc]";
-		mes "From now on, I'll be driving this ship around Izlude.";
-		mes "Let's go, shall we?";
+		mes "[卡鲁]";
+		mes "从现在开始, 我将驾驶船环绕伊斯鲁得.";
+		mes "让我们出发吧!";
 		close2;
 		cutin "", 255;
 		end;
 	}
 }
 
-iz_int01,91,81,3	duplicate(Lumin#iz_int)	Lumin#iz_int01	4_M_NOV_RUMIN
-iz_int02,91,81,3	duplicate(Lumin#iz_int)	Lumin#iz_int02	4_M_NOV_RUMIN
-iz_int03,91,81,3	duplicate(Lumin#iz_int)	Lumin#iz_int03	4_M_NOV_RUMIN
-iz_int04,91,81,3	duplicate(Lumin#iz_int)	Lumin#iz_int04	4_M_NOV_RUMIN
+iz_int01,91,81,3	duplicate(鲁米#iz_int)	鲁米#iz_int01	4_M_NOV_RUMIN
+iz_int02,91,81,3	duplicate(鲁米#iz_int)	鲁米#iz_int02	4_M_NOV_RUMIN
+iz_int03,91,81,3	duplicate(鲁米#iz_int)	鲁米#iz_int03	4_M_NOV_RUMIN
+iz_int04,91,81,3	duplicate(鲁米#iz_int)	鲁米#iz_int04	4_M_NOV_RUMIN
 
-// - Captain Carocc
+// - 卡鲁船长
 // -----------------------------------------------------------------------------
-izlude,198,213,3	script	Captain Carocc#iz	4_M_REINDEER,5,5,{
+izlude,198,213,3	script	卡鲁船长#iz	4_M_REINDEER,5,5,{
 	cutin "fly_trock.bmp", 2;
 	if (Class == Job_Novice && BaseLevel < 15) {
 		if (isbegin_quest(4269) == 2) {
 			if (isbegin_quest(7471) == 2 || isbegin_quest(7472) > 0) {
-				mes "[Carocc]";
-				mes "Oh, "+strcharinfo(0)+"!";
-				mes "Why are you here at the wharf?";
-				mes "I guess you are doing well at the academy.";
+				mes "[卡鲁]";
+				mes "噢, "+strcharinfo(0)+"!";
+				mes "为什么你在码头?";
+				mes "我猜你在新手学院里做得很好.";
 				next;
-				mes "[Carocc]";
-				mes "I'm going to be docking and reparing the ship here for a while.";
-				mes "I will be taking the same route I tried before.";
+				mes "[卡鲁]";
+				mes "我要在这里停泊并维修船只一段时间.";
+				mes "我将会走之前我试过的同一条航线.";
 			} else {
-				mes "[Carocc]";
-				mes "Hmm? You must be a student of the Criatura Academy?";
-				mes "Were you on my ship?";
-				mes "Hmm I can't remember.";
+				mes "[卡鲁]";
+				mes "嗯哼? 你一定是克里图拉学院的学生?";
+				mes "你怎么在我船上?";
+				mes "我不记得了.";
 				next;
-				mes "[Carocc]";
-				mes "Well, anything is fine.";
-				mes "Shall I go easy on you since you said you were a student of the Academy?";
-				mes "I am still the captain of the ship, regardless.";
+				mes "[卡鲁]";
+				mes "很好, 一切都很好.";
+				mes "自从你说你是学院的学生我应该对你温和些?";
+				mes "不管怎样,我仍然是船上的船长.";
 			}
 			next;
-			mes "[Carocc]";
-			mes "I plan on taking off as soon as the repairs are complete.";
-			mes "The route will open with ^4d4dffPharos Lighthouse^000000 by then.";
+			mes "[卡鲁]";
+			mes "我计划尽快完成修理后便起航.";
+			mes "这条航线将伴随 ^4d4dff发乐斯 灯塔岛^000000 开启.";
 		} else {
 			if (isbegin_quest(7471) == 2) {
 				if (!isbegin_quest(7472)) {
-					mes "[Carocc]";
-					mes "This is Izlude.";
-					mes "The best city for you to take wings to your dreams.";
+					mes "[卡鲁]";
+					mes "这里是伊斯鲁得.";
+					mes "展开你梦想翅膀的最好城市.";
 					next;
-					mes "[Carocc]";
-					mes "Although I don't have any particular feelings for you,";
-					mes "I've seen a lot of young people like you, while operating the ship.";
+					mes "[卡鲁]";
+					mes "虽然我对你没有任何特别的感情,";
+					mes "当我在操纵船只的时候见过很多像你这样的年轻人.";
 					next;
-					mes "[Carocc]";
-					mes "There were those among them who succeeded and failed and went back after being unable to adjust.";
-					mes "I want you to have a successful start with this place.";
+					mes "[卡鲁]";
+					mes "他们之中有些人成功了有些人失败了,有些人无法调整好自己然后回来.";
+					mes "我希望你在那个地方有个成功的开始.";
 					next;
-					mes "[Carocc]";
-					mes "Did you know this?";
-					mes "Izlude has a new Institute for budding adventurers like you!";
+					mes "[卡鲁]";
+					mes "你知道这些了吗?";
+					mes "伊斯鲁得有个给你这样初出茅庐的冒险者的学院!";
 					next;
-					select("You mean the Academy?");
-					mes "[Carocc]";
-					mes "Yes! It's called the ^4d4dffRoyal Criatura Academy^000000.";
-					mes "Founded by the Rune Midgard lineage to help out new adventurers.";
+					select("你是说新手学院?");
+					mes "[卡鲁]";
+					mes "没错! 它叫做 ^4d4dff皇家克里图拉学院^000000.";
+					mes "由卢恩米德加特王室为初心者建立的学院.";
 					next;
-					mes "[Carocc]";
-					mes "A friend of mine works there, so I'll give you the introduction to him.";
-					mes "He could make a lot of things easier for you.";
+					mes "[卡鲁]";
+					mes "我有个朋友在那儿工作, 我会把你介绍给他.";
+					mes "他可以轻松地教你很多东西.";
 					next;
-					mes "[Carocc]";
-					mes "He usually talks to new adventurers near the entrance of the academy.";
-					mes "Go and meet him there.";
+					mes "[卡鲁]";
+					mes "他总是在学院门口附近和新的冒险家聊天.";
+					mes "去那里见见他吧.";
 					next;
 					if (!isbegin_quest(7473)) {
-						mes "[Carocc]";
-						mes "His name is ^4d4dffHun^000000";
-						mes "I will mark his spot on the map so go to see him.";
+						mes "[卡鲁]";
+						mes "他的名字叫 ^4d4dff勋^000000";
+						mes "我会帮你在地图上做好标记,去找他吧.";
 						setquest 7472;
 						viewpoint 1,122,207,0,0x4d4dff;
 						next;
-						mes "!- Information -!";
-						mes "The ^4d4dffMini map can be seen on the right top of the screen.";
-						mes "You can zoom in with +, zoom out with -. The waypoint from the NPC will be marked on it. ^000000";
+						mes "!- 提示信息 -!";
+						mes "^4d4dff在屏幕的右上角上可以看到小地图.";
+						mes "你可以按 + 放大, 按 - 缩小. 可以看到标记出 NPC 的位置. ^000000";
 						next;
 						cutin "tutorial02.bmp", 4;
-						mes "!- Information -!";
-						mes "Received a Quest from ^4d4dffCaptain Carocc.";
-						mes "The quest content can be checked from the quest window.";
+						mes "!- 提示信息 -!";
+						mes "从 ^4d4dff卡鲁船长 ^000000那儿收到一条新任务.";
+						mes "你可以通过任务窗口确认任务.";
 						next;
-						mes "!- Information -!";
-						mes "Quest window can be opened by pressing ^4d4dffAlt + u^000000 keys together.";
+						mes "!- 提示信息 -!";
+						mes "任务窗口可以通过按 ^4d4dffAlt + u^000000 打开.";
 						next;
 						cutin "", 255;
-						mes "[Carocc]";
-						mes "If you need more help with the map, press <NAVI>[Hun]<INFO>izlude,122,207</INFO></NAVI> here";
-						mes "Yes, the part that says 'Hun'.";
+						mes "[卡鲁]";
+						mes "如果你需要等多关于地图的帮助, 在这里点击 <NAVI>[勋]<INFO>izlude,122,207</INFO></NAVI>";
+						mes "对, 那部分叫'勋'.";
 						next;
-						mes "!- Information -!";
-						mes "^4d4dffThe icon during talk <NAVI>[Hun]<INFO>izlude,122,207</INFO></NAVI> means a link to navigation directions.";
+						mes "!- 提示信息 -!";
+						mes "^4d4dff这个图标 <NAVI>[勋]<INFO>izlude,122,207</INFO></NAVI> 表示一条导航路径.";
 						cutin "navi01.bmp", 4;
 						next;
-						mes "!- Information -!";
-						mes "If you press info after selecting a task in the objectives^4d4dff,";
-						mes "an arrow pointing to the location of the objective will pop up along with the navigation help.";
+						mes "!- 提示信息 -!";
+						mes "如果你在选择了一个任务对象后按下信息^4d4dff,";
+						mes "地上会有到达目标坐标的导航箭头作为导航辅助.";
 						cutin "navi02.bmp", 4;
 						next;
 						cutin "", 255;
-						mes "[Carocc]";
-						mes "Anyway, my friend will help you register with the academy";
-						mes "I hope it can help you for your future.";
+						mes "[卡鲁]";
+						mes "无论如何,我朋友都会帮你在学院里注册.";
+						mes "我希望那对你的未来有帮助.";
 						close;
 					} else {
-						select("I know who you're talking about.");
-						mes "[Carocc]";
-						mes "Then there's no worry.";
-						mes "He'll introduce you to the academy.";
+						select("我知道你说的是谁.");
+						mes "[卡鲁]";
+						mes "那么不用担心.";
+						mes "他会把你介绍给学院.";
 						next;
-						mes "[Carocc]";
-						mes "OK. I will show you the direction. You try it again.";
-						mes "By the way, did I tell you his name? His name is ^4d4dffHun^000000";
+						mes "[卡鲁]";
+						mes "好吧. 我会给你指出方向. 你再试试吧.";
+						mes "另外, 我告诉过你他的名字吗? 他的名字是 ^4d4dff勋^000000";
 						viewpoint 1,122,207,1,0x4d4dff;
 						next;
-						mes "!- Information -!";
-						mes "^4d4dff Mini map can be seen on the right top of the screen.";
-						mes "You can zoom in with +, zoom out with -. The waypoint from the NPC will be marked on it. ^000000";
+						mes "!- 提示信息 -!";
+						mes "^4d4dff在屏幕的右上角上可以看到小地图.";
+						mes "你可以按 + 放大, 按 - 缩小. 可以看到标记出 NPC 的位置. ^000000";
 						next;
-						mes "[Carocc]";
-						mes "If you need more help with the map, press <NAVI>[Hun]<INFO>izlude,122,207</INFO></NAVI> here";
-						mes "Yes, the part that says [Hun].";
+						mes "[卡鲁]";
+						mes "如果你需要等多关于地图的帮助, 在这里点击 <NAVI>[勋]<INFO>izlude,122,207</INFO></NAVI>";
+						mes "对, 那部分说的就是'勋'.";
 						next;
-						mes "!- Information -!";
-						mes "^4d4dff the icon during talk <NAVI>[Hun]<INFO>izlude,122,207</INFO></NAVI> means";
-						mes "a link to navigation directions.";
+						mes "!- 提示信息 -!";
+						mes "^4d4dff这个图标 <NAVI>[勋]<INFO>izlude,122,207</INFO></NAVI> 表示一条导航路径.";
 						cutin "navi01.bmp", 4;
 						next;
-						mes "!- Information -!";
-						mes "If you press info after selecting a task in the objectives^4d4dff,";
-						mes "an arrow pointing to the location of the objective will pop up along with navigation help";
+						mes "!- 提示信息 -!";
+						mes "如果你在选择了一个任务对象后按下信息^4d4dff,";
+						mes "地上会有到达目标坐标的导航箭头作为导航辅助.";
 						cutin "navi02.bmp", 4;
 						next;
 						cutin "", 255;
-						mes "[Carocc]";
-						mes "Anyway, my friend will help you register with the academy";
-						mes "I hope it will help you out in your journey";
+						mes "[卡鲁]";
+						mes "无论如何,我朋友都会帮你在学院里注册.";
+						mes "我希望那对你的未来有帮助.";
 						close;
 					}
 				} else if (isbegin_quest(7472) == 1) {
-					mes "[Carocc]";
-					mes "If you want, you can step forward to the world right away.";
-					mes "However, I recommend you visit the Academy first.";
+					mes "[卡鲁]";
+					mes "如果你想的话，你可以马上进入世界冒险.";
+					mes "不过我建议你先去学院学习下.";
 					next;
-					mes "[Carocc]";
-					mes "The world is a lonely place to be alone.";
-					mes "The Academy has people you can make as lifetime companions.";
+					mes "[卡鲁]";
+					mes "这个世界是个孤独的地方.";
+					mes "学院里有很多人可以成为你一生的朋友.";
 					next;
-					mes "[Carocc]";
-					mes "My friend Hun will be around the academy entrance.";
-					mes "If you don't know the way I'll point it out to you again.";
+					mes "[卡鲁]";
+					mes "我的朋友勋就在学院门口附近.";
+					mes "如果你不认识路我可以帮你指出来.";
 					viewpoint 1,122,207,0,0x4d4dff;
 					next;
-					mes "[Carocc]";
-					mes "If you need more help with the map, press <NAVI>[Hun]<INFO>izlude,122,207</INFO></NAVI> here";
-					mes "Yes, the part that says ''Hun''.";
+					mes "[卡鲁]";
+					mes "如果你需要等多关于地图的帮助, 在这里点击 <NAVI>[勋]<INFO>izlude,122,207</INFO></NAVI>";
+						mes "对, 那部分叫'勋'.";
 					next;
-					mes "!- Information -!";
-					mes "^4d4dff the icon during talk <NAVI>[Hun]<INFO>izlude,122,207</INFO></NAVI> means";
-					mes "a link to navigation directions.";
+					mes "!- 提示信息 -!";
+					mes "^4d4dff这个图标 <NAVI>[勋]<INFO>izlude,122,207</INFO></NAVI> 表示一条导航路径.";
 					cutin "navi01.bmp", 4;
 					next;
-					mes "!- Information -!";
-					mes "If you press info after selecting a task in the objectives^4d4dff,";
-					mes "an arrow pointing to the location of the objective will pop up along with navigation help.";
+					mes "!- 提示信息 -!";
+					mes "如果你在选择了一个任务对象后按下信息^4d4dff,";
+					mes "地上会有到达目标坐标的导航箭头作为导航辅助.";
 					cutin "navi02.bmp", 4;
 					next;
 					cutin "", 255;
-					mes "[Carocc]";
-					mes "Anyway, my friend will help you register with the academy.";
-					mes "I hope it will help you out in your journey.";
+					mes "[卡鲁]";
+					mes "无论如何,我朋友都会帮你在学院里注册.";
+					mes "我希望那对你的未来有帮助.";
 					close;
 				} else {
-					mes "[Carocc]";
-					mes "Oh, " + strcharinfo(0) + "!";
-					mes "Still being dilligent?";
-					mes "I've been busy, also.";
-					mes "I was reparing the ship.";
+					mes "[卡鲁]";
+					mes "噢, " + strcharinfo(0) + "!";
+					mes "还挺勤奋的吗?";
+					mes "我也很忙.";
+					mes "我正在修船.";
 					next;
-					mes "[Carocc]";
-					mes "I'll be taking off as soon as the repairs are complete.";
-					mes "At that time, the sailing route to ^4d4dffPharos lighthouse ^000000will be opened.";
-					mes "Be excited for it.";
+					mes "[卡鲁]";
+					mes "在修理结束我会尽快起航.";
+					mes "到那时候,将打开一条新的到 ^4d4dff发乐斯 灯塔岛 ^000000的航线.";
+					mes "很兴奋吧.";
 				}
 			} else {
 				if (!isbegin_quest(7472)) {
-					mes "[Carocc]";
-					mes "Hello?";
-					mes "Is it your first time on Izlude?";
+					mes "[卡鲁]";
+					mes "你好?";
+					mes "这是你第一次到伊斯鲁得吗?";
 					next;
-					switch(select("Hello?", "Let me get on the ship!", "I don't know what to do.")) {
+					switch(select("你好?", "请让我上船!", "我不知道该做什么.")) {
 					case 1:
-						mes "[Carocc]";
-						mes "You look strong and able!";
-						mes "I like able people like you!";
-						mes "Always be healthy and strong as you are now.";
+						mes "[卡鲁]";
+						mes "你看起来很强很有能力!";
+						mes "我喜欢像你这样有能力的人!";
+						mes "请保持你现在这样.";
 						break;
 					case 2:
-						mes "[Carocc]";
-						mes "I usually travel to ^4d4dffPharos Lighthouse^000000.";
-						mes "But I'm resting up due to some problems.";
+						mes "[卡鲁]";
+						mes "我经常到 ^4d4dff发乐斯 灯塔岛^000000旅行.";
+						mes "但是我正在休息,要处理些问题";
 						next;
-						mes "[Carocc]";
-						mes "If it's Alberta or Byalan Island, talk to the next sailor.";
+						mes "[卡鲁]";
+						mes "如果是艾尔贝塔或柏伊亚岚岛, 和下一个水手聊聊吧.";
 						break;
 					case 3:
-						mes "[Carocc]";
-						mes "Hmm? You said you didn't know what to do.";
-						mes "Since you're at Izlude, why don't you visit ^4d4dffCriatura Academy^000000?";
+						mes "[卡鲁]";
+						mes "嗯? 你说你不知道该干什么.";
+						mes "既然你在伊兹鲁得, 为什么你不去 ^4d4dff克里图亚学院^000000?";
 						next;
-						mes "[Carocc]";;
-						mes "Izlude has the Institute for budding adventurers like you";
-						mes "A friend of mine works there, so I'll give you the introduction to him.";
+						mes "[卡鲁]";;
+						mes "伊斯鲁得有个给你这样初出茅庐的冒险者的学院!";
+						mes "我有个朋友在那儿工作, 我会把你介绍给他.";
 						next;
-						mes "[Carocc]";
-						mes "He ususally talks to new adventurers near the entrance of an academy.";
-						mes "Go and meet him personally.";
+						mes "[卡鲁]";
+						mes "他通常在学院的入口附近和新来的冒险家聊天.";
+						mes "亲自去见见他吧.";
 						next;
 						if (!isbegin_quest(7473)) {
-							mes "[Carocc]";
-							mes "His name is ^4d4dffHun^000000";
-							mes "I will mark his location on the map so go to see him.";
+							mes "[卡鲁]";
+							mes "他的名字叫 ^4d4dff勋^000000";
+							mes "我会在地图上标记处出他的位置,去找他吧.";
 							setquest 7472;
 							viewpoint 1,122,207,0,0x4d4dff;
 							next;
-							mes "!- Information -!";
-							mes "^4d4dff Mini map can be seen on the right top of the screen.";
-							mes "You can zoom in with +, zoom out with -. The waypoint from the NPC will be marked on it. ^000000";
+							mes "!- 提示信息 -!";
+							mes "^4d4dff在屏幕的右上角上可以看到小地图.";
+							mes "你可以按 + 放大, 按 - 缩小. 可以看到标记出 NPC 的位置. ^000000";
 							next;
-							mes "!- Information -!";
-							mes "Received a Quest from ^4d4dffCaptain Carocc.";
-							mes "Contents of your Quest can be monitored on the Quest information window.";
+							mes "!- 提示信息 -!";
+							mes "从 ^4d4dff卡鲁船长 ^000000那儿收到一条新任务.";
+							mes "你可以通过任务窗口确认任务.";
 							next;
-							mes "!- Information -!";
-							mes "Quest window can be opened by pressing the ^4d4dffAlt + u^000000 key.";
+							mes "!- 提示信息 -!";
+							mes "任务窗口可以通过按 ^4d4dffAlt + u^000000 打开.";
 							next;
-							mes "[Carocc]";
-							mes "If you need more help with the map, press <NAVI>[Hun]<INFO>izlude,122,207</INFO></NAVI> here";
-							mes "Yes, the part that says [Hun].";
+							mes "[卡鲁]";
+							mes "如果你需要等多关于地图的帮助, 在这里点击 <NAVI>[勋]<INFO>izlude,122,207</INFO></NAVI>";
+							mes "对, 那部分说的就是 [勋].";
 							next;
-							mes "!- Information -!";
-							mes "^4d4dff the icon during talk <NAVI>[Hun]<INFO>izlude,122,207</INFO></NAVI> means";
-							mes "a link to navigation directions.";
+							mes "!- 提示信息 -!";
+							mes "^4d4dff这个图标 <NAVI>[勋]<INFO>izlude,122,207</INFO></NAVI> 表示一条导航路径.";
 							cutin "navi01.bmp", 4;
 							next;
-							mes "!- Information -!";
-							mes "If you press info after selecting a task in the objectives^4d4dff,";
-							mes "an arrow pointing to the location of the objective will pop up along with navigation help";
+							mes "!- 提示信息 -!";
+							mes "如果你在选择了一个任务对象后按下信息^4d4dff,";
+							mes "地上会有到达目标坐标的导航箭头作为导航辅助.";
 							cutin "navi02.bmp", 4;
 							next;
 							cutin "", 255;
-							mes "[Carocc]";
-							mes "Anyway, my friend will help you register with the academy";
-							mes "I hope it will help you out in your journey";
+							mes "[卡鲁]";
+							mes "无论如何,我朋友都会帮你在学院里注册.";
+							mes "我希望那对你的未来有帮助.";
 							close;
 						} else {
-							select("I know who you're talking about.");
-							mes "[Carocc]";
-							mes "Then there's no worry.";
-							mes "He'll introduce you to the academy.";
+							select("我知道你说的是谁.");
+							mes "[卡鲁]";
+							mes "那么不用担心.";
+							mes "他会把你介绍给学院.";
 							next;
-							mes "[Carocc]";
-							mes "OK. I will show you the direction. You try it again.";
-							mes "By the way, did I tell you his name? His name is ^4d4dffHun^000000";
+							mes "[卡鲁]";
+							mes "好吧. 我会给你指出方向. 你再试试吧.";
+							mes "另外, 我告诉过你他的名字吗? 他的名字是 ^4d4dff勋^000000";
 							viewpoint 1,122,207,1,0x4d4dff;
 							next;
-							mes "!- Information -!";
-							mes "^4d4dff Mini map can be seen on the right top of the screen.";
-							mes "You can zoom in with +, zoom out with -. The waypoint from the NPC will be marked on it. ^000000";
+							mes "!- 提示信息 -!";
+							mes "^4d4dff在屏幕的右上角上可以看到小地图.";
+							mes "你可以按 + 放大, 按 - 缩小. 可以看到标记出 NPC 的位置. ^000000";
 							next;
-							mes "[Carocc]";
-							mes "If you need more help with the map, press <NAVI>[Hun]<INFO>izlude,122,207</INFO></NAVI> here";
-							mes "Yes, the part that says [Hun].";
+							mes "[卡鲁]";
+							mes "如果你需要等多关于地图的帮助, 在这里点击 <NAVI>[勋]<INFO>izlude,122,207</INFO></NAVI>";
+							mes "对, 那部分说的就是'勋'.";
 							next;
-							mes "!- Information -!";
-							mes "^4d4dff the icon during talk <NAVI>[Hun]<INFO>izlude,122,207</INFO></NAVI> means";
-							mes "a link to navigation directions.";
+							mes "!- 提示信息 -!";
+							mes "^4d4dff这个图标 <NAVI>[勋]<INFO>izlude,122,207</INFO></NAVI> 表示一条导航路径.";
 							cutin "navi01.bmp", 4;
 							next;
-							mes "!- Information -!";
-							mes "If you press info after selecting a task in the objectives^4d4dff,";
-							mes "an arrow pointing to the location of the objective will pop up along with navigation help";
+							mes "!- 提示信息 -!";
+							mes "如果你在选择了一个任务对象后按下信息^4d4dff,";
+							mes "地上会有到达目标坐标的导航箭头作为导航辅助.";
 							cutin "navi02.bmp", 4;
 							next;
 							cutin "", 255;
-							mes "[Carocc]";
-							mes "Anyway, my friend will help you register with the academy";
-							mes "I hope it will help you out in your journey";
+							mes "[卡鲁]";
+							mes "无论如何,我朋友都会帮你在学院里注册.";
+							mes "我希望那对你的旅程有帮助.";
 							close;
 						}
 					}
 				} else if (isbegin_quest(7472) == 1) {
-					mes "[Carocc]";
-					mes "Ah, it's you.";
-					mes "This guy has also decided to register at Criatura Academy.";
-					mes "This might be a good destiny for you. Hope you and him can be good friends.";
+					mes "[卡鲁]";
+					mes "啊, 是你.";
+					mes "这个家伙也已经决定在克里图拉学院注册了.";
+					mes "这对你来说也许是个很好的宿命. 希望你和他能成为好朋友.";
 					next;
 					cutin "nov_lumin01.bmp", 0;
-					mes "[Lumin]";
+					mes "[鲁米]";
 					mes ".........";
 					next;
 					cutin "", 255;
-					mes "[Carocc]";
-					mes "If you want, you can step forward to the world right away.";
-					mes "However, I recommend you visit the Academy first.";
+					mes "[卡鲁]";
+					mes "如果你想的话，你可以马上进入世界冒险.";
+					mes "不过我建议你先去学院学习下.";
 					next;
-					mes "[Carocc]";
-					mes "The world is a lonely place to be alone.";
-					mes "The Academy has people you could make into lifetime companions.";
+					mes "[卡鲁]";
+					mes "这个世界是个孤独的地方.";
+					mes "学院里有很多人可以成为你一生的朋友.";
 					next;
-					mes "[Carocc]";
-					mes "My friend <NAVI>[Hun]<INFO>izlude,122,207</INFO></NAVI> will be around the academy entrance.";
-					mes "If you don't know the way I'll point it out to you again.";
-					viewpoint 1,122,207,1,0x4d4dff;
+					mes "[卡鲁]";
+					mes "我的朋友勋就在学院门口附近.";
+					mes "如果你不认识路我可以帮你指出来.";
+					viewpoint 1,122,207,0,0x4d4dff;
 					next;
-					mes "[Carocc]";
-					mes "then, Good luck!";
+					mes "[卡鲁]";
+					mes "那么祝你好运!";
 					close;
 				} else {
-					mes "[Carocc]";
-					mes "Oh, We meet again.";
-					mes "Do you by any chance need a ship?";
-					mes "I usually travel to the port in Paros.";
-					mes "If you need to go to Paros later, come see me.";
+					mes "[卡鲁]";
+					mes "喔, 我们又见面了.";
+					mes "你有没有机会需要一艘船?";
+					mes "我通常会去发乐斯的港口.";
+					mes "如果你之后需要去发乐斯, 过来找我.";
 				}
 			}
 		}
 	} else {
 		if (isbegin_quest(7471) == 2 || isbegin_quest(7472) > 0) {
-			mes "[Carocc]";
-			mes "It's been a while!";
-			mes "Looking at your expression, you must be doing well.";
+			mes "[卡鲁]";
+			mes "有一阵子了!";
+			mes "看你的表情,你一定干得不错.";
 			next;
-			switch(select("Take me to Pharos Lighthouse", "To Alberta", "Talk")) {
+			switch(select("带我去发乐斯 灯塔岛", "到艾尔贝塔", "交谈")) {
 			case 1:
-				mes "[Carocc]";
-				mes "Do you want to go to Pharos Lighthouse on the southern coast of Morocc?";
-				mes "The fee is 2800 zeny. I have a crew that needs payment so this fee is non-negotiable.";
+				mes "[卡鲁]";
+				mes "你想要去梦罗克南海岸的发乐斯灯塔岛吗?";
+				mes "费用是 2800 zeny. 我有一帮船员所以这个费用是不能免的哦.";
 				next;
-				if (select("To Pharos Lighthouse!", "Cancel") == 1) {
+				if (select("去发乐斯 灯塔岛!", "取消") == 1) {
 					if (Zeny > 2799) {
-						mes "[Carocc]";
-						mes "Let us travel with the wing in our hair.";
+						mes "[卡鲁]";
+						mes "让我们扬帆起航吧.";
 						Zeny -= 2800;
 						close2;
 						warp "cmd_fild07", 92, 129;
 						end;
 					} else {
-						mes "[Carocc]";
-						mes "Sorry but you are short of the boarding fee.";
-						mes "I need 2800z to operate.";
+						mes "[卡鲁]";
+						mes "不好意思,你好像钱不够啊.";
+						mes "我需要 2800z 才能开船.";
 					}
 				} else {
-					mes "[Carocc]";
-					mes "OK.";
-					mes "Do you know this, by the way?";
-					mes "^4d4dffThere's a Rogue hideout at Pharos Lighthouse^000000.";
-					mes "You already knew this?";
+					mes "[卡鲁]";
+					mes "好的.";
+					mes "顺便问一句,你知道这个吗?";
+					mes "^4d4dff在发乐斯灯塔岛藏匿了一伙强盗^000000.";
+					mes "你已经知道这事了?";
 				}
 				break;
 			case 2:
-				mes "[Carocc]";
-				mes "I thought you knew that I only go to Pharos?";
-				mes "Ask the sailor over there, he's the one that goes there frequently.";
+				mes "[卡鲁]";
+				mes "我以为你知道我只去发乐斯?";
+				mes "问问那边的水手,他经常去那里.";
 				next;
-				mes "[Carocc]";
-				mes "There are plenty of other ships that travel to Alberta and Byalan Islands.";
+				mes "[卡鲁]";
+				mes "这里有很多其他船只前往艾尔贝塔和柏伊亚岚岛.";
 				break;
 			case 3:
-				mes "[Carocc]";
-				mes "Hmm. I'm content with the well being of you and other adventurers who passed me by.";
+				mes "[卡鲁]";
+				mes "嗯. 我对你和其他路过我的冒险家感到幸福满满.";
 				next;
-				mes "[Carocc]";
-				mes "Lumin must be doing well too.";
-				mes "I wonder why you feel like my own child even though we've only met from the sea.";
+				mes "[卡鲁]";
+				mes "鲁米也一定做得很好.";
+				mes "我不知道为什么觉得你像我的孩子,尽管我们只是在海上相遇.";
 				break;
 			}
 		} else {
-			mes "[Carocc]";
-			mes "I am Carocc, the caption of this ship.";
-			mes "Do you need a ship?";
+			mes "[卡鲁]";
+			mes "我是卡鲁, 这艘船的船长.";
+			mes "你需要一艘船吗?";
 			next;
-			if (select("Pharos Lighthouse - 2800z", "Don't need it.") == 1) {
+			if (select("去发乐斯 灯塔岛 - 2800z", "不需要.") == 1) {
 				if (Zeny > 2799) {
-					mes "[Carocc]";
-					mes "Let us travel with the wind in our hair.";
+					mes "[卡鲁]";
+					mes "让我们扬帆起航吧.";
 					Zeny -= 2800;
 					close2;
 					cutin "", 255;
 					warp "cmd_fild07", 92, 129;
 					end;
 				} else {
-					mes "[Carocc]";
-					mes "Sorry but you are short of the boarding fee.";
-					mes "I need 2800z to operate.";
+					mes "[卡鲁]";
+					mes "不好意思,你好像钱不够啊.";
+					mes "我需要 2800z 才能开船.";
 				}
 			} else {
-				mes "[Carocc]";
-				mes "Then use it next time.";
+				mes "[卡鲁]";
+				mes "那我们下次再见.";
 			}
 		}
 	}
@@ -590,311 +586,311 @@ OnTouch:
 	end;
 }
 
-izlude_a,198,213,3	duplicate(Captain Carocc#iz)	Captain Carocc#iz_a	4_M_REINDEER,5,5
-izlude_b,198,213,3	duplicate(Captain Carocc#iz)	Captain Carocc#iz_b	4_M_REINDEER,5,5
-izlude_c,198,213,3	duplicate(Captain Carocc#iz)	Captain Carocc#iz_c	4_M_REINDEER,5,5
-izlude_d,198,213,3	duplicate(Captain Carocc#iz)	Captain Carocc#iz_d	4_M_REINDEER,5,5
+izlude_a,198,213,3	duplicate(卡鲁船长#iz)	卡鲁船长#iz_a	4_M_REINDEER,5,5
+izlude_b,198,213,3	duplicate(卡鲁船长#iz)	卡鲁船长#iz_b	4_M_REINDEER,5,5
+izlude_c,198,213,3	duplicate(卡鲁船长#iz)	卡鲁船长#iz_c	4_M_REINDEER,5,5
+izlude_d,198,213,3	duplicate(卡鲁船长#iz)	卡鲁船长#iz_d	4_M_REINDEER,5,5
 
 // - Criatura Academy Staff
 // - Teaches the player about the Inventory.
 // -----------------------------------------------------------------------------
-izlude,122,207,3	script	Criatura Academy Staff#0	4_M_KHKYEL,3,3,{
+izlude,122,207,3	script	克里图拉学院员工#0	4_M_KHKYEL,3,3,{
 	if (!checkweight(1304,3)) {
-		mes "Quest cannot be continued due to the overfilled inventory.";
-		mes "Continue the quest after organizing the inventory.";
+		mes "物品栏超重了,任务不能继续.";
+		mes "清理物品栏后再继续任务.";
 		close;
 	}
 	viewpoint 2,122,207,1,0xFFFFFF;
 	if (Class == Job_Novice && BaseLevel < 15) {
 		if (isbegin_quest(7472) == 1) {
-			mes "[Hun]";
-			mes "Oh.. you must be the adventurer Carocc was talking about.";
-			mes "I don't know where your homeland is but Midgard is a good place to start your life's journey.";
+			mes "[勋]";
+			mes "喔.. 你一定是卡鲁说的那个冒险家.";
+			mes "虽然我不知道你的家乡是哪里,但米德加特是一个你开始你人生旅程的好地方.";
 			next;
-			mes "[Hun]";
-			mes "It's a good sight to see new adventurers start their journey.";
-			mes "You must be tired. Need a drink?";
+			mes "[勋]";
+			mes "看着这些启程的年轻冒险家是我人生最大的乐趣.";
+			mes "你一定累了吧. 要不要喝杯饮料?";
 			completequest 7472;
 			getexp 200,0;
 			setquest 7473;
 			getitem 531,1;// Apple_Juice
 			next;
-			mes "[Hun]";
-			mes "You can open the Item window by clicking on the 'item' icon on top left portion of the screen.";
+			mes "[勋]";
+			mes "你可以通过单击左上角的 '道具' 图标打开道具窗口.";
 			next;
-			mes "[Hun]";
-			mes "The items are automatically catagorized by 'consumables' 'equipment' 'etcetera' and 'personal' suitable for each use.";
-			mes "It will do the automatic sorting per indiviaul useage to";
+			mes "[勋]";
+			mes "道具窗口有四种标签,分别为 '消耗' '装备' '其他' 和 '个人'.";
+			mes "根据各自用途自动分类";
 			next;
-			mes "[Hun]";
-			mes "Either ^4d4dffdouble click on the item^000000 you intend to use";
-			mes "or drag it onto^4d4dff the equipment window and use it^000000";
+			mes "[勋]";
+			mes "无论是 ^4d4dff双击道具^000000 来使用";
+			mes "或直接拖拽到^4d4dff 装备窗口来使用都可以^000000";
 			next;
 			cutin "tutorial03.bmp", 4;
-			mes "!- Information -!";
-			mes "^4d4dffItems can be used or equipped with simply double-clicking.";
-			mes "Item window can be opened with shortcut key Alt+E";
+			mes "!- 提示信息 -!";
+			mes "^4d4dff道具可以通过简单的双击来使用或装备.";
+			mes "道具窗口可以按下 Alt+E 打开";
 			next;
-			mes "!- Information -!";
-			mes "^4d4dff Equipped items can be checked with Alt+ Q";
-			mes "Items can also be dragged onto the location where you wish to equip it.";
+			mes "!- 提示信息 -!";
+			mes "^4d4dff 装备道具可以按下 Alt+ Q";
+			mes "道具也可以直接拖拽到你想要装备的位置.";
 			next;
 			cutin "", 255;
-			mes "[Hun]";
-			mes "For detailed info on individual items^4d4dff, right click ^000000on that item.";
-			mes "You can check the detailed info on the item.";
+			mes "[勋]";
+			mes "想了解有关道具的详细信息^4d4dff, 可以右单击 ^000000那个道具.";
+			mes "然后你可以查看物品的详细资料.";
 			next;
 			cutin "tutorial04.bmp", 4;
-			mes "!- Information -!";
-			mes "^4d4dffRight-clicking on the item icon^4d4dff  brings up detailed info on the item.";
+			mes "!- 提示信息 -!";
+			mes "^4d4dff右单击道具图标^4d4dff  显示道具详细信息.";
 			next;
-			mes "!- Information -!";
-			mes "^4d4dffWhen you select other players, you can trade, party up with them with the community window that pops up.";
+			mes "!- 提示信息 -!";
+			mes "^4d4dff当你选择其他玩家, 你可以通过弹出的社交窗口和他们交易,组队.";
 			next;
 			cutin "", 255;
-			mes "[Hun]";
-			mes "Ok now ^4d4dffdrink the apple juice that I gave you^000000.";
+			mes "[勋]";
+			mes "好了现在 ^4d4dff喝一口我刚刚给你的苹果汁吧^000000.";
 			close;
 		} else {
 			if (!isbegin_quest(7473)) {
-				mes "[Hun]";
-				mes "Hey there.";
-				mes "Rest up for a bit.";
+				mes "[勋]";
+				mes "嘿,这里.";
+				mes "休息一下.";
 				next;
-				mes "[Hun]";
-				mes "It's joyous to see new adventurers starting out.";
-				mes "You want something to drink while you are resting?";
+				mes "[勋]";
+				mes "很高兴看到新的冒险开始了.";
+				mes "当你休息的时候想要喝点什么吗?";
 				setquest 7473;
 				getitem 531,1;// Apple_Juice
 				next;
-				mes "[Hun]";
-				mes "Right clicking on the item icon ^4d4dffon the basic item window at the upper left corner brings up the detailed info on the item";
+				mes "[勋]";
+				mes "^4d4dff在基本窗口的左上角右单击道具图标可以看到详细信息";
 				next;
-				mes "[Hun]";
-				mes "The items are automatically catagorized by 'consumables' 'equipment' 'etcetera' and 'personal' suitable for each use.";
-				mes "It will do the automatic sorting per indiviaul useage to";
+				mes "[勋]";
+				mes "道具窗口有四种标签,分别为 '消耗' '装备' '其他' 和 '个人'.";
+				mes "根据各自用途自动分类";
 				next;
-				mes "[Hun]";
-				mes "Either ^4d4dffdouble click on the item^000000 you intend to use";
-				mes "or drag it onto^4d4dff the equipment window and use it^000000";
+				mes "[勋]";
+				mes "无论是 ^4d4dff双击道具^000000 来使用";
+				mes "或直接拖拽到^4d4dff 装备窗口来使用都可以^000000";
 				next;
-				mes "[Hun]";
-				mes "For detailed info on individual items^4d4dff, right-click ^000000on the item.";
-				mes "You can check the detailed info on the item.";
+				mes "[勋]";
+				mes "想了解有关道具的详细信息^4d4dff, 可以右单击 ^000000那个道具.";
+				mes "然后你可以查看物品的详细资料.";
 				next;
 				cutin "tutorial04.bmp", 3;
-				mes "!- Information -!";
-				mes "Right clicking on the item icon ^4d4dffbrings up the detailed info on the item";
+				mes "!- 提示信息 -!";
+				mes "^4d4dff右单击道具图标^4d4dff  显示道具详细信息.";
 				next;
-				mes "!- Information -!";
-				mes "When you select on other players^4d4dff you can trade, party up with them with the community window that pops up.";
+				mes "!- 提示信息 -!";
+				mes "^4d4dff当你选择其他玩家, 你可以通过弹出的社交窗口和他们交易,组队.";
 				next;
 				cutin "", 255;
-				mes "[Hun]";
-				mes "Ok now ^4d4dffdrink the apple juice that I gave you^000000.";
+				mes "[勋]";
+				mes "好了现在 ^4d4dff喝一口我刚刚给你的苹果汁吧^000000.";
 				close;
 			} else if (isbegin_quest(7473) == 1) {
 				if (countitem(531) > 0) {
-					mes "[Hun]";
-					mes "Consume the apple juice that I gave you in your inventory.";
-					mes "Then we'll talk.";
+					mes "[勋]";
+					mes "好了现在 ^4d4dff喝一口我刚刚给你的苹果汁吧^000000.";
+					mes "之后我们接着聊.";
 					close;
 				} else {
 					if (isbegin_quest(4269) > 0) {
-						mes "[Hun]";
-						mes "How's the taste?";
-						mes "Pretty good-taste of sweet and sour, right? It might not be much but it also has healing properties.";
+						mes "[勋]";
+						mes "味道怎么样?";
+						mes "酸酸甜甜好味道, 对吗?虽然不是很多,但是还会治愈一些HP.";
 						next;
-						mes "[Hun]";
-						mes "I want to give you more but that was the last of it";
-						mes "Anyways here's some potions. They'll come in handy when you start fighting.";
+						mes "[勋]";
+						mes "我还想给你更多果汁,但是只剩下这些了";
+						mes "不过这里有些药水. 在你战斗的时候会派上用场.";
 						completequest 7473;
 						getitem 569,30;// Novice_Potion
 						getexp 200,0;
 						next;
-						mes "[Hun]";
-						mes "Criatura Academy is a good place to build up experience for the future.";
-						mes "And I'm not just saying this because I work here.";
+						mes "[勋]";
+						mes "克里图拉学院是一个为未来积累经验的好地方.";
+						mes "不是因为我在这里工作才这么说.";
 						next;
-						mes "[Hun]";
-						mes "I'm for real... haha";
+						mes "[勋]";
+						mes "我说的是事实... 哈哈";
 						close;
 					} else {
-						mes "[Hun]";
-						mes "How's the taste?";
-						mes "Pretty good-taste of sweet and sour, right? It might not be much but it also has healing properties.";
+						mes "[勋]";
+						mes "味道怎么样?";
+						mes "酸酸甜甜好味道, 对吗?虽然不是很多,但是还会治愈一些HP.";
 						next;
-						mes "[Hun]";
-						mes "I want to give you more but that was the last of it";
-						mes "Anyways here's some potions. They'll come in handy when you start fighting.";
+						mes "[勋]";
+						mes "我还想给你更多果汁,但是只剩下这些了";
+						mes "不过这里有些药水. 在你战斗的时候会派上用场.";
 						completequest 7473;
 						getitem 569,30;// Novice_Potion
 						getexp 200,0;
 						next;
-						mes "[Hun]";
-						mes "What do you plan to do from now on?";
-						mes "Have you found a place to stay?";
+						mes "[勋]";
+						mes "现在你计划从哪里开始?";
+						mes "你已经找到住的地方了吗?";
 						next;
-						switch(select("I need help with that", "Anything will do really.", "Don't worry.")) {
+						switch(select("我需要帮助", "事实上一切顺利.", "别担心.")) {
 						case 1:
-							mes "[Hun]";
-							mes "But still, though.";
-							mes "It's tough to be out alone in a new place.";
-							mes "That's why Criatura Academy is there.";
+							mes "[勋]";
+							mes "当然是如此.";
+							mes "独自来到一个新的地方是很艰难的.";
+							mes "这就是为什么这里会有克里图拉学院.";
 							next;
-							mes "[Hun]";
-							mes "Carocc sent you to me probably for the same reason.";
-							mes "Even though I'm just a work-hand here, I could show you around.";
+							mes "[勋]";
+							mes "卡鲁把你送到我这大概也是同样的原因.";
+							mes "虽然我在这里处理杂物,但简单的导览应该没有问题";
 							next;
-							mes "[Hun]";
-							mes "If you follow this road up to north, you can see";
-							mes "<NAVI>[the Academy building]<INFO>iz_ac01,100,39</INFO></NAVI>.";
-							mes "Anybody can enroll, so take advantage of it.";
+							mes "[勋]";
+							mes "如果你顺着这条路往北走,你就可以看到";
+							mes "<NAVI>[克里图拉学院建筑]<INFO>iz_ac01,100,39</INFO></NAVI>.";
+							mes "任何人都可以报名参加, 所以好好利用吧.";
 							next;
-							emotion e_gasp, 0, "Information Staff#"+strnpcinfo(2);
-							mes "[Information Staff]";
-							mes "Sorry to interrupt.";
-							mes "But ^4d4dffif you need location info, please ask me.^000000";
+							emotion e_gasp, 0, "信息员工#"+strnpcinfo(2);
+							mes "[信息员工]";
+							mes "很抱歉打断你们.";
+							mes "但是 ^4d4dff如果你需要坐标信息, 请问我吧.^000000";
 							next;
-							mes "[Information Staff]";
-							mes "Hun's information has limits";
+							mes "[信息员工]";
+							mes "勋所知道的信息有限.";
 							close;
 						case 2:
-							mes "[Hun]";
-							mes "How optimistic of you.";
-							mes "If you need help, feel free to visit Criatura Academy any time.";
+							mes "[勋]";
+							mes "看起来很乐观啊.";
+							mes "如果你需要帮助, 任何时候都能来拜访克里图拉学院.";
 							next;
-							mes "[Hun]";
-							mes "There's no requirement or payment to enroll so it would be a great help to you.";
-							mes "When you go through this way to the north, you'll find";
-							mes "<NAVI>[the academy building]<INFO>iz_ac01,100,39</INFO></NAVI>.";
+							mes "[勋]";
+							mes "这里不需要支付任何东西就能报名,所以对你来说会有很大帮助.";
+							mes "当你顺着这条路往北走,你就可以看到";
+							mes "<NAVI>[克里图拉学院建筑]<INFO>iz_ac01,100,39</INFO></NAVI>.";
 							next;
-							mes "[Hun]";
-							mes "If there are more adventurers like you, the future will be brighter.";
-							mes "Hahahaha.";
+							mes "[勋]";
+							mes "如果能有更多像你这样的冒险家, 未来会变得更加美好.";
+							mes "哈哈哈.";
 							next;
-							emotion e_gasp, 0, "Information Staff#"+strnpcinfo(2);
-							mes "[Information Staff]";
-							mes "Sorry to interrupt.";
-							mes "But ^4d4dffif you need location info, please ask me.^000000";
+							emotion e_gasp, 0, "信息员工#"+strnpcinfo(2);
+							mes "[信息员工]";
+							mes "很抱歉打断你们.";
+							mes "但是 ^4d4dff如果你需要坐标信息, 请问我吧.^000000";
 							next;
-							mes "[Information Staff]";
-							mes "Hun's information has limits";
+							mes "[信息员工]";
+							mes "勋所知道的信息有限.";
 							close;
 						case 3:
-							mes "[Hun]";
-							mes "You already have a plan laid out?";
-							mes "Well prepared.";
-							mes "But just in case, if you are curious about the Criatura Academy, make a visit.";
+							mes "[勋]";
+							mes "你已经有安排好的计划了?";
+							mes "有备而来嘛.";
+							mes "以防万一,你最好去拜访下克里图拉学院.";
 							next;
-							mes "[Hun]";
-							mes "When you go through this way to the north, you'll find";
-							mes "<NAVI>[the academy building]<INFO>iz_ac01,100,39</INFO></NAVI>.";
-							mes "What is well, is well- isn't it?";
+							mes "[勋]";
+							mes "当你顺着这条路往北走,你就可以看到";
+							mes "<NAVI>[克里图拉学院建筑]<INFO>iz_ac01,100,39</INFO></NAVI>.";
+							mes "不怕一万只怕万一,不是吗?";
 							next;
-							emotion e_gasp, 0, "Information Staff#"+strnpcinfo(2);
-							mes "[Information Staff]";
-							mes "You are correct.";
-							mes "Preperation is the key.";
-							mes "But ^4d4dffif you need location info, please ask me.^000000";
+							emotion e_gasp, 0, "信息员工#"+strnpcinfo(2);
+							mes "[信息员工]";
+							mes "你说的对.";
+							mes "准备充分是关键.";
+							mes "但是 ^4d4dff如果你需要坐标信息, 请问我吧.^000000";
 							next;
-							mes "[Information Staff]";
-							mes "Hun's information has limits.";
+							mes "[信息员工]";
+							mes "勋所知道的信息有限.";
 							close;
 						}
 					}
 				}
 			} else {
 				if (!isbegin_quest(4269)) {
-					mes "[Hun]";
-					mes "It's you..";
-					mes "What do you plan to do from now on?";
-					mes "Have you found a place to stay?";
+					mes "[勋]";
+					mes "是你啊..";
+					mes "现在你计划从哪里开始?";
+					mes "你已经找到住的地方了吗?";
 					next;
-					switch(select("I need help with that", "Anything will do really.", "Don't worry.")) {
+					switch(select("我需要帮助", "事实上一切顺利.", "别担心.")) {
 					case 1:
-						mes "[Hun]";
-						mes "But still, though.";
-						mes "It's tough to be out alone in a new place.";
-						mes "That's why Criatura Academy is there.";
+						mes "[勋]";
+						mes "不过, 尽管.";
+						mes "独自来到一个新的地方是很艰难的.";
+						mes "这就是为什么这里会有克里图拉学院.";
 						next;
-						mes "[Hun]";
-						mes "Carocc sent you to me probably for the same reason.";
-						mes "Even though I'm just a work-hand here, I could show you around.";
+						mes "[勋]";
+						mes "卡鲁把你送到我这大概也是同样的原因.";
+						mes "虽然我在这里处理杂物,但简单的导览应该没有问题";
 						next;
-						mes "[Hun]";
-						mes "If you follow this road up to north, you can see";
-						mes "<NAVI>[the Academy building]<INFO>iz_ac01,100,39</INFO></NAVI>.";
-						mes "Anybody can enroll, so take advantage of it.";
+						mes "[勋]";
+						mes "如果你顺着这条路往北走,你就可以看到";
+						mes "<NAVI>[克里图拉学院建筑]<INFO>iz_ac01,100,39</INFO></NAVI>.";
+						mes "任何人都可以报名参加, 所以好好利用吧.";
 						next;
-						emotion e_gasp, 0, "Information Staff#"+strnpcinfo(2);
-						mes "[Information Staff]";
-						mes "Sorry to interrupt.";
-						mes "But ^4d4dffif you need location info, please ask me.^000000";
+						emotion e_gasp, 0, "信息员工#"+strnpcinfo(2);
+						mes "[信息员工]";
+						mes "很抱歉打断你们.";
+						mes "但是 ^4d4dff如果你需要坐标信息, 请问我吧.^000000";
 						next;
-						mes "[Information Staff]";
-						mes "Hun's information has limits";
+						mes "[信息员工]";
+						mes "勋所知道的信息有限.";
 						close;
 					case 2:
-						mes "[Hun]";
-						mes "How optimistic of you.";
-						mes "If you need help, feel free to visit Criatura Academy any time.";
+						mes "[勋]";
+						mes "看起来很乐观啊.";
+						mes "如果你需要帮助, 任何时候都能来拜访克里图拉学院.";
 						next;
-						mes "[Hun]";
-						mes "There's no requirement or payment to enroll so it would be a great help to you.";
-						mes "When you go through this way to the north, you'll find";
-						mes "<NAVI>[the academy building]<INFO>iz_ac01,100,39</INFO></NAVI>.";
+						mes "[勋]";
+						mes "这里不需要支付任何东西就能报名,所以对你来说会有很大帮助.";
+						mes "当你顺着这条路往北走,你就可以看到";
+						mes "<NAVI>[克里图拉学院建筑]<INFO>iz_ac01,100,39</INFO></NAVI>.";
 						next;
-						mes "[Hun]";
-						mes "If there are more adventurers like you, the future will be brighter.";
-						mes "Hahahaha.";
+						mes "[勋]";
+						mes "如果能有更多像你这样的冒险家, 未来会变得更加美好.";
+						mes "哈哈哈.";
 						next;
-						emotion e_gasp, 0, "Information Staff#"+strnpcinfo(2);
-						mes "[Information Staff]";
-						mes "Sorry to interrupt.";
-						mes "But ^4d4dffif you need location info, please ask me.^000000";
+						emotion e_gasp, 0, "信息员工#"+strnpcinfo(2);
+						mes "[信息员工]";
+						mes "很抱歉打断你们.";
+						mes "但是 ^4d4dff如果你需要坐标信息, 请问我吧.^000000";
 						next;
-						mes "[Information Staff]";
-						mes "Hun's information has limits";
+						mes "[信息员工]";
+						mes "勋所知道的信息有限.";
 						close;
 					case 3:
-						mes "[Hun]";
-						mes "You already have a plan laid out?";
-						mes "Well prepared.";
-						mes "But just in case, if you are curious about the Criatura Academy, make a visit.";
+						mes "[勋]";
+						mes "你已经有安排好的计划了?";
+						mes "有备而来嘛.";
+						mes "以防万一,你最好去拜访下克里图拉学院.";
 						next;
-						mes "[Hun]";
-						mes "When you go through this way to the north, you'll find";
-						mes "<NAVI>[the academy building]<INFO>iz_ac01,100,39</INFO></NAVI>.";
-						mes "What is well, is well- isn't it?";
+						mes "[勋]";
+						mes "当你顺着这条路往北走,你就可以看到";
+						mes "<NAVI>[克里图拉学院建筑]<INFO>iz_ac01,100,39</INFO></NAVI>.";
+						mes "不怕一万只怕万一,不是吗?";
 						next;
-						emotion e_gasp, 0, "Information Staff#"+strnpcinfo(2);
-						mes "[Information Staff]";
-						mes "You are correct.";
-						mes "Preperation is the key.";
-						mes "But ^4d4dffif you need location info, please ask me.^000000";
+						emotion e_gasp, 0, "信息员工#"+strnpcinfo(2);
+						mes "[信息员工]";
+						mes "你说的对.";
+						mes "准备充分是关键.";
+						mes "但是 ^4d4dff如果你需要坐标信息, 请问我吧.^000000";
 						next;
-						mes "[Information Staff]";
-						mes "Hun's information has limits.";
+						mes "[信息员工]";
+						mes "勋所知道的信息有限.";
 						close;
 					}
 				} else {
-					mes "[Hun]";
-					mes "Criatura Academy is a good place to build up experience for the future.";
-					mes "I'm not saying this just because I work here.";
+					mes "[勋]";
+					mes "克里图拉学院是一个为未来积累经验的好地方.";
+					mes "不是因为我在这里工作才这么说.";
 					next;
-					mes "[Hun]";
-					mes "For real... hahahaha";
+					mes "[勋]";
+					mes "我说的是事实... 哈哈";
 					close;
 				}
 			}
 		}
 	} else {
-		mes "[Hun]";
-		mes "The Royal Criatura Academy was founded to help budding adventurers on their initial journey.";
+		mes "[勋]";
+		mes "皇家克里图拉学院成立是为了帮助新进的冒险家开启他们最初的旅程.";
 		next;
-		mes "[Hun]";
-		mes "Although I'm but a work-hand here, it makes me happy to see students graduate here and become fine members of society.";
+		mes "[勋]";
+		mes "虽然我只是个员工,但是我很高兴看到这里的学生毕业并成为社会上有用的一员.";
 		close;
 	}
 
@@ -911,150 +907,150 @@ OnTouch:
 	end;
 }
 
-izlude_a,122,207,3	duplicate(Criatura Academy Staff#0)	Criatura Academy Staff#a	4_M_KHKYEL,3,3
-izlude_b,122,207,3	duplicate(Criatura Academy Staff#0)	Criatura Academy Staff#b	4_M_KHKYEL,3,3
-izlude_c,122,207,3	duplicate(Criatura Academy Staff#0)	Criatura Academy Staff#c	4_M_KHKYEL,3,3
-izlude_d,122,207,3	duplicate(Criatura Academy Staff#0)	Criatura Academy Staff#d	4_M_KHKYEL,3,3
+izlude_a,122,207,3	duplicate(克里图拉学院员工#0)	克里图拉学院员工#a	4_M_KHKYEL,3,3
+izlude_b,122,207,3	duplicate(克里图拉学院员工#0)	克里图拉学院员工#b	4_M_KHKYEL,3,3
+izlude_c,122,207,3	duplicate(克里图拉学院员工#0)	克里图拉学院员工#c	4_M_KHKYEL,3,3
+izlude_d,122,207,3	duplicate(克里图拉学院员工#0)	克里图拉学院员工#d	4_M_KHKYEL,3,3
 
 // - Information Staff
 // - Teaches the player about the Mini-Map through a quick quest.
 // -----------------------------------------------------------------------------
-izlude,120,207,4	script	Information Staff#0	8W_SOLDIER,{
+izlude,120,207,4	script	导览人员#0	8W_SOLDIER,{
 	if (!checkweight(1304,3)) {
-		mes "Quest cannot be continued due to the invenory being full.";
-		mes "Please try it again after re-organizing your items.";
+		mes "背包太重导致任务不能继续进行.";
+		mes "请整理您的物品后再来尝试.";
 		close;
 	}
 
 	if (BaseLevel < 15 && !isbegin_quest(7474)) {
-		mes "[Information Staff]";
-		mes "Hi, how are you?";
-		mes "I am in charge of navigation directions for Izlude's key locations";
-		mes "I wish to propose a simple game along with the navigation, would that be ok?";
+		mes "[导览人员]";
+		mes "嗨, 你好吗?";
+		mes "我负责导览伊斯鲁得岛的主要位置.";
+		mes "我想导览的同时进行一个简单的小游戏, 你可以接受吗?";
 		next;
-		if (select("Sure, let's play!", "I already know them all.") == 1) {
-			mes "[Information Staff]";
-			mes "First of all, how to check the mini-map.";
-			mes "You can check your location through the mini-map at the top right of the screen";
+		if (select("当然, 让我们来玩吧!", "我已经知道了.") == 1) {
+			mes "[导览人员]";
+			mes "首先是查看小地图的方法.";
+			mes "通过屏幕右上角的小地图可以确认目前自己的位置.";
 			next;
-			mes "[Information Staff]";
-			mes "If you receive information on a town or a city, a waypoint ^4d4dff+^000000 can be marked on the map.";
+			mes "[导览人员]";
+			mes "当使用各村落或城市的导览时,也会帮你标记^4d4dff+^000000在目的的位置上.";
 			next;
-			mes "[Information Staff]";
-			mes "Press ^4d4dff[Ctrl] and [ ~ ] on your keyboard and you can see the world map^000000.";
+			mes "[导览人员]";
+			mes "同时按住^4d4dff[Ctrl]和[ ~ ]键就可以看到世界地图^000000.";
 			next;
-			mes "[Information Staff]";
-			mes "Through the ^4d4dffworld map you can check the location of you, your party members and the level of monsters in the area.^000000";
+			mes "[导览人员]";
+			mes "通过^4d4dff世界地图,可以看到目前自己的位置,同伴的位置,栖息在各地区的魔物等级等信息.^000000";
 			next;
-			mes "[Information Staff]";
-			mes "This is useful info to remember.";
-			mes "Now then, should we play a simple game?";
+			mes "[导览人员]";
+			mes "这些都是对你有益的信息.";
+			mes "那么, 我们来玩简单的小游戏吧?";
 			next;
-			mes "[Information Staff]";
-			mes "I will ^4d4dffmark three specific locations on the mini-map.^000000";
-			mes "Please ^4d4dffvisit those locations ^000000using the waypoints as reference.";
+			mes "[导览人员]";
+			mes "现在我已经在^4d4dff小地图上标记了三个特定的位置.^000000";
+			mes "你看到那个标记后^4d4dff就去寻找那个位置^000000吧.";
 			next;
-			mes "[Information Staff]";
-			mes "Think of it as a treasure hunt and go.";
-			mes "I've hidden some useful items there.";
+			mes "[导览人员]";
+			mes "带着寻宝的心情去好了.";
+			mes "我还藏了一些有用的东西哦.";
 			viewpoint 1,179,75,1,0xCCFFFF;
 			viewpoint 1,45,94,2,0x00FF00;
 			viewpoint 1,207,167,3,0xFFEB46;
 			setquest 7474;
 			next;
-			mes "[Information Staff]";
-			mes "Vist me again after going by all three locations.";
-			mes "I will check up on it.";
+			mes "[导览人员]";
+			mes "三个地方都寻找完毕后记得来找我.";
+			mes "我会尽心确认.";
 			next;
-			mes "[Information Staff]";
-			mes "Ah, there' somebody who started out right before you!";
-			mes "If you don't hurry that person will take all the items!";
-			mes "So, run!";
+			mes "[导览人员]";
+			mes "啊, 刚刚有人已经出发了!";
+			mes "如果再不赶快的话,所有东西都被他拿走了!";
+			mes "来, 冲啊!";
 			npcskill "AL_INCAGI", 10, 10, 10;
 			close;
 		}
-		mes "[Information Staff]";
-		mes "Do you need information on all the locations of Izlude?";
-		mes "By clicking on the introduced ^B9062F[base camp name]^000000, I will offer you guidance so follow the ^B9062FRed Arrows^000000.";
+		mes "[导览人员]";
+		mes "你需要导览伊斯鲁得岛的各位位置吗?";
+		mes "点选导览到^B9062F[地名]^000000时, ^B9062F用卫星导览^000000来亲切地帮你导览.";
 		next;
 		while(1) {
-			switch(select("[ Main facilities ]", "[ Guide & Helper ]", "Mini map marking removal", "End Conversation")) {
+			switch(select("[ 主要设备 ]", "[ 商人 & 服务人员 ]", "删除小地图标记", "结束对话")) {
 			case 1:
 				while (1) {
-					switch(select("[ Criatura Academy ]", "[ Wharf ]", "[ Airship (International) ]", "[ Arena ]", "[ Shop ]", "[ Swordman Guild ]", "[ Enchant Association ]", "[ Blacksmith's Workshop ]", "Go back to the previous menu")) {
+					switch(select("[ 克里图拉学院 ]", "[ 码头 ]", "[ 飞艇 (国际线) ]", "[ 亚雷那 ]", "[ 商店 ]", "[ 剑士工会 ]", "[ 强化协会 ]", "[ 铁匠工坊 ]", "回到上一个选单")) {
 					case 1:
-						mes "[Information Staff]";
-						mes "If you are the first time adventurer,";
-						mes "<NAVI>[Criatura Academy]<INFO>iz_ac01,100,39,</INFO></NAVI>";
-						mes "can offer a lot of info and help.";
-						mes "Do you need additonal directions?";
+						mes "[导览人员]";
+						mes "如果是初学冒险者,通过";
+						mes "<NAVI>[克里图拉学院]<INFO>iz_ac01,100,39,</INFO></NAVI>";
+						mes "获得更多信息和优惠.";
+						mes "还需要其他导览吗?";
 						viewpoint 1, 128, 260, 0, 0xFFD269;
 						next;
 						continue;
 					case 2:
-						mes "[Information Staff]";
-						mes "Through the <NAVI>[Wharf]<INFO>izlude,197,205,</INFO></NAVI> in the north east,";
-						mes "^8B4513Alberta^000000 or ^8B4513the Byalan Island^000000 can be visted.";
-						mes "you can go.";
+						mes "[导览人员]";
+						mes "通过东北边 <NAVI>[码头]<INFO>izlude,197,205,</INFO></NAVI>,前往";
+						mes "^8B4513艾尔贝塔^000000 或 ^8B4513柏伊亚岚岛^000000 .";
+						mes "你可以送我过去吗?";
 						next;
-						mes "[Information Staff]";
-						mes "Byalan Island is the scary place with ^8B4513Izlude dungeon^000000 in it.";
-						mes "";
-						mes "Do you need additional directions?";
+						mes "[导览人员]";
+						mes "柏伊亚岚岛有 ^8B4513伊斯鲁德岛迷宫^000000 的入口.";
+						mes "是一个很可怕的地方.";
+						mes "还需要其他导览吗?";
 						viewpoint 1, 197, 205, 1, 0xFFFF00;
 						next;
 						continue;
 					case 3:
-						mes "[Information Staff]";
-						mes "To the southeast, the <NAVI>[Airship]<INFO>izlude,206,75,</INFO></NAVI>";
-						mes "will be connected with the Capital of the republic of Schwarzwald -^8B4513 Yuno^000000, and";
-						mes "The capital of the Arunapeltsdom -^8B4513 Rachel ^000000.";
-						mes "Do you need additional directions?";
+						mes "[导览人员]";
+						mes "东南边的 <NAVI>[飞艇(国际线)]<INFO>izlude,206,75,</INFO></NAVI>";
+						mes "是到秀发兹发德共和国的首都 -^8B4513 朱诺^000000, 和";
+						mes "可以连接到阿鲁娜配兹教国的首都 -^8B4513 拉赫 ^000000.";
+						mes "还需要其他导览吗?";
 						viewpoint 1, 210, 73, 2, 0xFF0A82;
 						next;
 						continue;
 					case 4:
-						mes "[Information Staff]";
-						mes "The <NAVI>[Arena]<INFO>izlude,213,161,</INFO></NAVI> located in the east";
-						mes "is for testing your battle ability.";
-						mes "It's an excellent place.";
-						mes "I will mark the location on the mini map.";
-						mes "Do you need additional directions?";
+						mes "[导览人员]";
+						mes "位置与东边的 <NAVI>[竞技场]<INFO>izlude,213,161,</INFO></NAVI>";
+						mes "是考验战斗力";
+						mes "的好地方.";
+						mes "我会帮你将位置标记在小地图上.";
+						mes "还需要其他导览吗?";
 						viewpoint 1, 213, 161, 3, 0xFFFF54;
 						next;
 						continue;
 					case 5:
-						mes "[Information Staff]";
-						mes "I will mark the location of the";
-						mes "<NAVI>[Shop]<INFO>izlude,110,182,</INFO></NAVI>";
-						mes "on the mini map.";
-						mes "Do you need additional directions?";
+						mes "[导览人员]";
+						mes "我会帮你在小地图上标记";
+						mes "<NAVI>[商店]<INFO>izlude,110,182,</INFO></NAVI>";
+						mes "的位置.";
+						mes "还需要其他导览吗?";
 						viewpoint 1, 108, 179, 4, 0xFFAAFF;
 						next;
 						continue;
 					case 6:
-						mes "[Information Staff]";
-						mes "<NAVI>[Swordman guild]<INFO>izlude,51,172,</INFO></NAVI> is the place to manage the job transfer to a swordman.";
-						mes "I will mark the location of the swordman guild on the mini map.";
-						mes "Do you need additional directions?";
+						mes "[导览人员]";
+						mes "<NAVI>[剑士工会]<INFO>izlude,51,172,</INFO></NAVI> 是剑士转职的地方.";
+						mes "我会帮你将位置标记在小地图上.";
+						mes "还需要其他导览吗?";
 						viewpoint 1, 52, 172, 5, 0xFFDA70;
 						next;
 						continue;
 					case 7:
-						mes "[Information Staff]";
-						mes "I will mark the location of the";
-						mes "<NAVI>[Enchant Association]<INFO>izlude,97,125,</INFO></NAVI>";
-						mes "on the mini map.";
-						mes "Do you need additional directions?";
+						mes "[导览人员]";
+						mes "我帮你在地图上标记";
+						mes "<NAVI>[强化协会]<INFO>izlude,97,125,</INFO></NAVI>";
+						mes "的位置.";
+						mes "还需要其他导览吗?";
 						viewpoint 1, 97, 125, 6, 0xFFDA70;
 						next;
 						continue;
 					case 8:
-						mes "[Information Staff]";
-						mes "I will mark the location of the";
-						mes "<NAVI>[Blacksmith's Workshop]<INFO>izlude,153,126,</INFO></NAVI>";
-						mes "on the mini map.";
-						mes "Do you need additional directions?";
+						mes "[导览人员]";
+						mes "我帮你在地图上标记";
+						mes "<NAVI>[铁匠工坊]<INFO>izlude,153,126,</INFO></NAVI>";
+						mes "的位置.";
+						mes "还需要其他导览吗?";
 						viewpoint 1, 153, 126, 7, 0xFFAAFF;
 						next;
 						continue;
@@ -1068,7 +1064,7 @@ izlude,120,207,4	script	Information Staff#0	8W_SOLDIER,{
 				while (1) {
 					switch(select("[ Eden Group Teleporter ]", "[ Kafra Employee ]", "[ Mesmerizer ]", "[ Wedding Secretary ]", "[ Mercenary Guild Official ]", "[ Taming Merchant ]", "Go back to the previous menu")) {
 					case 1:
-						mes "[Information Staff]";
+						mes "[导览人员]";
 						mes "For now, I will mark the location of the";
 						mes "<NAVI>[Eden Group Teleporter]<INFO>izlude,131,148,</INFO></NAVI>";
 						mes "on the mini map.";
@@ -1077,7 +1073,7 @@ izlude,120,207,4	script	Information Staff#0	8W_SOLDIER,{
 						next;
 						continue;
 					case 2:
-						mes "[Information Staff]";
+						mes "[导览人员]";
 						mes "I will mark the location of the";
 						mes "<NAVI>[Kafra Employee]<INFO>izlude,128,148,</INFO></NAVI>";
 						mes "on the mini map.";
@@ -1086,7 +1082,7 @@ izlude,120,207,4	script	Information Staff#0	8W_SOLDIER,{
 						next;
 						continue;
 					case 3:
-						mes "[Information Staff]";
+						mes "[导览人员]";
 						mes "I will mark the location of the";
 						mes "<NAVI>[Mesmerizer]<INFO>izlude,124,127,</INFO></NAVI>";
 						mes "on the mini map.";
@@ -1095,7 +1091,7 @@ izlude,120,207,4	script	Information Staff#0	8W_SOLDIER,{
 						next;
 						continue;
 					case 4:
-						mes "[Information Staff]";
+						mes "[导览人员]";
 						mes "If you want to visit ^8B4513Jawaii^000000 - the resort place for a couple,";
 						mes "talk to the <NAVI>[Wedding Secretary]<INFO>izlude,180,224,</INFO></NAVI>.";
 						mes "Just ask the question about it.";
@@ -1104,7 +1100,7 @@ izlude,120,207,4	script	Information Staff#0	8W_SOLDIER,{
 						next;
 						continue;
 					case 5:
-						mes "[Information Staff]";
+						mes "[导览人员]";
 						mes "If you need to know about the Mercenary Guild, go west and speak to the";
 						mes "<NAVI>[Mercenary Guild Official]<INFO>izlude,47,170,</INFO></NAVI>.";
 						mes "Do you need additional directions?";
@@ -1112,7 +1108,7 @@ izlude,120,207,4	script	Information Staff#0	8W_SOLDIER,{
 						next;
 						continue;
 					case 6:
-						mes "[Information Staff]";
+						mes "[导览人员]";
 						mes "I will mark the location of the";
 						mes "<NAVI>[Taming Merchant]<INFO>izlude,118,163,</INFO></NAVI>";
 						mes "on the mini map.";
@@ -1127,9 +1123,9 @@ izlude,120,207,4	script	Information Staff#0	8W_SOLDIER,{
 				}
 				break;
 			case 3:
-				mes "[Information Staff]";
-				mes "I will erase the marks.";
-				mes "Do you need additional directions?";
+				mes "[导览人员]";
+				mes "帮你删除标记.";
+				mes "还需要其他的帮忙吗?";
 				viewpoint 2, 197, 205, 1, 0xFF0000;
 				viewpoint 2, 210, 73, 2, 0xFF0000;
 				viewpoint 2, 213, 161, 3, 0xFF0000;
@@ -1146,43 +1142,43 @@ izlude,120,207,4	script	Information Staff#0	8W_SOLDIER,{
 				next;
 				break;
 			case 4:
-				mes "[Information Staff]";
-				mes "Have a wonderful adventure.";
-				mes "Good bye~~!";
+				mes "[导览人员]";
+				mes "祝你冒险平安.";
+				mes "路上小心~~!";
 				close;
 			}
 		}
 	} else if (isbegin_quest(7474) == 1) {
 		if ((isbegin_quest(7475) + isbegin_quest(7476) + isbegin_quest(7477)) > 2) {
-			mes "[Information Staff]";
+			mes "[导览人员]";
 			mes "What's with the long face?";
 			mes "It looks like you found all the locations I marked.";
 			next;
-			mes "[Lumin]";
+			mes "[鲁米]";
 			mes "Turtle...";
 			cutin "nov_lumin01.bmp", 2;
 			next;
 			select("What'd you call me?");
-			mes "[Lumin]";
+			mes "[鲁米]";
 			mes "Because you are too slow.";
 			mes "Yes, it is. I have been waiting for you for what seems like forever.";
 			next;
-			mes "[Lumin]";
+			mes "[鲁米]";
 			mes ".......Shall I share with you?";
 			cutin "nov_lumin03.bmp", 2;
 			next;
 			if (select("I don't need your sympathy.", "!!!!!") == 1) {
-				mes "[Lumin]";
+				mes "[鲁米]";
 				mes "Is that so?";
 				mes "Captain always told me to help the poor people.";
 				mes "But you get rid of my chance to help.";
 				cutin "nov_lumin02.bmp", 2;
 				next;
-				mes "[Lumin]";
+				mes "[鲁米]";
 				mes "Ahhh. Irritating.";
 				next;
 			} else {
-				mes "[Lumin]";
+				mes "[鲁米]";
 				mes "Well, now we can divide 7 to 3?";
 				mes "I am OK with 6 to 4.";
 				cutin "nov_lumin02.bmp", 2;
@@ -1192,26 +1188,26 @@ izlude,120,207,4	script	Information Staff#0	8W_SOLDIER,{
 				next;
 			}
 			cutin "", 255;
-			mes "[Information Staff]";
+			mes "[导览人员]";
 			mes "Ahhh, you two calm down.";
-			mes "Lumin took them all.";
+			mes "鲁米 took them all.";
 			mes ""+ strcharinfo(0) + " I will give you one set separately.";
 			next;
-			mes "[Information Staff]";
+			mes "[导览人员]";
 			mes "Think of the reason, it was my fault to leave one person's but sent both of you.";
 			next;
 			cutin "nov_lumin03.bmp", 2;
-			mes "[Lumin]";
+			mes "[鲁米]";
 			mes "Simple and fair decision.";
 			mes "OK. Now I am going.";
 			mes "See you again, my friend.";
 			next;
 			cutin "", 255;
-			mes "[Information Staff]";
+			mes "[导览人员]";
 			mes "Aren't you two friends?";
 			mes "You guys both seemed friendly enough right?";
 			next;
-			mes "[Information Staff]";
+			mes "[导览人员]";
 			mes "Well, this is my present for you.";
 			mes "Hope it will be useful.";
 			completequest 7474;
@@ -1223,25 +1219,25 @@ izlude,120,207,4	script	Information Staff#0	8W_SOLDIER,{
 			getitem 12324,10;// N_Butterfly_Wing
 			getitem 569,20;// Novice_Potion
 			next;
-			mes "[Information Staff]";
+			mes "[导览人员]";
 			mes "Have a wonderful journey.";
 			close;
 		} else {
-			mes "[Information Staff]";
-			mes "You have not found the treasure I hid.";
-			mes "Here are the locations again.";
-			mes "Hurry up!";
+			mes "[导览人员]";
+			mes "看起来你还没有找到我藏起来的宝物的样子.";
+			mes "我会再告诉你位置.";
+			mes "被人抢走之前赶快过去吧!";
 			viewpoint 1,179,75,1,0xccffff;
 			viewpoint 1,45,94,2,0x00ff00;
 			viewpoint 1,207,167,3,0xFFEB46;
 			close;
 		}
 	} else {
-		mes "[Information Staff]";
+		mes "[导览人员]";
 		mes "This is Izlude - the satellite city of Prontera.";
 		mes "Do you need directions?";
 		next;
-		mes "[Information Staff]";
+		mes "[导览人员]";
 		mes "If you click on the ^B9062F[area name]^000000, I can ^B9062Fnavigate^000000 a path for you to follow.";
 		next;
 		while(1) {
@@ -1250,7 +1246,7 @@ izlude,120,207,4	script	Information Staff#0	8W_SOLDIER,{
 				while (1) {
 					switch(select("[ Criatura Academy ]:[ Wharf ]:[ Airship (International) ]:[ Arena ]:[ Shop ]:[ Swordman Guild ]:[ Enchant Association ]:[ Blacksmith's Workshop ]:Go back to the previous menu")) {
 					case 1:
-						mes "[Information Staff]";
+						mes "[导览人员]";
 						mes "If you are the first time adventurer,";
 						mes "<NAVI>[Criatura Academy]<INFO>iz_ac01,100,39,</INFO></NAVI>";
 						mes "can offer a lot of info and help.";
@@ -1259,12 +1255,12 @@ izlude,120,207,4	script	Information Staff#0	8W_SOLDIER,{
 						next;
 						continue;
 					case 2:
-						mes "[Information Staff]";
+						mes "[导览人员]";
 						mes "Through the <NAVI>[Wharf]<INFO>izlude,197,205,</INFO></NAVI> in the north east,";
 						mes "^8B4513Alberta^000000 or ^8B4513the Byalan Island^000000 can be visted.";
 						mes "you can go.";
 						next;
-						mes "[Information Staff]";
+						mes "[导览人员]";
 						mes "Byalan Island is the scary place with ^8B4513Izlude dungeon^000000 in it.";
 						mes "";
 						mes "Do you need additional directions?";
@@ -1272,7 +1268,7 @@ izlude,120,207,4	script	Information Staff#0	8W_SOLDIER,{
 						next;
 						continue;
 					case 3:
-						mes "[Information Staff]";
+						mes "[导览人员]";
 						mes "To the southeast, the <NAVI>[Airship]<INFO>izlude,206,75,</INFO></NAVI>";
 						mes "will be connected with the Capital of the republic of Schwarzwald -^8B4513 Yuno^000000, and";
 						mes "The capital of the Arunapeltsdom -^8B4513 Rachel ^000000.";
@@ -1281,7 +1277,7 @@ izlude,120,207,4	script	Information Staff#0	8W_SOLDIER,{
 						next;
 						continue;
 					case 4:
-						mes "[Information Staff]";
+						mes "[导览人员]";
 						mes "The <NAVI>[Arena]<INFO>izlude,213,161,</INFO></NAVI> located in the east";
 						mes "is for testing your battle ability.";
 						mes "It's an excellent place.";
@@ -1291,7 +1287,7 @@ izlude,120,207,4	script	Information Staff#0	8W_SOLDIER,{
 						next;
 						continue;
 					case 5:
-						mes "[Information Staff]";
+						mes "[导览人员]";
 						mes "I will mark the location of the";
 						mes "<NAVI>[Shop]<INFO>izlude,110,182,</INFO></NAVI>";
 						mes "on the mini map.";
@@ -1300,7 +1296,7 @@ izlude,120,207,4	script	Information Staff#0	8W_SOLDIER,{
 						next;
 						continue;
 					case 6:
-						mes "[Information Staff]";
+						mes "[导览人员]";
 						mes "<NAVI>[Swordman guild]<INFO>izlude,51,172,</INFO></NAVI> is the place to manage the job transfer to a swordman.";
 						mes "I will mark the location of the swordman guild on the mini map.";
 						mes "Do you need additional directions?";
@@ -1308,7 +1304,7 @@ izlude,120,207,4	script	Information Staff#0	8W_SOLDIER,{
 						next;
 						continue;
 					case 7:
-						mes "[Information Staff]";
+						mes "[导览人员]";
 						mes "I will mark the location of the";
 						mes "<NAVI>[Enchant Association]<INFO>izlude,97,125,</INFO></NAVI>";
 						mes "on the mini map.";
@@ -1317,7 +1313,7 @@ izlude,120,207,4	script	Information Staff#0	8W_SOLDIER,{
 						next;
 						continue;
 					case 8:
-						mes "[Information Staff]";
+						mes "[导览人员]";
 						mes "I will mark the location of the";
 						mes "<NAVI>[Blacksmith's Workshop]<INFO>izlude,153,126,</INFO></NAVI>";
 						mes "on the mini map.";
@@ -1335,7 +1331,7 @@ izlude,120,207,4	script	Information Staff#0	8W_SOLDIER,{
 				while (1) {
 					switch(select("[ Eden Group Teleporter ]:[ Kafra Employee ]:[ Mesmerizer ]:[ Wedding Secretary ]:[ Mercenary Guild Official ]:[ Taming Merchant ]:Go back to the previous menu")) {
 					case 1:
-						mes "[Information Staff]";
+						mes "[导览人员]";
 						mes "For now, I will mark the location of the";
 						mes "<NAVI>[Eden Group Teleporter]<INFO>izlude,131,148,</INFO></NAVI>";
 						mes "on the mini map.";
@@ -1344,7 +1340,7 @@ izlude,120,207,4	script	Information Staff#0	8W_SOLDIER,{
 						next;
 						continue;
 					case 2:
-						mes "[Information Staff]";
+						mes "[导览人员]";
 						mes "I will mark the location of the";
 						mes "<NAVI>[Kafra Employee]<INFO>izlude,128,148,</INFO></NAVI>";
 						mes "on the mini map.";
@@ -1353,7 +1349,7 @@ izlude,120,207,4	script	Information Staff#0	8W_SOLDIER,{
 						next;
 						continue;
 					case 3:
-						mes "[Information Staff]";
+						mes "[导览人员]";
 						mes "I will mark the location of the";
 						mes "<NAVI>[Mesmerizer]<INFO>izlude,124,127,</INFO></NAVI>";
 						mes "on the mini map.";
@@ -1362,7 +1358,7 @@ izlude,120,207,4	script	Information Staff#0	8W_SOLDIER,{
 						next;
 						continue;
 					case 4:
-						mes "[Information Staff]";
+						mes "[导览人员]";
 						mes "If you want to visit ^8B4513Jawaii^000000 - the resort place for a couple,";
 						mes "talk to the <NAVI>[Wedding Secretary]<INFO>izlude,180,224,</INFO></NAVI>.";
 						mes "Just ask the question about it.";
@@ -1371,7 +1367,7 @@ izlude,120,207,4	script	Information Staff#0	8W_SOLDIER,{
 						next;
 						continue;
 					case 5:
-						mes "[Information Staff]";
+						mes "[导览人员]";
 						mes "If you need to know about the Mercenary Guild, go west and speak to the";
 						mes "<NAVI>[Mercenary Guild Official]<INFO>izlude,47,170,</INFO></NAVI>.";
 						mes "Do you need additional directions?";
@@ -1379,7 +1375,7 @@ izlude,120,207,4	script	Information Staff#0	8W_SOLDIER,{
 						next;
 						continue;
 					case 6:
-						mes "[Information Staff]";
+						mes "[导览人员]";
 						mes "I will mark the location of the";
 						mes "<NAVI>[Taming Merchant]<INFO>izlude,118,163,</INFO></NAVI>";
 						mes "on the mini map.";
@@ -1394,7 +1390,7 @@ izlude,120,207,4	script	Information Staff#0	8W_SOLDIER,{
 				}
 				break;
 			case 3:
-				mes "[Information Staff]";
+				mes "[导览人员]";
 				mes "I will erase the marks.";
 				mes "Do you need additional directions?";
 				viewpoint 2, 197, 205, 1, 0xFF0000;
@@ -1413,7 +1409,7 @@ izlude,120,207,4	script	Information Staff#0	8W_SOLDIER,{
 				next;
 				break;
 			case 4:
-				mes "[Information Staff]";
+				mes "[导览人员]";
 				mes "Have a wonderful adventure.";
 				mes "Good bye~~!";
 				close;
@@ -1432,10 +1428,10 @@ OnInit:
 	end;
 }
 
-izlude_a,120,207,4	duplicate(Information Staff#0)	Information Staff#a	8W_SOLDIER
-izlude_b,120,207,4	duplicate(Information Staff#0)	Information Staff#b	8W_SOLDIER
-izlude_c,120,207,4	duplicate(Information Staff#0)	Information Staff#c	8W_SOLDIER
-izlude_d,120,207,4	duplicate(Information Staff#0)	Information Staff#d	8W_SOLDIER
+izlude_a,120,207,4	duplicate(导览人员#0)	导览人员#a	8W_SOLDIER
+izlude_b,120,207,4	duplicate(导览人员#0)	导览人员#b	8W_SOLDIER
+izlude_c,120,207,4	duplicate(导览人员#0)	导览人员#c	8W_SOLDIER
+izlude_d,120,207,4	duplicate(导览人员#0)	导览人员#d	8W_SOLDIER
 
 // - Airship Sign
 // -----------------------------------------------------------------------------
@@ -1453,43 +1449,43 @@ izlude,179,75,3	script	Airship#iz	4_BULLETIN_BOARD2,3,3,{
 				mes "Except the signboard of the free airship, nothing can be found.";
 				next;
 				select("Where's the hidden treasure?");
-				mes "[Lumin]";
+				mes "[鲁米]";
 				mes "Yo.";
 				mes "Sorry pal I got here first.";
 				mes "Should've used a Fly wing like I did.";
 				cutin "nov_lumin01.bmp", 2;
 				next;
-				mes "[Lumin]";
+				mes "[鲁米]";
 				mes "Why do these wings teleport?";
 				mes "I guess because they're from Creamy monsters...";
 				next;
-				mes "[Lumin]";
+				mes "[鲁米]";
 				mes "As the captain said, seeing is believing. The world is full of mysteries.";
 				next;
 				cutin "", 255;
-				mes "Seems like Lumin beat you again.";
-				mes "Better get to the next location before Lumin does.";
+				mes "Seems like 鲁米 beat you again.";
+				mes "Better get to the next location before 鲁米 does.";
 				setquest 7475;
 				viewpoint 2,179,75,1,0xFF0000;
 				close;
 			} else if (.@total > 1) {
-				mes "[Lumin]";
+				mes "[鲁米]";
 				mes ".......";
 				cutin "nov_lumin01.bmp", 2;
 				next;
-				mes "[Lumin]";
+				mes "[鲁米]";
 				mes "Muahahahaha.";
 				cutin "nov_lumin03.bmp", 2;
 				next;
 				if (select("Are you kidding me?!", "Where's the treasure?") == 1) {
-					mes "[Lumin]";
+					mes "[鲁米]";
 					mes "No...";
 					mes "Meeting three times in one day must be destiny.";
 					mes "You and I can be friends.";
 					cutin "nov_lumin05.bmp", 2;
 					next;
 					select("Or Frenemies!");
-					mes "[Lumin]";
+					mes "[鲁米]";
 					mes "Frene-what? Oh well I'm done with the mission.";
 					mes "Take care.";
 					cutin "nov_lumin02.bmp", 2;
@@ -1503,16 +1499,16 @@ izlude,179,75,3	script	Airship#iz	4_BULLETIN_BOARD2,3,3,{
 					mes "^4d4dff...I have to report the result to the Information Staff...^000000.";
 					close;
 				}
-				mes "[Lumin]";
+				mes "[鲁米]";
 				mes "Ooo Butterfly Wings.";
 				mes "If I hand it over to you, you'll just waste 'em so I'll just keep them.";
 				cutin "nov_lumin01.bmp", 2;
 				next;
-				mes "[Lumin]";
+				mes "[鲁米]";
 				mes "Come on this is just friendly competition.";
 				cutin "nov_lumin05.bmp", 2;
 				next;
-				mes "[Lumin]";
+				mes "[鲁米]";
 				mes "I am doing this for you to make you stronger.";
 				mes "Now, so long.";
 				cutin "nov_lumin03.bmp", 2;
@@ -1526,24 +1522,24 @@ izlude,179,75,3	script	Airship#iz	4_BULLETIN_BOARD2,3,3,{
 				mes "Except for the signboard of the free airship, nothing particular was found.";
 				next;
 				select("Why is there nothing here?");
-				mes "[Lumin]";
+				mes "[鲁米]";
 				mes "Of course.";
 				mes "I already packed it in my bag.";
 				mes "There were Butterfly Wings here.";
 				cutin "nov_lumin01.bmp", 2;
 				next;
 				select("So can I have some?");
-				mes "[Lumin]";
+				mes "[鲁米]";
 				mes "That's not fair, I was here first so they're mine.";
 				mes "You better get to the next stop faster if you want the prize.";
 				cutin "nov_lumin02.bmp", 2;
 				next;
-				mes "[Lumin]";
+				mes "[鲁米]";
 				mes "Well, then.....";
 				cutin "nov_lumin03.bmp", 2;
 				next;
 				cutin "", 255;
-				mes "Lumin disappeared with his long hair in the air.";
+				mes "鲁米 disappeared with his long hair in the air.";
 				mes "......";
 				setquest 7475;
 				viewpoint 2,179,75,1,0xFF0000;
@@ -1599,41 +1595,41 @@ izlude,207,167,3	script	Arena#iz	4_BULLETIN_BOARD2,3,3,{
 				mes "Except for the Arena promtional board, nothing can be found here.";
 				next;
 				select("Nothing again?");
-				mes "[Lumin]";
+				mes "[鲁米]";
 				mes "Hmmm. Its not nothing....";
 				mes "There were potions here...";
 				mes "I was tired of waiting for you so I took it too.";
 				cutin "nov_lumin01.bmp", 2;
 				next;
-				mes "[Lumin]";
+				mes "[鲁米]";
 				mes "But why does this potion never make me full?";
 				mes "*gulp*";
 				mes "Oh well looks like it's all gone.";
 				next;
 				cutin "", 255;
-				mes "Lumin beat you again.";
+				mes "鲁米 beat you again.";
 				mes "Better beat him to the last spot.";
 				setquest 7476;
 				viewpoint 2,207,167,3,0xFF0000;
 				close;
 			} else if (.@total > 1) {
-				mes "[Lumin]";
+				mes "[鲁米]";
 				mes ".......";
 				cutin "nov_lumin01.bmp", 2;
 				next;
-				mes "[Lumin]";
+				mes "[鲁米]";
 				mes "Muahahaha.";
 				cutin "nov_lumin03.bmp", 2;
 				next;
 				switch(select("Are you kidding me?!", "Where's the treasure?") == 1) {
-					mes "[Lumin]";
+					mes "[鲁米]";
 					mes "No...";
 					mes "Meeting three times in one day must be destiny.";
 					mes "You and I can be friends.";
 					cutin "nov_lumin05.bmp", 2;
 					next;
 					select("Or Frenemies!");
-					mes "[Lumin]";
+					mes "[鲁米]";
 					mes "Frene-what? Oh well I'm done with the mission.";
 					mes "Take care.";
 					cutin "nov_lumin02.bmp", 2;
@@ -1647,16 +1643,16 @@ izlude,207,167,3	script	Arena#iz	4_BULLETIN_BOARD2,3,3,{
 					mes "^4d4dff...I have to report the result to the Information Staff...^000000.";
 					close;
 				}
-				mes "[Lumin]";
+				mes "[鲁米]";
 				mes "Red potions.";
 				mes "If I hand it over to you, you'll just waste 'em so I'll just keep them.";
 				cutin "nov_lumin01.bmp", 2;
 				next;
-				mes "[Lumin]";
+				mes "[鲁米]";
 				mes "Come on this is just friendly competition.";
 				cutin "nov_lumin05.bmp", 2;
 				next;
-				mes "[Lumin]";
+				mes "[鲁米]";
 				mes "I am doing this for you to make you stronger.";
 				mes "Now, so long.";
 				cutin "nov_lumin03.bmp", 2;
@@ -1670,24 +1666,24 @@ izlude,207,167,3	script	Arena#iz	4_BULLETIN_BOARD2,3,3,{
 				mes "Except for the Arena promotion signboard, nothing can be found.";
 				next;
 				select("Why is there nothing?");
-				mes "[Lumin]";
+				mes "[鲁米]";
 				mes "Of course.";
 				mes "I already packed it.";
 				mes "There were Red Potion hidden here.";
 				cutin "nov_lumin01.bmp", 2;
 				next;
 				select("So can I have some?");
-				mes "[Lumin]";
+				mes "[鲁米]";
 				mes "That's not fair, I was here first so they're mine.";
 				mes "You better get to the next stop faster if you want the prize.";
 				cutin "nov_lumin02.bmp", 2;
 				next;
-				mes "[Lumin]";
+				mes "[鲁米]";
 				mes "Well, then.....";
 				cutin "nov_lumin03.bmp", 2;
 				next;
 				cutin "", 255;
-				mes "Lumin disappeared with his long hair in the air.";
+				mes "鲁米 disappeared with his long hair in the air.";
 				mes "This guy...";
 				setquest 7476;
 				viewpoint 2,207,167,3,0xFF0000;
@@ -1743,49 +1739,49 @@ izlude,45,94,3	script	Bulletin Board#iz	4_BULLETIN_BOARD2,3,3,{
 				mes "Except for the simple signboard, nothing can be found here.";
 				next;
 				select("Where's the treasure?");
-				mes "[Lumin]";
+				mes "[鲁米]";
 				mes "Yo.";
 				mes "Sorry but I am quicker than you.";
 				mes "There were Fly Wings here..";
 				cutin "nov_lumin01.bmp", 2;
 				next;
-				mes "[Lumin]";
+				mes "[鲁米]";
 				mes "In fact, I don't like Fly's wings.";
 				mes "Flies are so dirty.";
 				cutin "nov_lumin02.bmp", 2;
 				next;
-				mes "[Lumin]";
+				mes "[鲁米]";
 				mes "By the way, why is one of the convenient transportations fly wing shaped?";
 				mes "Perhaps you know?";
 				next;
-				mes "[Lumin]";
+				mes "[鲁米]";
 				mes "...you don't know.";
 				cutin "nov_lumin01.bmp", 2;
 				next;
 				cutin "", 255;
-				mes "Defeated by Lumin again.";
+				mes "Defeated by 鲁米 again.";
 				mes "Keep calm and find the next location.";
 				setquest 7477;
 				viewpoint 2,45,94,2,0xFF0000;
 				close;
 			} else if (.@total > 1) {
-				mes "[Lumin]";
+				mes "[鲁米]";
 				mes ".......";
 				cutin "nov_lumin01.bmp", 2;
 				next;
-				mes "[Lumin]";
+				mes "[鲁米]";
 				mes "...Hello";
 				cutin "nov_lumin03.bmp", 2;
 				next;
 				if (select("Are you kidding me?!", "Where's the treasure?") == 1) {
-					mes "[Lumin]";
+					mes "[鲁米]";
 					mes "No...";
 					mes "Meeting three times in one day must be destiny.";
 					mes "You and I can be friends.";
 					cutin "nov_lumin05.bmp", 2;
 					next;
 					select("Or Frenemies!");
-					mes "[Lumin]";
+					mes "[鲁米]";
 					mes "Frene-what? Oh well I'm done with the mission.";
 					mes "Take care.";
 					cutin "nov_lumin02.bmp", 2;
@@ -1799,16 +1795,16 @@ izlude,45,94,3	script	Bulletin Board#iz	4_BULLETIN_BOARD2,3,3,{
 					mes "^4d4dff...I have to report the result to the Information Staff...^000000.";
 					close;
 				}
-				mes "[Lumin]";
+				mes "[鲁米]";
 				mes "Fly Wings.";
 				mes "If I hand them over to you, you'll just waste 'em so I think I'll keep them.";
 				cutin "nov_lumin01.bmp", 2;
 				next;
-				mes "[Lumin]";
+				mes "[鲁米]";
 				mes "Come on this is just friendly competition.";
 				cutin "nov_lumin05.bmp", 2;
 				next;
-				mes "[Lumin]";
+				mes "[鲁米]";
 				mes "I am doing this for you to make you stronger.";
 				mes "Now, so long.";
 				cutin "nov_lumin03.bmp", 2;
@@ -1822,22 +1818,22 @@ izlude,45,94,3	script	Bulletin Board#iz	4_BULLETIN_BOARD2,3,3,{
 				mes "Except for the simple signboard, nothing can be found.";
 				next;
 				select("Why is there nothing?");
-				mes "[Lumin]";
+				mes "[鲁米]";
 				mes "Of course.";
 				mes "Fly's wings were here so I already packed them in my bag.";
 				cutin "nov_lumin01.bmp", 2;
 				next;
 				select("So can I have some?");
-				mes "[Lumin]";
+				mes "[鲁米]";
 				mes "That's not fair, I was here first so they're mine.";
 				mes "You better get to the next stop faster if you want the prize.";
 				cutin "nov_lumin03.bmp", 2;
 				next;
-				mes "[Lumin]";
+				mes "[鲁米]";
 				mes "Well, then.....";
 				next;
 				cutin "", 255;
-				mes "Lumin disappeared with his long hair in the air.";
+				mes "鲁米 disappeared with his long hair in the air.";
 				mes "This guy....";
 				setquest 7477;
 				viewpoint 2,45,94,2,0xFF0000;
@@ -1956,16 +1952,16 @@ iz_ac01,59,43,3	script	Therapist#ac	4_M_6THPRIN1,{
 			mes "Needed skills or items can be immediately used after registering on the corresponding slots.";
 			next;
 			cutin "tutorial05.bmp", 4;
-			mes "!- Information -!";
+			mes "!- 提示信息 -!";
 			mes "You can register needed items or skills at ^4d4dffshortcut slots by dragging the icons.";
 			next;
-			mes "!- Information -!";
+			mes "!- 提示信息 -!";
 			mes "^4d4dff The registered items and equipment at^4d4dff the slots can be immediately used or armed by pressing the reponding F1 - F9 keys.";
 			next;
-			mes "!- Information -!";
+			mes "!- 提示信息 -!";
 			mes "By setting the ^4d4dffshortcut keys as you want, you can use the responding shortcut key.";
 			next;
-			mes "!- Information -!";
+			mes "!- 提示信息 -!";
 			mes "^4d4dffyou may register the frequently using items and skills, and use them at your convenience.";
 			cutin "", 255;
 			next;
@@ -2126,70 +2122,70 @@ izlude,140,249,7	script	Academy Student#0	4_M_NOV_RUMIN,{
 		donpcevent "Cultivated Red Plant#"+strnpcinfo(2)+"::OnDisable";
 		emotion e_gasp, 1;
 		emotion e_heh;
-		mes "[Lumin]";
+		mes "[鲁米]";
 		mes "Hey there Turtle";
 		mes "You are really slow.";
 		mes "This Red Plant is no longer useful for you.";
 		cutin "nov_lumin01.bmp", 2;
 		next;
 		if (select("What are you talking about?", "Who're you?") == 1) {
-			mes "[Lumin]";
+			mes "[鲁米]";
 			mes "You heard me.";
 			mes "Aren't you here to collect the Red Plant for the Academy Therapist.";
 			next;
-			mes "[Lumin]";
+			mes "[鲁米]";
 			mes "But, But something weird just happened.";
 			mes "It happened right before my eyes.";
 			next;
 		} else {
 			if (isbegin_quest(7472) > 0 || isbegin_quest(7474) > 1) {
-				mes "[Lumin]";
+				mes "[鲁米]";
 				mes "Did you lose your memory?";
 				mes "If the captain hears about it, he'll cry.";
 				mes "It is still ok as long as I remember you.";
 				cutin "nov_lumin02.bmp", 2;
 				next;
 			} else {
-				mes "[Lumin]";
-				mes "Lumin.";
+				mes "[鲁米]";
+				mes "鲁米.";
 				mes ".......";
 				mes "How about being happy?";
 				cutin "nov_lumin04.bmp", 2;
 				next;
 			}
 		}
-		mes "[Lumin]";
+		mes "[鲁米]";
 		mes "Anyway, let me explain it to you, I have just cut all the leaves of this Red Plant.";
 		mes "You can't collect the Red Plant anymore.";
 		cutin "nov_lumin02.bmp", 2;
 		next;
 		select("Ok so give me a ^ff0000Red Herb^000000");
-		mes "[Lumin]";
+		mes "[鲁米]";
 		mes "OK... then...";
 		mes "I don't even need it anyways. I already know all about basic medical botany.";
 		cutin "nov_lumin03.bmp", 2;
 		next;
 		select("Then, why did you do it?");
-		mes "[Lumin]";
+		mes "[鲁米]";
 		mes "I didn't do it!";
 		mes "I was just standing here.";
 		cutin "nov_lumin05.bmp", 2;
 		next;
-		mes "[Lumin]";
+		mes "[鲁米]";
 		mes "Here take this Red Herb.";
 		cutin "nov_lumin01.bmp", 2;
 		setquest 7479;
 		completequest 7479;
 		getitem 507,1;// Red_Herb
 		next;
-		mes "[Lumin]";
+		mes "[鲁米]";
 		mes "Ah... see it's growing back.";
 		enablenpc "Cultivated Red Plant#"+strnpcinfo(2);
 		close2;
 	} else {
 		if (Class == Job_Novice) {
 			if (isbegin_quest(7478) == 1) {
-				mes "[Lumin]";
+				mes "[鲁米]";
 				mes "I guess you should go back to the Therapist.";
 				mes "He's probably waiting for you..";
 				cutin "nov_lumin01.bmp", 2;
@@ -2396,10 +2392,10 @@ izlude_b,140,260,3	duplicate(Instructor Argos#iz)	Instructor Argos#iz_b	4_M_LIEM
 izlude_c,140,260,3	duplicate(Instructor Argos#iz)	Instructor Argos#iz_c	4_M_LIEMAN
 izlude_d,140,260,3	duplicate(Instructor Argos#iz)	Instructor Argos#iz_d	4_M_LIEMAN
 
-// - Academy Receptionist
+// - 学院接待人员
 // - Gives player some basic equipment and starts Academy quests.
 // -----------------------------------------------------------------------------
-iz_ac01,100,39,5	script	Academy Receptionist#1	4_F_01,{
+iz_ac01,100,39,5	script	学院接待人员#1	4_F_01,{
 	if (isbegin_quest(7117) == 1) { erasequest 7117; }
 	if (isbegin_quest(7118) == 1) { erasequest 7118; }
 	if (isbegin_quest(7119) == 1) { erasequest 7119; }
@@ -2412,36 +2408,36 @@ iz_ac01,100,39,5	script	Academy Receptionist#1	4_F_01,{
 	if (isbegin_quest(7127) == 1) {	erasequest 7127; }
 
 	if (isbegin_quest(4269) == 2) {
-		mes "[Receptionist]";
-		mes "Hello, " + strcharinfo(0) +".";
-		mes "How are you today?";
-		mes "I am in charge guiding you here in the Academy.";
+		mes "[接待人员]";
+		mes "你好, " + strcharinfo(0) +".";
+		mes "今天是否也会是愉快的一天呢?";
+		mes "我的工作是负责接待与指南.";
 	} else {
-		mes "[Receptionist]";
-		mes "Welcome to our Academy. I am in charge with the guide and registration for Novice education courses.";
+		mes "[接待人员]";
+		mes "欢迎来到学院. 我是负责指引和初心者教育课程的接待人员.";
 	}
 	next;
 	while(1) {
-		mes "[Receptionist]";
-		mes "What can I do for you?";
+		mes "[接待人员]";
+		mes "有什么需要帮忙的吗?";
 		next;
 		if (isbegin_quest(4269) == 2)
-			.@menu$ = ":What's inside and outside the Academy.:Trainer location guide.:End Coversation.";
+			.@menu$ = ":学校相关说明.:老师的位置.:结束对话.";
 		else
-			.@menu$ = "Register for the Academy:Explanation about the Academy:Location for trainers:Coversation finished";
+			.@menu$ = "教育课程注册:学校说明:老师位置指引:结束对话";
 		switch(select(.@menu$)) {
 		case 1:
 			if (Class == Job_Novice) {
 				if (!checkweight(1301,10)) {
-					mes "- As you are overloaded with too many items, quest can't be continued.-";
+					mes "- 你携带了太多的物品, 任务不能继续.-";
 					close;
 				}
-				mes "[Receptionist]";
+				mes "[接待人员]";
 				mes "Let me see... Your name is... " + strcharinfo(0) + ".";
 				mes "I will make a new registration for you.";
 				mes "You can choose the course freely and each course has individual features.";
 				next;
-				mes "[Receptionist]";
+				mes "[接待人员]";
 				mes "And this is the the basic equipment for the educational course.";
 				mes "Please make a good use of it.";
 				mes "Be careful with it as it won't be provided again.";
@@ -2457,57 +2453,57 @@ iz_ac01,100,39,5	script	Academy Receptionist#1	4_F_01,{
 				getitem 6593,1;// Criatura_Hair_Coupon
 				getitem 569,300;// Novice_Potion
 				next;
-				mes "[Receptionist]";
+				mes "[接待人员]";
 				mes "It is your first step to be an adventurer that you have made a visit to us.";
 				getexp 100,100;
 				next;
-				mes "[Receptionist]";
+				mes "[接待人员]";
 				mes "On our next meeting, I anticipate you will grow up a bit more.";
 				//ConsumeSpecialItem Inspector_Certificate_
 				close;
 			} else {
-				mes "[Receptionist]";
+				mes "[接待人员]";
 				mes "One who is not a Novice can't attend the educational course.";
 				next;
-				mes "[Receptionist]";
+				mes "[接待人员]";
 				mes "However, a part of the educational course except the character cultivation can be freely attended. So, you may look around the Academy and neighboring places.";
 				close;
 			}
 		case 2:
-			switch(select("What's on the 1st floor", "What's on the 2nd floor", "Explanation about towns", "End Conversation")) {
+			switch(select("1楼说明", "2楼说明", "村庄说明", "结束对话")) {
 			case 1:
-				mes "[Receptionist]";
-				mes "The first floor is equipped with instructors that give you lessons on how the world works here in Rune Midgard.";
+				mes "[接待人员]";
+				mes "1楼有下列设施,随着位置的不同,准备有不同的讲义.";
 				next;
-				mes "[Receptionist]";
-				mes "First of all, at the dispensary, you can learn how to recover your physical strength and learn a skill to heal your HP";
+				mes "[接待人员]";
+				mes "首先,可以在医务室中习得回复体力的方法和紧急治疗的技能.";
 				next;
-				mes "[Receptionist]";
-				mes "At the armory, you can get simple training about battling monsters in Rune Midgard.";
+				mes "[接待人员]";
+				mes "在后勤中可以听战斗的相关说明,接受简单的训练.";
 				next;
-				mes "[Receptionist]";
-				mes "At the cafeteria, you can practice cooking and and will learn its many benefits.";
+				mes "[接待人员]";
+				mes "在餐厅中可以进行料理的相关联系,可以听取技能的相关说明.";
 				next;
 				break;
 			case 2:
-				mes "[Receptionist]";
+				mes "[接待人员]";
 				mes "At the 2nd floor, there are trainers that will teach you about the different job classes in the world.";
 				next;
-				mes "[Receptionist]";
+				mes "[接待人员]";
 				mes "Listen to the trainers and decide for yourself which job suits your personal style.";
 				next;
 				break;
 			case 3:
-				mes "[Receptionist]";
+				mes "[接待人员]";
 				mes "This town is called 'Izlude' the satellite and port city of the Capital City of the Rune-Midgarts Kingdom Prontera.";
 				next;
-				mes "[Receptionist]";
+				mes "[接待人员]";
 				mes "This town was re-organized to suit the education of Novices.";
 				next;
 				break;
 			case 4:
-				mes "[Receptionist]";
-				mes "Please find me, if you need anything else.";
+				mes "[接待人员]";
+				mes "若是有任何需要,请再来找我.";
 				//if (Class == Job_Novice)
 					//ConsumeSpecialItem Inspector_Certificate_
 				close;
@@ -2517,7 +2513,7 @@ iz_ac01,100,39,5	script	Academy Receptionist#1	4_F_01,{
 			while(1) {
 				switch(select("Game Mechanic Tutorial Instructors", "1st job trainers", "Return to the previous menu", "End Conversation")) {
 				case 1:
-					mes "[Receptionist]";
+					mes "[接待人员]";
 					mes "Left-Click your mouse on the name of the trainer you are looking for and I will give guide you to them.";
 					next;
 					mes "<NAVI>[Therapist]<INFO>iz_ac01,59,43</INFO></NAVI>, status recovery trainer";
@@ -2528,25 +2524,25 @@ iz_ac01,100,39,5	script	Academy Receptionist#1	4_F_01,{
 					mes "<NAVI>[Mounds]<INFO>izlude,96,125</INFO></NAVI> Enchanting Trainer.";
 					mes "<NAVI>[Cream Puff]<INFO>iz_ac02,143,55</INFO></NAVI>, Class Aptitude Test.";
 					next;
-					mes "[Receptionist]";
+					mes "[接待人员]";
 					mes "Is that helpful?";
 					next;
 					if (select("Just a moment.", "I have to leave.") == 1) {
 						continue;
 					} else {
 						if (Class == Job_Novice) {
-							mes "[Receptionist]";
+							mes "[接待人员]";
 							mes "I believe you'll become nicer on our next meeting. Try your best~~~";
 							//ConsumeSpecialItem Inspector_Certificate_
 							close;
 						} else {
-							mes "[Receptionist]";
+							mes "[接待人员]";
 							mes "Please find me, if you need anything else.";
 							close;
 						}
 					}
 				case 2:
-					mes "[Receptionist]";
+					mes "[接待人员]";
 					mes "Left-Click your mouse on the name of the trainer you are looking for and I will give guide you to them.";
 					next;
 					mes "Swordman Instructor <NAVI>[Adric]<INFO>iz_ac02,62,51</INFO></NAVI>";
@@ -2559,19 +2555,19 @@ iz_ac01,100,39,5	script	Academy Receptionist#1	4_F_01,{
 					mes "Gunslinger Instructor<NAVI>[Lusa]<INFO>iz_ac02,142,85</INFO></NAVI>";
 					mes "Taekwon Instructor <NAVI>[Arang]<INFO>iz_ac02,70,85</INFO></NAVI>";
 					next;
-					mes "[Receptionist]";
+					mes "[接待人员]";
 					mes "Is that helpful?";
 					next;
 					if (select("Just a moment.", "I have to leave.") == 1) {
 						continue;
 					} else {
 						if (Class == Job_Novice) {
-							mes "[Receptionist]";
+							mes "[接待人员]";
 							mes "I believe you'll become nicer on our next meeting. Try your best~~~";
 							//ConsumeSpecialItem Inspector_Certificate_
 							close;
 						} else {
-							mes "[Receptionist]";
+							mes "[接待人员]";
 							mes "Please find me, if you need anything else.";
 							close;
 						}
@@ -2579,7 +2575,7 @@ iz_ac01,100,39,5	script	Academy Receptionist#1	4_F_01,{
 				case 3:
 					break;
 				case 4:
-					mes "[Receptionist]";
+					mes "[接待人员]";
 					mes "Please find me, if you need anything else.";
 					// if (Class == Job_Novice)
 						//ConsumeSpecialItem Inspector_Certificate_
@@ -2589,7 +2585,7 @@ iz_ac01,100,39,5	script	Academy Receptionist#1	4_F_01,{
 			}
 			break;
 		case 4:
-			mes "[Receptionist]";
+			mes "[接待人员]";
 			mes "Please find me, if you need anything else.";
 			// if (Class == Job_Novice)
 				//ConsumeSpecialItem Inspector_Certificate_
@@ -2602,10 +2598,10 @@ OnInit:
 	end;
 }
 
-iz_ac01_a,100,39,5	duplicate(Academy Receptionist#1)	Academy Receptionist#1_a	4_F_01
-iz_ac01_b,100,39,5	duplicate(Academy Receptionist#1)	Academy Receptionist#1_b	4_F_01
-iz_ac01_c,100,39,5	duplicate(Academy Receptionist#1)	Academy Receptionist#1_c	4_F_01
-iz_ac01_d,100,39,5	duplicate(Academy Receptionist#1)	Academy Receptionist#1_d	4_F_01
+iz_ac01_a,100,39,5	duplicate(学院接待人员#1)	学院接待人员#1_a	4_F_01
+iz_ac01_b,100,39,5	duplicate(学院接待人员#1)	学院接待人员#1_b	4_F_01
+iz_ac01_c,100,39,5	duplicate(学院接待人员#1)	学院接待人员#1_c	4_F_01
+iz_ac01_d,100,39,5	duplicate(学院接待人员#1)	学院接待人员#1_d	4_F_01
 
 // - Trainer Mainz
 // - Teaches the player about Status Effects (poison, stun, etc).
@@ -4722,16 +4718,16 @@ iz_ac01,43,80,7	script	Adventurer's Pet#ac	4_DEVIRUCHI,{
 OnTimer60000:
 	switch(rand(1,4)) {
 	case 1:
-		npctalk "Adventurer's Pet : Yawn~ I am so bored!";
+		npctalk "Yawn~ I am so bored!";
 		break;
 	case 2:
-		npctalk "Adventurer's Pet : Red Potion.. Is it delicious? Herb does not look delicious.. I bet that is bitter.";
+		npctalk "Red Potion.. Is it delicious? Herb does not look delicious.. I bet that is bitter.";
 		break;
 	case 3:
-		npctalk "Adventurer's Pet : Ha. You are lucky to have this Devi.";
+		npctalk "Ha. You are lucky to have this Devi.";
 		break;
 	case 4:
-		npctalk "Adventurer's Pet : Isn't the floor cold? Well.. For me, Undead is more familiar.";
+		npctalk "Isn't the floor cold? Well.. For me, Undead is more familiar.";
 		break;
 	}
 
@@ -6031,7 +6027,7 @@ iz_ac01,69,36,3	script	Otter Samssoon#ac	4W_SAILOR,{
 			close;
 		case 3:
 			mes "[Otter Samssoon]";
-			mes "You can receive ^ff0000criatura hair coupon^000000 from ^ff0000academy receptionist for novice at academy front desk or eden group^000000";
+			mes "You can receive ^ff0000criatura hair coupon^000000 from ^ff0000学院接待人员 for novice at academy front desk or eden group^000000";
 			next;
 			mes "[Otter Samssoon]";
 			mes "They don't give you for free.. Well..";
@@ -10034,7 +10030,7 @@ iz_ac02,52,136,3	script	Guest Lecturer Mayssel#0	4_F_MAYSEL,{
 
 	if (isbegin_quest(4269) > 0 && Class == Job_Novice) {
 		if (!isbegin_quest(7480)) {
-			mes "[Lumin]";
+			mes "[鲁米]";
 			mes ".......... Then";
 			cutin "nov_lumin01.bmp", 2;
 			next;
@@ -10074,7 +10070,7 @@ iz_ac02,52,136,3	script	Guest Lecturer Mayssel#0	4_F_MAYSEL,{
 			mes "First, we should make it clear.";
 			mes "We don't steal other's belongings.";
 			next;
-			mes "[Lumin]";
+			mes "[鲁米]";
 			mes "How about monsters?";
 			cutin "nov_lumin01.bmp", 2;
 			next;
@@ -10749,20 +10745,20 @@ iz_ac02,49,134,5	script	Vicente#ac	4_M_HUMAN_02,{
 				cutin "sc_vicente02.bmp", 2;
 				next;
 				if (select("Dex !!", "Agi !!") == 1) {
-					mes "[Lumin]";
+					mes "[鲁米]";
 					mes "Don't mess around with me too much.";
 					mes "It's Agi.";
 					cutin "nov_lumin02.bmp", 0;
 					next;
 					select("Ah, yes...");
-					mes "[Lumin]";
+					mes "[鲁米]";
 					mes "Compensation is?";
 					cutin "nov_lumin01.bmp", 0;
 					next;
 					cutin "sc_vicente01.bmp", 2;
 					mes "[Vicente]";
 					mes "Ahhh, yes...";
-					mes "I will give a gift for Lumin.";
+					mes "I will give a gift for 鲁米.";
 					next;
 					cutin "sc_vicente03.bmp", 2;
 					mes "[Vicente]";
@@ -10780,7 +10776,7 @@ iz_ac02,49,134,5	script	Vicente#ac	4_M_HUMAN_02,{
 					mes "Now, shall we keep going on?";
 					cutin "sc_vicente03.bmp", 2;
 					next;
-					mes "[Lumin]";
+					mes "[鲁米]";
 					mes "...... Compensation is?";
 					cutin "nov_lumin02.bmp", 0;
 					next;
@@ -10806,7 +10802,7 @@ iz_ac02,49,134,5	script	Vicente#ac	4_M_HUMAN_02,{
 					mes "Talking about Rogue,";
 					mes "It is not a cowardish job as the others complain.";
 					next;
-					mes "[Lumin]";
+					mes "[鲁米]";
 					mes ".....Don't you have a strange hobby?";
 					mes "Taking off other's clothings.";
 					cutin "nov_lumin01.bmp", 2;
@@ -10818,18 +10814,18 @@ iz_ac02,49,134,5	script	Vicente#ac	4_M_HUMAN_02,{
 					mes "Rogue is the upper level to a thief.";
 					next;
 					cutin "nov_lumin01.bmp", 2;
-					mes "[Lumin]";
+					mes "[鲁米]";
 					mes "Eummm. I won't be a Log.";
 					mes "How about you?";
 					next;
 					if (select("Eh? Me? I don't want to be.", "Me.. I like... Rogue...") == 1) {
-						mes "[Lumin]";
+						mes "[鲁米]";
 						mes "Ok. Then you take the bloody way with me.";
 						mes "Becoming a shadow in the dark....";
 						cutin "nov_lumin03.bmp", 2;
 						next;
 						select("I don't want to be a thief.", ".... I'm scared!");
-						mes "[Lumin]";
+						mes "[鲁米]";
 						mes "... a headache.";
 						cutin "nov_lumin02.bmp", 2;
 						next;
@@ -10838,7 +10834,7 @@ iz_ac02,49,134,5	script	Vicente#ac	4_M_HUMAN_02,{
 						mes "Hahahaha.  Stop talking about the scary story.";
 						next;
 						cutin "nov_lumin01.bmp", 2;
-						mes "[Lumin]";
+						mes "[鲁米]";
 						mes ".. Hng..";
 						setquest 7486;
 						completequest 7486;
@@ -10846,7 +10842,7 @@ iz_ac02,49,134,5	script	Vicente#ac	4_M_HUMAN_02,{
 						cutin "", 255;
 						end;
 					} else {
-						mes "[Lumin]";
+						mes "[鲁米]";
 						mes "Is that so?";
 						mes "It is an astonishing fighting skill to make the enemy disarmed and disabled.";
 						mes "I thumb up the skill.";
@@ -11090,7 +11086,7 @@ iz_ac02,49,134,5	script	Vicente#ac	4_M_HUMAN_02,{
 					mes "So do I.";
 					mes "Mayssel... what did she think of...";
 					next;
-					mes "[Lumin]";
+					mes "[鲁米]";
 					mes "Hmmm. Did she go AWOL?";
 					cutin "nov_lumin01.bmp", 0;
 					next;
@@ -11228,7 +11224,7 @@ iz_ac02,55,134,3	script	Verkhasel#ac	4_M_GUILLOTINE,{
 				cutin "gc_verkhasel01.bmp", 0;
 				next;
 				select("...Let's keep working?");
-				mes "[Lumin]";
+				mes "[鲁米]";
 				mes "It's a pity. That man is scary.";
 				mes "But as long as I am with you, don't be afraid of him.";
 				cutin "nov_lumin02.bmp", 2;
@@ -11239,7 +11235,7 @@ iz_ac02,55,134,3	script	Verkhasel#ac	4_M_GUILLOTINE,{
 				cutin "gc_verkhasel01.bmp", 0;
 				next;
 				cutin "nov_lumin01.bmp", 2;
-				mes "[Lumin]";
+				mes "[鲁米]";
 				mes ".........Who am I?";
 				mes "Assistant.... Trainer?";
 				next;
@@ -11311,12 +11307,12 @@ iz_ac02,55,134,3	script	Verkhasel#ac	4_M_GUILLOTINE,{
 						mes "......";
 						next;
 						cutin "nov_lumin01.bmp", 2;
-						mes "[Lumin]";
+						mes "[鲁米]";
 						mes "As one of the assassins, I am in charge of punishing the law violators, as the member of the execution group.";
 						mes "For your reference, the primary weapon of Verkhasel is Katar.";
 						next;
 						select("How do you know that?");
-						mes "[Lumin]";
+						mes "[鲁米]";
 						mes "That's my hope.";
 						cutin "nov_lumin03.bmp", 2;
 						next;
@@ -11365,7 +11361,7 @@ iz_ac02,55,134,3	script	Verkhasel#ac	4_M_GUILLOTINE,{
 				mes "Mayssel will do it for you.";
 				next;
 				cutin "nov_lumin01.bmp", 2;
-				mes "[Lumin]";
+				mes "[鲁米]";
 				mes "Lazy boy.";
 				mes "Tell me the truth... You are annoying..";
 				next;
@@ -11465,19 +11461,19 @@ iz_ac02,55,134,3	script	Verkhasel#ac	4_M_GUILLOTINE,{
 					setquest 7485;
 					next;
 					cutin "nov_lumin02.bmp", 2;
-					mes "[Lumin]";
+					mes "[鲁米]";
 					mes "Eummm.";
 					mes "It's sad..";
 					mes "Please accept my condolence in advance, as you can't experience envenom... hehehe...";
 					next;
 					select("What are you talking about?");
-					mes "[Lumin]";
+					mes "[鲁米]";
 					mes "From now, I am going to hunt Poring..";
 					mes "...Don't misunderstand me for challenging you, as such I  want to make a bet with you.";
 					cutin "nov_lumin03.bmp", 2;
 					next;
 					cutin "", 255;
-					mes "Lumin is betting win or loose.";
+					mes "鲁米 is betting win or loose.";
 					close;
 				} else if (isbegin_quest(7485) == 1) {
 					if (checkquest(7485,HUNTING) == 2) {
@@ -11576,7 +11572,7 @@ iz_ac02,55,134,3	script	Verkhasel#ac	4_M_GUILLOTINE,{
 				cutin "gc_verkhasel01.bmp", 0;
 				next;
 				if (select("An Assassin!", "A Rogue!") == 1) {
-					mes "[Lumin]";
+					mes "[鲁米]";
 					mes "Welcome to your joining in the way of bloody darness.";
 					mes "My comrad.";
 					cutin "nov_lumin03.bmp", 2;
@@ -11647,9 +11643,9 @@ iz_ac02_b,55,134,3	duplicate(Verkhasel#ac)	Verkhasel#ac_b	4_M_GUILLOTINE
 iz_ac02_c,55,134,3	duplicate(Verkhasel#ac)	Verkhasel#ac_c	4_M_GUILLOTINE
 iz_ac02_d,55,134,3	duplicate(Verkhasel#ac)	Verkhasel#ac_d	4_M_GUILLOTINE
 
-// - Lumin
+// - 鲁米
 // -----------------------------------------------------------------------------
-iz_ac02,62,139,3	script	Lumin#ac	4_M_NOV_RUMIN,{
+iz_ac02,62,139,3	script	鲁米#ac	4_M_NOV_RUMIN,{
 	if (!checkweight(1301,3)) {
 		mes "Quest cannot be continued due to the overfilled inventory.";
 		mes "Please try it again after organizing the items.";
@@ -11657,21 +11653,21 @@ iz_ac02,62,139,3	script	Lumin#ac	4_M_NOV_RUMIN,{
 	}
 	if (checkquest(7487,HUNTING) == -1) {
 		if (isbegin_quest(7485) == 2) {
-			mes "[Lumin]";
+			mes "[鲁米]";
 			mes "Your eagerness and efforst to complete mission moved me to offer something.";
 			cutin "nov_lumin01.bmp", 2;
 			next;
-			mes "[Lumin]";
+			mes "[鲁米]";
 			mes "^4d4dff It is to hunt all 4 Porings here within 30 seconds^000000.";
 			mes "If you do, I will yield to you all the earned item in my hand.";
 			next;
 			select("If I fail?");
-			mes "[Lumin]";
+			mes "[鲁米]";
 			mes "It is our bet. You have to give up yours as you lost.";
 			mes "Emmm. As I am generous, I will receive ^4d4dff10 beginner's red potions^000000.";
 			next;
 			if (select("Give Up.", "I Accept.") == 1) {
-				mes "[Lumin]";
+				mes "[鲁米]";
 				mes ".... Eh...";
 				mes "Coward!";
 				cutin "nov_lumin02.bmp", 2;
@@ -11679,7 +11675,7 @@ iz_ac02,62,139,3	script	Lumin#ac	4_M_NOV_RUMIN,{
 				cutin "", 255;
 				end;
 			} else {
-				mes "[Lumin]";
+				mes "[鲁米]";
 				mes ".... Good!";
 				mes "Now, ^4d4dffspeak to me once you finish hunting 4 porings in 30 seconds.^000000";
 				setquest 7487;
@@ -11688,12 +11684,12 @@ iz_ac02,62,139,3	script	Lumin#ac	4_M_NOV_RUMIN,{
 				end;
 			}
 		} else {
-			mes "[Lumin]";
+			mes "[鲁米]";
 			mes "The intoxicated enemies won't die only from poisoning.";
 			mes "They only come close to death.";
 			cutin "nov_lumin01.bmp", 2;
 			next;
-			mes "[Lumin]";
+			mes "[鲁米]";
 			mes ".. Why do Porings turn their back?";
 			close2;
 			cutin "", 255;
@@ -11701,12 +11697,12 @@ iz_ac02,62,139,3	script	Lumin#ac	4_M_NOV_RUMIN,{
 		}
 	} else if (checkquest(7487,HUNTING) == 1) {
 		if (checkquest(7487,PLAYTIME) == 2) {
-			mes "[Lumin]";
+			mes "[鲁米]";
 			mes "... 30 seconds have passed and you have not yet hunted 4 porings.";
 			mes "Then, it is not interesting.";
 			cutin "nov_lumin01.bmp", 2;
 			next;
-			mes "[Lumin]";
+			mes "[鲁米]";
 			mes "If you don't like do it... no way.";
 			mes "As I am generous, I disregard the bet this time.";
 			erasequest 7487;
@@ -11714,7 +11710,7 @@ iz_ac02,62,139,3	script	Lumin#ac	4_M_NOV_RUMIN,{
 			cutin "", 255;
 			end;
 		} else {
-			mes "[Lumin]";
+			mes "[鲁米]";
 			mes "You may be too busy in^4d4dff hunting 4 porings in 30 seconds.^000000";
 			mes "Hey, time passes now...";
 			cutin "nov_lumin01.bmp", 2;
@@ -11724,12 +11720,12 @@ iz_ac02,62,139,3	script	Lumin#ac	4_M_NOV_RUMIN,{
 		}
 	} else if (checkquest(7487,HUNTING) == 2) {
 		if (checkquest(7487,PLAYTIME) == 0) {
-			mes "[Lumin]";
+			mes "[鲁米]";
 			mes "Oh... You are very powerful!";
 			mes "Now then, as agreed I will give you everything I have.";
 			cutin "nov_lumin03.bmp", 2;
 			next;
-			mes "[Lumin]";
+			mes "[鲁米]";
 			mes "I've had a lot of fun because of you!";
 			cutin "nov_lumin05.bmp", 2;
 			completequest 7487;
@@ -11742,12 +11738,12 @@ iz_ac02,62,139,3	script	Lumin#ac	4_M_NOV_RUMIN,{
 			cutin "", 255;
 			end;
 		} else {
-			mes "[Lumin]";
+			mes "[鲁米]";
 			mes "Regretfully, 30 seconds has passed.";
 			cutin "nov_lumin02.bmp", 2;
 			mes ".....";
 			next;
-			mes "[Lumin]";
+			mes "[鲁米]";
 			mes "I will give them to you anyways.";
 			mes "Come on, take it.";
 			cutin "nov_lumin03.bmp", 2;
@@ -11756,7 +11752,7 @@ iz_ac02,62,139,3	script	Lumin#ac	4_M_NOV_RUMIN,{
 			getitem 512,22;// Apple
 			next;
 			select("Why are you treating me like this?", "Didn't I loose?");
-			mes "[Lumin]";
+			mes "[鲁米]";
 			mes "You spent time with me.";
 			mes "Get it free. I stole them from Porings.";
 			cutin "nov_lumin05.bmp", 2;
@@ -11766,40 +11762,40 @@ iz_ac02,62,139,3	script	Lumin#ac	4_M_NOV_RUMIN,{
 		}
 	} else {
 		if (Class == Job_Novice) {
-			mes "[Lumin]";
+			mes "[鲁米]";
 			mes "We may meet again.";
 			mes "Becoming familiar with others is pleasrue and sad.";
 			cutin "nov_lumin02.bmp", 2;
 			next;
-			mes "[Lumin]";
+			mes "[鲁米]";
 			mes "... It may be in trouble if it dies upfront...";
 			close2;
 			cutin "", 255;
 			end;
 		} else {
-			mes "[Lumin]";
+			mes "[鲁米]";
 			mes "At last, the day comes.";
 			cutin "nov_lumin01.bmp", 2;
 			next;
 			cutin "", 255;
-			mes "Lumin changing clothes piece by piece.";
+			mes "鲁米 changing clothes piece by piece.";
 			specialeffect2 EF_SPHERE;
 			specialeffect2 EF_SPHERE;
-			setnpcdisplay( "Lumin#"+strnpcinfo(2), 4_M_THIEF_RUMIN );
+			setnpcdisplay( "鲁米#"+strnpcinfo(2), 4_M_THIEF_RUMIN );
 			next;
-			cutin "thf_lumin01.bmp", 2;
-			mes "[Lumin]";
+			cutin "thf_鲁米01.bmp", 2;
+			mes "[鲁米]";
 			mes "I was carrying out my mission.";
 			next;
 			select("No need to make an excuse....");
-			mes "[Lumin]";
+			mes "[鲁米]";
 			mes "At least to you, I don't want to be a stranger.";
 			mes "Forget what you saw today, as I have to introduce to the way of Thief Guild as many people as possible.";
-			cutin "thf_lumin05.bmp", 2;
+			cutin "thf_鲁米05.bmp", 2;
 			close2;
 			specialeffect2 EF_SPHERE;
 			specialeffect2 EF_SPHERE;
-			setnpcdisplay( "Lumin#"+strnpcinfo(2), 4_M_NOV_RUMIN );
+			setnpcdisplay( "鲁米#"+strnpcinfo(2), 4_M_NOV_RUMIN );
 			cutin "", 255;
 			end;
 		}
@@ -11811,10 +11807,10 @@ OnInit:
 	end;
 }
 
-iz_ac02_a,62,139,3	duplicate(Lumin#ac)	Lumin#ac_a	4_M_NOV_RUMIN
-iz_ac02_b,62,139,3	duplicate(Lumin#ac)	Lumin#ac_b	4_M_NOV_RUMIN
-iz_ac02_c,62,139,3	duplicate(Lumin#ac)	Lumin#ac_c	4_M_NOV_RUMIN
-iz_ac02_d,62,139,3	duplicate(Lumin#ac)	Lumin#ac_d	4_M_NOV_RUMIN
+iz_ac02_a,62,139,3	duplicate(鲁米#ac)	鲁米#ac_a	4_M_NOV_RUMIN
+iz_ac02_b,62,139,3	duplicate(鲁米#ac)	鲁米#ac_b	4_M_NOV_RUMIN
+iz_ac02_c,62,139,3	duplicate(鲁米#ac)	鲁米#ac_c	4_M_NOV_RUMIN
+iz_ac02_d,62,139,3	duplicate(鲁米#ac)	鲁米#ac_d	4_M_NOV_RUMIN
 
 // - Porings
 // -----------------------------------------------------------------------------
@@ -12334,7 +12330,7 @@ iz_ac02,140,139,5	script	Ninja Guide#ac	4_M_NINJA_BLUE,{
 			}
 			break;
 		case 2:
-			if (!callfunc("F_CanChangeJob")) {
+			if (getskilllv("NV_BASIC") < 9) {
 				mes "[Ninja Guide]";
 				mes "I appreciate your braveness but, first of all, you have to be familiar with the current profession.";
 				next;
@@ -12677,10 +12673,10 @@ izlude_d,153,126,1	duplicate(Refinery Owner Han#iz)	Refinery Owner Han#iz_d	4_M_
 	mes "Checking the user.. Completed.";
 	mes "Select the refining equipment.";
 	next;
-	setarray .@indices[1], EQI_HEAD_TOP, EQI_ARMOR, EQI_HAND_L, EQI_HAND_R, EQI_GARMENT, EQI_SHOES, EQI_ACC_L, EQI_ACC_R, EQI_HEAD_MID, EQI_HEAD_LOW;
-	for(set .@i,1; .@i<=10; set .@i,.@i+1)
-		.@menu$ = .@menu$ + ( getequipisequiped(.@indices[.@i]) ? getequipname(.@indices[.@i]): F_getpositionname(.@indices[.@i]) +" - [Unarmed]" ) +":";
-	.@part = .@indices[ select(.@menu$) ];
+	setarray .@position$[0],"装饰品[左]","装饰品[右]","鞋子","披肩","头下","头中","头上","身体","左手","右手";
+	for(set .@i,0; .@i<10; set .@i,.@i+1)
+		.@menu$ = .@menu$+(getequipisequiped(.@i)?getequipname(.@i):.@position$[.@i]+" - [Unarmed]")+":";
+	.@part = select(.@menu$)-1;
 	if (!getequipisequiped(.@part)) {
 		mes "[Refining Machine Wagjak]";
 		mes "^ff0000- Error number 000"+.@part+" -^000000";
@@ -14122,10 +14118,10 @@ izlude_d,158,130,4	duplicate(Repair Man#iz)	Repair Man#iz_d	4_M_04
 // = Old Novice Training Grounds
 // = These NPCs will teleport any stuck player to the new starting area.
 // =============================================================================
-new_1-1,53,114,3	script	Training Instructor#1a	4_F_03,{
-	mes "[Training Instructor]";
-	mes "The training grounds have been revised.";
-	mes "I will send you to Izlude.";
+new_1-1,53,114,3	script	训练教官#1a	4_F_03,{
+	mes "[训练教官]";
+	mes "训练地点已经修改.";
+	mes "我会把你送到伊斯鲁得岛.";
 	close2;
 	for (.@i = 7117; .@i < 7128; .@i++)
 		erasequest .@i;
@@ -14145,36 +14141,36 @@ new_1-1,53,114,3	script	Training Instructor#1a	4_F_03,{
 	end;
 }
 
-new_1-2,100,29,4	duplicate(Training Instructor#1a)	Training Instructor#1b	4_F_03
-new_1-2,100,105,3	duplicate(Training Instructor#1a)	Training Instructor#1c	4_F_03
-new_1-2,161,182,5	duplicate(Training Instructor#1a)	Training Instructor#1d	4_F_03
-new_1-2,33,172,4	duplicate(Training Instructor#1a)	Training Instructor#1e	4_F_03
-new_1-4,100,29,1	duplicate(Training Instructor#1a)	Training Instructor#1f	4_F_03
-new_2-1,53,114,3	duplicate(Training Instructor#1a)	Training Instructor#2a	4_F_03
-new_2-2,100,29,4	duplicate(Training Instructor#1a)	Training Instructor#2b	4_F_03
-new_2-2,100,105,3	duplicate(Training Instructor#1a)	Training Instructor#2c	4_F_03
-new_2-2,161,182,5	duplicate(Training Instructor#1a)	Training Instructor#2d	4_F_03
-new_2-2,33,172,4	duplicate(Training Instructor#1a)	Training Instructor#2e	4_F_03
-new_2-3,96,30,4	duplicate(Training Instructor#1a)	Training Instructor#2f	4_F_03
-new_2-4,100,29,1	duplicate(Training Instructor#1a)	Training Instructor#2g	4_F_03
-new_3-1,53,114,3	duplicate(Training Instructor#1a)	Training Instructor#3a	4_F_03
-new_3-2,100,29,4	duplicate(Training Instructor#1a)	Training Instructor#3b	4_F_03
-new_3-2,100,105,3	duplicate(Training Instructor#1a)	Training Instructor#3c	4_F_03
-new_3-2,161,182,5	duplicate(Training Instructor#1a)	Training Instructor#3d	4_F_03
-new_3-2,33,172,4	duplicate(Training Instructor#1a)	Training Instructor#3e	4_F_03
-new_3-3,96,30,4	duplicate(Training Instructor#1a)	Training Instructor#3f	4_F_03
-new_3-4,100,29,1	duplicate(Training Instructor#1a)	Training Instructor#3g	4_F_03
-new_4-1,53,114,3	duplicate(Training Instructor#1a)	Training Instructor#4a	4_F_03
-new_4-2,53,114,3	duplicate(Training Instructor#1a)	Training Instructor#4b	4_F_03
-new_4-2,100,105,3	duplicate(Training Instructor#1a)	Training Instructor#4c	4_F_03
-new_4-2,161,182,5	duplicate(Training Instructor#1a)	Training Instructor#4d	4_F_03
-new_4-2,33,172,4	duplicate(Training Instructor#1a)	Training Instructor#4e	4_F_03
-new_4-3,96,30,4	duplicate(Training Instructor#1a)	Training Instructor#4f	4_F_03
-new_4-4,100,29,1	duplicate(Training Instructor#1a)	Training Instructor#4g	4_F_03
-new_5-1,53,114,3	duplicate(Training Instructor#1a)	Training Instructor#5a	4_F_03
-new_5-2,100,29,4	duplicate(Training Instructor#1a)	Training Instructor#5b	4_F_03
-new_5-2,100,105,3	duplicate(Training Instructor#1a)	Training Instructor#5c	4_F_03
-new_5-2,161,182,5	duplicate(Training Instructor#1a)	Training Instructor#5d	4_F_03
-new_5-2,33,172,4	duplicate(Training Instructor#1a)	Training Instructor#5e	4_F_03
-new_5-3,96,30,4	duplicate(Training Instructor#1a)	Training Instructor#5f	4_F_03
-new_5-4,100,29,1	duplicate(Training Instructor#1a)	Training Instructor#5g	4_F_03
+new_1-2,100,29,4	duplicate(训练教官#1a)	训练教官#1b	4_F_03
+new_1-2,100,105,3	duplicate(训练教官#1a)	训练教官#1c	4_F_03
+new_1-2,161,182,5	duplicate(训练教官#1a)	训练教官#1d	4_F_03
+new_1-2,33,172,4	duplicate(训练教官#1a)	训练教官#1e	4_F_03
+new_1-4,100,29,1	duplicate(训练教官#1a)	训练教官#1f	4_F_03
+new_2-1,53,114,3	duplicate(训练教官#1a)	训练教官#2a	4_F_03
+new_2-2,100,29,4	duplicate(训练教官#1a)	训练教官#2b	4_F_03
+new_2-2,100,105,3	duplicate(训练教官#1a)	训练教官#2c	4_F_03
+new_2-2,161,182,5	duplicate(训练教官#1a)	训练教官#2d	4_F_03
+new_2-2,33,172,4	duplicate(训练教官#1a)	训练教官#2e	4_F_03
+new_2-3,96,30,4	duplicate(训练教官#1a)	训练教官#2f	4_F_03
+new_2-4,100,29,1	duplicate(训练教官#1a)	训练教官#2g	4_F_03
+new_3-1,53,114,3	duplicate(训练教官#1a)	训练教官#3a	4_F_03
+new_3-2,100,29,4	duplicate(训练教官#1a)	训练教官#3b	4_F_03
+new_3-2,100,105,3	duplicate(训练教官#1a)	训练教官#3c	4_F_03
+new_3-2,161,182,5	duplicate(训练教官#1a)	训练教官#3d	4_F_03
+new_3-2,33,172,4	duplicate(训练教官#1a)	训练教官#3e	4_F_03
+new_3-3,96,30,4	duplicate(训练教官#1a)	训练教官#3f	4_F_03
+new_3-4,100,29,1	duplicate(训练教官#1a)	训练教官#3g	4_F_03
+new_4-1,53,114,3	duplicate(训练教官#1a)	训练教官#4a	4_F_03
+new_4-2,53,114,3	duplicate(训练教官#1a)	训练教官#4b	4_F_03
+new_4-2,100,105,3	duplicate(训练教官#1a)	训练教官#4c	4_F_03
+new_4-2,161,182,5	duplicate(训练教官#1a)	训练教官#4d	4_F_03
+new_4-2,33,172,4	duplicate(训练教官#1a)	训练教官#4e	4_F_03
+new_4-3,96,30,4	duplicate(训练教官#1a)	训练教官#4f	4_F_03
+new_4-4,100,29,1	duplicate(训练教官#1a)	训练教官#4g	4_F_03
+new_5-1,53,114,3	duplicate(训练教官#1a)	训练教官#5a	4_F_03
+new_5-2,100,29,4	duplicate(训练教官#1a)	训练教官#5b	4_F_03
+new_5-2,100,105,3	duplicate(训练教官#1a)	训练教官#5c	4_F_03
+new_5-2,161,182,5	duplicate(训练教官#1a)	训练教官#5d	4_F_03
+new_5-2,33,172,4	duplicate(训练教官#1a)	训练教官#5e	4_F_03
+new_5-3,96,30,4	duplicate(训练教官#1a)	训练教官#5f	4_F_03
+new_5-4,100,29,1	duplicate(训练教官#1a)	训练教官#5g	4_F_03
