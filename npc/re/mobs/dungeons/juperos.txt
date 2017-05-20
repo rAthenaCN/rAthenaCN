@@ -1,4 +1,12 @@
-//===== rAthena Script =======================================
+//============================================================
+//= rAthenaCN ½Å±¾ºº»¯ www.rAthenaCN.com ×ª×Ô [ www.99Max.mE ]
+//============================================================
+//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
+//===== rAthena Script ======================================= 
 //= Juperos Dungeon Monster Spawn Script
 //===== By: ==================================================
 // The Prometheus Project, rAthena Dev Team
@@ -20,33 +28,33 @@
 //==================================================
 // juperos_01 - Ruins of Juperos
 //==================================================
-juperos_01,0,0,0,0	monster	Venatu	1676,70,5000,0,0
-juperos_01,0,0,0,0	monster	Venatu	1677,70,5000,0,0
-juperos_01,0,0,0,0	monster	Venatu	1678,70,5000,0,0
-juperos_01,0,0,0,0	monster	Venatu	1679,50,5000,0,0
-juperos_01,0,0,0,0	monster	Dimik	1670,10,5000,0,0
-juperos_01,0,0,0,0	monster	Dimik	1671,5,5000,0,0
-juperos_01,0,0,0,0	monster	Dimik	1672,5,5000,0,0
-juperos_01,0,0,0,0	monster	Dimik	1673,5,5000,0,0
+juperos_01,0,0,0,0	monster	ºÖ·²ÄÈÍ¼	1676,70,5000,0,0
+juperos_01,0,0,0,0	monster	ÂÌ·²ÄÈÍ¼	1677,70,5000,0,0
+juperos_01,0,0,0,0	monster	éÙ·²ÄÈÍ¼	1678,70,5000,0,0
+juperos_01,0,0,0,0	monster	À¶·²ÄÈÍ¼	1679,50,5000,0,0
+juperos_01,0,0,0,0	monster	±©·çµÏÃÒ¿Ë	1670,10,5000,0,0
+juperos_01,0,0,0,0	monster	±ù¶³µÏÃÒ¿Ë	1671,5,5000,0,0
+juperos_01,0,0,0,0	monster	±ÀÁÑµÏÃÒ¿Ë	1672,5,5000,0,0
+juperos_01,0,0,0,0	monster	»ğÑæµÏÃÒ¿Ë	1673,5,5000,0,0
 
 //==================================================
 // juperos_02 - Ruins of Juperos
 //==================================================
-juperos_02,0,0,0,0	monster	Apocalypse	1365,70,5000,0,0
-juperos_02,0,0,0,0	monster	Venatu	1676,65,5000,0,0
-juperos_02,0,0,0,0	monster	Venatu	1677,65,5000,0,0
-juperos_02,0,0,0,0	monster	Venatu	1678,65,5000,0,0
-juperos_02,0,0,0,0	monster	Venatu	1679,50,5000,0,0
+juperos_02,0,0,0,0	monster	°¢ĞŞÂŞ»úĞµÕ½Ê¿	1365,70,5000,0,0
+juperos_02,0,0,0,0	monster	ºÖ·²ÄÈÍ¼	1676,65,5000,0,0
+juperos_02,0,0,0,0	monster	ÂÌ·²ÄÈÍ¼	1677,65,5000,0,0
+juperos_02,0,0,0,0	monster	éÙ·²ÄÈÍ¼	1678,65,5000,0,0
+juperos_02,0,0,0,0	monster	À¶·²ÄÈÍ¼	1679,50,5000,0,0
 
 //==================================================
 // jupe_core - Center of Juperos
 //==================================================
-jupe_core,0,0,0,0	monster	Dimik	1670,40,5000,0,0
-jupe_core,0,0,0,0	monster	Dimik	1671,40,5000,0,0
-jupe_core,0,0,0,0	monster	Dimik	1672,40,5000,0,0
-jupe_core,0,0,0,0	monster	Dimik	1673,40,5000,0,0
-jupe_core,0,0,0,0	monster	Archdam	1668,40,5000,0,0
-jupe_core,0,0,0,0	monster	Venatu	1676,25,5000,0,0
-jupe_core,0,0,0,0	monster	Venatu	1677,25,5000,0,0
-jupe_core,0,0,0,0	monster	Venatu	1678,25,5000,0,0
-jupe_core,0,0,0,0	boss_monster	Vesper	1685,1,7200000,600000,1
+jupe_core,0,0,0,0	monster	±©·çµÏÃÒ¿Ë	1670,40,5000,0,0
+jupe_core,0,0,0,0	monster	±ù¶³µÏÃÒ¿Ë	1671,40,5000,0,0
+jupe_core,0,0,0,0	monster	±ÀÁÑµÏÃÒ¿Ë	1672,40,5000,0,0
+jupe_core,0,0,0,0	monster	»ğÑæµÏÃÒ¿Ë	1673,40,5000,0,0
+jupe_core,0,0,0,0	monster	°¢¿ËÌ¹	1668,40,5000,0,0
+jupe_core,0,0,0,0	monster	ºÖ·²ÄÈÍ¼	1676,25,5000,0,0
+jupe_core,0,0,0,0	monster	ÂÌ·²ÄÈÍ¼	1677,25,5000,0,0
+jupe_core,0,0,0,0	monster	éÙ·²ÄÈÍ¼	1678,25,5000,0,0
+jupe_core,0,0,0,0	boss_monster	±´Ë¼²¨	1685,1,7200000,600000,1

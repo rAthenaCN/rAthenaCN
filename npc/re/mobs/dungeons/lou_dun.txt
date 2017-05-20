@@ -1,4 +1,12 @@
-//===== rAthena Script =======================================
+//============================================================
+//= rAthenaCN ½Å±¾ºº»¯ www.rAthenaCN.com ×ª×Ô [ www.99Max.mE ]
+//============================================================
+//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
+//===== rAthena Script ======================================= 
 //= Louyang Dungeon Monster Spawn Script
 //===== By: ==================================================
 //= Athena (1.0)
@@ -15,29 +23,29 @@
 //==================================================
 // lou_dun01 - The Royal Tomb 
 //==================================================
-lou_dun01,0,0,0,0	monster	Jing Guai	1517,45,5000,0,0
-lou_dun01,0,0,0,0	monster	Grizzly	1381,15,5000,0,0
-lou_dun01,0,0,0,0	monster	Mi Gao	1516,15,5000,0,0
-lou_dun01,0,0,0,0	monster	Horong	1129,15,5000,0,0
-lou_dun01,0,0,0,0	monster	Side Winder	1037,10,5000,0,0
-lou_dun01,0,0,0,0	monster	Leib Olmai	1306,1,300000,120000,0
-lou_dun01,197,77,10,10	monster	Black Mushroom	1084,5,5000,0,0
-lou_dun01,0,0,0,0	monster	Shining Plant	1083,5,5000,0,0
+lou_dun01,0,0,0,0	monster	±ªÆ¤¹Ö	1517,45,5000,0,0
+lou_dun01,0,0,0,0	monster	±©ÑæÒ°ÐÜ	1381,15,5000,0,0
+lou_dun01,0,0,0,0	monster	Ã×¸â	1516,15,5000,0,0
+lou_dun01,0,0,0,0	monster	¹í»ð	1129,15,5000,0,0
+lou_dun01,0,0,0,0	monster	ºÚÉß	1037,10,5000,0,0
+lou_dun01,0,0,0,0	monster	ÂÌ¸¯Ê¬	1306,1,300000,120000,0
+lou_dun01,197,77,10,10	monster	ºÚ¹½	1084,5,5000,0,0
+lou_dun01,0,0,0,0	monster	¹âÃ¢²Ý	1083,5,5000,0,0
 
 //==================================================
 // lou_dun02 - Inside the Royal Tomb
 //==================================================
-lou_dun02,0,0,0,0	monster	Yao Jun	1512,40,5000,0,0
-lou_dun02,0,0,0,0	monster	Munak	1026,25,5000,0,0
-lou_dun02,0,0,0,0	monster	Mimic	1191,5,5000,0,0
-lou_dun02,0,0,0,0	monster	Zhu Po Long	1514,5,5000,0,0
+lou_dun02,0,0,0,0	monster	Ñý¾ý	1512,40,5000,0,0
+lou_dun02,0,0,0,0	monster	½©Ê¬	1026,25,5000,0,0
+lou_dun02,0,0,0,0	monster	Ð°¶ñÏä	1191,5,5000,0,0
+lou_dun02,0,0,0,0	monster	ÎèÊ¨	1514,5,5000,0,0
 
 //==================================================
 // lou_dun03 - Suei Long Gon 
 //==================================================
-lou_dun03,0,0,0,0	monster	Zhu Po Long	1514,25,5000,0,0
-lou_dun03,0,0,0,0	monster	Yao Jun	1512,25,5000,0,0
-lou_dun03,0,0,0,0	monster	Mao Guai	1513,15,5000,0,0
-lou_dun03,0,0,0,0	monster	Green Maiden	1631,5,5000,0,0
-lou_dun03,0,0,0,0	monster	Green Maiden	1631,5,3000000,1800000,1
-lou_dun03,0,0,0,0	boss_monster	White Lady	1630,1,7000000,600000,1
+lou_dun03,0,0,0,0	monster	ÎèÊ¨	1514,25,5000,0,0
+lou_dun03,0,0,0,0	monster	Ñý¾ý	1512,25,5000,0,0
+lou_dun03,0,0,0,0	monster	ºüÏÉ	1513,15,5000,0,0
+lou_dun03,0,0,0,0	monster	Ð¡Çà	1631,5,5000,0,0
+lou_dun03,0,0,0,0	monster	Ð¡Çà	1631,5,3000000,1800000,1
+lou_dun03,0,0,0,0	boss_monster	°×ËØÕê	1630,1,7000000,600000,1

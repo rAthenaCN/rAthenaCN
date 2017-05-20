@@ -1,4 +1,12 @@
-//===== rAthena Script =======================================
+//============================================================
+//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
+//===== rAthena Script ======================================= 
 //= Moscovia Fields Monster Spawn Script
 //===== By: ==================================================
 //= Athena (1.0)
@@ -12,9 +20,9 @@
 //==================================================
 // mosk_fild02 - Moscovia Field
 //==================================================
-mosk_fild02,0,0,0,0	monster	Bigfoot	1060,40,0,0,0
-mosk_fild02,0,0,0,0	monster	Caramel	1103,20,0,0,0
-mosk_fild02,0,0,0,0	monster	Mantis	1139,30,0,0,0
-mosk_fild02,0,0,0,0	monster	Poring	1002,10,0,0,0
-mosk_fild02,0,0,0,0	monster	Yellow Plant	1081,5,0,0,0
-mosk_fild02,0,0,0,0	monster	White Plant	1082,5,10000,0,0
+mosk_fild02,0,0,0,0	monster	大脚熊	1060,40,0,0,0
+mosk_fild02,0,0,0,0	monster	刺猬虫	1103,20,0,0,0
+mosk_fild02,0,0,0,0	monster	螳螂	1139,30,0,0,0
+mosk_fild02,0,0,0,0	monster	波利	1002,10,0,0,0
+mosk_fild02,0,0,0,0	monster	黄草	1081,5,0,0,0
+mosk_fild02,0,0,0,0	monster	白草	1082,5,10000,0,0

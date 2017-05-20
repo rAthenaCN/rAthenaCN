@@ -1,4 +1,12 @@
-//===== rAthena Script =======================================
+//============================================================
+//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
+//===== rAthena Script ======================================= 
 //= Toy Factory Monster Spawn Script
 //===== By: ==================================================
 //= Athena (1.0)
@@ -16,23 +24,23 @@
 //==================================================
 // xmas_dun01 - Toy Factory Warehouse
 //==================================================
-xmas_dun01,0,0,0,0	monster	Marin	1242,20,0,0,0
-xmas_dun01,0,0,0,0	monster	Poring	1002,10,0,0,0
-xmas_dun01,0,0,0,0	monster	Drops	1113,10,0,0,0
-xmas_dun01,0,0,0,0	monster	Poporing	1031,20,0,0,0
-xmas_dun01,0,0,0,0	monster	Cookie	1265,40,0,0,0
-xmas_dun01,0,0,0,0	monster	Christmas Cookie	1246,40,0,0,0
-xmas_dun01,0,0,0,0	monster	Myst Case	1249,5,0,0,0
-xmas_dun01,0,0,0,0	monster	Chepet	1250,1,1200000,900000,0
-xmas_dun01,0,0,0,0	monster	Mastering	1090,1,1800000,900000,0
-xmas_dun01,0,0,0,0	monster	Angeling	1096,1,3600000,1800000,0
+xmas_dun01,0,0,0,0	monster	冰波利	1242,20,0,0,0
+xmas_dun01,0,0,0,0	monster	波利	1002,10,0,0,0
+xmas_dun01,0,0,0,0	monster	土波利	1113,10,0,0,0
+xmas_dun01,0,0,0,0	monster	波波利	1031,20,0,0,0
+xmas_dun01,0,0,0,0	monster	绿饼人	1265,40,0,0,0
+xmas_dun01,0,0,0,0	monster	甜饼人	1246,40,0,0,0
+xmas_dun01,0,0,0,0	monster	邪恶礼盒	1249,5,0,0,0
+xmas_dun01,0,0,0,0	monster	魔灵娃娃	1250,1,1200000,900000,0
+xmas_dun01,0,0,0,0	monster	波利之王	1090,1,1800000,900000,0
+xmas_dun01,0,0,0,0	monster	天使波利	1096,1,3600000,1800000,0
 
 //==================================================
 // xmas_dun02 - Toy Monitoring Room
 //==================================================
-xmas_dun02,0,0,0,0	monster	Christmas Cookie	1246,20,0,0,0
-xmas_dun02,0,0,0,0	monster	Cookie	1265,20,0,0,0
-xmas_dun02,0,0,0,0	monster	Cruiser	1248,35,0,0,0
-xmas_dun02,0,0,0,0	monster	Myst Case	1249,50,0,0,0
-xmas_dun02,0,0,0,0	monster	Garm Baby	1515,1,1800000,0,0
-xmas_dun02,0,0,0,0	boss_monster	Stormy Knight	1251,1,3600000,600000,0
+xmas_dun02,0,0,0,0	monster	甜饼人	1246,20,0,0,0
+xmas_dun02,0,0,0,0	monster	绿饼人	1265,20,0,0,0
+xmas_dun02,0,0,0,0	monster	玩具士兵	1248,35,0,0,0
+xmas_dun02,0,0,0,0	monster	邪恶礼盒	1249,50,0,0,0
+xmas_dun02,0,0,0,0	monster	卡仑宝宝	1515,1,1800000,0,0
+xmas_dun02,0,0,0,0	boss_monster	冰暴骑士	1251,1,3600000,600000,0

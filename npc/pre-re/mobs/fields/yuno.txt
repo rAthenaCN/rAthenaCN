@@ -1,4 +1,12 @@
-//===== rAthena Script =======================================
+//============================================================
+//= rAthenaCN ½Å±¾ºº»¯ www.rAthenaCN.com ×ª×Ô [ www.99Max.mE ]
+//============================================================
+//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
+//===== rAthena Script ======================================= 
 //= Yuno Fields Monster Spawn Script
 //===== By: ==================================================
 //= Athena (1.0)
@@ -25,154 +33,154 @@
 //==================================================
 // yuno_fild01 - Border Posts
 //==================================================
-yuno_fild01,0,0,0,0	monster	Dustiness	1114,50,0,0,0
-yuno_fild01,0,0,0,0	monster	Poring	1002,20,0,0,0
-yuno_fild01,0,0,0,0	monster	Poporing	1031,20,0,0,0
-yuno_fild01,190,329,80,20	monster	Grand Peco	1369,3,50000,25000,0
-yuno_fild01,0,0,0,0	monster	Red Plant	1078,15,1800000,900000,1
-yuno_fild01,70,370,10,10	monster	Blue Plant	1079,2,1800000,900000,1
-yuno_fild01,70,370,10,10	monster	Shining Plant	1083,1,1800000,900000,1
-yuno_fild01,66,267,10,10	monster	Yellow Plant	1081,2,1800000,900000,1
-yuno_fild01,238,326,40,40	monster	Yellow Plant	1081,6,1800000,900000,1
-yuno_fild01,238,326,40,40	monster	Shining Plant	1083,2,1800000,900000,1
-yuno_fild01,0,0,0,0	monster	Yellow Plant	1081,15,1800000,900000,1
-yuno_fild01,0,0,0,0	monster	Green Plant	1080,20,1800000,900000,1
+yuno_fild01,0,0,0,0	monster	ÁÔÓ¬	1114,50,0,0,0
+yuno_fild01,0,0,0,0	monster	²¨Àû	1002,20,0,0,0
+yuno_fild01,0,0,0,0	monster	²¨²¨Àû	1031,20,0,0,0
+yuno_fild01,190,329,80,20	monster	Æß²Ê´ó×ìÄñ	1369,3,50000,25000,0
+yuno_fild01,0,0,0,0	monster	ºì²Ý	1078,15,1800000,900000,1
+yuno_fild01,70,370,10,10	monster	À¶²Ý	1079,2,1800000,900000,1
+yuno_fild01,70,370,10,10	monster	¹âÃ¢²Ý	1083,1,1800000,900000,1
+yuno_fild01,66,267,10,10	monster	»Æ²Ý	1081,2,1800000,900000,1
+yuno_fild01,238,326,40,40	monster	»Æ²Ý	1081,6,1800000,900000,1
+yuno_fild01,238,326,40,40	monster	¹âÃ¢²Ý	1083,2,1800000,900000,1
+yuno_fild01,0,0,0,0	monster	»Æ²Ý	1081,15,1800000,900000,1
+yuno_fild01,0,0,0,0	monster	ÂÌ²Ý	1080,20,1800000,900000,1
 
 //==================================================
 // yuno_fild02 - Kiel Khayr's Cottage
 //==================================================
-yuno_fild02,0,0,0,0	monster	Beetle King	1494,40,0,0,0
-yuno_fild02,0,0,0,0	monster	Horn	1128,40,0,0,0
-yuno_fild02,0,0,0,0	monster	Dustiness	1114,20,0,0,0
-yuno_fild02,0,0,0,0	monster	Hunter Fly	1035,10,0,0,0
-yuno_fild02,92,200,43,52	monster	Wild Rose	1261,5,0,0,0
-yuno_fild02,185,310,170,37	monster	Novus	1715,2,1200000,600000,0
-yuno_fild02,298,194,55,158	monster	Novus	1718,2,1200000,600000,0
-yuno_fild02,0,0,0,0	monster	Red Plant	1078,10,1800000,900000,1
-yuno_fild02,0,0,0,0	monster	Yellow Plant	1081,10,1800000,900000,1
-yuno_fild02,0,0,0,0	monster	Green Plant	1080,10,1800000,900000,1
+yuno_fild02,0,0,0,0	monster	¾ÞÏó¼×³æ	1494,40,0,0,0
+yuno_fild02,0,0,0,0	monster	ÇÂÐÎ³æ	1128,40,0,0,0
+yuno_fild02,0,0,0,0	monster	ÁÔÓ¬	1114,20,0,0,0
+yuno_fild02,0,0,0,0	monster	³à²ÔÓ¬	1035,10,0,0,0
+yuno_fild02,92,200,43,52	monster	¿ñ±©Ò°Ã¨	1261,5,0,0,0
+yuno_fild02,185,310,170,37	monster	Åµ²©Ë¹	1715,2,1200000,600000,0
+yuno_fild02,298,194,55,158	monster	»ÆÅµ²©Ë¹	1718,2,1200000,600000,0
+yuno_fild02,0,0,0,0	monster	ºì²Ý	1078,10,1800000,900000,1
+yuno_fild02,0,0,0,0	monster	»Æ²Ý	1081,10,1800000,900000,1
+yuno_fild02,0,0,0,0	monster	ÂÌ²Ý	1080,10,1800000,900000,1
 
 //==================================================
 // yuno_fild03 - El Mes Plateau
 //==================================================
-yuno_fild03,0,0,0,0	monster	Poporing	1031,50,0,0,0
-yuno_fild03,0,0,0,0	monster	Drops	1113,40,0,0,0
-yuno_fild03,0,0,0,0	monster	Poring	1002,30,0,0,0
-yuno_fild03,0,0,0,0	monster	Marin	1242,20,0,0,0
-yuno_fild03,0,0,0,0	monster	Geographer	1368,15,0,0,0
-yuno_fild03,62,131,44,15	monster	Side Winder	1037,1,300000,240000,0
-yuno_fild03,0,0,0,0	monster	Angeling	1096,1,3600000,1800000,1
-yuno_fild03,0,0,0,0	monster	Deviling	1582,1,3600000,1800000,1
-yuno_fild03,0,0,0,0	monster	Red Plant	1078,15,1800000,900000,1
-yuno_fild03,0,0,0,0	monster	Yellow Plant	1081,15,1800000,900000,1
-yuno_fild03,0,0,0,0	monster	Green Plant	1080,15,1800000,900000,1
-yuno_fild03,358,215,10,10	monster	Shining Plant	1083,1,1800000,900000,1
-yuno_fild03,358,215,10,10	monster	Blue Plant	1079,4,1800000,900000,1
+yuno_fild03,0,0,0,0	monster	²¨²¨Àû	1031,50,0,0,0
+yuno_fild03,0,0,0,0	monster	ÍÁ²¨Àû	1113,40,0,0,0
+yuno_fild03,0,0,0,0	monster	²¨Àû	1002,30,0,0,0
+yuno_fild03,0,0,0,0	monster	±ù²¨Àû	1242,20,0,0,0
+yuno_fild03,0,0,0,0	monster	Ð°¶ñÏòÈÕ¿û	1368,15,0,0,0
+yuno_fild03,62,131,44,15	monster	ºÚÉß	1037,1,300000,240000,0
+yuno_fild03,0,0,0,0	monster	ÌìÊ¹²¨Àû	1096,1,3600000,1800000,1
+yuno_fild03,0,0,0,0	monster	¶ñÄ§²¨Àû	1582,1,3600000,1800000,1
+yuno_fild03,0,0,0,0	monster	ºì²Ý	1078,15,1800000,900000,1
+yuno_fild03,0,0,0,0	monster	»Æ²Ý	1081,15,1800000,900000,1
+yuno_fild03,0,0,0,0	monster	ÂÌ²Ý	1080,15,1800000,900000,1
+yuno_fild03,358,215,10,10	monster	¹âÃ¢²Ý	1083,1,1800000,900000,1
+yuno_fild03,358,215,10,10	monster	À¶²Ý	1079,4,1800000,900000,1
 
 //==================================================
 // yuno_fild04 - El Mes Plateau
 //==================================================
-yuno_fild04,0,0,0,0	monster	Poring	1002,60,0,0,0
-yuno_fild04,0,0,0,0	monster	Drops	1113,40,0,0,0
-yuno_fild04,0,0,0,0	monster	Condor	1009,20,0,0,0
-yuno_fild04,0,0,0,0	monster	Pupa	1008,10,0,0,0
-yuno_fild04,0,0,0,0	monster	Mastering	1090,1,3600000,1800000,1
-yuno_fild04,0,0,0,0	monster	Red Plant	1078,10,1800000,900000,1
-yuno_fild04,0,0,0,0	monster	Yellow Plant	1081,10,1800000,900000,1
-yuno_fild04,0,0,0,0	monster	Green Plant	1080,10,1800000,900000,1
+yuno_fild04,0,0,0,0	monster	²¨Àû	1002,60,0,0,0
+yuno_fild04,0,0,0,0	monster	ÍÁ²¨Àû	1113,40,0,0,0
+yuno_fild04,0,0,0,0	monster	ÍºÓ¥	1009,20,0,0,0
+yuno_fild04,0,0,0,0	monster	³æÓ¼	1008,10,0,0,0
+yuno_fild04,0,0,0,0	monster	²¨ÀûÖ®Íõ	1090,1,3600000,1800000,1
+yuno_fild04,0,0,0,0	monster	ºì²Ý	1078,10,1800000,900000,1
+yuno_fild04,0,0,0,0	monster	»Æ²Ý	1081,10,1800000,900000,1
+yuno_fild04,0,0,0,0	monster	ÂÌ²Ý	1080,10,1800000,900000,1
 
 //==================================================
 // yuno_fild05 - El Mes Plateau
 //==================================================
-yuno_fild05,0,0,0,0	monster	Rafflesia	1162,70,0,0,0
-yuno_fild05,0,0,0,0	monster	Dustiness	1114,30,0,0,0
-yuno_fild05,0,0,0,0	monster	Horn	1128,30,0,0,0
-yuno_fild05,0,0,0,0	monster	Beetle King	1494,10,0,0,0
-yuno_fild05,0,0,0,0	monster	Arc Angeling	1388,1,3600000,180000,0
-yuno_fild05,0,0,0,0	monster	Red Plant	1078,10,180000,90000,1
-yuno_fild05,0,0,0,0	monster	Green Plant	1080,10,180000,90000,1
-yuno_fild05,0,0,0,0	monster	Yellow Plant	1081,10,180000,90000,0
-yuno_fild05,176,202,8,8	monster	Blue Plant	1079,2,180000,90000,1
-yuno_fild05,300,280,5,5	monster	Blue Plant	1079,2,180000,90000,1
+yuno_fild05,0,0,0,0	monster	²Ý¾«	1162,70,0,0,0
+yuno_fild05,0,0,0,0	monster	ÁÔÓ¬	1114,30,0,0,0
+yuno_fild05,0,0,0,0	monster	ÇÂÐÎ³æ	1128,30,0,0,0
+yuno_fild05,0,0,0,0	monster	¾ÞÏó¼×³æ	1494,10,0,0,0
+yuno_fild05,0,0,0,0	monster	Ê¥ÌìÊ¹²¨Àû	1388,1,3600000,180000,0
+yuno_fild05,0,0,0,0	monster	ºì²Ý	1078,10,180000,90000,1
+yuno_fild05,0,0,0,0	monster	ÂÌ²Ý	1080,10,180000,90000,1
+yuno_fild05,0,0,0,0	monster	»Æ²Ý	1081,10,180000,90000,0
+yuno_fild05,176,202,8,8	monster	À¶²Ý	1079,2,180000,90000,1
+yuno_fild05,300,280,5,5	monster	À¶²Ý	1079,2,180000,90000,1
 
 //==================================================
 // yuno_fild06 - Yuno Field
 //==================================================
-yuno_fild06,0,0,0,0	monster	Sleeper	1386,70,0,0,0
-yuno_fild06,0,0,0,0	monster	Goat	1372,40,0,0,0
-yuno_fild06,0,0,0,0	monster	Demon Pungus	1378,20,120000,0,0
-yuno_fild06,0,0,0,0	monster	Red Plant	1078,10,0,0,0
-yuno_fild06,0,0,0,0	monster	Yellow Plant	1081,10,0,0,0
-yuno_fild06,0,0,0,0	monster	Green Plant	1080,10,0,0,0
+yuno_fild06,0,0,0,0	monster	É³Ñý	1386,70,0,0,0
+yuno_fild06,0,0,0,0	monster	Ä§Ç¼	1372,40,0,0,0
+yuno_fild06,0,0,0,0	monster	ÌìÐ°¹í	1378,20,120000,0,0
+yuno_fild06,0,0,0,0	monster	ºì²Ý	1078,10,0,0,0
+yuno_fild06,0,0,0,0	monster	»Æ²Ý	1081,10,0,0,0
+yuno_fild06,0,0,0,0	monster	ÂÌ²Ý	1080,10,0,0,0
 
 //==================================================
 // yuno_fild07 - El Mes Gorge (Valley of Abyss)
 //==================================================
-yuno_fild07,0,0,0,0	monster	Goat	1372,10,0,0,0
-yuno_fild07,0,0,0,0	monster	Geographer	1368,20,0,0,0
-yuno_fild07,0,0,0,0	monster	Driller	1380,10,0,0,0
-yuno_fild07,0,0,0,0	monster	Harpy	1376,40,600000,300000,0
-yuno_fild07,0,0,0,0	monster	Red Plant	1078,10,180000,90000,1
-yuno_fild07,0,0,0,0	monster	Green Plant	1080,10,180000,90000,1
-yuno_fild07,0,0,0,0	monster	Yellow Plant	1081,10,180000,90000,1
+yuno_fild07,0,0,0,0	monster	Ä§Ç¼	1372,10,0,0,0
+yuno_fild07,0,0,0,0	monster	Ð°¶ñÏòÈÕ¿û	1368,20,0,0,0
+yuno_fild07,0,0,0,0	monster	±¬×êÉ¡òá	1380,10,0,0,0
+yuno_fild07,0,0,0,0	monster	ÄñÈË¹þ±È	1376,40,600000,300000,0
+yuno_fild07,0,0,0,0	monster	ºì²Ý	1078,10,180000,90000,1
+yuno_fild07,0,0,0,0	monster	ÂÌ²Ý	1080,10,180000,90000,1
+yuno_fild07,0,0,0,0	monster	»Æ²Ý	1081,10,180000,90000,1
 
 //==================================================
 // yuno_fild08 - Kiel Khayr's Academy
 //==================================================
-yuno_fild08,0,0,0,0	monster	Wild Rose	1261,5,0,0,0
-yuno_fild08,200,300,290,100	monster	Grand Peco	1369,30,0,0,0
-yuno_fild08,272,205,100,120	monster	Grand Peco	1369,20,0,0,0
-yuno_fild08,230,110,250,90	monster	Grand Peco	1369,30,0,0,0
-yuno_fild08,200,300,290,100	monster	Geographer	1368,12,0,0,0
-yuno_fild08,272,205,100,120	monster	Geographer	1368,6,0,0,0
-yuno_fild08,230,110,250,90	monster	Geographer	1368,12,0,0,0
-yuno_fild08,200,300,290,100	monster	Dustiness	1114,7,0,0,0
-yuno_fild08,272,205,100,120	monster	Dustiness	1114,6,0,0,0
-yuno_fild08,230,110,250,90	monster	Dustiness	1114,7,0,0,0
-yuno_fild08,0,0,0,0	monster	Red Plant	1078,10,180000,90000,1
-yuno_fild08,0,0,0,0	monster	Green Plant	1080,10,180000,90000,1
-yuno_fild08,0,0,0,0	monster	Yellow Plant	1081,10,180000,90000,1
+yuno_fild08,0,0,0,0	monster	¿ñ±©Ò°Ã¨	1261,5,0,0,0
+yuno_fild08,200,300,290,100	monster	Æß²Ê´ó×ìÄñ	1369,30,0,0,0
+yuno_fild08,272,205,100,120	monster	Æß²Ê´ó×ìÄñ	1369,20,0,0,0
+yuno_fild08,230,110,250,90	monster	Æß²Ê´ó×ìÄñ	1369,30,0,0,0
+yuno_fild08,200,300,290,100	monster	Ð°¶ñÏòÈÕ¿û	1368,12,0,0,0
+yuno_fild08,272,205,100,120	monster	Ð°¶ñÏòÈÕ¿û	1368,6,0,0,0
+yuno_fild08,230,110,250,90	monster	Ð°¶ñÏòÈÕ¿û	1368,12,0,0,0
+yuno_fild08,200,300,290,100	monster	ÁÔÓ¬	1114,7,0,0,0
+yuno_fild08,272,205,100,120	monster	ÁÔÓ¬	1114,6,0,0,0
+yuno_fild08,230,110,250,90	monster	ÁÔÓ¬	1114,7,0,0,0
+yuno_fild08,0,0,0,0	monster	ºì²Ý	1078,10,180000,90000,1
+yuno_fild08,0,0,0,0	monster	ÂÌ²Ý	1080,10,180000,90000,1
+yuno_fild08,0,0,0,0	monster	»Æ²Ý	1081,10,180000,90000,1
 
 //==================================================
 // yuno_fild09 - Schwarzwald Guards Camp
 //==================================================
-yuno_fild09,0,0,0,0	monster	Beetle King	1494,40,0,0,0
-yuno_fild09,0,0,0,0	monster	Horn	1128,40,0,0,0
-yuno_fild09,0,0,0,0	monster	Stainer	1174,20,0,0,0
-yuno_fild09,0,0,0,0	monster	Dustiness	1114,20,0,0,0
-yuno_fild09,0,0,0,0	monster	Hunter Fly	1035,10,0,0,0
-yuno_fild09,0,0,0,0	monster	Wild Rose	1261,5,0,0,0
-yuno_fild09,0,0,0,0	monster	Red Plant	1078,10,180000,90000,1
-yuno_fild09,0,0,0,0	monster	Green Plant	1080,10,180000,90000,1
-yuno_fild09,0,0,0,0	monster	Yellow Plant	1081,10,180000,90000,1
+yuno_fild09,0,0,0,0	monster	¾ÞÏó¼×³æ	1494,40,0,0,0
+yuno_fild09,0,0,0,0	monster	ÇÂÐÎ³æ	1128,40,0,0,0
+yuno_fild09,0,0,0,0	monster	Æ°³æ	1174,20,0,0,0
+yuno_fild09,0,0,0,0	monster	ÁÔÓ¬	1114,20,0,0,0
+yuno_fild09,0,0,0,0	monster	³à²ÔÓ¬	1035,10,0,0,0
+yuno_fild09,0,0,0,0	monster	¿ñ±©Ò°Ã¨	1261,5,0,0,0
+yuno_fild09,0,0,0,0	monster	ºì²Ý	1078,10,180000,90000,1
+yuno_fild09,0,0,0,0	monster	ÂÌ²Ý	1080,10,180000,90000,1
+yuno_fild09,0,0,0,0	monster	»Æ²Ý	1081,10,180000,90000,1
 
 //==================================================
 // yuno_fild10 - Yuno Field
 //==================================================
-yuno_fild10,0,0,0,0	monster	Beetle King	1494,40,0,0,0
-yuno_fild10,0,0,0,0	monster	Stainer	1174,20,0,0,0
-yuno_fild10,0,0,0,0	monster	Dustiness	1114,20,0,0,0
-yuno_fild10,0,0,0,0	monster	Geographer	1368,20,0,0,0
-yuno_fild10,0,0,0,0	monster	Hunter Fly	1035,10,0,0,0
+yuno_fild10,0,0,0,0	monster	¾ÞÏó¼×³æ	1494,40,0,0,0
+yuno_fild10,0,0,0,0	monster	Æ°³æ	1174,20,0,0,0
+yuno_fild10,0,0,0,0	monster	ÁÔÓ¬	1114,20,0,0,0
+yuno_fild10,0,0,0,0	monster	Ð°¶ñÏòÈÕ¿û	1368,20,0,0,0
+yuno_fild10,0,0,0,0	monster	³à²ÔÓ¬	1035,10,0,0,0
 
 //==================================================
 // yuno_fild11 - Yuno Field
 //==================================================
-yuno_fild11,0,0,0,0	monster	Sleeper	1386,10,0,0,0
-yuno_fild11,0,0,0,0	monster	Demon Pungus	1378,10,120000,0,0
-yuno_fild11,0,0,0,0	monster	Geographer	1368,15,0,0,0
-yuno_fild11,65,294,70,160	monster	Sleeper	1386,3,0,0,0
-yuno_fild11,65,294,70,160	monster	Geographer	1368,2,0,0,0
-yuno_fild11,225,220,125,135	monster	Sleeper	1386,30,0,0,0
-yuno_fild11,225,220,125,135	monster	Geographer	1368,15,0,0,0
-yuno_fild11,0,0,0,0	monster	Red Plant	1078,10,180000,90000,1
-yuno_fild11,0,0,0,0	monster	Green Plant	1080,10,180000,90000,1
-yuno_fild11,0,0,0,0	monster	Yellow Plant	1081,10,180000,90000,1
+yuno_fild11,0,0,0,0	monster	É³Ñý	1386,10,0,0,0
+yuno_fild11,0,0,0,0	monster	ÌìÐ°¹í	1378,10,120000,0,0
+yuno_fild11,0,0,0,0	monster	Ð°¶ñÏòÈÕ¿û	1368,15,0,0,0
+yuno_fild11,65,294,70,160	monster	É³Ñý	1386,3,0,0,0
+yuno_fild11,65,294,70,160	monster	Ð°¶ñÏòÈÕ¿û	1368,2,0,0,0
+yuno_fild11,225,220,125,135	monster	É³Ñý	1386,30,0,0,0
+yuno_fild11,225,220,125,135	monster	Ð°¶ñÏòÈÕ¿û	1368,15,0,0,0
+yuno_fild11,0,0,0,0	monster	ºì²Ý	1078,10,180000,90000,1
+yuno_fild11,0,0,0,0	monster	ÂÌ²Ý	1080,10,180000,90000,1
+yuno_fild11,0,0,0,0	monster	»Æ²Ý	1081,10,180000,90000,1
 
 //==================================================
 // yuno_fild12 - Border Checkpoint
 //==================================================
-yuno_fild12,0,0,0,0	monster	Dustiness	1114,30,0,0,0
-yuno_fild12,0,0,0,0	monster	Demon Pungus	1378,20,0,0,0
-yuno_fild12,0,0,0,0	monster	Poporing	1031,15,0,0,0
-yuno_fild12,0,0,0,0	monster	Geographer	1368,5,0,0,0
+yuno_fild12,0,0,0,0	monster	ÁÔÓ¬	1114,30,0,0,0
+yuno_fild12,0,0,0,0	monster	ÌìÐ°¹í	1378,20,0,0,0
+yuno_fild12,0,0,0,0	monster	²¨²¨Àû	1031,15,0,0,0
+yuno_fild12,0,0,0,0	monster	Ð°¶ñÏòÈÕ¿û	1368,5,0,0,0

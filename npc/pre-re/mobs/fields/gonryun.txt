@@ -1,4 +1,12 @@
-//===== rAthena Script =======================================
+//============================================================
+//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
+//===== rAthena Script ======================================= 
 //= Gon Ryun Monster Spawn Script
 //===== By: ==================================================
 //= Athena (1.0)
@@ -13,10 +21,10 @@
 //==================================================
 // gon_fild01 - Gonryun Field
 //==================================================
-gon_fild01,0,0,0,0	monster	Baby Leopard	1415,40,600000,300000,0
-gon_fild01,0,0,0,0	monster	Zipper Bear	1417,20,0,0,0
-gon_fild01,0,0,0,0	monster	Poporing	1031,20,0,0,0
-gon_fild01,0,0,0,0	monster	Dumpling Child	1409,30,0,0,0
-gon_fild01,0,0,0,0	monster	Hermit Plant	1413,2,630000,330000,0
-gon_fild01,0,0,0,0	monster	Green Plant	1080,5,0,0,0
-gon_fild01,0,0,0,0	monster	Shining Plant	1083,1,0,0,0
+gon_fild01,0,0,0,0	monster	小花豹	1415,40,600000,300000,0
+gon_fild01,0,0,0,0	monster	拉链熊	1417,20,0,0,0
+gon_fild01,0,0,0,0	monster	波波利	1031,20,0,0,0
+gon_fild01,0,0,0,0	monster	元宵童子	1409,30,0,0,0
+gon_fild01,0,0,0,0	monster	人参精	1413,2,630000,330000,0
+gon_fild01,0,0,0,0	monster	绿草	1080,5,0,0,0
+gon_fild01,0,0,0,0	monster	光芒草	1083,1,0,0,0
