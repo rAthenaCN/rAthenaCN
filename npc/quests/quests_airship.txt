@@ -1467,7 +1467,7 @@ OnTimer34000:
 	end;
 OnTimer38000:
 	mapannounce "airplane_01", "Captain: All passengers on deck, please find shelter inside the ship!",bc_map,0x00ff00;
-	hideonnpc "Airship Staff#airplane01";
+	hideonnpc "飞空艇职员#airplane01";
 	end;
 OnTimer48000:
 	monster "airplane_01",245,57,"Gremlin",1632,1,"Airship#airplane02::OnMyMobDead";
@@ -1722,7 +1722,7 @@ OnTimer400000:
 	end;
 OnTimer405000:
 	mapannounce "airplane_01","Monster threat eliminated. The Airship is now returning to normal operation.",bc_map,0x00FF00;
-	hideoffnpc "Airship Staff#airplane01";
+	hideoffnpc "飞空艇职员#airplane01";
 	end;
 OnTimer410000:
 	mapannounce "airplane_01","We will arrive in Izlude shortly.",bc_map,"0x00ff00";
