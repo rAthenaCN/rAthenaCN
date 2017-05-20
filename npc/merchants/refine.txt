@@ -593,7 +593,7 @@ function	script	refinemain	{
 	}
 	if (.@equipped == 0) {
 		mes "["+ .@npc_name$ +"]";
-		mes "I don't think I can refine any items you have...";
+		mes "你好歹倒是把装备穿上先...";
 		close;
 	}
 	set .@part, .@indices[select(.@menu$)];

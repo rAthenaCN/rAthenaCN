@@ -36,13 +36,12 @@
 //= 1.6 Added VIP features. [Euphy]
 //============================================================
 
-payon,157,146,6	script	Suhnbi#cash	85,{
+payon,157,146,6	script	龙仙儒#cash	85,{
 	disable_items;
-	mes "[Suhnbi]";
-	mes "我是装备工匠";
-	mes "我能够精炼各种武器, ";
-	mes "防具以及装备, 所以请让我";
-	mes "知道你想精炼什么装备?";
+	mes "[龙仙儒]";
+	mes "我是专门精炼武器与防具的铁匠.";
+	mes "能为你精炼穿在身上的装备.";
+	mes "你想精炼哪一项物品呢?";
 	next;
 
 	setarray .@indices[1], EQI_HEAD_TOP, EQI_ARMOR, EQI_HAND_L, EQI_HAND_R, EQI_GARMENT, EQI_SHOES, EQI_ACC_L, EQI_ACC_R, EQI_HEAD_MID, EQI_HEAD_LOW;
@@ -54,8 +53,8 @@ payon,157,146,6	script	Suhnbi#cash	85,{
 		set .@menu$, .@menu$ + ":";
 	}
 	if (.@equipped == 0) {
-		mes "[Suhnbi]";
-		mes "我觉得我没办法精炼你所选择的物品.";
+		mes "[龙仙儒]";
+		mes "你好歹倒是把装备穿上先...";
 		close;
 	}
 	set .@part, .@indices[ select(.@menu$) ];
@@ -63,13 +62,14 @@ payon,157,146,6	script	Suhnbi#cash	85,{
 	if (!getequipisequiped(.@part)) //custom check
 		close;
 	if (!getequipisenableref(.@part)) {
-		mes "[Suhnbi]";
-		mes "你可以去找别的铁匠, 这件装备无法精炼.";
+		mes "[龙仙儒]";
+		mes "你选中的这个装备是无法精炼的道具喔!";
 		close;
 	}
 	if (getequiprefinerycnt(.@part) >= 10) {
-		mes "[Suhnbi]";
-		mes "唔……已经有人把这件装备打造到极致了, 我无法继续精炼了.";
+		mes "[龙仙儒]";
+		mes "这件装备已经精炼到10级了.";
+		mes "以我的能力, 已经无法再继续锻造了..";
 		close;
 	}
 
@@ -83,28 +83,29 @@ payon,157,146,6	script	Suhnbi#cash	85,{
 		default: callsub S_RefineValidate,0,7619,2000,.@part; break;
 	}
 
-	mes "[Suhnbi]";
-	mes "Clang! Clang! Clang!";
+	mes "[龙仙儒]";
+	mes "锵! 锵! 锵!";
 	if (getequippercentrefinery(.@part) > rand(100) || getequippercentrefinery(.@part) > rand(100)) {
 		successrefitem .@part;
 		next;
 		emotion e_no1;
-		mes "[Suhnbi]";
-		mes "走你!搞定了!";
-		mes "我已经很久没有精炼 "+((getequipweaponlv(.@part))?"weapon":"armor")+". 这样的装备了.这件装备变强我想你一定很高兴.";
+		mes "[龙仙儒]";
+		mes "拿去吧! 已经做好了.";
+		mes "好久没精炼出这么优质的装备了,";
+		mes "武器变强了你一定也很高兴吧!";
 		close;
 	}
 	failedrefitem .@part;
 	next;
 	emotion (!rand(5))?e_cash:e_omg;
-	mes "[Suhnbi]";
-	mes "哦不.";
+	mes "[龙仙儒]";
+	mes "咳咳咳咳咳咳咳!!!!";
 	next;
-	mes "[Suhnbi]";
-	mes "...";
-	mes ".....";
-	mes ".......呼呼呼呼呼~";
-	mes "........这是你的选择和我的能力所限, 不要后悔!";
+	mes "[龙仙儒]";
+	mes "咳...咳咳...真...丢脸.";
+	mes "武器在精炼的过程中损坏了.";
+	mes "我...我...";
+	mes "我早就告诉过你会这样的嘛!";
 	close;
 
 S_RefineValidate:
@@ -123,49 +124,50 @@ S_RefineValidate:
 		}
 	}
 
-	mes "[Suhnbi]";
+	mes "[龙仙儒]";
 	if (.@weapon_lvl)
-		mes "你想精炼这件强化 "+ .@weapon_lvl +" 的武器?";
-	mes "要精炼它, 你需要带着一个 ^ff9999"+ getitemname(.@item_req) +"^000000 和 "+ .@price +" zeny.";
-	mes "你想继续吗?";
+		mes "这把武器的等级为 ^ff0000" + .@weapon_lvl + " ^000000级!";
+	mes "精练这个物品我需要:";
+	mes "- ^0000ff"+getitemname(.@item_req)+"^000000 x 1";
+	mes "- 精炼服务费 ^ff0000"+ .@price + "^000000 Zeny";
+	mes "你真的希望我继续吗?";
 	next;
-	if(select("是:否") == 1) {
+	if( select("是的:不要") == 1 ) {
 		if (getequippercentrefinery(getarg(3)) < 100) {
 			if (.@weapon_lvl) {
-				mes "[Suhnbi]";
-				mes "Wow!!";
-				mes "这件武器好像";
-				mes "已经被精炼了";
-				mes "很多次……";
-				mes "如果你继续精炼";
-				mes "可能会导致损毁.";
+				mes "[龙仙儒]";
+				mes "呜哇!!";
+				mes "看来这武器已经精炼很多次了的样子...";
+				mes "要是再继续精炼的话, 可能会造成损坏喔!";
 				next;
-				mes "如果它损毁了, ";
-				mes "你就无法再使用它了!";
-				mes "所插的卡片以及属性 ^ff0000将会消失^000000!";
-				mes "^ff0000同时, 装备也会消失!^000000";
-				mes "你确定你仍然想继续吗?";
+				mes "要是损坏的话可就不能继续使用了!!";
+				mes "插在里面的卡片和特征";
+				mes "^ff0000全部都会消失了!!^000000";
+				mes "再说一次, 损坏的话装备会消失!!";
+				mes "你确定还要继续精炼吗?";
 				next;
 				if(select("是:否") == 2) {
-					mes "[Suhnbi]";
+					mes "[龙仙儒]";
 					mes "很好.";
-					mes "因为如果武器因为不理智的精炼而损毁, 我也会很难过的.";
+					mes "如果太过鲁莽得精炼, 而造成装备损坏, 我心情也会跟着变坏的.";
 					close;
 				}
 			} else {
-				mes "[Suhnbi]";
-				mes "呵呵呵呵.你真有胆, 居然敢精炼这货.";
-				mes "你知道这很有风险的吧?";
+				mes "[龙仙儒]";
+				mes "咯咯咯~~ 噢, 你还真有胆量.";
+				mes "你这件防具已经精炼很多次了的样子...";
+				mes "要是再继续精炼的话, 可能会造成损坏喔!";
 				next;
-				mes "如果你的防具损坏了, 你就再也不能使用了.";
-				mes "甚至所插的卡片以及精炼值也会 ^ff0000完全消失^000000.";
-				//mes "所有东西都会消失, 就这样……没了!";
-				mes "你真的想要继续吗?";
+				mes "要是损坏的话可就不能继续使用了!!";
+				mes "插在里面的卡片和好不容易提升的精炼值";
+				mes "^ff0000全部都会消失了!!^000000";
+				mes "再说一次, 损坏的话装备会消失!!";
+				mes "你确定还要继续精炼吗?";
 				next;
 				if(select("是:否") == 2) {
-					mes "[Suhnbi]";
-					mes "无理取闹, 你浪费了我宝贵的时间.";
-					mes "从我面前消失!废物.";
+					mes "[龙仙儒]";
+					mes "你这是在浪费我宝贵的时间!!";
+					mes "从我眼前消失, 胆小鬼.";
 					close;
 				}
 			}
@@ -175,12 +177,12 @@ S_RefineValidate:
 			set Zeny, Zeny - .@price;
 			return;
 		}
-		mes "[Suhnbi]";
-		mes "你就带了这些东西来?";
-		mes "对不起, 你材料不足我没法精炼.而且我应该获得我应得的报酬, 不是吗?";
+		mes "[龙仙儒]";
+		mes "这就是你带来的东西?";
+		mes "我很抱歉, 没有材料以及我的酬金, 我什么也做不了的.";
 		close;
 	}
-	mes "[Suhnbi]";
-	mes "如果你自己都不高兴做, 那恕我不能帮助你.";
+	mes "[龙仙儒]";
+	mes "如果你不乐意的话, 那我也没办法...";
 	close;
 }

@@ -27,7 +27,7 @@
 //============================================================
 
 alberta,118,157,3	script	弹药背包商人 凯尼::mdk	4_M_01,{
-	if (BaseJob == Job_Gunslinger) {
+	if (BaseClass == Job_Gunslinger) {
 		mes "[凯尼]";
 		mes "欢迎来到我的弹药背包店. ";
 		mes "正如你所知, 大量的子弹";

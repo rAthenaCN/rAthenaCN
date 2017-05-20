@@ -30,7 +30,7 @@
 
 alberta,118,160,3	script	弹药经销商 托尼#alb::bdt	4_M_04,{
 	mes "[托尼]";
-	if (BaseJob == Job_Gunslinger) {
+	if (BaseClass == Job_Gunslinger) {
 		mes "我是弹药经销商托尼. ";
 		mes "当您的子弹不够的时候就请来";
 		mes "找我. 只要给我一些材料, ";
