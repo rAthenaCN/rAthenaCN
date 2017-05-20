@@ -1,3 +1,11 @@
+//============================================================
+//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
 //===== rAthena Script =======================================
 //= Coin Merchants
 //===== By: ==================================================
@@ -5,7 +13,7 @@
 //===== Current Version: =====================================
 //= 1.2
 //===== Compatible With: =====================================
-//= rAthena Project
+//= rAthena SVN
 //===== Description: =========================================
 //= [Official Conversion]
 //= Coin redemption NPCs.
@@ -22,47 +30,47 @@
 	mes .@n$;
 	if (isequipped(2782) && ep13_2_rhea == 100) {
 		if (!checkweight(1201,1)) {
-			mes "It looks like you're carrying too many things.";
-			mes "Why not put some of your items in storage and come back?";
+			mes "您携带了太多的物品.";
+			mes "请稍微处理一下再来?";
 			close;
 		}
-		mes "Hello.";
-		mes "What are you looking for?";
+		mes "你好.";
+		mes "你需要什么?";
 		next;
-		if (strnpcinfo(1) == "Merchant of Manuk") {
-			setarray .@Items[2],12342,12343,12348;
+		if (strnpcinfo(1) == "马努克商人") {
+			setarray .@items[2],12342,12343,12348;
 			set .@Book,11019; //Manuk_Selling_Item
-			set .@Coin,6080; //Manuk_Coin
-			set .@i, select("View item description:Manuk's Opportunity:Manuk's Courage:Manuk's Faith:Cancel");
+			set .@coin,6080; //Manuk_Coin
+			set .@i, select("- 查看物品介绍:- 马努克的机会:- 马努克的勇气:- 马努克的信心:- 取消");
 		}
 		else {
-			setarray .@Items[2],12344,12345,12349;
+			setarray .@items[2],12344,12345,12349;
 			set .@Book,11018; //Splendide_Selling_Item
-			set .@Coin,6081; //Splendide_Coin
-			set .@i, select("View item description:Buy Pinguicula's Fruit Jam:Buy Luciola's Honey Jam:Buy Cornus' Tears:Do nothing");
+			set .@coin,6081; //Splendide_Coin
+			set .@i, select("- 查看物品介绍:- 购买 Pinguicula's 果酱:- 购买 Luciola's 蜂蜜果酱:- 购买山茱萸之泪:- 取消");
 		}
 		mes .@n$;
 		if (.@i == 1) {
-			mes "Here are the item descriptions.";
+			mes "这是物品介绍.";
 			close2;
 			readbook .@Book,1;
 			end;
 		}
 		else if (.@i < 5) {
-			mes "I can sell you 3 "+getitemname(.@Items[.@i])+" for ^3131FF1 coin^000000.";
+			mes "我可以买给你 3 "+getitemname(.@items[.@i])+" 个换 ^3131FF1 硬币^000000.";
 			next;
-			switch(select("Purchase:Do not purchase")) {
+			switch(select("- 购买:- 取消")) {
 			case 1:
-				if (countitem(.@Coin)) {
+				if (countitem(.@coin)) {
 					mes .@n$;
-					mes "Thank you for coming.";
-					delitem .@Coin,1; 
-					getitem .@Items[.@i],3;
+					mes "谢谢惠顾.";
+					delitem .@coin,1;
+					getitem .@items[.@i],3;
 					close;
 				}
 				else {
 					mes .@n$;
-					mes "You don't have enough coins.";
+					mes "你的硬币不够.";
 					close;
 				}
 			case 2:
@@ -70,11 +78,11 @@
 				break;
 			}
 		}
-		mes "Come again if you change your mind.";
+		mes "如果你改变主意了请来找我.";
 		close;
 	}
 	else {
-		if (strnpcinfo(1) == "Merchant of Manuk") {
+		if (strnpcinfo(1) == "马努克商人") {
 			mes "Rtt od d";
 			mes "Qwo hd is d irr";
 		}
@@ -85,5 +93,5 @@
 		close;
 	}
 }
-man_in01,286,16,1	duplicate(merchant_13_2)	Merchant of Manuk	454
-spl_in01,110,326,5	duplicate(merchant_13_2)	Merchant of Splendide	439
+man_in01,286,16,1	duplicate(merchant_13_2)	马努克商人	4_MAN_PIOM
+spl_in01,110,326,5	duplicate(merchant_13_2)	辉煌领域商人	4_F_FAIRYKID4

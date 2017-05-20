@@ -1,3 +1,11 @@
+//============================================================
+//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
 //===== rAthena Script =======================================
 //= Inn Npcs
 //===== By: ==================================================
@@ -50,155 +58,155 @@
 
 //======================== Prontera ===================================
 // West Side Inn -------------------
-prt_in,244,135,2	script	Inn Employee#Sammy	53,{
+prt_in,244,135,2	script	旅馆 服务生#Sammy	53,{
 
-	callfunc "F_InnMaid","[Employee Sammy]","Nenkaras","prt_in",238,130;
+	callfunc "F_InnMaid","[员工萨米]","普隆德拉","prt_in",238,130;
 	warp "prt_in",247,104; end;
 }
 // East Side Inn ------------------
-prt_in,61,141,2	script	Inn Employee#Ahlma	53,{
+prt_in,61,141,2	script	旅馆 服务生#Ahlma	53,{
 
-	callfunc "F_InnMaid","[Employee Ahlma]","Nenkaras","prt_in",64,136;
+	callfunc "F_InnMaid","[员工艾玛]","普隆德拉","prt_in",64,136;
 	warp "prt_in",60,166; end;
 }
 
 //======================== Alberta ====================================
-alberta_in,32,142,3	script	Inn Employee#Jennie	53,{
+alberta_in,32,142,3	script	旅馆 服务生#Jennie	53,{
 
-	callfunc "F_InnMaid","[Employee Jennie]","'Fisherman Inn'!","alberta_in",26,142;
+	callfunc "F_InnMaid","[员工珍妮]","'渔人旅馆'!","alberta_in",26,142;
 	warp "alberta_in",18,188; end;
 }
 
 //====================== Geffen ======================================
-geffen_in,70,64,5	script	Inn Employee#Cena	53,{
+geffen_in,70,64,5	script	旅馆 服务生#Cena	53,{
 
-	callfunc "F_InnMaid","[Employee Cena]","'Ifrit,' the only Inn in the city of Geffen.","geffen_in",70,59;
+	callfunc "F_InnMaid","[员工塞纳]","吉芬唯一的酒馆.","geffen_in",70,59;
 	warp "geffen_in",31,31; end;
 }
 
 //======================= Payon ======================================
-payon_in01,132,62,5	script	Inn Employee#Ahee	53,{
+payon_in01,132,62,5	script	旅馆 服务生#Ahee	53,{
 
-	callfunc "F_InnMaid","[Employee Ahee]","Payon Inn","payon_in01",136,61;
+	callfunc "F_InnMaid","[员工阿喜]","斐扬旅馆","payon_in01",136,61;
 	warp "payon_in01",132,11; end;
 }
 
 //======================== Morocc ====================================
 // North East --------------------------
 /*
-morocc_in,147,141,3	script	Inn Employee#Hasna	53,{
+morocc_in,147,141,3	script	旅馆 服务生#Hasna	53,{
 
-	callfunc "F_InnMaid","[Employee Hasna]","Morroc Inn","morocc_in",142,140;
+	callfunc "F_InnMaid","[员工汉斯娜]","梦罗克旅馆","morocc_in",142,140;
 	warp "morocc_in",173,135; end;
 }
 // South --------------------------------
-morocc_in,80,100,5	script	Inn Employee#Manar	53,{
+morocc_in,80,100,5	script	旅馆 服务生#Manar	53,{
 
-	callfunc "F_InnMaid","[Employee Manar]","Morroc Inn","morocc_in",78,95;
+	callfunc "F_InnMaid","[员工马纳尔]","梦罗克旅馆","morocc_in",78,95;
 	warp "morocc_in",79,123; end;
 }
 */
 
 //====================== Aldebaran ===================================
-aldeba_in,92,58,5	script	Inn Maid#Rilim	53,{
+aldeba_in,92,58,5	script	旅馆服务生#Rilim	53,{
 
-	callfunc "F_InnMaid","[Rilim]","Al De Baran Inn","aldeba_in",92,50;
+	callfunc "F_InnMaid","[Rilim]","艾尔帕兰旅馆","aldeba_in",92,50;
 	warp "aldeba_in",92,112; end;
 }
 
 //======================== Rachel ====================================
-ra_in01,376,69,4	script	Inn Keeper#Annie	931,{
+ra_in01,376,69,4	script	旅馆主人#Annie	931,{
 
-	callfunc "F_InnMaid","[Annie]","Rachel Inn","ra_in01",375,58;
+	callfunc "F_InnMaid","[安妮]","拉赫旅馆","ra_in01",375,58;
 	warp "ra_in01",384,128; end;
 }
 
 //====================== Lighthalzen =================================
-lhz_in02,230,284,4	script	Hotel Employee#01	86,{
-	mes "[Hotel Employee]";
-	mes "Welcome to";
-	mes "the Royal Dragon,";
-	mes "where you can find the";
-	mes "finest accomodations";
-	mes "and the best service.";
+lhz_in02,230,284,4	script	饭店 职员#01	86,{
+	mes "[饭店 职员]";
+	mes "欢迎光临";
+	mes "里希塔乐镇,";
+	mes "这里可以找到";
+	mes "最好的住宿";
+	mes "与最好的服务.";
 	next;
-	switch(select("Save Point:Rest - 5,000 zeny:Cancel")) {
+	switch(select("储存重生点:休息 - 5,000 zeny:取消")) {
 	case 1:
 		savepoint "lhz_in02",209,275;
-		mes "[Hotel Employee]";
-		mes "Thank you, your";
-		mes "Respawn Point has";
-		mes "been saved here in";
-		mes "the Royal Dragon.";
+		mes "[饭店 职员]";
+		mes "感谢你,";
+		mes "你的重生点";
+		mes "已储存在";
+		mes "这里.";
 		close;
 	case 2:
 		if(Zeny < 5000) {
-			mes "[Hotel Employee]";
-			mes "I'm sorry, but";
-			mes "you need 5,000 zeny";
-			mes "in order to check in.";
+			mes "[饭店 职员]";
+			mes "很抱歉,";
+			mes "你似乎不足 5,000 zeny";
+			mes "请在确认一下是否有足够的金钱.";
 			close;
 		}
 		set Zeny,Zeny - 5000;
-		mes "[Hotel Employee]";
-		mes "Thank you~";
-		mes "I hope you enjoy";
-		mes "your stay in the";
-		mes "Royal Dragon.";
+		mes "[饭店 职员]";
+		mes "谢谢您~";
+		mes "希望您喜欢这里";
+		mes "能在里希塔乐镇";
+		mes "多停留一会.";
 		close2;
 		warp "lhz_in02",219,150;
 		percentheal 100,100;
 		npcskill "AL_BLESSING",10,99,99;
 		end;
 	case 3:
-		mes "[Hotel Employee]";
-		mes "Thank you and";
-		mes "have a nice day.";
+		mes "[饭店 职员]";
+		mes "谢谢你并祝您";
+		mes "有个愉快的一天.";
 		close;
 	}
 }
 
 //======================== Hugel ====================================
-hu_in01,246,107,3	script	Inn Maid#Receptionist	53,{
+hu_in01,246,107,3	script	旅馆服务生#Receptionist	53,{
 
-	callfunc "F_InnMaid","[Receptionist]","Hugel Inn","hu_in01",263,95;
+	callfunc "F_InnMaid","[接待员]","毁葛旅馆","hu_in01",263,95;
 	warp "hu_in01",267,5; end;
 }
 
 //======================== Veins ====================================
-ve_in,157,219,5	script	Inn Master#Receptionist	709,{
-	mes "[Inn Master]";
-	mes "Good day~";
-	mes "Welcome to the";
-	mes "most comfortable";
-	mes "inn here in Veins~";
+ve_in,157,219,5	script	旅馆主人#Receptionist	709,{
+	mes "[[旅馆主人]]";
+	mes "你好~";
+	mes "欢迎光临";
+	mes "菲音斯";
+	mes "最舒适的旅馆~";
 	next;
-	switch(select("Save:Take a Rest -> 5000 zeny:Quit")) {
+	switch(select("储存重生点:休息一会 -> 5000 zeny:离开")) {
 	case 1:
-		mes "[Inn Master]";
-		mes "Your Respawn Point";
-		mes "has been saved in Veins.";
-		mes "Enjoy your stay in town~";
+		mes "[[旅馆主人]]";
+		mes "你的重生点";
+		mes "已储存在这里.";
+		mes "希望你能好好享受在城里多停留一会.";
 		savepoint "ve_in",157,209;
 		close;
 	case 2:
-		mes "[Inn Master]";
+		mes "[[旅馆主人]]";
 		if(Zeny < 5000){
-			mes "I'm sorry, but I don't";
-			mes "think you have enough";
-			mes "money to check in. The";
-			mes "service charge is 5,000 zeny.";
+			mes "很抱歉,";
+			mes "你似乎没有足够的,";
+			mes "金钱办理住宿.";
+			mes "服务费用是 5,000 zeny 喔.";
 			close;
 		}
-		mes "Enjoy your stay~";
+		mes "欢迎住宿~";
 		close2;
 		set Zeny,Zeny - 5000;
 		percentheal 100,100;
 		warp "ve_in",184,228;
 		end;
 	case 3:
-		mes "[Inn Master]";
-		mes "Please come again.";
+		mes "[[旅馆主人]]";
+		mes "期待您再次光临.";
 		close;
 	}
 }
@@ -208,28 +216,28 @@ function	script	F_InnMaid	{
 	.@npc_name$ = getarg(0);
 
 	mes .@npc_name$;
-	mes "Welcome to";
+	mes "欢迎光临";
 	mes getarg(1) + ".";
-	mes "How may I help you?";
+	mes "有什么需要我帮忙的呢?";
 	next;
-	switch(select("Save:Take a Rest -> 5000 zeny:Cancel")) {
+	switch(select("储存点:休息一会 -> 5000 zeny:取消")) {
 	case 1:
 		mes .@npc_name$;
-		mes "Your respawn point";
-		mes "has been saved.";
-		mes "Thank you,";
-		mes "please come again.";
+		mes "你的重生点";
+		mes "已储存.";
+		mes "感谢您,";
+		mes "欢迎再次光临.";
 		savepoint getarg(2),getarg(3),getarg(4);
 		close;
 	case 2:
 		mes .@npc_name$;
 		if(Zeny < 5000){
-			mes "I'm sorry, but the service charge is 5,000 zeny. Please make sure that you have enough money to check in next time, okay?";
+			mes "很抱歉, 服务费用是 5,000 zeny. 请确认你有足够的金钱在过来, 好吗?";
 			close;
 		}
-		mes "Thank you.";
-		mes "I hope you";
-		mes "enjoy your rest~";
+		mes "感谢您.";
+		mes "希望您能";
+		mes "好好休息~";
 		close2;
 		set Zeny,Zeny - 5000;
 		percentheal 100,100;

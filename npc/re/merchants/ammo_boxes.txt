@@ -1,3 +1,11 @@
+//============================================================
+//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
 //===== rAthena Script =======================================
 //= Magazine Dealers
 //===== By: ==================================================
@@ -14,9 +22,9 @@
 //= 1.2 Updated Izlude coordinates. [Euphy]
 //============================================================
 
-que_ng,187,149,3	duplicate(mdk)	Magazine Dealer Kenny#ng	83
-izlude,155,135,3	duplicate(mdk)	Magazine Dealer Kenny#iz	83
-izlude_a,155,135,3	duplicate(mdk)	Magazine Dealer Kenny#a	83
-izlude_b,155,135,3	duplicate(mdk)	Magazine Dealer Kenny#b	83
-izlude_c,155,135,3	duplicate(mdk)	Magazine Dealer Kenny#c	83
-izlude_d,155,135,3	duplicate(mdk)	Magazine Dealer Kenny#d	83
+que_ng,187,149,3	duplicate(mdk)	杂志商人 肯尼#ng	83
+izlude,155,135,3	duplicate(mdk)	杂志商人 肯尼#iz	83
+izlude_a,155,135,3	duplicate(mdk)	杂志商人 肯尼#a	83
+izlude_b,155,135,3	duplicate(mdk)	杂志商人 肯尼#b	83
+izlude_c,155,135,3	duplicate(mdk)	杂志商人 肯尼#c	83
+izlude_d,155,135,3	duplicate(mdk)	杂志商人 肯尼#d	83

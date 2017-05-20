@@ -1,3 +1,11 @@
+//============================================================
+//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
 //===== rAthena Script =======================================
 //= Milk Trader
 //===== By: ==================================================
@@ -5,7 +13,7 @@
 //===== Current Version: =====================================
 //= 1.5
 //===== Compatible With: =====================================
-//= rAthena Project
+//= rAthena SVN
 //===== Description: =========================================
 //= [Official Conversion]
 //= Trades bottles for milk
@@ -19,59 +27,45 @@
 //= 1.5 Fixed missed variable. (bugreport:1523) [L0ne_W0lf]
 //============================================================
 
-prontera,73,140,0	script	Milk Vendor	86,{
+prontera,73,140,0	script	牛奶供应商	86,{
 	if (checkweight(1201,1) == 0) {
-		mes "^3355FFJust a minute!";
-		mes "I can't offer any of my";
-		mes "services to you because";
-		mes "you're carrying too much";
-		mes "stuff. Put your extra items in";
-		mes "Kafra Storage and come again~";
+		mes "[牛奶供应商]";
+		mes "我无法为你提供服务了，";
+		mes "因为你身上携带的东西太多了。";
+		mes "请将暂时不用的东西存放到卡普拉仓库之后，再来找我吧~";
 		close;
 	}
-	mes "[Milk Vendor]";
-	mes "Hey, hey...";
-	mes "If you bring me";
-	mes "1 Empty Bottle and";
-	mes "15 Zeny, I'll exchange";
-	mes "them for 1 Milk. How";
-	mes "does that sound?";
+	mes "[牛奶供应商]";
+	mes "嗨, 嗨...";
+	mes "如果你给我带来 ^0000FF1个空瓶^000000 和 ^FF000015金币^000000，";
+	mes "那么我会帮你将空瓶装满牛奶。";
+	mes "怎么样？要不要试一下？";
 	next;
-	if (select("Exchange all empty bottles.:Cancel") == 1) {
+	if (select("将身上所有空瓶装满成牛奶:取消") == 1) {
 		if (countitem(713) <= 0) {
-			mes "[Milk Vendor]";
-			mes "Hey...";
-			mes "You don't have";
-			mes "any Empty Bottles.";
-			mes "I can't really give you";
-			mes "this milk any other";
-			mes "way, you know...";
+			mes "[牛奶供应商]";
+			mes "囧...你好像一个空瓶都没有呢。";
+			mes "我真的没办法给你制作成牛奶，";
+			mes "你懂的...";
 			close;
 		}
 		set .@bottles,countitem(713);
 		set .@total_weight,.@bottles * 50;
 		set .@total_cost,.@bottles * 15;
-		if (Zeny < .@Total_cost) {
-			mes "[Milk Vendor]";
-			mes "Oh, whoa~!";
-			mes "You don't have enough";
-			mes "zeny to exchange all";
-			mes "these Empty Bottles for";
-			mes "Milk. You need to have";
-			mes "at least " + .@total_cost + " zeny.";
+		if (zeny < .@Total_cost) {
+			mes "[牛奶供应商]";
+			mes "噢, 我汗~!";
+			mes "你没有足够的金钱来呢，想将身上的空瓶全都装满牛奶需要" + .@total_cost + " 金币。";
 			close;
 		}
-		if (MaxWeight - Weight < .@total_weight) {
-			mes "[Milk Vendor]";
-			mes "Hmm...";
-			mes "Would you make";
-			mes "a little more room";
-			mes "in your inventory";
-			mes "before I give you";
-			mes "all of this milk?";
+		if ((maxweight-weight) < .@total_weight) {
+			mes "[牛奶供应商]";
+			mes "唔...";
+			mes "再多腾出一点背包的空间吧。";
+			mes "否则装这么多牛奶的话，你会背不动的。";
 			close;
 		}
-		set Zeny, Zeny-.@total_cost;
+		set zeny,zeny-.@total_cost;
 		delitem 713,.@bottles; //Empty Bottles
 		getitem 519,.@bottles; //Milk
 		close;

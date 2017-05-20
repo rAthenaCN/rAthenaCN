@@ -1,11 +1,17 @@
-//===== rAthena Script =======================================
+//============================================================
+//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
+//===== Hercules Script ======================================
 //= Inn Npcs
 //===== By: ==================================================
 //= c, L0ne_W0lf
 //===== Current Version: =====================================
 //= 1.1
-//===== Compatible With: =====================================
-//= rAthena Project
 //===== Description: =========================================
 //= Inn Npcs, Save and Heal
 //===== Additional Comments: =================================
@@ -15,39 +21,39 @@
 
 // Brasilis
 //============================================================
-bra_in01,27,24,3	script	Hotel Keeper#bra1	478,{
-	mes "[Hotel Keeper]";
-	mes "Welcome to the beautiful Brasilis Hotel.";
+bra_in01,27,24,3	script	旅店招待#bra1	4_F_BRZ_WOMAN,{
+	mes "[旅店招待]";
+	mes "欢迎来到美丽的巴西利亚酒店.";
 	next;
-	switch(select("Save:Rest -5000 zeny")) {
+	switch(select("- 记录游戏:- 休息 -5000 zeny")) {
 	case 1:
-		mes "[Hotel Keeper]";
-		mes "Do you want to save here at the Brasilis Hotel?";
+		mes "[旅店招待]";
+		mes "你希望将记录点放在巴西利亚酒店吗?";
 		next;
-		switch(select("No thank you.:Absolutely.")) {
+		switch(select("- 不用了,谢谢.:- 非常乐意.")) {
 		case 1:
-			mes "[Hotel Keeper]";
-			mes "Ok then, enjoy your stay.";
+			mes "[旅店招待]";
+			mes "好了, 享受在这里的一切吧.";
 			close;
 		case 2:
-			mes "[Hotel Keeper]";
-			mes "Your respawn has been saved here at the hotel. I hope that you enjoy your stay here in Brasilis.";
+			mes "[旅店招待]";
+			mes "您已经将重生点设置在了酒店. 祝您在巴西利亚度过美好的时光.";
 			savepoint "bra_in01",144,69;
 			close;
 		}
 	case 2:
 		if (Zeny > 4999) {
-			mes "[Hotel Keeper]";
-			mes "I will show you a great room.";
+			mes "[旅店招待]";
+			mes "我带您去房间.";
 			close2;
-			set Zeny, Zeny-5000;
+			set Zeny, Zeny - 5000;
 			percentheal 100,100;
 			warp "bra_in01",144,69;
 			end;
 		}
 		else {
-			mes "[Hotel Keeper]";
-			mes "I'm sorry, but the service charge is 5,000 zeny per night.";
+			mes "[旅店招待]";
+			mes "抱歉, 在这里休息的服务费是 5,000 zeny 每晚.";
 			close;
 		}
 	}

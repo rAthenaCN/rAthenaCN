@@ -1,3 +1,11 @@
+//============================================================
+//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
 //===== rAthena Script ======================================= 
 //= Malangdo Enchants
 //===== By: ================================================== 
@@ -19,40 +27,40 @@
 
 // Enchanter NPC :: mal_yong
 //============================================================
-malangdo,213,167,4	script	Mayomayo#mal	555,{
+malangdo,213,167,4	script	喵呦喵呦#mal	555,{
 	disable_items;
 	if (checkweight(1201,1) == 0) {
-		mes "You have too many kinds of objects. Let's try to continue after reducing those objects.";
+		mes "你携带的物品种类太多了. 继续之前你需要先整理下背包.";
 		close;
 	}
 	if (MaxWeight - Weight < 10000) {
-		mes "Can't continue because you have too many heavy objects. Let's try to continue after reducing the weight.";
+		mes "满负重的情况下是无法继续的. 你解决负重问题后我们继续.";
 		close;
 	}
-	mes "[Mayomayo]";
-	mes "Wow welcome. It is new Mayomayo refinement store~ I enchant some luxury weapons including level 4 weapons.";
+	mes "[喵呦喵呦]";
+	mes "噢欢迎. 这里是喵呦喵呦新的附魔商店~ 我可以附魔武器包含4级的武器.";
 	next;
-	switch(select("Any store policy changes?:Enchant High Ranked Weapon:Initialize Enchant (Need Silvervine Fruit)")) {
+	switch(select("- 商店的经营政策有什么变化?:- 附魔高级武器:- 重置附魔[需要新鲜水果]")) {
 	case 1:
-		mes "[Mayomayo]";
-		mes "When I enchant weapons, the slotted cards or refined level are dissipated sometimes. I hated it. However, one day I found how to do it without any extinction.";
+		mes "[喵呦喵呦]";
+		mes "在以往的附魔过程中, 卡片和精炼等级经常会被毁掉. 这让我十分恼火. 然而, 今天我已经找到了更安全的方法.";
 		next;
-		mes "[Mayomayo]";
-		mes "Have you ever seen a building of person of reinforcement capacity association?";
+		mes "[喵呦喵呦]";
+		mes "你曾经是否见到过有个人在附近的屋子里为人提供附魔的?";
 		next;
-		if(select("I've seen it before.:I haven't seen it before.") == 2) {
-			mes "[Mayomayo]";
-			mes "That builiding is located to the southeast of where I am. Why don't you go on a field trip there?";
+		if(select("- 我曾经见过.:- 我从没见过.") == 2) {
+			mes "[喵呦喵呦]";
+			mes "那个屋子就在这里的东南面. 你为什么不去那里看看呢?";
 			close;
 		}
-		mes "[Mayomayo]";
-		mes "If you go to the place, there is someone who enchants the Archangel Wing. At that time that was amazing, because that was impossible ability by my own skill.";
+		mes "[喵呦喵呦]";
+		mes "如果你到那里的话, 那里有一个专门为永恒之翼附魔的人. 当时那是举世无双的, 当时我认为这对我来说是天方夜谭.";
 		next;
-		mes "[Mayomayo]";
-		mes "Every night I became his butler and did odd jobs. That is how I learned to enchant.";
+		mes "[喵呦喵呦]";
+		mes "我做了他的佣人. 不分昼夜的学习如何附魔.";
 		next;
-		mes "[Mayomayo]";
-		mes "Several rules are changed. Well, you better have experience.";
+		mes "[喵呦喵呦]";
+		mes "经过不断的改进, 无数的附魔规则被改变.";
 		close;
 	case 2:
 		set @mal_enchant_select,1;
@@ -63,8 +71,8 @@ malangdo,213,167,4	script	Mayomayo#mal	555,{
 	}
 
 	if (!getequipisequiped(EQI_HAND_R)) {
-		mes "[Mayomayo]";
-		mes "Did you take off your equipment?";
+		mes "[喵呦喵呦]";
+		mes "你是不是脱掉了你的装备?";
 		set @mal_enchant_select,0;
 		close;
 	}
@@ -96,7 +104,10 @@ malangdo,213,167,4	script	Mayomayo#mal	555,{
 			case 1234: callsub L_Socket,2,2; //Moonlight_Sword
 			case 1230: callsub L_Socket,4,2; //House_Auger
 			case 1231: callsub L_Socket,4,2; //Bazerald
+			case 13017: callsub L_Socket,1,2; //破甲短锥
 			case 13062: callsub L_Socket,4,2; //Ancient_Dagger
+			case 13073: callsub L_Socket,2,2; //反击短剑
+
 		}
 		break;
 	case 16: // Katars
@@ -111,6 +122,7 @@ malangdo,213,167,4	script	Mayomayo#mal	555,{
 			case 1265: callsub L_Socket,2,2; //Bloody_Roar
 			case 1261: callsub L_Socket,4,2; //Infiltrator
 			case 1266: callsub L_Socket,4,2; //Infiltrator_
+			case 1295: callsub L_Socket,3,2; //血之泪
 		}
 		break;
 	case 6: // 1-H Axes
@@ -134,6 +146,7 @@ malangdo,213,167,4	script	Mayomayo#mal	555,{
 			case 1366: callsub L_Socket,4,2; //Right_Epsilon
 			case 1370: callsub L_Socket,4,2; //Doom_Slayer
 			case 1371: callsub L_Socket,4,2; //Doom_Slayer_
+			case 1397: callsub L_Socket,2,2; //魔力之石石锤
 		}
 		break;
 	case 2: // 1-H Swords
@@ -153,6 +166,8 @@ malangdo,213,167,4	script	Mayomayo#mal	555,{
 			case 1137: callsub L_Socket,2,2; //Excalibur
 			case 1130: callsub L_Socket,2,2; //Nagan
 			case 1132: callsub L_Socket,4,2; //Edge
+			case 13435: callsub L_Socket,1,2; //火灵之剑
+			case 13436: callsub L_Socket,3,2; //水灵之刀
 		}
 		break;
 	case 3: // 2-H Swords
@@ -177,6 +192,8 @@ malangdo,213,167,4	script	Mayomayo#mal	555,{
 			case 1175: callsub L_Socket,2,2; //Altas_Weapon
 			case 1185: callsub L_Socket,4,2; //Violet_Fear
 			case 1186: callsub L_Socket,4,2; //Death_Guidance
+			case 21003: callsub L_Socket,2,2; //名刀不知火
+			case 21004: callsub L_Socket,2,2; //海鹰召唤者
 		}
 		break;
 	case 4: // 1-H Spears
@@ -219,6 +236,9 @@ malangdo,213,167,4	script	Mayomayo#mal	555,{
 			case 1636: callsub L_Socket,2,2; //Thorn_Staff
 			case 1637: callsub L_Socket,2,2; //Eraser
 			case 1473: callsub L_Socket,1,2; //Wizardy_Staff
+			case 1662: callsub L_Socket,1,2; //诅咒魔杖
+			case 1663: callsub L_Socket,2,2; //强化波尔多之杖
+			case 1664: callsub L_Socket,1,2; //黑暗荆棘手杖
 		}
 		break;
 	case 23: // New 2-H Staves
@@ -227,6 +247,7 @@ malangdo,213,167,4	script	Mayomayo#mal	555,{
 			case 2005: callsub L_Socket,1,2; //Dea_Staff
 			case 2001: callsub L_Socket,2,2; //Divine_Cross
 			case 2000: callsub L_Socket,4,2; //Destruction_Rod
+			case 2017: callsub L_Socket,1,2; //圣十字之杖
 		}
 		break;
 	case 8: // Maces
@@ -244,6 +265,7 @@ malangdo,213,167,4	script	Mayomayo#mal	555,{
 			case 1526: callsub L_Socket,2,2; //Slash
 			case 1528: callsub L_Socket,4,2; //Grand_Cross
 			case 1540: callsub L_Socket,4,2; //Grand_Cross_
+			case 16022: callsub L_Socket,2,2; //复仇女神
 		}
 		break;
 	case 15: // Books
@@ -278,6 +300,9 @@ malangdo,213,167,4	script	Mayomayo#mal	555,{
 			case 1745: callsub L_Socket,1,2; //Falken_Blitz
 			case 18103: callsub L_Socket,1,2; //Mystic_Bow
 			case 1720: callsub L_Socket,2,2; //Bow_Of_Rudra
+			case 18117: callsub L_Socket,2,2; //皇家之弓
+			case 18122: callsub L_Socket,2,2; //巨弓
+			case 18123: callsub L_Socket,2,2; //风暴之弓
 		}
 		break;
 	case 13: // Musical Instruments
@@ -307,11 +332,11 @@ malangdo,213,167,4	script	Mayomayo#mal	555,{
 		}
 		break;
 	}
-	mes "[Mayomayo]";
+	mes "[喵呦喵呦]";
 	if (@mal_enchant_select == 1)
-		mes "This is not a suitable equipment for the enchant. Don't forget we only take care of high class weapons, including level 4 weapons~";
+		mes "这件装备不能附魔. 难道你忘记我的原则了么, 我只对高级武器附魔包含4级武器~";
 	else
-		mes "This equipment can not be initialized. Don't forget we only handle some luxury weapons, including level 4 weapons~";
+		mes "这件装备不能被重置附魔. 难道你忘记我的原则了么, 我只对高级武器附魔包含4级武器~";
 	set @mal_equip_id,0;
 	set @mal_enchant_select,0;
 	close;
@@ -325,8 +350,8 @@ L_Socket:
 	set @mal_enchant_select,0;
 
 	if (.@select == 1) {
-		mes "[Mayomayo]";
-		mes "^0000ff"+.@equip_name$+"^000000! Do you want to enchant this equipment? How will you pay for this?";
+		mes "[喵呦喵呦]";
+		mes "^0000ff"+.@equip_name$+"^000000! 你是否准备附魔这件装备? 你想用什么来支付酬劳?";
 		next;
 
 		.@enccost = getarg(0);
@@ -334,23 +359,23 @@ L_Socket:
 		setarray .@coin[0],6422,6421,6420,6419,6418,6423; // Payment ID
 		setarray .@cost[0],  15,  10,   6,   3,   2,   1; // Payment multiplier
 
-		set .@menu$, "Stop:";
+		set .@menu$, "暂停:";
 		for(set .@i,0; .@i<getarraysize(.@coin); set .@i,.@i+1) {
 			set .@count[.@i], countitem(.@coin[.@i]);
 			set .@total[.@i], .@enccost*.@cost[.@i];
 			if (.@count[.@i] < .@total[.@i])
-				set .@menu$, .@menu$+"^999999"+getitemname(.@coin[.@i])+" (missing "+(.@total[.@i]-.@count[.@i])+")^000000:";
+				set .@menu$, .@menu$+"^999999"+getitemname(.@coin[.@i])+" (缺少 "+(.@total[.@i]-.@count[.@i])+")^000000:";
 			else
-				set .@menu$, .@menu$+getitemname(.@coin[.@i])+" (have "+.@count[.@i]+", need "+.@total[.@i]+"):";
+				set .@menu$, .@menu$+getitemname(.@coin[.@i])+" (现有 "+.@count[.@i]+", 需要 "+.@total[.@i]+"):";
 		}
 		set .@coin_select, select(.@menu$)-2;
 		if (.@coin_select == -1) {
-			mes "[Mayomayo]";
-			mes "Come back again if you change your mind.";
+			mes "[喵呦喵呦]";
+			mes "等你拿定主意的时候再来找我.";
 			close;
 		} else if (.@count[.@coin_select] < .@total[.@coin_select]) {
-			mes "[Mayomayo]";
-			mes "You don't have enough coins. Do you want to check again?";
+			mes "[喵呦喵呦]";
+			mes "你无法支付足够的酬劳. 我想你最好再确认一下?";
 			close;
 		}
 		switch(.@coin_select) {
@@ -368,13 +393,13 @@ L_Socket:
 			break;
 		case 4: //Agrade_Coin
 		case 5: //Anger_Seagod
-			mes "[Mayomayo]";
-			mes "When you use the "+getitemname(.@coin[.@coin_select])+", you can choose the enchant type.";
+			mes "[喵呦喵呦]";
+			mes "当你使用 "+getitemname(.@coin[.@coin_select])+", 你可以选择附魔类型.";
 			next;
-			switch(select("Stop:Short Range Type:Long Range Type:Caster Type")) {
+			switch(select("- 暂停:- 近战类型:- 远程类型:- 施法类型")) {
 			case 1:
-				mes "[Mayomayo]";
-				mes "Ok. If you change your mind, let me know.";
+				mes "[喵呦喵呦]";
+				mes "好吧. 如果你改变想法了, 就来找我吧.";
 				close;
 			case 2:
 				set .@enchant_type,((.@coin_select == 4)?4:1);
@@ -395,16 +420,16 @@ L_Socket:
 			set .@socket,3;
 			set .@str$,"2nd";
 		} else {
-			mes "[Mayomayo]";
-			mes "This equipment is at the end of enchant. Please initialize the enchant and you will be able to enchant it again, or bring another weapon.";
+			mes "[喵呦喵呦]";
+			mes "这件装备已经附魔到极致了. 只有初始化附魔后你才能够再次对他进行附魔, 或者直接带一件新装备来.";
 			close;
 		}
-		mes "[Mayomayo]";
-		mes "I'm trying for the "+.@str$+" enchant. ^ff0000It will not touch previous refinement and cards. Also, the equipment will not be destroyed.^000000 Can I continue?";
+		mes "[喵呦喵呦]";
+		mes "我正在努力为 "+.@str$+" 附魔. ^ff0000现在附魔不会损害卡片和精炼等级. 同时, 物品也不会损毁.^000000 是否继续?";
 		next;
-		if(select("I'll come back later.:Please, continue.") == 1) {
-			mes "[Mayomayo]";
-			mes "Ok. If you change your mind, come back again.";
+		if(select("- 我稍后再来.:- 请你, 继续.") == 1) {
+			mes "[喵呦喵呦]";
+			mes "好的. 如果你改变想法了, 就来找我吧.";
 			close;
 		}
 		switch(.@enchant_type) {
@@ -569,8 +594,8 @@ L_Socket:
 			else set .@enchant,9;
 			break;
 		default:
-			mes "[Mayomayo]";
-			mes "There is something wrong. Please try again.";
+			mes "[喵呦喵呦]";
+			mes "有点流程不正确. 请重试一下.";
 			close;
 		}
 
@@ -584,25 +609,25 @@ L_Socket:
 		else if (.@equip_card[1] == 0 && .@enclimit < 2) set .@equip_card[1],.@enchant;
 		else if (.@equip_card[0] == 0 && .@enclimit < 1) set .@equip_card[0],.@enchant;
 		else {
-			mes "[Mayomayo]";
-			mes "This equipment is at the end of enchant. I provide enchant for two times maximum.";
+			mes "[喵呦喵呦]";
+			mes "这个装备已经达到附魔的极致了. 一件装备我只能附魔2次.";
 			next;
-			mes "[Mayomayo]";
-			mes "Surely I don't enchant at card socket, therefore weapons that have 3 slots can be enchanted only 1 time. Don't forget this~";
+			mes "[喵呦喵呦]";
+			mes "当然我也不会在卡片洞上附魔, 如果武器有3个洞的话, 那只能附魔一次. 请牢记这点~";
 			close;
 		}
 		if (.@enchant == 9) { // Should never happen.
 			specialeffect2 EF_SUI_EXPLOSION;
-			mes "[Mayomayo]";
-			mes "Oh my god!";
-			mes "This equipment is destroyed because it could not endure powerful ability. I'm so sorry.";
+			mes "[喵呦喵呦]";
+			mes "我的天!";
+			mes "这件装备被毁了, 它无法承载我的强大的附魔能力. 太抱歉了.";
 			delitem .@coin[.@coin_select],.@total[.@coin_select];
 			delequip EQI_HAND_R;
 			close;
 		}
 		specialeffect2 EF_REPAIRWEAPON;
-		mes "[Mayomayo]";
-		mes "I have enchanted ^990000slot "+.@socket+"^000000 of this equipment.";
+		mes "[喵呦喵呦]";
+		mes "我已经附魔了 ^990000插槽 "+.@socket+"^000000 在这装备上.";
 		delitem .@coin[.@coin_select],.@total[.@coin_select];
 		set .@equip_refine, getequiprefinerycnt(EQI_HAND_R);
 		delequip EQI_HAND_R;
@@ -612,33 +637,33 @@ L_Socket:
 
 		close;
 	} else if (.@select == 2) {
-		mes "[Mayomayo]";
-		mes "I will only initialize the enchant effect without touching previous refined level and cards.";
+		mes "[喵呦喵呦]";
+		mes "我只会初始化附魔效果, 我会影响原来的精炼和卡片.";
 		next;
-		if(select("Stop:Continue") == 1) {
-			mes "[Mayomayo]";
-			mes "If you change your mind, come back anytime.";
+		if(select("- 暂停:- 继续") == 1) {
+			mes "[喵呦喵呦]";
+			mes "如果你改变主意了, 随时欢迎.";
 			close;
 		}
 		if (countitem(6417) == 0) {
-			mes "[Mayomayo]";
-			mes "I'm sorry. You don't have Silvervine Fruit. Please check your inventory again?";
+			mes "[喵呦喵呦]";
+			mes "抱歉. 你没有狝猴桃果实. 请检查你的库存?";
 			close;
 		}
 		if (!getequipisequiped(EQI_HAND_R)) {
-			mes "[Mayomayo]";
-			mes "Did you take off the equipment?";
+			mes "[喵呦喵呦]";
+			mes "你怎么把装备脱了?";
 			close;
 		}
 		if (.@equip_card[3] == 0) {
-			mes "[Mayomayo]";
-			mes "This equipment has nothing to initialize. Please check again.";
+			mes "[喵呦喵呦]";
+			mes "这件装备无法重置附魔, 或者本身就没有附魔效果. 请再检查一下.";
 			close;
 		}
 		specialeffect2 EF_REPAIRWEAPON;
-		mes "[Mayomayo]";
-		mes "Initialize the enchant effect from the equipment.";
-		delitem 6417,1; //Silvervine
+		mes "[喵呦喵呦]";
+		mes "重置装备的附魔效果.";
+		delitem 6417,1; //狝猴桃果实
 
 		// anti-hack
 		if (callfunc("F_IsEquipIDHack", EQI_HAND_R, .@equip_id) ||

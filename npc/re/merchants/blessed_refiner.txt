@@ -1,3 +1,11 @@
+//============================================================
+//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
 //===== rAthena Script ======================================= 
 //= Blessed Refiner
 //===== By: ==================================================
@@ -21,62 +29,62 @@
 //============================================================
 -	script	::BlacksmithDister	-1,{
 	disable_items;
-	mes "[Blacksmith Dister]";
-	mes "In this highly competitive society, we must be different in order to survive!";
-	mes "I only refine equipment at the +6 ~ 12 levels.";
+	mes "[铁匠迪斯特]";
+	mes "在这个竞争激烈的社会, 我们必须为了生存!";
+	mes "我只负责精炼 +6 ~ 12 的装备.";
 	next;
-	mes "[Blacksmith Dister]";
-	mes "I will need ^ff9999Blessed Weapon Ore^000000 for weapons, and ^ff9999Blessed Armor Ore^000000 for armors.";
-	mes "Failed refines ^FF0000will not break or reduce the refine level^000000.";
+	mes "[铁匠迪斯特]";
+	mes "我需要 ^ff9999受祝福的武器矿石^000000 来精炼武器, 或者 ^ff9999受祝福的防具矿石^000000 来精炼防具.";
+	mes "精炼失败 ^FF0000不会破坏或减少精炼级^000000.";
 	next;
-	mes "[Blacksmith Dister]";
-	mes "How about it? Do you want to refine?";
+	mes "[铁匠迪斯特]";
+	mes "如何? 要不要精炼?";
 	next;
 	setarray .@indices[1], EQI_HEAD_TOP, EQI_ARMOR, EQI_HAND_L, EQI_HAND_R, EQI_GARMENT, EQI_SHOES, EQI_ACC_L, EQI_ACC_R, EQI_HEAD_MID, EQI_HEAD_LOW;
 	for(set .@i,1; .@i<=10; set .@i,.@i+1)
-		set .@menu$, .@menu$ + ( getequipisequiped(.@indices[.@i]) ? getequipname(.@indices[.@i]) : F_getpositionname(.@indices[.@i]) +"-[Unequipped]" ) +":";
+		set .@menu$, .@menu$ + ( getequipisequiped(.@indices[.@i]) ? getequipname(.@indices[.@i]) : F_getpositionname(.@indices[.@i]) +" - [未装备]" ) +":";
 	set .@part, .@indices[ select(.@menu$) ];
 	if (!getequipisequiped(.@part)) {
-		mes "[Blacksmith Dister]";
+		mes "[铁匠迪斯特]";
 		switch(.@part) {
 		case 1:
-			mes "I'm a blacksmith, not a hairstylist.";
+			mes "我是一个铁匠, 不是美容师.";
 			break;
 		case 2:
-			mes "With my hammer, I will make you a star of the sky.";
+			mes "我的锤子, 会让你成为天空中的一颗明星.";
 			break;
 		case 3:
 		case 4:
-			mes "Making artificial hands is not my specialty.";
+			mes "用空手制作是不是我的专长.";
 			break;
 		case 5:
-			mes "Bring out the item so I can refine it!";
+			mes "我无法精炼脱掉的装备!";
 			break;
 		case 6:
-			mes "Where is this weird smell coming from?";
+			mes "这个奇怪的气味来自哪里?";
 			break;
 		case 7:
 		case 8:
-			mes "Where is the accessory?";
+			mes "装饰品在哪里?";
 			break;
 		case 9:
-			mes "What do you want me to refine?";
+			mes "你想让我精炼什么?";
 			break;
 		case 10:
-			mes "Huh? What do you want me to do?";
+			mes "呼? 你想让我怎么做?";
 			break;
 		}
 		close;
 	}
 	if (!getequipisenableref(.@part)) {
-		mes "[Blacksmith Dister]";
-		mes "This item cannot be refined.";
+		mes "[铁匠迪斯特]";
+		mes "这个物品无法精炼.";
 		close;
 	}
 	set .@equip_refine, getequiprefinerycnt(.@part);
 	if (.@equip_refine < 6 || .@equip_refine > 12) {
-		mes "[Blacksmith Dister]";
-		mes "This equipment has refined to "+.@equip_refine+". I only handle items with refine levels from +6 to +12!";
+		mes "[铁匠迪斯特]";
+		mes "这个装备已经被精炼到 "+.@equip_refine+". 我只能够精炼 +6 到 +12的装备!";
 		close;
 	}
 	set .@equip_lv, getequipweaponlv(.@part);
@@ -84,91 +92,91 @@
 	default:
 	case 0:
 		set .@price,20000;
-		set .@material,6439; //Unbreakable_Def
-		set .@type$,"Armor";
+		set .@material,6439; //受祝福的防具矿石
+		set .@type$,"防具";
 		break;
 	case 1:
 		set .@price,1000;
-		set .@material,6438; //Unbreakable_Weap
-		set .@type$,"Weapon";
+		set .@material,6438; //受祝福的武器矿石
+		set .@type$,"武器";
 		break;
 	case 2:
 		set .@price,2000;
-		set .@material,6438; //Unbreakable_Weap
-		set .@type$,"Weapon";
+		set .@material,6438; //受祝福的武器矿石
+		set .@type$,"武器";
 		break;
 	case 3:
 		set .@price,20000;
-		set .@material,6438; //Unbreakable_Weap
-		set .@type$,"Weapon";
+		set .@material,6438; //受祝福的武器矿石
+		set .@type$,"武器";
 		break;
 	case 4:
 		set .@price,40000;
-		set .@material,6438; //Unbreakable_Weap
-		set .@type$,"Weapon";
+		set .@material,6438; //受祝福的武器矿石
+		set .@type$,"武器";
 		break;
 	}
-	set .@ore$,"^ff9999Blessed "+.@type$+" Ore^000000";
-	mes "[Blacksmith Dister]";
-	mes "This "+.@type$+" has been refined to "+.@equip_refine+". To refine it, I need "+.@ore$+" and a "+callfunc("F_InsertComma",.@price)+" zeny refining fee.";
-	mes "Do you want to proceed?";
+	set .@ore$,"^ff9999受赐福的"+.@type$+" 矿石^000000";
+	mes "[铁匠迪斯特]";
+	mes "这个 "+.@type$+" 已经被精炼到 "+.@equip_refine+". 如果想继续精炼, 我需要 "+.@ore$+" 和 "+(.@price/1000)+",000 zeny 的精炼费用.";
+	mes "你想继续?";
 	next;
-	if(select("Yes:No") == 2) {
-		mes "[Blacksmith Dister]";
-		mes "I am busy, don't joke with me!";
+	if(select("- 是:- 否") == 2) {
+		mes "[铁匠迪斯特]";
+		mes "我很忙, 别和我开玩笑!";
 		close;
 	}
 	if (getequippercentrefinery(.@part) < 100) {
-		mes "[Blacksmith Dister]";
-		mes "This "+.@type$+" has been refined many times. Although it will not disappear upon failure, the "+.@ore$+" will disappear!";
+		mes "[铁匠迪斯特]";
+		mes "这个 "+.@type$+" 已经被多次精炼. 虽然它不会失败时损毁, 但是 "+.@ore$+" 会消失!";
 		next;
-		mes "[Blacksmith Dister]";
-		mes "Of course, the refining fee will not be returned! Do you want to continue?";
+		mes "[铁匠迪斯特]";
+		mes "当然, 精炼费将不予退还! 你想继续?";
 		next;
-		if(select("Yes:No") == 2) {
-			mes "[Blacksmith Dister]";
-			mes "Good. I'd be sad if it failed, too.";
+		if(select("- 是:- 否") == 2) {
+			mes "[铁匠迪斯特]";
+			mes "很好. 如果失败我也会很伤心的.";
 			close;
 		}
 	}
 	if (countitem(.@material) == 0 || Zeny < .@price) {
-		mes "[Blacksmith Dister]";
-		mes "Materials insufficient.";
-		mes "To refine "+((.@equip_lv)?"a level "+.@equip_lv+" weapon":"armor")+", I need "+.@ore$+" and a "+callfunc("F_InsertComma",.@price)+" zeny refining fee.";
+		mes "[铁匠迪斯特]";
+		mes "材料不足.";
+		mes "要精炼 "+((.@equip_lv)?"为等级 "+.@equip_lv+" 武器":"防具")+", 我需要 "+.@ore$+" 和 "+(.@price/1000)+",000 zeny 的精炼费用.";
 		close;
 	}
 	delitem .@material,1;
 	set Zeny, Zeny-.@price;
-	mes "[Blacksmith Dister]";
-	mes "Tac! Tac! Tac!";
+	mes "[铁匠迪斯特]";
+	mes "西塔! 西塔! 西塔!";
 	if (getequippercentrefinery(.@part) > rand(100) || getequippercentrefinery(.@part) > rand(100)) {
 		specialeffect EF_BLESSING;
 		successrefitem .@part;
 		next;
-		mes "[Blacksmith Dister]";
-		mes "Hahahahahaha!!!";
+		mes "[铁匠迪斯特]";
+		mes "哈哈哈哈哈!!!";
 		next;
-		mes "[Blacksmith Dister]";
-		mes "Refine was a huge success~ Hahaha!";
+		mes "[铁匠迪斯特]";
+		mes "精炼非常成功~ 哈哈哈!";
 		close;
 	}
 	specialeffect EF_CURSEATTACK;
 	specialeffect2 EF_SUI_EXPLOSION;
 	next;
 	emotion (!rand(5))?e_ag:e_omg;
-	mes "[Blacksmith Dister]";
-	mes "Oh my goodness!!!!";
+	mes "[铁匠迪斯特]";
+	mes "天呐!!!!";
 	next;
-	mes "[Blacksmith Dister]";
-	mes "Oh! Although it was blessed by "+.@ore$+" to retain the equipment...";
+	mes "[铁匠迪斯特]";
+	mes "噢! 虽然 "+.@ore$+" 上被赐予了祝福...";
 	next;
-	mes "[Blacksmith Dister]";
-	mes "My mood is worse when I fail!!";
+	mes "[铁匠迪斯特]";
+	mes "当我失败的时候心情很糟!!";
 	close;
 }
-prt_in,52,56,3	duplicate(BlacksmithDister)	Blacksmith Dister#prt	826
-payon,148,172,3	duplicate(BlacksmithDister)	Blacksmith Dister#pay	826
-alberta_in,20,56,3	duplicate(BlacksmithDister)	Blacksmith Dister#alb	826
-yuno_in01,175,18,3	duplicate(BlacksmithDister)	Blacksmith Dister#yuno	826
-ein_in01,26,82,3	duplicate(BlacksmithDister)	Blacksmith Dister#ein	826
-lhz_in02,280,15,3	duplicate(BlacksmithDister)	Blacksmith Dister#lhz	826
+prt_in,52,56,3	duplicate(BlacksmithDister)	铁匠迪斯特#prt	826
+payon,148,172,3	duplicate(BlacksmithDister)	铁匠迪斯特#pay	826
+alberta_in,20,56,3	duplicate(BlacksmithDister)	铁匠迪斯特#alb	826
+yuno_in01,175,18,3	duplicate(BlacksmithDister)	铁匠迪斯特#yuno	826
+ein_in01,26,82,3	duplicate(BlacksmithDister)	铁匠迪斯特#ein	826
+lhz_in02,280,15,3	duplicate(BlacksmithDister)	铁匠迪斯特#lhz	826

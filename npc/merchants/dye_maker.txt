@@ -1,3 +1,11 @@
+//============================================================
+//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
 //===== rAthena Script ======================================= 
 //= Dye Maker
 //===== By: ================================================== 
@@ -5,7 +13,7 @@
 //===== Current Version: ===================================== 
 //= 1.4
 //===== Compatible With: ===================================== 
-//= rAthena Project
+//= rAthena SVN
 //===== Description: ========================================= 
 //= [Official Conversion]
 //= Quests to create the eight colored Dyestuffs.
@@ -19,67 +27,67 @@
 //= 1.4 Added a checkweight. [L0ne_W0lf]
 //============================================================ 
 
-morocc_in,146,99,3	script	Java Dullihan	58,{
+morocc_in,146,99,3	script	杰瓦杜拉罕	58,{
 	if ((MaxWeight-Weight) < 200 || checkweight(1201,1) == 0) {
-		mes "- Wait a moment! -";
-		mes "- Currently you're carrying -";
-		mes "- too many items with you. -";
-		mes "- Please come back later -";
-		mes "- after you put some items into kafra storage. -";
+		mes "- 等下! -";
+		mes "- 当前你携带了太多东西. -";
+		mes "- 在你把一些物品放进卡普拉 -";
+		mes "- 仓库后, 再回来吧. -";
+		mes "- 我会在次等候. -";
 		close;
 	}
-	mes "[Dye Maker Java Dullihan]";
-	mes "Wow...";
-	mes "Such a nice day. Days like this are perfect to make dyes.";
+	mes "[染料制作师 杰瓦杜拉罕]";
+	mes "哇喔...";
+	mes "多棒的一天啊. 这天可是制作染料的完美时刻.";
 	next;
-	switch(select("Talk:Make Dyestuffs:Cancel")) {
+	switch(select("谈话:制作染料:取消")) {
 	case 1:
-		mes "[Dye Maker Java Dullihan]";
-		mes "Erm, I don't really have much to say to you. But, if you would like me to tell you about my life, I can do that. It's a little long and boring, but would you like to listen?";
+		mes "[染料制作师 杰瓦杜拉罕]";
+		mes "呃, 我还真没有什么可说的. 不过, 如果你希望我给你讲讲我的生活, 倒是可以. 很长很无聊, 你愿意听听吗?";
 		next;
-		if (select("Listen:Don't Listen") == 1) {
-			mes "[Dye Maker Java Dullihan]";
-			mes "As long as I can remember, my father has been making dyes. He used to spend countless hours making dyes of different colors. Even when my mother passed away, he never stopped.";
+		if (select("听:不听") == 1) {
+			mes "[染料制作师 杰瓦杜拉罕]";
+			mes "从我记事起, 我父亲就已经开始制作染料. 他通常要花去数小时来制造不同的颜色的染料. 即使当我母亲去世的时候, 他都不曾停止.";
 			next;
-			mes "[Dye Maker Java Dullihan]";
-			mes "At one point in my life, I became rebellious and ran away from home. I didn't want to be stuck to the family business and wanted to try other things.";
+			mes "[染料制作师 杰瓦杜拉罕]";
+			mes "在我人生的某段时间, 我变得叛逆并且离家出走. 我不想被我家庭的事业牵制住而想要尝试其它事物.";
 			next;
-			mes "[Dye Maker Java Dullihan]";
-			mes "Anyways...";
-			mes "I eventually wound up back home to carry on the family tradition, making dyes for 15 years already. I guess it was really in my blood.";
+			mes "[染料制作师 杰瓦杜拉罕]";
+			mes "无论如何...";
+			mes "我最后还是回到家中继承了家庭的传统, 已经制造染料15 年了.我猜它是在我的血液流淌着的. ";
 			next;
-			mes "[Dye Maker Java Dullihan]";
-			mes "Something I realized these days is that now I can understand my father. Why my father devoted everything to making dyes...";
+			mes "[染料制作师 杰瓦杜拉罕]";
+			mes "我终于意识到一些事情, 这让我真正地能够了解我的父亲. 为什么我的父亲舍弃所有东西来制造染料...";
 			next;
-			mes "[Dye Maker Java Dullihan]";
-			mes "In the middle of all that tedious and hard work, he probably felt the magic of those colors passing on so many dreams for other people.";
+			mes "[染料制作师 杰瓦杜拉罕]";
+			mes "在那些沉闷和辛苦的工作当中, 他或许感觉到人们的彩色的梦的魔力.";
 			next;
-			mes "[Dye Maker Java Dullihan]";
-			mes "It was probably for those dreams that he tried so hard to make dyes for his customers...";
+			mes "[染料制作师 杰瓦杜拉罕]";
+			mes "也许他是为了那些梦而尝试努力为他的客人制造染料...";
 			next;
-			mes "[Dye Maker Java Dullihan]";
-			mes "Heh... How do I know this? Well, that's the way I feel right now. Since a couple years ago, I've been able to hear what the colors were saying...";
+			mes "[染料制作师 杰瓦杜拉罕]";
+			mes "呵... 我怎么能真正了解到呢? 好吧, 我现在也许明白了. 几年了, 我感觉我能够听到染料在说话...";
 			next;
-			mes "[Dye Maker Java Dullian]";
-			mes "Just watch. Someday, I'm going to succeed in making the color my father wanted to, but never got the chance to make.";
+			mes "[染料制作师 杰瓦杜拉罕]";
+			mes "这样看来. 总有一天, 我将成功的制造出我父亲想要的染料, 但是总得不到一个制作的机会.";
 			close;
 		}
-		mes "[Dye Maker Java Dullihan]";
-		mes "Ahahahaha...";
-		mes "Well, I guess no one would want to listen to a measly dyemaker's story anyway. Hahaha....";
+		mes "[染料制作师 杰瓦杜拉罕]";
+		mes "哈哈哈哈哈...";
+		mes "好吧, 我猜想谁还会想呆在这里去听一个年迈的染料制作师的生活故事呢. 哈哈哈哈哈....";
 		close;
 
 	case 2:
-		mes "[Dye Maker Java Dullihan]";
-		mes "Great! If you want it, I'll make it for you. I promise I'll make you the color you want. But what color dye would you like to make? The fee is different depending on the color.";
+		mes "[染料制作师 杰瓦杜拉罕]";
+		mes "很好! 如果你真的想要, 我就为你制作. 我保证我能制作出你想要的染料. 但你要什么染料呢? 这费用可是取决于染料的.";
 		next;
-		mes "[Dye Maker Java Dullihan]";
-		mes "Why, do you ask? Just remember that there are colors that are easy to make, and those that require more effort and work. Please don't think the fee is too expensive.";
+		mes "[染料制作师 杰瓦杜拉罕]";
+		mes "为什么, 你问问? 要知道染料是很容易制作的, 只需要努力和工作. 但请不要认为费用会很贵.";
 		next;
-		mes "[Dye Maker Java Dullihan]";
-		mes "The color of the dye is special, made with all my heart and soul.";
+		mes "[染料制作师 杰瓦杜拉罕]";
+		mes "染料的颜色是很特别的, 我会用真心和实意去制作.";
 		next;
-		switch(select("Scarlet Dyestuffs:Lemon Dyestuffs:Cobaltblue Dyestuffs:Darkgreen Dyestuffs:Orange Dyestuffs:Violet Dyestuffs:White Dyestuffs:Black Dyestuffs:Cancel")) {
+		switch(select("深红色染料:柠檬色染料:天蓝色染料:墨绿色染料:橘黄色染料:紫罗兰色染料:白色染料:黑色染料:取消")) {
 		case 1: callsub S_MakeDye,1,1; break;
 		case 2: callsub S_MakeDye,2,1; break;
 		case 3: callsub S_MakeDye,3,2; break;
@@ -89,71 +97,71 @@ morocc_in,146,99,3	script	Java Dullihan	58,{
 		case 7: callsub S_MakeDye,7,4; break;
 		case 8: callsub S_MakeDye,8,4; break;
 		case 9:
-			mes "[Dye Maker Java Dullihan]";
-			mes "Eeeehhhh!! What's this? You change your mind now!? So disappointing...";
+			mes "[染料制作师 杰瓦杜拉罕]";
+			mes "呃!! 怎么了? 你现在改变心意了吗!? 真扫兴...";
 			close;
 		}
 
 	case 3:
-		mes "[Dye Maker Java Dullihan]";
-		mes "I'm not bragging or anything. But I have the skills to make dyestuff. If you ever need dyestuff, please come to me. I'll make them for you at a reasonable price.";
+		mes "[染料制作师 杰瓦杜拉罕]";
+		mes "我不是自夸啊. 我拥有很高超的制作染料的技术. 如果你需要染料, 请来找我. 我会以很合理的价格为你制造染料的.";
 		close;
 	}
 
 S_MakeDye:
-	mes "[Dye Maker Java Dullihan]";
+	mes "[染料制作师 杰瓦杜拉罕]";
 	switch(getarg(0)) {
 	case 1:
-		mes "Mmm... I need 30 Red Herbs, 1 Counteragent, and 1 Empty Bottle to make Red Dyestuffs. The fee is only 3000 zeny to make it.";
+		mes "恩... 我需要30片红色药草, 1瓶中和剂, 和1个空瓶来制作红色染料. 只需3000Zeny的费用就可以制作.";
 		setarray .@item[0], 507, 973, 713;
 		setarray .@count[0], 30,   1,   1;
 		set .@cost,3000;
 		set .@dyestuff,975;
 		break;
 	case 2:
-		mes "Mmm... I need 30 Yellow Herbs, 1 Couneragent, and 1 Empty Bottle to make Lemon Dyestuffs. The fee is only 3000 zeny to make it.";
+		mes "恩... 我需要30片黄色药草, 1瓶中和剂, 和1个空瓶来制作柠檬色染料. 只需3000Zeny的费用就可以制作.";
 		setarray .@item[0], 508, 973, 713;
 		setarray .@count[0], 30,   1,   1;
 		set .@cost,3000;
 		set .@dyestuff,976;
 		break;
 	case 3:
-		mes "Mmm... I need 20 Blue Herbs, 1 Counteragent, and 1 Empty Bottle to make Cobaltblue Dyestuff. It's hard to use the Blue Herb, so the fee is going to be 3500 zeny.";
+		mes "恩... 我需要20片蓝色药草, 1瓶中和剂, 和1个空瓶来制作天蓝色染料. 运用蓝色草药很复杂, 所以费用为3500Zeny.";
 		setarray .@item[0], 510, 973, 713;
 		setarray .@count[0], 20,   1,   1;
 		set .@cost,3500;
 		set .@dyestuff,978;
 		break;
 	case 4:
-		mes "Mmm... I need 5 Blue Herbs, 20 Green Herbs, 20 Yellow Herbs, 1 Counteragent, 1 Mixture, and 1 Empty Bottle to make Darkgreen Dyestuffs. Don't get all of the materials confused. The fee is only 5000 zeny.";
+		mes "恩... 我需要5片蓝色药草, 20片绿色草药, 20片黄色药草, 1瓶中和剂, 1瓶混合剂, 和1个空瓶来制作墨绿色染料. 别弄混需要的材料. 费用仅为5000z.";
 		setarray .@item[0], 510, 511, 508, 974, 973, 713;
 		setarray .@count[0],  5,  20,  20,   1,   1,   1;
 		set .@cost,5000;
 		set .@dyestuff,979;
 		break;
 	case 5:
-		mes "Mmm... I need 20 Red Herbs, 20 Yellow Herbs, 1 Counteragent, 1 Mixture, and 1 Empty Bottle to make Orange Dyestuff. The fee is going to be 5000 zeny.";
+		mes "恩... 我需要20片红色药草, 20片黄色药草, 1瓶中和剂, 1瓶混合剂, 和1个空瓶来制作橘黄色染料. 费用为5000Zeny.";
 		setarray .@item[0], 507, 508, 974, 973, 713;
 		setarray .@count[0], 20,  20,   1,   1,   1;
 		set .@cost,5000;
 		set .@dyestuff,980;
 		break;
 	case 6:
-		mes "Mmm... I need 10 Blue Herbs, 30 Red Herbs, 1 Counteragent, 1 Mixture, and 1 Empty Bottle to make Violet Dyestuffs. The fee will be 5000 zeny.";
+		mes "恩... 我需要10片蓝色药草, 30片红色药草, 1瓶中和剂, 1瓶混合剂, 和1个空瓶来制作紫罗兰色染料. 费用为5000Zeny.";
 		setarray .@item[0], 510, 507, 974, 973, 713;
 		setarray .@count[0], 10,  30,   1,   1,   1;
 		set .@cost,5000;
 		set .@dyestuff,981;
 		break;
 	case 7:
-		mes "Mmm... I need 30 White Herbs, 1 Counteragent, and 1 Empty bottle to make White Dyestuffs. The fee will be 3000 zeny.";
+		mes "恩... 我需要30片白色药草, 1瓶中和剂, 和1个空瓶来制作白色染料. 费用为3000Zeny.";
 		setarray .@item[0], 509, 973, 713;
 		setarray .@count[0], 30,   1,   1; 
 		set .@cost,3000;
 		set .@dyestuff,982;
 		break;
 	case 8:
-		mes "Mmm... I need 30 of each Red, Yellow, and Green Herb, 5 Blue Herbs, 1 Counteragent, 1 Mixture, and 1 Empty Bottle. The process takes longer and more effort than the others, so it is going to be 7000 zeny.";
+		mes "恩... 我需要红色药草, 黄色药草, 绿色草药各30 片, 5片蓝色药草, 1瓶中和剂, 1瓶混合剂, 和1个空瓶. 这个将比其它需要更多时间和更多的努力, 所以费用为7000 Zeny.";
 		setarray .@item[0], 507, 508, 511, 510, 974, 973, 713;
 		setarray .@count[0], 30,  30,  30,   5,   1,   1,   1;
 		set .@cost,7000;
@@ -161,42 +169,42 @@ S_MakeDye:
 		break;
 	}
 	next;
-	mes "[Dye Maker Java Dullihan]";
+	mes "[染料制作师 杰瓦杜拉罕]";
 	switch(getarg(1)) {
-	case 1: mes "Ah! I think you would have everything ready. Would you like to start the process?"; break;
-	case 2: mes "Okay! I believe you would have everything ready. Would you like to start the process?"; break;
-	case 3: mes "Okay! I believe you would have everything ready. Shall we begin the process?"; break;
-	case 4: mes "Okay! I believe you would have everything prepared. Would you like to start the process?"; break;
+	case 1: mes "啊! 我想你已经准备好所有的东西了. 你要我开始工作吗?"; break;
+	case 2: mes "很好! 我相信你已经准备好所有的东西了. 你要我开始工作吗?"; break;
+	case 3: mes "很好! 我相信已经准备好所有的东西了. 我可以开始工作了吗?"; break;
+	case 4: mes "很好! 我相信已经准备了所有的东西了. 你要我开始工作吗?"; break;
 	}
 	next;
-	if (select("Make Dyestuffs:Cancel") == 1) {
+	if (select("制作染料:取消") == 1) {
 		set .@size, getarraysize(.@item);
-		// check requirements
+		// 检查材料
 		for( set .@i,0 ; .@i < .@size ; set .@i,.@i+1 )
 			if( countitem(.@item[.@i]) < .@count[.@i] )
 				break;
 		if( .@i < .@size || Zeny < .@cost ) {
-			mes "[Dye Maker Java Dullihan]";
-			mes "Hmmm. Not enough...";
-			mes "I don't think I'll be able to make the color you want with those materials. Why don't you go get some more materials...?";
+			mes "[染料制作师 杰瓦杜拉罕]";
+			mes "嗯. 不够啊...";
+			mes "我想我不能用你带来的材料制造你想要的染料. 你为何不多拿点材料来...?";
 			close;
 		}
-		// delete items
+		// 删除物品
 		for (set .@i, 0; .@i < .@size ; set .@i, .@i+1)
 			delitem .@item[.@i], .@count[.@i];
-		set Zeny, Zeny-.@cost;
-		// get dyestuff
+		set zeny,zeny-.@cost;
+		// 得到染料
 		getitem .@dyestuff,1;
 		
-		mes "[Dye Maker Java Dullihan]";
-		mes "Hmm... It came out pretty well. A very rich color. Of course I'll be trying harder to make a more charming color...";
+		mes "[染料制作师 杰瓦杜拉罕]";
+		mes "嗯... 做的不错哦. 一个非常棒的颜色. 当然我还会尝试制作更迷人的染料...";
 		next;
-		mes "[Dye Maker Java Dullihan]";
-		mes "Well, then. Stop by whenever you need more dyes.";
+		mes "[染料制作师 杰瓦杜拉罕]";
+		mes "好的, 不错. 当你需要更多染料时, 就来找我.";
 		close;
 	}
-	mes "[Dye Maker Java Dullihan]";
-	mes "Eeeehhhh!! What's this?";
-	mes "You change your mind now!? So disappointing...";
+	mes "[染料制作师 杰瓦杜拉罕]";
+	mes "呃!! 怎么了? 你现在改变心意";
+	mes "了吗!? 真扫兴...";
 	return;
 }

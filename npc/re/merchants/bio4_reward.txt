@@ -1,3 +1,11 @@
+//============================================================
+//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
 //===== rAthena Script =======================================
 //= Lighthalzen rewards NPCs
 //===== Description: =========================================
@@ -8,143 +16,143 @@
 
 // Weird Old Man (Rewards)
 //============================================================
-lighthalzen,342,291,4	script	Weird old man#Bio4Reward	4_M_EINOLD,{
+lighthalzen,342,291,4	script	古怪的老人#Bio4Reward	4_M_EINOLD,{
 	if ((MaxWeight - Weight) < 2800 || !checkweight(1201, 1)) {
-		mes "^FF0000 Check up your inventory. You got too many items to carry out the quest. ^000000";
+		mes "^FF0000 检查你的库存, 你有太多物品而导致不能继续. ^000000";
 		close;
 	}
-	mes "[Weird old man]";
-	mes "Phew, those young people nowadays, are so rude and have no manners.";
+	mes "[古怪的老人]";
+	mes "啊, 现在的年轻人, 是如此的粗鲁和没礼貌.";
 	next;
-	if (select("Ignore him", "Talk with him") == 1) {
-		mes "[Weird old man]";
-		mes "You, Very bad young man!";
+	if (select("不理睬他", "和他对话") == 1) {
+		mes "[古怪的老人]";
+		mes "你, 是个很坏的年轻人!";
 		close;
 	}
 	mes "["+ strcharinfo(0) +"]";
-	mes "Sir, Are you alright??";
+	mes "先生, 你还好吗??";
 	next;
-	mes "[Weird old man]";
-	mes "....?? You are not like other young people. You have good manners! You know what happened to me..?";
+	mes "[古怪的老人]";
+	mes "....?? 你不像其他年轻人. 你很有礼貌! 你知道我发生了什么..?";
 	next;
 	switch(rand(1,2)) {
 	case 1:
-		mes "[Weird old man]";
-		mes "I was on the way to visit my son who lives in Rune Midgarts. It's really far away, so I took the airplane, and..";
+		mes "[古怪的老人]";
+		mes "我在探望儿子的路上, 那个地方很远, 我需要坐飞机去, 和..";
 		next;
-		mes "[Weird old man]";
-		mes "those young people...so noisy.... I was standing but non of them offered me a seat..and they were just talking in loud voices which bothered everyone.";
+		mes "[古怪的老人]";
+		mes "那些年轻人...实在太吵...我站着却没一个人给我让座, 他们还大声说话, 让我很烦.";
 		next;
-		mes "[Weird old man]";
-		mes "I could lecture them if I were 10 years younger than now..";
+		mes "[古怪的老人]";
+		mes "如果我年轻10岁的话, 我真想给他们上一课.";
 		next;
-		mes "[Weird old man]";
-		mes "Pffff.. Never like the time passing....";
+		mes "[古怪的老人]";
+		mes "但...我又不喜欢时间流逝...";
 		next;
-		mes "[Weird old man]";
-		mes "So, you... what would you do??";
+		mes "[古怪的老人]";
+		mes "所以, 你...你会怎么做??";
 		next;
-		mes "[Weird old man]";
-		mes "In an open, public place, you are supposed to stay quiet to the destination and offer your seat to the elderly and the infirm.";
+		mes "[古怪的老人]";
+		mes "在公共的地方, 你应该要保持安静, 看见老人和体弱者应该让座.";
 		next;
 		break;
 	case 2:
-		mes "[Weird old man]";
-		mes "I was on the way to visit my son who lives in Rune Midgarts. It's really far away, so I took the airplane, and..";
+		mes "[古怪的老人]";
+		mes "我在探望儿子的路上, 那个地方很远, 我需要坐飞机去, 和..";
 		next;
-		mes "[Weird old man]";
-		mes "those young people...so noisy.... I was standing but non of them offered me a seat..and they were just talking in loud voices which bothered everyone.";
+		mes "[古怪的老人]";
+		mes "那些年轻人...实在太吵...我站着却没一个人给我让座, 他们还大声说话, 让我很烦.";
 		next;
-		mes "[Weird old man]";
-		mes "I could lecture them if I were 10 years younger than now..";
+		mes "[古怪的老人]";
+		mes "如果我年轻10岁的话, 我真想给他们上一课.";
 		next;
-		mes "[Weird old man]";
-		mes "Pffff.. Never like the time passing....";
+		mes "[古怪的老人]";
+		mes "但...我又不喜欢时间流逝...";
 		next;
-		mes "[Weird old man]";
-		mes "So, you... what would you do??";
+		mes "[古怪的老人]";
+		mes "所以, 你...你会怎么做??";
 		next;
-		mes "[Weird old man]";
-		mes "In an open, public place, you are supposed to stay quiet to the destination and offer your seat to the elderly and the infirm. Right?";
+		mes "[古怪的老人]";
+		mes "在公共的地方, 你应该要保持安静, 看见老人和体弱者应该让座, 对吗?";
 		next;
-		mes "[Weird old man]";
-		mes "Isn't that right?!";
+		mes "[古怪的老人]";
+		mes "我说的对不对?!";
 		next;
 		switch(rand(1,2)) {
 		case 1:
-			mes "[Weird old man]";
-			mes "Oh, and then! you know what...?";
+			mes "[古怪的老人]";
+			mes "哦, 然后! 你知道吗...?";
 			next;
-			mes "[Weird old man]";
-			mes "Once I was walking in the town, and some boy were spitting on the street, and were bothering girls who were passing by...tut tut!";
+			mes "[古怪的老人]";
+			mes "有一次我走在路上, 一些男孩随地吐痰, 正好有位女孩路过...啧啧!";
 			next;
-			mes "[Weird old man]";
-			mes "The world is going to the dogs.. How will it be?? It was even a day time when they were doing it..tut tut.";
+			mes "[古怪的老人]";
+			mes "这些人的行为想只狗... 不知道怎么想的?? 这样的行为是很不道德的...啧啧.";
 			next;
 			switch(rand(1,2)) {
 			case 1:
-				mes "[Weird old man]";
-				mes "Oh, and then! you know what...?";
+				mes "[古怪的老人]";
+				mes "哦, 然后! 你知道吗...?";
 				next;
 				break;
 			case 2:
-				mes "[Weird old man]";
-				mes "Oh, and then! you know what...?";
+				mes "[古怪的老人]";
+				mes "哦, 然后! 你知道吗...?";
 				next;
-				mes "[Weird old man]";
-				mes "Lately young people are not so patient!!!!";
+				mes "[古怪的老人]";
+				mes "现在的年轻人不那么有耐心!!!!";
 				next;
-				mes "[Weird old man]";
-				mes "That often, they say they will quit.. they say they can't more. How will they live all the lift with that kind of mentality..tut tut.";
+				mes "[古怪的老人]";
+				mes "通常, 他们说他们会改, 可一直不会更正错误, 就连找工作也成为难事...啧啧.";
 				next;
-				mes "[Weird old man]";
-				mes "It's not easy to find a job, it is very difficult to be hired. But then they even cannot stand a week there, and leave the work already.";
+				mes "[古怪的老人]";
+				mes "找一份工作并不容易, 被录取是很困难的. 但他们一个星期都坚持不了, 最后放弃了工作.";
 				next;
-				mes "[Weird old man]";
-				mes "How impatient and irresponsible!!";
+				mes "[古怪的老人]";
+				mes "这些人是多么不耐烦和不负责任!!";
 				next;
-				mes "[Weird old man]";
-				mes "Oh, and then! you know what...?";
+				mes "[古怪的老人]";
+				mes "哦, 然后! 你知道吗...?";
 				next;
 				break;
 			}
 		case 2:
-			mes "[Weird old man]";
-			mes "Oh, and then! you know what...?";
+			mes "[古怪的老人]";
+			mes "哦, 然后! 你知道吗...?";
 			next;
 			break;
 		}
 	}
-	mes "^E7A43DThe old man talked over and over again.^000000";
+	mes "^E7A43D老人一次又一次不断地说话.^000000";
 	next;
-	mes "[Weird old man]";
-	mes "Hm......You are not like common young people, you seem pretty patient too. I like that!!!";
+	mes "[古怪的老人]";
+	mes "嗯...你不像普通的年轻人, 看起来很有耐心, 我喜欢你这样的人!!!";
 	next;
-	mes "[Weird old man]";
-	mes "Now I am just an old, weak man but when I was young, I was a famous merchant in the town.";
+	mes "[古怪的老人]";
+	mes "现在我虽然已经老了, 但在我年轻的时候, 我是一位著名的商人.";
 	next;
-	mes "[Weird old man]";
-	mes "It's been a while since I stopped the business,";
-	mes "but a former client of mine contacted me and asked me";
+	mes "[古怪的老人]";
+	mes "在这一段时间里, 我停止了生意,";
+	mes "但最近我之前的客人联系我并且问我";
 	next;
-	mes "[Weird old man]";
-	mes "If I could get him some unknown objects named 'Will of Warrior', 'Thirst for Blood', 'Chill of the Dead'.";
+	mes "[古怪的老人]";
+	mes "如果我能给他一些物品 '勇士的意志', '血的饥渴', '亡者的寒气'.";
 	next;
-	mes "[Weird old man]";
-	mes "I liked your politeness which is not like most of young people, so if you get me those, I will dare to give you some stuffs that I consider as my treasures.";
+	mes "[古怪的老人]";
+	mes "我喜欢你很有礼貌, 和大多数年轻人不一样, 所以如果你能把我的话传达, 我会给你这些物品.";
 	next;
 	while(1) {
-		switch(select("When I gather them, I will come back", "Show me the armors", "Show me the weapons")) {
+		switch(select("我去收集, 我会回来的", "显示我的装备", "显示我的武器")) {
 		case 1:
-			mes "[Weird old man]";
-			mes "OK, young man. See you later.";
+			mes "[古怪的老人]";
+			mes "OK, 年轻人, 回头见.";
 			close;
 		case 2:
-			mes "[Weird old man]";
-			mes "So, you are interested in armors.";
+			mes "[古怪的老人]";
+			mes "所以, 你对装备有兴趣哦.";
 			next;
-			mes "[Weird old man]";
-			mes "These are the armors I have.";
+			mes "[古怪的老人]";
+			mes "这些都是我的装备.";
 			next;
 			for(.@i = 1; .@i < 8; .@i++) {
 				if (((.@i == 1 || .@i == 5) && (countitem(6469) >= 100) && (countitem(6470) >= 50) && (countitem(6471) >= 35)) || 
@@ -158,62 +166,62 @@ lighthalzen,342,291,4	script	Weird old man#Bio4Reward	4_M_EINOLD,{
 			}
 			while(1) {
 				switch(select(
-					"Show me other items.",
-					""+.@armor$[1]+"Giant Shield^000000",
-					""+.@armor$[2]+"Acient Book of Geffenia-Water^000000",
-					""+.@armor$[3]+"Bible of Promise(2nd Vol.)^000000",
-					""+.@armor$[4]+"Salvage Cape^000000",
-					""+.@armor$[5]+"Assassin's Handcuffs^000000",
-					""+.@armor$[6]+"Green Operating Gown^000000",
-					""+.@armor$[7]+"Ancient Gold Decoration^000000"
+					"给我看其他物品.",
+					""+.@armor$[1]+"守护巨人钢盾^000000",
+					""+.@armor$[2]+"葛帔尼亚的古书(水)^000000",
+					""+.@armor$[3]+"誓约之书(第2卷)^000000",
+					""+.@armor$[4]+"救援斗篷^000000",
+					""+.@armor$[5]+"刺客的手铐^000000",
+					""+.@armor$[6]+"绿色研究服^000000",
+					""+.@armor$[7]+"古代的金饰^000000"
 				)) {
 				case 1:
-					mes "[Weird old man]";
-					mes "Have a look.";
+					mes "[古怪的老人]";
+					mes "请看.";
 					next;
 					.@break = 1;
 					break;
 				case 2:
-					mes "<<Giant Shield[1]>>";
-					mes "Decrease 5% of Damage from Large Monsters, if Refine Lv is 9, decrease 5% more of the Damage.";
-					mes "Shield / Def 130 / Weight 280 / Required Lv 100 / Socket 1 / for 3rd Swordman Classes";
+					mes "<<守护巨人钢盾[1]>>";
+					mes "遭受大型怪物的伤害 -5%, 当精练能力+9时减少量 +5%.";
+					mes "盾牌 / Def 130 / 重量 280 / 要求等级 100 / 洞数 1 / 三转剑士系列";
 					callsub L_Reward, 2160, 100, 50, 35; //Giant_Shield
 					break;
 				case 3:
-					mes "<<Acient Book of Geffenia-Water[1]>>";
-					mes "INT + 1, MDEF + 2. If Original INT point is 120, MATK + 10, MHP + 800.";
-					mes "When equipping with Lacryma Stick, the casting % from Storm Gust, Frost Misty and Jack frost will discount equivalent to 4 times Refine Lv.";
-					mes "Shield / Def 30 / Weight 100 / Required Lv 100 / Socket 1 / for Warlock";
+					mes "<<葛帔尼亚的古书(水)[1]>>";
+					mes "INT + 1, MDEF + 2. 基础INT 120时 MATK +10, MHP+800.";
+					mes "与暴风雪法杖一起装备时, 冰雾/霜冻爆破/暴风雪的变动咏唱减少%为盾牌精炼度的4倍.";
+					mes "盾牌 / Def 30 / 重量 100 / 要求等级 100 / 洞数 1 / 大法师";
 					callsub L_Reward, 2161, 100, 50, 22; //Geffenia_Book_Water
 					break;
 				case 4:
-					mes "<<Bible of Promise(2nd Vol.)[1]>>";
-					mes "MDEF + 5, Allow to use 'Odin's Power'(Lv 2). Increase 5% more for Heal skill.";
-					mes "Shield / Def 20 / Weight 50 / Required Lv 140 / Socket 1 / for Archbishop";
+					mes "<<誓约之书第2卷[1]>>";
+					mes "MDEF + 5, 可使用奥丁之神力 2Lv. 自己使用的治愈量 +5%.";
+					mes "盾牌 / Def 20 / 重量 50 / 要求等级 140 / 洞数 1 / 大主教";
 					callsub L_Reward, 2162, 100, 50, 22; //Bible_Of_Promise2
 					break;
 				case 5:
-					mes "<<Salvage Cape[0]>>";
-					mes "Allow to use 'Cicada Skin Shed'(Lv 1). Cool time for this skill will be 30 seconds. When equiping it, SP consumption for using any skill will be doubled, When taking it off, SP - 1200.";
-					mes "Garment / Def 1 / Weight 40 / Required Lv 130 / Socket 0 / for Archbishop";
-					callsub L_Reward, 2582, 300, 300, 400; //Salvage_Cape
+					mes "<<救援斗篷[0]>>";
+					mes "可使用金蝉脱壳 1Lv, 该技能的冷却时间增加至 30秒, 装备时所有技能的消耗SP为2倍, 卸除时 SP - 1200.";
+					mes "披肩 / Def 1 / 重量 40 / 要求等级 Lv 130 / 洞数 0 / 大法师/大主教";
+					callsub L_Reward, 2582, 100, 50, 35; //Salvage_Cape
 					break;
 				case 6:
-					mes "<<Assassin's Handcuffs[1]>>";
-					mes "MSP + 20, CRI + 3. When equipping with Krishna, ATK + 50, ATK power from 'Sonic Blow' 50% increased, FLEE - 30. When equipping with Cakram CRI + 4, Critical ATK power 40% increased, MHP - 10%.";
-					mes "Accessory / Def 3 / Weight 40 / Required Lv 100 / Socket 1 / for Guillotine Cross";
-					callsub L_Reward, 2892, 100, 50, 35; //Assassin_Handcuffs
+					mes "<<刺客的手铐[1]>>";
+					mes "MSP + 20, CRI + 3. 与奎师那之刃一起装备时, ATK +50, 音速投掷的攻击力 +50%, FLEE - 30. 与脉轮之刃一起装备时, CRI +4, 必杀攻击力 +40%, MHP - 10%.";
+					mes "装饰品 / Def 3 / 重量 40 / 要求等级 Lv 100 / 洞数 1 / 十字切割者";
+					callsub L_Reward, 2892, 300, 300, 400; //Assassin_Handcuffs
 					break;
 				case 7:
-					mes "<<Green Operating Gown[1]>>";
-					mes "DEX + 1, MSP + 30. Equipping with Scalpel will let to drop 'Immortal Heart', 'Alcohol' with a certain chance when hunting Human, Animal type monsters. Refine Lv affects the drop rate.";
-					mes "Armor / Def 66 / Weight 66 / Required Lv 100 / Socket 1 / for Generic";
+					mes "<<绿色研究服[1]>>";
+					mes "DEX + 1, MSP + 30. 与手术刀一起装备后消灭人类系/动物系怪物时, 有机率掉落不死心脏/酒精. 绿色研究服的精炼度会略微提升掉宝率.";
+					mes "铠甲 / Def 66 / 重量 66 / 要求等级 Lv 100 / 洞数 1 / 基因学者";
 					callsub L_Reward, 15044, 100, 50, 30; //Green_Operation_Coat
 					break;
 				case 8:
-					mes "<<Ancient Gold Decoration[1]>>";
-					mes "If the base lv is 150, All State + 2. for Swordman, Merchant, Thief Classes ATK + 8%, for Magician, Acolyte classes MATK + 8%, Heal Power + 7%, for Archer classes DEX + 3, Long Distance ATK power + 10%.";
-					mes "Helm / Def 7 / Location - Upper / Weight 40 / Required Lv 100 / Socket 1 / for 3rd Job Classes";
+					mes "<<古代的金饰[1]>>";
+					mes "DEX + 1, MSP + 30. 剑士,商人,盗贼系列时 ATK +8%, 魔法师,服侍系列时 MATK +8%, 使用的治愈量 +7%, 弓箭手系列时 DEX +3, 远距离物理攻击力 +10%.";
+					mes "头盔 / Def 66 / 重量 66 / 要求等级 Lv 100 / 洞数 1 / 三转弓箭手系列";
 					callsub L_Reward, 18570, 300, 300, 400; //Ancient_Gold_Deco
 					break;
 				}
@@ -224,11 +232,11 @@ lighthalzen,342,291,4	script	Weird old man#Bio4Reward	4_M_EINOLD,{
 			}
 			break;
 		case 3:
-			mes "[Weird old man]";
-			mes "So, you are interested in weapons.";
+			mes "[古怪的老人]";
+			mes "所以, 你有兴趣的武器.";
 			next;
-			mes "[Weird old man]";
-			mes "These are the weapons I've got.";
+			mes "[古怪的老人]";
+			mes "这些是我有的武器";
 			next;
 			for(.@i = 1; .@i < 15; .@i++) {
 				if (((.@i == 1) && (countitem(6469) >= 50) && (countitem(6470) >= 100) && (countitem(6471) >= 10)) ||
@@ -243,80 +251,80 @@ lighthalzen,342,291,4	script	Weird old man#Bio4Reward	4_M_EINOLD,{
 			}
 			while(1) {
 				switch(select(
-					"Show me other items.",
-					""+.@weapon$[1]+"Agent Katar^000000",
-					""+.@weapon$[2]+"Guillotine Katar^000000",
-					""+.@weapon$[3]+"Ygnus Stale^000000",
-					""+.@weapon$[4]+"End Sektura^000000",
-					""+.@weapon$[5]+"Cannon Spear^000000",
-					""+.@weapon$[6]+"Giant Lance^000000",
-					""+.@weapon$[7]+"Chilly Spell Book^000000",
-					""+.@weapon$[8]+"Recovery Light^000000",
-					""+.@weapon$[9]+"Aztoe Nail^000000",
-					""+.@weapon$[10]+"Scarletto Nail^000000",
-					""+.@weapon$[11]+"Bloody Cross^000000",
-					""+.@weapon$[12]+"Catapult^000000",
-					""+.@weapon$[13]+"Big CrossBow^000000",
-					""+.@weapon$[14]+"Creeper Bow^000000"
+					"看看其他物品.",
+					""+.@weapon$[1]+"特务拳刃^000000",
+					""+.@weapon$[2]+"斩首拳刃^000000",
+					""+.@weapon$[3]+"火焰战斧^000000",
+					""+.@weapon$[4]+"急冻战斧^000000",
+					""+.@weapon$[5]+"钙矿石长矛^000000",
+					""+.@weapon$[6]+"守护巨人长矛^000000",
+					""+.@weapon$[7]+"寒气篇魔法书^000000",
+					""+.@weapon$[8]+"元气之光魔杖^000000",
+					""+.@weapon$[9]+"绿光魔短剑^000000",
+					""+.@weapon$[10]+"红光魔短剑^000000",
+					""+.@weapon$[11]+"嗜血十字锤^000000",
+					""+.@weapon$[12]+"元戎弩^000000",
+					""+.@weapon$[13]+"超异能十字弓^000000",
+					""+.@weapon$[14]+"束缚之弓^000000"
 				)) {
 				case 1:
-					mes "[Weird old man]";
-					mes "Have a look.";
+					mes "[古怪的老人]";
+					mes "看看.";
 					next;
 					.@break = 1;
 					break;
 				case 2:
-					mes "<<Agent Katar[1]>>";
-					mes "Every 2 Original LUK points gets additional 1 HIT point";
-					mes "Katar / ATK 170 / Weight 120 / Weapon Lv 3 / Required Lv 100 / Socket 1 / for Guillotine Cross";
+					mes "<<特务拳刃[1]>>";
+					mes "基础LUK每加2点, HIT +1.";
+					mes "拳刃 / ATK 170 / 重量 120 / 武器等级 Lv 3 / 要求等级 Lv 100 / 洞数 1 / 十字切割者";
 					callsub L_Reward, 1290, 50, 100, 10; //Agent_Katar
 					break;
 				case 3:
-					mes "<<Guillotine Katar[1]>>";
-					mes "DEX + 2. FLEE - 30. 50% more damage to Human monsters. Add 30% more damage for Cross Impact skill.";
-					mes "Katar / ATK 200 / Weight 150 / Weapon Lv 4 / Required Lv 140 / Socket 1 / for Guillotine Cross";
+					mes "<<斩首拳刃[1]>>";
+					mes "DEX + 2. FLEE - 30. 对人类系的敌人伤害 +50%. 十字斩的伤害 +30%.";
+					mes "拳刃 / ATK 200 / 重量 150 / 武器等级 Lv 4 / 要求等级 Lv 140 / 洞数 1 / 十字切割者";
 					callsub L_Reward, 1291, 50, 100, 85; //Guillotine_Katar
 					break;
 				case 4:
-					mes "<<Ygnus Stale[1]>>";
-					mes "When doing short distance attack, cast Burn status to the player and to the enemy with a certain chance.";
-					mes "Two-Handed Axe / ATK 250 / Weight 190 / Fire Property / Weapon Lv 4 / Required Lv 95 / Socket 1 / for High Swordman/Merchant Classes";
+					mes "<<火焰战斧[1]>>";
+					mes "近距离物理攻击时有机率对敌人和自己发动着火.";
+					mes "双手斧 / ATK 250 / 重量 190 / 火属性 / 武器等级 Lv 4 / 要求等级 Lv 95 / 洞数 1 / 转生剑士/商人系列";
 					callsub L_Reward, 1392, 50, 100, 35; //Ygnus_Stale
 					break;
 				case 5:
-					mes "<<End Sektura[1]>>";
-					mes "When doing short distance attack, cast Freezing to the player and to the enemy with a certain chance.";
-					mes "Two-Handed Axe / ATK 250 / Weight 190 / Water Property / Weapon Lv 4 / Required Lv 95 / Socket 1 / for High Swordman/Merchant Classes";
+					mes "<<急冻战斧[1]>>";
+					mes "近距离物理攻击时有机率对敌人和自己发动结晶";
+					mes "双手斧 / ATK 250 / 重量 190 / 水属性 / 武器等级 Lv 4 / 要求等级 Lv 95 / 洞数 1 / 转生剑士/商人系列";
 					callsub L_Reward, 1393, 50, 100, 35; //End_Sektura
 					break;
 				case 6:
-					mes "<<Cannon Spear[1]>>";
-					mes "MSP - 100, Increases 10% of Damage impacted with Cannon Spear, Additional ATK power of Cannon Spear equivalent to 3 times Refine Lv.";
-					mes "One-Handed Spear / ATK 180 / Weight 160 / Weapon Lv 4 / Required Lv 100 / Socket 1 / for Royal Guard";
+					mes "<<钙矿石长矛[1]>>";
+					mes "MSP - 100, [加农炮]攻击力 +10%, 该技能攻击力额外增加到精炼值的3倍";
+					mes "单手枪 / ATK 180 / 重量 160 / 武器等级 Lv 4 / 要求等级 Lv 100 / 洞数 1 / 皇家卫士";
 					callsub L_Reward, 1435, 50, 100, 40; //Cannon_Spear
 					break;
 				case 7:
-					mes "<<Giant Lance[0]>>";
-					mes "ASPD - 10, When it's taken off, the character gets SP - 600. 20 more seconds of Delay time exists before using back the Clashing Spiral. If the original STR points are 120, + ATK 300.";
-					mes "Two-Handed Lance / ATK 20 / Weight 2000 / Weapon Lv 4 / Required Lv 140 / Socket 0 / for Rune Knight";
+					mes "<<守护巨人长矛[0]>>";
+					mes "ASPD - 10, 卸除时 SP - 600. 螺旋击刺的再使用延迟 +20秒. 基础STR 120以上时, ATK +300.";
+					mes "双手枪 / ATK 20 / 重量 2000 / 武器等级 Lv 4 / 要求等级 Lv 140 / 洞数 0 / 符文骑士";
 					callsub L_Reward, 1490, 300, 300, 400; //Giant_Lance
 					break;
 				case 8:
-					mes "<<Chilly Spell Book[2]>>";
-					mes "MATK + 160, DEX + 1. Increases ATK % of Cold Bolt, Diamond Dust equivalent to 3 times Refine Lv, also SP consumption from those skills increased equivalent to 5 times Refine Lv. Undestroyable.";
-					mes "Book / ATK 100 / Weight 100 / Water Property / Weapon Lv 4 / Required Lv 100 / Socket 2 / for Sorcerer";
+					mes "<<寒气篇魔法书[2]>>";
+					mes "MATK + 160, DEX + 1. 冰箭术, 钻石星尘的攻击力增加%幅度为精炼度的3倍, 该技能的消耗SP增加幅度为精炼度的5倍.";
+					mes "书 / ATK 100 / 重量 100 / 水属性 / 武器等级 Lv 4 / 要求等级 Lv 100 / 洞数 2 / 元素使";
 					callsub L_Reward, 1584, 50, 100, 40; //Chilly_Spell_Book
 					break;
 				case 9:
-					mes "<<Recovery Light[1]>>";
-					mes "MATK + 160. Depending on its Refine Lv, Heal Ability and SP consumption for the skill increased. Indestructible.";
-					mes "One-Handed Staff / ATK 30 / Weight 40 / Saint Property / Weapon Lv 4 / Required Lv 110 / Socket 1 / for Archbishop.";
+					mes "<<元气之光魔杖[1]>>";
+					mes "MATK + 160. 依精炼度治愈量和治愈时所消耗的SP也随之大幅度的增加. 不会损坏.";
+					mes "单手杖 / ATK 30 / 重量 40 / 圣属性 / 武器等级 Lv 4 / 要求等级 Lv 110 / 洞数 1 / 大主教.";
 					callsub L_Reward, 1659, 50, 100, 35; //Recovery_Light
 					break;
 				case 10:
-					mes "<<Aztoe Nail[0]>>";
-					mes "MATK + 80. For Physical Melee Attack, cast Freezing to the target with a certain chance. The chance is affected by Refine Lv.";
-					mes "Dagger / ATK 160 / Weight 50 / Wind Property / Weapon Lv 4 / Required Lv 110 / Socket 0 / for High Swordman/Merchant/Theif Classes";
+					mes "<<绿光魔短剑[0]>>";
+					mes "MATK + 80. 近距离物理攻击时有机率对目标发动冰冻, 依精炼度冰冻机率会增加.";
+					mes "短剑 / ATK 160 / 重量 50 / 风属性 / 武器等级 Lv 4 / 要求等级 Lv 110 / 洞数 0 / 转生剑士/商人/盗贼系列";
 					callsub L_Reward, 13069, 50, 100, 35; //Aztoe_Nail
 					break;
 				case 11:
@@ -326,27 +334,27 @@ lighthalzen,342,291,4	script	Weird old man#Bio4Reward	4_M_EINOLD,{
 					callsub L_Reward, 13070, 50, 100, 35; //Scarletto_Nail
 					break;
 				case 12:
-					mes "<<Bloody Cross[0]>>";
-					mes "For Physical Melee Attack, autocast 'Hell Inferno'(Lv 1) with a certain chance. The chance is affected by Refine Lv.";
-					mes "Mace / ATK 170 / Weight 150 / Darkness Property / Weapon Lv 4 / Required Lv 100 / Socket 0 / for High Acolyte Classes";
+					mes "<<嗜血十字锤[0]>>";
+					mes "近距离物理攻击时有机率发动自动念咒 毁灭烈焰1Lv, 依精炼度该技能的发动机率也会增加";
+					mes "钝器 / ATK 170 / 重量 150 / 暗属性 / 武器等级 Lv 4 / 要求等级 Lv 100 / 洞数 0 / 转生服侍系列";
 					callsub L_Reward, 16017, 50, 100, 40; //Bloody_Cross
 					break;
 				case 13:
-					mes "<<Catapult[2]>>";
-					mes "Increases ATK % of 'Triangle Shot' equivalent to 2 times Refine Lv, Also SP consumption from the skill increased.";
-					mes "Bow / ATK 150 / Weight 110 / Weapon Lv 4 / Required Lv 100 / Socket 2 / for Shadow Chaser";
+					mes "<<元戎弩[2]>>";
+					mes "三角射击的攻击力增加%幅度为精炼度的2倍, 该技能的消耗SP也会增加.";
+					mes "弓 / ATK 150 / 重量 110 / 武器等级 Lv 4 / 要求等级 Lv 100 / 洞数 2 / 逐影";
 					callsub L_Reward, 18109, 50, 100, 35; //Catapult
 					break;
 				case 14:
-					mes "<<Big CrossBow[2]>>";
-					mes "Increases ATK % of 'Arrow Storm' equivalent to 5 times Refine Lv. Also SP consumption from the skill increased, If the Original AGI points are 120, ASPD + 1.";
-					mes "Bow / ATK 160 / Weight 90 / Weapon Lv 4 / Required Lv 110 / Socket 2 / for Ranger";
+					mes "<<超异能十字弓[2]>>";
+					mes "箭雨风暴攻击力增加%幅度为精炼度的5倍, 该技能的消耗SP也会增加, 基础AGI 120时 ASPD+1.";
+					mes "弓 / ATK 160 / 重量 90 / 武器等级 Lv 4 / 要求等级 Lv 110 / 洞数 2 / 游侠";
 					callsub L_Reward, 18110, 50, 100, 35; //Big_CrossBow
 					break;
 				case 15:
-					mes "<<Creeper Bow[2]>>";
-					mes "DEX + 1, For Physical Attack, auto-cast 'Fiber Lock'(Lv 1) with a certain chance.";
-					mes "Bow / ATK 150 / Weight 150 / Weapon Lv 3 / Required Lv 120 / Socket 2 / for 3rd Archer Classes";
+					mes "<<束缚之弓[2]>>";
+					mes "DEX +1, 物理攻击时有机率发动自动念咒 易燃之网 1Lv.";
+					mes "弓 / ATK 150 / 重量 150 / 武器等级 Lv 3 / 要求等级 Lv 120 / 洞数 2 / 三转弓箭手系列";
 					callsub L_Reward, 18111, 50, 100, 35; //Creeper_Bow
 					break;
 				}
@@ -362,12 +370,12 @@ lighthalzen,342,291,4	script	Weird old man#Bio4Reward	4_M_EINOLD,{
 L_Reward:
 	setarray .@amount[0], getarg(1), getarg(2), getarg(3);
 	next;
-	mes ""+ .@amount[0] +" Will of Warrior, "+ .@amount[1] +" Thirst for Blood, "+ .@amount[2] +" Chill of the Dead are needed for the exchange.";
+	mes "我需要"+ .@amount[0] +" 勇士的意志, "+ .@amount[1] +" 血的饥渴, "+ .@amount[2] +" 亡者的寒气";
 	next;
 	if (countitem(6469) >= .@amount[0] && countitem(6470) >= .@amount[1] && countitem(6471) >= .@amount[2]) {
-		if (select("Don't exchange", "Exchange") == 1) {
-			mes "[Weird old man]";
-			mes "Okay..";
+		if (select("不换", "换取") == 1) {
+			mes "[古怪的老人]";
+			mes "好的..";
 			close;
 		}
 		emotion e_swt2, "Weird old man#Bio4Reward";
@@ -376,8 +384,8 @@ L_Reward:
 		delitem 6470, .@amount[1]; //Blood_Thirst
 		delitem 6471, .@amount[2]; //Goast_Chill
 		getitem getarg(0), 1;
-		mes "[Weird old man]";
-		mes "There you go. Visit me sometimes and we could talk.";
+			mes "[古怪的老人]";
+			mes "你去那里.访问我的时候, 我们可以谈谈";
 		close;
 	}
 	return;
@@ -385,151 +393,151 @@ L_Reward:
 
 // Sorcerer (Rewards)
 //============================================================
-lhz_cube,233,24,4	script	Sorcerer#Bio4Reward	4_M_UMDANCEKID,{
+lhz_cube,233,24,4	script	巫师#Bio4Reward	4_M_UMDANCEKID,{
 	if ((MaxWeight - Weight) < 1200 || !checkweight(1201, 1)) {
-		mes "^FF0000 Check up your inventory. You got too many items to carry out the quest. ^000000";
+		mes "^FF0000 无法完成任务因为你身上太重或者东西太多. ^000000";
 		close;
 	}
 	disable_items;
-	mes "[Pudding]";
+	mes "[布丁]";
 	mes "... .... ...";
 	next;
-	switch(select("Umba umba humbaa", "What are you doing here?", "Which are the equipments found so far?", "Here you are, Sir.")) {
+	switch(select("Umba umba humbaa", "你在这里做什么?", "这是迄今为止发现的设备?", "给你, 先生")) {
 	case 1:
 		emotion e_an;
-		mes "[Pudding]";
-		mes "Hey, excuse me, but I'm not from Umbala! You are so rude.";
+		mes "[布丁]";
+		mes "嘿, 对不起, 但我不是汶巴拉人!你真粗鲁";
 		close;
 	case 2:
-		mes "[Pudding]";
-		mes "As you can see, I'm a training Sorcerer, and my name is Pudding.";
+		mes "[布丁]";
+		mes "正如你所看到的, 我是个巫师, 我的名字叫布丁.";
 		next;
 		select("....?");
 		emotion e_an;
-		mes "[Pudding]";
-		mes "... What's that face? I'm starting to feel unpleasant..";
+		mes "[布丁]";
+		mes "... 那是什么脸?我开始感到不愉快..";
 		next;
 		emotion e_ok;
-		mes "[Pudding]";
-		mes "Couple of days ago, while I was undergoing discipline, I felt a strange, bizzare tinge. So I followed that and it brought me here.";
+		mes "[布丁]";
+		mes "前两天,我感到奇怪, 古怪色彩.所以我也跟着说, 它把我带到这里";
 		next;
-		select("I see.");
-		mes "[Pudding]";
-		mes "OK, let me continue. I am so bothered if you disturb me while I'm talking.";
+		select("我看到.");
+		mes "[布丁]";
+		mes "好吧, 让我继续.请别打扰我.";
 		next;
-		mes "[Pudding]";
-		mes "And I entered to the laboratory here in order to investigate, and oh gosh! I found those monsters which were like doppelgangers from 'Geffen Dungeon'. It was full of them.";
+		mes "[布丁]";
+		mes "我进了这里的实验室做研究, 哦天哪!我发现那些怪物, 其中像从“吉芬地下城”的魔物充斥在其中.";
 		next;
-		mes "[Pudding]";
-		mes "From those monsters, I could find rare items like '^F2766EWill of Warrior^000000' '^952420Thirst for Blood^000000' '^88C6F7Chill of the Dead^000000' which you cannot find from any other place.";
+		mes "[布丁]";
+		mes "从这些怪物中, 我能找到稀有物品 '^F2766E勇士的意志^000000' '^952420血的饥渴^000000' '^88C6F7亡者的寒气^000000' 他们不会出现在其他地方.";
 		next;
 		emotion e_what, "Sorcerer#Bio4Reward";
-		mes "[Pudding]";
-		mes "And after many hours of research on my own, I finally figured out a way to use those items. Do you wanna know?";
+		mes "[布丁]";
+		mes "很多时间对我自己的研究后, 我终于想出了一个办法来使用这些物品.你想知道吗?";
 		next;
-		switch(select("Oh....pardon?!", "Of course, I really wanna know.")) {
+		switch(select("呵呵....","当然了, 我真的很想知道")) {
 		case 1:
 			emotion e_omg, 1;
 			emotion e_an, "Sorcerer#Bio4Reward";
-			mes "[Pudding]";
-			mes "Oh my! You fell asleep after you asked me something? Well, anyway I feel lazy to explain again so I will just continue.";
+			mes "[布丁]";
+			mes "噢, 我的!你睡着了, 你叫我什么呢?好吧, 反正我觉得懒得再解释, 所以我只会继续下去";
 			next;
 			break;
 		case 2:
 			emotion e_heh, "Sorcerer#Bio4Reward";
-			mes "[Pudding]";
-			mes "Good, I am content that you are listening to my story carefully. Then I will keep explaining.";
+			mes "[布丁]";
+			mes "不错, 你仔细听我说话然后我会一一解释.";
 			next;
 			break;
 		}
-		mes "[Pudding]";
-		mes "Those '^F2766EWill of Warrior^000000' and '^952420Thirst for Blood^000000'..... are aggresive but warm materials.";
+		mes "[布丁]";
+		mes "Those '^F2766E勇士的意志^000000' and '^952420血的饥渴^000000'..... 可以用来做保暖的材料.";
 		next;
-		mes "[Pudding]";
-		mes "So '^F2766EWill of Warrior^000000' can dwell a special power to the 4th slot of an equipment,";
+		mes "[布丁]";
+		mes "而 '^F2766E勇士的意志^000000' 能够在装备的第四槽为你的装备增加能力,";
 		next;
-		mes "[Pudding]";
-		mes "and '^952420Thirst for Blood^000000' can dwell a special power to the 3rd slot.";
+		mes "[布丁]";
+		mes "还有 '^952420血的饥渴^000000' 可以在装备第三槽进行附魔.";
 		next;
-		mes "[Pudding]";
-		mes "Whereas!!!";
-		mes "'^88C6F7Chill of the Dead^000000' is a cold type material.";
-		mes "which allows to return the power from '^F2766EWill of Warrior^000000' or '^952420Thirst for Blood^000000' so it let the equipment to be 'ZERO'.";
+		mes "[布丁]";
+		mes "而且!!!";
+		mes "'^88C6F7亡者的寒气^000000' 是一种冷冻材料.";
+		mes "它允许从'^F2766E勇士的意志^000000' 或者 '^952420血的饥渴^000000'返回能量.";
 		next;
-		mes "[Pudding]";
-		mes "What do you say? Doesn't it sound interesting? But, there's a problem...";
+		mes "[布丁]";
+		mes "你说什么?没有听起来有趣吗?但是, 有一个问题...";
 		next;
-		mes "[Pudding]";
-		mes "Since those materials can only be found from the monsters in the Lab., the special power also can be dwelt into certain equipments which can be obtained from the Lab.";
+		mes "[布丁]";
+		mes "只能从实验室的那些怪物身上获取这些材料";
 		next;
-		select("So what's the conclusion?");
+		select("那么, 结论是什么?");
 		emotion e_what, 1;
 		emotion e_an;
-		mes "[Pudding]";
-		mes "Gee.. I told you not to cut while I talk, didn't I? Well, I will answer that becuase that's important.";
+		mes "[布丁]";
+		mes "啧啧......我告诉过你在我说话的时候不要打断我, 好吧, 我会回答这个重要的问题的.";
 		next;
-		mes "[Pudding]";
-		mes "If you bring me 10 '^F2766EWill of Warrior^000000' or 10 '^952420Thirst for Blood^000000', I will dwell some power to certain equipments that you can find in the Lab..";
+		mes "[布丁]";
+		mes "如果你给我带来10个 '^F2766E勇士的意志^000000' 或者 10个 '^952420血的饥渴^000000', 我会帮你进行附魔, 而这些材料可以在实验室里获得.";
 		next;
-		mes "[Pudding]";
-		mes "And if you are not satisfied with the power you got, bring me 10 '^88C6F7Chill of the Dead^000000', and I will take off that power.";
+		mes "[布丁]";
+		mes "如果你不满意你拥有强大的力量, 给我带来10个 '^88C6F7亡者的寒气^000000', 我将给你的装备进行附魔";
 		next;
-		mes "[Pudding]";
-		mes "WHat do you say? Having both options.....quite nice, huh?";
+		mes "[布丁]";
+		mes "你说什么?有两个选项.....相当不错, 是吧?";
 		next;
-		mes "[Pudding]";
-		mes "If you obtain '^F2766EWill of Warrior^000000' or '^952420Thirst for Blood^000000', and obtain also equipment which is capable to accept their power, bring them to me. I will be waiting.";
+		mes "[布丁]";
+		mes "如果您获得 '^F2766E勇士的意志^000000' 或者 '^952420血的饥渴^000000', 并且还有可以附魔的装备, 我将对你的装备进行附魔, 快点拿来给我, 我会在这里等你.";
 		close;
 	case 3:
-		mes "[Pudding]";
-		mes "Hm.... Equipment which are discovered so far are....";
+		mes "[布丁]";
+		mes "这是迄今发现的....";
 		next;
-		mes "- checking -";
-		mes "Pudding takes some paper out from a pocket.";
+		mes "- 检查 -";
+		mes "布丁从口袋里拿出了一张纸";
 		next;
-		mes "[Pudding]";
-		mes "Let me see.. the equipments discovered until now are....";
-		mes "6 Armors, 14 Weapons.";
+		mes "[布丁]";
+		mes "让我看看....";
+		mes "6盔甲, 14武器";
 		next;
 		while(1) {
-			switch(select("Ok, I don't have to know more.", "6 Armors", "14 Weapons")) {
+			switch(select("好吧, 我需要知道更多信息", "6个盔甲", "14个武器")) {
 			case 1:
-				mes "[Pudding]";
-				mes "If you obtain '^F2766EWill of Warrior^000000' or '^952420Thirst for Blood^000000', and obtain also equipment which is capable to accept their power, bring them to me. I will be waiting.";
+				mes "[布丁]";
+				mes "如果您获得 '^F2766E勇士的意志^000000' 或者 '^952420血的饥渴^000000', 并且还有可以附魔的装备, 我将对你的装备进行附魔, 快点拿来给我, 我会在这里等你.";
 				close;
 			case 2:
-				mes "< Armor List >";
-				mes "Giant Shield[1]";
-				mes "Acient Book of Geffenia-Water[1]";
-				mes "Bible of Promise(2nd Vol.)[1]";
-				mes "Salvage Cape[0]";
-				mes "Assassin's Handcuffs[1]";
-				mes "Green Operating Gown[1]";
-				mes "Ancient Gold Decoration[1]";
+				mes "< 防具列表 >";
+				mes "守护巨人钢盾[1]";
+				mes "葛帔尼亚的古书(水)[1]";
+				mes "誓约之书第2卷[1]";
+				mes "救援斗篷[0]";
+				mes "刺客的手铐[1]";
+				mes "绿色研究服[1]";
+				mes "古代的金饰[1]";
 				next;
-				mes "[Pudding]";
-				mes "So far these are the Armors discovered. Do you wanna see other things?";
+				mes "[布丁]";
+				mes "到目前为止, 这些都是发现了的装甲.难道你想看到其他的东西?";
 				next;
 				break;
 			case 3:
-				mes "< Weapon List >";
-				mes "Agent Katar[1]";
-				mes "Guillotine Katar[1]";
-				mes "Ygnus Stale[1]";
-				mes "End Sektura[1]";
-				mes "Cannon Spear[1]";
-				mes "Giant Lance[0]";
-				mes "Chilly Spell Book[2]";
-				mes "Recovery Light[1]";
-				mes "Aztoe Nail[0]";
-				mes "Scarletto Nail[0]";
-				mes "Bloody Cross[0]";
-				mes "Catapult[2]";
-				mes "Big CrossBow[2]";
-				mes "Creeper Bow[2]";
+				mes "< 武器列表 >";
+				mes "特务拳刃[1]";
+				mes "斩首拳刃[1]";
+				mes "火焰战斧[1]";
+				mes "急冻战斧[1]";
+				mes "钙矿石长矛[1]";
+				mes "守护巨人长矛[0]";
+				mes "寒气篇魔法书[2]";
+				mes "元气之光魔杖[1]";
+				mes "绿光魔短剑[0]";
+				mes "红光魔短剑[0]";
+				mes "嗜血十字锤[0]";
+				mes "元戎弩[2]";
+				mes "超异能十字弓[2]";
+				mes "束缚之弓[2]";
 				next;
-				mes "[Pudding]";
-				mes "So far these are the Weapons discovered. Do you wanna see other things?";
+				mes "[布丁]";
+				mes "到目前为止, 这些都是发现了的武器.难道你想看到其他的东西?";
 				next;
 				break;
 			}
@@ -537,102 +545,102 @@ lhz_cube,233,24,4	script	Sorcerer#Bio4Reward	4_M_UMDANCEKID,{
 		close;
 	case 4:
 		emotion e_flash;
-		mes "[Pudding]";
-		mes "Ohhhhh Have you brought them?";
+		mes "[布丁]";
+		mes "啊啊啊啊, 你没有把它们带来吗?";
 		next;
 		break;
 	}
-	mes "[Pudding]";
-	mes "OKAY! In which equipment you want to dwell the power?";
+	mes "[布丁]";
+	mes "好啊, 你想要什么能力?";
 	next;
 	setarray .@parts[0], EQI_ARMOR, EQI_HAND_L, EQI_HAND_R, EQI_GARMENT, EQI_ACC_L, EQI_ACC_R, EQI_HEAD_TOP;
 	for(.@i = 0; .@i < 7; .@i++) {
 		if (!getequipisequiped(.@parts[.@i])) {
 			switch(.@i) {
 				case 0:
-					.@equipped$[.@i] = "^999999Armor-[Not equipped]^000000";
+					.@equipped$[.@i] = "^999999衣服-[没有装备]^000000";
 					break;
 				case 1:
-					.@equipped$[.@i] = "^999999Left Hand-[Not equipped]^000000";
+					.@equipped$[.@i] = "^999999左手-[没有装备]^000000";
 					break;
 				case 2:
-					.@equipped$[.@i] = "^999999Right Hand-[Not equipped]^000000";
+					.@equipped$[.@i] = "^999999右手-[没有装备]^000000";
 					break;
 				case 3:
-					.@equipped$[.@i] = "^999999Garment-[Not equipped]^000000";
+					.@equipped$[.@i] = "^999999披肩-[没有装备]^000000";
 					break;
 				case 4:
-					.@equipped$[.@i] = "^999999Accessory-[Not equipped]^000000";
+					.@equipped$[.@i] = "^999999装饰品-[没有装备]^000000";
 					break;
 				case 5:
-					.@equipped$[.@i] = "^999999Accessory-[Not equipped]^000000";
+					.@equipped$[.@i] = "^999999装饰品-[没有装备]^000000";
 					break;
 				case 6:
-					.@equipped$[.@i] = "^999999Helm-[Not equipped]^000000";
+					.@equipped$[.@i] = "^999999头下-[没有装备]^000000";
 					break;
 			}
 		} else {
 			.@equipped$[.@i] = getequipname(.@parts[.@i]);
 		}
 	}
-	switch(select("I changed my mind.", .@equipped$[0], .@equipped$[1], .@equipped$[2], .@equipped$[3], .@equipped$[4], 
+	switch(select("我改变主意了.", .@equipped$[0], .@equipped$[1], .@equipped$[2], .@equipped$[3], .@equipped$[4],
 	.@equipped$[5], .@equipped$[6])) {
 	case 1:
-		mes "[Pudding]";
-		mes "Well, I was looking forward to doing it, but I cannot help then.";
+		mes "[布丁]";
+		mes "好吧, 我期待着这样做, 但我不能帮助";
 		close;
 	case 2:
 		if (!getequipisequiped(EQI_ARMOR)) {
-			mes "[Pudding]";
-			mes "Hey..Where is the armor?";
+			mes "[布丁]";
+			mes "嘿, 你的衣服呢?";
 			close;
 		}
 		.@part = EQI_ARMOR;
 		break;
 	case 3:
 		if (!getequipisequiped(EQI_HAND_L)) {
-			mes "[Pudding]";
-			mes "Well.. You are not equipping anything on the left hand.";
+			mes "[布丁]";
+			mes "你的左手没有任何装备";
 			close;
 		}
 		.@part = EQI_HAND_L;
 		break;
 	case 4:
 		if (!getequipisequiped(EQI_HAND_R)) {
-			mes "[Pudding]";
-			mes "Well.. You are not equipping anything on the right hand.";
+			mes "[布丁]";
+			mes "你的右手没有任何装备.";
 			close;
 		}
 		.@part = EQI_HAND_R;
 		break;
 	case 5:
 		if (!getequipisequiped(EQI_GARMENT)) {
-			mes "[Pudding]";
-			mes "Um.... Where's your robe?";
+			mes "[布丁]";
+			mes "呃, 你的披肩呢?";
 			close;
 		}
 		.@part = EQI_GARMENT;
 		break;
 	case 6:
 		if (!getequipisequiped(EQI_ACC_L)) {
-			mes "[Pudding]";
-			mes ".....Where's the accessory?";
+			mes "[布丁]";
+			mes ".....你的装饰品呢?";
 			close;
 		}
 		.@part = EQI_ACC_L;
 		break;
 	case 7:
 		if (!getequipisequiped(EQI_ACC_R)) {
-			mes "[Pudding]";
-			mes ".....Where's the accessory?";
+			mes "[布丁]";
+			mes ".....你的装饰品呢?";
 			close;
 		}
 		.@part = EQI_ACC_R;
 		break;
 	case 8:
 		if (!getequipisequiped(EQI_HEAD_TOP)) {
-			mes "[Pudding]";
-			mes "Hey.. Are you not wearing any Helm?";
+			mes "[布丁]";
+			mes "嘿, 这部位好像没有装备.";
 			close;
 		}
 		.@part = EQI_HEAD_TOP;
@@ -658,52 +666,52 @@ lhz_cube,233,24,4	script	Sorcerer#Bio4Reward	4_M_UMDANCEKID,{
 		if (.@equip_item == 2582 || .@equip_item == 18570)
 			.@lhz_max_num = 4200;
 	} else {
-		mes "[Pudding]";
-		mes "Before! I need to check if this equipment can accept the power.";
+		mes "[布丁]";
+		mes "在这之前我需要检查一下该装备是否可以附魔.";
 		next;
 		specialeffect2 EF_SPHERE;
 		progressbar "ffff00", 2;
 		specialeffect2 EF_SUI_EXPLOSION;
 		emotion e_sob;
-		mes "[Pudding]";
-		mes "Hm.... This equipment cannot accept the power of '^F2766EWill of Warrior^000000' or '^952420Thirst for Blood^000000'.";
+		mes "[布丁]";
+		mes "呃, 该装备不能接受'^F2766E勇士的意志^000000' 或者 '^952420血的饥渴^000000'的能力.";
 		close;
 	}
 	emotion e_ho;
-	mes "[Pudding]";
-	mes "OHHH.. This equipment could accept the power of '^F2766EWill of Warrior^000000' or '^952420Thirst for Blood^000000'.";
+	mes "[布丁]";
+	mes "这装备可以接受 '^F2766E勇士的意志^000000' 或者 '^952420血的饥渴^000000'的能力.";
 	next;
 	if (countitem(6469) >= 10)
-		.@menu_in$[1] = "Dwell the power of '^F2766EWill of Warrior^000000'";
+		.@menu_in$[1] = "^F2766勇士的意志^000000的能力";
 	else
-		.@menu_in$[1] = "Not enough ^999999'Will of Warrior'^000000";
+		.@menu_in$[1] = "^999999'勇士的意志'^000000还不够";
 
 	if (countitem(6470) >= 10)
-		.@menu_in$[2] = "Dwell the power of '^952420Thirst for Blood^000000'";
+		.@menu_in$[2] = "'^952420血的饥渴^000000'的能力";
 	else
-		.@menu_in$[2] = "Not enough ^999999'Thirst for Blood'^000000";
+		.@menu_in$[2] = "^999999'血的饥渴'^000000还不够";
 
 	if (countitem(6471) >= 10)
-		.@menu_in$[3] = "Consume the '^88C6F7Chill of the Dead^000000'";
+		.@menu_in$[3] = "消费'^88C6F7亡者的寒气^000000'";
 	else
-		.@menu_in$[3] = "Not enough ^999999'Chill of the Dead'^000000";
-	mes "[Pudding]";
-	mes "OK! Which power do you want to dwell in your equipment?";
+		.@menu_in$[3] = "^999999'亡者的寒气'^000000还不够";
+	mes "[布丁]";
+	mes "好了!你想在哪个装备中注入能力?";
 	next;
-	switch(select("I say no! I don't need that!!", .@menu_in$[1], .@menu_in$[2], .@menu_in$[3])) {
+	switch(select("我不需要!!", .@menu_in$[1], .@menu_in$[2], .@menu_in$[3])) {
 	case 1:
-		mes "[Pudding]";
-		mes "Ohhh.. I was looking forward to doing it, but it's all up to you......";
+		mes "[布丁]";
+		mes "哦..我很期待这样做, 但是这一切都取决于你......";
 		close;
 	case 2:
 		if (countitem(6469) < 10) {
-			mes "[Pudding]";
-			mes "Not enough '^F2766EWill of Warrior^000000', You need to bring 10 '^F2766EWill of Warrior^000000'";
+			mes "[布丁]";
+			mes "'^F2766E勇士的意志^000000'还不够, 你需要10个'^F2766E勇士的意志^000000'";
 			close;
 		}
 		else if (getequipcardid(.@part, 3) > 0) {
-			mes "[Pudding]";
-			mes "This equipment already got the power of '^F2766EWill of Warrior^000000'.";
+			mes "[布丁]";
+			mes "这个装备已经获得了'^F2766E勇士的意志^000000'.";
 			close;
 		} else {
 			.@socket_type = 4;
@@ -711,13 +719,13 @@ lhz_cube,233,24,4	script	Sorcerer#Bio4Reward	4_M_UMDANCEKID,{
 		break;
 	case 3:
 		if (countitem(6470) < 10) {
-			mes "[Pudding]";
-			mes "Not enough '^952420Thirst for Blood^000000', You need to bring 10 '^952420Thirst for Blood^000000'";
+			mes "[布丁]";
+			mes "'^952420血的饥渴^000000'还不够, 你需要10个'^952420血的饥渴^000000'";
 			close;
 		}
 		else if (getequipcardid(.@part, 2) > 0) {
-			mes "[Pudding]";
-			mes "This equipment already got the power of '^952420Thirst for Blood^000000'.";
+			mes "[布丁]";
+			mes "这个装备已经获得了'^952420血的饥渴^000000'.";
 			close;
 		} else {
 			.@socket_type = 3;
@@ -726,43 +734,43 @@ lhz_cube,233,24,4	script	Sorcerer#Bio4Reward	4_M_UMDANCEKID,{
 	case 4:
 		// Enchant Removal
 		if (countitem(6471) < 10) {
-			.@menu_clear$[1] = "^999999Not enough 'Chill of the Dead'^000000";
-			.@menu_clear$[2] = "^999999Not enough 'Chill of the Dead'^000000";
+			.@menu_clear$[1] = "^999999'亡者的寒气'^000000还不够";
+			.@menu_clear$[2] = "^999999'亡者的寒气'^000000还不够";
 			.@4thzptsodyd = 1;
 			.@3thzptsodyd = 1;
 		} else {
 			if (getequipcardid(.@part, 3) > 0) {
-				.@menu_clear$[1] = "Remove the power of '^F2766EWill of Warrior^000000'";
+				.@menu_clear$[1] = "移除'^F2766E勇士的意志^000000'的能力";
 			} else {
-				.@menu_clear$[1] = "^999999There's no power to remove^000000";
+				.@menu_clear$[1] = "^999999没有能力可以移除^000000";
 				.@4thzptsodyd = 1;
 			}
 			if (getequipcardid(.@part, 2) > 0) {
-				.@menu_clear$[2] = "Remove the power of '^952420Thirst for Blood^000000'";
+				.@menu_clear$[2] = "移除'^952420血的饥渴^000000'的能力";
 			} else {
-				.@menu_clear$[2] = "^999999There's no power to remove^000000";
+				.@menu_clear$[2] = "^999999没有能力可以移除^000000";
 				.@3thzptsodyd = 1;
 			}
 		}
-		mes "[Pudding]";
-		mes "Alright, which power do you want to remove?";
+		mes "[布丁]";
+		mes "好吧, 你想要把能力移除?";
 		next;
-		.@menu = select("No, I don't wannna remove any.", .@menu_clear$[1], .@menu_clear$[2]);
+		.@menu = select("不, 我不想.", .@menu_clear$[1], .@menu_clear$[2]);
 		switch(.@menu){
 		case 1:
-			mes "[Pudding]";
-			mes "Really? Ok. I got it..";
+			mes "[布丁]";
+			mes "真的?好吧..";
 			close;
 		case 2:
 		case 3:
 			if (countitem(6471) < 10) {
-				mes "[Pudding]";
-				mes "Not enough '^88C6F7Chill of the Dead^000000', You need to bring 10 '^88C6F7Chill of the Dead^000000'";
+				mes "[布丁]";
+				mes "'^88C6F7亡者的寒气^000000'不够, 你需要10个'^88C6F7亡者的寒气^000000'";
 				close;
 			}
 			if ( (.@menu==3 && .@3thzptsodyd == 1) || (.@menu==2 && .@4thzptsodyd == 1) ) {
-				mes "[Pudding]";
-				mes "This equipment didn't get any special power.";
+				mes "[布丁]";
+				mes "该装备没有获得任何能力.";
 				close;
 			}
 			setarray .@equip_card[0], getequipcardid(.@part,0), getequipcardid(.@part,1), getequipcardid(.@part,2), getequipcardid(.@part,3);
@@ -771,39 +779,39 @@ lhz_cube,233,24,4	script	Sorcerer#Bio4Reward	4_M_UMDANCEKID,{
 			else
 				.@equip_card[2] = 0;
 			.@equip_item = getequipid(.@part);
-			specialeffect EF_BEGINSPELL2, AREA, "Sorcerer#Bio4Reward";
+			specialeffect EF_BEGINSPELL2, AREA, "巫师#Bio4Reward";
 			progressbar "ffff00", 2;
 			specialeffect2 EF_FROSTWEAPON;
 			delitem 6471, 10; //Goast_Chill
 			delequip .@part;
 			getitem2 .@equip_item, 1, 1, .@refine_count, 0, .@equip_card[0], .@equip_card[1], .@equip_card[2], .@equip_card[3];
-			mes "[Pudding]";
+			mes "[布丁]";
 			if (.@menu == 3)
-				mes "The power of '^952420Thirst for Blood^000000' has been perfectly removed.";
+				mes "这个'^952420血的饥渴^000000'的能力已经移除.";
 			else
-				mes "The power of '^F2766EWill of Warrior^000000' has been perfectly removed.";
+				mes "这个'^F2766E勇士的意志^000000'的能力已经移除.";
 			close;
 		}
 	}
-	mes "[Pudding]";
-	mes "Before I dwell the power, let me explain to you cautions.";
+	mes "[布丁]";
+	mes "在我注入能量之前我给你解释下注意事项.";
 	next;
-	mes "[Pudding]";
+	mes "[布丁]";
 	mes "While dwelling the power of '^F2766EWill of Warrior^000000' or '^952420Thirst for Blood^000000', the equipment would be not capable to accept that and will be destryed..";
 	next;
-	mes "[Pudding]";
-	mes "^9D2628If the equipment is destroyed, you will also lose the cards you inserted in it, and the refine Lv will be removed too.^000000";
+	mes "[布丁]";
+	mes "^9D2628如果装备被损坏, 你将失去装备上的卡片和精炼度^000000";
 	next;
-	mes "[Pudding]";
-	mes "Alright. will you really wish to dwell the power into the equipment?";
+	mes "[布丁]";
+	mes "好吧, 你真的想注入能量到装备?";
 	next;
-	if (select("Wait, I will think again.", "Sure, carry on.") == 1) {
-		mes "[Pudding]";
-		mes "OK. I will be hoping to see you again.";
+	if(select("等等, 我再考虑下.", "当然, 就现在.") == 1) {
+		mes "[布丁]";
+		mes "好的, 让你考虑下!";
 		close;
 	}
-	mes "[Pudding]";
-	mes "I wish you made a correct decision...";
+	mes "[布丁]";
+	mes "我希望你做了一个正确的决定...";
 	next;
 	if (.@socket_type >= 3) {
 		switch(.@type){
@@ -959,7 +967,7 @@ lhz_cube,233,24,4	script	Sorcerer#Bio4Reward	4_M_UMDANCEKID,{
 		setarray .@equip_card[0], getequipcardid(.@part,0),getequipcardid(.@part,1),getequipcardid(.@part,2),getequipcardid(.@part,3);
 		.@equip_card[(.@socket_type-1)] = .@enchant;
 		.@equip_item = getequipid(.@part);
-		specialeffect EF_BEGINSPELL3, AREA, "Sorcerer#Bio4Reward";
+		specialeffect EF_BEGINSPELL3, AREA, "巫师#Bio4Reward";
 		progressbar "ffff00", 2;
 		if (.@socket_type == 3)
 			delitem 6470, 10; //Blood_Thirst
@@ -970,15 +978,15 @@ lhz_cube,233,24,4	script	Sorcerer#Bio4Reward	4_M_UMDANCEKID,{
 		if (.@enchant == 0){
 			specialeffect2 EF_SUI_EXPLOSION;
 			emotion e_otl;
-			mes "[Pudding]";
-			mes "...Well....the equipment could not accept the power of "+((.@socket_type==3)?"'^952420Thirst for Blood^000000'":"'^F2766EWill of Warrior^000000'")+" and it got destroyed.";
+			mes "[布丁]";
+			mes "唉, 该装备无法接受 "+((.@socket_type==3)?"'^952420血的饥渴^000000'":"'^F2766E勇士的意志^000000'")+", 它将被破坏";
 			close;
 		} else {
 			specialeffect2 EF_FIREHIT;
 			getitem2 .@equip_item, 1, 1, .@refine_count, 0, .@equip_card[0], .@equip_card[1], .@equip_card[2], .@equip_card[3];
 			emotion e_ho;
-			mes "[Pudding]";
-			mes "Fortunately the power of "+((.@socket_type==3)?"'^952420Thirst for Blood^000000'":"'^F2766EWill of Warrior^000000'")+" has been dwelt well in your equipment...";
+			mes "[布丁]";
+			mes "幸运的是"+((.@socket_type==3)?"'^952420血的饥渴^000000'":"'^F2766E勇士的意志^000000'")+"已经注入到装备上了..";
 			close;
 		}
 	}

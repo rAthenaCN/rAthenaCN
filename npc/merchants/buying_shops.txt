@@ -1,3 +1,11 @@
+//============================================================
+//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
 //===== rAthena Script =======================================
 //= Buying Shop Scripts
 //===== By: ==================================================
@@ -17,59 +25,59 @@
 
 // Black Marketeer (Buy Licenses - Non-Merchant Classes) :: qskill_buy_store
 //============================================================ 
-que_job01,68,84,1	script	Black Marketeer#Buying	881,{
+que_job01,68,84,1	script	黑市商人#Buying	881,{
 	if (checkweight(1201,1) == 0 || MaxWeight - Weight < 2400) {
 		mes "[Mr. Jass]";
-		mes "You're too greedy, even compared to someone like me!";
-		mes "Why don't you go lighten your bag first?";
+		mes "你太贪心了, 甚至比我还厉害!";
+		mes "为什么不去减轻你的背包呢?";
 		close;
 	}
 	if (getskilllv("ALL_BUYING_STORE") == 1) {
-		mes "[Mr. Jass]";
-		mes "Hey, you already made a contract with Hugh.";
-		mes "I don't have any business with you.";
+		mes "[贾斯先生]";
+		mes "嗨, 你已经和修先生签订了合同.";
+		mes "我不能和你有任何的交易往来.";
 		close;
 	}
-	mes "[Mr. Jass]";
-	mes "You must need something badly to come to find me.";
-	mes "What do you want?";
+	mes "[贾斯先生]";
+	mes "居然被你找到这里了.";
+	mes "你想要什么呢?";
 	next;
-	switch(select("Bulk Buyer Shop License:Who are you?:Nothing, nothing!")) {
+	switch(select("采购商店执照:你是谁?:不需要!")) {
 	case 1:
-		mes "[Mr. Jass]";
-		mes "I knew it!";
-		mes "Sure, I can make it for you.";
-		mes "Mine looks just like the authentic one that Merchants get from that bastard Mr. Hugh!";
+		mes "[贾斯先生]";
+		mes "好的, 好的!";
+		mes "我来帮你做.";
+		mes "保证做得跟真的一模一样!";
 		next;
-		mes "[Mr. Jass]";
-		mes "And my license is better 'cuz you don't need ta' learn any skills.";
-		mes "How many do you want?";
+		mes "[贾斯先生]";
+		mes "我的执照较好, 因为你不需要去学习任何使用技能.";
+		mes "你想要多少?";
 		next;
-		mes "[Mr. Jass]";
-		mes "Just so you know, I can only make them in small quantities, up to 10 at a time.";
-		mes "It'll cost 500 zeny for each one.";
+		mes "[贾斯先生]";
+		mes "一次不能制作很多, 每次最多10张.";
+		mes "手续费是每张 500 金币.";
 		next;
 		while(1) {
 			input .@input;
-			mes "[Mr. Jass]";
+			mes "[贾斯先生]";
 			if (.@input == 0) {
-				mes "Don't you need those licenses?";
+				mes "不需要吗?";
 				close;
 			} else if (.@input > 10) {
-				mes "I can only make up to 10 at a time, you know.";
+				mes "你知道我每次最多只能制作10张.";
 				next;
 			} else {
-				mes "It'll cost "+(.@input*500)+" zeny.";
+				mes "手续费一共是 "+(.@input*500)+" zeny.";
 				if (Zeny < (.@input*500)) {
-					mes "but you don't have enough money.";
+					mes "你的钱好像不够阿.";
 					next;
-					mes "[Mr. Jass]";
-					mes "Don't you know the basics of business? Everything has a price.";
-					mes "If you want something, you gotta pay for it.";
+					mes "[贾斯先生]";
+					mes "虽然我没资格讲商业道德, 但世界上应该遵循等价交换原则.";
+					mes "如果你想把东西拿走就必须支付相等的代价.";
 				} else {
-					mes "Ha... Ha ha ha!";
-					mes "Mr. Hugh, I'll take over your license business. You'll see!";
-					mes "*Giggle Giggle*";
+					mes "呵呵呵... 呵呵呵!";
+					mes "修先生, 怎么样?我要成为地下世界的黑手!";
+					mes "*呵呵呵*";
 					getitem 12548,.@input; //Buy_Market_Permit2
 					set Zeny,Zeny-(.@input*500);
 				}
@@ -77,67 +85,67 @@ que_job01,68,84,1	script	Black Marketeer#Buying	881,{
 			}
 		}
 	case 2:
-		mes "[Mr. Jass]";
-		mes "I left my hometown a long time ago.";
-		mes "It's meaningless to ask who I am because all I've got left now is my hatred.";
+		mes "[贾斯先生]";
+		mes "我离开故乡已经很久了,";
+		mes "那种问题对我来说没有任何意义, 对我而言, 剩下的只有憎恨....";
 		next;
-		mes "[Mr. Jass]";
+		mes "[贾斯先生]";
 		mes "...";
-		mes "Hugh is a corrupt merchant with no sense of business ethics.";
-		mes "My sole purpose in life is to destroy Hugh.";
+		mes "正确的商道是什么呢...对于已经堕落的我来说, 剩下的还有什么呢?";
+		mes "要是能让修先生那各家伙吃点苦头...";
 		next;
-		mes "[Mr. Jass]";
-		mes "Aw, I drank too much... (*Hic*)";
-		mes "That's just the alohol talking.";
-		mes "Please forget anything I said.";
+		mes "[贾斯先生]";
+		mes "哎呀, 我喝醉了... (*嗝*)";
+		mes "把我说的忘了吧!";
+		mes "请一定要记住我说的话.";
 		close;
 	case 3:
-		mes "[Mr. Jass]";
-		mes "Alright, alright! You don't have to yell.";
-		mes "Just leave me alone if you've got no business with me.";
+		mes "[贾斯先生]";
+		mes "不要就不要, 干嘛那么大声?";
+		mes "现在的年轻人.....";
 		close;
 	}
 }
 
 // Purchasing Team (Learn Skill - Merchant Classes)
 //============================================================ 
-alberta_in,58,52,4	script	Purchasing Team#Buying	59,{
+alberta_in,58,52,4	script	采购部 修先生#Buying	59,{
 	if (checkweight(1201,1) == 0 || MaxWeight - Weight < 2400) {
-		mes "- You cannot converse or perform the quest because you are carrying too many items. -";
+		mes "- 你不能直接交易, 你装的东西实在太多了 -";
 		close;
 	}
-	mes "[Mr. Hugh]";
+	mes "[修先生]";
 	if (BaseClass == Job_Merchant && getskilllv("MC_VENDING") >= 1) {
 		if (getskilllv("ALL_BUYING_STORE") == 1) {
-			mes "I'm Hugh from the Purchasing Team.";
-			mes "How may I help you today?";
+			mes "我是采购部的修先生.";
+			mes "你需要什么东西呢?";
 			next;
-			if(select("Purchase Bulk Buyer Shop License:Quit") == 2) {
-				mes "[Mr. Hugh]";
-				mes "Please feel free to ask me if you need any Bulk Buyer Shop Licenses.";
-				mes "Come again~";
+			if(select("购买采购商店执照:不需要") == 2) {
+				mes "[修先生]";
+				mes "如果需要开设采购商店所需的执照的话.";
+				mes "请随时来这里申请, 欢迎下次光临~";
 				close;
 			}
-			mes "[Mr. Hugh]";
-			mes "It's 200 zeny for each Bulk Buyer Shop License, and you may purchase up to 50 at a time.";
-			mes "How many licenses do you need?";
+			mes "[修先生]";
+			mes "采购商店执照每张售价 200 金币, 一次最多可以购买50张.";
+			mes "你想购买多少张1?";
 			next;
 			while(1) {
 				input .@input;
-				mes "[Mr. Hugh]";
+				mes "[修先生]";
 				if (.@input == 0) {
-					mes "You have cancelled the trade.";
-					mes "Have a good day.";
+					mes "您已取消交易.";
+					mes "祝您有美好的一天.";
 					close;
 				} else if (.@input > 50) {
-					mes "Please enter a value of 50 or less.";
+					mes "请输入购买张数. 至少50张起.";
 					next;
 				} else {
-					mes "It'll cost "+(.@input*200)+" zeny for "+.@input+" licenses.";
+					mes "花费 "+(.@input*200)+" zeny "+.@input+" 执照.";
 					if (Zeny < (.@input*200)) {
-						mes "but you don't seem to have enough money.";
+						mes "你没有足够的钱阿.";
 					} else {
-						mes "Thank you for your patronage.";
+						mes "谢谢您的惠顾.";
 						getitem 6377,.@input; //Buy_Market_Permit
 						set Zeny,Zeny-(.@input*200);
 					}
@@ -145,108 +153,108 @@ alberta_in,58,52,4	script	Purchasing Team#Buying	59,{
 				}
 			}
 		} else {
-			mes "I'm Hugh from the Purchasing Team at the Alberta Merchant Guild.";
-			mes "You're...";
+			mes "我是艾尔贝塔商人公会采购部的修先生.";
+			mes "你....";
 			next;
-			mes "[Mr. Hugh]";
-			mes "Did you know? Our guild has issued a license to allow individuals to buy goods from others.";
+			mes "[修先生]";
+			mes "你知道吗? 这次商人公会也允许一般人购买.";
 			next;
-			select("I've never had problems buying items...");
-			mes "[Mr. Hugh]";
-			mes "You're right, but think about it:";
-			mes "haven't you had a hard time buying in bulk?";
-			mes "You'd have to find and talk to everyone that has an item you want.";
-			mes "Pretty inconvenient, isn't it?";
+			select("没有那个也能买东西啊...");
+			mes "[修先生]";
+			mes "是的,";
+			mes "但是你想要购买大量商品的时候,";
+			mes "是不是觉得很辛苦呢?";
+			mes "还要去找把东西带在身上或有意出售的人才行.";
 			next;
-			mes "[Mr. Hugh]";
-			mes "Since buying in bulk is an important issue to us Merchants,";
-			mes "I've proposed an innovative plan to our guild, based on my 10 years of experience in making purchases.";
+			mes "[修先生]";
+			mes "物品的大量流通, 对于商人来说是非常重要的事情,";
+			mes "因此在采购部工作了十年的我, 这次提出了划时代的提案.";
 			next;
-			mes "[Mr. Hugh]";
-			mes "'Let Individuals Open";
-			mes "a Bulk Buyer Shop!'";
-			mes "That's the title of my proposal.";
-			mes "You'll see, when you read it...";
+			mes "[修先生]";
+			mes "就是个人";
+			mes "也可以开设采购商店!";
+			mes "你只要";
+			mes "看了这份提案就知道了...";
 			next;
-			mes "[Mr. Hugh]";
+			mes "[修先生]";
 			mes "...";
-			mes "...(Mr. Hugh yammers on and on with all the details.)";
+			mes "...(修先生自顾自地说着.)";
 			next;
-			select("Alright, what's your point?");
-			mes "[Mr. Hugh]";
-			mes "Oh, yes. In summary,";
-			mes "you can buy certain items in bulk through Vending.";
+			select("够了, 说说结论?");
+			mes "[修先生]";
+			mes "嗯, 好吧. 简单地概括一下就是,";
+			mes "允许部份商品透过商店大量出售.";
 			next;
-			mes "[Mr. Hugh]";
-			mes "In order to open a Bulk Buyer Shop, you need a license issued from the Merchant Guild.";
+			mes "[修先生]";
+			mes "想要开设采购商店, 须要有商人公会的执照.";
 			next;
-			mes "[Mr. Hugh]";
-			mes "You need it every time you open the shop. We're expecting a significant increase in profits through this new kind of licensing.";
+			mes "[修先生]";
+			mes "每开设一次, 都需使用执照. 出售执照带来的收入, 可以未商人公会打下坚固的基础.";
 			next;
-			mes "[Mr. Hugh]";
-			mes "That's the point of my proposal!";
-			mes "Our president was so happy to hear that we're going to make big bucks!";
+			mes "[修先生]";
+			mes "这部分是我的提案核心!";
+			mes "会长非常高兴, 很快就通过了我的提案!";
 			next;
 			mes "["+strcharinfo(0)+"]";
-			mes "Please get to the point already!";
+			mes "只说结论就行!";
 			next;
-			mes "[Mr. Hugh]";
-			mes "Don't be so impatient, alright?";
-			mes "My point is, we can let you open the Bulk Buyer Shop if you've learned Vending.";
+			mes "[修先生]";
+			mes "啊, 你的性子可真急.";
+			mes "所以我们允许拥有开设销售商店授权的人, 开采购商店.";
 			next;
-			mes "[Mr. Hugh]";
-			mes "Of course, we charge 10,000 zeny as a one-time registration fee.";
-			mes "You will need the ^4A4AFFBulk Buyer Shop License^000000 every time you open the shop.";
+			mes "[修先生]";
+			mes "当然, 需要 10,000 金币的注册费.";
+			mes "每次开设商店还需要 ^4A4AFF采购商店执照^000000 .";
 			next;
-			mes "[Mr. Hugh]";
-			mes "Say, would you like to register now?";
-			mes "If you do, I'll teach you how to open the Bulk Buyer Shop.";
+			mes "[修先生]";
+			mes "怎样? 你想注册吗?";
+			mes "注册之后, 我就会告诉你开设采购商店的方法.";
 			next;
-			if(select("Learn how to open Bulk Buyer Shop:Cancel") == 2) {
-				mes "[Mr. Hugh]";
-				mes "Man, that's disappointing!";
-				mes "Using this bulk buyer option can benefit your business in many ways, but it's your call.";
-				mes "I'm always open for consultation!";
+			if(select("学习开设采购商店:不学习") == 2) {
+				mes "[修先生]";
+				mes "唉, 真让人遗憾!";
+				mes "这可以让你方便很多的, 如果感兴趣的话,";
+				mes "可以再来找我, 我永远都欢迎你过来!";
 				close;
 			}
-			mes "[Mr. Hugh]";
+			mes "[修先生]";
 			if (Zeny < 10000) {
-				mes "The registration fee is 10,000 zeny.";
-				mes "Please have the fee ready first.";
+				mes "登记费为 10,000 金币.";
+				mes "费用请准备好.";
 				close;
 			} else {
-				mes "You've made a good decision.";
-				mes "Please give me the registration fee, and sign right here....";
+				mes "明智的决定.";
+				mes "好的,请先到这边来注册, 在这里签名....";
 				next;
 				input .@name$;
-				mes "[Mr. Hugh]";
+				mes "[修先生]";
 				mes .@name$+"....";
-				mes "I like your handwriting.";
-				mes "Okay, you're now approved to open the Bulk Buyer Shop.";
+				mes "字写得很不错嘛!";
+				mes "现在你可以开设采购商店了.";
 				set Zeny,Zeny-10000;
 				getitem 6377,5; //Buy_Stall_Permit
-				skill "ALL_BUYING_STORE",1,SKILL_PERM_GRANT;
+				skill "ALL_BUYING_STORE",1,4;
 				next;
-				mes "[Mr. Hugh]";
-				mes "Currently, only normal items ^8C2121EXCEPT^000000 equipment, certain potions, and hand-crafted items can be purchased in bulk, but this can still be very beneficial to you, depending on how you use it.";
+				mes "[修先生]";
+				mes "可以大量购买的物品是除装备和部分药水/个人制作的物品^8C2121以外^000000的普通物品, 但根据应用方法的不同, 我想应该会对个人很有帮助.";
 				next;
-				mes "[Mr. Hugh]";
-				mes "Oh, and you need at least one of the item that you want to buy in your inventory because you have to show it to other through your shop.";
+				mes "[修先生]";
+				mes "你至少需要库存一个收购物品, 因为要透过商店展让大家知道要收购的是什么物品.";
 				next;
-				mes "[Mr. Hugh]";
-				mes "Your skill should now be registered in your skill window. If you can't see it you probably have to minimize your Skill List and check the 3rd Job Tab.";
+				mes "[修先生]";
+				mes "购买商店技能应该登录在您的技能视窗了. 如果没看见您可能需切换技能视窗显示模式在检查确认一下.";
 				next;
-				mes "[Mr. Hugh]";
-				mes "I've given you 5 Bulk Buyer Shop Licenses for your trial.";
-				mes "Enjoy shopping!";
+				mes "[修先生]";
+				mes "我已经给你5张试用的采购商店执照.";
+				mes "体验采购乐趣!";
 				close;
 			}
 		}
 	}
-	mes "I'm Hugh from the Purchasing Team at the Alberta Merchant Guild.";
-	mes "I'd love to chat, but I'm too busy at the moment.";
+	mes "我是艾尔贝塔商人公会采购部的修先生.";
+	mes "我喜欢聊天但是我现在很忙碌.";
 	next;
-	mes "[Mr. Hugh]";
-	mes "My time is solely dedicated to our customers in the Merchant industry.";
+	mes "[修先生]";
+	mes "我的时间完全奉献给广大的商业顾客.";
 	close;
 }
