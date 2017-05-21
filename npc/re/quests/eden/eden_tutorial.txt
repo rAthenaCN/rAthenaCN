@@ -1,11 +1,19 @@
-//===== rAthena Script =======================================
+//============================================================
+//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
+//===== rAthena Script ======================================= 
 //= Eden Tutorial
 //===== By: ==================================================
 //= Euphy
 //===== Current Version: =====================================
 //= 1.0
 //===== Compatible With: =====================================
-//= rAthena Project
+//= rAthena SVN
 //===== Description: =========================================
 //= A series of quests introducing the major features of
 //= Ragnarok Online.
@@ -13,9 +21,7 @@
 //= 1.0 First Version. [Euphy]
 //============================================================
 
-// Main Quest :: TutorialVer2
-//============================================================
-moc_para01,34,178,3	script	Tutorial Instructor	904,{
+moc_para01,34,178,3	script	新手教学男专家	904,{
 	if (Class == Job_Novice) {
 		// Fall through
 	} else if (checkquest(9167) == -1) {
@@ -24,48 +30,48 @@ moc_para01,34,178,3	script	Tutorial Instructor	904,{
 			set .@tutorial_restart,1;
 			set @tutorial_restart,0;
 		}
-		mes "[Tutorial Instructor]";
-		mes "Lately, it has been said that";
-		mes "they are developing ways to add options";
-		mes "to put in sockets or add statuses";
-		mes "on equipment that normally don't have it.";
-		mes "They call that ^006400Enchant^000000.";
+		mes "[新手教学男专家]";
+		mes "最近可以在无动之，";
+		mes "装备上打洞，";
+		mes "或是增加素质的";
+		mes "技术非常发达了，";
+		mes "那个就叫做 ^006400强化^000000.";
 		next;
-		mes "[Tutorial Instructor]";
-		mes "After seeing that being developed,";
-		mes "I was so inspired by it";
-		mes "that I worked hard to discover";
-		mes "a way to do it and I finally";
-		mes "made my own way to ^006400Enchant^000000!";
+		mes "[新手教学男专家]";
+		mes "我看到技术这样发达，";
+		mes "我也深受感动，";
+		mes "于是努力钻研的结果，";
+		mes "终于将^006400强化^000000的秘诀，";
+		mes "学会了!";
 		next;
-		mes "[Tutorial Instructor]";
-		mes "But in order do to this";
-		mes "I need some special materials.";
-		mes "If you're okay with it...";
-		mes "Do you think you can";
-		mes "help me out by gathering them?";
+		mes "[新手教学男专家]";
+		mes "不过这需要一些，";
+		mes "特殊的材料才行，";
+		mes "如果你方便的话..";
+		mes "愿意帮忙收集，";
+		mes "材料给我吗?";
 		next;
-		switch(select("Sure, I can help out!:I'm a little busy right now...")) {
+		switch(select("没问题!:现在没空...")) {
 		case 1:
-			mes "[Tutorial Instructor]";
-			mes "However, looking at you";
-			mes "in your current state makes me";
-			mes "doubt your ability to gather";
-			mes "the items I need...";
+			mes "[新手教学男专家]";
+			mes "不过以我看";
+			mes "我不确定你可否";
+			mes "带来我所需要的";
+			mes "材料...";
 			next;
-			mes "[Tutorial Instructor]";
-			mes "Well, I guess if you employ";
-			mes "a ^006400Mercenary^000000 for this";
-			mes "then I think I can entrust you";
-			mes "with my requests... right?";
+			mes "[新手教学男专家]";
+			mes "至少有";
+			mes "^006400雇佣兵^000000的冒险家，";
+			mes "我拜托小事也比较可靠，";
+			mes "不是吗?";
 			next;
-			mes "[Tutorial Instructor]";
-			mes "In order to employ a Mercenary,";
-			mes "go find the ^006400Mercenary Guild^000000";
-			mes "which is by the front door of ^8B4513Prontera^000000.";
-			mes "Go to the ^006400Information Agent^000000";
-			mes "and ask them where the ^006400Mercenary Guild Official^000000";
-			mes "is located and they will let you know.";
+			mes "[新手教学男专家]";
+			mes "如果想要雇佣兵的话，";
+			mes "就要去^006400佣兵公会^000000一趟，";
+			mes "向位于^8B4513普隆德拉^000000大门前的，";
+			mes "^006400导览员^000000询问，";
+			mes "^006400佣兵公会管理员^000000的位置的话，";
+			mes "就能详细的打听到喔!";
 			next;
 			if (.@tutorial_restart) {
 				erasequest 9167;
@@ -77,320 +83,320 @@ moc_para01,34,178,3	script	Tutorial Instructor	904,{
 				completequest 9173;
 				erasequest 9173;
 			}
-			mes "[Tutorial Instructor]";
-			mes "Now... Hurry and employ";
-			mes "a ^006400Mercenary^000000 and come back to me!";
+			mes "[新手教学男专家]";
+			mes "好... 那就赶快";
+			mes "雇个^006400佣兵^000000后再过来吧!";
 			setquest 9167;
 			close;
 		case 2:
-			mes "[Tutorial Instructor]";
-			mes "Well since you said you're busy";
-			mes "I can't be helped...";
-			mes "When you're not so busy, come find me again.";
+			mes "[新手教学男专家]";
+			mes "忙就算了..";
+			mes "等你空闲时...";
+			mes "再过来吧!";
 			close;
 		}
 	} else if (checkquest(9167) == 0 || checkquest(9167) == 1) {
 		if (!getmercinfo(1)) {
-			mes "[Tutorial Instructor]";
-			mes "You haven't gotten a mercenary yet.";
+			mes "[新手教学男专家]";
+			mes "你还没雇用佣兵喔!";
 			next;
-			mes "[Tutorial Instructor]";
-			mes "In order to employ a Mercenary,";
-			mes "go find the ^006400Mercenary Guild^000000";
-			mes "which is by the front door of ^8B4513Prontera^000000.";
-			mes "Go to the ^006400Information Agent^000000";
-			mes "and ask them where the ^006400Mercenary Guild Official^000000";
-			mes "is located and they will let you know.";
+			mes "[新手教学男专家]";
+			mes "如果想要雇佣兵的话，";
+			mes "就要去^006400佣兵公会^000000一趟，";
+			mes "向位于^8B4513普隆德拉^000000大门前的，";
+			mes "^006400导览员^000000询问，";
+			mes "^006400佣兵公会管理员^000000的位置的话，";
+			mes "就能详细的打听到喔!";
 			next;
-			mes "[Tutorial Instructor]";
-			mes "Now... Hurry and employ";
-			mes "a ^006400Mercenary^000000 and come back to me!";
+			mes "[新手教学男专家]";
+			mes "好... 那就赶快";
+			mes "雇个^006400佣兵^000000后再过来吧!";
 			close;
 		}
-		mes "[Tutorial Instructor]";
-		mes "Seeing you with a ^006400Mercenary^000000 definitely makes me trust you more.";
+		mes "[新手教学男专家]";
+		mes "看你雇用^006400佣兵^000000后的样子，感觉非常信用可靠。";
 		next;
-		mes "[Tutorial Instructor]";
-		mes "If a 006400Mercenary^000000 gives you direct effect";
-		mes "by fighting for you";
-		mes "then a ^006400Pet^000000 helps you indirectly with their";
-		mes "abilities and varied appearances,";
-		mes "and it captures your heart.";
-		mes "Try raising a ^006400Pet^000000 in the future as well.";
+		mes "[新手教学男专家]";
+		mes "^006400佣兵^000000是直接会";
+		mes "影响到战斗，";
+		mes "^006400宠物^000000则是靠间接能力值和";
+		mes "多种外表虏获了";
+		mes "村民的心。";
+		mes "^006400宠物^000000也建议你培养看看吧!";
 		next;
-		mes "[Tutorial Instructor]";
-		mes "Now, let's see... In order to";
-		mes "get this ^006400Enchant^000000 to succeed";
-		mes "you have to go gather some materials for me...";
-		mes "What I need is...";
+		mes "[新手教学男专家]";
+		mes "那么现在请你";
+		mes "为了让我^006400强化^000000成功，";
+		mes "必须收集材料...";
+		mes "那些材料是...";
 		mes "..............";
 		next;
-		select("I don't think I heard you clearly...");
-		mes "[Tutorial Instructor]";
-		mes "I really don't like to repeat myself..";
-		mes "If you ask me again like that";
-		mes "does it just make your mouth tired?";
-		mes "In these situations, open your ^006400Quest Window^000000";
-		mes "and you can see what is requested of you";
-		mes "and the details of my request.";
+		select("我没听清楚啦...");
+		mes "[新手教学男专家]";
+		mes "我不想讲第二遍..";
+		mes "你问两次";
+		mes "不会累吗?";
+		mes "此时可开启^006400任务视窗^000000";
+		mes "里面详细记载着";
+		mes "你所承接的任务内容。";
 		next;
-		mes "[Tutorial Instructor]";
-		mes "If you look at the top left";
-		mes "in the area with the information,";
-		mes "it says ^006400QUEST^000000";
-		mes "and if you click that";
-		mes "it'll show all information";
-		mes "that pertains to the request.";
+		mes "[新手教学男专家]";
+		mes "另外左上方";
+		mes "现示你基本资讯的地方，";
+		mes "于^006400QUEST^000000上";
+		mes "点击它即可，";
+		mes "那里面记载着";
+		mes "你所承接的任务内容。";
 		next;
-		mes "[Tutorial Instructor]";
-		mes "Once you verify what materials";
-		mes "you need go gather from";
-		mes "the ^006400Quest Window^000000,";
-		mes "come find and talk to me again.";
+		mes "[新手教学男专家]";
+		mes "到^006400任务视窗^000000";
+		mes "确认你要收集的";
+		mes "材料后，";
+		mes "再来找我吧!";
 		completequest 9167;
 		setquest 9168;
 		close;
 	} else if (checkquest(9168) == 0 || checkquest(9168) == 1) {
 		if (checkweight(607,1) == 0) {
 			if (MaxWeight - Weight < getiteminfo(607,6)) {
-				mes "[Tutorial Instructor]";
-				mes "You seemed to be sluggish with a lot of items";
-				mes "in your inventory making you heavy...";
-				mes "It'll be hard to do my request";
-				mes "when you're heavy with all that junk!";
-				mes "Go empty out your inventory and come back to me.";
+				mes "[新手教学男专家]";
+				mes "你所持有的";
+				mes "物品太重了，";
+				mes "你这么重能做";
+				mes "什么事呢?";
+				mes "请减重后再来吧!";
 				close;
 			} else {
-				mes "[Tutorial Instructor]";
-				mes "It seems that you have";
-				mes "one too many items on you...";
-				mes "If you want to help me out";
-				mes "then you're gonna have to put some";
-				mes "stuff away then come back.";
+				mes "[新手教学男专家]";
+				mes "你似乎携带了";
+				mes "过多的物品... ";
+				mes "先去存放物品后，";
+				mes "再来找我吧!";
 				close;
 			}
 		}
-		mes "[Tutorial Instructor]";
-		mes "Did you open your ^006400Quest Window^000000";
-		mes "to verify the materials?";
+		mes "[新手教学男专家]";
+		mes "你有打开^006400任务视窗^000000后";
+		mes "确认过材料了吗?";
 		next;
-		switch(select("Yup!:No...:Where is the Quest Window...")) {
+		switch(select("是!:不是...:任务视窗是吗...")) {
 		case 1:
-			mes "[Tutorial Instructor]";
-			mes "Oh yeah? Then shall I test you to see";
-			mes "if you really checked it?";
-			mes "Write down what material I asked you to get.";
+			mes "[新手教学男专家]";
+			mes "是吗? 我要确认一下";
+			mes "才可以，";
+			mes "看看要收集哪些材料。";
 			next;
 			input .@inputstr$;
-			if (.@inputstr$ == "10 Jellopy") {
-				mes "[Tutorial Instructor]";
-				mes "Good, you know.";
-				mes "Now, are you feeling pretty familiar";
-				mes "about the ^006400Quest Window^000000?";
-				mes "But there is an issue...";
-				mes "You know what material to collect,";
-				mes "but gathering that won't be easy.";
+			if (.@inputstr$ == "杰勒比结晶") {
+				mes "[新手教学男专家]";
+				mes "嗯，非常正确，";
+				mes "现在对于^006400任务视窗^000000";
+				mes "很了解了吼?";
+				mes "不过问题是...";
+				mes "你要收集的材料";
+				mes "并非容易取得。";
 				next;
-				mes "[Tutorial Instructor]";
-				mes "Also, there is one thing";
-				mes "I absolutely think you need to try.";
-				mes "And that is...";
-				mes "the ^006400Universal Silver Catalog^000000.";
+				mes "[新手教学男专家]";
+				mes "所以我想向你";
+				mes "推荐一样东西";
+				mes "那就是...";
+				mes "^006400露天商店检索卡^000000。";
 				next;
-				mes "[Tutorial Instructor]";
-				mes "The ^006400Universal Silver Catalog^000000";
-				mes "can be obtained from";
-				mes "the ^0000FFCatalogue Wizard^000000";
-				mes "that is located in the Eden Group Headquarter.";
+				mes "[新手教学男专家]";
+				mes "^006400露天商店检索卡^000000";
+				mes "可以向伊甸园 1楼的";
+				mes "^0000FF检索达人^000000";
+				mes "购买。";
 				next;
-				mes "[Tutorial Instructor]";
-				mes "Now, go and obtain";
-				mes "a ^006400Universal Silver Catalog^000000";
-				mes "then come back and talk to me.";
+				mes "[新手教学男专家]";
+				mes "那请你购买";
+				mes "^006400露天商店检索卡^000000";
+				mes "之后再来找我吧!";
 				completequest 9168;
 				setquest 9169;
 				close;
 			}
-			mes "[Tutorial Instructor]";
-			mes "You... still don't seem";
-			mes "to know much about the";
-			mes "^006400Quest Window^000000.";
-			mes "I will inform you again.";
+			mes "[新手教学男专家]";
+			mes "我觉得你对";
+			mes "^006400任务视窗^000000";
+			mes "还不太了解喔...";
+			mes "我再说明一次。";
 			next;
 			break;
 		case 2:
-			mes "[Tutorial Instructor]";
-			mes "Hurry and check to see";
-			mes "what materials are required in";
-			mes "your ^006400Quest Window^000000.";
+			mes "[新手教学男专家]";
+			mes "快到^006400任务视窗^000000";
+			mes "确认所记载的";
+			mes "材料后再来找我。";
 			close;
 		case 3:
 			break;
 		}
-		mes "[Tutorial Instructor]";
-		mes "If you look at the top left";
-		mes "in the area with the information,";
-		mes "it says ^006400QUEST^000000";
-		mes "and if you click that";
-		mes "it'll show all information";
-		mes "that pertains to the request.";
+		mes "[新手教学男专家]";
+		mes "在左上方";
+		mes "你基本资讯的地方，";
+		mes "于^006400QUEST^000000上";
+		mes "点击它即可，";
+		mes "那里面记载着";
+		mes "你所承接的任务内容。";
 		next;
-		mes "[Tutorial Instructor]";
-		mes "Once you verify what materials";
-		mes "you need go gather from";
-		mes "the ^006400Quest Window^000000,";
-		mes "come find and talk to me again.";
+		mes "[新手教学男专家]";
+		mes "在^006400任务视窗^000000";
+		mes "确认一下你需要的";
+		mes "购买的材料后，";
+		mes "再来找我吧!";
 		close;
 	} else if (checkquest(9169) == 0 || checkquest(9169) == 1) {
 		if (countitem(12580) == 0) {
-			mes "[Tutorial Instructor]";
-			mes "Hmm? So I noticed that";
-			mes "you haven't gone and picked up a";
-			mes "^006400Universal Silver Catalog^000000 yet!";
+			mes "[新手教学男专家]";
+			mes "嗯? 还没把";
+			mes "^006400露天商店检索卡^000000";
+			mes "买回来喔!";
 			next;
-			mes "[Tutorial Instructor]";
-			mes "You can get the";
-			mes "^006400Universal Silver Catalog^000000";
-			mes "from the ^0000FFCatalogue Wizard^000000";
-			mes "who is located in the Eden Group Headquarter.";
+			mes "[新手教学男专家]";
+			mes "^006400露天商店检索卡^000000";
+			mes "可以向伊甸园 1楼的";
+			mes "^0000FF检索达人^000000";
+			mes "购买。";
 			next;
-			mes "[Tutorial Instructor]";
-			mes "So, go and get the";
-			mes "^006400Universal Silver Catalog^000000";
-			mes "then come back to me.";
+			mes "[新手教学男专家]";
+			mes "那请你购买";
+			mes "^006400露天商店检索卡^000000之后，";
+			mes "再来找我吧!";
 			close;
 		}
-		mes "[Tutorial Instructor]";
-		mes "Oh! You managed to get a";
-		mes "^006400Universal Silver Catalog^000000!";
+		mes "[新手教学男专家]";
+		mes "哇! 你买到了";
+		mes "^006400露天商店检索卡^000000了耶!";
 		next;
-		mes "[Tutorial Instructor]";
-		mes "This lets you browse and search";
-		mes "through all the various stores";
-		mes "that are on the same map and";
-		mes "are open for vending.";
+		mes "[新手教学男专家]";
+		mes "这东西如果再很多开设";
+		mes "商店的村落使用的话，";
+		mes "就能方便查询和";
+		mes "购买所需的物品。";
 		next;
-		mes "[Tutorial Instructor]";
-		mes "It only costs 200 zeny for one";
-		mes "of these and with it you can";
-		mes "search up to 10 times.";
-		mes "You can say that it's a necessity.";
+		mes "[新手教学男专家]";
+		mes "每一个只有200 zeny，";
+		mes "每一个可查询10次，";
+		mes "不仅实惠，更是交易时";
+		mes "所不可或缺的物品。";
 		next;
-		mes "[Tutorial Instructor]";
-		mes "So, go to the area you want";
-		mes "and try out the ^006400Universal Silver Catalog^000000";
-		mes "then come and find me";
-		mes "after you've done this.";
+		mes "[新手教学男专家]";
+		mes "那么请到村落";
+		mes "把^006400露天商店检索卡^000000";
+		mes "使用之后，";
+		mes "再来找我吧!";
 		completequest 9169;
 		setquest 9170;
 		close;
 	} else if (checkquest(9170) == 0 || checkquest(9170) == 1) {
 		if (countitem(12580)) {
-			mes "[Tutorial Instructor]";
-			mes "Hmm... It seems that you still have";
-			mes "the ^006400Universal Silver Catalog^000000 in your inventory.";
-			mes "Since you're saying you forgot how to use it";
-			mes "I'll explain it to you again.";
+			mes "[新手教学男专家]";
+			mes "嗯... 你身上还有";
+			mes "^006400露天商店检索卡^000000呢!";
+			mes "难道是忘了使用方法吗?";
+			mes "我再来说明一次吧!";
 			next;
-			mes "[Tutorial Instructor]";
-			mes "You see... the ^006400Universal Silver Catalog^000000";
-			mes "lets you browse and search";
-			mes "through all the various stores";
-			mes "that are on the same map and";
-			mes "are open for vending.";
+			mes "[新手教学男专家]";
+			mes "在很多开设商店的";
+			mes "村落使用的话，";
+			mes "就能方便查询和";
+			mes "购买所需的物品。";
 			next;
-			mes "[Tutorial Instructor]";
-			mes "So, go to the area you want";
-			mes "and try out the ^006400Universal Silver Catalog^000000";
-			mes "them come and find me";
-			mes "after you've done this.";
+			mes "[新手教学男专家]";
+			mes "那么请到村落";
+			mes "把^006400露天商店检索卡^000000";
+			mes "使用之后，";
+			mes "再来找我吧!";
 			close;
 		}
-		mes "[Tutorial Instructor]";
-		mes "How do you feel after trying out";
-		mes "the ^006400Universal Silver Catalog^000000?";
-		mes "It feels a lot easier than";
-		mes "going through each individual";
-		mes "vendor and finding the item";
-		mes "you need, right?";
+		mes "[新手教学男专家]";
+		mes "^006400露天商店检索卡^000000";
+		mes "使用过后的感觉如何?";
+		mes "确实比之前";
+		mes "到处询问比价";
+		mes "来得更方便";
+		mes "购物吧?";
 		next;
-		mes "[Tutorial Instructor]";
-		mes "Now, go out and gather";
-		mes "the materials I need and";
-		mes "I will make sure to give you";
-		mes "a fantastic ^006400enchant^000000!";
-		mes "I'll be waiting!";
+		mes "[新手教学男专家]";
+		mes "现在你如果吧";
+		mes "所需材料带来的话，";
+		mes "梦幻般的^006400强化^000000技术，";
+		mes "我会让你大开眼界!";
+		mes "我等你好消息喔!";
 		completequest 9170;
 		setquest 9171;
 		close;
 	} else if (checkquest(9171) == 0 || checkquest(9171) == 1) {
 		if (countitem(909) < 10) {
-			mes "[Tutorial Instructor]";
-			mes "It seems you didn't bring";
-			mes "enough materials. Did you forget";
-			mes "what you needed to gather?";
+			mes "[新手教学男专家]";
+			mes "材料收集的不够，";
+			mes "难道你忘了要";
+			mes "收集什么吗?";
 			next;
-			switch(select("Yeah...:Nope!")) {
+			switch(select("是:不是!")) {
 			case 1:
-				mes "[Tutorial Instructor]";
-				mes "I've been told that if you click the";
-				mes "thing on the top left that says";
-				mes "^006400QUEST^000000, it'll show you all";
-				mes "the information that you need";
-				mes "that pertains to your requests.";
+				mes "[新手教学男专家]";
+				mes "在左上方显示";
+				mes "你基本资讯的地方，";
+				mes "于^006400QUEST^000000上";
+				mes "点击它即可，";
+				mes "那里面记载着";
+				mes "你所承接的任务内容。";
 				next;
-				mes "[Tutorial Instructor]";
-				mes "Once you gather all the materials";
-				mes "that are listed in your ^006400Quest Window^000000";
-				mes "come and talk to me.";
+				mes "[新手教学男专家]";
+				mes "在^006400任务视窗^000000";
+				mes "确认要收集的";
+				mes "材料备齐后，";
+				mes "再来找我吧!";
 				close;
 			case 2:
-				mes "[Tutorial Instructor]";
-				mes "When you gather the items";
-				mes "come to me and I will show you";
-				mes "an awesome ^006400ENCHANT^000000.";
-				mes "I'll be waiting!";
+				mes "[新手教学男专家]";
+				mes "收集完材料给我的话，";
+				mes "梦幻般的^006400强化^000000技术，";
+				mes "我会让你大开眼界!";
+				mes "我等你好消息喔!";
 				close;
 			}
 		}
 		if (checkweight(607,6) == 0) {
 			if (MaxWeight - Weight < getiteminfo(607,6)) {
-				mes "[Tutorial Instructor]";
-				mes "Your inventory seems to be really full";
-				mes "with various stuff... Do you think";
-				mes "you can get anything done when you're so";
-				mes "weighed down? Go put some stuff away";
-				mes "then come back to me.";
+				mes "[新手教学男专家]";
+				mes "你所持有的";
+				mes "物品太重了，";
+				mes "你这么重能做";
+				mes "什么事呢?";
+				mes "请减重后再来吧!";
 				close;
 			} else {
-				mes "[Tutorial Instructor]";
-				mes "You seem to have too much stuff";
-				mes "in your inventory... Go put some";
-				mes "stuff away then come back to me";
-				mes "when you have less suff on you.";
+				mes "[新手教学男专家]";
+				mes "你似乎携带了";
+				mes "过多的物品... ";
+				mes "先去存放物品后，";
+				mes "再来找我吧!";
 				close;
 			}
 		}
-		mes "[Tutorial Instructor]";
-		mes "You got everything I asked for!";
-		mes "So~ Shall we start on the awesome";
-		mes "Enchant that I found and developed?";
+		mes "[新手教学男专家]";
+		mes "你的材料都到手了耶!";
+		mes "那我马上秀给你";
+		mes "梦幻般的强化啰!";
 		next;
 		specialeffect EF_BASH3D2;
-		mes "[Tutorial Instructor]";
-		mes "Okay! Now for the first skill!!";
-		mes "To add a new ability to your armor...";
-		mes "^006400HIDDEN SOCKET ENCHANT^000000!!";
+		mes "[新手教学男专家]";
+		mes "首先第一项技术是!!";
+		mes "在铠甲上注入能力所谓的...";
+		mes "^006400附魔^000000!!";
 		next;
 		specialeffect EF_BASH3D2;
-		mes "[Tutorial Instructor]";
-		mes "And for the second skill!!";
-		mes "To add a new socket into your";
-		mes "weapon and shield...";
-		mes "^006400SOCKET ENCHANT^000000!!";
+		mes "[新手教学男专家]";
+		mes "再来第二项技术是!!";
+		mes "在武器和防具上";
+		mes "增加所谓的...";
+		mes "^006400打洞系统^000000!!";
 		next;
-		mes "[Tutorial Instructor]";
-		mes "There. The Enchant is done. You can't understand the the process by just watching me, so I'll let you look at the items themselves.";
+		mes "[新手教学男专家]";
+		mes "所有强化已完成了，只观看其过程应该不太了解，所以我特别拿物品给你看。";
 		delitem 909,10; //Jellopy
 		completequest 9171;
 		setquest 9172;
@@ -398,38 +404,38 @@ moc_para01,34,178,3	script	Tutorial Instructor	904,{
 		getitem 15033,1; //Tutorial_Mattle
 		getitem 15034,1; //Tutorial_Mattle_
 		next;
-		mes "[Tutorial Instructor]";
-		mes "Those items cannot be";
-		mes "worn or traded so don't even";
-		mes "think about running away with them.";
-		mes "When you're done looking at them,";
-		mes "give them back to me.";
+		mes "[新手教学男专家]";
+		mes "提醒你那些物品是";
+		mes "不能装备和交易等等，";
+		mes "所以休想偷走，";
+		mes "那你随便看看后";
+		mes "再来找我吧!";
 		close;
 	} else if (checkquest(9172) == 0 || checkquest(9172) == 1) {
 		if (countitem(15033) == 0 || countitem(15034) == 0) {
-			mes "[Tutorial Instructor]";
-			mes "What did you do with the Enchanted";
-			mes "items I lent to you to look at?";
-			mes "Until you bring back the fruits of";
-			mes "my labor, I don't want to talk to you,";
-			mes "let alone see your face.";
+			mes "[新手教学男专家]";
+			mes "你对我借你看的";
+			mes "强化物品做了什么?";
+			mes "直到你拿回来还我前，";
+			mes "我不想和你多说废话，";
+			mes "更不用说看你那张脸。";
 			close;
 		}
-		mes "[Tutorial Instructor]";
-		mes "Are you done looking over";
-		mes "the items I Enchanted?";
+		mes "[新手教学男专家]";
+		mes "强化道具";
+		mes "都看过了吗?";
 		next;
-		switch(select("Yes, thank you.:I haven't looked at them yet.")) {
+		switch(select("看过了:还没看")) {
 		case 1:
-			mes "[Tutorial Instructor]";
-			mes "So what did you think after inspecting it? Now that you've looked at an actual Enchanted item, do you understand it?";
+			mes "[新手教学男专家]";
+			mes "那看过的感想如何? 现在对强化道具应该有些了解了吧?";
 			// Item deletions moved below to prevent errors.
 			next;
-			mes "[Tutorial Instructor]";
-			mes "Thanks to you I was able to see great results of my research and study.";
+			mes "[新手教学男专家]";
+			mes "我也托你的福，完成了很棒的研究结晶，真谢谢你呢!";
 			next;
-			mes "[Tutorial Instructor]";
-			mes "If you have any questions about anything that I discussed with you, I will tell you everything! Thanks for your hard work!";
+			mes "[新手教学男专家]";
+			mes "如果你对齐它事情还有想询问的话，我都会告诉你的，辛苦啦!";
 			delitem 15033,2;
 			delitem 15034,1;
 			completequest 9172;
@@ -437,188 +443,188 @@ moc_para01,34,178,3	script	Tutorial Instructor	904,{
 			getexp 5000,2500;
 			close;
 		case 2:
-			mes "[Tutorial Instructor]";
-			mes "Take your time to look them over";
-			mes "then bring them back to me.";
+			mes "[新手教学男专家]";
+			mes "那你就慢慢";
+			mes "看吧!";
 			close;
 		}
 	} else if (checkquest(9173) == 0 || checkquest(9173) == 1) {
-		mes "[Tutorial Instructor]";
-		mes "Do you have any questions?";
+		mes "[新手教学男专家]";
+		mes "你有要询问的事情吗?";
 		next;
-		switch(select("Can I do the same quest again?:About the Quest Window...:About ENCHANT...:About Searching Vends...:About Mercenary and Pets...:End Conversation.")) {
+		switch(select("相同任务不能反覆承接吗?:关于任务视窗...:关于强化...:关于露天商店搜寻...:关于佣兵和宠物...:结束对话")) {
 		case 1:
 			if (checkquest(9173,PLAYTIME) == 0 || checkquest(9173,PLAYTIME) == 1) {
-				mes "[Tutorial Instructor]";
-				mes "The one method to do the same quests repeatdedly is to do the ^006400Daily Quests^000000.";
+				mes "[新手教学男专家]";
+				mes "相同任务可以反覆承接的方法之一就是^006400每日任务^000000。";
 				next;
-				mes "[Tutorial Instructor]";
-				mes "Once you complete a ^006400Daily Quest^000000 and turn it in, wait about a day then come back to get the request and do it all over again!";
-				mes "[Tutorial Instructor]";
-				mes "If you received a daily quest, look at bottom right of the ^006400Quest Window^000000. There is a section that is called ^006400LIMITED^000000. In that section, it'll tell you how much time needs to pass before you can pick up another daily quest.";
+				mes "[新手教学男专家]";
+				mes "^006400每日任务^000000是完成任务后，约过一日时间之后，便可再次承接任务去完成!";
+				mes "[新手教学男专家]";
+				mes "如果承接每日任务后，到^006400任务视窗的^000000的右下方就会看到^006400LIMITED^000000所标示的时间结束后即可再次承接任务喔。";
 				next;
-				mes "[Tutorial Instructor]";
-				mes "It seems you still have some time left to wait out after finishing my quest. Wait it out a bit more, then come find me and you can get the same quest again.";
+				mes "[新手教学男专家]";
+				mes "你前一个任务完成后还没经过一天呢!请你等时间到后再来找我的话，就能承接相同的任务了。";
 				close;
 			}
-			mes "[Tutorial Instructor]";
-			mes "It seems that about a day has passed since you've finished my quest. Alright, so like the ^006400Daily Quests^000000, you can get a quest from me. Did you want to proceed?";
+			mes "[新手教学男专家]";
+			mes "似乎过了一天啰，因为你完成了我交付的 ^006400每日任务^000000，所以能继续承接每日任务，你要继续吗?";
 			next;
-			switch(select("Yes:No")) {
+			switch(select("是的:不想")) {
 			case 1:
 				set @tutorial_restart,1;
 				goto OnStartQuest;
 			case 2:
-				mes "[Tutorial Instructor]";
-				mes "Okay. But if you change your mind and want to receive a quest, come find me.";
+				mes "[新手教学男专家]";
+				mes "好吧，如果你改变了想法想承接任务就来找我。";
 				close;
 			}
 		case 2:
-			mes "[Tutorial Instructor]";
-			mes "They say that the ^006400Quest Window^000000 details out everything you need to know about your quests.";
+			mes "[新手教学男专家]";
+			mes "^006400任务视窗^000000上详细记载着你所承接的任务内容。";
 			next;
-			mes "[Tutorial Instructor]";
-			mes "If you look at the top left";
-			mes "in the area with the information,";
-			mes "it says ^006400QUEST^000000";
-			mes "and if you click that";
-			mes "it'll show all information";
-			mes "that pertains to the request.";
+			mes "[新手教学男专家]";
+			mes "在左上方显示";
+			mes "你基本资讯的地方，";
+			mes "于^006400QUEST^000000上";
+			mes "点击它即可，";
+			mes "那里面记载着";
+			mes "你所承接的任务内容。";
 			next;
-			mes "[Tutorial Instructor]";
-			mes "Using the ^006400Quest Window^000000 will make your life easier. It'll tell you where to go, what items to get or who to find and etc.";
+			mes "[新手教学男专家]";
+			mes "遇到到底要往哪移动、需要收集特殊材料、要去找谁等等问题时，参考^006400任务视窗^000000进行任务的话，会更便利又有趣喔!";
 			close;
 		case 3:
-			mes "[Tutorial Instructor]";
-			mes "^006400ENCHANT^000000, in general, is divided into two parts: ^006400SOCKET ENCHANT^000000 and ^006400HIDDEN SOCKET ENCHANT^000000.";
+			mes "[新手教学男专家]";
+			mes "006400强化^000000分为^006400打洞^000000和^006400附魔^000000两大类。";
 			next;
-			mes "[Tutorial Instructor]";
-			mes "^006400SOCKET ENCHANT^000000 is used to add a SOCKET into equipments and ^006400HIDDEN SOCKET ENCHANT^000000 is used to put in stats into a socket of an armor.";
+			mes "[新手教学男专家]";
+			mes "^006400打洞^000000是指在装备上称家动的技术，^006400附魔^000000是至在铠甲上增加能力值的技术。";
 			next;
-			mes "[Tutorial Instructor]";
-			mes "Of course, in order to do this we are in need of some materials and there is a chance that it may fail, but that's the risk you're taking.";
+			mes "[新手教学男专家]";
+			mes "当然这还需要一些特殊材料，万一失败时，会有一些风险喔!";
 			next;
-			mes "[Tutorial Instructor]";
-			mes "The people who do the ^006400SOCKET ENCHANT^000000 can be found in ^8B4513Prontera, Morroc, Payon,^000000. ^8B4513Rhitalzen^000000 is in the Refinery and ^0000FFSeiyablem^000000 and ^0000FFReiablem^000000 can be found near the entrance.";
+			mes "[新手教学男专家]";
+			mes "^006400打洞^000000的专家是^8B4513普隆德拉, 梦罗克, 斐扬,^000000. ^8B4513里希塔乐镇^000000的精炼所内部或入口附近的^0000FF世亚布连^000000和^0000FF雷亚布连^000000。";
 			next;
-			mes "[Tutorial Instructor]";
-			mes "The one who does ^006400HIDDEN SOCKET ENCHANT^000000 is found at the 6 o'clock location of ^8B4513Prontera^000000. Look for the ^0000FFCraftman Apprentice^000000.";
+			mes "[新手教学男专家]";
+			mes "^006400附魔^000000的专家则是^8B4513普隆德拉^000000 6点钟方向的^0000FF实习附魔师^000000.";
 			next;
-			mes "[Tutorial Instructor]";
-			mes "Do you think you understand a little bit more about ^006400ENCHANT^000000?";
+			mes "[新手教学男专家]";
+			mes "关于^006400强化^000000的部份有一些了解了吧?";
 			close;
 		case 4:
-			mes "[Tutorial Instructor]";
-			mes "^006400Vend Search^000000 can be utilized by the ^006400Universal Silver Catalog^000000 item. Since you search through as vends on that map, it'll make it easier for you to find the item that you're looking for.";
+			mes "[新手教学男专家]";
+			mes "^006400露天商店搜寻^000000是指将^006400露天商店检索卡^000000道具在很多开设商店的村落使用的话，就能方便查询和购买所需要的物品。";
 			next;
-			mes "[Tutorial Instructor]";
-			mes "The ^006400Universal Silver Catalog^000000";
-			mes "can be obtained from ";
-			mes "the ^0000FFCatalogue Wizard^000000";
-			mes "that is located in the Eden Group Headquarter.";
+			mes "[新手教学男专家]";
+			mes "^006400露天商店检索卡^000000";
+			mes "可以向伊甸园 1楼的";
+			mes "^0000FF检索达人^000000";
+			mes "购买。";
 			next;
-			mes "[Tutorial Instructor]";
-			mes "It only costs 200 zeny for one";
-			mes "of these and with it you can";
-			mes "search up to 10 times.";
-			mes "You can say that it's a necessity.";
+			mes "[新手教学男专家]";
+			mes "每一个只卖 200 zeny ，";
+			mes "每一个可查询10次，";
+			mes "不仅实惠，更是交易时";
+			mes "所不可或缺的物品。";
 			next;
-			mes "[Tutorial Instructor]";
-			mes "So, are you getting familiar with ^006400Vend Search^000000? Don't just stand there and listen to me. Go ahead and try it for yourself!";
+			mes "[新手教学男专家]";
+			mes "关于^006400露天商店搜寻^000000现在明白了吧? 百闻不如一试，快去买来试试看!";
 			close;
 		case 5:
-			mes "[Tutorial Instructor]";
-			mes "Depending on what you need, ^006400Mercenary^000000 and ^006400Pet^000000 can be used in various ways.";
+			mes "[新手教学男专家]";
+			mes "^006400佣兵^000000和^006400宠物^000000可依使用方式，有很多种类。";
 			next;
-			mes "[Tutorial Instructor]";
-			mes "If a 006400Mercenary^000000 gives you direct effect";
-			mes "by fighting for you";
-			mes "then a ^006400Pet^000000 helps you indirectly with their";
-			mes "abilities and varied appearances,";
-			mes "and it captures your heart.";
+			mes "[新手教学男专家]";
+			mes "006400佣兵^000000是直接会";
+			mes "影响到战斗，";
+			mes "^006400宠物^000000则是靠间接能力值";
+			mes "和多种外表掳获了";
+			mes "村民的心。";
 			next;
-			mes "[Tutorial Instructor]";
-			mes "In order to employ a Mercenary";
-			mes "Go find the ^006400Mercenary Guild^000000";
-			mes "which is by the front door of ^8B4513Prontera^000000.";
-			mes "Go to the ^006400Information Agent^000000";
-			mes "and ask them where the ^006400Mercenary Guild Official^000000";
-			mes "is located and they will let you know.";
+			mes "[新手教学男专家]";
+			mes "如果想要雇佣兵的话";
+			mes "就一定要去^006400佣兵公会^000000一趟，";
+			mes "向位于^8B4513P普隆德拉^000000大门前的";
+			mes "^006400导览员^000000询问";
+			mes "^006400佣兵公会管理员^000000的位置的话，";
+			mes "就能详细的打听到喔！";
 			next;
-			mes "[Tutorial Instructor]";
-			mes "In order to get a ^006400Pet^000000, while hunting you will obtain taming items. Use the tame on the monster it's for and you can get a pet.";
+			mes "[新手教学男专家]";
+			mes "如果想使用^006400宠物^000000的话，利用打怪后的宠物蛋，直接将其怪物认养使用即可。";
 			next;
-			mes "[Tutorial Instructor]";
-			mes "Because there is a chance for failure, please use the taming item with great care.";
+			mes "[新手教学男专家]";
+			mes "只是会有失败机率，所以要慎重使用宠物蛋。";
 			next;
-			mes "[Tutorial Instructor]";
-			mes "That aside... you can get a ^006400Mercenary^000000 from the Mercenary Guild and you can get a ^006400Pet^000000 by trading or buying it from another player.";
+			mes "[新手教学男专家]";
+			mes "其他方式则有^006400佣兵^000000可载商城购买，^006400宠物^000000则透过与玩家交易方式取得后使用。";
 			next;
-			mes "[Tutorial Instructor]";
-			mes "Now, do you understand a bit more about using a ^006400Mercenary^000000 and a ^006400Pet^000000? I hope you get a chance to use them in the future.";
+			mes "[新手教学男专家]";
+			mes "关于^006400佣兵^000000与^006400宠物^000000现在明白了吧? 想要有效率的战斗和体验愉悦的冒险，建议你一定用用看。";
 			close;
 		case 6:
-			mes "[Tutorial Instructor]";
-			mes "If you have any questions, come find me again.";
+			mes "[新手教学男专家]";
+			mes "如果还有询问事项，欢迎随时来找我。";
 			close;
 		}
 	}
-	mes "[Tutorial Instructor]";
-	mes "Lately, it has been said that";
-	mes "they are developing ways to add options";
-	mes "to put in sockets or add statuses";
-	mes "on equipment that normally don't have it.";
+	mes "[新手教学男专家]";
+	mes "最近可以在无洞之，";
+	mes "装备上打洞，";
+	mes "或使增加素质的，";
+	mes "技术非常发达了。";
 	close;
 }
 
-moc_para01,32,179,4	script	Tutorial Goal	895,{
+moc_para01,32,179,4	script	新手教学女专家	895,{
 	if (checkweight(608,7) == 0) {
 		if (MaxWeight - Weight < getiteminfo(608,7)) {
-			mes "[Tutorial Goal]";
-			mes "You seem to be overweight with items. Go put some stuff away then come back.";
+			mes "[新手教学女专家]";
+			mes "您所持有的物品太重了，快去减重后再来吧!~";
 			close;
 		} else {
-			mes "[Tutorial Goal]";
-			mes "You have too many items on you. Go put some stuff away then come back.";
+			mes "[新手教学女专家]";
+			mes "您所持有的物品太多了，快去存放后再来吧!~";
 			close;
 		}
 	}
 	if (checkquest(4161) == 0 || checkquest(4161) == 1) {
-		mes "[Tutorial Goal]";
-		mes "Well~ We gotta go challenge the experts right?";
-		mes "Let's start off by finding the ^006400Siege Expert^000000!";
+		mes "[新手教学女专家]";
+		mes "好~ 那从我对面的，";
+		mes "^006400攻城达人^000000开始挑战看看吧!";
 		close;
 	} else if (checkquest(4162) == 0 || checkquest(4162) == 1) {
-		mes "[Tutorial Goal]";
-		mes "You've passed the ^006400Siege Expert^000000's test! Congrats!";
-		mes "Now, go find the ^006400Party Recruiting Expert^000000!";
+		mes "[新手教学女专家]";
+		mes "你通过了^006400攻城达人^000000的测试! 恭喜恭喜!";
+		mes "接下来是^006400组队达人^000000!挑战看看吧!";
 		close;
 	} else if (checkquest(4163) == 0 || checkquest(4163) == 1) {
-		mes "[Tutorial Goal]";
-		mes "Oh! You've passed the ^006400Party Recruiting Expert^000000's test! Congrats!";
-		mes "Now, go find the ^006400Battleground Expert^000000!";
+		mes "[新手教学女专家]";
+		mes "哇!你通过了^006400组队达人^000000的测试! 恭喜恭喜!";
+		mes "接下来是^006400战场达人^000000!挑战看看吧!";
 		close;
 	} else if (checkquest(4164) == 0 || checkquest(4164) == 1) {
-		mes "[Tutorial Goal]";
-		mes "Yay! You passed the test from the ^006400Battleground Expert^000000! Congrats!";
-		mes "Next, go and find the ^006400Memorial Dungeon Expert^000000!";
+		mes "[新手教学女专家]";
+		mes "耶!你通过了^006400战场达人^000000的测试! 恭喜恭喜!";
+		mes "接下来是^006400记忆迷宫达人^000000!挑战看看吧!";
 		close;
 	} else if (checkquest(4165) == 0 || checkquest(4165) == 1) {
-		mes "[Tutorial Goal]";
-		mes "You passed the test from ^006400Memorial Dungeon Expert^000000! That's great!";
-		mes "Try finding the ^006400Map Expert^000000!";
+		mes "[新手教学女专家]";
+		mes "你通过了^006400记忆迷宫达人^000000的测试! 恭喜恭喜!";
+		mes "接下来是^006400地图达人^000000!挑战看看吧!";
 		close;
 	} else if (checkquest(4166) == 0 || checkquest(4166) == 1) {
-		mes "[Tutorial Goal]";
-		mes "You passed ^006400Map Expert^000000's test! Congrats!";
-		mes "I'm so glad that you were to pass all the Experts' tests! You're better than I expected!!";
+		mes "[新手教学女专家]";
+		mes "你通过了^006400地图达人^000000的测试! 恭喜恭喜!";
+		mes "你已经通过所有达人的考试了，非常了不起，出乎意料的好!!";
 		next;
-		mes "[Tutorial Goal]";
-		mes "Now, even you are an ^006400Expert^000000!! Such a fitting nick name for you!";
-		mes "Thank you so much for your hard work. As promised, here is a small little reward for you.";
+		mes "[新手教学女专家]";
+		mes "你现在才是名符其实的^006400达人^000000!!";
+		mes "辛苦你啦!我就依约约定送你小礼物吧!";
 		next;
-		mes "[Tutorial Goal]";
-		mes "I think it'll be useful to you during your adventures. I wish you luck on your future adventures~";
+		mes "[新手教学女专家]";
+		mes "这在你冒险过程中对你会有帮助喔!祝你未来的冒险旅程都能一帆风顺~";
 		completequest 4166;
 		getitem 510,5; //Blue_Herb
 		getitem 511,5; //Green_Herb
@@ -626,939 +632,939 @@ moc_para01,32,179,4	script	Tutorial Goal	895,{
 		getitem 608,1; //Seed_Of_Yggdrasil
 		close;
 	} else if (checkquest(4166) == 2) {
-		mes "[Tutorial Goal]";
-		mes "Now, even you are an ^006400Expert^000000!! Such a fitting nick name for you!";
-		mes "Thank you so much for your hard work.";
-		mes "I hope that your future adventures are filled with good luck.";
+		mes "[新手教学女专家]";
+		mes "你现在才是名符其实的^006400达人^000000!!";
+		mes "辛苦你啦!";
+		mes "祝你未来的冒险旅程都能一帆风顺~";
 		close;
 	}
 	if (Class == Job_Novice) {
-		mes "[Tutorial Goal]";
-		mes "Hmm, I wonder if there is any adventurer that is smart enough to challenge our Experts...";
+		mes "[新手教学女专家]";
+		mes "没有敢向我们达人挑战的冒险家吗...";
 		close;
 	}
-	mes "[Tutorial Goal]";
-	mes "Hey you! You look like an adventurer... Though you look a little dull...";
+	mes "[新手教学女专家]";
+	mes "我看你样子... 应该是冒险家吧，不过你也跟典型的冒险家一样不够聪明吧...";
 	next;
-	if(select("What'd you say? I'm smart!:Yeah... I'm dull.") == 1) {
-		mes "[Tutorial Goal]";
-		mes "Serious? Though I don't know if I can believe that. Look at the expert who is in front of me! He took up only one area of study for 16 years and now he is as dignified as can be!";
+	if(select("我超聪明滴!:是阿...我承认笨") == 1) {
+		mes "[新手教学女专家]";
+		mes "真的吗? 我不太相信，你看看我眼前的达人们!这16年来只专注于一门学问的那自信的样子!!";
 		next;
-		mes "[Tutorial Goal]";
-		mes "Well, if you manage to pass all their tests then I will believe in your abilities.";
+		mes "[新手教学女专家]";
+		mes "假如你都能吸取达人们的知识与能力，还有通过他们的测试的话，我就承认你是达人。";
 		next;
-		mes "[Tutorial Goal]";
-		mes "And I will apologize for calling you dull. How about it, Dull Expert?! Do you want to challenge them?";
+		mes "[新手教学女专家]";
+		mes "另外为了表示对你的敬意，我还送你奖励，怎样?冒险家~!! 你要挑战看看吗?";
 		next;
-		if(select("Ch... Challenge!!:Um... I think I'll just give up now...") == 1) {
-			mes "[Tutorial Goal]";
-			mes "You're braver than you look. You can't go back now that you've decided to challenge!";
+		if(select("挑... 挑战!!:算了... 我要放弃...") == 1) {
+			mes "[新手教学女专家]";
+			mes "你还挺勇敢的嘛，既然决定要挑战就不能在回头啰!!";
 			next;
-			mes "[Tutorial Goal]";
-			mes "Okay~ Start by talking to the ^006400Siege Expert^000000 who's right there in front.";
+			mes "[新手教学女专家]";
+			mes "好~ 那从我对面的^006400攻城达人^000000开始挑战看看吧?";
 			setquest 4161;
 			close;
 		}
 	}
-	mes "[Tutorial Goal]";
-	mes "Well, don't get discouraged... If you change your mind and want to do the challenge, come find me.";
+	mes "[新手教学女专家]";
+	mes "嗯... 没关系，你不要感到挫折，如果以后改变主意想要挑战的话，欢迎在来找我吧!";
 	close;
 }
 
-moc_para01,24,175,4	script	Siege Master	734,{
+moc_para01,24,175,4	script	攻城达人	734,{
 	set .@checkquest, checkquest(4161);
 	if (.@checkquest == 2) {
-		mes "[Siege Expert]";
-		mes "Since you've come again, I assume you're curious about ^006400Siege^000000?";
+		mes "[攻城达人]";
+		mes "你又来找我，看来你对^006400攻城战^000000有疑惑的地方吧?";
 		next;
-		switch(select("Listen about Siege.:End Conversation.")) {
+		switch(select("听取攻城战的说明:结束对话")) {
 		case 1:
 			callsub L_Info;
-			mes "[Siege Expert]";
-			mes "Now that you've gone through all of this with an expert, isn't it easy to understand? If you want to go over anything, just come talk to me.";
+			mes "[攻城达人]";
+			mes "听完达人的解说之后，有更进一步的认识吧?如果还有要问的随时来找我吧!";
 			close;
 		case 2:
-			mes "[Siege Expert]";
-			mes "If you want to go over anything, just come talk to me.";
+			mes "[攻城达人]";
+			mes "如果还有要问的随时来找我吧!~";
 			close;
 		}
 	} else if (.@checkquest == 0 || .@checkquest == 1) {
-		mes "[Siege Expert]";
-		mes "I am someone who has studied War of Emperium for 16 years! So that makes me an expert! Since you came to find me, I assume you want to learn more about ^006400Siege^000000.";
+		mes "[攻城达人]";
+		mes "我是16年来专门研究城战的攻城战达人，你来找我看样子是对^006400攻城战^000000有疑惑的地方吧?";
 		next;
-		mes "[Siege Expert]";
-		mes "You have great desire and enthusiasm. As the Expert of ^006400Siege^000000, you have motivated me! All the other Experts are waiting for you! Go get'em!";
+		mes "[攻城达人]";
+		mes "看你这么积极身为^006400攻城战^000000达人让我更充满热情，这里的所有达人都是等像你一样的冒险家!";
 		next;
-		mes "[Siege Expert]";
-		mes "If I told you that there was a great prize for being able to pass all the Experts' tests~ would you go for the challenge?";
+		mes "[攻城达人]";
+		mes "假如听完所有达人的解说后答对问题的话，就送很不错的奖励喔!你要挑战看看吗?";
 		next;
-		mes "[Siege Expert]";
-		mes "As the first Expert, I can teach you about ^006400Siege^000000. How about it? Did you wanna learn about ^006400Siege^000000s?";
+		mes "[攻城达人]";
+		mes "第一个身为达人的我对^006400攻城战^000000诚心诚意的告诉你，如何?你先听听^006400攻城战^000000有关的说明吧?";
 		next;
-		switch(select("Listen about Siege.:End Conversation.")) {
+		switch(select("听取攻城战的说明:结束对话")) {
 		case 1:
 			callsub L_Info;
-			mes "[Siege Expert]";
-			mes "Now that you've gone through all of this with an expert, isn't it easy to understand?";
-			mes "Now I'll give you 3 questions~ get those right and you've passed! Do you want a challenge?";
+			mes "[攻城达人]";
+			mes "听完达人的解说之后，有更进一步的认识吧?";
+			mes "我会出３道题目，你要全部答对才算过关，你要挑战看看吗?";
 			while(1) {
 				set .@correct,0;
 				next;
-				switch(select("Challenge me!:Listen Again:Quit")) {
+				switch(select("挑战问题!:重新听取说明:取消")) {
 				case 1:
 					switch(rand(1,3)) {
 					case 1:
-						mes "[Siege Expert]";
-						mes "A Siege is done in order to take over a [].";
-						mes "It's a war that happens between a [] and another [].";
-						mes "What words go in the empty spaces of []?";
+						mes "[攻城达人]";
+						mes "攻城战是为了占领 []，";
+						mes "而展开的[]与[]之间的对战";
+						mes "这里[]要加入的文字是?";
 						next;
-						if(select("Castle, User, Guild:Castle, Guild, Guild:Town, Guild, Guild:Town, User, User") == 2)
+						if(select("城池, 玩家, 公会:城池, 公会, 公会:村落, 公会, 公会:村落, 玩家, 玩家") == 2)
 							set .@correct, .@correct+10;
-						mes "[Siege Expert]";
-						mes "What is the wrong Siege time?";
+						mes "[攻城达人]";
+						mes "攻城战所进行的时间中错误的是?";
 						next;
-						if(select("WoE 1 Tues 9-11:WoE 1 Sat 4-6:WoE 1 Thurs 8-10") == 3)
+						if(select("周二　晚上 9-11点:周六　下午 4-6点:周四　晚上 8-10点") == 3)
 							set .@correct, .@correct+10;
-						mes "[Siege Expert]";
-						mes "When you get a castle, you must raise [] in order to get better benefits.";
-						mes "What words go in the empty spaces of []?";
+						mes "[攻城达人]";
+						mes "攻占城池后，若想要获得更多的优惠，必须要增进 [] ，";
+						mes "这里 []　要加入的文字是?";
 						next;
-						if(select("Commerce Development:Industrial Development:Guild Development:Town Development") == 1)
+						if(select("商业发展:工业发展:公会发展:村落发展") == 1)
 							set .@correct, .@correct+10;
 						break;
 					case 2:
-						mes "[Siege Expert]";
-						mes "There are 2 types of Siege.";
-						mes "There is the normal War of Emperium";
-						mes "and then there is [].";
-						mes "What words go in the empty spaces of []?";
+						mes "[攻城达人]";
+						mes "攻城战共有２种，";
+						mes "有一般的攻城战，";
+						mes "和　[]，";
+						mes "这里　[]　要加入的文字是?";
 						next;
-						if(select("War of Emperium MO:War of Emperium NE:War of Emperium SK:War of Emperium SE") == 4)
+						if(select("攻城战 MO:攻城战 NE:攻城战 SK:攻城战 SE") == 4)
 							set .@correct, .@correct+10;
-						mes "[Siege Expert]";
-						mes "As the guild that owns a castle, you must protect the [].";
-						mes "What words go in the empty spaces of []?";
+						mes "[攻城达人]";
+						mes "当攻城战开打时，守成一方的公会必须尽全力保护避免被破坏的是 []，";
+						mes "这里 []　要加入的文字是?";
 						next;
-						if(select("Emperial:Emperium:Emperiom:Imperial") == 2)
+						if(select("美丽金属:华丽金属:绚丽金属:秀丽金属") == 2)
 							set .@correct, .@correct+10;
-						mes "[Siege Expert]";
-						mes "What benefits does the guild get for winning the Siege?";
+						mes "[攻城达人]";
+						mes "在攻城战中获胜的公会可享受的优惠中正确的是?";
 						next;
-						if(select("30% off all items when purchasing:Increase experience gained by 20%:Access to Guild Dungeon:Getting Weapons everyday at midnight.") == 3)
+						if(select("所有购物享30%折扣:享经验值增加20%:可获得公会专属密穴:每天早上可获得攻城武器") == 3)
 							set .@correct, .@correct+10;
 						break;
 					case 3:
-						mes "[Siege Expert]";
-						mes "What benefits does the guild get for winning the Siege?";
+						mes "[攻城达人]";
+						mes "在攻城战中获胜的公会可享受的优惠中正确的是?";
 						next;
-						if(select("Increase experience gained by 20%:30% off all items when purchasing:Access to Guild Field:Treasure Box daily at midnight") == 4)
+						if(select("享经验值增加20%:所有购物享30%折扣:可获得公会专属原野:每天午夜可获得攻城武器") == 4)
 							set .@correct, .@correct+10;
-						mes "[Siege Expert]";
-						mes "How many hours does a siege last?";
+						mes "[攻城达人]";
+						mes "攻城战开打时所进行的时间是?";
 						next;
-						if(select("1 Hour:2 Hours:3 Hours:4 Hours") == 2)
+						if(select("1 小时:2 小时:3 小时:4 小时") == 2)
 							set .@correct, .@correct+10;
-						mes "[Siege Expert]";
-						mes "When you get a castle, you must raise [] in order to get better benefits.";
-						mes "What words go in the empty spaces of []?";
+						mes "[攻城达人]";
+						mes "占领城池后若想要享受更多的优惠，就必增进 []，";
+						mes "这里 []　要加入的文字是?";
 						next;
-						if(select("Town Development:Industry Development:Guild Development:Commerce Development") == 4)
+						if(select("村落发展:工业发展:公会发展:商业发展") == 4)
 							set .@correct, .@correct+10;
 						break;
 					}
 					if (.@correct == 30) {
-						mes "[Siege Expert]";
-						mes "Wow! You got all 3 questions correct! So, you feel pretty good about ^006400Siege^000000s? Right?";
+						mes "[攻城达人]";
+						mes "哇!3道题目全答对了耶! 现在对^006400攻城战^000000更清楚了吧?";
 						next;
-						mes "[Siege Expert]";
-						mes "If you ever want to learn about ^006400Siege^000000, come find me.";
+						mes "[攻城达人]";
+						mes "万一对^006400攻城战^000000想重新听取说明的话，欢迎随时来找我，对你我是乐意的再度说明滴。";
 						next;
-						mes "[Siege Expert]";
-						mes "Now, go and find the ^0000FFParty Recruiting Expert^000000. He's waiting for you.";
+						mes "[攻城达人]";
+						mes "那么现在去找^0000FF组队达^000000看看吧!正在等你呢!";
 						completequest 4161;
 						setquest 4162;
 						getexp 2000,1000;
 						close;
 					}
-					mes "[Siege Expert]";
-					mes "There's only 3 questions and you didn't get them all right! At this rate, you'll fail all the Experts' tests.";
+					mes "[攻城达人]";
+					mes "总共只有３道题目却没有全部答对!很可惜已你的实力是没办法在去见其他的达人了。";
 					next;
-					mes "[Siege Expert]";
-					mes "But when I look at you I know you have potential. Did you want to try to tackle it again?";
+					mes "[攻城达人]";
+					mes "不过依我看你还是大有可为，你要不要再次挑战看看呢?";
 					break;
 				case 2:
 					callsub L_Info;
-					mes "[Siege Expert]";
-					mes "Now that you've gone through all of this with an expert, isn't it easy to understand?";
-					mes "Now I'll give you 3 questions~ get those right and you've passed! Do you want a challenge?";
+					mes "[攻城达人]";
+					mes "听完达人的解说之后，有更进一步的认识吧?";
+					mes "我会出３道题目，你要全部答对才算过关，你要挑战看看吗?";
 					break;
 				case 3:
-					mes "[Siege Expert]";
-					mes "Bah! You're no fun... you give up too easy! If you change your mind, come find me.";
+					mes "[攻城达人]";
+					mes "呸! 有为的冒险家是不轻言放弃的，等你改变主意后，再来找我吧!";
 					close;
 				}
 			}
 			close;
 		case 2:
-			mes "[Siege Expert]";
-			mes "Are you giving up? If you change your mind, come find me.";
+			mes "[攻城达人]";
+			mes "都还没听说明就打算放弃吗? 等你改变主意后再来找我吧。";
 			close;
 		}
 	}
-	mes "[Siege Expert]";
-	mes "If you want to learn something from me, go meet ^006400Tutorial Goal^000000 first.";
+	mes "[攻城达人]";
+	mes "如果想要学习东西的话，应该先去找^006400新手教学女专家^000000见面才对。";
 	close;
 
 L_Info:
-	mes "[Siege Expert]";
-	mes "A ^006400Siege^000000 is a ^0000FFGuild vs. Guild^000000 war in hope to occupy a castle!";
+	mes "[攻城达人]";
+	mes "^006400攻城战^000000顾名思义就是为了占领城池^0000FF公会与公会之间^000000所进行之厮杀流血对战!";
 	next;
-	mes "[Siege Expert]";
-	mes "There are 2 different types of ^006400Siege^000000.";
-	mes "There is the standard ^006400War of Emperium^000000 and one that is slightly different which is known as ^006400War of Emperium 2^000000.";
+	mes "[攻城达人]";
+	mes "^006400攻城战^000000共有2种，";
+	mes "有一般的^006400攻城战^000000和进行方式略有变更之^006400攻城战SE^000000。";
 	next;
-	mes "[Siege Expert]";
-	mes "So during this time, there are two sides of the war.";
-	mes "The ^0000FFGuild That Owns a Castle^000000 tries to protect the ^006400Emperium^000000 and the ^0000FFGuild That Attacks a Castle^000000 tries to break the ^006400Emperium^000000.";
+	mes "[攻城达人]";
+	mes "于城战期间内放着";
+	mes "^006400华丽金属^00000，^0000FF占领城池的公会^000000需要守护^006400华丽金属^00000，^0000FF而攻城的公会^000000则要破坏^006400华丽金属^000000。";
 	next;
-	mes "[Siege Expert]";
-	mes "You can find ^006400Siege^000000 times on our website.";
-	mes "And guilds that win also get a special something-something.";
+	mes "[攻城达人]";
+	mes "你可以在我们的网站找到^006400攻城战^000000的攻城时间，";
+	mes "还有攻城战获胜的公会可以享受特别的优惠喔!";
 	next;
-	mes "[Siege Expert]";
-	mes "Guilds that win during the Siege";
-	mes "get access to a ^006400Guild Dungeon^000000";
-	mes "and the Guild Master gets to open ^006400Treasure Box^000000es at ^0000FFMidnight each day^000000.";
-	mes "Isn't that a great benefit?";
+	mes "[攻城达人]";
+	mes "攻城战获胜的公会，";
+	mes "可以获得^006400公会专属密穴^000000，";
+	mes "另外公会会长^0000FF每天午夜^000000可以获得^006400宝物箱子^000000";
+	mes "所以可以说是非常特别的优惠吧?";
 	next;
-	mes "[Siege Expert]";
-	mes "Another thing you have to do when you win a castle is called ^006400Commerce Development^000000. The more you do it, the better the benefits.";
+	mes "[攻城达人]";
+	mes "还有不单单只是占领城池而已，而是可以将占领的城池来称进^006400商业发展^000000的话，就能取得更多样的优惠喔!";
 	next;
 	return;
 }
 
-moc_para01,21,172,4	script	Party Recruiting Expert	878,{
+moc_para01,21,172,4	script	组队达人	878,{
 	set .@checkquest, checkquest(4162);
 	if (.@checkquest == 2) {
-		mes "[Party Recruiting Expert]";
-		mes "Since you've come and found me, it seems you're curious about ^006400Party Recruiting^000000?";
+		mes "[组队达人]";
+		mes "你又来找我看样子针对^006400组队^000000有疑惑的地方吧?";
 		next;
-		switch(select("Listen about Party Recruiting.:End Conversation.")) {
+		switch(select("听取组队的说明:结束对话")) {
 		case 1:
 			callsub L_Info;
-			mes "[Party Recruiting Expert]";
-			mes "This expert's explanation was pretty great, huh? If you need a refresher, come find me again.";
+			mes "[组队达人]";
+			mes "我这达人的解说很精采吧，如果还有要问的欢迎再来找我~";
 			close;
 		case 2:
-			mes "[Party Recruiting Expert]";
-			mes "Well, if you have any questions, come find me.";
+			mes "[组队达人]";
+			mes "好吧~　如果还有要问的再来找我吧~";
 			close;
 		}
 	} else if (.@checkquest == 0 || .@checkquest == 1) {
-		mes "[Party Recruiting Expert]";
-		mes "I am the ^006400Party Recruiting^000000 expert because I did research about Party Recruting for 16 years! It seems that the ^006400Siege Expert^000000 sent you my way since you passed his tests, hmm?";
+		mes "[组队达人]";
+		mes "我是拥有16年组队经验的^006400组队达人^000000~!你来找我想必是^006400攻城达人^000000的问题都通过了吧?";
 		next;
-		mes "[Party Recruiting Expert]";
-		mes "You may have already heard but if you pass all the Experts' quizzes, you'll get an awesome prize!";
+		mes "[组队达人]";
+		mes "想必你已经听说过，假如听完所有达人的解说后答对问题的话，会送你很棒的奖励喔!";
 		next;
-		mes "[Party Recruiting Expert]";
-		mes "As the 2nd expert, I'll tell you all about ^006400Party Recruiting^000000! How about it?";
+		mes "[组队达人]";
+		mes "身为第二个达人的我，针对^006400组队^000000我会详细解说! 如何?你先听听组队有关的说明吧!";
 		next;
-		switch(select("Listen about Party Recruiting.:End Conversation.")) {
+		switch(select("听取组队说明:结束对话")) {
 		case 1:
 			callsub L_Info;
-			mes "[Party Recruiting Expert]";
-			mes "Now~ my explanations were smoother than a smooth criminal, right? Now I'm gonna give you a quiz with 3 questions. Get them all right and you've passed. Wanna take the challenge?";
+			mes "[组队达人]";
+			mes "我这达人的说明比大学教授还完美吧? 我会出3道题目，你要全部答对才算过关，你要挑战看看吗?";
 			while(1) {
 				set .@correct,0;
 				next;
-				switch(select("On to the quiz!:Explain again please?:Give up.")) {
+				switch(select("挑战问题!:重新听取说明:取消")) {
 				case 1:
 					switch(rand(1,3)) {
 					case 1:
-						mes "[Party Recruiting Expert]";
-						mes "Party Recruiting is used to help";
-						mes "users that are looking for []";
-						mes "and those looking for a [].";
-						mes "What words go in the empty spaces of []?";
+						mes "[组队达人]";
+						mes "";
+						mes "组队是提供正在找 []和";
+						mes "找 []的玩家之间见面的机会，";
+						mes "这里 []要加入的文字是?";
 						next;
-						if(select("Guild, Guildmate:Club, Club Members:Paris, Party Members:Party, Party Members") == 4)
+						if(select("公会, 公会会员:社团, 社团会员:苍蝇, 队员:队伍, 队员") == 4)
 							set .@correct, .@correct+10;
-						mes "[Party Recruiting Expert]";
-						mes "The window that is used to help users look and search for a party is called a [].";
-						mes "What words go in the empty spaces of []?";
+						mes "[组队达人]";
+						mes "可以说是搜寻其他玩家所登记的 []之视窗。";
+						mes "这里 []要加入的文字是?";
 						next;
-						if(select("Party List:Party Wanted List:Party Recruiting List:Costume Party List") == 3)
+						if(select("队伍情单:招募队伍情单:组队清单:队伍　服装清单") == 3)
 							set .@correct, .@correct+10;
-						mes "[Party Recruiting Expert]";
-						mes "Which of the choices are not listed as a choice to pick when making a party recruit notice?";
+						mes "[组队达人]";
+						mes "招募队伍时要选定的设定中错误的是?";
 						next;
 						if(select("LEVEL:SKILL:JOB:MAP") == 2)
 							set .@correct, .@correct+10;
 						break;
 					case 2:
-						mes "[Party Recruiting Expert]";
-						mes "There are 2 types of Party Recruiting.";
-						mes "Registering Party Recruiting is one";
-						mes "and the 2nd one is [].";
-						mes "What words go in the empty spaces of []?";
+						mes "[组队达人]";
+						mes "组队共分为２各阶段，";
+						mes "登记招募队伍的阶段和";
+						mes "[]的阶段，";
+						mes "这里 []要加入的文字是?";
 						next;
-						if(select("Search for Parties that are Recruiting:Parties that are starting to hunt:Party Recruit and Item Distribution:Party Stuff") == 1)
+						if(select("搜寻招募中之队伍:组队后开始打怪:与队员分配物品:解散队伍") == 1)
 							set .@correct, .@correct+10;
-						mes "[Party Recruiting Expert]";
-						mes "In order to start Party Recruiting, you have to click the [] button which is located in the info section of the upper left hand side.";
-						mes "What words go in the empty spaces of []?";
+						mes "[组队达人]";
+						mes "首先要组队的话，在左上方的情报视窗必须点击 []的按键，";
+						mes "这里 []要加入的文字是?";
 						next;
 						if(select("party:guild:booking:skill") == 3)
 							set .@correct, .@correct+10;
-						mes "[Party Recruiting Expert]";
-						mes "If you want to know more about commands for Party Recruiting, you have to press the [] button on the Party Recruting List window.";
-						mes "What words go in the empty spaces of []?";
+						mes "[组队达人]";
+						mes "组队相关的指令若想进一步了解的话，点击组队清单右下方的 []按键，";
+						mes "这里 []要加入的文字是?";
 						next;
-						if(select("Basic Information:Help:Party:Confirm") == 2)
+						if(select("基本资讯:小帮手:Party:确认") == 2)
 							set .@correct, .@correct+10;
 						break;
 					case 3:
-						mes "[Party Recruiting Expert]";
-						mes "For Party Recruiting, in order to make the";
-						mes "Party Recruiting Window pop up,";
-						mes "You type in this command [].";
-						mes "What words go in the empty spaces of []?";
+						mes "[组队达人]";
+						mes "组队指令中";
+						mes "若要开启组队视窗，";
+						mes "必须输入 []的指令，";
+						mes "这里 []要加入的文字是?";
 						next;
-						if(select("/Party Collection Window:/Party Collection:/Party Recruitment Window:/Party Recruitment") == 4)
+						if(select("/招募组队视窗:/招募队伍:/组队视窗:/组队") == 4)
 							set .@correct, .@correct+10;
-						mes "[Party Recruiting Expert]";
-						mes "When recruiting for a party, you can set 3 parameters. Those 3 are";
-						mes "LEVEL, JOB, and [].";
-						mes "What words go in the empty spaces of []?";
+						mes "[组队达人]";
+						mes "组队时必须设定的有3项，";
+						mes "LEVEL, JOB, 还有 [].";
+						mes "这里 []要加入的文字是?";
 						next;
 						if(select("SKILL:GUILD:MAP:OPTION") == 3)
 							set .@correct, .@correct+10;
-						mes "[Party Recruiting Expert]";
-						mes "Party Recruiting is used to help";
-						mes "users that are looking for []";
-						mes "and those looking for a [].";
-						mes "What words go in the empty spaces of []?";
+						mes "[组队达人]";
+						mes "组队是";
+						mes "提供正在找 []和";
+						mes "找 []的玩家之间见面的机会，";
+						mes "这里 []要加入的文字是?";
 						next;
-						if(select("Parry, Party Members:Club, Club Members:Party, Party Members:Guild, Guild Members") == 3)
+						if(select("苍蝇, 队员:社团, 社团会员:队伍, 队员:公会, 公会会员") == 3)
 							set .@correct, .@correct+10;
 						break;
 					}
 					if (.@correct == 30) {
-						mes "[Party Recruiting Expert]";
-						mes "Nice! You got all 3 correct! Now do you feel more confident about ^006400Party Recruiting^000000?";
+						mes "[组队达人]";
+						mes "哇! 3道题目全部答对了耶!现在对^006400组队^000000更清楚了吧?";
 						next;
-						mes "[Party Recruiting Expert]";
-						mes "If you ever want to hear more about ^006400Party Recruiting^000000, come find me anytime.";
+						mes "[组队达人]";
+						mes "假如对^006400组队^000000想重新听取说明的话，欢迎随时来找我~我会详细解说。";
 						next;
-						mes "[Party Recruiting Expert]";
-						mes "Well, off you go to the ^0000FFBattleground Expert^000000! He is probably waiting for you.";
+						mes "[组队达人]";
+						mes "那么现在去找^0000FF战场达人^000000看看吧!正在等你呢!";
 						completequest 4162;
 						setquest 4163;
 						getexp 2000,1000;
 						close;
 					}
-					mes "[Party Recruiting Expert]";
-					mes "There's only 3 questions and you didn't get them all right! At this rate, you'll fail all the Experts' tests.";
+					mes "[组队达人]";
+					mes "总共只有3道题目并没有全部答对~!很可惜以你的实力还是没有办法去见下一位达人呢!";
 					next;
-					mes "[Party Recruiting Expert]";
-					mes "But if you want to retake the quiz! Go for it! I think you have potential! Wanna take the quiz again?";
+					mes "[组队达人]";
+					mes "假如再次挑战的话，还是大有可为!建议你再次挑战看看吧?";
 					break;
 				case 2:
 					callsub L_Info;
-					mes "[Party Recruiting Expert]";
-					mes "Now~ my explanations were smoother than a smooth criminal, right? Now I'm gonna give you a quiz with 3 questions. Get them all right and you've passed. Wanna take the challenge?";
+					mes "[组队达人]";
+					mes "我这达人的说明比大学教授还完美吧? 我会出3道题目，你要全部答对才算过关!";
 					break;
 				case 3:
-					mes "[Party Recruiting Expert]";
-					mes "Don't give up! You can do it! If you change your mind, come talk to me again!";
+					mes "[组队达人]";
+					mes "不要放弃~!!你可以的!!等你改变主意后，再来找我吧!";
 					close;
 				}
 			}
 			close;
 		case 2:
-			mes "[Party Recruiting Expert]";
-			mes "You're gonna give up without even listening to me? If you change your mind, come talk to me again!";
+			mes "[组队达人]";
+			mes "都还没听说明就打算放弃吗? 等你改变主意后再来找我吧!";
 			close;
 		}
 	}
-	mes "[Party Recruiting Expert]";
-	mes "If you want to learn something from me, talk to the ^006400Siege Master^000000 first.";
+	mes "[组队达人]";
+	mes "如果想要学习东西的话，先去得到^006400攻城达人^000000的认同后再来吧!";
 	close;
 
 L_Info:
-	mes "[Party Recruiting Expert]";
-	mes "^006400Party Recruiting^000000 is pretty self explanatory. It helps people find party members and it helps people find parties.";
+	mes "[组队达人]";
+	mes "^006400组队^000000顾名思义就是促成立即相遇~!为了能让玩家顺利组队，提供正在找队伍和找队员的玩家之间见面的机会!";
 	next;
-	mes "[Party Recruiting Expert]";
-	mes "There are 2 parts to Party Recruiting.";
-	mes "1st step is ^0000FFRegistering Party Recruiting^000000,";
-	mes "and the 2nd step is ^0000FFParty Search^000000.";
+	mes "[组队达人]";
+	mes "组队共有２个阶段，";
+	mes "第一阶段是^0000FF登记招募队伍的阶段^000000，";
+	mes "第二阶段是^0000FF搜寻招募中之队伍的阶段^000000等两部分。";
 	next;
-	mes "[Party Recruiting Expert]";
-	mes "In order to look up Party Recruiting, in the info window on the upper left, click the button that says ^006400booking^000000. Then the ^006400Party Recruiting List^000000 will come up.";
+	mes "[组队达人]";
+	mes "首先要组队的话，在左上方的情报视窗点击^006400booking^000000的按键时，就会显示^006400组队清单^000000的视窗。";
 	next;
-	mes "[Party Recruiting Expert]";
-	mes "^006400Party Recruiting List^000000 window shows you the parties that are looking for members that was listed by other users. You can search through it.";
+	mes "[组队达人]";
+	mes "^006400组队清单^000000视窗可以说是搜寻其他玩家所登记的队伍目录之视窗。";
 	next;
-	mes "[Party Recruiting Expert]";
-	mes "In the case that you don't want to join a party, but you want to recruit for one, type in the ^0000FF/Party Recruit^000000 command then in the ^006400Party Recruiting^000000 window, you can do some recruiting!";
+	mes "[组队达人]";
+	mes "假如不想加入招募中的队伍，而是自己想组队时，输入^0000FF/组队^000000指令后，开启^006400组队^000000视窗就能招募了!";
 	next;
-	mes "[Party Recruiting Expert]";
-	mes "Once you register your party recruit notice in the ^006400Party Recruiting^000000 window, the users can search out your ^006400Party Recruiting List^000000";
+	mes "[组队达人]";
+	mes "^006400组队^000000视窗是登记自己想招募的队伍好让其他玩家在^006400组队清单^000000中进行搜寻。";
 	next;
-	mes "[Party Recruiting Expert]";
-	mes "In the ^006400Party Recruiting List^000000 and";
-	mes "^006400Party Recruiting^000000 you can put in basic information of what you're going to be doing, or what you're looking for like ";
-	mes "^006400LEVEL^000000, ^006400MAP^000000, ^006400JOB^000000.";
-	mes "Then the users can search using those parameters and utilizing the ^006400Party Recruitment^000000 system.";
+	mes "[组队达人]";
+	mes "^006400组队清单^000000和";
+	mes "^006400组队^000000中可共通对";
+	mes "^006400LEVEL^000000, ^006400MAP^000000, ^006400JOB^000000的资讯进行选择，";
+	mes "也就是将此登记搜寻后体验^006400组队^000000的乐趣。";
 	next;
-	mes "[Party Recruiting Expert]";
-	mes "If you want to learn more commands about ^006400Party Recruiting^000000, click on the ^006400Help^000000 button on the bottom right of the ^006400Party Recruiting list^000000.";
+	mes "[组队达人]";
+	mes "^006400组队^000000相关的指令若想进一步了解的话，点击^006400组队清单^000000视窗右下方的^006400小帮手^000000键即可。";
 	next;
 	return;
 }
 
-moc_para01,12,179,6	script	Battleground Master	419,{
+moc_para01,12,179,6	script	战场达人	419,{
 	set .@checkquest, checkquest(4163);
 	if (.@checkquest == 2) {
-		mes "[Battleground Expert]";
-		mes "Seeing that you sought me out, I guess you want to learn about ^006400Battleground^000000s, eh?";
+		mes "[战场达人]";
+		mes "你又来找我看样子是针对^006400战场^000000有疑惑的地方吧?";
 		next;
-		switch(select("Learn about Battlegrounds.:End Conversation.")) {
+		switch(select("听取战场说明:结束对话")) {
 		case 1:
 			callsub L_Info;
-			mes "[Battleground Expert]";
-			mes "There's nothing better than hearing it straight from the expert! If you want to go over it again, just talk to me.";
+			mes "[战场达人]";
+			mes "没有比直接向达人听取解说更能明白事情的方法了，如果还有要问的话，再来找我吧!";
 			close;
 		case 2:
-			mes "[Battleground Expert]";
-			mes "If you want to go over anything, let me know.";
+			mes "[战场达人]";
+			mes "如果还有要问的话，再来找我吧!";
 			close;
 		}
 	} else if (.@checkquest == 0 || .@checkquest == 1) {
-		mes "[Battleground Expert]";
-		mes "For 16 years, I experienced the intense heat of battle on the ^006400Battleground^000000s... I am the ^006400Battleground^000000 Expert!";
-		mes "It seems that the ^006400Party Recruiting Expert^000000 sent you to me since you passed his quiz.";
+		mes "[战场达人]";
+		mes "我是有16年^006400战场^000000激烈经验的^006400战场^000000达人!";
+		mes "你能这样来找我表示^006400组队达人^000000的问题都通过了吧!";
 		next;
-		mes "[Battleground Expert]";
-		mes "You may already know but if you get pass all the quizzes from the Experts, you'll get a prize!";
+		mes "[战场达人]";
+		mes "想必你已经听过，假如听完所有达人的解说后答对问题的话，就送很不错的奖励喔!";
 		next;
-		mes "[Battleground Expert]";
-		mes "I will tell you about the ^006400Battleground^000000s! I will tell you everything I know! How about it? Wanna hear about it?";
+		mes "[战场达人]";
+		mes "身为第三顺位达人的我针对^006400战场^000000s我会详尽的向你说明，你要听听看吗?";
 		next;
-		switch(select("Learn about Battlegrounds.:End Conversation.")) {
+		switch(select("听取战场的说明:结束对话")) {
 		case 1:
 			callsub L_Info;
-			mes "[Battleground Expert]";
-			mes "There's nothing better than hearing it straight from the expert! Now, do you wanna take my 3-question quiz? You have to answer all 3 correctly to pass!";
+			mes "[战场达人]";
+			mes "没有比直接向达人听取解说更能明白事情的方法了，我会想出3道题目，你要全部答对才算过关，你要挑战看看吗?";
 			while(1) {
 				set .@correct,0;
 				next;
-				switch(select("On to the quiz!:Explain again please?:Give up.")) {
+				switch(select("挑战问题!:重新听取说明:取消")) {
 				case 1:
 					switch(rand(1,3)) {
 					case 1:
-						mes "[Battleground Expert]";
-						mes "For starters, you have to pick either the side of [] Camp or [] Camp in order to to participate in Battleground.";
-						mes "What words go in the empty spaces of []?";
+						mes "[战场达人]";
+						mes "战场是指 [] 阵营和 [] 阵营中选择其中一个后，和隶属于各阵营的玩家间互相对立和战斗的地方，";
+						mes "这里 [] 要加入的文字是?";
 						next;
-						if(select("Guillaume, Tierra:Rachel, KVM:Guillaume, Croix:Maroll, KVM") == 3)
+						if(select("吉永, 提耶拉:拉赫, KVM:吉永, 克勒亚:马勒罗, KVM") == 3)
 							set .@correct, .@correct+10;
-						mes "[Battleground Expert]";
-						mes "[] can do either 10vs10 and you have to attack the crystals of the opposing team while protecting yours.";
-						mes "What words go in the empty spaces of []?";
+						mes "[战场达人]";
+						mes "以10:10进行并攻击对方阵营的水晶，来守护自己水晶为目标的战场是[]峡谷，";
+						mes "这里 []要加入的文字是?";
 						next;
-						if(select("Tierra:Flavius:KVM:Maroll") == 2)
+						if(select("提耶拉:瀑拉毕乌斯:KVM:马勒罗") == 2)
 							set .@correct, .@correct+10;
-						mes "[Battleground Expert]";
-						mes "When you complete a battle, you may get a reward! From a KVM battle, you get [].";
-						mes "What words go in the empty spaces of []?";
+						mes "[战场达人]";
+						mes "依战场的成绩，可获得以下奖励，其中KVM的奖励是 []，";
+						mes "这里 []要加入的文字是?";
 						next;
-						if(select("KVM Badge:Valor Badge:Bravery Badge:Honor Badge") == 1)
+						if(select("KVM 点数:勇猛徽章:特攻徽章:荣誉徽章") == 1)
 							set .@correct, .@correct+10;
 						break;
 					case 2:
-						mes "[Battleground Expert]";
-						mes "For [], it's 10vs10. You also need to attack the enemies supply depot while protecting your own.";
-						mes "What words go in the empty spaces of []?";
+						mes "[战场达人]";
+						mes "以10:10进行并攻击对方阵营的补给仓库，来守护自既补给仓库为目标的战场是 []峡谷，";
+						mes "这里 []要加入什么文字?";
 						next;
-						if(select("Maroll:KVM:Flavius:Tierra") == 4)
+						if(select("马乐罗:KVM:瀑拉耶乌斯:提耶拉") == 4)
 							set .@correct, .@correct+10;
-						mes "[Battleground Expert]";
-						mes "In order to get into the battlegrounds, which one is not the recruiter you need to find?";
+						mes "[战场达人]";
+						mes "再参加战场前先要去找行政官，以下的错误是?";
 						next;
-						if(select("Maroll Mercenary Recruiter:KVM Mercenary Recruiter:Tierra Mercenary Recruiter:Flavius Mercenary Recruiter") == 1)
+						if(select("马乐罗 佣兵行政官:KVM 佣兵行政官:提耶拉 佣兵行政官:瀑拉耶乌斯 佣兵行政官") == 1)
 							set .@correct, .@correct+10;
-						mes "[Battleground Expert]";
-						mes "You can get [] from participating in the Battlegrounds of Tierra.";
-						mes "What words go in the empty spaces of []?";
+						mes "[战场达人]";
+						mes "依战场的成绩，可获得以下奖励，其中提耶拉峡谷的奖励是 []，";
+						mes "这里 []要加入的文字是?";
 						next;
-						if(select("KVM Badge:Valor Badge:Bravery Badge:Honor Badge") == 2)
+						if(select("KVM 点数:勇猛徽章:特攻徽章:荣誉徽章") == 2)
 							set .@correct, .@correct+10;
 						break;
 					case 3:
-						mes "[Battleground Expert]";
-						mes "In every major city, you can find [] to enter the Battlegrounds.";
-						mes "What words go in the empty spaces of []?";
+						mes "[战场达人]";
+						mes "所有战场可透过村落的 []来进入，";
+						mes "这里 []要加入的文字是?";
 						next;
-						if(select("Maroll Battleground Recruiter:Tierra Battleground Recruiter:Flavius Battleground Recruiter:KVM Battleground Recruiter") == 1)
+						if(select("马乐罗战场募兵官:提耶拉战场募兵官:瀑拉毕乌斯战场募兵官:KVM战场募兵官") == 1)
 							set .@correct, .@correct+10;
-						mes "[Battleground Expert]";
-						mes "For [], you go in 5vs5 with the intention of trying to reduce the number of enemies on the opposite side.";
-						mes "What words go in the empty spaces of []?";
+						mes "[战场达人]";
+						mes "以5:5来进行并攻击对方的阵营来降低人数为目的的战场是 []，";
+						mes "这里 []要加入的文字是?";
 						next;
-						if(select("Maroll:Flavius:KVM:Tierra") == 3)
+						if(select("马乐罗:瀑拉毕乌斯:KVM:提耶拉") == 3)
 							set .@correct, .@correct+10;
-						mes "[Battleground Expert]";
-						mes "When you complete a battle, you get a prize. The prize from Flavius is called [].";
-						mes "What words go in the empty spaces of []?";
+						mes "[战场达人]";
+						mes "依战场的成绩，可获得以下奖励，其中瀑拉毕乌斯峡谷的奖励是 []，";
+						mes "这里 []要加入的文字是?";
 						next;
-						if(select("KVM Badge:Valor Badge:Bravery Badge:Honor Badge") == 3)
+						if(select("KVM 徽章:勇猛徽章:特攻徽章:荣誉徽章") == 3)
 							set .@correct, .@correct+10;
 						break;
 					}
 					if (.@correct == 30) {
-						mes "[Battleground Expert]";
-						mes "You got all 3 correct! I think you got a pretty good head on your shoulders. You know a thing or two about ^006400Battleground^000000s.";
+						mes "[战场达人]";
+						mes "3道题目全答对了，实力不错喔!现在对^006400战场^000000更清楚了吧!";
 						next;
-						mes "[Battleground Expert]";
-						mes "If you ever want to go over anything about ^006400Battleground^000000s, feel free to come talk to me!";
+						mes "[战场达人]";
+						mes "假如对^006400战场^000000想重新听取说明的话，欢迎随时来找我!";
 						next;
-						mes "[Battleground Expert]";
-						mes "Go on and find and talk to the 0000FFMemorial Dungeon Expert^000000!";
+						mes "[战场达人]";
+						mes "那么去找0000FF记忆迷宫达人^000000看看吧!";
 						completequest 4163;
 						setquest 4164;
 						getexp 2000,1000;
 						close;
 					}
-					mes "[Battleground Expert]";
-					mes "There's only 3 questions and you didn't get them all right! At this rate, you'll fail all the Experts' tests.";
+					mes "[战场达人]";
+					mes "3道题目你都无法答对...以你的实力再危险的战场上只是送死而已。";
 					next;
-					mes "[Battleground Expert]";
-					mes "But if you want to take it on again, you should.";
+					mes "[战场达人]";
+					mes "假如再次挑战的话，还是大有可为，建议你再次挑战看看吧!";
 					break;
 				case 2:
 					callsub L_Info;
-					mes "[Battleground Expert]";
-					mes "There's nothing better than hearing it straight from the expert! Now, do you wanna take my 3-question quiz? You have to answer all 3 correctly to pass!";
+					mes "[战场达人]";
+					mes "没有比直接向达人听取解说更能明白事情的方法了，我会想出3道题目，你要全部答对才算过关!";
 					break;
 				case 3:
-					mes "[Battleground Expert]";
-					mes "Don't disappoint me by giving up. If you change your mind, come find me again.";
+					mes "[战场达人]";
+					mes "不要让我失望也不许放弃，等你改变主意后再找我吧!";
 					close;
 				}
 			}
 			close;
 		case 2:
-			mes "[Battleground Expert]";
-			mes "You're a coward if you give up even before starting. If you change your mind, come find me again.";
+			mes "[战场达人]";
+			mes "都还没听说明就放弃是不对的，等你改变主意后再来找我吧!";
 			close;
 		}
 		close;
 	}
-	mes "[Battleground Expert]";
-	mes "If you want to learn something from me, go get acknowledged by the ^006400Party Recruiting Expert^000000 first.";
+	mes "[战场达人]";
+	mes "如果想要学习东西的话，先去得到^006400组队达人^000000的认同后再来吧!";
 	close;
 
 L_Info:
-	mes "[Battleground Expert]";
-	mes "To explain ^006400Battleground^000000 easily...";
-	mes "You pick either Camp ^006400Guillaume^000000 or Camp ^006400Croix^000000 then you fight each other.";
+	mes "[战场达人]";
+	mes "^006400战场^000000是指在...";
+	mes "^006400吉永^000000阵营与^006400克勒亚^000000阵营中选择其中一个后，和隶属于各阵营的玩家间互相对立的战斗地方。";
 	next;
-	mes "[Battleground Expert]";
-	mes "There are 3 types of ^006400Battleground^000000s.";
-	mes "First is ^006400KVM^000000. It is a 5vs5 battle with the goal of reducing the number of people on either side.";
+	mes "[战场达人]";
+	mes "^006400战场^000000共有3种，";
+	mes "第一个是以5:5进行并攻击对方来降低人数为目标的^006400KVM^000000。";
 	next;
-	mes "[Battleground Expert]";
-	mes "The second one is 10vs10. You attack the supply depots of your opponents and in turn, you protect your supply depots. This is called ^006400Tierra^000000.";
+	mes "[战场达人]";
+	mes "第二个是以10:10进行并攻击对方阵营的补给仓库，来守护自己补给仓库为目标的^006400提耶拉^000000峡谷。";
 	next;
-	mes "[Battleground Expert]";
-	mes "The third and final one is called ^006400Flavius^000000. This one is also 10vs10. For this one, you attack the crystals of your opponents while trying to protect your own.";
+	mes "[战场达人]";
+	mes "第三个是以10:10进行并攻击对方阵营的水晶，来守护自己水晶为目标的^006400瀑拉毕乌斯^000000峡谷。";
 	next;
-	mes "[Battleground Expert]";
-	mes "To get to ^006400Battleground^000000s, find ^006400Maroll, the Recruiter^000000 who can be found in all major towns.";
+	mes "[战场达人]";
+	mes "所有^006400战场^000000可透过各村落的^006400马乐罗战场募兵官^000000进入。";
 	next;
-	mes "[Battleground Expert]";
-	mes "After you enter, pick if you want to side with Guillaume or Croix, then on their side, pick either...";
-	mes "^006400KVM Mercenary Recruiter^000000,";
-	mes "^006400Tierra Mercenary Recruiter^000000, or";
-	mes "^006400Flavius Mercenary Recruiter^000000,";
-	mes "then you can join the ^006400Battleground^000000s.";
+	mes "[战场达人]";
+	mes "进入后从吉永和克勒亚阵营中择一后可透过各阵营的";
+	mes "^006400KVM 佣兵行政官^000000,";
+	mes "^006400提耶拉峡谷　佣兵行政官^000000，";
+	mes "^006400瀑拉毕乌斯峡谷　佣兵行政官^000000,";
+	mes "来加入^006400战场^000000。";
 	next;
-	mes "[Battleground Expert]";
-	mes "Depending on the outcome of the ^006400Battleground^000000 you can get a prize too.";
-	mes "You get KVM Badges from ^006400KVM^000000,";
-	mes "from ^006400Tierra^000000 you obtain Bravery Badges and";
-	mes "you receive Valor Badges ^006400Flavius^000000.";
+	mes "[战场达人]";
+	mes "依^006400战场^000000的成绩，";
+	mes "可以获得以下^006400KVM^000000的点数、";
+	mes "^006400提耶拉^000000峡谷的勇猛徽章、";
+	mes "^006400瀑拉毕乌斯^000000峡谷的特攻徽章等等的奖励。";
 	next;
-	mes "[Battleground Expert]";
-	mes "With the rewards from ^006400Battleground^000000s, you can get items that you can't normally get elsewhere.";
-	mes "Each ^006400Battleground^000000 reward you can obtain is different so you'll have to check on it.";
+	mes "[战场达人]";
+	mes "各^006400战场^000000上可获得之奖励为可以购买一般而言无法购入的特别物品，";
+	mes "个别^006400战场^000000的奖励所能购买的物品不尽相同，所以要弄清楚。";
 	next;
 	return;
 }
 
-moc_para01,28,167,3	script	Memorial Dungeon Expert	868,{
+moc_para01,28,167,3	script	记忆迷宫达人	868,{
 	set .@checkquest, checkquest(4164);
 	if (.@checkquest == 2) {
-		mes "[Memorial Dungeon Expert]";
-		mes "Since you've come here, it seems you want to learn about the ^006400Memorial Dungeon^000000.";
+		mes "[记忆迷宫达人]";
+		mes "你又来找我看样子是针对^006400记忆迷宫^000000有疑惑的地方吧?";
 		next;
-		switch(select("Listen about Memorial Dungeon.:End Conversation.")) {
+		switch(select("听取记忆迷宫的说明:结束对话")) {
 		case 1:
 			callsub L_Info;
-			mes "[Memorial Dungeon Expert]";
-			mes "Now that you've listend to an expert, it's easy to understand, right? If you want to hear about it again, come find me.";
+			mes "[记忆迷宫达人]";
+			mes "听完达人的说明后，有进一步的了解了吧?如果还有要问的话，随时来找我吧!";
 			close;
 		case 2:
-			mes "[Memorial Dungeon Expert]";
-			mes " If you want to hear about it again, come find me.";
+			mes "[记忆迷宫达人]";
+			mes "如果还有要问的话，随时来找我吧!";
 			close;
 		}
 	} else if (.@checkquest == 0 || .@checkquest == 1) {
-		mes "[Memorial Dungeon Expert]";
-		mes "I am the ^006400Memorial Dungeon^000000 Expert! I studied the ^006400Memorial Dungeon^000000 for 16 years!";
-		mes "Since you've sought me out, I assume that you've passed the ^006400Battleground Expert^000000's quiz.";
+		mes "[记忆迷宫达人]";
+		mes "我是有16年研究^006400记忆迷宫^000000经验的^006400记忆迷宫^000000达人!";
+		mes "你能这样来找我表示^006400战场达人^000000的问题都通过了。";
 		next;
-		mes "[Memorial Dungeon Expert]";
-		mes "As you already know, if you pass all the Experts' quiz you'll get a prize.";
+		mes "[记忆迷宫达人]";
+		mes "想必你已经听说过，假如听完所有达人的解说后答对问题的话，就送很不错的奖励喔!";
 		next;
-		mes "[Memorial Dungeon Expert]";
-		mes "As the 4th Expert, I will explain everything to you about ^006400Memorial Dungeon^000000.";
-		mes "Want to hear about ^006400Memorial Dungeon^000000?";
+		mes "[记忆迷宫达人]";
+		mes "身为第4位达人的我，关于^006400记忆迷宫^000000我会详细的告诉你，";
+		mes "你对^006400记忆迷宫^000000的说明要不要听听看呢?";
 		next;
-		switch(select("Listen about Memorial Dungeon.:End Conversation.")) {
+		switch(select("听取记忆迷宫的说明:结束对话")) {
 		case 1:
 			callsub L_Info;
-			mes "[Memorial Dungeon Expert]";
-			mes "Now that you've listend to an expert, it's easy to understand, right? If you want to hear about it again, come find me.";
-			mes "Okay, now I'm gonna give you a quiz. You have to get all the questions right to pass. Ready?";
+			mes "[记忆迷宫达人]";
+			mes "听完达人的说明后，有进一步的了解了吧?如果还有要问的话，随时来找我吧!";
+			mes "那么，我会出3道题目，你要全部答对才算过关，你要挑战看看吗??";
 			while(1) {
 				set .@correct,0;
 				next;
-				switch(select("On to the quiz!:Explain again please?:Give up.")) {
+				switch(select("挑战问题!:重新听取说明:取消")) {
 				case 1:
 					switch(rand(1,3)) {
 					case 1:
-						mes "[Memorial Dungeon Expert]";
-						mes "^006400Memorial Dungeon^000000 isn't a dungeon that is open to all users. It's only available to you and your [].";
-						mes "What words go in the empty spaces of []?";
+						mes "[记忆迷宫达人]";
+						mes "^006400记忆迷宫^000000是指不是开放给全体玩家的副本，只限自己和 []为对像而开放的独立副本。";
+						mes "这里 []要加入的文字是?";
 						next;
-						if(select("Party Members:Guildmates:Friends:Family") == 1)
+						if(select("队员:公会会员:好友:家人") == 1)
 							set .@correct, .@correct+10;
-						mes "[Memorial Dungeon Expert]";
-						mes "If you go to [] and find [], he will give you information about Endless Tower- which is a huge and tall dungeon.";
-						mes "What words go in the empty spaces of []?";
+						mes "[记忆迷宫达人]";
+						mes "去找位于[] 的 []的话，就能取得关于磨物终结塔的高耸又巨大副本的情报，";
+						mes "这里 []要加入的文字是?";
 						next;
-						if(select("Prontera, Seiyablem:Alberta, Leyablem:Alberta, Captain Jansen:Prontera, Captin Jansen") == 3)
+						if(select("普隆德拉, 世亚布连:艾尔贝塔, 雷亚布连:艾尔贝塔, 船长扬森:普隆德拉, 队长扬森") == 3)
 							set .@correct, .@correct+10;
-						mes "[Memorial Dungeon Expert]";
-						mes "In order to enter Memorial Dungeon the [] must apply and then be on stand-by to enter. You will enter in the order the application was put in.";
-						mes "What words go in the empty spaces of []?";
+						mes "[记忆迷宫达人]";
+						mes "记忆迷宫的话，由 []申请进场后，依申的请前后顺序，经过一段等候时间后可进入。";
+						mes "这里 []要加入的文字是?";
 						next;
-						if(select("Guild Member:Guild Leader:Party Leader:Party Member") == 3)
+						if(select("公会会员:公会会长:队员:队员") == 3)
 							set .@correct, .@correct+10;
 						break;
 					case 2:
-						mes "[Memorial Dungeon Expert]";
-						mes "When you're done with the [], you cannot re-enter the same dungeon for a certain period of time.";
-						mes "What words go in the empty spaces of []?";
+						mes "[记忆迷宫达人]";
+						mes "在记忆迷宫规定时间内 []完毕后，在一段时间内相同记忆迷宫是无法再次进入。";
+						mes "这里 []要加入的文字是?";
 						next;
-						if(select("Buff:Ritual:Exploration:Inspection") == 3)
+						if(select("Buff:仪式:探险:挖掘") == 3)
 							set .@correct, .@correct+10;
-						mes "[Memorial Dungeon Expert]";
-						mes "If you go to the Orc Map where all the orcs live, you will be able to find []. He will probably be able to give you information about the Orc's Memory dungeon.";
-						mes "What words go in the empty spaces of []?";
+						mes "[记忆迷宫达人]";
+						mes "去找在兽人栖息地兽人村里的 []话，就能取得有关兽人的记忆的情报。";
+						mes "这里 []要加入的文字是?";
 						next;
-						if(select("Insane Scientist:Crazy Scientist:Insane Alchemist:Crazy Alchemist") == 1)
+						if(select("狂傲的科学家:疯狂的科学家:狂傲的炼金术士:疯狂的炼金术士") == 1)
 							set .@correct, .@correct+10;
-						mes "[Memorial Dungeon Expert]";
-						mes "In order to enter Memorial Dungeon, the [] must apply- then you'll be able to enter in order of when your application was turned in.";
-						mes "You have to be on stand-by for this.";
-						mes "What words go in the empty spaces of []?";
+						mes "[记忆迷宫达人]";
+						mes "记忆迷宫的话，由 []申请进场后，依申的请前后顺序，";
+						mes "经过一段等候时间后可进入。 ";
+						mes "这里 []要加入的文字是?";
 						next;
-						if(select("Guild Leader:Guildmate:Party Member:Party Leader") == 4)
+						if(select("公会会长:公会会员:队员:队长") == 4)
 							set .@correct, .@correct+10;
 						break;
 					case 3:
-						mes "[Memorial Dungeon Expert]";
-						mes "If you go to the place where you can become a monk, the Capitolina Monastery, you can meet []. He will tell you about the dungeon with the Sealed Baphomet.";
-						mes "What words go in the empty spaces of []?";
+						mes "[记忆迷宫达人]";
+						mes "去武道家转职地卡毕利那修道院的 []，就能取得有关封印的巴风特情报，";
+						mes "这里 []要加入的文字是?";
 						next;
-						if(select("Agent Patrick:Patrolman Patrick:Drunken Patrick:Detective Patrick") == 4)
+						if(select("降魔法师　派屈克:降魔术士 派屈克:降魔道士 派屈克:降魔修士 派屈克") == 4)
 							set .@correct, .@correct+10;
-						mes "[Memorial Dungeon Expert]";
-						mes "When you're done with the [], you cannot re-enter the same dungeon for a certain period of time.";
-						mes "What words go in the empty spaces of []?";
+						mes "[记忆迷宫达人]";
+						mes "记忆迷宫在规定的时间内 []完毕后，在一段时间内相同记忆迷宫是无法再次进入的。";
+						mes "这里 []要加入的文字是?";
 						next;
-						if(select("Exploration:Inspection:Buff:Ritual") == 1)
+						if(select("探险:挖掘:Buff:仪式") == 1)
 							set .@correct, .@correct+10;
-						mes "[Memorial Dungeon Expert]";
-						mes "^006400Memorial Dungeon^000000 is not just open to all users. It is open available for you and your [].";
-						mes "What words go in the empty spaces of []?";
+						mes "[记忆迷宫达人]";
+						mes "^006400记忆迷宫^000000是指不是开放给全体玩家的副本，只限自己和 []为对像而开放的独立副本。";
+						mes "这里 []要加入的文字是?";
 						next;
-						if(select("Friends:Family:Party Members:Guildmates") == 3)
+						if(select("好友:家人:队员:公会会员") == 3)
 							set .@correct, .@correct+10;
 						break;
 					}
 					if (.@correct == 30) {
-						mes "[Memorial Dungeon Expert]";
-						mes "You're pretty bright~ seeing that you got all 3 correct. Now do you understand about ^006400Memorial Dungeon^000000?";
+						mes "[记忆迷宫达人]";
+						mes "看你3题都答对了很有实力喔!现在对^006400记忆迷宫^000000更清楚了吧?";
 						next;
-						mes "[Memorial Dungeon Expert]";
-						mes "If you ever want to go over things about ^006400Memorial Dungeon^000000, come talk to me any time.";
+						mes "[记忆迷宫达人]";
+						mes "假如对^006400记忆迷宫^000000想重新听取说明的话，欢迎随时来找我。";
 						next;
-						mes "[Memorial Dungeon Expert]";
-						mes "Now, off you go to the the ^0000FFMap Expert^000000!";
+						mes "[记忆迷宫达人]";
+						mes "那么现在去找最后一位^0000FF地图达人^000000看看吧!";
 						completequest 4164;
 						setquest 4165;
 						getexp 2000,1000;
 						close;
 					}
-					mes "[Memorial Dungeon Expert]";
-					mes "The quiz wasn't that hard...";
+					mes "[记忆迷宫达人]";
+					mes "测验并不难...";
 					next;
-					mes "[Memorial Dungeon Expert]";
-					mes "You look like you have potential... you should try again.";
+					mes "[记忆迷宫达人]";
+					mes "我看你还大有可为... 建议你再次挑战看看吧!";
 					break;
 				case 2:
 					callsub L_Info;
-					mes "[Memorial Dungeon Expert]";
-					mes "It's easy to understand since it's coming from an expert like me. Now it's quiz time. You have to get all the answers correct to pass. Are you ready?";
+					mes "[记忆迷宫达人]";
+					mes "听完达人的说明后，就会很快熟悉喔!我会出3道题目，你要全部答对才算过关，你要挑战看看吗?";
 					break;
 				case 3:
-					mes "[Memorial Dungeon Expert]";
-					mes "Giving up is lame. If you change your mind, come talk to me.";
+					mes "[记忆迷宫达人]";
+					mes "放弃是不对的，等你改变主意后，再来找我吧!";
 					close;
 				}
 			}
 			close;
 		case 2:
-			mes "[Memorial Dungeon Expert]";
-			mes "Giving up without even trying is lame. If you change your mind, come talk to me.";
+			mes "[记忆迷宫达人]";
+			mes "都还没听说明就放弃是不对的，等你改变主意后再来找我吧!";
 			close;
 		}
 		close;
 	}
-	mes "[Memorial Dungeon Expert]";
-	mes "If you want to learn anything from me, talk to the ^006400Battleground Master^000000 first and get acknowledged by him.";
+	mes "[记忆迷宫达人]";
+	mes "如果想学习东西的话，先去得到^006400战场达人^000000的认同再来吧!";
 	close;
 
 L_Info:
-	mes "[Memorial Dungeon Expert]";
-	mes "The ^006400Memorial Dungeon^000000is not a dungeon that is open to everyone. It only opens to ^0000FFYou and your Party Members^000000.";
+	mes "[记忆迷宫达人]";
+	mes "^006400记忆迷宫^000000是指不是开放给全体玩家的副本，^0000FF只限自己和队员^000000为对像而开放的独立副本。";
 	next;
-	mes "[Memorial Dungeon Expert]";
-	mes "Therefore, in order to enter ^006400Memorial Dungeon^000000, the Party Leader must apply to enter. Since you enter in the order you apply, you must be on stand-by to enter.";
+	mes "[记忆迷宫达人]";
+	mes "因此想要进入^006400记忆迷宫^000000的话，由队长申请进场后，依申请的前后顺序，经过一段等候时间后可进入。";
 	next;
-	mes "[Memorial Dungeon Expert]";
-	mes "Also, after you explore Memorial Dungeon, you cannot re-enter the same ^006400Memorial Dungeon^000000 for a certain period of time.";
+	mes "[记忆迷宫达人]";
+	mes "另外还有^006400记忆迷宫^000000再规定时间内探险完毕后，再一段时间内相同^006400记忆迷宫^000000是无法再次进入。";
 	next;
-	mes "[Memorial Dungeon Expert]";
-	mes "Many ^006400Memorial Dungeon^000000s exist, but we will give you hints to help you find Memorial Dungeon in the world of Rune Midgard.";
+	mes "[记忆迷宫达人]";
+	mes "目前有着许多^006400记忆迷宫^000000，我来告诉你适合像你这样玩家的记忆迷宫，那就在卢恩　米德加兹大陆上。";
 	next;
-	mes "[Memorial Dungeon Expert]";
-	mes "First, go to ^8B4513Alberta^000000 and find ^006400Captain Jansen^000000.";
-	mes "He will give you information about the really huge and tall dungeon known as ^006400Endless Tower^000000.";
+	mes "[记忆迷宫达人]";
+	mes "第一个是去找^8B4513艾尔贝塔^000000港口的^006400船长扬森^000000，";
+	mes "就能取得^006400魔物终结塔^000000高耸又巨大副本的情报。";
 	next;
-	mes "[Memorial Dungeon Expert]";
-	mes "Second, go to the ^8B4513Orc Map^000000 where all the orcs live and find the ^006400Insane Scientist^000000.";
-	mes "You might be able to get some information about a dungeon that has to do with ^006400Orc's Memory^000000.";
+	mes "[记忆迷宫达人]";
+	mes "第二个是去找再兽人栖息地^8B4513兽人村^000000的狂傲科学家，";
+	mes "就能取得有关^006400兽人的记忆^000000情报。";
 	next;
-	mes "[Memorial Dungeon Expert]";
-	mes "Third and last, seek out the place where you can become a monk, which is the ^8B4513Capitolina Monastery^000000 and seek out ^006400Detective Patrick^000000.";
-	mes "He will be able to give you information about the dungeon with the ^006400Sealed Baphomet^000000+.";
+	mes "[记忆迷宫达人]";
+	mes "第3个是去找武道家的转职地^8B4513卡毕利那　修道院^000000的^006400降魔修士派屈克^000000，";
+	mes "就能取得有关^006400封印的巴风特^000000+的情报.";
 	next;
-	mes "[Memorial Dungeon Expert]";
-	mes "Of course there are other locations for Memorial Dungeon but it's best to start where you can find it easily.";
-	mes "As you continue to go on your adventures you will be able to find them more easily.";
+	mes "[记忆迷宫达人]";
+	mes "虽然除了我讲的3个副本之外，还有其他记忆迷宫，但建议你先从近的副本，";
+	mes "展开冒险吧!在你冒险过程中就会自然的熟悉了。";
 	next;
 	return;
 }
 
-moc_para01,14,168,6	script	Map Expert	743,{
+moc_para01,14,168,6	script	地图达人	743,{
 	set .@checkquest, checkquest(4165);
 	if (.@checkquest == 2) {
-		mes "[Map Expert]";
-		mes "Seeing that you came to me, I assume you have some questions about ^006400MAP^000000s?";
+		mes "[地图达人]";
+		mes "你又来找我看样子是针对^006400地图^000000有疑惑的地方?";
 		next;
-		switch(select("List about the Map.:End Conversation.")) {
+		switch(select("听取地图的说明:结束对话")) {
 		case 1:
 			callsub L_Info;
-			mes "[Map Expert]";
-			mes "If you end up in those areas while you're adventuring, be sure to tell me all about it!";
-			mes "And now, since you've passed all the Expert's quizzes, go on and talk to ^006400Tutorial Goal^000000.";
+			mes "[地图达人]";
+			mes "以后当你冒险途中万一到过那些地方的话，记得跟我分享喔!";
+			mes "现在所有达人的考试全部通过，就去找^006400新手教学女专家^000000吧!";
 			close;
 		case 2:
-			mes "[Map Expert]";
-			mes "If you have any more questions, come find me.";
+			mes "[地图达人]";
+			mes "如果还有要问的话，再来找我吧。";
 			close;
 		}
 	} else if (.@checkquest == 0 || .@checkquest == 1) {
-		mes "[Map Expert]";
-		mes "I have been researching and studying ^006400MAP^000000s for 16 years and so now I am the ^006400MAP^000000 Expert!";
-		mes "Since you've sought me out, it seems you've passed ^006400Memorial Dungeon Expert^000000's quiz.";
+		mes "[地图达人]";
+		mes "我有16年研究^006400地图^000000经验的^006400地图^000000达人!";
+		mes "看你这样来找我，^006400记忆迷宫达人^000000的问题应该都通过了吧!";
 		next;
-		mes "[Map Expert]";
-		mes "As you already know, if you pass all the Experts' quiz you'll get a prize.";
+		mes "[地图达人]";
+		mes "想必你已经听说过，假如听完所有达人的解说后答对问题的话，就送很不错的奖励喔!";
 		next;
-		mes "[Map Expert]";
-		mes "As the last Expert, I will try to explain everything about ^006400MAP^000000s to make it easy on you. Ready to start?";
+		mes "[地图达人]";
+		mes "身为最后一位达人的我，关于^006400地图^000000我会浅显易懂的说明，你要听听看吗?";
 		next;
-		switch(select("Listen about Maps.:End Conversation.")) {
+		switch(select("听取地图说明:结束对话")) {
 		case 1:
 			callsub L_Info;
-			mes "[Map Expert]";
-			mes "How was my explanation? Now I am gonna give you a quick quiz! You have to get all the answers correct in order to pass. Ready?";
+			mes "[地图达人]";
+			mes "达人的说明听明白了吗?我会出3道题目，你要全部答对才算过关，你要挑战看看吗?";
 			while(1) {
 				set .@correct,0;
 				next;
-				switch(select("On to the quiz!:Explain again please?:Give up.")) {
+				switch(select("挑战问题!:重新听取说明:取消")) {
 				case 1:
 					switch(rand(1,3)) {
 					case 1:
-						mes "[Map Expert]";
-						mes "You can view the map by clicking on the [] button that is located in the upper left hand side.";
-						mes "What words go in the empty spaces of []?";
+						mes "[地图达人]";
+						mes "地图是点击位于画面左上方的 []键就看的到了。";
+						mes "这里 []要加入的文字是?";
 						next;
 						if(select("SKILL:GUILD:MAP:BOOKING") == 3)
 							set .@correct, .@correct+10;
-						mes "[Map Expert]";
-						mes "When looking at the map, each area offers the [] and [] information about the monsters. That will take all the guess work out of where you should hunt.";
-						mes "What words go in the empty spaces of []?";
+						mes "[地图达人]";
+						mes "在地图会呈现各地区所栖息的怪物 [] 和 [] 之资讯，这可缩短挑选打怪地图时的时间。";
+						mes "这里 []要加入的文字是?";
 						next;
-						if(select("Name, Age:Attributes, Level:Attributes, Tribe:Name, Level") == 4)
+						if(select("名称, 年纪:属性, 等级:属性, 种族:名称, 等级") == 4)
 							set .@correct, .@correct+10;
-						mes "[Map Expert]";
-						mes "If you want to stop looking at the map, simple press the shortcut key of [] or ESC and it will close the map for you.";
-						mes "What words go in the empty spaces of []?";
+						mes "[地图达人]";
+						mes "如果想要关闭地图时，点击 [] 或 ESC 快速键即可。";
+						mes "这里 []要加入的文字是?";
 						next;
 						if(select("ALT + F4:CTRL + %:CTRL + M:ALT + ESC") == 2)
 							set .@correct, .@correct+10;
 						break;
 					case 2:
-						mes "[Map Expert]";
-						mes "After you open your map and you";
-						mes "hover your mouse over specific areas";
-						mes "you can see the [] and [] of the region.";
-						mes "What words go in the empty spaces of []?";
+						mes "[地图达人]";
+						mes "打开地图后，";
+						mes "在地图上移动滑鼠时";
+						mes "该地方的 [] 和 [] 也可一目了然!";
+						mes "这里 []要加入的文字是?";
 						next;
-						if(select("Name, Area Details:Name, Monster Attributes:Specialties, Area Details:Specialties, Name") == 1)
+						if(select("名称, 详细地形:名称, 怪物属性:特产品, 详细地形:特产品, 名称") == 1)
 							set .@correct, .@correct+10;
-						mes "[Map Expert]";
-						mes "If you look to the bottom right of the map, you will see a drawing of []. Click on that or press the TAB shortcut key and you can find out various information.";
-						mes "What words go in the empty spaces of []?";
+						mes "[地图达人]";
+						mes "在地图右下角上有 []图，若点击该图或Tab快速键时，即可看到各种资讯。";
+						mes "这里 []要加入的文字是?";
 						next;
-						if(select("Desert Wolf:Mimic:Siroma:Poring") == 4)
+						if(select("沙漠之狼:邪恶箱:小雪兽:波利") == 4)
 							set .@correct, .@correct+10;
-						mes "[Map Expert]";
-						mes "While looking at the map, when you press the TAB shortcut key, you will be able to find and locate various dungeons and their Entrance Locations.";
-						mes "You can also find the [] of the monsters in that area.";
-						mes "What words go in the empty spaces of []?";
+						mes "[地图达人]";
+						mes "点击地图上的Tab快速键时，可以看到大陆各个地方的密穴";
+						mes "进场位置和该密穴里栖息的怪物 [] 之资讯，";
+						mes "这里 []要加入的文字是?";
 						next;
-						if(select("Name:Level:Attribute:Size") == 2)
+						if(select("名称:等级:属性:大小") == 2)
 							set .@correct, .@correct+10;
 						break;
 					case 3:
-						mes "[Map Expert]";
-						mes "If you want to stop looking at the map, all you need to do is press the [] to go back to your normal screen.";
-						mes "What words go in the empty spaces of []?";
+						mes "[地图达人]";
+						mes "如果想要关闭地图时，点击地图右上角的 []键即可回到原来的画面了。";
+						mes "这里 []要加入的文字是?";
 						next;
 						if(select("O:X:EXIT:ALT") == 2)
 							set .@correct, .@correct+10;
-						mes "[Map Expert]";
-						mes "While looking at the map, when you press the TAB shortcut key, you will be able to find and locate various dungeons and their Entrance Locations.";
-						mes "You can also find the [] of the monsters in that area.";
-						mes "What words go in the empty spaces of []?";
+						mes "[地图达人]";
+						mes "点击地图上的Tab快速键时，可以看到大陆各个地方的密穴";
+						mes "进场位置和该密穴里栖息的怪物 []之资讯。";
+						mes "这里 []要加入的文字是?";
 						next;
-						if(select("Level:Name:Size:Attribute") == 1)
+						if(select("等级:名称:大小:属性") == 1)
 							set .@correct, .@correct+10;
-						mes "[Map Expert]";
-						mes "You can view the map by clicking on the [] button that is located in the upper left hand side.";
-						mes "What words go in the empty spaces of []?";
+						mes "[地图达人]";
+						mes "地图是点击位于画面左上方的 []键就看的到了。";
+						mes "这里 []要加入的文字是?";
 						next;
 						if(select("GUILD:SKILL:BOOKING:MAP") == 4)
 							set .@correct, .@correct+10;
 						break;
 					}
 					if (.@correct == 30) {
-						mes "[Map Expert]";
-						mes "Bingo! You got all 3 answers correct! Now, do you feel like you understand stuff about ^006400MAP^000000s more?";
+						mes "[地图达人]";
+						mes "看你3题都答对了，实力坚强喔!现在对^006400地图^000000更清楚了吧?";
 						next;
-						mes "[Map Expert]";
-						mes "If you ever feel like you want to learn more about ^006400MAP^000000s, come talk to me anytime.";
+						mes "[地图达人]";
+						mes "假如对 ^006400地图^000000想重新听取说明的话，欢迎随时来找我。";
 						next;
-						mes "[Map Expert]";
-						mes "Congrats on passing all the Experts' quizzes! Now, go find and talk to the ^006400Tutorial Goal^000000!";
+						mes "[地图达人]";
+						mes "恭喜你通过了所有达人的考试，现在去找^006400新手教学女专家^000000吧!";
 						completequest 4165;
 						setquest 4166;
 						getexp 2000,1000;
 						close;
 					}
-					mes "[Map Expert]";
-					mes "The 3 questions shouldn't have been that hard...";
+					mes "[地图达人]";
+					mes "答对3题应该不难啦...";
 					next;
-					mes "[Map Expert]";
-					mes "Well, you seem to be pretty smart so why not try the quiz again?";
+					mes "[地图达人]";
+					mes "我看你还大有可为，建议你再次挑战看看吧?";
 					break;
 				case 2:
 					callsub L_Info;
-					mes "[Map Expert]";
-					mes "How is this Expert's explanations? Now I am gonna give you a quick quiz. You have to get all the answers correct to pass. Want to try it?";
+					mes "[地图达人]";
+					mes "达人的说明听明白了吗?我会出3道题目，你要全部答对才算过关，你要挑战看看吗?";
 					break;
 				case 3:
-					mes "[Map Expert]";
-					mes "I'm the last Expert! Dont' give up! Come find me again when you're ready!";
+					mes "[地图达人]";
+					mes "最后一道挑战了~不可以放弃，再来找我吧!";
 					close;
 				}
 			}
 			close;
 		case 2:
-			mes "[Map Expert]";
-			mes "You're gonna give up without even trying? But I'm the last Expert! Dont' give up! Come find me again when you're ready!";
+			mes "[地图达人]";
+			mes "都还没听取说明就打算放弃吗? 只剩最后一道挑战了~不可以放弃，再来找我吧!";
 			close;
 		}
 		close;
 	}
-	mes "[Map Expert]";
-	mes "If you want to learn from me, go get acknowledged by the ^006400Memorial Dungeon^000000 first.";
+	mes "[地图达人]";
+	mes "如果想要请教我的话先去得到^006400记忆迷宫^000000达人的认同后再来吧!";
 	close;
 
 L_Info:
-	mes "[Map Expert]";
-	mes "A ^006400MAP^000000 shows you things that is much needed for travelling around the world; such as the lay of the land, major towns and fields and such. It's a very important tool!";
+	mes "[地图达人]";
+	mes "^006400地图^000000是旅游个主要村落和原野等地方时，不可或缺且提供重要资讯的东西!";
 	next;
-	mes "[Map Expert]";
-	mes "Because of this, it's more important than everything else that you know about ^006400MAP^000000s.";
+	mes "[地图达人]";
+	mes "因此对于^006400地图^000000的掌握和了解是非常重要的。";
 	next;
-	mes "[Map Expert]";
-	mes "The map can be accessed by clicking on the button that says ^006400MAP^000000 on the upper left side of your screen.";
+	mes "[地图达人]";
+	mes "地图是点击位于画面左上方的^006400MAP^000000键就看的到了。";
 	next;
-	mes "[Map Expert]";
-	mes "When you click on the ^006400MAP^000000 button, a full sized map of Rune Midgards will take up your screen.";
-	mes "When you ^0000FFHover your mouse over specific areas^000000, you can find out more things such as ^006400NAME^000000 and Area Details.";
+	mes "[地图达人]";
+	mes "^006400MAP^000000 键点击之后，画面上会呈现整个卢恩 米德加兹大陆的地图，";
+	mes "^0000FF在地图移动滑鼠时^000000该地方的^006400名字^000000和详细情形也可一目了然喔!";
 	next;
-	mes "[Map Expert]";
-	mes "If you look to the lower right side of your map, there is a ^006400Poring drawing^000000.";
-	mes "If you click on it or press the ^006400TAB^000000 shortcut key, you will be able to various information.";
+	mes "[地图达人]";
+	mes "在地图右下角有^006400波力图^000000，";
+	mes "若点击该图或^006400TAB^000000 快速键时，即可看到各种资讯。";
 	next;
-	mes "[Map Expert]";
-	mes "Firstly, you can find out the ^006400NAME^000000 and ^006400LEVEL^000000 of the monsters in each area. That will take a lot of the guess work out of where you want to go hunt.";
+	mes "[地图达人]";
+	mes "第一个是各地所栖息的怪物^006400名称^000000和^006400等级^000000之资讯，这可缩短挑选打怪地图时的时间。";
 	next;
-	mes "[Map Expert]";
-	mes "Secondly, You can locate various ^006400DUNGEON^000000s and their";
-	mes "^006400Entrance Location^000000. Plus, it'll also tell you monsters that reside in that area";
-	mes "along with their ^006400LEVEL^000000. It's displayed in red so it's easy to find.";
+	mes "[地图达人]";
+	mes "第二个是大陆个地方的^006400密穴^000000";
+	mes "^006400进场位置^000000和该密穴里栖息的";
+	mes "怪物^006400等级^000000之资讯，有用红色标示，很容易辨识喔!";
 	next;
-	mes "[Map Expert]";
-	mes "If you want to stop looking at the map, there are 2 ways to do this.";
-	mes "You can press the shortcut keys which are ^006400CTRL + %^000000 or ^006400ESC^000000";
-	mes "Or at the top right of the map, there is a ^006400X^000000 button. Click that and you will return to your normal game screen.";
+	mes "[地图达人]";
+	mes "如果想关闭地图时共有2种方法，";
+	mes "点击^006400CTRL + %^000000 或 ^006400ESC^000000 快速键，";
+	mes "以及地图右上角的^006400X^000000 键，即可回到原来的画面了。";
 	next;
-	mes "[Map Expert]";
-	mes "Currently, we cannot see places that are beyond Rune Midgards but it has been said that there are a lot of unknown worlds that exist in the beyond.";
+	mes "[地图达人]";
+	mes "虽然我们现在透过地图只能看到卢恩 米德加兹大陆，但听说还存在着不少未知的地区。";
 	next;
 	return;
 }

@@ -1,11 +1,19 @@
-//===== rAthena Script =======================================
+//============================================================
+//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
+//===== rAthena Script ======================================= 
 //= Mail Boxes
 //===== By: ==================================================
 //= Euphy
 //===== Current Version: =====================================
 //= 1.0
 //===== Compatible With: =====================================
-//= rAthena Project
+//= rAthena SVN
 //===== Description: ========================================= 
 //= [Official Conversion]
 //= Pickup and write mail from/to players in game.
@@ -15,7 +23,7 @@
 
 // Izlude
 //============================================================
-izlude_a,136,94,0	duplicate(MailBox)	Mailbox#iz_a	888
-izlude_b,136,94,0	duplicate(MailBox)	Mailbox#iz_b	888
-izlude_c,136,94,0	duplicate(MailBox)	Mailbox#iz_c	888
-izlude_d,136,94,0	duplicate(MailBox)	Mailbox#iz_d	888
+izlude_a,136,94,0	duplicate(MailBox)	邮政速递#iz_a	888
+izlude_b,136,94,0	duplicate(MailBox)	邮政速递#iz_b	888
+izlude_c,136,94,0	duplicate(MailBox)	邮政速递#iz_c	888
+izlude_d,136,94,0	duplicate(MailBox)	邮政速递#iz_d	888

@@ -1,721 +1,759 @@
-//===== rAthena Script =======================================
+//============================================================
+//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
+//===== rAthena Script ======================================= 
 //= Thanatos Tower Quest
 //===== By: ==================================================
 //= Muad_Dib
 //===== Current Version: =====================================
-//= 1.1
+//= 1.0a
 //===== Compatible With: =====================================
-//= rAthena Project
+//= rAthena SVN
 //===== Description: =========================================
 //= [Official Conversion]
 //= Episode 13.1 Thanatos Tower quest.
 //===== Additional Comments: =================================
 //= 1.0 Adapted from official release. [Euphy]
 //= 1.0a Added 'npcskill' command. [Euphy]
-//= 1.1 Kagerou/Oboro support (Class -> BaseClass) [Euphy]
 //============================================================
 
-hu_fild01,140,163,5	script	Tower Keeper	852,3,3,{
-	mes "[Gatei]";
-	mes "Greetings, adventurer.";
-	mes "I am Gatei Knumm, keeper";
-	mes "of this Thanatos Tower.";
-	mes "How may I help you?";
+hu_fild01,140,163,5	script	守塔人	852,3,3,{
+	mes "[伽铁]";
+	mes "欢迎，冒险者。";
+	mes "我是伽铁·拿姆，";
+	mes "是这座达纳托斯之塔的守塔人。";
+	mes "有什么可以帮你的？";
 	next;
-	switch(select("Thanatos Tower?:Entrance Fee?:Enter the tower:Cancel")) {
+	switch(select("达纳托斯之塔？:如何进入？:我要进入塔内:没事")) {
 	case 1:
-		mes "[Gatei]";
-		mes "Yes, the tower in front";
-		mes "of you was an ancient ruins";
-		mes "that got its name from a word";
-		mes "written on a stone plate found";
-		mes "inside. Today, this place is";
-		mes "a popular tourist attraction.";
+		mes "[伽铁]";
+		mes "是的，在你面前的那座塔";
+		mes "是一个古老的遗迹，";
+		mes "它的名字是从";
+		mes "塔里的一块石碑上发现的。";
+		mes "如今，这座塔是";
+		mes "一个有名的观光胜地。";
 		next;
-		mes "[Gatei]";
-		mes "This tower grew in popularity";
-		mes "for adventurers when the";
-		mes "Rekenber Corporation began";
-		mes "tower reconstruction efforts.";
-		mes "The 1st and 2nd floors are now";
-		mes "repaired and free of monsters.";
+		mes "[伽铁]";
+		mes "自从雷根贝勒企业";
+		mes "开始塔的重修工作后，";
+		mes "这座塔就在冒险者之间";
+		mes "有着非常高的名气。";
+		mes "现在1、2层已经重修完成，";
+		mes "原有的魔物大致清除干净。";
 		next;
-		mes "[Gatei]";
-		mes "However, reconstruction of";
-		mes "the 3rd and higher floors is";
-		mes "incomplete. Those levels are";
-		mes "still infested with monsters, so we're contracting temp workers";
-		mes "to exterminate all of them.";
+		mes "[伽铁]";
+		mes "但是，3层及更高层的";
+		mes "重修工作仍在进行中。";
+		mes "这些楼层中仍然存在";
+		mes "数不胜数的魔物，因此现正";
+		mes "招募勇士一起清除魔物。";
 		next;
-		mes "[Gatei]";
-		mes "If you're interested in";
-		mes "temporary contract work,";
-		mes "or would like to know about";
-		mes "this place in detail, please";
-		mes "ask one of the guides inside.";
-		mes "Thank you and enjoy your visit~";
+		mes "[伽铁]";
+		mes "如果你对这项工作";
+		mes "感兴趣，或者想更了解";
+		mes "这座塔的话，";
+		mes "那么请";
+		mes "咨询塔内的工作人员吧。";
+		mes "谢谢，祝你有个愉快的旅程~";
 		close;
 	case 2:
-		mes "[Gatei]";
-		mes "Everyone is welcome to";
-		mes "enjoy Thanatos Tower.";
-		mes "Only the 1st and 2nd floors";
-		mes "are open to the public at";
-		mes "this time. The entrance fee";
-		mes "is 5,000 zeny per person.";
+		mes "[伽铁]";
+		mes "我们欢迎任何人";
+		mes "来参观这座达纳托斯之塔。";
+		mes "但是目前只有1、2层";
+		mes "是向公众开放的。";
+		mes "每个人的入场费是";
+		mes "5,000 zeny。";
 		next;
-		mes "[Gatei]";
-		mes "5,000 zeny may seem a little";
-		mes "steep for a tourist attraction,";
-		mes "but trust me, this tower provides a very unique experience. Also,";
-		mes "our loyal customers and contract workers get a special discount~";
+		mes "[伽铁]";
+		mes "可能对一个观光胜地来说，";
+		mes "5,000 zeny有些许的昂贵，";
+		mes "但请相信我，进去后你";
+		mes "一定会觉得不枉此行。";
+		next;
+		mes "[伽铁]";
+		mes "当然，我们会对这里的";
+		mes "常客还有与我们一起";
+		mes "清理魔物的勇士";
+		mes "提供一些优惠。";
 		close;
 	case 3:
-		mes "[Gatei]";
-		mes "Would you like to";
-		mes "enter Thanatos Tower?";
-		mes "The entry fee is ^FF00005,000 zeny^000000.";
+		mes "[伽铁]";
+		mes "你想进入";
+		mes "达纳托斯之塔吗？";
+		mes "入场费是^FF00005,000 zeny^000000。";
 		next;
-		switch(select("Enter:Maybe next time.")) {
+		switch(select("是的:下次再说")) {
 		case 1:
 			if (thana_tower > 0) {
-				mes "[Gatei]";
-				mes "Oh, "+strcharinfo(0)+"!";
-				mes "Welcome back! Since you've";
-				mes "got a temporary Rekenber";
-				mes "work contract, your entrance";
-				mes "fee is only 3,000 zeny.";
+				mes "[伽铁]";
+				mes "噢，"+strcharinfo(0)+"！";
+				mes "欢迎回来！因为你";
+				mes "应征了雷根贝勒企业的";
+				mes "魔物清理工作，你的入场费";
+				mes "现在只需3,000 zeny。";
 				next;
-				switch(select("Enter:No, thanks.")) {
+				switch(select("好的:还是下次吧")) {
 				case 1:
 					if (Zeny > 2999) {
-						mes "[Gatei]";
-						mes "Thank you, and";
-						mes "please keep up the";
-						mes "good work. Ah, and don't";
-						mes "forget: safety first when";
-						mes "you fight those monsters!";
+						mes "[伽铁]";
+						mes "谢谢，";
+						mes "请你继续加油。";
+						mes "噢，还请牢记：";
+						mes "与魔物战斗的时候，";
+						mes "一定要注意安全！";
 						set Zeny, Zeny - 3000;
 						close2;
 						warp "tha_scene01",131,220;
 						end;
 					}
-					mes "[Gatei]";
-					mes "Oh, I'm sorry...";
-					mes "But you don't seem to";
-					mes "have enough zeny. Oh well,";
-					mes "just come back again later~";
+					mes "[伽铁]";
+					mes "噢，非常抱歉…";
+					mes "你看起来没有";
+					mes "足够的钱啊。";
+					mes "还请以后再来吧~";
 					close;
 				case 2:
-					mes "[Gatei]";
-					mes "You must be busy, then.";
-					mes "Well, not to worry, we'll";
-					mes "always be here. Farewell~";
+					mes "[伽铁]";
+					mes "好吧，你最近一定很忙吧。";
+					mes "没事，我们会一直";
+					mes "在这里等候。再会~";
 					close;
 				}
 			}
 			if (Zeny > 4999) {
-				mes "[Gatei]";
-				mes "Ah, I've received your";
-				mes "entrance fee. Thank you";
-				mes "very much. Now, I hope";
-				mes "you enjoy your visit";
-				mes "to Thanatos Tower~";
+				mes "[伽铁]";
+				mes "噢，那我就收下你的";
+				mes "入场费了。非常感谢。";
+				mes "我衷心希望";
+				mes "你能享受这次";
+				mes "愉快的旅行~";
 				close2;
 				set Zeny, Zeny - 5000;
 				warp "tha_scene01",131,220;
 				end;
 			}
-			mes "[Gatei]";
-			mes "Well...";
-			mes "Hm. I'm sorry, but you";
-			mes "don't seem to have enough";
-			mes "zeny for the entrance fee.";
-			mes "Please come back later...";
+			mes "[伽铁]";
+			mes "好的...";
+			mes "噢，非常抱歉，";
+			mes "你看起来没有";
+			mes "足够的钱啊。";
+			mes "还请以后再来吧…";
 			close;
 		case 2:
-			mes "[Gatei]";
-			mes "Very well. Please come";
-			mes "and visit us again here";
-			mes "in Thanatos Tower.";
+			mes "[伽铁]";
+			mes "非常好。请进，";
+			mes "欢迎再次参观";
+			mes "达纳托斯之塔。";
 			close;
 		}
 	case 4:
-		mes "[Gatei]";
-		mes "Hmm? Very well.";
-		mes "But if you wish to visit";
-		mes "this Thanatos Tower, please";
-		mes "do not hesitate to ask me.";
-		mes "Thank you and have a nice day.";
+		mes "[伽铁]";
+		mes "嗯？好吧。";
+		mes "但如果你以后想";
+		mes "参观这座达纳托斯之塔，";
+		mes "请你来找我。";
+		mes "谢谢，祝你有愉快的一天。";
 		close;
 	}
 
 OnTouch:
-	mes "[Tower Keeper]";
-	mes "Excuse me, but you cannot";
-	mes "enter. This place is under";
-	mes "the Rekenber Corporation's";
-	mes "administration, and this area";
-	mes "is restricted to all those";
-	mes "without authorization.";
+	mes "[守塔人]";
+	mes "非常抱歉，你不能";
+	mes "进入塔内。这个地方是";
+	mes "属于雷根贝勒企业";
+	mes "旗下所有，";
+	mes "没有得到授权，";
+	mes "你是无法进入这里的。";
 	close;
 }
 
-tha_t01,149,78,4	script	Guide	90,{
+tha_t01,149,78,4	script	向导	90,{
 	if (thana_tower == 0) {
-		mes "[Ditze]";
-		mes "Welcome to Thanatos Tower.";
-		mes "The tower's reconstruction is";
-		mes "a Rekenber Corporation project,";
-		mes "and the 1st and 2nd floors are";
-		mes "now open to the public. So";
-		mes "how may I help you today?";
+		mes "[迪切]";
+		mes "欢迎来到达纳托斯之塔。";
+		mes "雷根贝勒企业正对";
+		mes "这座塔进行重修工作，";
+		mes "第1、2层已经重修完毕，";
+		mes "并对公众开放。";
+		mes "我有什么能帮你的吗？";
 		next;
-		switch(select("Tower Information:Temporary Work Contract:Cancel")) {
+		switch(select("关于这座塔的资料:听说你们正在招募:没事")) {
 		case 1:
-			mes "[Ditze]";
-			mes "When this tower was built,";
-			mes "who built it, and its purpose";
-			mes "are all mysteries. There are";
-			mes "many rumors about it being a";
-			mes "Mage lab, a hero's momunent,";
-			mes "or a demon fortress...";
+			mes "[迪切]";
+			mes "这座塔的建造者是谁，";
+			mes "还有建造这座塔的目的是什么，";
+			mes "目前都是一个谜。";
+			mes "有传言说只是";
+			mes "某位魔法师的实验室、";
+			mes "某位英雄的纪念塔，";
+			mes "或是一座恶魔的城堡…";
 			next;
-			mes "[Ditze]";
-			mes "The Rekenber Corporation has";
-			mes "been researching the origin of";
-			mes "this tower, but has not yet been able to confirm anything. Although";
-			mes "we've lost many researchers to the tower monsters, we won't give up!";
+			mes "[迪切]";
+			mes "雷根贝勒企业一直在研究";
+			mes "这座塔的起源，但到目前为止";
+			mes "尚未得出任何结论。";
+			mes "尽管很多研究人员";
+			mes "丧命于魔物的爪下，";
+			mes "但我们是不会放弃的！";
 			next;
-			mes "[Ditze]";
-			mes "Rekenber is convinced that this";
-			mes "tower holds many secrets, and";
-			mes "successfully reconstructed the";
-			mes "first 2 floors of this tower in";
-			mes "the pursuit of this knowledge.";
+			mes "[迪切]";
+			mes "我们确信这座塔";
+			mes "隐藏了很多秘密在其中，";
+			mes "并且在探索秘密的过程中，";
+			mes "我们成功地";
+			mes "重修了塔的头两层。";
 			next;
-			mes "[Ditze]";
-			mes "Currently, we are focused on";
-			mes "reconstructing the tower's 3rd";
-			mes "and 4th floors. Luckily, many";
-			mes "adventurers are exterminating";
-			mes "the monsters on those floors, working under temporary contracts.";
+			mes "[迪切]";
+			mes "现在，我们正致力于";
+			mes "重修这座塔的3、4层。";
+			mes "幸运的是，很多冒险者";
+			mes "参与了我们的招募，";
+			mes "帮手清除塔中的魔物。";
 			next;
-			mes "[Ditze]";
-			mes "At this rate, we expect";
-			mes "to complete reconstruction";
-			mes "of the 3rd and 4th floors in";
-			mes "the near future, bringing us";
-			mes "closer to our goal of opening all 12 floors of Thanatos Tower.";
+			mes "[迪切]";
+			mes "按照这个速度，";
+			mes "我们很快就能完成";
+			mes "对3、4层的重修工作，";
+			mes "距离我们开放所有12层的";
+			mes "目标又进了一步。";
 			next;
-			switch(select("Tower Monsters?:Temp Contract Work?:......")) {
+			switch(select("关于塔内的魔物:关于招募:……")) {
 			case 1:
-				mes "[Ditze]";
-				mes "Yes, when we began";
-				mes "reconstruction of the";
-				mes "Thanatos Tower, these";
-				mes "monsters that look like angels";
-				mes "just appeared out of nowhere";
-				mes "to attack all the workers.";
+				mes "[迪切]";
+				mes "是的，当我们";
+				mes "开始对达纳托斯之塔";
+				mes "进行重修的时候，";
+				mes "那些像天使一样的魔物";
+				mes "就突然出现，";
+				mes "并攻击我们的工人。";
 				next;
-				mes "[Ditze]";
-				mes "At first, witnesses thought";
-				mes "that these monsters might";
-				mes "be, you know, actual angels.";
-				mes "But if they were, why were they";
-				mes "attacking for no reason?";
+				mes "[迪切]";
+				mes "一开始，工人";
+				mes "认为那些魔物";
+				mes "可能是天使。";
+				mes "但如果它们真的是天使，";
+				mes "怎么会无故就展开攻击？";
 				next;
-				mes "[Ditze]";
-				mes "Anyway, we asked the Juno ";
-				mes "Sage Academy to investigate";
-				mes "them, and they confirmed that";
-				mes "these angelic creatures are true monsters--their resemblance to";
-				mes "angels is merely coincidence.";
+				mes "[迪切]";
+				mes "无论如何，我们委托了";
+				mes "朱诺的贤者工会去调查";
+				mes "它们，结果证实了这些";
+				mes "天使外形的生物的的确确";
+				mes "是魔物，它们的外观";
+				mes "与天使一样只是巧合。";
 				close;
 			case 2:
-				mes "[Ditze]";
-				mes "You may have already heard";
-				mes "from the Tower Keeper, but";
-				mes "we're contracting adventurers to exterminate the tower monsters";
-				mes "in the 3rd and higher levels on";
-				mes "a temporary employee basis.";
+				mes "[迪切]";
+				mes "你可能已经从守塔人";
+				mes "那里听说了，";
+				mes "我们的确正在";
+				mes "招募勇士们帮手清除";
+				mes "3层及以上的魔物。";
 				next;
-				mes "[Ditze]";
-				mes "I'm in charge of hiring";
-				mes "temp contract workers, so";
-				mes "talk to me if you're interested. Only temp workers are allowed";
-				mes "to access the higher levels";
-				mes "here in Thanatos Tower.";
+				mes "[迪切]";
+				mes "而我则是这次招募";
+				mes "的负责人，如果你有";
+				mes "兴趣参与请告诉我。";
+				mes "只有被允许的勇士才能";
+				mes "进入更高的层数。";
 				next;
 				goto L_Contract;
 			case 3:
-				mes "[Ditze]";
-				mes "To develop the floors above";
-				mes "the 2nd floor, we're going to";
-				mes "need as many temp contract";
-				mes "workers as we can hire. Why";
-				mes "don't you consider working";
-				mes "for us under a temp contract?";
+				mes "[迪切]";
+				mes "想要继续前往";
+				mes "更高的楼层，";
+				mes "我们需要招募";
+				mes "更多的勇士。";
+				mes "为什么你不来和我们";
+				mes "一起去发掘更多的秘密呢？";
 				close;
 			}
 		case 2:
-			mes "[Ditze]";
-			mes "You may have already heard";
-			mes "from the Tower Keeper, but";
-			mes "we're contracting adventurers to exterminate the tower monsters";
-			mes "in the 3rd and higher levels on";
-			mes "a temporary employee basis.";
+			mes "[迪切]";
+			mes "你可能已经从守塔人";
+			mes "那里听说了，";
+			mes "我们的确正在";
+			mes "招募勇士们帮手清除";
+			mes "3层及以上的魔物。";
 			next;
-			mes "[Ditze]";
-			mes "I'm in charge of hiring";
-			mes "temp contract workers, so";
-			mes "talk to me if you're interested. Only temp workers are allowed";
-			mes "to access the higher levels";
-			mes "here in Thanatos Tower.";
+			mes "[迪切]";
+			mes "而我则是这次招募";
+			mes "的负责人，如果你有";
+			mes "兴趣参与请告诉我。";
+			mes "只有被允许的勇士才能";
+			mes "进入更高的层数。";
 			next;
 			goto L_Contract;
 		case 3:
-			mes "[Ditze]";
-			mes "Well, if you have any";
-			mes "questions, feel free to";
-			mes "ask me later. My name is";
-			mes "Ditze Lappa. Have a good day!";
+			mes "[迪切]";
+			mes "好吧，如果你有任何问题，";
+			mes "请随时向我提出。";
+			mes "我的名字是迪切·拉帕。";
+			mes "祝你有愉快的一天！";
 			close;
 		}
 	}
-	mes "[Ditze]";
-	mes "For more detailed information";
-	mes "about monster exterminations,";
-	mes "please ask the 2nd Floor Guide";
-	mes "and the Guide next to me. Well,";
-	mes "we hope you enjoy your experience working with Rekenber Corporation~";
+	mes "[迪切]";
+	mes "想要知道更多关于";
+	mes "清除魔物的信息，";
+	mes "请咨询2层的向导";
+	mes "或者在我身边的向导。";
+	mes "好了，希望你能";
+	mes "享受这份工作~";
 	close;
 
 L_Contract:
-	switch(select("Maybe next time:Sure, I'd like to work for you.")) {
+	switch(select("下次吧:当然要参加！")) {
 	case 1:
-		mes "[Ditze]";
-		mes "Well, alright.";
-		mes "But come and talk to";
-		mes "me as soon as you decide";
-		mes "that you want to help with";
-		mes "the tower reconstruction by";
-		mes "working for Rekenber.";
+		mes "[迪切]";
+		mes "好吧，好吧。";
+		mes "如果你确定了";
+		mes "要参加我们的";
+		mes "重修工作的话";
+		mes "请尽快";
+		mes "来告诉我。";
 		close;
 	case 2:
-		mes "[Ditze]";
-		mes "That's great!";
-		mes "Would you please fill";
-		mes "out this employment";
-		mes "agreement first? Let's";
-		mes "see. Your name is...";
-		mes strcharinfo(0) + ", right?";
+		mes "[迪切]";
+		mes "太好了！";
+		mes "你不介意填写";
+		mes "一份雇佣协议吧？";
+		mes "让我看看，";
+		mes "你的名字是…";
+		mes strcharinfo(0) + "，对吧？";
 		next;
 		select("Yes");
-		mes "[Ditze]";
-		mes "Alright, please read";
-		mes "this agreement carefully.";
-		mes "If you agree with all of";
-		mes "the conditions, go ahead";
-		mes "and just sign the bottom.";
+		mes "[迪切]";
+		mes "好了，请你仔细阅读";
+		mes "这份雇佣协议。";
+		mes "如果你同意以下的";
+		mes "所有条件，那么";
+		mes "请在文件下方签名。";
 		next;
-		mes "^3355FFDitze hands you the";
-		mes "Employment Agreement";
-		mes "document for you to read.^000000";
+		mes "^3355FF迪切";
+		mes "递给你一份雇佣协议^000000";
 		next;
-		mes "- Employment Agreement -";
+		mes "- 雇佣协议 -";
 		mes " ";
-		mes "1. This employment agreement";
-		mes "is effective between Rekenber";
-		mes "Corporation (''Employer'') and "+strcharinfo(0)+"(''Employee'').";
-		mes "1-1. This employment agreement";
-		mes "is classified as a Mercernary";
-		mes "contract between both parties.";
-		mes "2. The terms of this contract";
-		mes "immediately take effect once";
-		mes "it is signed by both parties";
-		mes "(Employer and Employee).";
-		mes "3. When the Employee performs";
-		mes "a mission, the mission results";
-		mes "must be verified with acceptible physical proof that must be";
-		mes "presented to the Employer.";
-		mes "3-1. Please refer to Section";
-		mes "7A for examples of acceptible";
-		mes "proof of monster extermination.";
-		mes "3-2. Acceptible proof is";
-		mes "determined and defined by a";
-		mes "representative of the Employer.";
-		mes "4. Employer will allot rewards";
-		mes "to Employees after receiving";
-		mes "extermination proof.";
-		mes "4-1. Possible rewards for";
-		mes "monster exterminations may";
-		mes "include the following.";
+		mes "1、这份雇佣协议生效于";
+		mes "雷根贝勒企业（“雇主”）";
+		mes "与 "+strcharinfo(0)+"（“雇员”）。";
+		mes "1-1、这份雇佣协议";
+		mes "相当于一份";
+		mes "双方的雇佣合同。";
+		mes "2、这份雇佣协议";
+		mes "的条款一经双方";
+		mes "（雇主与雇员）";
+		mes "签字立即生效。";
+		mes "3、当雇员执行";
+		mes "任务完毕时，必须向";
+		mes "雇主提交一份";
+		mes "真实的任务结果。";
+		mes "3-1、请阅读第七页关于";
+		mes "证明魔物清除任务";
+		mes "结果真实性的方法。";
+		mes "3-2、证明任务结果";
+		mes "真实性的方法，";
+		mes "是由雇主来确定的。";
+		mes "4、证明任务结果为";
+		mes "真实后，雇主必须向";
+		mes "雇员支付报酬。";
+		mes "4-1、清除魔物后";
+		mes "可能获得";
+		mes "包括下列的报酬。";
 		mes ".................................................";
 		mes ".................................................";
 		mes ".................................................";
 		mes ".................................................";
 		mes ".................................................";
-		mes "13. This contract's terms are";
-		mes "only applicable witin Thanatos";
-		mes "Tower.";
-		mes "14. Employees will receive";
-		mes "a discount on the Entry Fee";
-		mes "to the Thanatos Tower.";
+		mes "13、本协议条款";
+		mes "只适用于";
+		mes "达纳托斯之塔内。";
+		mes "14、雇员会获得";
+		mes "进入达纳托斯之塔费用的";
+		mes "优惠折扣。";
 		mes " ";
 		mes " ";
 		mes " ";
-		mes "Employer Signature____________";
-		mes "Employee Signature____________";
+		mes "雇主 签名____________";
+		mes "雇员 签名____________";
 		next;
-		switch(select("Sign:Don't Sign")) {
+		switch(select("同意:不同意")) {
 		case 1:
-			mes "^3355FFYou sign two copies of the";
-			mes "Employment Agreement.^000000";
+			mes "^3355FF你在两份雇佣协议上";
+			mes "签下了名字。^000000";
 			next;
-			mes "[Ditze]";
-			mes "Thank you. Now, you are";
-			mes "an official employee of the";
-			mes "Rekenber Corporation! Well,";
-			mes "within the limits of this tower";
-			mes "anyway. This contract doesn't";
-			mes "apply outside of this place.";
+			mes "[迪切]";
+			mes "谢谢你。现在你是";
+			mes "雷根贝勒企业的";
+			mes "一名雇员了！当然只";
+			mes "局限于这座塔之中了。";
+			mes "这份协议在塔外";
+			mes "是没有任何意义的。";
 			next;
-			mes "[Ditze]";
-			mes "From now on, you can talk";
-			mes "to the 2nd Floor Guide to";
-			mes "enter the 3rd Floor. If you";
-			mes "have any mission reward";
-			mes "questions, please ask ^3355FFLiei^000000.";
+			mes "[迪切]";
+			mes "现在开始，";
+			mes "你可以通过2层的向导";
+			mes "进入第3层了。如果你有";
+			mes "任何关于任务奖励的";
+			mes "问题，请咨询^3355FF李业^000000.";
 			next;
-			mes "[Ditze]";
-			mes "If you want to check";
-			mes "more information about";
-			mes "your work, please talk";
-			mes "to the 2nd Floor Guide.";
-			mes "Thank you, and welcome";
-			mes "to the Rekenber Corporation~";
+			mes "[迪切]";
+			mes "如果你想查看更多";
+			mes "关于你的工作的信息，";
+			mes "请与2层的";
+			mes "向导聊一聊。";
+			mes "谢谢，欢迎加入";
+			mes "雷根贝勒企业~";
 			set thana_tower, 1;
 			close;
 		case 2:
-			mes "[Ditze]";
-			mes "Oh? Was there an article";
-			mes "within the contract that you";
-			mes "disagreed with? Hm. Well,";
-			mes "that's fine. But if you change";
-			mes "your mind, please come back";
-			mes "and ask me anytime. Thank you~";
+			mes "[迪切]";
+			mes "噢？合同里有";
+			mes "你不满意的条款吗？";
+			mes "嗯。好吧，没关系。";
+			mes "如果你改变了心意，";
+			mes "随时欢迎你回来。";
+			mes "谢谢~";
 			close;
 		}
 	}
 }
 
-tha_t01,140,78,4	script	Guide#reward	831,{
-	mes "[Liei]";
+tha_t01,140,78,4	script	向导#reward	831,{
+	mes "[李业]";
 	if (thana_tower == 0) {
-		mes "Good day, I'm";
-		mes "Liei Kuniziet of the";
-		mes "Employee Mission";
-		mes "Reward Department";
-		mes "here in Thanatos Tower.";
+		mes "你好，我是";
+		mes "达纳托斯之塔里";
+		mes "负责任务回报";
+		mes "部分的";
+		mes "李业·克妮姬叶。";
 		next;
-		switch(select("Employee's mission reward?:Keep up the good work.")) {
+		switch(select("任务回报？:继续加油")) {
 		case 1:
-			mes "[Liei]";
-			mes "Currently, Rekenber Corporation";
-			mes "is contracting temp employees";
-			mes "to develop the higher levels";
-			mes "of Thanatos Tower. If you'd";
-			mes "like to apply, please ask";
-			mes "Ditze right next to me.";
+			mes "[李业]";
+			mes "现在，雷根贝勒企业";
+			mes "正在招募勇士";
+			mes "共同重修达纳托斯之塔";
+			mes "的更高层。如果你对此";
+			mes "感兴趣，请咨询";
+			mes "我右手边的迪切。";
 			close;
 		case 2:
-			mes "[Liei]";
-			mes "Thank you. Ah, and I hope";
-			mes "that you enjoy your visit";
-			mes "here to Thanatos Tower.";
+			mes "[李业]";
+			mes "谢谢你。噢，";
+			mes "我希望你能享受";
+			mes "达纳托斯之塔之旅。";
 			close;
 		}
 	}
-	mes "Ah, hello~";
-	mes "How may I help you?";
+	mes "噢，你好~";
+	mes "有什么我可以帮你的吗？";
 	next;
-	if(select("Reward:Nothing") == 2) {
-		mes "[Liei]";
-		mes "Alright, then.";
-		mes "Please do your best";
-		mes "to exterminate the";
-		mes "monsters that infest";
-		mes "the higher floors of";
-		mes "the Thanatos Tower~";
+	if(select("回报:没事") == 2) {
+		mes "[李业]";
+		mes "好的。";
+		mes "那么祝你在清除";
+		mes "徘徊在达纳托斯之塔";
+		mes "高层的魔物";
+		mes "一事上能取得";
+		mes "最好的表现~";
 		close;
 	}
-	mes "[Liei]";
-	mes "You're "+strcharinfo(0)+", yes?";
-	mes "Let me check our temp";
-	mes "employee records for--ah.";
-	mes "Here it is. Alright, so would";
-	mes "you please tell me what kind";
-	mes "of mission proof you brought?";
+	mes "[李业]";
+	mes "你是"+strcharinfo(0)+"，没错吧？";
+	mes "让我来查查";
+	mes "雇员名单--";
+	mes "噢，的确在名单之上。";
+	mes "那么你想来";
+	mes "回报什么任务呢？";
 	next;
 	setarray .@Items[1],7435,7440,7441,7442;
-	set .@i, select("Golden Ornament:Red Feather:Blue Feather:Cursed Seal");
-	mes "[Liei]";
+	set .@i, select("金色手镯:红色羽毛:蓝色羽毛:被诅咒的印");
+	mes "[李业]";
 	if (!countitem(.@Items[.@i])) {
-		mes "I'm sorry, but you are not";
-		mes "carrying any "+callfunc("F_GetPlural",getitemname(.@Items[.@i]))+".";
-		mes "Please check your inventory";
-		mes "one more time, and then come";
-		mes "to me to redeem your items";
-		mes "for a reward later, alright?";
+		mes "对不起，但是你没有";
+		mes "带来任何"+getitemname(.@Items[.@i])+"。";
+		mes "麻烦你再一次";
+		mes "检查你的包裹，";
+		mes "然后再回来";
+		mes "回报你的任务，好吗？";
 		close;
 	}
-	mes "The reward for each";
-	mes getitemname(.@Items[.@i])+" is...";
+	mes "每一个";
+	mes getitemname(.@Items[.@i])+"的报酬是…";
 	mes " ";
 	mes "1,000 zeny";
 	//mes "2,000 EXP";
 	next;
 	set .@zeny_tt,(countitem(.@Items[.@i]) * 1000);
 	//set .@exp_tt,(countitem(.@Items[.@i]) * 2000);
-	mes "[Liei]";
-	mes callfunc("F_InsertPlural",countitem(.@Items[.@i]),getitemname(.@Items[.@i]))+", then";
-	mes "you will receive a total of...";
+	mes "[李业]";
+	mes countitem(.@Items[.@i])+"个"+getitemname(.@Items[.@i])+"，那么";
+	mes "你将会得到一共…";
 	mes " ";
 	mes ""+.@zeny_tt+" zeny";
 	//mes ""+.@exp_tt+" EXP";
 	next;
-	mes "[Liei]";
-	mes "Would you like to exchange";
-	mes "all of your "+callfunc("F_GetPlural",getitemname(.@Items[.@i]));
-	mes "for your reward right now?";
+	mes "[李业]";
+	mes "那么你想现在就";
+	mes "把你所有的"+getitemname(.@Items[.@i]);
+	mes "来换取报酬吗？";
 	next;
-	switch(select("Yes:No")) {
+	switch(select("好的:下次吧")) {
 		case 1:
-			mes "[Liei]";
-			mes "Great! Here is your";
-			mes .@zeny_tt+" zeny. Thank you,";
-			//mes .@exp_tt+" EXP. Thank you,";
-			mes "and please keep up";
-			mes "the good work~";
+			mes "[李业]";
+			mes "太好了！这是你的报酬：";
+			mes .@zeny_tt+" zeny。谢谢，";
+			//mes .@exp_tt+" EXP。谢谢，";
+			mes "还请";
+			mes "继续努力~";
 			delitem .@Items[.@i], countitem(.@Items[.@i]);
 			set Zeny, Zeny + .@zeny_tt;
 			//getexp .@exp_tt,0;
 			close;
 		case 2:
-			mes "[Liei]";
-			mes "Sure, no problem.";
-			mes "Just come back and";
-			mes "talk to me whenever";
-			mes "you want to receive";
-			mes "your reward, alright?";
+			mes "[李业]";
+			mes "好的，没问题。";
+			mes "如果你想";
+			mes "回报任务获得报酬，";
+			mes "那么就回来";
+			mes "找我吧，好吗？";
 			close;
 	}
 }
 
-tha_t02,231,161,5	script	Entrance Guide	874,{
-	mes "[Burled]";
+tha_t02,231,161,5	script	进出向导	874,{
+	mes "[布拉德]";
 	if (thana_tower == 0) {
-		mes "You are in front of the entrance to the 3rd Floor. Only contracted";
-		mes "temp employees are authorized";
-		mes "to enter that area. For Rekenber temp contract information, please";
-		mes "speak to the 2nd Floor Guide.";
+		mes "前面是通往3层的";
+		mes "传送阵。只有雇员";
+		mes "才能获得授权进入。";
+		mes "关于雷根贝勒企业的";
+		mes "招募信息请回去";
+		mes "咨询1层的向导。";
 		close;
 	}
-	mes "This is the path to the 3rd floor.";
-	mes "Only the contracted staff are allowed to enter.";
-	mes "How can I help you?";
+	mes "这里是前往3层的";
+	mes "通道。只有雇员才能";
+	mes "获得授权进入。";
+	mes "我有什么能帮你的吗？";
 	next;
-	switch(select("Let me go to 3rd floor.:Tower Information.:Start a conversation.")) {
+	switch(select("我要前往3层:关于这座塔:对话")) {
 	case 1:
-		mes "[Burled]";
-		mes "Oh, alright. Let me";
-		mes "check and see if you're";
-		mes "on our temp list. Hmmm...";
-		mes "Ah, you're "+strcharinfo(0)+", right?";
+		mes "[布拉德]";
+		mes "噢，好的。让我";
+		mes "检查一下你是否";
+		mes "在雇员名单上。嗯…";
+		mes "噢，你是"+strcharinfo(0)+"，对吧？";
 		next;
-		mes "[Burled]";
+		mes "[布拉德]";
 		if (getareausers("tha_t02",226,156,236,166) < 5) {
-			mes "First, we need to wait until";
-			mes "at least 5 temps are gathered";
-			mes "to form a work group. Right";
-			mes "now, there are a total of";
-			mes getareausers("tha_t02",226,156,236,166)+ " temp workers waiting to";
-			mes "enter the 3rd Floor.";
+			mes "首先，我们需要";
+			mes "至少5名勇士";
+			mes "组成一个小组。";
+			mes "现在，这里只有";
+			mes getareausers("tha_t02",226,156,236,166)+ "名勇士等待";
+			mes "进入3层。";
 			next;
-			mes "[Burled]";
-			mes "If you can, try to get";
-			mes "your friends to help you";
-			mes "by coming near me. Please";
-			mes "understand that we have this";
-			mes "temp worker group requirement";
-			mes "for various safety reasons.";
+			mes "[布拉德]";
+			mes "如果可以的话，";
+			mes "和你的朋友";
+			mes "一起来到这里。";
+			mes "希望你能理解这样做";
+			mes "完全是为了保证";
+			mes "你们的人身安全。";
 			close;
 		}
-		mes "Great, you're just";
-		mes "in time. We just met";
-		mes "the minimum 5 temp group";
-		mes "requirement, so we'll open";
-		mes "the gate to the 3rd Floor soon.";
+		mes "太好了，你正好";
+		mes "赶上。这里刚好";
+		mes "满足了最低5人小组";
+		mes "的要求，所以我将会";
+		mes "打开前往3层的通道。";
 		next;
-		mes "[Burled]";
-		mes "The gate to the 3rd Floor";
-		mes "will close shortly, so enter it";
-		mes "as soon as you can. We have";
-		mes "to close it quickly because we";
-		mes "can't have the tower monsters";
-		mes "entering the lower floors...";
+		mes "[布拉德]";
+		mes "前往3层的传送阵";
+		mes "很快就会关闭，";
+		mes "请尽快进入传送阵。";
+		mes "因为不能让高层的";
+		mes "魔物进入低层来，";
+		mes "所以必须这样做…";
 		if (thana_tower > 3) {
 			next;
-			mes "^4d4dffBurled is smiling lightly so that only I notice.";
-			mes "I nod, then watch him open the gate.^000000";
+			mes "^4d4dff只有我看到了";
+			mes "布拉德微微地笑了一下。";
+			mes "我点了点头，然后看着他";
+			mes "打开了传送阵。^000000";
 		}
 		close2;
 		donpcevent "3rdf_warp#tt::OnEnable";
 		end;
 	case 2:
-		mes "[Burled]";
-		mes "This gate is the only passage";
-		mes "that connects to the 3rd Floor.";
-		mes "After the 4th Floor, passages";
-		mes "between floors only travel one";
-		mes "way, meaning you can't exit the";
-		mes "same way you that you entered.";
+		mes "[布拉德]";
+		mes "这个传送阵是前往";
+		mes "3层的唯一通道。";
+		mes "4层以后，传送阵";
+		mes "都只是单向的，";
+		mes "那么意味着你不能";
+		mes "从高层回到低层。";
 		next;
-		mes "[Burled]";
-		mes "You see, there's a strange";
-		mes "power that affects the 5th";
-		mes "Floor, and all floors above,";
-		mes "which doesn't allow people to";
-		mes "backtrack through the passage in which they entered the floor.";
+		mes "[布拉德]";
+		mes "你要明白，";
+		mes "从5层开始，";
+		mes "有一股很强大的能量";
+		mes "影响着传送阵，";
+		mes "致使传送阵都只是单向的。";
 		next;
-		mes "[Burled]";
-		mes "So if you ascend past the";
-		mes "4th Floor, please be careful";
-		mes "and make sure that you find";
-		mes "a way to get back.";
+		mes "[布拉德]";
+		mes "所以如果你要进入";
+		mes "5层以上，请务必小心，";
+		mes "也请确保";
+		mes "有方法回来。";
 		next;
-		mes "[Burled]";
-		mes "The top is the 12th floor,";
-		mes "and the monsters grow more powerful";
-		mes "as you ascend the tower.";
-		mes "The geographical features also change considerably.";
+		mes "[布拉德]";
+		mes "这座塔一共有12层，";
+		mes "魔物会越来越强大。";
+		mes "每一层的样子";
+		mes "也会有很大的变化。";
 		next;
-		mes "[Burled]";
-		mes "Because the higher levels are";
-		mes "too dangerous, we only open the";
-		mes "3rd Floor Gate when 5 or more";
-		mes "are gathered here. Therefore,";
-		mes "you may need to wait if less";
-		mes "than 5 temps have gathered.";
+		mes "[布拉德]";
+		mes "由于高层实在";
+		mes "太危险了，所以我们";
+		mes "只会在聚集了5名勇士的";
+		mes "时候打开传送阵。";
+		mes "因此你可能需要";
+		mes "等待一下。";
 		close;
 	case 3:
 		if (thana_tower < 3) {
-			mes "[Burled]";
-			mes "...?";
-			mes "Do you have any questions?";
+			mes "[布拉德]";
+			mes "…？";
+			mes "请问你有什么问题吗？";
 			next;
-			if(select("About the development.:The relationship of Cool Event Corporation and Rekenber Corporation.:Nope.") == 3) {
-				mes "[Burled]";
-				mes "Take care.";
+			if(select("关于这次重修:准他企划社与雷根贝勒企业的关系:没事") == 3) {
+				mes "[布拉德]";
+				mes "请保重。";
 				close;
 			}
-			mes "[Burled]";
-			mes "...um, you're quite curious.";
-			mes "If you want to know more, would you do me a favor?";
-			mes "Since you asked for our confidential info...";
+			mes "[布拉德]";
+			mes "……嗯，你很好奇嘛。";
+			mes "如果你想知道得更多，";
+			mes "你能帮我一个忙吗？";
+			mes "因为这涉及了企业的机密…";
 			next;
-			if(select("Really? Don't make me afraid of it.:Just tell me about it.:I'll listen about it later.") == 3) {
-				mes "[Burled]";
-				mes "As you wish...";
-				mes "Take care!";
+			if(select("真的吗？不要吓我:告诉我吧:以后再问吧") == 3) {
+				mes "[布拉德]";
+				mes "好吧…";
+				mes "请保重！";
 				close;
 			}
-			mes "[Burled]";
-			mes "Haha. That's not a big deal.";
-			mes "We, Cool Event, are the corporation that works in many areas of business.";
-			mes "From simple events, guides for dungeons, and trading items.";
+			mes "[布拉德]";
+			mes "哈哈。没什么大不了的。";
+			mes "我们准他企划社，";
+			mes "在各地拥有很多的生意。";
+			mes "从普通业务，地下城向导，";
+			mes "到经济贸易。";
 			next;
-			mes "[Burled]";
-			mes "Though our business started as a small one, we've been getting bigger with assistance from the Rekenber Corporation.";
-			mes "They suggested to develop this tower together.";
+			mes "[布拉德]";
+			mes "尽管一开始我们的";
+			mes "生意规模很小，但在";
+			mes "雷根贝勒的援助下";
+			mes "越做越大。他们提出";
+			mes "和我们一起重修这座塔。";
 			next;
-			mes "[Burled]";
-			mes "The Rekenber Corporation is only digging out the remains for studies.";
-			mes "The rest would be made into sightseeing place, which Cool Event Corporation can manage well.";
+			mes "[布拉德]";
+			mes "雷根贝勒企业只负责";
+			mes "挖掘遗迹进行研究。";
+			mes "其余的区域将做成";
+			mes "观光区，而准他企划社";
+			mes "则负责管理这些观光区。";
 			next;
-			mes "[Burled]";
-			mes "It's the biggest business ever.";
-			mes "Also quite profitable as tourist attractions.";
-			mes "But...";
+			mes "[布拉德]";
+			mes "这是有史以来最大的生意。";
+			mes "作为景区也相当赚钱。";
+			mes "但是…";
 			next;
-			mes "[Burled]";
-			mes "Considerably strong monsters spawn inside the tower.";
-			mes "The monsters weren't spawned there before.";
-			mes "The day after that happened...";
+			mes "[布拉德]";
+			mes "塔内冒出了相当强大的魔物。";
+			mes "这里原先是没有魔物存在的。";
+			mes "自从发生了那件事…";
 			next;
-			mes "[Burled]";
-			mes "...anyway, there were some accidently spawned monsters and some troubles...";
-			mes "We and the Rekenber Corporation are in shock.";
-			mes "We were influenced economically, but the more serious thing is...";
+			mes "[布拉德]";
+			mes "…无论如何，这些魔物与麻烦，";
+			mes "对我们与雷根贝勒企业";
+			mes "造成了打击。";
+			mes "不仅在经济上收到了影响，";
+			mes "更严重的事情是…";
 			next;
-			mes "[Burled]";
-			mes "Many staff involved in development are";
-			mes "sacrificing themselves by coming to 3rd floor.";
+			mes "[布拉德]";
+			mes "许多参与重修的工作人员";
+			mes "前往第3层后都牺牲了。";
 			next;
-			mes "[Burled]";
-			mes "While we've pumped our all into the business, that accident happened...";
-			mes "We eventually merged with the Rekenber Corporation.";
+			mes "[布拉德]";
+			mes "我们为这个项目投入了一切，";
+			mes "意外却发生了…";
+			mes "最终我们与雷根贝勒企业合并了。";
 			next;
-			mes "[Burled]";
-			mes "The development is on hold temporarily.";
-			mes "Recruiting adventurers to defeat monsters...";
-			mes "Isn't this funny?";
+			mes "[布拉德]";
+			mes "这次开发暂停了。";
+			mes "现在我们招募勇士";
+			mes "帮忙清除魔物。";
+			mes "这是不是很有趣？";
 			next;
-			mes "[Burled]";
-			mes "No matter what happened there, they wouldn't be hurt.";
-			mes "Even if they don't get at the root of the accident....";
+			mes "[布拉德]";
+			mes "不管发生了什么，";
+			mes "他们都不会受到伤害的。";
+			mes "尽管他们没有";
+			mes "了解意外的根源…";
 			next;
-			switch(select("Oh...:What accident are you referring to?")) {
+			switch(select("噢…:你指的是什么意外？")) {
 			case 1:
-				mes "[Burled]";
-				mes "Yes, it's not that big of a deal. Haha....";
-				mes "If we are working here like this....";
-				mes "we would know about the death of animals.";
+				mes "[布拉德]";
+				mes "是的，没什么大不了的。";
+				mes "哈哈…如果我们在这工作…";
+				mes "我们将直面死亡而已。";
 				next;
-				mes "[Burled]";
-				mes "Cool Event Corporation is considered the follower...";
-				mes "They don't clear up how many people";
-				mes "died or any reasons for it.";
+				mes "[布拉德]";
+				mes "准他企划社只是";
+				mes "负责协助而已…";
+				mes "他们不会关心有多少人牺牲";
+				mes "或是其中缘由的。";
 				next;
-				mes "[Burled]";
-				mes "Now you're curious about this case.";
-				mes "What do they sacrifice for?";
+				mes "[布拉德]";
+				mes "那么你现在知道了，";
+				mes "他们为什么会牺牲的原因了。";
 				next;
-				mes "[Burled]";
-				mes "I talked a lot.";
-				mes "Sorry, I am not supposed to talk about this case like this...";
-				mes "I've been quite concerned about it, that's all.";
+				mes "[布拉德]";
+				mes "话有点多了。";
+				mes "对不起，我不应该说这些的…";
+				mes "那就是我一直所担心的。";
 				set thana_tower, 3;
 				close;
 			case 2:
-				mes "[Burled]";
-				mes "If you promise me that";
-				mes "you will do me a favor...";
+				mes "[布拉德]";
+				mes "你是否答应";
+				mes "帮我的忙…";
 				next;
-				switch(select("Ok! I will.:No, I won't.")) {
+				switch(select("没问题！:对不起")) {
 				case 1:
 					callsub L_Request;
 					next;
 					mes "["+strcharinfo(0)+"]";
-					mes "(What's the accident...?";
-					mes "He might let me know later...)";
+					mes "（到底发生了什么意外？";
+					mes "他迟点会告诉我的吧…)";
 					close;
 				case 2:
-					mes "[Burled]";
-					mes "...there is no way...";
-					mes "They request you to explore the internal part.";
-					mes "You're employed for this exploration.";
+					mes "[布拉德]";
+					mes "…那可不行…";
+					mes "你只是这次清除魔物";
+					mes "任务的一员而已。";
 					close;
 				}
 			}
@@ -725,93 +763,115 @@ tha_t02,231,161,5	script	Entrance Guide	874,{
 			close;
 		}
 		else if (thana_tower == 4) {
-			mes "[Burled]";
-			mes "Rekenber Corporation must have another intention,";
-			mes "since they don't seem interested in the tower much.";
-			mes "I want to know their intention.";
+			mes "[布拉德]";
+			mes "自从他们对";
+			mes "这座塔越来越不感兴趣，";
+			mes "我觉得雷根贝勒企业";
+			mes "一定有另外的图谋。";
+			mes "我想知道他们的企图。";
 			next;
-			mes "[Burled]";
-			mes "This tower is sealed and separated from the outside.";
-			mes "We need to break those seals, explore inside and develop it.";
+			mes "[布拉德]";
+			mes "这座塔被封印了，";
+			mes "我们必须解开这些封印，";
+			mes "探索更深入的情况。";
 			next;
-			mes "[Burled]";
-			mes "We are developing the 3rd and 4th floors now...";
-			mes "There are still seals there.";
-			mes "You can find out some clues when you search around them.";
+			mes "[布拉德]";
+			mes "我们正在开发3、4层…";
+			mes "那里仍然有些封印在。";
+			mes "你可以四处找找线索。";
 			close;
 		}
 		else if ((thana_tower > 4) && (thana_tower < 9)) {
-			mes "[Burled]";
-			mes "The magical key and messages?";
-			mes "...we absolutely haven't learned all the tower's secrets...";
+			mes "[布拉德]";
+			mes "魔法钥匙和一些信息？";
+			mes "…看来我们还没有完全";
+			mes "解开这座塔的所有秘密…";
 			next;
-			mes "[Burled]";
-			mes "Who made the seals?";
-			mes "...can you investigate more?";
-			mes "There must be definitive evidence...";
+			mes "[布拉德]";
+			mes "是谁布置了这些封印？";
+			mes "…你能做更多的调查吗？";
+			mes "必须要有更确切的证据…";
 			close;
 		}
 		else if (thana_tower == 9) {
-			mes "[Burled]";
-			mes "Any new progress?";
+			mes "[布拉德]";
+			mes "有什么新进展吗？";
 			next;
-			select("I found Varmunt's Journal...");
-			mes "- You show him Varmunt's Journal.";
-			mes "Burled reads it. -";
+			select("我找到了巴尔蒙德的手册…");
+			mes "- 你拿出了巴尔蒙德的手册。";
+			mes "布拉德翻阅起来。 -";
 			next;
-			mes "[Burled]";
-			mes "...I recognize this.";
-			mes "This is the hologragh of the wise man Varmunt.";
-			mes "Regenschirm from Rekenber's huge research institute has...";
+			mes "[布拉德]";
+			mes "…我知道这个。";
+			mes "这是智者巴尔蒙德";
+			mes "亲手写的。";
+			mes "他曾经是雷根贝勒企业的";
+			mes "研究所所长…";
 			next;
-			mes "[Burled]";
-			mes "...isn't this the one they are looking for now?!";
-			mes "Isn't their mission to find out Varmunt's research materials...?";
+			mes "[布拉德]";
+			mes "…这是不是";
+			mes "他们所要寻找的？！";
+			mes "难道他们的目的是要";
+			mes "找出巴尔蒙德的";
+			mes "研究资料…？";
 			next;
-			mes "[Burled]";
-			mes "For assisting uncompleted research...";
-			mes "Varmunt's research materials are needed...";
-			mes "...so their mission isn't just an investigation of the tower.";
+			mes "[布拉德]";
+			mes "为了完成未完成的研究…";
+			mes "巴尔蒙德的研究资料是必须的…";
+			mes "…所以他们的目的";
+			mes "不光是要勘察这座塔。";
 			next;
-			mes "[Burled]";
-			mes "Something to get as an advantage...";
-			mes "Even they don't know where it is...";
-			mes "...anyways, this is the one of their main objects.";
+			mes "[布拉德]";
+			mes "我们得到了很大的优势…";
+			mes "他们不知道它在哪里…";
+			mes "…无论如何，";
+			mes "这都是他们的主要任务。";
 			next;
-			mes "[Burled]";
-			mes "It's absolutely great. The wise man Varmunt's belongings. How unbelievable!";
-			mes "Now, what do we do with this?";
+			mes "[布拉德]";
+			mes "这实在是太好了。";
+			mes "智者巴尔蒙德的手册。";
+			mes "难以置信！";
+			mes "现在我们该怎样做？";
 			next;
-			mes "[Burled]";
-			mes "Originally everything we found out in this tower was under control of the Rekenber Corporation.";
-			mes "This is supposed to theirs, but...";
+			mes "[布拉德]";
+			mes "虽说在这座塔里发现的";
+			mes "一切都归雷根贝勒企业所有。";
+			mes "这也应该上交给他们，但是…";
 			next;
-			mes "[Burled]";
-			mes "How would you like to keep this, "+strcharinfo(0)+"?";
-			mes "Definitely this should be a secret.";
-			mes "...um, this is a little revenge for them.";
+			mes "[布拉德]";
+			mes "要不由你来保管吧，"+strcharinfo(0)+"？";
+			mes "这必须要保守秘密。";
+			mes "…嗯，这是对他们的";
+			mes "小小报复。";
 			next;
-			mes "[Burled]";
-			mes "I can guess that there are several secrets in this tower through this note.";
-			mes "This secret should be disclosed by you, "+strcharinfo(0)+", before Rekenber does.";
+			mes "[布拉德]";
+			mes "通过这本手册，我估计";
+			mes "这座塔里还有很多的秘密。";
+			mes "你应该赶在他们之前";
+			mes "去揭开这些秘密，";
+			mes strcharinfo(0)+"。";
 			next;
-			mes "[Burled]";
-			mes "No matter how much power they obtain... they won't get to know about this tower...";
-			mes "Haha...";
+			mes "[布拉德]";
+			mes "不管他们有多大的能耐…";
+			mes "他们也不可能";
+			mes "把这座塔了解透彻…";
+			mes "哈哈…";
 			next;
-			mes "[Burled]";
-			mes "...haha...";
-			mes "I feel a bit relieved.";
-			mes "Thanks.";
-			mes "This isn't much, but here's a return present.";
+			mes "[布拉德]";
+			mes "…哈哈…";
+			mes "我有点解气了。";
+			mes "谢谢你。";
+			mes "虽然并不算什么，";
+			mes "但这是少少回礼。";
 			next;
-			mes "[Burled]";
-			mes "I hope that these will be useful for you, "+strcharinfo(0)+".";
+			mes "[布拉德]";
+			mes "我希望对你有用，"+strcharinfo(0)+"。";
 			next;
-			mes "- Burled gives you the note and an Old Violet Box. -";
+			mes "- 布拉德把手册还给你";
+			mes "并给了你一个神秘紫箱 -";
 			mes " ";
-			mes "^4d4dffYou acquire one Old Violet Box,";
-			mes "as well as a little EXP.^000000";
+			mes "^4d4dff你获得了一个神秘紫箱，";
+			mes "还有一些EXP。^000000";
 			set thana_tower, 10;
 			completequest 7053;
 			getexp 120000,10000;
@@ -819,11 +879,13 @@ tha_t02,231,161,5	script	Entrance Guide	874,{
 			close;
 		}
 		else {
-			mes "[Burled]";
-			mes "Are you keeping the secrets well?";
-			mes "Is there a Phantom on the top of this tower?";
+			mes "[布拉德]";
+			mes "你有好好地保守秘密吗？";
+			mes "这座塔的顶部是不是有幽灵？";
 			if (rand(3) == 1) {
-				mes "You look tired. This isn't a big deal, but it's for you.";
+				mes "你看起来好疲倦。";
+				mes "虽然算不上什么，";
+				mes "但这是该为你做的。";
 				npcskill "AL_HEAL",11,50,70;
 			}
 			close;
@@ -831,41 +893,52 @@ tha_t02,231,161,5	script	Entrance Guide	874,{
 	}
 
 L_Request:
-	mes "[Burled]";
-	mes "Ah, it's not that difficult.";
-	mes "After you explore the tower, let me know in detail anything you learn.";
+	mes "[布拉德]";
+	mes "噢，不是什么难事。";
+	mes "只是让我知道";
+	mes "你探索的细节而已。";
 	next;
-	mes "[Burled]";
-	mes "...I can't believe the Rekenber Corporation. Many colleagues and friends died for them.";
-	mes "But the Rekenber Corporation doesn't expose the reason they are dead.";
+	mes "[布拉德]";
+	mes "…我不相信雷根贝勒企业。";
+	mes "许多同事和朋友";
+	mes "因为他们牺牲了。";
+	mes "但雷根贝勒企业从来";
+	mes "不解释他们为什么会牺牲。";
 	next;
-	mes "[Burled]";
-	mes "The conditions were bad for us from beginning...";
-	mes "All of the developed places except research materials would be turned into tourist attractions...";
-	mes "Honestly, all the personnel are from Cool Event Corp.";
+	mes "[布拉德]";
+	mes "这对我们一开始就不利…";
+	mes "除了研究用途，";
+	mes "其他地区都将成为旅游景点…";
+	mes "老实说，所有的工作人员";
+	mes "都来自准他企划社。";
 	next;
-	mes "[Burled]";
-	mes "They know about it as well.";
-	mes "This business needs much sacrifice as well as personnel who are up for it.";
+	mes "[布拉德]";
+	mes "他们也知道，";
+	mes "这个项目需要";
+	mes "牺牲大量的人员。";
 	next;
-	mes "[Burled]";
-	mes "Now I don't feel victimized anymore, but I just want to know what drives these accidents...";
-	mes "^4d4dffWhat makes us victimized...?^000000";
-	mes "That's what I want to know.";
+	mes "[布拉德]";
+	mes "现在我已经看淡了，";
+	mes "但我只是想知道";
+	mes "是什么导致了意外…";
+	mes "^4d4dff为什么我们会受害…？^000000";
+	mes "我想知道的只有这点。";
 	next;
-	mes "[Burled]";
-	mes "What's this tower?";
-	mes "Why did they develop this dangerous place?";
-	mes "And for what? Should my colleagues be dead for it?";
+	mes "[布拉德]";
+	mes "这座塔到底是什么？";
+	mes "为什么他们要开发";
+	mes "这么危险的地方？";
+	mes "为了什么？";
+	mes "值得我的同事去牺牲吗？";
 	next;
-	mes "[Burled]";
-	mes "I seriously want to know about it.";
-	mes "Why they must sacrifice themselves...";
-	mes "Let me know...";
+	mes "[布拉德]";
+	mes "我是真的想知道答案。";
+	mes "为什么他们必须要牺牲…";
+	mes "我想知道…";
 	next;
-	mes "He seriously wants to know about it.";
-	mes "His hands are trembling now...";
-	mes "I nodd without answering.";
+	mes "他真的很想知道答案。";
+	mes "他的双手在颤抖…";
+	mes "我默默地点了点头。";
 	set thana_tower, 4;
 	setquest 7048;
 	return;
@@ -890,56 +963,58 @@ OnTimer30000:
 	end;
 }
 
-tha_t03,67,70,0	script	Rune Device#tt1	111,4,4,{
+tha_t03,67,70,0	script	符文装置#tt1	111,4,4,{
 	if ((countitem(7421) == 0) && (countitem(7426) == 0)) {
-		mes "^3355FFA mysterious field of";
-		mes "energy seems to surround";
-		mes "the mechanical device and";
-		mes "its power prevents you from";
-		mes "approaching the machine.^000000";
+		mes "^3355FF一股神秘的能量场";
+		mes "围绕着机械装置，";
+		mes "它的能量阻止你";
+		mes "靠近这台机器。^000000";
 		next;
-		switch(select("Investigate it.:I don't care about it.")) {
+		switch(select("调查它:无视")) {
 		case 1:
 			mes "["+strcharinfo(0)+"]";
-			mes "This seems mysterious...";
-			mes "Let me investigate.";
+			mes "这似乎很神秘…";
+			mes "让我来调查一下。";
 			next;
-			mes "^3355FFAs you follow the magical power, there's something wrapped inside the rune device.^000000";
+			mes "^3355FF当你感受这魔力时，";
+			mes "发觉似乎有东西";
+			mes "藏在这机器里面。^000000";
 			next;
 			if (Class == Job_Taekwon) {
-				mes "^3355FFYou kick the energy";
-				mes "field with all of your strength. After absorbing the impact, the";
-				mes "field fizzles out with a soft,";
-				mes "gentle ''pzzzzzh'' sound.^000000";
+				mes "^3355FF你用尽所有力气";
+				mes "去踢能量场。一阵冲击后，";
+				mes "这个能量场伴随着";
+				mes "“滋滋滋”的声音消失了。^000000";
 				next;
 				goto L_Key;
 			}
-			else if (getequipweaponlv(EQI_HAND_R) == 4) {
-				mes "^3355FFWith your "+getequipname(EQI_HAND_R)+" in";
-				mes "hand, you smash the energy";
-				mes "field with all of your strength. After absorbing the impact, the";
-				mes "field fizzles out with a soft,";
-				mes "gentle ''pzzzzzh'' sound.^000000";
+			else if (getequipweaponlv(9) == 4) {
+				mes "^3355FF你紧握手上的"+getequipname(9)+"，";
+				mes "用尽所有力气";
+				mes "打击能量场。一阵冲击后，";
+				mes "这个能量场伴随着";
+				mes "“滋滋滋”的声音消失了。^000000";
 				next;
 				goto L_Key;
 			}
 			else {
-				mes "^3355FFYou smash the energy";
-				mes "field with your weapon";
-				mes "using all of your strength,";
-				mes "but you weren't able to";
-				mes "break down the barrier.";
-				mes "You probably need a more";
-				mes "powerful weapon...^000000";
+				mes "^3355FF你紧握武器，";
+				mes "用尽所有力气";
+				mes "打击能量场，";
+				mes "但是你还是";
+				mes "破坏掉屏障。";
+				mes "可能你需要一把";
+				mes "更强力的武器…^000000";
 				close;
 			}
 		case 2:
-			mes "^3355FFYou decide to leave";
-			mes "the machine alone.^000000";
+			mes "^3355FF你决定离开";
+			mes "这台机器。^000000";
 			close;
 		}
 	}
-	mes "You've acquired everything you need from this rune device.";
+	mes "你已经从这台机器里";
+	mes "得到你需要的一切了。";
 	close;
 
 OnTouch:
@@ -949,58 +1024,65 @@ OnTouch:
 
 L_Key:
 	specialeffect EF_BRANDISH2;
-	mes "After breaking the device, the exterior shatters.";
-	mes "The energy field begins to disappear,";
-	mes "and you see that a red object inside was the origin of the magical power.";
+	mes "这台机器的外壳破碎了。";
+	mes "能量场开始消失，";
+	mes "你看到了一个红色物体，";
+	mes "它是魔力的根源。";
 	next;
-	mes "- You acquired the powerful Red Key. -";
+	mes "- 你获得了一把红色钥匙。 -";
 	getitem 7421,1; //Key_Red
 	if (thana_tower != 4) close;
-	mes "^4d4dffOnce you hold the key, a shocking feeling passes through your head.";
-	mes "You see an illusion of light...^000000";
+	mes "^4d4dff当你握住钥匙，";
+	mes "一种强烈的感觉在你脑海里闪过。";
+	mes "你看到了一道光的幻象…^000000";
 	next;
-	switch(select("Ignore it.:Concentrate on it.")) {
+	switch(select("无视:集中精力")) {
 	case 1:
-		mes "^3355FFYou decide to leave";
-		mes "the machine alone.^000000";
+		mes "^3355FF你决定离开";
+		mes "这台机器。^000000";
 		close;
 	case 2:
-		mes "You focus on the light.";
-		mes "Some letters begin to appear...";
+		mes "你专注于这道光。";
+		mes "一些文字开始出现…";
 		next;
-		mes "^b22222I've used the Gate Seal";
-		mes "technology to seal the gate";
-		mes "and the charm stones. Although";
-		mes "the seals are in place, I can't";
-		mes "stop worrying that they might";
-		mes "break in the future.";
+		mes "^b22222我用咒术";
+		mes "对传送阵和魔法石";
+		mes "进行了封印。";
+		mes "虽然进行了封印，";
+		mes "但我担心将来某天";
+		mes "会遭到破坏。";
 		next;
-		mes "^b22222I can't relax when a, shall";
-		mes "I say, particular group covets";
-		mes "the charm stones and can easily";
-		mes "break the seals. Since they are";
-		mes "broken now, are many people hurt?";
+		mes "^b22222我不能松懈，";
+		mes "一些人在觊觎着这些";
+		mes "魔法石，并且会";
+		mes "轻易地解开封印。";
+		mes "他们解开封印后，";
+		mes "很多人会因此牺牲的。";
 		next;
-		mes "^b22222This tower contains strong";
-		mes "magical powers and much evil. It is";
-		mes "dangerous by itself, but I sealed it";
-		mes "because of one man's strong desires...";
+		mes "^b22222这座塔里有一股";
+		mes "很强大的邪恶魔法，";
+		mes "这是非常危险的，";
+		mes "基于一个人对这股力量";
+		mes "的强大欲望，";
+		mes "我封印了它。";
 		next;
-		mes "^b22222I wouldn't recommend to go futher.";
-		mes "You would need to challenge that poor";
-		mes "being, who I've named this tower after.";
-		mes "His soul still rests here...";
+		mes "^b22222我不希望你继续下去。";
+		mes "你需要去挑战一个可怜人，";
+		mes "我用他的名字命名了这座塔。";
+		mes "他的灵魂仍在这里安息…";
 		next;
-		mes "^b22222Nobody believed me, the crazy scientist.";
-		mes "Though I wanted to keep this a secret, somebody";
-		mes "must get to know about it. That's way I created";
-		mes "this rune device, and hid this message.";
+		mes "^b22222这些疯狂的科学家";
+		mes "不愿意相信我。";
+		mes "虽然我想保守秘密，";
+		mes "但总会有人知道的。";
+		mes "所以我就创造了这台机器，";
+		mes "并留下这些信息。";
 		next;
-		mes "^b22222Please show that my experience";
-		mes "wasn't just an illusion.^000000";
+		mes "^b22222请验证我的";
+		mes "推测不是错误的。^000000";
 		next;
-		mes "That's all.";
-		mes "The letters fly away in the form of a red key...";
+		mes "完毕。";
+		mes "这些文字慢慢消失了…";
 		set thana_tower, 5;
 		changequest 7048,7049;
 		specialeffect2 EF_COMBOATTACK1;
@@ -1008,20 +1090,20 @@ L_Key:
 	}
 }
 
-tha_t04,195,195,0	script	Rune Device#tt2	111,3,3,{
+tha_t04,195,195,0	script	符文装置#tt2	111,3,3,{
 	if ((countitem(7422) == 0) && (countitem(7427) == 0)) {
-		mes "^3355FFYou find a screen";
-		mes "with three tiny panels and";
-		mes "a numeric keypad underneath.";
-		mes "As you press one of the";
-		mes "number keys, you hear a";
-		mes "beep as the screen activates.^000000";
+		mes "^3355FF你发现装置屏幕";
+		mes "被分成三部分，并且";
+		mes "下面有一个数字键盘。";
+		mes "当你按下数字键盘时，";
+		mes "你听到一个提示音，";
+		mes "屏幕被激活了。^000000";
 		next;
-		mes "[Screen]";
-		mes "Please enter a 3 digit";
-		mes "number. Do not use a";
-		mes "single number more than";
-		mes "once or use the number 0.";
+		mes "[屏幕]";
+		mes "请输入3位数字，";
+		mes "不能重复，";
+		mes "不能输入数字“0”，";
+		mes "不能超出输入范围。";
 		next;
 		while (1) {
 			set .@yagu100, rand(1,9);
@@ -1034,12 +1116,11 @@ tha_t04,195,195,0	script	Rune Device#tt2	111,3,3,{
 			while (1) {
 				input .@input;
 				if (.@input < 100 || .@input > 999) {
-					mes "[Screen]";
-					mes "Number input";
-					mes "requirement has";
-					mes "not been fulfilled.";
-					mes "Please enter a";
-					mes "3 digit number.";
+					mes "[屏幕]";
+					mes "输入的数字";
+					mes "不符合要求。";
+					mes "请重新输入";
+					mes "一个3位数字。";
 					close;
 				}
 				set .@input100, .@input / 100;
@@ -1047,22 +1128,22 @@ tha_t04,195,195,0	script	Rune Device#tt2	111,3,3,{
 				if (((.@input100 > 0) && (.@input10 > 0)) && (.@input % 10 > 0)) {
 					if (((.@input100 != .@input10) && (.@input100 != .@input % 10)) && (.@input10 != .@input % 10))
 						break;
-					mes "[Screen]";
-					mes "Violation of number";
-					mes "input parameter. The";
-					mes "number 0 has been input,";
-					mes "or a number has been";
-					mes "input more than once.";
+					mes "[屏幕]";
+					mes "不符合";
+					mes "输入要求。";
+					mes "可能是";
+					mes "输入了数字“0”";
+					mes "或重复输入数字。";
 					next;
 				}
 			}
 			set .@retry, .@retry + 1;
-			mes "[Screen]";
-			mes "You have input...";
+			mes "[屏幕]";
+			mes "你输入了…";
 			mes "^0000ff" + .@input100 + "^000000, ^0000ff" + .@input10 + "^000000, ^0000ff" + (.@input % 10) + "^000000";
 			mes " ";
-			mes "Calculating Results...";
-			mes "Please wait a moment...";
+			mes "计算结果中…";
+			mes "请稍后…";
 			next;
 			set .@strike, 0;
 			set .@ball, 0;
@@ -1073,51 +1154,61 @@ tha_t04,195,195,0	script	Rune Device#tt2	111,3,3,{
 			if ((.@yagu10 == .@input100) || (.@yagu10 == .@input % 10)) set .@ball, .@ball + 1;
 			if ((.@yagu1 == .@input100) || (.@yagu1 == .@input10)) set .@ball, .@ball + 1;
 			if (.@strike == 3) {
-				mes "[Screen]";
-				mes "Input number accepted.";
-				mes "Access authorized.";
+				mes "[屏幕]";
+				mes "输入正确。";
+				mes "验证成功。";
 				next;
-				mes "^3355FFAfter the screen displays";
-				mes "the access authorization";
-				mes "notice, magical power condenses";
-				mes "and appears on the screen's";
-				mes "surface. An object forms...^000000";
+				mes "^3355FF屏幕显示";
+				mes "验证成功信息后，";
+				mes "屏幕表面凝聚起了";
+				mes "一股魔力。";
+				mes "一件物体渐渐形成…^000000";
 				next;
-				mes "^4d4dffThe powerful Yellow Key appears.^000000";
+				mes "^4d4dff出现了一把黄色钥匙。^000000";
 				getitem 7422,1; //Key_Yellow
 				if (thana_tower != 5) close;
-				mes "^4d4dffA fierce feeling passes through your head.";
-				mes "You seen an illusion of light, like when you acquired the first key.^000000";
+				mes "^4d4dff一种强烈的感觉在你脑海里闪过。";
+				mes "你看到了一道光的幻象，";
+				mes "就像你获得第一把钥匙。^000000";
 				next;
-				switch(select("Ignore it.:Concentrate on it.")) {
+				switch(select("无视:集中精力")) {
 				case 1:
-					mes "You decide to ignore it.";
+					mes "你决定无视它。";
 					close;
 				case 2:
-					mes "You focus on the light.";
-					mes "Some letters begin to appear...";
+					mes "你专注于这道光。";
+					mes "一些文字开始出现…";
 					next;
-					mes "^b22222Have you found the second key?";
-					mes "I wish to tell you where the seal is, but I won't unveil it so easily.";
-					mes "Here's a hint. Go to the eagle on the 5th floor.";
+					mes "^b22222你找到第二把钥匙了？";
+					mes "我多么想告诉你";
+					mes "去哪里找这些封印，";
+					mes "但我不会轻易说的。";
+					mes "给你个提示吧。";
+					mes "去5层找老鹰吧。";
 					next;
-					mes "^b22222The reason I came here is...";
-					mes "to find someone.";
-					mes "We human beings can't understand this...";
+					mes "^b22222我来这里的原因是…";
+					mes "寻找某人。";
+					mes "人类无法理解这个…";
 					next;
-					mes "^b22222When I found her in Juperos, I couldn't relax.";
-					mes "The giant men staying with her in deep side of cave";
-					mes "made me rush through my investigation...";
+					mes "^b22222当我在优配擂斯找到她时，";
+					mes "我无法平息心中的兴奋。";
+					mes "在洞穴深处，";
+					mes "她的身边有守护者，";
+					mes "致使我匆匆做完了调查。";
 					next;
-					mes "^b22222After confirming her existence, I became blindly obsessed with finding traces of her.";
-					mes "'Her', you ask? She is shaped like a woman...";
+					mes "^b22222实证了她的存在后，";
+					mes "我沉迷于寻找她的踪迹。";
+					mes "你想问“她”？";
+					mes "她只是像一个女性而已。";
 					next;
-					mes "^b22222I followed her traces without knowing that she existed 10 years earlier.";
-					mes "Then I came upon this place.";
+					mes "^b22222我不知道她";
+					mes "10年前就已经存在了。";
+					mes "然后我来到了这里。";
 					next;
-					mes "^b22222This tower set up for...^000000";
+					mes "^b22222建造这座塔是为了…^000000";
 					next;
-					mes "It suddenly shakes, then disappears.";
+					mes "幻象忽然抖动起来，";
+					mes "然后消失了。";
 					set thana_tower, 6;
 					changequest 7049,7050;
 					specialeffect2 EF_COMBOATTACK1;
@@ -1125,32 +1216,33 @@ tha_t04,195,195,0	script	Rune Device#tt2	111,3,3,{
 				}
 			}
 			else {
-				mes "[Screen]";
-				mes "*Beeeeep*";
-				mes "Unauthorized";
-				mes "numerical sequence.";
+				mes "[屏幕]";
+				mes "*哔——*";
+				mes "验证数字";
+				mes "授权序列失败。";
 				next;
-				mes "[Screen]";
-				mes "Correct number";
-				mes "in correct place";
-				mes "in sequence total: ^FF0000" + .@strike + "^000000";
+				mes "[屏幕]";
+				mes "正确位置的";
+				mes "正确数字";
+				mes "共有：^FF0000" + .@strike + "^000000";
 				mes " ";
-				mes "Correct number total: ^FF0000" + .@ball + "^000000";
+				mes "正确的数字共有：^FF0000" + .@ball + "^000000";
 				next;
 				if (.@retry > 4) {
-					mes "[Screen]";
-					mes "Correct number";
-					mes "authorization";
-					mes "sequence was...";
+					mes "[屏幕]";
+					mes "正确的";
+					mes "数字授权序列";
+					mes "为…";
 					mes "^ff0000" + .@yagu100 + "^000000, ^ff0000" + .@yagu10 + "^000000, ^ff0000" + .@yagu1 + "^000000";
-					mes "Authorization number";
-					mes "will change upon retry.";
+					mes "数字授权序列";
+					mes "将重新更改。";
 					close;
 				}
 			}
 		}
 	}
-	mes "You've acquired everything you need from this rune device.";
+	mes "你已经从这台机器里";
+	mes "得到你需要的一切了。";
 	close;
 
 OnTouch:
@@ -1159,83 +1251,106 @@ OnTouch:
 	end;
 }
 
-tha_t05,62,179,0	script	Brilliant Statue#tt3	111,3,3,{
+tha_t05,62,179,0	script	辉煌的雕像#tt3	111,3,3,{
 	if ((countitem(7423) == 0) && (countitem(7428) == 0)) {
-		mes "I can feel some magical power from this beautiful stone statue.";
-		mes "There's a little crack between the wings.";
+		mes "我能感受到从这个";
+		mes "漂亮的雕像中散发出";
+		mes "一些魔力。";
+		mes "石像翅膀上有些裂缝。";
 		next;
-		mes "Red light is shining on a crack in the left wing, and gold light on a crack in the right one.";
-		mes "What will you do?";
+		mes "从左边翅膀的";
+		mes "裂缝里透出红色的光，";
+		mes "从右边翅膀的";
+		mes "裂缝里透出金色的光。";
+		mes "你要怎么做？";
 		next;
-		if(select("Stick the key into the crack...:Ignore it.") == 2) {
-			mes "^3355FFYou decide to leave";
-			mes "the statue alone.^000000";
+		if(select("把钥匙插进裂缝里…:无视") == 2) {
+			mes "^3355FF你决定离开";
+			mes "这座雕像。^000000";
 			close;
 		}
 		if ((countitem(7421) > 0) && (countitem(7422) > 0)) {
 			mes "["+strcharinfo(0)+"]";
-			mes "I'll try the left wing first.";
-			mes "What key should I put in?";
+			mes "先试试左边的翅膀。";
+			mes "我应该插进哪把钥匙？";
 			next;
 			input .@inputstr$;
-			if ((.@inputstr$ != "Red Key") && (.@inputstr$ != "red key")) {
-				mes "It doesn't fit into the crack.";
+			if ((.@inputstr$ != "红色钥匙") && (.@inputstr$ != "红色 钥匙")) {
+				mes "看起来不是这把钥匙。";
 				close;
 			}
-			mes "The key fits and makes a click.";
-			mes "You feel the magical power growing stronger...";
+			mes "钥匙对应成功，";
+			mes "并发出滴答一声。";
+			mes "你感受到这股";
+			mes "魔力越变越强…";
 			next;
 			mes "["+strcharinfo(0)+"]";
-			mes "Now the right side...";
+			mes "现在试试右边的翅膀…";
 			next;
 			input .@inputstr$;
-			if ((.@inputstr$ != "Yellow Key") && (.@inputstr$ != "yellow key")) {
-				mes "It doesn't fit into the crack.";
+			if ((.@inputstr$ != "黄色钥匙") && (.@inputstr$ != "黄色 钥匙")) {
+				mes "看起来不是这把钥匙。";
 				close;
 			}
-			mes "The key fits and makes a click.";
-			mes "The beak of the bird suddenly opens, and a strong light comes out.";
-			mes "There's a key-shaped object inside...";
+			mes "钥匙对应成功，";
+			mes "并发出滴答一声。";
+			mes "老鹰雕像的嘴巴突然张开，";
+			mes "并射出了一道强光。";
+			mes "有一把钥匙形状的";
+			mes "物体在嘴里…";
 			next;
-			mes "^4d4dffThe powerful Blue Key appears.^000000";
+			mes "^4d4dff出现了一把蓝色钥匙。^000000";
 			getitem 7423,1; //Key_Blue
 			if (thana_tower != 6) close;
-			mes "^4d4dffOnce you hold the key, a shocking feeling passes through your head.";
-			mes "You see an illusion of light...^000000";
+			mes "^4d4dff当你握住钥匙";
+			mes "一种强烈的感觉在你脑海里闪过。";
+			mes "你看到了一道光的幻象…^000000";
 			next;
-			switch(select("Concentrate on it.:Ignore it.")) {
+			switch(select("集中精力:无视")) {
 			case 1:
-				mes "This part isn't as clear as before.";
-				mes "You try to figure out what it's saying...";
+				mes "这部分信息不像";
+				mes "之前那样清晰。";
+				mes "你努力弄清楚";
+				mes "它在表达什么…";
 				next;
-				mes "^b22222...this tower was built by a magical tribe, not by human beings.";
-				mes "This was quite interesting to me...";
-				mes "I started to investigate why they built up the tower...";
+				mes "^b22222…这座塔不是由人类建造的，";
+				mes "而是由一个神秘种族。";
+				mes "我对此相当感兴趣…";
+				mes "我开始调查他们";
+				mes "为什么建造这座塔…";
 				next;
-				mes "^b22222I found out that this tower was a gate for the magic tribe";
-				mes "during a millennium war.^000000";
+				mes "^b22222我发现，在千年战争时期，";
+				mes "这座塔对他们来说";
+				mes "相当于一个传送阵。";
 				next;
-				mes ".........It's not clearly shown......";
-				mes "^b22222...Morroc has gone through this gate";
-				mes "from the magical world into the Midgard continent after the millennium war terminated...";
+				mes "……这段显示得非常模糊……";
+				mes "^b22222…在千年战争结束后，";
+				mes "魔王梦罗克穿过传送阵，";
+				mes "从神秘世界来到了现世…";
 				next;
-				mes "^b22222The question is that when she come up here, the Satan appears at the same time...";
-				mes "The truth is..........^000000";
+				mes "^b22222问题是，";
+				mes "当她出现在这里，";
+				mes "梦罗克也同时出现了…";
+				mes "真相是……";
 				next;
-				mes "The illusion shakes, then melts on the surface of the key as light.";
+				mes "幻象在晃动，";
+				mes "然后像光一样就消失了。";
 				set thana_tower, 7;
 				changequest 7050,7051;
 				specialeffect2 EF_COMBOATTACK1;
 				close;
 			case 2:
-				mes "You decide to ignore it.";
+				mes "你决定无视它。";
 				close;
 			}
 		}
-		mes "You try to fit something in the crack, but to no avail.";
+		mes "你试着找些东西";
+		mes "与裂缝相匹配，";
+		mes "可是并没有用。";
 		close;
 	}
-	mes "You've acquired everything you need from this statue.";
+	mes "你已经从这座雕像里";
+	mes "得到你需要的一切了。";
 	close;
 
 OnTouch:
@@ -1244,33 +1359,39 @@ OnTouch:
 	end;
 }
 
-tha_t06,226,230,0	script	Brilliant Statue#tt4	111,3,3,{
+tha_t06,226,230,0	script	辉煌的雕像#tt4	111,3,3,{
 	if ((countitem(7424) == 0) && (countitem(7429) == 0)) {
-		mes "I can feel some magical power from this brilliant statue.";
-		mes "This must be one of the seals.";
+		mes "我能感受到从这个";
+		mes "辉煌的雕像中散发出";
+		mes "一些魔力。";
+		mes "这肯定是一处封印。";
 		next;
-		mes "You see a floating round object with a hole in it.";
-		mes "There're red, yellow, and blue light in a row.";
-		mes "What will you do?";
+		mes "你看到一个漂浮着的物体，";
+		mes "其上有一个洞。";
+		mes "接连透出";
+		mes "红光、黄光、蓝光。";
+		mes "你要怎么做？";
 		next;
-		if(select("Investigate.:Ignore it.") == 2) {
-			mes "^3355FFYou don't see the need to";
-			mes "investigate if nothing seems";
-			mes "peculiar or out of place...^000000";
+		if(select("调查它:无视") == 2) {
+			mes "^3355FF你觉得没什么特别的，";
+			mes "所以放弃了";
+			mes "调查它…^000000";
 			close;
 		}
 		if ((countitem(7421) > 0) && (countitem(7422) > 0) && (countitem(7423) > 0)) {
-			mes "When you insert the key into the keyhole of the ornament";
-			mes "and match them by corresponding color, the Stone Statue will snap open.";
-			mes "You can see small wheels are moving inside.";
+			mes "当你把钥匙插入";
+			mes "相应的钥匙孔中，";
+			mes "这座石雕啪地一声打开了。";
+			mes "你看到了一些轮子";
+			mes "在里面转动。";
 			next;
-			switch(select("Investigate the Machine Chasis:Investigate the Wheels:Cancel")) {
+			switch(select("调查底座:调查轮子:取消")) {
 			case 1:
-				mes "^3355FFThe key in your inventory";
-				mes "does not seem to be affecting";
-				mes "the machine's chasis. The";
-				mes "screen mounted on the side";
-				mes "is still blank and deactivated.^000000";
+				mes "^3355FF你手上的钥匙";
+				mes "看起来对底座";
+				mes "没什么作用。";
+				mes "侧面的屏幕";
+				mes "依然关闭着。^000000";
 				close;
 			case 2:
 				set .@small_1, 0;
@@ -1278,31 +1399,31 @@ tha_t06,226,230,0	script	Brilliant Statue#tt4	111,3,3,{
 				set .@big_1, 0;
 				set .@big_2, 0;
 				set .@big_3, 0;
-				mes "^3355FFYou touch the wheels and";
-				mes "find that they are actually";
-				mes "moving very slowly. You note";
-				mes "that there are 2 small wheels";
-				mes "and 3 larger wheels, totaling";
-				mes "5 wheels on this machine.^000000";
+				mes "^3355FF你碰了碰轮子，";
+				mes "发现它们转动地";
+				mes "非常缓慢。";
+				mes "你注意到有";
+				mes "2个小轮子，3个大轮子";
+				mes "共5个轮子。^000000";
 				next;
-				mes "^3355FFThe big wheels are moving";
-				mes "vertically, up and down, as";
-				mes "they press against the smaller";
-				mes "wheels to make them rotate.^000000";
+				mes "^3355FF大轮子在";
+				mes "上下地做纵向转动，";
+				mes "带动起小轮子";
+				mes "也跟着一起转动。^000000";
 				next;
-				mes "^3355FFJudging from the machine's";
-				mes "shaking and jittery noises, the";
-				mes "wheels may be misaligned.";
-				mes "You might be able to activate";
-				mes "the machine by properly ";
-				mes "aligning all the wheels.^000000";
+				mes "^3355FF从机器的震动和抖动声判断，";
+				mes "这些轮子错位了。";
+				mes "你也许能通过";
+				mes "正确地调整";
+				mes "轮子的位置";
+				mes "来激活这台机器。^000000";
 				while (1) {
 					next;
-					mes "^3355FFWhich wheel do";
-					mes "you want to shift?^000000";
-					switch(select("1st Small Wheel:2nd Small Wheel:1st Big Wheel:2nd Big Wheel:3rd Big Wheel:Check Current Wheel Configuration:Reset Wheels to Default Configuration")) {
+					mes "^3355FF你想移动";
+					mes "哪个轮子？^000000";
+					switch(select("第1个小轮子:第2个小轮子:第1个大轮子:第2个大轮子:第3个大轮子:检查当前轮子位置:重置轮子位置")) {
 					case 1:
-						switch(select("Raise Wheel:Lower Wheel:Press Wheel")) {
+						switch(select("上升:下降:按下")) {
 						case 1:
 							mes "^EE0000*Choom*^000000";
 							set .@small_1, 2;
@@ -1321,7 +1442,7 @@ tha_t06,226,230,0	script	Brilliant Statue#tt4	111,3,3,{
 						}
 						break;
 					case 2:
-						switch(select("Raise Wheel:Lower Wheel:Press Wheel")) {
+						switch(select("上升:下降:按下")) {
 						case 1:
 							mes "^5C246E*Mrreeem*^000000";
 							set .@small_2, 3;
@@ -1340,7 +1461,7 @@ tha_t06,226,230,0	script	Brilliant Statue#tt4	111,3,3,{
 						}
 						break;
 					case 3:
-						switch(select("Raise Wheel:Lower Wheel:Vertically Shift Wheel")) {
+						switch(select("上升:下降:转动")) {
 						case 1:
 							mes "^00B2EE*Sneeeep*^000000";
 							set .@big_1, 1;
@@ -1359,7 +1480,7 @@ tha_t06,226,230,0	script	Brilliant Statue#tt4	111,3,3,{
 						}
 						break;
 					case 4:
-						switch(select("Raise Wheel:Lower Wheel:Vertically Shift Wheel")) {
+						switch(select("上升:下降:转动")) {
 						case 1:
 							mes "^EE0000*Choom*^000000";
 							set .@big_2, 2;
@@ -1378,7 +1499,7 @@ tha_t06,226,230,0	script	Brilliant Statue#tt4	111,3,3,{
 						}
 						break;
 					case 5:
-						switch(select("Raise Wheel:Lower Wheel:Vertically Shift Wheel")) {
+						switch(select("上升:下降:转动")) {
 						case 1:
 							mes "^EE0000*Choom*^000000";
 							set .@big_3, 2;
@@ -1397,30 +1518,30 @@ tha_t06,226,230,0	script	Brilliant Statue#tt4	111,3,3,{
 						}
 						break;
 					case 6:
-						if (.@small_1 == 0) mes "1st Small Wheel: No Change";
-						else if (.@small_1 == 1) mes "1st Small Wheel: Down";
-						else if (.@small_1 == 2) mes "1st Small Wheel: Up";
-						else mes "1st Small Wheel: Pressed";
+						if (.@small_1 == 0) mes "第1个小轮子: 没变化";
+						else if (.@small_1 == 1) mes "第1个小轮子: 下降";
+						else if (.@small_1 == 2) mes "第1个小轮子: 上升";
+						else mes "第1个小轮子: 按下";
 
-						if (.@small_2 == 0) mes "2nd Small Wheel: No Change";
-						else if (.@small_2 == 1) mes "2nd Small Wheel: Pressed";
-						else if (.@small_2 == 2) mes "2nd Small Wheel: Down";
-						else mes "2nd Small Wheel: Up";
+						if (.@small_2 == 0) mes "第2个小轮子: 没变化";
+						else if (.@small_2 == 1) mes "第2个小轮子: 按下";
+						else if (.@small_2 == 2) mes "第2个小轮子: 下降";
+						else mes "第2个小轮子: 上升";
 
-						if (.@big_1 == 0) mes "1st Big Wheel: No Change";
-						else if (.@big_1 == 1) mes "1st Big Wheel: Up";
-						else if (.@big_1 == 2) mes "1st Big Wheel: Moved";
-						else mes "1st Big Wheel: Down";
+						if (.@big_1 == 0) mes "第1个大轮子: 没变化";
+						else if (.@big_1 == 1) mes "第1个大轮子: 上升";
+						else if (.@big_1 == 2) mes "第1个大轮子: 转动";
+						else mes "第1个大轮子: 下降";
 
-						if (.@big_2 == 0) mes "2nd Big Wheel: No Change";
-						else if (.@big_2 == 1) mes "2nd Big Wheel: Moved";
-						else if (.@big_2 == 2) mes "2nd Big Wheel: Up";
-						else mes "2nd Big Wheel: Down";
+						if (.@big_2 == 0) mes "第2个大轮子: 没变化";
+						else if (.@big_2 == 1) mes "第2个大轮子: 转动";
+						else if (.@big_2 == 2) mes "第2个大轮子: 上升";
+						else mes "第3个大轮子: 下降";
 
-						if (.@big_3 == 0) mes "3rd Big Wheel: No Change";
-						else if (.@big_3 == 1) mes "3rd Big Wheel: Down";
-						else if (.@big_3 == 2) mes "3rd Big Wheel: Up";
-						else mes "3rd Big Wheel: Moved";
+						if (.@big_3 == 0) mes "第3个大轮子: 没变化";
+						else if (.@big_3 == 1) mes "第3个大轮子: 下降";
+						else if (.@big_3 == 2) mes "第3个大轮子: 上升";
+						else mes "第2个大轮子: 转动";
 						continue;
 					case 7:
 						set .@small_1, 0;
@@ -1432,82 +1553,91 @@ tha_t06,226,230,0	script	Brilliant Statue#tt4	111,3,3,{
 					}
 					break;
 				}
-				mes "As you adjust the wheels,";
-				mes "they suddenly activate";
-				mes "with a firm click.";
+				mes "当你在调整轮子时，";
+				mes "它们突然滴答一声";
+				mes "转动了起来。";
 				next;
-				mes "A part of the ornament in the stone statue starts to spin,";
-				mes "and a shining light beam climbs up the elegant statue.";
-				mes "A strong cursed power emerges and emits a dazzling green light.";
+				mes "石雕的一部分装饰";
+				mes "开始转动起来，";
+				mes "这座优雅的石像";
+				mes "突然升起一道亮光。";
+				mes "一股强大的魔力出现，";
+				mes "并发出耀眼的绿光。";
 				specialeffect EF_DISPELL;
 				specialeffect EF_POTION6;
 				next;
-				mes "^4d4dffAll of a sudden, the Green Key appears and you can feel great power from it.^000000";
+				mes "^4d4dff一把绿色钥匙突然出现了，";
+				mes "你可以从中感受到强大的能量。^000000";
 				getitem 7424,1; //Key_Green
 				if (thana_tower != 7) close;
-				mes "^4d4dffWhen you pick up the key,";
-				mes "your body trembles";
-				mes "with an unknown power";
-				mes "and you see a hallucination with some text.^000000";
+				mes "^4d4dff当你拿起钥匙，";
+				mes "你的身躯因为不知名的";
+				mes "力量颤抖起来，";
+				mes "你看到了那些";
+				mes "带有信息的幻象。^000000";
 				next;
-				switch(select("Concentrate on it.:Ignore it.")) {
+				switch(select("集中精力:无视")) {
 				case 1:
-					mes "^b22222...You found 4 keys";
-					mes "and finally released 4 spells...";
-					mes "This tower used to be";
-					mes "a gate to summon demons ages ago.";
-					mes "And the last visitor was";
-					mes "the infamous Satan Morroc.";
+					mes "^b22222…你解开了4处封印，";
+					mes "并找到了4把钥匙…";
+					mes "这座塔在过去";
+					mes "是用来召唤恶魔的。";
+					mes "最后召唤的就是";
+					mes "臭名昭著的魔王梦罗克。";
 					next;
-					mes "^b22222As I followed her trail";
-					mes "I realized that her spells";
-					mes "were scattered around the tower.";
-					mes "Then, somehow, it vanished into the ground.";
+					mes "^b22222当我跟着她的踪迹，";
+					mes "我发现她的魔力";
+					mes "散落在这座塔中。";
+					mes "然后不知何故，";
+					mes "就消失了。";
 					next;
-					mes "^b22222The great battle and";
-					mes "the protracted war...";
-					mes "But her purpose was...";
-					mes "that... sealing of the gate...";
-					mes "so... I tried to seal...";
-					mes "but it was incomplete...";
-					mes "the guard of the gate was...^000000";
+					mes "^b22222伟大战役与";
+					mes "持久战役…";
+					mes "但她的目的是…";
+					mes "是…封印传送阵…";
+					mes "所以…我尝试去封印…";
+					mes "但没有完成…";
+					mes "传送阵的守护者是…^000000";
 					next;
 					mes "["+strcharinfo(0)+"]";
-					mes "It is hard to read.";
+					mes "这段显示得非常模糊。";
 					next;
-					mes "^b22222...So I changed the location";
-					mes "of the coupling spot...";
-					mes "I mean, push through to the tower";
-					mes "to tangle it...";
-					mes "Anyway, I wanted to respect";
-					mes "her loyalty and block the gate...";
+					mes "^b22222…所以我改变了";
+					mes "传送阵的契合点…";
+					mes "我的意思是，";
+					mes "把传送阵移到塔的外面…";
+					mes "无论如何，我都会尊重她，";
+					mes "并且阻止这传送阵…";
 					next;
-					mes "^b22222If I want to... then I have to";
-					mes "release the last spell...";
-					mes "He finally came to meet...";
-					mes "with his pieces...";
-					mes "...and then...^000000";
+					mes "^b22222如果我想…";
+					mes "我必须解除最后的封印…";
+					mes "他终于来了…";
+					mes "和他的部下会合…";
+					mes "…然后…^000000";
 					next;
-					mes "The hallucination wobbles";
-					mes "and fades into the key.";
+					mes "幻象在晃动，";
+					mes "最后消失了。";
 					set thana_tower, 8;
 					changequest 7051,7052;
 					specialeffect2 EF_BEGINSPELL6;
 					specialeffect2 EF_SPELLBREAKER;
 					close;
 				case 2:
-					mes "It was too intense to see the hallucination, so you gave up reading.";
+					mes "幻象太强烈了，";
+					mes "你放弃了调查。";
 					close;
 				}
 			case 3:
-				mes "You decide to ignore it.";
+				mes "你决定无视它。";
 				close;
 			}
 		}
-		mes "You don't have the right key for this keyhole.";
+		mes "没有与钥匙孔相应的钥匙。";
 		close;
 	}
-	mes "The spell is already released. You've acquired everything you need from this statue.";
+	mes "这个封印已经解开了。";
+	mes "你已经从这座雕像里";
+	mes "得到你需要的一切了。";
 	close;
 
 OnTouch:
@@ -1516,88 +1646,117 @@ OnTouch:
 	end;
 }
 
-tha_t06,204,181,0	script	Splendid Sword#tt5	111,3,3,{
+tha_t06,204,181,0	script	闪亮的剑#tt5	111,3,3,{
 	if ((countitem(7425) == 0) && (countitem(7430) == 0)) {
-		mes "An old, worn sword hangs above the splendid table.";
-		mes "It emits a gloomy aura.";
+		mes "一把破损的古剑放在桌子上。";
+		mes "它散发出一种阴郁的气息。";
 		next;
 		if ((countitem(7421) > 0) && (countitem(7422) > 0) && (countitem(7423) > 0) && (countitem(7424) > 0)) {
-			mes "As you approach, the keys in your pocket";
-			mes "suddenly respond with a mysterious power.";
+			mes "当你走近时，";
+			mes "你身上的钥匙突然";
+			mes "爆发出魔力，";
+			mes "与古剑差生了共鸣。";
 			specialeffect2 EF_ABSORBSPIRITS;
 			next;
-			if(select("Observe it.:Ignore it.") == 2) {
-				mes "^3355FFYou decide to leave";
-				mes "the sword alone.^000000";
+			if(select("调查它:无视") == 2) {
+				mes "^3355FF你决定离开";
+				mes "这把古剑。^000000";
 				close;
 			}
-			mes "While you get closer and closer, the sword shakes with a loud noise.";
-			mes "Your eyes keep getting drawn to the sword's hilt.";
-			mes "Then you lose control of your hands, and they stretch forth to grasp the handle...";
+			mes "当你越走越近，";
+			mes "剑鸣声越来越大。";
+			mes "你的眼光停留在剑柄上。";
+			mes "你的双手不听使唤，";
+			mes "伸向了古剑…";
 			next;
-			switch(select("Towards the blade of the sword:Towards the hilt of the sword:Towards the table")) {
+			switch(select("伸向剑刃:伸向剑柄:伸向桌子")) {
 			case 1:
-				mes "By an unknown calling you decide to grab the blade of the sword.";
-				mes "Your hands get wounded and begin to bleed.";
+				mes "一道莫名的呼唤，";
+				mes "让你双手伸向了剑刃。";
+				mes "你的手受伤了，";
+				mes "血流个不停。";
 				specialeffect2 EF_HIT1;
 				percentheal -20,0;
 				close;
 			case 2:
-				mes "By an unknown calling you decide to grab the hilt of the sword.";
-				mes "The mysterious power from the keys transfers to the sword, and it falls from the table.";
+				mes "一道莫名的呼唤，";
+				mes "让你双手伸向了剑柄。";
+				mes "钥匙上的魔力";
+				mes "流向古剑，";
+				mes "古剑从桌子上掉了下来。";
 				next;
-				mes "At the same time, a little hole appears on the table's surface.";
-				mes "Now, you hold the sword and...";
+				mes "同时，桌面上出现了";
+				mes "一个小洞。";
+				mes "你手持古剑，然后…";
 				specialeffect EF_EXIT2;
 				next;
-				switch(select("Strike the table:Insert the sword into the hole:Bring the sword safely")) {
+				switch(select("拍打桌子:把古剑插入洞中:把古剑放回原位")) {
 				case 1:
-					mes "You strike the table with the sword.";
-					mes "Numerous conflicting spells act upon it, and you can tell that you chose incorrectly.";
-					mes "The sword automatically returns to the table, as it was before.";
+					mes "你用剑拍打桌子。";
+					mes "很多魔力在相互冲击，";
+					mes "你犯了一个错误。";
+					mes "古剑自动回到桌子上，";
+					mes "就像没动过一样。";
 					specialeffect EF_HIT1;
 					specialeffect2 EF_HIT1;
 					percentheal -20,0;
 					close;
 				case 2:
-					mes "As you insert the sword, lightning flashes around it and black smoke rises from the hole.";
-					mes "Slowly the smoke clears, and you see an object with a certain shape...";
+					mes "当你把古剑插入洞中，";
+					mes "古剑泛起了亮光，";
+					mes "一道黑烟从洞中升起。";
+					mes "黑烟慢慢散去，";
+					mes "你看见一样东西…";
 					specialeffect EF_CHANGEDARK;
 					next;
-					mes "^4d4dff All of a sudden, a Black Key appears from the smoke and you feel a great cursed power from it.^000000";
+					mes "^4d4dff一把黑色钥匙突然出现了，";
+					mes "你可以从中感受到强大的能量。^000000";
 					getitem 7425,1; //Key_Black
 					if (thana_tower != 8) close;
 					next;
-					mes "A drawer had snapped open under the table while you picked up the key and observed it.";
-					mes "You can see an old notebook inside the drawer.";
+					mes "当你拿起钥匙，";
+					mes "桌子下出现了一个抽屉。";
+					mes "你从抽屉里找到";
+					mes "一本旧手册。";
 					next;
-					mes "The notebook definitely looks like it contains an important message.";
-					mes "Maybe this notebook is the one that Rekenber wants to find, even with all the sacrifices.";
+					mes "这本手册似乎";
+					mes "记载着重要的信息。";
+					mes "也许这手册是";
+					mes "雷根贝勒企业不惜一切";
+					mes "也要找到的。";
 					next;
-					mes "^4d4dffYou decide to show the notebook and the keys to Burled.";
-					mes "You received Varmunt's Journal.^000000";
+					mes "^4d4dff你决定把";
+					mes "这本手册和钥匙";
+					mes "拿给布拉德看看。";
+					mes "你得到巴尔蒙德的手册。^000000";
 					set thana_tower, 9;
 					changequest 7052,7053;
 					getitem 11011,1; //Barmund_Note
 					close;
 				case 3:
-					mes "When you lift the sword, you feel a shock from numerous conflicting spells.";
-					mes "Right... stealing is the worst.";
-					mes "The sword automatically returns to the table, as it was before.";
+					mes "当你离开时，你感受到";
+					mes "很多魔力在相互冲击。";
+					mes "对的…偷窃是不好的。";
+					mes "古剑自动回到桌子上，";
+					mes "就像没动过一样。";
 					close;
 				}
 			case 3:
-				mes "You stretch your hands to find something under the table, but there is nothing.";
+				mes "你的双手在桌子底下摸索，";
+				mes "但什么都没有。";
 				close;
 			}
 		}
-		mes "You strongly feel a cursed, sealed power from here,";
-		mes "but it is hard to figure out what is causing it.";
-		mes "You cannot approach it.";
+		mes "你感到这里有";
+		mes "一股强大的魔力，";
+		mes "但无法弄清楚是";
+		mes "什么原因形成的。";
+		mes "你无法靠近。";
 		close;
 	}
-	mes "You have already released a seal using this sword.";
-	mes "You've acquired everything you need from here.";
+	mes "你已经用古剑解开了封印。";
+	mes "你已经从这里";
+	mes "得到你需要的一切了。";
 	close;
 
 OnTouch:
@@ -1613,70 +1772,85 @@ OnEnable:
 	initnpctimer;
 	end;
 OnTimer1000:
-	donpcevent "Shining Crystal#tt_r1::OnEnable";
-	donpcevent "Shining Crystal#tt_g1::OnEnable";
-	donpcevent "Shining Crystal#tt_b1::OnEnable";
-	donpcevent "Shining Crystal#tt_y1::OnEnable";
+	donpcevent "闪亮的水晶#tt_r1::OnEnable";
+	donpcevent "闪亮的水晶#tt_g1::OnEnable";
+	donpcevent "闪亮的水晶#tt_b1::OnEnable";
+	donpcevent "闪亮的水晶#tt_y1::OnEnable";
 	end;
 OnTimer600000:
-	donpcevent "Shining Crystal#tt_r1::OnDisable";
-	donpcevent "Shining Crystal#tt_g1::OnDisable";
-	donpcevent "Shining Crystal#tt_b1::OnDisable";
-	donpcevent "Shining Crystal#tt_y1::OnDisable";
-	donpcevent "Shining Crystal#tt_r2::OnEnable";
-	donpcevent "Shining Crystal#tt_g2::OnEnable";
-	donpcevent "Shining Crystal#tt_b2::OnEnable";
-	donpcevent "Shining Crystal#tt_y2::OnEnable";
+	donpcevent "闪亮的水晶#tt_r1::OnDisable";
+	donpcevent "闪亮的水晶#tt_g1::OnDisable";
+	donpcevent "闪亮的水晶#tt_b1::OnDisable";
+	donpcevent "闪亮的水晶#tt_y1::OnDisable";
+	donpcevent "闪亮的水晶#tt_r2::OnEnable";
+	donpcevent "闪亮的水晶#tt_g2::OnEnable";
+	donpcevent "闪亮的水晶#tt_b2::OnEnable";
+	donpcevent "闪亮的水晶#tt_y2::OnEnable";
 	end;
 OnTimer1200000:
-	donpcevent "Shining Crystal#tt_r2::OnDisable";
-	donpcevent "Shining Crystal#tt_g2::OnDisable";
-	donpcevent "Shining Crystal#tt_b2::OnDisable";
-	donpcevent "Shining Crystal#tt_y2::OnDisable";
-	donpcevent "Shining Crystal#tt_r3::OnEnable";
-	donpcevent "Shining Crystal#tt_g3::OnEnable";
-	donpcevent "Shining Crystal#tt_b3::OnEnable";
-	donpcevent "Shining Crystal#tt_y3::OnEnable";
+	donpcevent "闪亮的水晶#tt_r2::OnDisable";
+	donpcevent "闪亮的水晶#tt_g2::OnDisable";
+	donpcevent "闪亮的水晶#tt_b2::OnDisable";
+	donpcevent "闪亮的水晶#tt_y2::OnDisable";
+	donpcevent "闪亮的水晶#tt_r3::OnEnable";
+	donpcevent "闪亮的水晶#tt_g3::OnEnable";
+	donpcevent "闪亮的水晶#tt_b3::OnEnable";
+	donpcevent "闪亮的水晶#tt_y3::OnEnable";
 	end;
 OnTimer1800000:
-	donpcevent "Shining Crystal#tt_r3::OnDisable";
-	donpcevent "Shining Crystal#tt_g3::OnDisable";
-	donpcevent "Shining Crystal#tt_b3::OnDisable";
-	donpcevent "Shining Crystal#tt_y3::OnDisable";
-	donpcevent "Shining Crystal#tt_r4::OnEnable";
-	donpcevent "Shining Crystal#tt_g4::OnEnable";
-	donpcevent "Shining Crystal#tt_b4::OnEnable";
-	donpcevent "Shining Crystal#tt_y4::OnEnable";
+	donpcevent "闪亮的水晶#tt_r3::OnDisable";
+	donpcevent "闪亮的水晶#tt_g3::OnDisable";
+	donpcevent "闪亮的水晶#tt_b3::OnDisable";
+	donpcevent "闪亮的水晶#tt_y3::OnDisable";
+	donpcevent "闪亮的水晶#tt_r4::OnEnable";
+	donpcevent "闪亮的水晶#tt_g4::OnEnable";
+	donpcevent "闪亮的水晶#tt_b4::OnEnable";
+	donpcevent "闪亮的水晶#tt_y4::OnEnable";
 	end;
 OnTimer2400000:
-	donpcevent "Shining Crystal#tt_r4::OnDisable";
-	donpcevent "Shining Crystal#tt_g4::OnDisable";
-	donpcevent "Shining Crystal#tt_b4::OnDisable";
-	donpcevent "Shining Crystal#tt_y4::OnDisable";
+	donpcevent "闪亮的水晶#tt_r4::OnDisable";
+	donpcevent "闪亮的水晶#tt_g4::OnDisable";
+	donpcevent "闪亮的水晶#tt_b4::OnDisable";
+	donpcevent "闪亮的水晶#tt_y4::OnDisable";
 	donpcevent "#Charm Stone Admintt01::OnEnable";
 	end;
 }
 
-tha_t08,90,153,0	script	Shining Crystal#tt_r1	844,{
+tha_t08,90,153,0	script	闪亮的水晶#tt_r1	844,{
 	if (countitem(7421) > 0) {
-		mes "The Crystal ball is emitting mysterious power.";
+		mes "水晶球散发出";
+		mes "神秘的力量。";
 		next;
-		mes "Beside the crystal ball, you find faded patterns marked on the floor.";
-		mes "Looks like some kind of keyhole that needs to be inserted with something...";
+		mes "除了水晶球，";
+		mes "你还发现地面上";
+		mes "有些模糊的印记。";
+		mes "看起来像钥匙孔，";
+		mes "需要插入点什么…";
 		next;
-		mes "The red key suddenly responds once you come close to the keyhole.";
-		mes "You insert the key in the keyhole and it turns out to be a small gem.";
+		mes "当你接近钥匙孔时，";
+		mes "红色钥匙";
+		mes "突然发出了共鸣。";
+		mes "你把钥匙插入孔中，";
+		mes "水晶球就变成了";
+		mes "一颗小宝石。";
 		next;
-		mes "When you touch the gem which is dazzling red...";
-		mes "You feel isolated and depressed deep inside your heart...";
+		mes "当你拿起这颗";
+		mes "闪闪发光的红宝石…";
+		mes "你的内心感到了";
+		mes "一阵孤独沮丧…";
 		next;
-		mes "^4d4dffYou have found a Red Charm Stone that is concentrated with cruel fate and a deep darkness.^000000";
+		mes "^4d4dff你找到了一颗";
+		mes "迷人的红宝石，";
+		mes "一颗与绝望、黑暗";
+		mes "有关的宝石。^000000";
 		delitem 7421,1; //Key_Red
 		getitem 7426,1; //Magic_Gem_Red
 		close;
 	}
-	mes "The Crystal ball is emitting mysterious power.";
-	mes "Something is definitely there inside... How do I get it to open?";
+	mes "水晶球散发出";
+	mes "神秘的力量。";
+	mes "肯定有东西在里面…";
+	mes "我要怎么打开它呢？";
 	close;
 
 OnInit:
@@ -1687,30 +1861,45 @@ OnEnable:
 	enablenpc strnpcinfo(0);
 	end;
 }
-tha_t08,90,62,0	duplicate(Shining Crystal#tt_r1)	Shining Crystal#tt_r2	844
-tha_t08,49,59,0	duplicate(Shining Crystal#tt_r1)	Shining Crystal#tt_r3	844
-tha_t08,49,144,0	duplicate(Shining Crystal#tt_r1)	Shining Crystal#tt_r4	844
+tha_t08,90,62,0	duplicate(闪亮的水晶#tt_r1)	闪亮的水晶#tt_r2	844
+tha_t08,49,59,0	duplicate(闪亮的水晶#tt_r1)	闪亮的水晶#tt_r3	844
+tha_t08,49,144,0	duplicate(闪亮的水晶#tt_r1)	闪亮的水晶#tt_r4	844
 
-tha_t08,49,153,0	script	Shining Crystal#tt_y1	844,{
+tha_t08,49,153,0	script	闪亮的水晶#tt_y1	844,{
 	if (countitem(7422) > 0) {
-		mes "The Crystal ball is emitting mysterious power.";
+		mes "水晶球散发出";
+		mes "神秘的力量。";
 		next;
-		mes "Beside the crystal ball, you find faded patterns marked on the floor.";
-		mes "Looks like some kind of keyhole that needs to be inserted with something...";
+		mes "除了水晶球，";
+		mes "你还发现地面上";
+		mes "有些模糊的印记。";
+		mes "看起来像钥匙孔，";
+		mes "需要插入点什么…";
 		next;
-		mes "The yellow key suddenly responds once you come close to the keyhole.";
-		mes "You insert the key in the keyhole and it turns out to be a small gem.";
+		mes "当你接近钥匙孔时，";
+		mes "黄色钥匙";
+		mes "突然发出了共鸣。";
+		mes "你把钥匙插入孔中，";
+		mes "水晶球就变成了";
+		mes "一颗小宝石。";
 		next;
-		mes "When you touch the gem which is dazzling yellow...";
-		mes "Your heart begins to throb as though you are suffering from a broken heart.";
+		mes "当你拿起这颗";
+		mes "闪闪发光的黄宝石…";
+		mes "你的心脏像破碎般";
+		mes "一样抽痛。";
 		next;
-		mes "^4d4dffYou have found a Yellow Charm Stone that is concentrated with grief and mysterious power.^000000";
+		mes "^4d4dff你找到了一颗";
+		mes "迷人的黄宝石，";
+		mes "一颗与悲哀、魔法";
+		mes "有关的宝石。^000000";
 		delitem 7422,1; //Key_Yellow
 		getitem 7427,1; //Magic_Gem_Yellow
 		close;
 	}
-	mes "The Crystal ball is emitting mysterious power.";
-	mes "Something is definitely there inside... How do I get it to open?";
+	mes "水晶球散发出";
+	mes "神秘的力量。";
+	mes "肯定有东西在里面…";
+	mes "我要怎么打开它呢？";
 	close;
 
 OnInit:
@@ -1721,30 +1910,46 @@ OnEnable:
 	enablenpc strnpcinfo(0);
 	end;
 }
-tha_t08,90,150,0	duplicate(Shining Crystal#tt_y1)	Shining Crystal#tt_y2	844
-tha_t08,90,59,0	duplicate(Shining Crystal#tt_y1)	Shining Crystal#tt_y3	844
-tha_t08,49,56,0	duplicate(Shining Crystal#tt_y1)	Shining Crystal#tt_y4	844
+tha_t08,90,150,0	duplicate(闪亮的水晶#tt_y1)	闪亮的水晶#tt_y2	844
+tha_t08,90,59,0	duplicate(闪亮的水晶#tt_y1)	闪亮的水晶#tt_y3	844
+tha_t08,49,56,0	duplicate(闪亮的水晶#tt_y1)	闪亮的水晶#tt_y4	844
 
-tha_t08,49,65,0	script	Shining Crystal#tt_b1	844,{
+tha_t08,49,65,0	script	闪亮的水晶#tt_b1	844,{
 	if (countitem(7423) > 0) {
-		mes "The Crystal ball is emitting mysterious power.";
+		mes "水晶球散发出";
+		mes "神秘的力量。";
 		next;
-		mes "Beside the crystal ball, you find faded patterns marked on the floor.";
-		mes "Looks like some kind of keyhole that needs to be inserted with something...";
+		mes "除了水晶球，";
+		mes "你还发现地面上";
+		mes "有些模糊的印记。";
+		mes "看起来像钥匙孔，";
+		mes "需要插入点什么…";
 		next;
-		mes "The blue key suddenly responds once you come close to the keyhole.";
-		mes "You insert the key in the keyhole and it turns out to be a small gem.";
+		mes "当你接近钥匙孔时，";
+		mes "蓝色钥匙";
+		mes "突然发出了共鸣。";
+		mes "你把钥匙插入孔中，";
+		mes "水晶球就变成了";
+		mes "一颗小宝石。";
 		next;
-		mes "When you touch the gem which is dazzling blue....";
-		mes "Someone's sobbing comes into your ears as you smell blood on the wind and suddenly you become angry.";
+		mes "当你拿起这颗";
+		mes "闪闪发光的蓝宝石…";
+		mes "你觉得有人在你耳边哭泣，";
+		mes "闻到了空气中的血腥味，";
+		mes "你变得十分愤怒。";
 		next;
-		mes "^4d4dffYou have found a Blue Charm Stone that is concentrated with grudge and mysterious power.^000000";
+		mes "^4d4dff你找到了一颗";
+		mes "迷人的蓝宝石，";
+		mes "一颗与憎恨、魔法";
+		mes "有关的宝石。^000000";
 		delitem 7423,1; //Key_Blue
 		getitem 7428,1; //Magic_Gem_Blue
 		close;
 	}
-	mes "The Crystal ball is emitting mysterious power.";
-	mes "Something is definitely there inside... How do I get it to open?";
+	mes "水晶球散发出";
+	mes "神秘的力量。";
+	mes "肯定有东西在里面…";
+	mes "我要怎么打开它呢？";
 	close;
 
 OnInit:
@@ -1755,30 +1960,45 @@ OnEnable:
 	enablenpc strnpcinfo(0);
 	end;
 }
-tha_t08,49,150,0	duplicate(Shining Crystal#tt_b1)	Shining Crystal#tt_b2	844
-tha_t08,90,147,0	duplicate(Shining Crystal#tt_b1)	Shining Crystal#tt_b3	844
-tha_t08,90,56,0	duplicate(Shining Crystal#tt_b1)	Shining Crystal#tt_b4	844
+tha_t08,49,150,0	duplicate(闪亮的水晶#tt_b1)	闪亮的水晶#tt_b2	844
+tha_t08,90,147,0	duplicate(闪亮的水晶#tt_b1)	闪亮的水晶#tt_b3	844
+tha_t08,90,56,0	duplicate(闪亮的水晶#tt_b1)	闪亮的水晶#tt_b4	844
 
-tha_t08,90,65,0	script	Shining Crystal#tt_g1	844,{
+tha_t08,90,65,0	script	闪亮的水晶#tt_g1	844,{
 	if (countitem(7424) > 0) {
-		mes "The Crystal ball is emitting mysterious power.";
+		mes "水晶球散发出";
+		mes "神秘的力量。";
 		next;
-		mes "Beside the crystal ball, you find faded patterns marked on the floor.";
-		mes "Looks like some kind of keyhole that needs to be inserted with something...";
+		mes "除了水晶球，";
+		mes "你还发现地面上";
+		mes "有些模糊的印记。";
+		mes "看起来像钥匙孔，";
+		mes "需要插入点什么…";
 		next;
-		mes "The green key suddenly responds once you come close to the keyhole.";
-		mes "You insert the key in the keyhole and it turns out to be a small gem.";
+		mes "当你接近钥匙孔时，";
+		mes "绿色钥匙";
+		mes "突然发出了共鸣。";
+		mes "你把钥匙插入孔中，";
+		mes "水晶球就变成了";
+		mes "一颗小宝石。";
 		next;
-		mes "When you touch the gem which is dazzling green...";
-		mes "Your head starts to ache and you feel worried and anxious about something.";
+		mes "当你拿起这颗";
+		mes "闪闪发光的绿宝石…";
+		mes "你突然开始头痛，";
+		mes "你感到了担心和焦虑。";
 		next;
-		mes "^4d4dffYou have found a Green Charm Stone that is concentrated with deep suffering.^000000";
+		mes "^4d4dff你找到了一颗";
+		mes "迷人的绿宝石，";
+		mes "一颗与苦恼";
+		mes "有关的宝石。^000000";
 		delitem 7424,1; //Key_Green
 		getitem 7429,1; //Magic_Gem_Green
 		close;
 	}
-	mes "The Crystal ball is emitting mysterious power.";
-	mes "Something is definitely there inside... How do I get it to open?";
+	mes "水晶球散发出";
+	mes "神秘的力量。";
+	mes "肯定有东西在里面…";
+	mes "我要怎么打开它呢？";
 	close;
 
 OnInit:
@@ -1789,142 +2009,165 @@ OnEnable:
 	enablenpc strnpcinfo(0);
 	end;
 }
-tha_t08,49,62,0	duplicate(Shining Crystal#tt_g1)	Shining Crystal#tt_g2	844
-tha_t08,49,147,0	duplicate(Shining Crystal#tt_g1)	Shining Crystal#tt_g3	844
-tha_t08,90,144,0	duplicate(Shining Crystal#tt_g1)	Shining Crystal#tt_g4	844
+tha_t08,49,62,0	duplicate(闪亮的水晶#tt_g1)	闪亮的水晶#tt_g2	844
+tha_t08,49,147,0	duplicate(闪亮的水晶#tt_g1)	闪亮的水晶#tt_g3	844
+tha_t08,90,144,0	duplicate(闪亮的水晶#tt_g1)	闪亮的水晶#tt_g4	844
 
-tha_t12,161,57,0	script	Gold Religious Statue#tt	111,{
+tha_t12,161,57,0	script	金色的修士雕像#tt	111,{
 	if ($@thana_summon == 0) {
 		if (countitem(7427) > 0) {
-			mes "It's a statue giving off a golden light.";
-			mes "The sword appears to be missing a gem.";
-			mes "As I draw closer to the statue, the Yellow Charm Stone emits a bright light.";
+			mes "这是一座发出金光的雕像。";
+			mes "修士的剑貌似";
+			mes "缺少了一颗宝石。";
+			mes "当我靠近雕像时，";
+			mes "魔力黄宝石迸发出亮光。";
 			specialeffect EF_BEGINSPELL5;
 			specialeffect2 EF_BEGINSPELL5;
 			next;
-			if(select("Insert the Yellow Charm Stone.:Run away.") == 2) close;
+			if(select("插入魔力黄宝石:离开") == 2) close;
 			if ($@thana_summon == 0) {
-				mes "After inserting the Yellow Charm Stone into the sword, the statue begins to react.";
+				mes "把黄宝石插入剑里后，";
+				mes "雕像动了起来。";
 				specialeffect EF_BEGINSPELL5;
 				delitem 7427,1; //Magic_Gem_Yellow
 				set $@thana_summon, 1;
 				donpcevent "#tteffect01::OnEnable";
-				mapannounce "tha_t12","The golden magic power has released part of the seal.",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
+				mapannounce "tha_t12","黄色魔力解除了部分的封印。",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
 				close;
 			}
-			mes "Someone has already inserted a Charm Stone into this statue.";
+			mes "已经有人把宝石插入到雕像中了。";
 			close;
 		}
-		mes "The statue give off mysterious light.";
-		mes "Strange power has blocked your access.";
+		mes "这座雕像发出神秘的光。";
+		mes "奇怪的力量使你无法靠近。";
 		close;
 	}
-	mes "The statue has such a strong light that I can't see or touch it.";
+	mes "这座雕像散发出";
+	mes "如此强烈的光，";
+	mes "使我无法看到它。";
 	close;
 }
 
-tha_t12,154,17,0	script	Green Wiseman Statue#tt	111,{
+tha_t12,154,17,0	script	绿色的智者雕像#tt	111,{
 	if ($@thana_summon == 1) {
 		if (countitem(7429) > 0) {
-			mes "A statue gives off green light.";
-			mes "The wiseman's wand seems to be missing a gem.";
-			mes "As I draw closer to the statue, the Green Charm Stone emits a bright light.";
+			mes "一座发出绿光的雕像。";
+			mes "智者的魔杖貌似";
+			mes "缺少了一颗宝石。";
+			mes "当我靠近雕像时，";
+			mes "魔力绿宝石迸发出亮光。";
 			specialeffect EF_BEGINSPELL4;
 			specialeffect2 EF_BEGINSPELL4;
 			next;
-			if(select("Insert the Green Charm Stone.:Run away.") == 2) close;
+			if(select("插入魔力绿宝石:离开") == 2) close;
 			if ($@thana_summon == 1) {
-				mes "After inserting the Green Charm Stone into the wand, the statue begins to react.";
+				mes "把绿宝石插入魔杖后，";
+				mes "雕像动了起来。";
 				specialeffect EF_BEGINSPELL4;
 				delitem 7429,1; //Magic_Gem_Green
 				set $@thana_summon, 2;
 				donpcevent "#tteffect02::OnEnable";
-				mapannounce "tha_t12","The green magic power has released part of the seal.",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
+				mapannounce "tha_t12","绿色魔力解除了部分的封印。",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
 				close;
 			}
-			mes "Someone has already inserted a Charm Stone into this statue.";
+			mes "已经有人把宝石插入到雕像中了。";
 			close;
 		}
-		mes "The statue give off mysterious light.";
-		mes "Strange power has blocked your access.";
+		mes "这座雕像发出神秘的光。";
+		mes "奇怪的力量使你无法靠近。";
 		close;
 	}
-	mes "The statue has such a strong light that I can't see or touch it.";
+	mes "这座雕像散发出";
+	mes "如此强烈的光，";
+	mes "使我无法看到它。";
 	close;
 }
 
-tha_t12,103,17,0	script	Blue Angel Statue#tt	111,{
+tha_t12,103,17,0	script	蓝色的天使雕像#tt	111,{
 	if ($@thana_summon == 2) {
 		if (countitem(7428) > 0) {
-			mes "An angel statue is covered with a blue light.";
-			mes "A gem seems to be missing from the statue's belt.";
-			mes "As I draw closer to the statue, the Blue Charm Stone emits a bright light.";
+			mes "一座覆盖着蓝光的天使雕像。";
+			mes "天使的腰带貌似";
+			mes "缺少了一颗宝石。";
+			mes "当我靠近雕像时，";
+			mes "魔力蓝宝石迸发出亮光。";
 			specialeffect EF_BEGINSPELL2;
 			specialeffect2 EF_BEGINSPELL2;
 			next;
-			if(select("Insert the Blue Charm Stone.:Run away.") == 2) close;
+			if(select("插入魔力蓝宝石:离开") == 2) close;
 			if ($@thana_summon == 2) {
-				mes "After inserting the Blue Charm Stone into the belt, the statue begins to react.";
+				mes "把蓝宝石插入腰带后，";
+				mes "雕像动了起来。";
 				specialeffect EF_BEGINSPELL2;
 				delitem 7428,1; //Magic_Gem_Blue
 				set $@thana_summon, 3;
 				donpcevent "#tteffect03::OnEnable";
-				mapannounce "tha_t12","The blue magic power has released part of the seal.",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
+				mapannounce "tha_t12","蓝色魔力解除了部分的封印。",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
 				close;
 			}
-			mes "Someone has already inserted a Charm Stone into this statue.";
+			mes "已经有人把宝石插入到雕像中了。";
 			close;
 		}
-		mes "The statue give off mysterious light.";
-		mes "Strange power has blocked you to access.";
+		mes "这座雕像发出神秘的光。";
+		mes "奇怪的力量使你无法靠近。";
 		close;
 	}
-	mes "The statue has such a strong light that I can't see or touch it.";
+	mes "这座雕像散发出";
+	mes "如此强烈的光，";
+	mes "使我无法看到它。";
 	close;
 }
 
-tha_t12,96,57,0	script	Bloody Knight Statue#tt	111,{
+tha_t12,96,57,0	script	血色的骑士雕像#tt	111,{
 	if ($@thana_summon == 3) {
 		if (countitem(7426) > 0) {
-			mes "A statue is shining like blood.";
-			mes "A gem seems to be missing from the heart area of its armor.";
-			mes "As I draw closer to the statue, the Red Charm Stone emits a bright light.";
+			mes "一座像血一样闪亮的雕像。";
+			mes "骑士的铠甲貌似";
+			mes "缺少了一颗宝石。";
+			mes "当我靠近雕像时，";
+			mes "魔力红宝石迸发出亮光。";
 			specialeffect EF_BEGINSPELL3;
 			specialeffect2 EF_BEGINSPELL3;
 			next;
-			if(select("Insert the Red Charm Stone.:Run away.") == 2) close;
+			if(select("插入魔力红宝石:离开") == 2) close;
 			if ($@thana_summon == 3) {
-				mes "After inserting the Red Charm Stone into the armor, the statue begins to react.";
+				mes "把红宝石插入铠甲后，";
+				mes "雕像动了起来。";
 				specialeffect EF_BEGINSPELL3;
 				delitem 7426,1; //Magic_Gem_Red
 				set $@thana_summon, 4;
 				donpcevent "#tteffect04::OnEnable";
-				mapannounce "tha_t12","The red magic power has released part of the seal.",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
+				mapannounce "tha_t12","红色魔力解除了部分的封印。",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
 				close;
 			}
-			mes "Someone has already inserted a Charm Stone into this statue.";
+			mes "已经有人把宝石插入到雕像中了。";
 			close;
 		}
-		mes "The statue give off mysterious light.";
-		mes "Strange power has blocked you to access.";
+		mes "这座雕像发出神秘的光。";
+		mes "奇怪的力量使你无法靠近。";
 		close;
 	}
-	mes "The statue has such a strong light that I can't see or touch it.";
+	mes "这座雕像散发出";
+	mes "如此强烈的光，";
+	mes "使我无法看到它。";
 	close;
 }
 
-tha_t12,129,86,0	script	Dark Devil Statue#tt	111,{
+tha_t12,129,86,0	script	黑暗的恶魔雕像#tt	111,{
 	if ($@thana_summon == 4) {
 		if (countitem(7430) > 0) {
-			mes "A devil statue emits dark light.";
-			mes "The right eye seems to be missing a gem.";
-			mes "As I draw closer to the statue, the Black Charm Stone emits a bright light.";
+			mes "一座散发着黑光的恶魔雕像。";
+			mes "恶魔的右眼貌似";
+			mes "缺少了一颗宝石。";
+			mes "当我靠近雕像时，";
+			mes "魔力黑宝石迸发出亮光。";
 			specialeffect EF_BEGINSPELL7;
 			specialeffect2 EF_BEGINSPELL7;
 			next;
-			if(select("Insert the Black Charm Stone.:Run away.") == 2) close;
+			if(select("插入魔力黑宝石:离开") == 2) close;
 			if ($@thana_summon == 4) {
-				mes "After inserting the Red Charm Stone into the eye socket, the statue begins to react.";
+				mes "把黑宝石插入右眼后，";
+				mes "雕像动了起来。";
 				specialeffect EF_BEGINSPELL7;
 				delitem 7430,1; //Magic_Gem_Black
 				set $@thana_summon, 5;
@@ -1933,17 +2176,19 @@ tha_t12,129,86,0	script	Dark Devil Statue#tt	111,{
 				donpcevent "#tteffect02::OnStop";
 				donpcevent "#tteffect03::OnStop";
 				donpcevent "#tteffect04::OnStop";
-				mapannounce "tha_t12","The Black Charm Stone's magic power has released the final seal.",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
+				mapannounce "tha_t12","黑色魔力解除了最后的封印。",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
 				close;
 			}
-			mes "Someone has already inserted a Charm Stone into this statue.";
+			mes "已经有人把宝石插入到雕像中了。";
 			close;
 		}
-		mes "The statue give off mysterious light.";
-		mes "Strange power has blocked you to access.";
+		mes "这座雕像发出神秘的光。";
+		mes "奇怪的力量使你无法靠近。";
 		close;
 	}
-	mes "The statue has such a strong light that I can't see or touch it.";
+	mes "这座雕像散发出";
+	mes "如此强烈的光，";
+	mes "使我无法看到它。";
 	close;
 }
 
@@ -2081,7 +2326,7 @@ OnTimer3000:
 	end;
 }
 
-thana_boss,217,167,3	script	Memory Seal#tt1	1711,3,3,{
+thana_boss,217,167,3	script	记忆印记#tt1	1711,3,3,{
 	end;
 OnEnable:
 	hideoffnpc strnpcinfo(0);
@@ -2100,40 +2345,42 @@ OnTouch:
 	switch(.@seal) {
 	case 1:
 		setarray .@i[0],7437,1711,217,167,238;
-		set .@j$,"Misery";
+		set .@j$,"悲哀";
 		break;
 	case 2:
 		setarray .@i[0],7436,1712,202,75,102;
-		set .@j$,"Agony";
+		set .@j$,"苦恼";
 		break;
 	case 3:
 		setarray .@i[0],7438,1709,80,76,101;
-		set .@j$,"Hatred";
+		set .@j$,"憎恨";
 		break;
 	case 4:
 		setarray .@i[0],7439,1710,62,171,100;
-		set .@j$,"Despair";
+		set .@j$,"绝望";
 		break;
 	}
 
 	specialeffect EF_GUMGANG;
 	if ($@thana_summon2 > 3) {
-		mes "^3355FFYou cannot approach";
-		mes "the crest because it is";
-		mes "generating intense heat.^000000";
+		mes "^3355FF你无法靠近";
+		mes "印记，因为那里";
+		mes "散发着庞大的热量。^000000";
 		close;
 	}
-	mes "The seal seems to be dormant.";
-	mes "There is a fragment missing from the crest of the Seal.";
-	mes "Surely I saw a familiar fragment before...";
+	mes "印记正在沉睡中。";
+	mes "印记的顶部貌似";
+	mes "缺失了一部分。";
+	mes "我肯定在哪里见过";
+	mes "这缺失的部分…";
 	next;
 	input .@inputstr$;
-	set .@exact_tt$, "Fragment of "+.@j$;
+	set .@exact_tt$, .@j$+"的碎片";
 	if (countitem(.@i[0]) > 0 && .@exact_tt$ == .@inputstr$) {
-		mes "^3355FFYou insert the";
+		mes "^3355FF你把";
 		mes .@exact_tt$;
-		mes "into the crest, causing";
-		mes "its glow to intensify.^000000";
+		mes "插进印记顶部，";
+		mes "它的光芒越发强烈。^000000";
 		close2;
 		hideonnpc strnpcinfo(0);
 		set .hide, .hide | (1<<.@seal);
@@ -2141,17 +2388,17 @@ OnTouch:
 		specialeffect .@i[4];
 		monster "thana_boss",.@i[2],.@i[3],.@j$,.@i[1],1,strnpcinfo(0)+"::OnMyMobDead";
 		switch($@thana_summon2) {
-			case 0: set .@str$,"... who... released... the... Memory... of... "+.@j$+"...?"; break;
-			case 1: set .@str$,"... why... did you... release... the... Memory... of... "+.@j$+"...?"; break;
-			case 2: set .@str$,"... ugh... stop it... the Memory of "+.@j$+"..."; break;
-			default: set .@str$,"... finally... you released the last piece of Memory..."; break;
+			case 0: set .@str$,"…是谁…解开了…"+.@j$+"的…记忆…？"; break;
+			case 1: set .@str$,"…为什么…你要…解开…"+.@j$+"的…记忆…？"; break;
+			case 2: set .@str$,"…呃…停下来…"+.@j$+"的…记忆…"; break;
+			default: set .@str$,"…最终…你解开了最后一部分的记忆…"; break;
 		}
 		mapannounce "thana_boss",.@str$,bc_map,"0x7b68ee"; //FW_NORMAL 12 0 0
 		end;
 	}
-	mes "^3355FFThat action had no";
-	mes "effect. You'll have to";
-	mes "try something else.^000000";
+	mes "^3355FF这样做没用。";
+	mes "你要尝试";
+	mes "别的办法。^000000";
 	close;
 
 OnMyMobDead:
@@ -2160,9 +2407,9 @@ OnMyMobDead:
 		mapwarp "thana_boss","thana_boss",141,228;
 	end;
 }
-thana_boss,202,75,3	duplicate(Memory Seal#tt1)	Memory Seal#tt2	1712,3,3
-thana_boss,80,76,7	duplicate(Memory Seal#tt1)	Memory Seal#tt3	1709,3,3
-thana_boss,62,171,5	duplicate(Memory Seal#tt1)	Memory Seal#tt4	1710,3,3
+thana_boss,202,75,3	duplicate(记忆印记#tt1)	记忆印记#tt2	1712,3,3
+thana_boss,80,76,7	duplicate(记忆印记#tt1)	记忆印记#tt3	1709,3,3
+thana_boss,62,171,5	duplicate(记忆印记#tt1)	记忆印记#tt4	1710,3,3
 
 thana_boss,141,228,0	script	#thanatos_seal	139,3,3,{
 	end;
@@ -2175,44 +2422,44 @@ OnDisable:
 OnTouch:
 	if ($@thana_summon2 == 4) {
 		initnpctimer;
-		donpcevent "Memory Seal#tt5::OnEnable";
+		donpcevent "记忆印记#tt5::OnEnable";
 		disablenpc "#thanatos_seal";
 	}
 	end;
 OnTimer1000:
-	mapannounce "thana_boss","Thanatos : RAWWWWWWWWWWWWWWWWR!",bc_map,"0xff0000"; //FW_NORMAL 12 0 0
+	mapannounce "thana_boss","达纳托斯：啊啊啊啊啊啊啊啊啊！",bc_map,"0xff0000"; //FW_NORMAL 12 0 0
 	end;
 OnTimer4000:
-	mapannounce "thana_boss","Thanatos : ... crashed... broken... spread... and come back as tears...",bc_map,"0xff0000"; //FW_NORMAL 12 0 0
+	mapannounce "thana_boss","达纳托斯：…撞毁…破碎…蔓延…像泪水一样回来…",bc_map,"0xff0000"; //FW_NORMAL 12 0 0
 	end;
 OnTimer7000:
-	mapannounce "thana_boss","Thanatos : I live again to fulfill my ambition!",bc_map,"0xff0000"; //FW_NORMAL 12 0 0
+	mapannounce "thana_boss","达纳托斯：我再一次复活，再一次实现我的夙愿！",bc_map,"0xff0000"; //FW_NORMAL 12 0 0
 	end;
 OnTimer10000:
-	mapannounce "thana_boss","Thanatos : ... gives off a strong bloody scent... soaked in sorrow...",bc_map,"0xff0000"; //FW_NORMAL 12 0 0
+	mapannounce "thana_boss","达纳托斯：…散发出强烈的血腥味…浸泡在悲伤中…",bc_map,"0xff0000"; //FW_NORMAL 12 0 0
 	end;
 OnTimer13000:
-	mapannounce "thana_boss","Thanatos : I will remove all people who invade this continent again!",bc_map,"0xff0000"; //FW_NORMAL 12 0 0
+	mapannounce "thana_boss","达纳托斯：我会杀光这个世界所有的人！",bc_map,"0xff0000"; //FW_NORMAL 12 0 0
 	end;
 OnTimer16000:
-	mapannounce "thana_boss","Thanatos : Come, be the first to fall before my might!",bc_map,"0xff0000"; //FW_NORMAL 12 0 0
-	donpcevent "Memory Seal#tt5::OnDisable";
+	mapannounce "thana_boss","达纳托斯：来吧，成为第一个倒在我面前的人！",bc_map,"0xff0000"; //FW_NORMAL 12 0 0
+	donpcevent "记忆印记#tt5::OnDisable";
 	donpcevent "#sommon_thanatos::OnEnable";
 	set $@thana_summon2, 5;
 	stopnpctimer;
 	end;
 }
 
-thana_boss,141,235,3	script	Memory Seal#tt5	1708,{
+thana_boss,141,235,3	script	记忆印记#tt5	1708,{
 	end;
 OnInit:
-	disablenpc "Memory Seal#tt5";
+	disablenpc "记忆印记#tt5";
 	end;
 OnEnable:
-	enablenpc "Memory Seal#tt5";
+	enablenpc "记忆印记#tt5";
 	end;
 OnDisable:
-	disablenpc "Memory Seal#tt5";
+	disablenpc "记忆印记#tt5";
 	specialeffect EF_ICECRASH;
 	end;
 }
@@ -2221,11 +2468,11 @@ thana_boss,141,218,0	script	#sommon_thanatos	-1,{
 OnEnable:
 	specialeffect EF_MAPPILLAR2,AREA,"#sommon_thanatos";
 	specialeffect EF_SEISMICWEAPON,AREA,"#sommon_thanatos";
-	monster "thana_boss",141,218,"Thanatos Phantom",1708,1,"#sommon_thanatos::OnMyMobDead";
+	monster "thana_boss",141,218,"魔剑士 达纳托斯的记忆",1708,1,"#sommon_thanatos::OnMyMobDead";
 	end;
 OnMyMobDead:
 	if (mobcount("thana_boss","#sommon_thanatos::OnMyMobDead") < 1) {
-		mapannounce "thana_boss","RAWWWWWWWWWWR........ This can't be.........................",bc_map,"0xff0000"; //FW_NORMAL 12 0 0
+		mapannounce "thana_boss","啊啊啊啊啊啊啊……不可能………………",bc_map,"0xff0000"; //FW_NORMAL 12 0 0
 		donpcevent "#cooltime_thana::OnEnable";
 		set $@thana_summon, 6;
 	}
@@ -2245,31 +2492,31 @@ OnStop:
 	stopnpctimer;
 	end;
 OnTimer3000:
-	mapannounce "thana_boss","Warning!!",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
+	mapannounce "thana_boss","注意！！",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
 	end;
 OnTimer6000:
-	mapannounce "thana_boss","The seal will re-activate in 30 seconds.",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
+	mapannounce "thana_boss","封印会在30秒后重新激活。",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
 	end;
 OnTimer16000:
-	mapannounce "thana_boss","20 seconds left...",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
+	mapannounce "thana_boss","还有20秒…",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
 	end;
 OnTimer26000:
-	mapannounce "thana_boss","10 seconds left...",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
+	mapannounce "thana_boss","还有10秒…",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
 	end;
 OnTimer31000:
-	mapannounce "thana_boss","5 seconds.",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
+	mapannounce "thana_boss","5秒。",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
 	end;
 OnTimer32000:
-	mapannounce "thana_boss","4 seconds.",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
+	mapannounce "thana_boss","4秒。",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
 	end;
 OnTimer33000:
-	mapannounce "thana_boss","3 seconds.",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
+	mapannounce "thana_boss","3秒。",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
 	end;
 OnTimer34000:
-	mapannounce "thana_boss","2 seconds.",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
+	mapannounce "thana_boss","2秒。",bc_map,"0x00ff00"; //FW_NORMAL 12 0 0
 	end;
 OnTimer35000:
-	mapannounce "thana_boss","Time's up!",bc_map,"0xff0000"; //FW_NORMAL 12 0 0
+	mapannounce "thana_boss","时间到了！",bc_map,"0xff0000"; //FW_NORMAL 12 0 0
 	end;
 OnTimer36000:
 OnTimer37000:
@@ -2278,39 +2525,50 @@ OnTimer37000:
 OnTimer7200000:
 	set $@thana_summon, 0;
 	set $@thana_summon2, 0;
-	donpcevent "Memory Seal#tt1::OnEnable";
-	donpcevent "Memory Seal#tt2::OnEnable";
-	donpcevent "Memory Seal#tt3::OnEnable";
-	donpcevent "Memory Seal#tt4::OnEnable";
+	donpcevent "记忆印记#tt1::OnEnable";
+	donpcevent "记忆印记#tt2::OnEnable";
+	donpcevent "记忆印记#tt3::OnEnable";
+	donpcevent "记忆印记#tt4::OnEnable";
 	donpcevent "#thanatos_seal::OnEnable";
 	stopnpctimer;
 	end;
 }
 
-tha_scene01,30,30,0	warp	scene	1,1,tha_scene01,131,220
-tha_t04,81,36,0	warp	to 5th Floor	1,1,tha_t05,62,8
-tha_t06,119,120,0	script	to 7th Floor	45,1,1,{
+tha_scene01,30,30,0	warp	场景	1,1,tha_scene01,131,220
+tha_t04,81,36,0	warp	通往5层	1,1,tha_t05,62,8
+tha_t06,119,120,0	script	通往7层	45,1,1,{
 	end;
 OnTouch:
-	if (eaclass()&(EAJL_2|EAJL_UPPER) || eaclass()&EAJL_THIRD || ((Class == Job_SuperNovice || Class == Job_Taekwon || Class == Job_Star_Gladiator || Class == Job_Soul_Linker || BaseClass == Job_Ninja || Class == Job_Gunslinger) && BaseLevel > 94)) {
+	if (eaclass()&(EAJL_2|EAJL_UPPER) || eaclass()&EAJL_THIRD || ((Class == Job_SuperNovice || Class == Job_Taekwon || Class == Job_Star_Gladiator || Class == Job_Soul_Linker || Class == Job_Ninja || Class == Job_Gunslinger) && BaseLevel > 94)) {
 		if (countitem(7425) > 0) {
-			mes "The shadow of a Black Key is gleaming in the center of the portal.";
-			mes "To pass this way, looks like I need something.";
+			mes "传送阵内透出";
+			mes "一把黑色钥匙的影子。";
+			mes "看来我需要点什么";
+			mes "才能通过什么。";
 			next;
-			mes "The Black Key reacts to the portal and floats in the air.";
+			mes "黑色钥匙对传送阵";
+			mes "产生了响应，";
+			mes "并悬浮在半空。";
 			next;
-			mes "The key seems to separate into many particles and suddenly collapses into a ball.";
-			mes "The barricade is removed through the power from newly formed black magic gem.";
+			mes "钥匙貌似分解";
+			mes "成很多碎片，";
+			mes "突然又塌陷成球状。";
+			mes "障碍消失了，";
+			mes "并凝聚成一个";
+			mes "魔力黑宝石。";
 			close2;
 			delitem 7425,1; //Key_Black
 			getitem 7430,1; //Magic_Gem_Black
 			warp "thana_step",69,369;
 			end;
 		}
-		mes "The shadow of a Black Key is gleaming in the center of the portal.";
-		mes "To pass this way, looks like I need something.";
+		mes "一把黑色钥匙的影子";
+		mes "在门内闪闪发光。";
+		mes "看来我需要点什么";
+		mes "才能通过什么。";
 		close;
 	}
-	mes "A mysterious power is blocking my path.";
+	mes "一股神秘的力量";
+	mes "阻挡我的去路。";
 	close;
 }

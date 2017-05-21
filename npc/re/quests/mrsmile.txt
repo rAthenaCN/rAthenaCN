@@ -1,11 +1,19 @@
-//===== rAthena Script ======================================= 
+//============================================================
+//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
+//===== rAthena Script =======================================  
 //= Mr. Smile Quest
 //===== By: ================================================== 
 //= Daegaladh, Masao
 //===== Current Version: ===================================== 
 //= 1.1
 //===== Compatible With: ===================================== 
-//= rAthena Project
+//= rAthena SVN
 //===== Description: ========================================= 
 //= [Official Conversion]
 //= Trade Clover, Fluff and Jellopy for a Mr. Smile mask.
@@ -14,8 +22,8 @@
 //= 1.1 Added Izlude duplicates. [Euphy]
 //============================================================ 
 
-izlude,125,175,4	duplicate(SmileHelper)	Smile Assistance#iz	92
-izlude_a,125,175,4	duplicate(SmileHelper)	Smile Assistance#iz_a	92
-izlude_b,125,175,4	duplicate(SmileHelper)	Smile Assistance#iz_b	92
-izlude_c,125,175,4	duplicate(SmileHelper)	Smile Assistance#iz_c	92
-izlude_d,125,175,4	duplicate(SmileHelper)	Smile Assistance#iz_d	92
+izlude,125,175,4	duplicate(SmileHelper)	微笑小姐#iz	4_F_03
+izlude_a,125,175,4	duplicate(SmileHelper)	微笑小姐#iz_a	4_F_03
+izlude_b,125,175,4	duplicate(SmileHelper)	微笑小姐#iz_b	4_F_03
+izlude_c,125,175,4	duplicate(SmileHelper)	微笑小姐#iz_c	4_F_03
+izlude_d,125,175,4	duplicate(SmileHelper)	微笑小姐#iz_d	4_F_03

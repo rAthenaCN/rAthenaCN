@@ -1,162 +1,153 @@
-//===== rAthena Script =======================================
+//============================================================
+//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
+//===== rAthena Script ======================================= 
 //= Eden Group Quests - Mission [11 - 25]
 //===== By: ==================================================
 //= L0ne_W0lf
 //===== Current Version: =====================================
-//= 1.3
+//= 1.2
 //===== Compatible With: =====================================
-//= rAthena Project
+//= rAthena SVN
 //===== Description: =========================================
 //= Repetable Quests for Players between Baselevel 11 - 25.
 //===== Additional Comments: =================================
 //= 1.0 First Version.
 //= 1.1 Some little optimization here and there. [Masao]
 //= 1.2 Optimized. [Euphy]
-//= 1.3 Bug fixes. [Capuche]
 //============================================================
 
-moc_para01,36,38,3	script	Mission [11 - 25]#Tuto	4_BOARD3,{
-	if (countitem(6219) < 1) {// Para_Team_Mark
-		mes "- You need to have an -";
-		mes "- ^4d4dff'Eden Group Mark'^000000 -";
-		mes "- to receive these missions. -";
+moc_para01,36,38,3	script	任务 [11 - 25]#Tuto	857,{
+	if (countitem(6219) < 1) {
+		mes "- 你必须持有 -";
+		mes "- ^4d4dff'乐园团的证物'^000000 -";
+		mes "- 才能接这些任务 -";
 		close;
 	}
-	for ( .@i = 11124; .@i < 11134; .@i++ )
+	for(set .@i,11124; .@i<11134; set .@i,.@i+1)
 		if (checkquest(.@i,PLAYTIME) == 2) erasequest .@i;
-	for( .@i = 11114; .@i < 11124; .@i++ ) {
-		.@j = checkquest(.@i,HUNTING);
+	for(set .@i,11114; .@i<11123; set .@i,.@i+1) {
+		set .@j, checkquest(.@i,HUNTING);
 		if (.@j == 2) {
-			mes " - You must collect your - ";
-			mes " - reward before starting - ";
-			mes " - a new mission. - ";
+			mes " - 在开始前你必须先选择一个任务- ";
 			mes " ";
-			mes " - Manager : Spike - ";
+			mes " - 管理员: 斯派克 - ";
 			close;
 		}
 		else if (.@j >= 0) {
-			mes " - You can only request - ";
-			mes " - one mission at a time. - ";
+			mes " - 你一次只能接受一个任务 - ";
 			mes " ";
-			mes " - Manager : Spike - ";
+			mes " - 管理员: 斯派克 - ";
 			close;
 		}
 	}
 	if (BaseLevel < 11) {
-		mes " - There are no tasks - ";
-		mes " - open for you right now. - ";
+		mes " - 这儿没有你适合做的任务! - ";
 		close;
 	}
 	if (BaseLevel > 25) {
-		mes " - These missions are too - ";
-		mes " - easy for your caliber - ";
-		mes " - search for a more level - ";
-		mes " - appropriate mission. - ";
+		mes " - 这些任务对你来说太简单了 - ";
+		mes " - 你应该去挑战难度更高的任务 - ";
 		close;
 	}
-	mes " - Mission bulletin board -";
-	mes " - for beginners. -";
+	mes " - 任务布告栏 -";
+	mes " - 11-25级 -";
 	mes " ";
-	mes " - Manager : Spike -";
+	mes " - 管理员: 斯派克 -";
 	next;
-	switch(select("Hornet Hunting:Condor Hunting:Grasshopper's Leg:Worm Tail Hunting:Spore Hunting:Pest Control:Muka Hunting:Familiar Hunting:Collect Feathers:Collect Poison Spores:Cancel")) {
-		case 1: callsub L_Quest,11114,"Hornet Hunting"," - Hunt 10 ^4d4dff'Hornets'^000000 - "," - northwest of Prontera. - ";
-		case 2: callsub L_Quest,11115,"Condor Hunting"," - Hunt 20 ^4d4dff'Condors'^000000 - "," - south of Morroc. - ";
-		case 3: callsub L_Quest,11116,"Grasshopper's Leg"," - Hunt 10 ^4d4dff'Rockers'^000000 - "," - southwest of Prontera and - "," - bring 10 ^4d4dffGrasshopper's Legs^000000. - ";
-		case 4: callsub L_Quest,11117,"Worm Tail Hunting"," - Hunt 20 ^4d4dff'Worm Tails'^000000 - "," - southeast of Payon.- ";
-		case 5: callsub L_Quest,11118,"Spore Hunting"," - Hunt 30 ^4d4dff'Spores'^000000 - "," - around Payon. - ";
-		case 6: callsub L_Quest,11119,"Pest Control"," - Hunt 20 ^4d4dffThief Bug Eggs^000000 - "," - in the Prontera Culvert - "," - and bring 10 ^4d4dffChrysalis^000000. - ";
-		case 7: callsub L_Quest,11120,"Muka Hunting"," - Hunt 20 ^4d4dff'Muka'^000000 - "," - south of Prontera. - ";
-		case 8: callsub L_Quest,11121,"Familiar Hunting"," - Hunt 20 ^4d4dffFamiliar^000000 - "," - in the Culvert Sewers - "," - west of Prontera. - ";
-		case 9: callsub L_Quest,11122,"Collect Feathers"," - Hunt 30 ^4d4dff'Peco Pecos'^000000 - "," - south of Prontera. - ";
-		case 10: callsub L_Quest,11123,"Collect Poison Spores"," - Hunt 30 ^4d4dffPoison Spores^000000 - "," - inside the Geffen Tower and - "," - bring 5 ^4d4dffPoison Spores^000000. - ";
-		case 11:
-			mes " - Stop reading the bulletin board. - ";
-			close;
+	switch(select("狩猎蜂兵:狩猎秃鹰:收集蝗虫后腿:狩猎森灵:狩猎魔菇:消灭害虫:狩猎摩卡:狩猎吸血蝙蝠:收集羽毛:收集毒魔菇芽孢")) {
+		case 1: callsub L_Quest,11114,"狩猎蜂兵"," - 狩猎10只 ^4d4dff'蜂兵'^000000 - "," - 请往普隆德拉的西南方向寻找. - ";
+		case 2: callsub L_Quest,11115,"狩猎秃鹰"," - 狩猎20只 ^4d4dff'秃鹰'^000000 - "," - 它们出没于梦罗克的南面. - ";
+		case 3: callsub L_Quest,11116,"收集蝗虫后腿"," - 狩猎10只 ^4d4dff'蝗虫'^000000 - "," - 请往普隆德拉的西南方向寻找 - "," - 并且带回10个^4d4dff蝗虫后腿^000000.- ";
+		case 4: callsub L_Quest,11117,"狩猎森灵"," - 狩猎20只 ^4d4dff'森灵'^000000 - "," - 它们出没于斐扬东南方向.- ";
+		case 5: callsub L_Quest,11118,"狩猎魔菇"," - 狩猎30只 ^4d4dff'魔菇'^000000 - "," - 你能在斐扬周边找到它们.- ";
+		case 6: callsub L_Quest,11119,"消灭害虫"," - 消灭20枚 ^4d4dff盗虫卵^000000 - "," - 它们生存在普隆德拉的下水道中. - "," - 并且带回10个^4d4dff蛹壳^000000. - ";
+		case 7: callsub L_Quest,11120,"狩猎摩卡"," - 狩猎20只 ^4d4dff'摩卡'^000000 - "," - 请往普隆德拉南面寻找它们的踪??- ";
+		case 8: callsub L_Quest,11121,"狩猎吸血蝙蝠"," - 狩猎20只 ^4d4dff吸血蝙蝠^000000 - "," - 它们出没于普隆德拉的西边. - "," - 在地下水道里能找到哦. - ";
+		case 9: callsub L_Quest,11122,"收集羽毛"," - 狩猎30只 ^4d4dff'大嘴鸟'^000000 - "," - 去普隆德拉的南边寻找它们吧. - ";
+		case 10: callsub L_Quest,11123,"收集毒魔菇芽孢"," - 狩猎30只 ^4d4dff毒魔菇^000000 - "," - 去吉芬东北吧,那里能找到你想要的. - "," - 记得带回5个^4d4dff毒魔菇芽孢^000000哦. - ";
+		case 11: mes " - 取消 - "; close;
 	}
-
+	end;
 L_Quest:
-	if (checkquest(getarg(0)+10,PLAYTIME) == 1) {
-		mes " - Mission ^4d4dff"+ getarg(1) +"^000000 - ";
-		mes " - is already finished for today. - ";
+	if (checkquest(getarg(0),PLAYTIME) == 1) {
+		mes " - 你今天已经完成过^4d4dff"+getarg(1)+"^000000任务了! - ";
 		mes " ";
-		mes " - Manager : Spike - ";
+		mes " - 管理员: 斯派克 - ";
 		close;
 	}
-	mes " - Mission '"+ getarg(1) +"' - ";
-	for ( .@i = 2; .@i < getargcount(); .@i++ )
+	mes " - 任务 '"+getarg(1)+"' - ";
+	for(set .@i,2; .@i<getargcount(); set .@i,.@i+1)
 		mes getarg(.@i);
 	mes " ";
-	mes " - Manager : Spike - ";
+	mes " - 管理员: 斯派克 - ";
 	next;
-	if (select("I will do this mission.:Look for other missions.") == 2) {
-		mes " - Let's search for -";
-		mes " - other missions. - ";
+	if(select("接受任务.:查看其他任务.") == 2) {
+		mes " - 让我们来看看其他任务吧 -";
 		close;
 	}
-	for ( .@i = 2; .@i < getargcount(); .@i++ )
+	for(set .@i,2; .@i<getargcount(); set .@i,.@i+1)
 		mes getarg(.@i);
+	if (getarg(0) == 11123 && checkquest(11123,PLAYTIME) == 2)
+		erasequest 11133;	// Special case for "Collect Poison Spores"
 	setquest getarg(0);
 	close;
 }
 
-moc_para01,32,30,6	script	Spike	4_F_CHILD,{
-	for( .@i = 11114; .@i < 11124; .@i++ ) {
-		.@j = checkquest(.@i,HUNTING);
-		if (.@j == 2) {
-			switch(.@i) {
-				case 11114: callsub L_Quest,.@i,"Hornet Hunting",900;
-				case 11115: callsub L_Quest,.@i,"Condor Hunting",1800;
-				case 11116: callsub L_Quest,.@i,"Grasshopper's Leg",1400,940,10;
-				case 11117: callsub L_Quest,.@i,"Worm Tail Hunting",2600;
-				case 11118: callsub L_Quest,.@i,"Spore Hunting",3900;
-				case 11119: callsub L_Quest,.@i,"Extirpate Insects",2900,915,10;
-				case 11120: callsub L_Quest,.@i,"Muka Hunting",3200;
-				case 11121: callsub L_Quest,.@i,"Familiar Hunting",3200;
-				case 11122: callsub L_Quest,.@i,"Collect Feathers",5400;
-				case 11123: callsub L_Quest,.@i,"Collect Poison Spores",6000,7033,5;
-			}
+moc_para01,32,30,6	script	斯派克	914,{
+	for(set .@i,11114; .@i<11124; set .@i,.@i+1) {
+		set .@j, checkquest(.@i,HUNTING);
+		if (.@j == 2) switch(.@i) {
+			case 11114: callsub L_Quest,.@i,"狩猎蜂兵",900;
+			case 11115: callsub L_Quest,.@i,"狩猎秃鹰",1800;
+			case 11116: callsub L_Quest,.@i,"收集蝗虫后腿",1400,940,10;
+			case 11117: callsub L_Quest,.@i,"狩猎森灵",2600;
+			case 11118: callsub L_Quest,.@i,"狩猎魔菇",3900;
+			case 11119: callsub L_Quest,.@i,"消灭害虫",2900,915,10;
+			case 11120: callsub L_Quest,.@i,"狩猎摩卡",3200;
+			case 11121: callsub L_Quest,.@i,"狩猎吸血蝙蝠",3200;
+			case 11122: callsub L_Quest,.@i,"收集羽毛",5400;
+			case 11123: callsub L_Quest,.@i,"收集毒魔菇芽孢",6000,7033,5;
 		}
 		else if (.@j >= 0) {
-			mes "[Spike]";
-			mes "You haven't finished your mission yet.";
-			mes "Keep up the good work. You are almost done.";
+			mes "[斯派克]";
+			mes "你还没有完成你的任务呢~";
+			mes "加油吧~就快完成了~你可以的!~";
 			close;
 		}
 	}
-	mes "[Spike]";
-	mes "Are you looking for a job?";
-	mes "We always have lots of work to do.";
+	mes "[斯派克]";
+	mes "想找个工作么?";
+	mes "我们这儿总是能提供各种机会的.";
 	next;
-	mes "[Spike]";
-	mes "Why don't you look around and find some interesting tasks?";
+	mes "[斯派克]";
+	mes "你怎么不去周围看看有没有你感兴趣的任务呢?";
 	close;
-
 L_Quest:
-	.@quest_id = getarg(0);
-	if (checkquest(.@quest_id,HUNTING) == 2) {
-		.@item_req = getarg(3,0);
-		.@req_amount = getarg(4,0);
-		if (.@item_req) {
-			if (countitem(.@item_req) < .@req_amount) {
-				mes "[Spike]";
-				mes "You don't have enough "+ getitemname(.@item_req) +".";
-				mes "You need to bring "+ .@req_amount +" "+ getitemname(.@item_req) +".";
+	if (checkquest(getarg(0),HUNTING) == 2) {
+		if (getarg(3,0))
+			if (countitem(getarg(3)) < getarg(4)) {
+				mes "[斯派克]";
+				mes "你还没有足够的 "+getitemname(getarg(3))+".";
+				mes "你还必须带上 "+getarg(4)+" "+getitemname(getarg(3))+".";
 				close;
 			}
-		}
-		mes "[Spike]";
-		mes "Hmm... let me see~";
-		mes "You have completed the '"+ getarg(1) +"' mission.";
+		mes "[斯派克]";
+		mes "嗯?!Ｈ梦依纯纯磣~";
+		mes "啊哈!你已经完成了 '"+getarg(1)+"' 任务了呀!~";
 		next;
-		mes "[Spike]";
-		mes "Good work~!!";
-		mes "Our client is so happy with your work. He will appreciate what you have done.";
-		mes "Please help us again. Thanks!";
-		if (.@item_req)
-			delitem .@item_req,.@req_amount;
-		erasequest .@quest_id;
-		setquest .@quest_id+10;
+		mes "[斯派克]";
+		mes "干得好!!";
+		mes "我们的委托人对你的工作会满意的,他会给你应得的奖励的.";
+		mes "希望下次能继续合作,谢谢!";
+		if (getarg(3,0)) delitem getarg(3),getarg(4);
+		erasequest getarg(0);
+		setquest getarg(0)+10;
 		getexp getarg(2),0;
 		close;
 	}

@@ -1,11 +1,9 @@
-//===== rAthena Script =======================================
+//===== Hercules Script ======================================
 //= Morroc Quest NPCs
 //===== By: ==================================================
 //= Euphy
 //===== Current Version: =====================================
 //= 1.1
-//===== Compatible With: =====================================
-//= rAthena Project
 //===== Description: =========================================
 //= [Official Conversion]
 //= Quest NPCs related to Morroc.
@@ -17,167 +15,167 @@
 
 // Resurrection of Satan Morroc
 // ============================================================
--	script	Continental Guard#man	-1,{
-	mes "[Continental Guard]";
-	mes "We've received orders from Headquarters to block access to this area since an unusual space-time phenomenon has been detected.";
+-	script	大陆卫兵#man	-1,{
+	mes "[大陆卫兵]";
+	mes "我们已经收到了总部命令, 阻止任何人进入这个领域. 因为出现了一个不寻常的时空现象.";
 	next;
-	mes "[Continental Guard]";
-	mes "If you really want to go to the next area, you'll be responsible for your own safety.";
+	mes "[大陆卫兵]";
+	mes "如果你真的想要进入该区域, 你需要为自己的安全负责.";
 	next;
-	switch(select("Nevermind.:Enter the Field.")) {
+	switch(select("- 明白了.:- 进入该领域.")) {
 	case 1:
-		mes "[Continental Guard]";
-		mes "Wise choice.";
-		mes "Have a safe journey.";
+		mes "[大陆卫兵]";
+		mes "明智的选择.";
+		mes "祝你一路顺风.";
 		close;
 	case 2:
-		mes "[Continental Guard]";
-		mes "I see.";
-		mes "I'll send you to the field shortly.";
+		mes "[大陆卫兵]";
+		mes "我明白了.";
+		mes "我马上送你进去.";
 		close2;
 		warp "moc_fild20",208,207;
 		end;
 	}
 }
-moc_fild07,380,202,1	duplicate(Continental Guard#man)	Continental Guard#man1	852
-moc_fild11,189,360,6	duplicate(Continental Guard#man)	Continental Guard#man2	852
-prt_fild10,263,23,1	duplicate(Continental Guard#man)	Continental Guard#man3	852
-prt_fild09,95,19,1	duplicate(Continental Guard#man)	Continental Guard#man4	852
-prt_fild09,246,17,1	duplicate(Continental Guard#man)	Continental Guard#man5	852
-moc_fild13,32,171,6	duplicate(Continental Guard#man)	Continental Guard#man6	852
-moc_fild16,124,381,4	duplicate(Continental Guard#man)	Continental Guard#man7	852
-moc_fild16,333,380,4	duplicate(Continental Guard#man)	Continental Guard#man8	852
-moc_fild01,84,19,1	duplicate(Continental Guard#man)	Continental Guard#man9	852
+moc_fild07,380,202,1	duplicate(大陆卫兵#man)	大陆卫兵#man1	4_M_EIN_SOLDIER
+moc_fild11,189,360,6	duplicate(大陆卫兵#man)	大陆卫兵#man2	4_M_EIN_SOLDIER
+prt_fild10,263,23,1	duplicate(大陆卫兵#man)	大陆卫兵#man3	4_M_EIN_SOLDIER
+prt_fild09,95,19,1	duplicate(大陆卫兵#man)	大陆卫兵#man4	4_M_EIN_SOLDIER
+prt_fild09,246,17,1	duplicate(大陆卫兵#man)	大陆卫兵#man5	4_M_EIN_SOLDIER
+moc_fild13,32,171,6	duplicate(大陆卫兵#man)	大陆卫兵#man6	4_M_EIN_SOLDIER
+moc_fild16,124,381,4	duplicate(大陆卫兵#man)	大陆卫兵#man7	4_M_EIN_SOLDIER
+moc_fild16,333,380,4	duplicate(大陆卫兵#man)	大陆卫兵#man8	4_M_EIN_SOLDIER
+moc_fild01,84,19,1	duplicate(大陆卫兵#man)	大陆卫兵#man9	4_M_EIN_SOLDIER
 
-// Pyramids Nightmare Mode :: nightmare_pry
+// Pyramids Nightmare Mode
 //============================================================
-moc_prydb1,103,54,3	script	Suspicious Cat#night	547,{
-	mes "[Suspicious Cat]";
-	mes "I can't believe a mummy could do this to me. Oh man, it hurts. Nobody should find out about this....";
+moc_prydb1,103,54,3	script	可疑的猫#night	4_CAT_SAILOR4,{
+	mes "[可疑的猫]";
+	mes "我不能相信一只木乃伊对我做这样的事情. 哦, 人类. 太令人心痛了, 没有人能够理解....";
 	next;
-	if(select("Mummy? What happened?:Pretend not to know anything.") == 2)
+	if(select("- 木乃伊? 发生什么了?:- 假装没事.") == 2)
 		close;
-	mes "[Suspicious Cat]";
-	mes "You caught me! Darn it...I didn't expect my reputation as a tomb raider would get damaged like this...";
+	mes "[可疑的猫]";
+	mes "你竟然抓我! 该死...我没想到我的老脸, 会因为这样一个'古墓丽影'式的行动而被丢光...";
 	next;
-	mes "[Suspicious Cat]";
-	mes "But come on, they're so strange! They're mummies! Just mummies, you know? They shouldn't be that strong!";
+	mes "[可疑的猫]";
+	mes "但事情很不正常, 它们太奇怪了! 它们是木乃伊! 仅仅只是木乃伊, 你知道吗? 他们不应该如此之强!";
 	next;
-	if(select("Strong mummies? Where are they?:End the conversation.") == 2) {
-		mes "[Suspicious Cat]";
-		mes "Whaaat~ you don't want to hear my story? Fine! You'd better not mention my name anywhere else!";
+	if(select("- 强大的木乃伊? 在什么地方?:- 结束谈话.") == 2) {
+		mes "[可疑的猫]";
+		mes "神马马马~ 你竟然不想听我的故事? 好的! 你最好不要在别处提我的名字!";
 		close;
 	}
-	mes "[Suspicious Cat]";
-	mes "Haha, it's a secret.";
-	mes "I found out while I was stealing... No, I mean, just walking through the pyramid.";
+	mes "[可疑的猫]";
+	mes "哈哈, 这是一个秘密.";
+	mes "在我偷东西的时候被发现了... 不不, 我的意思是, 我只是在路过金字塔的时候.";
 	next;
-	mes "[Suspicious Cat]";
-	mes "When I saw a mummy coming toward me, I was like 'whatever' and didn't care. But then he knocked me down with a slap in the face! How could he do that to a cute cat like me! You bandaged freak... you just wait and see!";
+	mes "[可疑的猫]";
+	mes "当我看到一具木乃伊向我走来, 我从来不喜欢管闲事. 开始并没有在意, 但随后它把我撞倒了还扇一个我耳光! 它怎么能对像我这么可爱的一只猫做出这种事情! 这个浑身包布的家伙... 给我走着瞧!";
 	next;
-	if(select("I would like to go, too.:End the conversation.") == 2)
+	if(select("- 我到想去那里看看.:- 结束谈话.") == 2)
 		close;
-	mes "[Suspicious Cat]";
-	mes "No way! I spent so much time finding that path!!";
+	mes "[可疑的猫]";
+	mes "那不行! 我可是很久才找到的路径!!";
 	next;
-	mes "[Suspicious Cat]";
-	mes "Hmm... but if you insist, just give me 5000 Zeny. I'll lead you.";
-	mes "What~? Don't give me that look! Do you have any idea how hard it is for a cat to survive in Midgard!";
+	mes "[可疑的猫]";
+	mes "嗯... 但如果你坚持, 只要给我 5000 Zeny. 我就带你去.";
+	mes "什么~? 不要给我这样的脸色看, 你怎么会知道一只猫要在米德加兹混下去有多难!";
 	next;
-	mes "[Suspicious Cat]";
-	mes "^FF0000But come to think of it, a weakling like you won't survive there. Maybe for a second if you're lucky?^000000";
-	mes "Well, it's none of my business. But I warned you anyway!";
+	mes "[可疑的猫]";
+	mes "^FF0000不过仔细想想, 你这样的弱小实力肯定没法在那里活着出来. 运气差的话可能都过不了1分钟.^000000";
+	mes "好吧, 我已经警告过你啦, 反正没我的事!";
 	next;
-	switch(select("Pay 5,000 zeny and set out.:Forget it.")) {
+	switch(select("- 付 5,000 Zeny 并放了它.:- 忘了这事吧.")) {
 	case 1:
 		if (Zeny < 5000) {
-			mes "[Suspicious Cat]";
-			mes "Where do you think you're going! You're so broke!";
+			mes "[可疑的猫]";
+			mes "你还想不想去哪地方, 5000都没真是穷鬼!";
 			close;
 		}
-		set Zeny, Zeny-5000;
-		mes "[Suspicious Cat]";
-		mes "Bah, what's up with this old money... you don't have anything sparkly or shiny?!";
-		mes "Ahh, just follow me!";
+		Zeny -= 5000;
+		mes "[可疑的猫]";
+		mes "呸, 呢么旧的钱... 你就没有金币或者银币?!";
+		mes "啊啊, 算了跟我来吧!";
 		close2;
 		warp "moc_prydn1",93,96;
 		end;
 	case 2:
-		mes "[Suspicious Cat]";
-		mes "Gosh, you don't even have 5000 Zeny, do you?";
+		mes "[可疑的猫]";
+		mes "天哪, 我猜你没 5000 Zeny 吧, 是不是啊?";
 		close;
 	}
 }
 
-moc_prydn1,94,98,3	script	Suspicious Cat#night2	547,{
-	mes "[Suspicious Cat]";
-	mes "That stupid mummy slapped me again while you were looking away! Sniff sniff... Let's go back, meow!";
+moc_prydn1,94,98,3	script	可疑的猫#night2	4_CAT_SAILOR4,{
+	mes "[可疑的猫]";
+	mes "那个愚蠢的木乃伊又打了我一巴掌, 而你正在看别处! 闻闻... 让我们回去, 喵!";
 	next;
-	switch(select("Go back to Thief Guild:Eliminate Verit:Eliminate Ancient Mummy:It's nothing")) {
+	switch(select("- 返回盗贼公会:- 消灭噩梦毕莱特:- 消灭噩梦木乃伊:- 没事")) {
 	case 1:
-		mes "[Suspicious Cat]";
-		mes "Right right... let's go back.";
+		mes "[可疑的猫]";
+		mes "好好... 我们回去.";
 		close2;
 		warp "moc_prydb1",100,57;
 		end;
 	case 2:
 		set .@playtime, checkquest(2290,PLAYTIME);
 		if (.@playtime == 0 || .@playtime == 1) {
-			mes "[Suspicious Cat]";
-			mes "Look at that Verit, he's afraid of us! Kyaahaha! We're safe, at least for a while!";
+			mes "[可疑的猫]";
+			mes "看那个毕莱特, 它怕我们了! 哈哈哈哈! 我们安全了, 至少可以休息一段时间!";
 			close;
 		} else if (.@playtime == 2)
 			erasequest 2290;
 		set .@hunting, checkquest(2289,HUNTING);
 		if (.@hunting == -1) {
-			mes "[Suspicious Cat]";
-			mes "Did you know that cats and dogs don't get along?";
+			mes "[可疑的猫]";
+			mes "你知道吗, 猫和狗合不来?";
 			next;
-			mes "[Suspicious Cat]";
-			mes "Look at that ugly and hideous Verit. He's scowling, wagging his tail and trying to come closer.";
-			mes "Oh, you don't have a tail, right? He thinks I'm a thorn in his side, and he's trying to start a fight now!";
+			mes "[可疑的猫]";
+			mes "看在那个丑陋和狰狞的毕莱特. 皱着眉头, 摇着尾巴, 试图靠近我们.";
+			mes "哦, 你没有尾巴, 对不对? 我想它把我看成是眼中钉肉中刺, 他准备我们干架了!";
 			next;
-			mes "[Suspicious Cat]";
-			mes "Look at him, so greedy and drooly... I don't like the way he breathes, either. I can't stand how he's making those gobbling sounds...";
-			mes "It's so obvious that he's waiting to attack me from behind.";
+			mes "[可疑的猫]";
+			mes "你看看他这鸟样, 如此贪婪的眼神还流口水...错器啊! 还有这家伙的呼吸声. 我无法忍受这听上去像狼吞虎咽的声音...";
+			mes "这也太明显了, 它的等着从后面攻击我.";
 			next;
-			mes "[Suspicious Cat]";
-			mes "Gosh, I could have scratched his face so hard if it wasn't for my stomachache!";
-			mes "Hey, it's not because I'm afraid of Majoruros!";
+			mes "[可疑的猫]";
+			mes "天哪, 如果不是我突然肚子疼, 我可以狠狠的把它的脸给抓花!";
+			mes "哎, 你可别以为我怕了米洛斯!";
 			next;
-			mes "[Suspicious Cat]";
-			mes "If you want to go home, you'd better beat up that ugly doggie! Otherwise, he'll bite you!";
+			mes "[可疑的猫]";
+			mes "如果你想太平回去, 最好K掉那个丑陋的狗! 不然肯定会被咬!";
 			next;
-			switch(select("Help him:Stay away")) {
+			switch(select("- 帮他:- 站着看戏")) {
 			case 1:
-				mes "[Suspicious Cat]";
-				mes "Good, the target number is 20! Good luck!";
+				mes "[可疑的猫]";
+				mes "好了, 目标数量为20! 祝你好运!";
 				setquest 2289;
 				close;
 			case 2:
-				mes "[Suspicious Cat]";
-				mes "Pah! You don't care about me? Fine, you traitor!";
+				mes "[可疑的猫]";
+				mes "呸! 你不管我死活啊? 好吧, 你这个叛徒!";
 				close;
 			}
 		} else if (.@hunting == 0 || .@hunting == 1) {
-			mes "[Suspicious Cat]";
-			mes "Is Verit's training going well?";
+			mes "[可疑的猫]";
+			mes "毕莱特猎杀的顺利吗?";
 			next;
-			switch(select("Sure.:I want to stop.")) {
+			switch(select("- 当然.:- 我不干了.")) {
 			case 1:
-				mes "[Suspicious Cat]";
-				mes "Good. Keep up the good work!";
+				mes "[可疑的猫]";
+				mes "很好. 继续努力.";
 				close;
 			case 2:
-				mes "[Suspicious Cat]";
-				mes "What? You're so irresponsible!";
+				mes "[可疑的猫]";
+				mes "神马? 不负责任的混蛋!";
 				erasequest 2289;
 				close;
 			}
 		} else if (.@hunting == 2) {
-			mes "[Suspicious Cat]";
-			mes "Hey, you're actually useful! Good job!";
-			mes "That Verit wouldn't dare come around here for a while, right? Muhahah!";
+			mes "[可疑的猫]";
+			mes "你看, 这个就不错! 非常好的一个!";
+			mes "你考虑下在来找我吧, 怎么样? 哈哈!";
 			changequest 2289,2290;
 			getexp 300000,100000;
 			close;
@@ -185,59 +183,59 @@ moc_prydn1,94,98,3	script	Suspicious Cat#night2	547,{
 	case 3:
 		set .@playtime, checkquest(2291,PLAYTIME);
 		if (.@playtime == 0 || .@playtime == 1) {
-			mes "[Suspicious Cat]";
-			mes "Good, I'll make a good use of the time you gained! But I gotta do something about this stomachache first.....";
+			mes "[可疑的猫]";
+			mes "很好, 我会在你需要帮忙的时候第一时间出现的, 不过我觉得肚子疼的问题应该是首要问题.....";
 			close;
 		} else if (.@playtime == 2)
 			erasequest 2291;
 		set .@hunting, checkquest(2292,HUNTING);
 		if (.@hunting == -1) {
-			mes "[Suspicious Cat]";
-			mes "Precious treasures are supposed to be hidden in the deep secret places here!";
-			mes "I'm sure the mummy's precious treasures are hidden in the second basement level.";
+			mes "[可疑的猫]";
+			mes "这里的珍贵宝物都应该被隐藏在深层的秘密地方!";
+			mes "我敢肯定, 这具木乃伊收藏的珍贵的宝物都藏在地下2层.";
 			next;
-			mes "[Suspicious Cat]";
-			mes "But Ancient Mummies caught me off guard and hit my head before I knew it!";
+			mes "[可疑的猫]";
+			mes "在我知道这些事情的时候, 那些噩梦木乃伊抓住了我, 还打我的脑袋!";
 			next;
-			mes "[Suspicious Cat]";
-			mes "I'm sure they're trying to stop me from finding the treasures by decreasing my superior brain cells!!";
+			mes "[可疑的猫]";
+			mes "我敢肯定, 它们正在试图通过减少我的脑细胞, 把我弄成白痴来阻止我寻找宝藏!!";
 			next;
-			mes "[Suspicious Cat]";
-			mes "They can't stop me! Let's go get rid of Ancient Mummies!!";
+			mes "[可疑的猫]";
+			mes "他们不能阻止我! 让我们甩掉这些噩梦木乃伊!!";
 			next;
-			mes "[Suspicious Cat]";
-			mes "Don't ask why! I'm sure you wouldn't want those beautiful treasures to be hidden in the dark either!";
+			mes "[可疑的猫]";
+			mes "别问为什么! 我敢肯定的说, 你也不想这些美丽的宝藏就浪费在这个乌漆麻黑的地洞里吧!";
 			next;
-			switch(select("Help him:Stay away")) {
+			switch(select("- 帮助他:- 在边上看热闹")) {
 			case 1:
-				mes "[Suspicious Cat]";
-				mes "Alright, the target number is 20! Good luck!";
+				mes "[可疑的猫]";
+				mes "好了, 目标数量为20! 祝你好运!";
 				setquest 2292;
 				close;
 			case 2:
-				mes "[Suspicious Cat]";
-				mes "Bah, you're so cold-hearted.";
+				mes "[可疑的猫]";
+				mes "呸, 你这么冷血.";
 				close;
 			}
 		} else if (.@hunting == 0 || .@hunting == 1) {
-			mes "[Suspicious Cat]";
-			mes "Is fighting Ancient Mummies going well?";
+			mes "[可疑的猫]";
+			mes "木乃伊猎杀的顺利吗?";
 			next;
-			switch(select("Sure.:I want to stop.")) {
+			switch(select("- 当然.:- 我不干了.")) {
 			case 1:
-				mes "[Suspicious Cat]";
-				mes "Good. Keep up the good work!";
+				mes "[可疑的猫]";
+				mes "很好. 继续努力.";
 				close;
 			case 2:
-				mes "[Suspicious Cat]";
-				mes "What? You're so irresponsible!";
+				mes "[可疑的猫]";
+				mes "神马? 不负责任的混蛋!";
 				erasequest 2292;
 				close;
 			}
 		} else if (.@hunting == 2) {
-			mes "[Suspicious Cat]";
-			mes "Hey, you're actually useful! Good job!";
-			mes "That Ancient Mummy wouldn't dare come around here for a while, right? Muhahah!";
+			mes "[可疑的猫]";
+			mes "你看, 这个就不错! 非常好的一个!";
+			mes "你考虑下在来找我吧, 怎么样? 哈哈!";
 			changequest 2292,2291;
 			getexp 600000,200000;
 			close;

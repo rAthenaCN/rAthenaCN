@@ -1,4 +1,12 @@
-//===== rAthena Script ======================================= 
+//============================================================
+//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
+//===== rAthena Script =======================================  
 //= GM Management NPCs
 //===== By: ================================================== 
 //= Euphy
@@ -22,7 +30,7 @@ function	script	F_GM_NPC	{
 	if (getgmlevel() < 99) {
 		// Log the event.
 		getmapxy(.@map$,.@x,.@y,UNITTYPE_NPC);
-		logmes strcharinfo(0)+" attempted to access GM NPC "+strnpcinfo(0)+" ("+.@map$+","+.@x+","+.@y+").";
+		logmes strcharinfo(0)+" 尝试访问GM NPC"+strnpcinfo(0)+" ("+.@map$+","+.@x+","+.@y+").";
 		end;
 	}
 
@@ -88,6 +96,7 @@ List of GM Management NPCs (incomplete)
 - Purification Admin#nyd2
 - Bakonawa's Rage (RE)
 - Bangungot Gate (RE)
+- Horror Toy Factory (RE)
 
 [ Job-related ]
 ----- 3rd Class (RE) -----

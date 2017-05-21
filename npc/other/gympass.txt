@@ -1,4 +1,12 @@
-//===== rAthena Script ======================================= 
+//============================================================
+//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
+//===== rAthena Script =======================================  
 //= Gym Pass Cash Item NPC
 //===== By: ================================================== 
 //= Kisuka
@@ -17,50 +25,50 @@
 //= 1.3 Updated script, and fixed potential errors. [L0ne_W0lf]
 //============================================================ 
 
-payon,173,141,4	script	Ripped Cabus#GymPass	899,{
-	mes "[Ripped]";
-	mes "Hey, there. People aren't";
-	mes "as physically active as they";
-	mes "used to be. Even if you fight";
-	mes "for a living, your body might";
-	mes "be weak and flabby in some";
-	mes "areas. Know what I mean?";
+payon,173,141,4	script	重力圣人#GymPass1::GymPass	899,{
+	mes "[重力圣人]";
+	mes "嘿. 现代人的身体";
+	mes "早已没以前那么好了";
+	mes "就算你每天为了生存而战斗";
+	mes "你也有时会变得";
+	mes "虚弱和肌肉松弛对吧";
+	mes "知道我的意思吧?";
 	next;
-	mes "[Ripped]";
-	mes "Hey, train with me, and I can";
-	mes "guarantee that you'll be able";
-	mes "to lift and carry more of your";
-	mes "stuff. Just gimme your";
-	mes "^FF0000Gym Pass^000000 each time,";
-	mes "and we'll be good to go.";
+	mes "[重力圣人]";
+	mes "我可以训练你";
+	mes "而且我可以保证你";
+	mes "举起更重的东西,拥有更高的负重";
+	mes "简直就开挂!吸收两千米下的氮磷钾!";
+	mes "每次给我^FF0000健身房会员券^000000,";
+	mes "我就给你金坷垃.";
 	next;
-	mes "[Ripped]";
-	mes "But don't get too excited:";
-	mes "no matter how much training";
-	mes "I take you through, you can";
-	mes "overdo it. You ever hear of";
-	mes "anyone that got too buff?";
-	mes "That's cuz they're dead. See?";
+	mes "[重力圣人]";
+	mes "不过别高兴的太早:";
+	mes "无论你怎样训练";
+	mes "金坷垃的副作用还是太大了";
+	mes "你有没有听过";
+	mes "谁吃金坷垃吃成春哥了?";
+	mes "那是因为他们都吃死了,懂?";
 	next;
-	mes "[Ripped]";
-	mes "I'd say that it'd be safe";
-	mes "for you to seriously train";
-	mes "with me and increase your";
-	mes "item carrying capacity ^FF000010 times^000000.";
-	mes "So... Are you ready to sweat?";
+	mes "[重力圣人]";
+	mes "当然金坷垃绝对不安全";
+	mes "就算你再怎么训练";
+	mes "我也只能保证你";
+	mes "提升^FF000010次^000000负重能力.";
+	mes "So... 准备好了么?";
 	next;
-	switch(select("Yes:No:Um, my workouts wore off.")) {
+	switch(select("- 妈妈的,快给我金坷垃:- 不,我还是自己训练吧.:- 该死,我的训练效果消失了.")) {
 	case 1:
 		if (gympassmemory < 10) {
 			set .@add_carry,gympassmemory + 1;
 			set .@remain_carry,10 - .@add_carry;
 			if (countitem(7776) > 0) {
-				mes "[Ripped]";
-				mes "Oh, awesome, I see you";
-				mes "brought your Gym Pass.";
-				mes "Alright, just do what I do,";
-				mes "and try to feel the burn.";
-				mes "Ready? Let's do this.";
+				mes "[重力圣人]";
+				mes "喔, 太棒了, 我看见你";
+				mes "带来了你的健身房使用券.";
+				mes "好的,跟着我做,";
+				mes "并且感受这个力量吧.";
+				mes "让我们开始吧.";
 				next;
 				specialeffect2 EF_EARTHSPIKE;
 				next;
@@ -70,56 +78,56 @@ payon,173,141,4	script	Ripped Cabus#GymPass	899,{
 				next;
 				specialeffect2 EF_SIGHTRASHER;
 				next;
-				mes "[Ripped]";
-				mes "There, you should be able";
-				mes "to carry more stuff with you.";
-				mes "Let's see, we can increase";
-				mes "your item carrying capacity";
-				mes "^FF00000" + .@remain_carry + "^000000 more times if we continue";
-				mes "training together like this.";
+				mes "[重力圣人]";
+				mes "好了,吃了金坷垃你应该能";
+				mes "带更多的东西了.";
+				mes "看吧,我可以增加你";
+				mes "携带东西的能力";
+				mes "^FF00000" + .@remain_carry + "^000000次,如果继续的话";
+				mes "就像这样的一起训练.";
 				delitem 7776,1; //Max_Weight_Up_Scroll
 				set gympassmemory,.@add_carry;
 				skill "ALL_INCCARRY",.@add_carry,SKILL_PERM_GRANT;
 				close;
 			}
 			else {
-				mes "[Ripped]";
-				mes "Dude, what'd I tell you?";
-				mes "You gotta bring me your";
-				mes "^FF0000Gym Pass^000000 if you wanna";
-				mes "work out, and build up your";
-				mes "item carrying muscles.";
+				mes "[重力圣人]";
+				mes "嘿, 我要怎么给你说?";
+				mes "你要给我带来";
+				mes "^FF0000健身券给我^000000 如果你想要";
+				mes "金坷垃的话";
+				mes "它能锻炼你的肌肉.";
 				close;
 			}
 		}
 		else {
-			mes "[Ripped]";
-			mes "Dude, I don't think we can";
-			mes "build up your item carrying";
-			mes "muscles anymore than that.";
-			mes "It's too dangerous for your";
-			mes "body if we even tried! C'mon,";
-			mes "I told you about the limits.";
+			mes "[重力圣人]";
+			mes "嘿,我不认为你";
+			mes "你的肌肉能承受";
+			mes "更多的金坷垃了.";
+			mes "对于你的身体来说";
+			mes "这实在是太危险了,";
+			mes "我说过了你要有节制的.";
 			close;
 		}
 	case 2:
-		mes "[Ripped]";
-		mes "Aw, that's too bad.";
-		mes "Well, come back if you";
-		mes "change your mind. Tell";
-		mes "your friends about me:";
-		mes "if they're flabby, I'll help";
-		mes "get them in shape.";
+		mes "[重力圣人]";
+		mes "这太悲剧了.";
+		mes "好吧, 如果你改变了";
+		mes "想法就回来吧.";
+		mes "也和你的朋友说说我:";
+		mes "如果你感到了肌肉无力, ";
+		mes "我能帮你解决.";
 		close;
 	case 3:
 		if (gympassmemory > 0) {
-			mes "[Ripped]";
-			mes "What happened?";
-			mes "You let your item carrying";
-			mes "muscles just atrophy? Lucky";
-			mes "for you, there's such a thing";
-			mes "as muscle memory. It's won't take";
-			mes "as long to build 'em back up...";
+			mes "[重力圣人]";
+			mes "咋啦兄弟,被人煮了?";
+			mes "什么?你肌肉萎缩了";
+			mes "金坷垃失效了? ";
+			mes "还好世界上有种东西";
+			mes "叫肌肉记忆. 再稍微";
+			mes "训练下你的能力就会全回来的...";
 			next;
 			specialeffect2 EF_EARTHSPIKE;
 			next;
@@ -129,22 +137,23 @@ payon,173,141,4	script	Ripped Cabus#GymPass	899,{
 			next;
 			specialeffect2 EF_SIGHTRASHER;
 			next;
-			mes "[Ripped]";
-			mes "How about that?";
-			mes "Your item carrying";
-			mes "muscles grew back,";
-			mes "just like that! Try not to";
-			mes "wimp out again, okay?";
+			mes "[重力圣人]";
+			mes "现在感觉怎么样了?";
+			mes "你的能力应该";
+			mes "全部回来了吧,";
+			mes "就像那样!试着不要";
+			mes "再把你的能力弄丢了好了?";
 			skill "ALL_INCCARRY",gympassmemory,SKILL_PERM_GRANT;
 			close;
 		}
 		else {
-			mes "[Ripped]";
-			mes "Uhh...";
-			mes "We didn't work out";
-			mes "together before.";
-			mes "I'm sure about that.";
+			mes "[重力圣人]";
+			mes "唔...";
+			mes "我们以前";
+			mes "并没有一起训练过吧.";
+			mes "我很确信.";
 			close;
 		}
 	}
 }
+prontera,160,136,3	duplicate(GymPass)	重力圣人#GymPass2	899

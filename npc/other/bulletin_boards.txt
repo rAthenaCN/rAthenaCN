@@ -1,10 +1,24 @@
-//===== rAthena Script =======================================
+//============================================================
+//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
+//===== rAthena Script ======================================= 
 //= Bulletin Boards
+//===== By: ==================================================
+//= MasterOfMuppets
+//===== Current Version: =====================================
+//= 1.9
+//===== Compatible With: =====================================
+//= Any Athena Version
 //===== Description: ========================================= 
 //= Bulletin Boards for beginners.
-//===== Changelogs: ==========================================
+//===== Additional Comments: =================================
 //= 1.0 Added Alberta, Prontera, Izlude, Payon, Byalan Island,
-//=     Archer Village, Payon Cave and Coal Mine. [MasterOfMuppets]
+//=     Archer Village, Payon Cave and Coal Mine
 //= 1.1 Geffen, Orc Dungeon
 //= 1.2 Added 5 more Boards [MasterOfMuppets]
 //= 1.3 Fixed spelling mistakes. [Nexon]
@@ -17,402 +31,582 @@
 //= 1.7 Updated Morroc NPCs to reflect episode 12.1 changes. [L0ne_W0lf]
 //= 1.8 Updated Payon Cave Bulletion Board Locations. [Masao]
 //= 1.9 Moved Izlude NPC to Pre-RE path. [Euphy]
-//= 2.0 Moved some NPC to Pre-re path. [Capuche]
 //============================================================
 
-alberta,111,59,5	script	Bulletin Board#1	837,{
-	mes "[Alberta: The Port City]";
-	mes "Welcome to Alberta, the Port City.";
+alberta,111,59,5	script	告示牌#1	2_BULLETIN_BOARD,{
+	mes "[艾尔贝塔: 商业城市]";
+	mes "欢迎来到商业城市 艾尔贝塔.";
 	next;
-	mes "[Alberta: The Port City]";
-	mes "In Alberta, you can find the Merchant guild where adventurers can change their job to merchant";
+	mes "[艾尔贝塔: 商业城市]";
+	mes "在艾尔贝塔, 你能找到可进行商人转职的商人公会.";
 	next;
-	mes "[Alberta: The Port City]";
-	mes "As a city that provides dependable sea travel, Alberta has provided the means for the foreign commerce that has brought prosperity to the Rune-Midgarts Kingdom.";
+	mes "[艾尔贝塔: 商业港口城市]";
+	mes "城市是透过海上交易而成长的, 所以拥有明亮的气息形成了自由的商权, 现在交易范围已经扩展到海外的各国家.";
 	next;
-	mes "[Alberta: The Port City]";
-	mes "On the docks, you may find representatives from foreign lands that will guide tourists to their countries.";
+	mes "[艾尔贝塔: 商业城市]";
+	mes "而且在码头有可以通往各国家的航路.";
 	next;
-	mes "[Alberta: The Port City]";
-	mes "Among seafarers, there is a rumor of a place known as ^338C60Turtle Island^000000. Intrepid adventurers may seek to investigate this rumor and learn the truth for themselves";
+	mes "[艾尔贝塔: 商业城市]";
+	mes "在船员之间有叫 ^338C60乌龟岛^000000这地方的传闻. 不妨亲自去确认一下它的真实吧, 还有听说在附近还发现了一艘沉没之船, 有兴趣的话不妨也可以去看看喔.";
 	next;
-	mes "[Alberta: The Port City]";
-	mes "There is also a sunken ship that has been discovered near Alberta, and it has become a popular area for adventurers to explore";
+	mes "[艾尔贝塔: 商业城市]";
+	mes "透过港口可以去发现的沉没船, 探索沉没船已经成为冒险家之间的一股流行.";
 	next;
-	mes "[Alberta: The Port City]";
-	mes "From Alberta, ^1F3A11Payon^000000 is located to the Northwest. You can board passenger ships at the dock to travel to ^5E5C69Izlude^000000.";
-	mes "Enjoy your travels."; 
+	mes "[艾尔贝塔: 商业城市]";
+	mes "^1F3A11斐扬^000000 位于西北方向. 你也能在港口搭船前往 ^5E5C69依斯鲁得岛^000000.";
+	mes "享受您的旅程."; 
 	close;
 }
 
-geffen,124,65,5	script	Bulletin Board#2	837,{
-	mes "[Geffen: The City of Magic]";
-	mes "Welcome to Geffen, the City of Magic. Geffen is well known for its various legends related to magic.";
+geffen,124,65,5	script	告示牌#2	2_BULLETIN_BOARD,{
+	mes "[吉芬: 魔法之都]";
+	mes "欢迎来到魔法之都 吉芬, 吉芬是以关于很多魔法传说而闻名的.";
 	next;
-	mes "[Geffen: The City of Magic]";
-	mes "Points of interest in the city include the Forge, where people can change their jobs to Blacksmith, the Magic Academy for aspiring mages, and the Geffen Tower for the Wizard job change.";
+	mes "[吉芬: 魔法之都]";
+	mes "主要建筑物有可以进行铁匠转职的锻冶场, 可以进行魔法师转职的魔法学校, 可以进行巫师转职的吉芬塔.";
 	next;
-	mes "[Geffen: The City of Magic]";
-	mes "Underneath the Geffen Tower lies a dungeon in which dreadful monsters are rumored to appear.";
+	mes "[吉芬: 魔法之都]";
+	mes "吉芬塔地下密穴有传言会出现可怕的怪物.";
 	next;
-	mes "[Geffen: The City of Magic]";
-	mes "It is said that the lost city of Gefenia, a place of elven lore and legend, is hidden within the depths of this dungeon.";
+	mes "[吉芬: 魔法之都]";
+	mes "传说这里有着, 小精灵的秘宝栖息的另一座魔法城市葛帔尼亚.";
 	next;
-	mes "[Geffen: The City of Magic]";
-	mes "From Geffen, the ^828E28Orc Village^000000 is located to the South, ^4C6055Glast Heim^000000 to the West, ^6D6FE0Prontera^000000 to the far East, and ^744B2DMt. Mjolnir^000000 to the North. Enjoy your stay here in Geffen.";
+	mes "[吉芬: 魔法之都]";
+	mes "吉芬往南边方向走是, ^828E28兽人村落^000000, 西边方向是^4C6055克雷斯特汉姆古城^000000, 往东边方向是^6D6FE0普隆德拉^000000, 往北边方向是^744B2D妙勒尼 山脉^000000.";
 	close;
 }
 
-izlu2dun,104,92,5	script	Bulletin Board#4	837,{
-	mes "[Byalan Island]";
-	mes "^6B1312Caution!^000000";
-	mes "The Izlude dungeon is comprised of 5 levels. The first few levels are suited for newer adventurers.";
+gef_fild10,69,340,5	script	告示牌#3	2_BULLETIN_BOARD,{
+	mes "[兽人洞窟]";
+	mes "^6B1312注意!^000000";
+	mes "兽人洞窟是由2层构成的. 每个怪物虽然不是很厉害, 但是数量非常多所以要小心喔.";
 	next;
-	mes "[Byalan Island]";
-	mes "As you venture deeper into the Byalan dungeon, you will encounter stronger, more powerful monsters.";
+	mes "[兽人洞窟]";
+	mes "邪骸兽人、兹诺克、兽人腐尸, 等是只有在这里才能看到的怪物.";
 	next;
-	mes "[Byalan Island]";
-	mes "With a few exceptions, most of the monsters in this dungeon are of the Water attribute. Therefore, a Wind attribute weapon will help you greatly";
+	mes "[兽人洞窟]";
+	mes "如果持有圣属性武器在这里对你帮助很大, 因为这里怪物是不死属性.";
+	next;
+	mes "[兽人洞窟]";
+	mes "若是没有圣属性武器的话也可以使用祭司的撒水祈福技能喔.";
 	close;
 }
 
-payon,178,108,5	script	Bulletin Board#06	837,{
-	mes "[Payon: The Mountain City]";
-	mes "Welcome to Payon, the mountain city. Payon has recently been renovated, so we hope you enjoy the clean, nice streets and buildings.";
+izlu2dun,104,92,5	script	告示牌#4	2_BULLETIN_BOARD,{
+	mes "[柏伊亚岚岛]";
+	mes "^6B1312注意!^000000";
+	mes "依斯鲁得岛是由地下5楼所构成的场所. 以初学者到熟练者都可以适当地进行冒险的程度.";
 	next;
-	mes "[Payon: The Mountain City]";
-	mes "Payon is famous for being a city of archery. For a long time, its citizens have made their living by hunting with bows and arrows. Bow crafting and training have also been developed here in Payon";
+	mes "[柏伊亚岚岛]";
+	mes "当你更深入时,你会遇见更强大, 更厉害的怪物.";
 	next;
-	mes "[Payon: The Mountain City]";
-	mes "Payon has various armor and weapons, especially for the Archer class. If you wish to become an Archer, it would be best to become familiar with this city.";
+	mes "[柏伊亚岚岛]";
+	mes "除了极少数的魔物之外, 全部都是水属性的敌人, 所以持有风属性系列的武器去冒险会比较轻松喔. 风属性武器对你帮助很大";
+	close;
+}
+	
+izlude,131,116,4	script	告示牌#5	2_BULLETIN_BOARD,{
+	mes "[伊斯鲁德: 卫星城市]";
+	mes "欢迎来到伊斯鲁德, 普隆德拉的卫星城市. 始建伊斯鲁德的目的是支持普隆德拉的防守, 以满足其蓬勃发展的人口";
 	next;
-	mes "[Payon: The Mountain City]";
-	mes "Payon Palace is located in the center of the city. The Archer Village is located in the Northern part of Payon. There, people can change their jobs to Archer.";
+	mes "[伊斯鲁德: 卫星城市]";
+	mes "重要地点包含允许冒险家转职成为剑士的剑士公会, 还有北面有竞技场.";
 	next;
-	mes "[Payon: The Mountain City]";
-	mes "Near the Archer Village, you can find the ^2F0400Payon Cave^000000 where Undead monsters reside.";
+	mes "[伊斯鲁德: 卫星城市]";
+	mes "在码头, 你可以坐船去 ^123972阿尔贝塔^000000 或者 ^2F0400巴亚兰岛^000000.";
 	next;
-	mes "[Payon: The Mountain City]";
-	mes "From Payon, ^123972Alberta^000000 is located to the Southeast, and ^866C4BMorroc^000000 is to the West. ^5E5C69Izlude^000000 and ^6D6FE0Prontera^000000 are North of Payon.";
-	mes "Enjoy your travels."; 
+	mes "[伊斯鲁德: 卫星城市]";
+	mes "以伊斯鲁德为中心, ^6D6FE0普隆德拉^000000 在西北面, ^1F3A11斐扬^000000 在南面.";
+	mes "祝您在卢恩.米德加兹王国的旅行愉快.";
 	close;
 }
 
-pay_arche,79,31,5	script	Bulletin Board#07	837,{
-	mes "[Archer Village]"; 
-	mes "Welcome to the Payon Archer Village where Novices can change their jobs to Archer.";
+payon,178,108,5	script	告示牌#06	2_BULLETIN_BOARD,{
+	mes "[斐扬: 山岳之城]";
+	mes "欢迎来到山岳之都斐扬, 斐扬最近经过装修, 希望能让您享受干净、漂亮的街道和建筑物. ";
 	next;
-	mes "[Archer Village]";
-	mes "The Archer Village provides Bows and Tights that are available for purchase. These are necessities for new Archers and Hunters.";
+	mes "[斐扬: 山岳之城]";
+	mes "斐扬是以弓箭手的城市而闻名, 因为是山岳地形出身的弓箭手, 所以制作弓箭的技术非常发达. ";
 	next;
-	mes "[Archer Village]";
-	mes "If you wish to become an Archer, it is suggested to become familiar with this village. For aspiring Hunters, the Hunter Guild is located in a field that is East of Payon.";
+	mes "[斐扬: 山岳之城]";
+	mes "斐扬有弓箭手用的武器, 防御等特产品, 希望对想要成为弓箭手的人狠狠大的帮助.";
+	next;
+	mes "[斐扬: 山岳之城]";
+	mes "主要建筑物有中央宫, 可以进行弓箭手转职的弓箭手村落就在右边, 斐扬是诸多城市中为一一个代代的透过工程而变更面貌的城市.";
+	next;
+	mes "[斐扬: 山岳之城]";
+	mes "弓箭手村落附近有 ^2F0400斐扬密穴^000000 亡灵怪物所在, 所以要注意喔.";
+	next;
+	mes "[斐扬: 山岳之城]";
+	mes "东南方向是, ^123972艾尔贝塔^000000 往西南方向是 ^866C4B梦罗克^000000 往北边方向是 ^5E5C69普隆德拉^000000 也可以去 ^6D6FE0伊斯鲁得岛^000000.";
+	mes "尽情享受你的旅行吧."; 
+	close;
+}
+	
+pay_arche,79,31,5	script	告示牌#07	2_BULLETIN_BOARD,{
+	mes "[斐扬 弓箭手协会]"; 
+	mes "欢迎来到斐扬 弓箭手村落, 弓箭手村落可以进行弓箭手转职. ";
+	next;
+	mes "[斐扬 弓箭手协会]";
+	mes "而且还卖弓, 紧身便衣等, 这些都是弓箭手和猎人用的物品";
+	next;
+	mes "[斐扬 弓箭手协会]";
+	mes "很想成为弓箭手的人们可以去看一下, 还有听说斐扬城市右边有猎人公会喔. ";
 	close;
 }
 
-prontera,148,49,5	script	Bulletin Board#09	837,{
-	mes "[Prontera: Capital of the]";
-	mes "[Rune-Midgards Kingdom]";
-	mes "Welcome to Prontera, the capital city of Rune-Midgard.";
+pay_arche,39,134,5	script	告示牌#08	2_BULLETIN_BOARD,{
+	mes "[斐扬密穴]";
+	mes "^6B1312注意!^000000";
+	mes "斐扬洞穴共有5层, 不死及恶魔型的怪物偏多, 要多注意地下3, 4楼?奂牡胤洁? ";
 	next;
-	mes "[Prontera: Capital of the]";
-	mes "[Rune-Midgards Kingdom]";
-	mes "Prontera is located in the center of the Rune-Midgard continent and is very well-known as a city of flourishing commerce.";
+	mes "[斐扬密穴]";
+	mes "地下5楼会出现带有可爱的外貌但是非常凶猛的怪物^6B1312月夜猫^000000 请小心的进行密穴冒险吧.";
+	close;
+}
+	
+prontera,148,49,5	script	告示牌#09	2_BULLETIN_BOARD,{
+	mes "[普隆德拉: 首都]";
+	mes "[卢恩-米德加兹王国]";
+	mes "欢迎来到卢恩 米德加兹王国.";
 	next;
-	mes "[Prontera: Capital of the]";
-	mes "[Rune-Midgards Kingdom]";
-	mes "In this city, you can fint the Sanctuary, where people can change their jobs to Acolyte and Priest.";
+	mes "[普隆德拉: 首都]";
+	mes "[卢恩-米德加兹王国]";
+	mes "首都普隆德拉位于大陆的中心, 是以往来多的商业和交易的都市而闻名.";
 	next;
-	mes "[Prontera: Capital of the]";
-	mes "[Rune-Midgards Kingdom]";
-	mes "You can also find the Castle, where people can change their jobs to Crusader.";
+	mes "[普隆德拉: 首都]";
+	mes "[卢恩-米德加兹王国]";
+	mes "主要建筑物有可以转职为十字军的普隆德拉城, 和可以进行服事、祭司转职也可以举行结婚仪式的普隆德拉大圣堂, 骑士团等. ";
 	next;
-	mes "[Prontera: Capital of the]";
-	mes "[Rune-Midgards Kingdom]";
-	mes "Please feel free to explore the streets of Prontera, as there are various tourist attractions within the city.";
+	mes "[普隆德拉: 首都]";
+	mes "[卢恩-米德加兹王国]";
+	mes "你还可以找到普隆德拉城, 人们可以转职为十字军.";
 	next;
-	mes "[Prontera: Capital of the]";
-	mes "[Rune-Midgards Kingdom]";
-	mes "When you need to upgrade your weapons and armors, please visit the building in the 5 o'clock direction from the fountain in the center of Prontera.";
+	mes "[普隆德拉: 首都]";
+	mes "[卢恩-米德加兹王国]";
+	mes "除此之外还有很多人和商店, 好好的逛逛吧.";
 	next;
-	mes "[Prontera: Capital of the]";
-	mes "[Rune-Midgards Kingdom]";
-	mes "From Prontera, ^5E5C69Izlude^000000 is located to the Southeast, ^1F3A11Payon^000000 to the far South, ^683C1FGeffen^000000 to the far West and ^2D3832Al De Baran^000000 to the far North.";
-	mes "Enjoy your time in Prontera.";
+	mes "[普隆德拉: 首都]";
+	mes "[卢恩-米德加兹王国]";
+	mes "中央喷水池5点钟方向有非常有名的铁匠忽克连, 若想锻治自己的装备就去看看吧.";
+	next;
+	mes "[普隆德拉: 首都]";
+	mes "[卢恩-米德加兹王国]";
+	mes "东南方向是, ^5E5C69依斯鲁得岛^000000 往南边方向一直走是, ^1F3A11斐扬^000000 往西边方向是, ^683C1F吉芬^000000 往北边方向可以到达 ^2D3832艾尔帕兰^000000.";
+	mes "请尽情享受在普隆德拉的时光.";
 	close;
 }
 
-morocc,152,110,5	script	Bulletin Board#11	837,{
-	mes "[Morroc: The Frontier Town]";
-	mes "Welcome to Morroc, the City of the Desert. Morroc was built on an oasis, so this town can accomodate its many visitors and travelers.";
+mjolnir_02,76,362,5	script	告示牌#10	2_BULLETIN_BOARD,{
+	mes "[废弃矿场密穴]";
+	mes "^6B1312注意!^000000";
+	mes "废弃矿场密穴是由地下3层构成的密穴, 以初学者到中级者适当地进行冒险的程度.";
 	next;
-	mes "[Morroc: The Frontier Town]";
-	mes "Morroc Castle lies in the center of this city. Please feel free to explore this town, and enjoy its unique atmosphere. However, watch your pockets and beware of Rogues and Thieves.";
-	next;
-	mes "[Morroc: The Frontier Town]";
-	mes "From Morroc, the ^660000Pyramid Dungeon^000000 can be found to the Northwest, and the ^660000Sphinx Dungeon^000000 can be found to the West. To the Southeast, you may find ^660000Ant Hell^000000.";
-	next;
-	mes "[Morroc: The Frontier Town";
-	mes "The Assassin Guild is rumored to be located to the Southeast. When you head East from Morroc, and then North, you will arrive at ^3355FFProntera^000000.";
+	mes "[废弃矿场密穴]";
+	mes "在3楼经常会有大量的怪物聚集的情况, 所以一定要小心喔, 这里会出很多矿石, 若需要矿石的话可以去看看喔. ";
 	close;
 }
 
-comodo,210,148,5	script	Bulletin Board#12	837,{
-	mes "[Comodo: The Beach City]";
-	mes "Welcome! This town of Comodo is";
-	mes "surrounded by many ancient relics";
-	mes "from a forgotten era.";
+morocc,152,110,5	script	告示牌#11	2_BULLETIN_BOARD,{
+	mes "[梦罗克: 沙漠之都]";
+	mes "欢迎来到沙漠之都 梦罗克, 梦罗克虽是相当荒凉的地方, 却是个给往来沙漠的人像绿洲作用的地方.";
 	next;
-	mes "[Comodo: The Beach City]";
-	mes "Only in Comodo can you find the";
-	mes "Dancer Guild and Bard Guild which";
-	mes "provide the opportunity for";
-	mes "adventurers to change their jobs to";
-	mes "Dancers and Bards.";
+	mes "[梦罗克: 沙漠之都]";
+	mes "梦罗克城堡位于城市的市中心, 欢迎自由探索并享受城市特殊的氛围, 提醒请看紧你的口袋, 提防盗贼.";
 	next;
-	mes "[Comodo: The Beach City]";
-	mes "You can also visit the Casino,";
-	mes "which is a popular as a tourist";
-	mes "attraction and place to lounge";
+	mes "[梦罗克: 沙漠之都]";
+	mes "往西北走的话有 ^660000金字塔迷宫^000000 西边是 ^660000史芬克斯 密穴^000000 听说东南方某个地方有 ^660000蚂蚁密穴^000000.";
 	next;
-	mes "[Comodo: The Beach City]";
-	mes "You can buy Berserk Potions, a";
-	mes "special product of Comodo, from the";
-	mes "Tool Dealers in the area.";
-	next;
-	mes "[Comodo: The Beach City]";
-	mes "There are 3 caves around Comodo";
-	mes "that are inhabited by many";
-	mes "different monsters. If you enter";
-	mes "these areas, please be extremely";
-	mes "careful.";
-	next;
-	mes "[Comodo: The Beach City]";
-	mes "From Comodo, you can travel to";
-	mes "^866C4BMorroc^000000 through the East Cave";
-	mes "and to ^7D2272Umbala^000000 through the North";
-	mes "Cave.";
-	next;
-	mes "[Comodo: The Beach City]";
-	mes "To the East, you can find ^BF2B0DParos";
-	mes "^BF2B0DLighthouse^000000, where the Rogue Guild";
-	mes "is located. Enjoy the Comodo night";
-	mes "life~";
+	mes "[梦罗克: 沙漠之都]";
+	mes "传言刺客公会在东南方. 往东北边可以看到 ^3355FF普隆德拉^000000.";
 	close;
 }
 
-umbala,137,94,5	script	Bulletin Board#13	837,{
-	mes "[Umbala: The Utan Village]";
-	mes "Welcome to Umbala,";
-	mes "the village of the Utan tribe.";
+comodo,210,148,5	script	告示牌#12	2_BULLETIN_BOARD,{
+	mes "[克魔岛: 海边之都]";
+	mes "欢迎来到海边之都 克魔岛";
+	mes "克魔岛周边挤满了像是";
+	mes "呈现遗忘之古代文明的玩家们.";
 	next;
-	mes "[Umbala: The Utan Village]";
-	mes "Umbala, as well as the Utan tribe";
-	mes "which speak their own unique";
-	mes "language, was recently discovered";
-	mes "by a few intrepid adventurers.";
+	mes "[克魔岛: 海边之都]";
+	mes "在克魔岛你可以找到, ";
+	mes "舞娘、吟游诗人, ";
+	mes "转职的公会, ";
+	mes "提供冒险家们";
+	mes "转职的服务.";
 	next;
-	mes "[Umbala: The Utan Village]";
-	mes "Scholars believe that Umbala may be";
-	mes "the border between our world";
-	mes "and another realm. They believe the";
-	mes "junction between the worlds might";
-	mes "be the Yggdrasil tree to the North.";
+	mes "[克魔岛: 海边之都]";
+	mes "你也可以造访观光胜地-赌场,";
+	mes "这是受旅客欢迎";
+	mes "具有吸引力并且歇息的地方. ";
 	next;
-	mes "[Umbala: The Utan Village]";
-	mes "Points of interest include the";
-	mes "Chief's House, the Shaman's House,";
-	mes "and the Bungee Jump Area. Thousands";
-	mes "of tourists visit the Bungee Jump";
-	mes "Area to test their courage.";
+	mes "[克魔岛: 海边之都]";
+	mes "克魔岛特有的产品, ";
+	mes "菠色克药水也由克魔岛的, ";
+	mes "道具商人贩卖, 请多多利用.";
 	next;
-	mes "[Umbala: The Utan Village]";
-	mes "From Umbala, head South to go to";
-	mes "^D91B73Comodo^000000. Please enjoy your";
-	mes "stay here in Umbala.";
+	mes "[克魔岛: 海边之都]";
+	mes "克魔岛周边有3个洞窟, ";
+	mes "每个洞窟的危险度, ";
+	mes "及出现的怪物都不一样, ";
+	mes "你果你涉入这些危险区域, ";
+	mes "要特别注意喔.";
+	next;
+	mes "[克魔岛: 海边之都]";
+	mes "透过东边洞窟可以去, ";
+	mes "^866C4B梦罗克^000000去";
+	mes "透过北边洞窟可以^7D2272汶巴拉^000000. ";
+	mes "祝您旅途愉快.";
+	next;
+	mes "[克魔岛: 海边之都]";
+	mes "据说东边的, ";
+	mes "^BF2B0D发乐斯 灯塔里^000000, ";
+	mes "有关于关于流氓转职的场所, ";
+	mes "享受在克魔岛的夜晚~";
 	close;
 }
 
-gef_fild09,227,29,4	script	Bulletin Board::OrcsBoard	835,{
-	mes "[Orc Village]";
-	mes "^6B1312Caution!^000000";
-	mes "Beyond this point";
-	mes "lies the Orc Village.";
+umbala,137,94,5	script	告示牌#13	2_BULLETIN_BOARD,{
+	mes "[汶巴拉: 雨坛族村落]";
+	mes "欢迎来到汶巴拉,";
+	mes "雨坛族村落.";
 	next;
-	mes "[Orc Village]";
-	mes "Be aware that this village is";
-	mes "teeming with dangerous Orcs, namely";
-	mes "Orc Warriors, Orc Ladies and High";
-	mes "Orcs. Two boss monsters, ^6B1312Orc Hero^000000";
-	mes "and ^6B1312Orc Lord^000000 will also appear at certain times.";
+	mes "[汶巴拉: 雨坛族村落]";
+	mes "雨坛族是使用, ";
+	mes "雨坛族自己的独特语言, ";
+	mes "最近才被少数的, ";
+	mes "勇敢探险者发现.";
+	next;
+	mes "[汶巴拉: 雨坛族村落]";
+	mes "学者们认为, ";
+	mes "汶巴拉是之前没有被揭晓的神秘之处, ";
+	mes "另一个世界的境界地点, ";
+	mes "听说往北边可以透过, ";
+	mes "天地树之梗到达异世界的都市.";
+	next;
+	mes "[汶巴拉: 雨坛族村落]";
+	mes "主要的建筑物有村长的家、";
+	mes "夏门的家、还有高空弹跳台, ";
+	mes "在汶巴拉的名物, ";
+	mes "高空弹跳台里, ";
+	mes "每天有无数的人们为了尝试自己的勇敢而跳下去.";
+	next;
+	mes "[汶巴拉: 雨坛族村落]";
+	mes "往南边是";
+	mes "^D91B73克魔岛^000000. ";
+	mes "请尽情享受在汶巴拉的生活.";
 	close;
 }
 
-gef_fild13,202,31,5	duplicate(OrcsBoard)	Bulletin Board#orc1	835
-
-gef_fild13,29,206,5	script	Bulletin Board::KoboldsBoard	836,{
-
-	mes "[Kobold Village]";
-	mes "^6B1312Caution!^000000";
-	mes "You're heading to the Kobold Village.";
-	mes "Please be aware this village is filled with many kobolds.";
+gef_fild09,227,29,4	script	告示牌::OrcsBoard	2_BOARD1,{
+	mes "[兽人村落]";
+	mes "^6B1312注意!^000000";
+	mes "往这里进去就是, ";
+	mes "兽人村落. ";
+	next;
+	mes "[兽人村落]";
+	mes "这边的村庄, ";
+	mes "充满危险的兽族, ";
+	mes "会有, 兽人女战士, 兽人战士长等魔物出没, ";
+	mes "两个BOSS魔物, ^6B1312兽人英雄^000000";
+	mes "和 ^6B1312兽人酋长^000000 出现在特定时间.";
 	close;
 }
 
-gef_fild08,211,24,5	duplicate(KoboldsBoard)	Bulletin Board#kb1	836
+gef_fild13,202,31,5	duplicate(OrcsBoard)	告示牌#orc1	2_BOARD1
 
-gef_fild10,109,23,5	script	Bulletin Board#15	836,{
+gef_fild13,29,206,5	script	告示牌::KoboldsBoard	2_BOARD2,{
 
-	mes "[Goblin Village]";
-	mes "^6B1312Caution!^000000";
-	mes "You're heading to the Goblin Village.";
-	mes "Please be aware this village is filled with many goblins.";
+	mes "[告示牌]";
+	mes "^6B1312注意!^000000";
+	mes "从这里进去就是犬妖村落. ";
+	mes "会有各种犬妖等魔物出没, 所以要小心喔. ";
 	close;
 }
 
-yuno,154,112,5	script	Bulletin Board#17	837,{
-	mes "[Juno: Capital of]";
-	mes "[The Schwarzwald Republic]";
-	mes "Welcome to Juno, the City of Sages.";
-	mes "Juno is kept aloft in the air by";
-	mes "the power of the Ymir Heart";
-	mes "Pieces";
-	next;
-	mes "[Juno: Capital of]";
-	mes "[The Schwarzwald Republic]";
-	mes "Those interested in becoming Sages";
-	mes "should visit the Sage Castle for";
-	mes "more information on the Sage job";
-	mes "and its requirements.";
-	next;
-	mes "[Juno: Capital of]";
-	mes "[The Schwarzwald Republic]";
-	mes "Other notable places include the";
-	mes "Monster Museum, Magic Academy";
-	mes "and the Juno Library.";
-	next;
-	mes "[Juno: Capital of]";
-	mes "[The Schwarzwald Republic]";
-	mes "Somewhere around Juno, there is";
-	mes "information regarding secret access";
-	mes "to the world where adventurers may";
-	mes "be reborn with newfound strength.";
-	next;
-	mes "[Juno: Capital of]";
-	mes "[The Schwarzwald Republic]";
-	mes "To the Southeast of Juno lies ^6B1312Nogg";
-	mes "^6B1312Road^000000, the Magma Dungeon. Nogg Road";
-	mes "is infamous for its aggressive";
-	mes "creatures, so be careful";
-	next;
-	mes "[Juno: Capital of]";
-	mes "[The Schwarzwald Republic]";
-	mes "From Juno, ^2D3832Al De Baran^000000, a city of";
-	mes "the Rune-Midgarts Kingdom, is";
-	mes "located to the South.";
+gef_fild08,211,24,5	duplicate(KoboldsBoard)	告示牌#kb1	2_BOARD2
+
+gef_fild10,109,23,5	script	告示牌#15	2_BOARD2,{
+
+	mes "[犬妖村落]";
+	mes "^6B1312注意!^000000";
+	mes "从这里进去就是犬妖村落. ";
+	mes "会有各种犬妖等魔物出没, 所以要小心喔. ";
 	close;
 }
 
-aldebaran,145,105,5	script	Bulletin Board#18	837,{
-	mes "[Al De Baran: The Border City]";
-	mes "Welcome to Al De Baran, the border";
-	mes "city of the Rune-Midgarts Kingdom.";
-	mes "Al De Baran's beautiful canals and";
-	mes "majestic Clock Tower are a source";
-	mes "of pride for its citizens.";
+prt_fild05,278,220,5	script	告示牌#16	2_BULLETIN_BOARD,{
+	mes "[普隆德拉 地下水道]";
+	mes "地下水道是由, ";
+	mes "地下4层构成的密穴, ";
+	mes "初学者可以顺利的积累经验.";
 	next;
-	mes "[Al De Baran: The Border City]";
-	mes "Adventurers can explore the Clock";
-	mes "Tower located in the city's center.";
-	mes "Other notable places are the Kafra";
-	mes "Corporation Headquarters, and the";
-	mes "Alchemist Guild which provides the";
-	mes "Alchemist job change.";
+	mes "[普隆德拉 地下水道]";
+	mes "为了进行地下水道的冒险, ";
+	mes "必须要加入骑士团员的招生";
+	mes "大部分的怪物";
+	mes "在同族被攻击时";
+	mes "会一起帮忙攻击, ";
+	mes "所以要小心喔.";
 	next;
-	mes "[Al De Baran: The Border City]";
-	mes "There is a fully trained Santa";
-	mes "Claus somewhere in Al De Baran who";
-	mes "can send you to the magical town of";
-	mes "^1D2585Lutie^000000. If you're interested in";
-	mes "seeing it for yourself, you must";
-	mes "seek Santa Claus.";
-	next;
-	mes "[Al De Baran: The Border City]";
-	mes "From this city, ^60D5FDJuno^000000 is located to";
-	mes "the North, and ^6D6FE0Prontera^000000 is located";
-	mes "to the South.";
+	mes "[普隆德拉 地下水道]";
+	mes "在地下4楼";
+	mes "你可能会遇到, ";
+	mes "boss级的魔物, ";
+	mes "^6B1312黄金虫^000000.";
+	mes "冒险家请小心谨慎.";
 	close;
 }
 
-xmas_fild01,75,80,5	script	Bulletin Board#22	837,{
-	mes "[Winter Town, Lutie]";
-	mes "Welcome to Lutie, the town of snowfall.";
-	mes "Manufacturing toys in the toy factory is the main";
-	mes "business of this town.";
+yuno,154,112,5	script	告示牌#17	2_BULLETIN_BOARD,{
+	mes "[朱诺: 首都]";
+	mes "[秀发兹发德 共和国]";
+	mes "欢迎来到贤者之都朱诺.";
+	mes "这里是以伊美乐的心脏";
+	mes "碎片为原动力而漂浮在";
+	mes "空中的城市";
 	next;
-	mes "[Winter Town, Lutie]";
-	mes "You can access to the toy factory dungeon";
-	mes "at the north of Lutie.";
-	mes "Please remember to visit Lutie in Christmas season.";
-	mes "There are various event held with joy.";
-	mes "Please beware of ^6B1312Stormy Knight^000000 and ^6B1312Hatii^000000 the boss monsters of the toy factory dungeon.";
+	mes "[朱诺: 首都]";
+	mes "[秀发兹发德 共和国]";
+	mes "对成为贤者有兴趣的人, ";
+	mes "应该拜访贤者城堡, ";
+	mes "了解成为贤者过程的, ";
+	mes "详细讯息.";
+	next;
+	mes "[朱诺: 首都]";
+	mes "[秀发兹发德 共和国]";
+	mes "其他值得注意的地方有";
+	mes "魔物博物馆、魔法学会, ";
+	mes "和朱诺图书馆、飞空艇等.";
+	next;
+	mes "[朱诺: 首都]";
+	mes "[秀发兹发德 共和国]";
+	mes "从情报上得知";
+	mes "在朱诺的某个地方, ";
+	mes "有可以让人重生的空间, ";
+	mes "去好好找看吧, ";
+	next;
+	mes "[朱诺: 首都]";
+	mes "[秀发兹发德 共和国]";
+	mes "东南边区域有叫做, ";
+	mes "^6B1312诺可罗德^000000, 的岩浆密穴";
+	mes "是非常危险的地方, ";
+	mes "一定要小心喔. ";
+	next;
+	mes "[朱诺: 首都]";
+	mes "[秀发兹发德 共和国]";
+	mes "往南边过去的话是, 是卢恩 米德加兹王国的, ";
+	mes "^2D3832艾尔帕兰^000000, 那个区域有很多先攻怪物, ";
+	mes "是非常危险的地方要小心喔.";
 	close;
 }
 
-niflheim,200,191,5	script	Bulletin Board#25	837,{
-	mes "[City of the Dead, Nifflheim]";
-	mes "Welcome to Nifflheim, the City of the Dead.";
-	mes "Nifflheim was known as the other world where";
-	mes "you come after the death.";
-	mes "However, recently people found out a secret path behind of a mysterious tree.";
-	mes "So, you will find many other people travelling around this area.";
+aldebaran,145,105,5	script	告示牌#18	2_BULLETIN_BOARD,{
+	mes "[运河之都 艾尔帕兰]";
+	mes "欢迎来到运河之都 艾尔帕兰";
+	mes "成为巨大的运河和程式的象征之.";
+	mes "大钟塔是这个城市的骄傲";
+	mes "现在正负责";
+	mes "米德加兹王国的运河地域.";
 	next;
-	mes "[City of the Dead, Nifflheim]";
-	mes "As a tourist attraction, The Witch's castle is suggested.";
-	mes "Unlike normal towns, it is prohibited to save respawn point or";
-	mes "warp point inside Nifflheim. Also monsters spawn within the town as well.";
+	mes "[运河之都 艾尔帕兰]";
+	mes "主要建筑物有位于城市城市中央的";
+	mes "巨大钟塔地下室.";
+	mes "卡普拉服务总公司";
+	mes "可以转职成炼金术士";
+	mes "的炼金术师公会等.";
+	mes "请不要忘记.";
 	next;
-	mes "[City of the Dead, Nifflheim]";
-	mes "Especially, please be attentive with a boss monster";
-	mes "called ^6B1312Lord of the Death^000000.";
+	mes "[运河之都 艾尔帕兰]";
+	mes "钟塔附近的某个地方";
+	mes "有位圣诞老公公会";
+	mes "帮你传送到叫做";
+	mes "^1D2585姜饼城^000000的城市. ";
+	mes "要是有兴趣的话";
+	mes "可以去看看喔.";
 	next;
-	mes "[City of the Dead, Nifflheim]";
-	mes "When you go ahead west, you will arrive at ^6B1312Valley of Gyoll^000000";
-	mes "where all the powerful and fearful monsters dwell upon.";
-	mes "It is suggested to leave the area immediately in case of a new solo adventurer.";
+	mes "[运河之都 艾尔帕兰]";
+	mes "往北边是, ^60D5FD朱诺^000000";
+	mes "往南边可以去^6D6FE0普隆德拉^000000.";
+	mes "祝你一路顺风.";
 	close;
 }
 
-/*
-moc_fild15,267,264,5	script	Bulletin Board#26	837,{
-	mes "[Ant Hell]";
-	mes "^6B1312Caution!^000000";
-	mes "Ant Hell is consisting of 2 levels.";
-	mes "As the name shows, this dungeon is filled with various ants";
-	mes "and good as the training grounds for new adventurers.";
+aldebaran,136,133,5	script	告示牌#19	2_BULLETIN_BOARD,{
+	mes "[钟塔 密穴]";
+	mes "^6B1312注意!^000000";
+	mes "只有经验丰富的冒险家, ";
+	mes "才能考虑进入钟塔. ";
+	mes "钟塔是由地上4层和";
+	mes "地下4层构成的巨大密穴.";
 	next;
-	mes "[Ant Hell]";
-	mes "However, please be aware that ^6B1312Maya Purple^000000 appears in the 1st level";
-	mes "and ^6B1312Maya^000000 does in the 2nd level. They are the queens of ants.";
-	mes "Also, in the field where you're standing";
-	mes "a boss monster called ^6B1312Phreeoni^000000 will appear at certain time.";
+	mes "[钟塔 密穴]";
+	mes "主要怪物有古钟魔, ";
+	mes "钟怪, 巫婆等, ";
+	mes "只会在这里看得到的怪物, ";
+	mes "地上会有钟塔守护者巡逻.";
+	next;
+	mes "[钟塔 密穴]";
+	mes "因为钟塔的路径, ";
+	mes "传点设置非常复杂, ";
+	mes "所以要注意迷路喔. ";
+	mes "祝你一路顺风.";
 	close;
 }
-*/
 
-glast_01,369,308,5	script	Bulletin Board#28	837,{
-	mes "[Glast Heim]";
-	mes "Glast Heim is an enormous dungeon with countless levels.";
-	mes "This dungeon is definately not for new or experienced adventurers";
-	mes "but for dungeon experts.";
+moc_fild19,107,101,5	script	告示牌#20	2_BULLETIN_BOARD,{
+	mes "[史芬克斯 密穴]";
+	mes "^6B1312注意!^000000";
+	mes "史芬克斯 密穴是由地下5层构成的密穴.";
+	mes "密穴训练适合, ";
+	mes "经验丰富的冒险家. ";
 	next;
-	mes "[Glast Heim]";
-	mes "There are many fearsome monsters such as ^6B1312Dark Lord^000000,";
-	mes "^6B1312Owl Baron^000000, ^6B1312Owl Duke^000000, ^6B1312Dark Illusion^000000, ^6B1312Bloody Knight^000000, ^6B1312Abysmal Knight^000000, ^6B1312Chimera^000000 and various types of doomed swords.";
+	mes "[史芬克斯 密穴]";
+	mes "有许多主动攻击怪物, ";
+	mes "居住在密穴里面, ";
+	mes "所以被怪物围攻时, ";
+	mes "要学会逃跑的办法喔.";
 	next;
-	mes "[Glast Heim]";
-	mes "However, more difficult the expedition is, greater the reward is.";
-	mes "Therefore, this dungeon is pretty popular among dungeon experts.";
-	mes "Enjoy your dungeon expedition.";
+	mes "[史芬克斯 密穴]";
+	mes "地下5层的boss, ";
+	mes "叫 ^6B1312法老王^000000, ";
+	mes "异常凶猛, ";
+	mes "在一定时间出现.";
+	close;
+}
+
+gef_tower,55,142,5	script	祝你一路顺风#21	2_BULLETIN_BOARD,{
+
+	mes "[吉芬塔 地下密穴]";
+	mes "^6B1312注意!^000000"; 
+	mes "吉芬塔 地下密穴3楼";
+	mes "对于初学者来说非常的困难!";
+	mes "主要出现的怪物有,";
+	mes "^6B1312赤苍蝇^000000, ^6B1312梦魇^000000 和 ^6B1312南瓜先生^000000.";
+	mes "特别是梦魇, 南瓜先生等只有在这里才会看到.";
+	next;
+	mes "[吉芬塔 地下密穴]";
+	mes "吉芬塔 地下密穴2楼会出现魔界怪物,";
+	mes "^6B1312兽牙怪^000000, 和 BOSS怪物 ^6B1312德古拉男爵^000000,";
+	mes "所以要特别注意喔.";
+	mes "地下密穴3楼有boss魔物, ^6B1312死灵^000000 在一定的时间出现.";
+	close;
+}
+
+xmas_fild01,75,80,5	script	祝你一路顺风#22	2_BULLETIN_BOARD,{
+
+	mes "[白雪村落 姜饼城]";
+	mes "欢迎来到白雪村落 姜饼城, ";
+	mes "因为是个一直下雪的城市";
+	mes "所以贩卖玩具工厂生产的玩具是这个城市的特点";
+	next;
+	mes "[白雪村落 姜饼城]";
+	mes "往姜饼城的北边可以进入";
+	mes "玩具 密穴.";
+	mes "每年到了特定的日子, .";
+	mes "就会有特别的活动.";
+	mes "请提防 ^6B1312冰暴骑士^000000 和 ^6B1312卡仑^000000 密穴里的怪物.";
+	close;
+}
+
+xmas,147,311,5	script	祝你一路顺风#23	2_BULLETIN_BOARD,{
+
+	mes "[玩具工厂]";
+	mes "^6B1312注意!^000000";
+	mes "玩具工厂由2层构成.";
+	mes "大致上进行冒险时并不会很困难,";
+	mes "但有3个boss级魔物在一定时间内出现.";
+	next;
+	mes "[玩具工厂]";
+	mes "在1楼, 你会遇到boss, ^6B1312天使波利^000000.";
+	mes "在2楼, 你会遇到2只boss级的怪物, ";
+	mes "^6B1312冰暴骑士^000000 和 ^6B1312卡仑^000000, 建议准备好在冒险.";
+	mes "还有, ^6B1312邪恶礼盒^000000, ^6B1312玩具士兵^000000 和 ^6B1312甜饼人^000000 等怪物只有在这里才可以看得到喔.";
+	close;
+}
+
+yuno_fild03,37,143,5	script	告示牌#24	2_BULLETIN_BOARD,{
+
+	mes "[熔岩密穴 诺可罗德]";
+	mes "^6B1312注意!^000000";
+	mes "此地诺可罗德出没的魔物全部都是先攻怪物, 是个非常危险的地方.";
+	mes "若不是累积很多经验的冒险者, 严禁出入喔.";
+	next;
+	mes "[熔岩密穴 诺可罗德]";
+	mes "这里的主要怪物是";
+	mes "^6B1312熔岩巨石^000000 和 ^6B1312七彩梦魇^000000.";
+	mes "请小心.";
+	close;
+}
+
+niflheim,200,191,5	script	告示牌#25	2_BULLETIN_BOARD,{
+
+	mes "[死者国家 尼芙菲姆]";
+	mes "欢迎来到死者国家 尼芙菲姆";
+	mes "尼芙菲姆是个死者才能来的地方";
+	mes "但是, 最近透过神秘的树";
+	mes "死者以外的人也可见到来至此处";
+	mes "所以, 你会发现很多死者周游这个地区.";
+	next;
+	mes "[死者国家 尼芙菲姆]";
+	mes "主要设施有魔女的行馆, 尼芙菲姆和其他村落、城市.";
+	mes "不同的是没有出路";
+	mes "w街道上常有魔物出没.";
+	next;
+	mes "[死者国家 尼芙菲姆]";
+	mes "这儿有只boss级的魔物会出现在路上";
+	mes "叫 ^6B1312死灵^000000请小心.";
+	next;
+	mes "[死者国家 尼芙菲姆]";
+	mes "往西边有个 ^6B1312鬼的峡谷^000000";
+	mes "这边有很多凶猛的魔物栖息着.";
+	mes "1个人的话请尽速离去.";
+	close;
+}
+
+moc_fild15,267,264,5	script	告示牌#26	2_BULLETIN_BOARD,{
+	mes "[蚂蚁地狱]";
+	mes "^6B1312注意!^000000";
+	mes "注意! 蚂蚁地狱是由地下2层构成的密穴";
+	mes "如名字一样是由很多蚂蚁构成的密穴, ";
+	mes "初学者过来冒险也不会有大困难喔";
+	next;
+	mes "[蚂蚁地狱]";
+	mes "但是, 请注意 ^6B1312狂暴蚁后^000000 出现在地下1楼, ";
+	mes "^6B1312蚁后^000000 会在地下2楼会出没.";
+	mes "现在所在的区域会出现, ";
+	mes "凶猛的 boss 魔物 ^6B1312皮里恩^000000 将出现在一定的时间.";
+	close;
+}
+
+moc_ruins,61,164,5	script	告示牌#27	2_BULLETIN_BOARD,{
+
+	mes "[金字塔]";
+	mes "^6B1312注意!^000000";
+	mes "金字塔共分为地上4楼和地下3楼7个级别.";
+	mes "适合有等级的玩家, 另外地下1楼有可转职为盗贼的盗贼公会.";
+	next;
+	mes "[金字塔]";
+	mes "地下1楼, 是盗贼公会, 人们可以转职为盗贼职业.";
+	mes "地上4楼:boss魔物为 ^6B1312俄塞里斯^000000 在一定的时间出现.";
+	mes "地下3楼:^6B1312古埃及王^000000 在一定的时间出现.";
+	close;
+}
+
+glast_01,369,308,5	script	告示牌#28	2_BULLETIN_BOARD,{
+
+	mes "[克雷斯特汉姆古城]";
+	mes "克雷斯特汉姆古城是由相当数量的密穴构成的地方.";
+	mes "不管是哪个密穴都是初学者无法接近的难度, ";
+	mes "所以要是没有一定的经验最好不要靠近喔. ";
+	next;
+	mes "[克雷斯特汉姆古城]";
+	mes "很多密穴不仅有 ^6B1312黑暗之王^000000,";
+	mes "^6B1312鹗枭男爵^000000, 等BOSS怪物, 还有^6B1312鹗枭首领^000000, ^6B1312迷幻之王^000000, ^6B1312血腥骑士^000000, ^6B1312深渊骑士^000000, ^6B1312凯美拉^000000 各种魔界等无数很强的怪物登场.";
+	next;
+	mes "[克雷斯特汉姆古城]";
+	mes "虽然冒险很困难, 但相对的有很大的补偿.";
+	mes "所以有很多冒险家会来这里, ";
+	mes "希望和很多人一起来冒险喔. ";
 	close;
 }
