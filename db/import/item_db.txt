@@ -65,3 +65,14 @@
 // Non-kRO Eden Group Mark effect
 //=============================================================
 //22508,Para_Team_Mark_,Eden Group Mark,11,0,,0,,,,0,0xFFFFFFFF,63,2,,,,,,{ unitskilluseid getcharid(3),"AL_TELEPORT",3; },{},{}
+
+11601,Delicious_Anchovy,Delicious Anchovy,0,20,,30,,,,,0xFFFFFFFF,63,2,,,,,,{ itemheal rand(30,46),0; },{},{}
+19084,Parfaille_Vigilante_Hat,帕鲁皮尔自卫队的帽子,4,0,,100,,2,,0,0x80000000,63,2,256,,20,1,1368,{ bonus bLuk,1; bonus3 bAutoSpell,"AL_BLESSING",3,10; /*TODO: search rate*/ },{},{}
+22984,Kahluna_Milk,Kahluna Milk,0,6,,10,,,,,0xFFFFFFFF,63,2,,,,,,{ sc_start SC_DORAM_BUF_01, 180000, 0; },{},{}
+25043,Thorny_Vine_Flute,Thorny Vine Flute,3,0,,0,,,,,,,,,,,,,{},{},{}
+25044,Hard_Thorny_Vine,Hard Thorny Vine,3,0,,10,,,,,,,,,,,,,{},{},{}
+25045,Luxurious_Cloth,Luxurious Cloth,3,0,,0,,,,,,,,,,,,,{},{},{}
+25046,Boarding_Pass,Boarding Pass,3,0,,0,,,,,,,,,,,,,{},{},{}
+25047,Kahlunac,Kahlunac,3,0,,0,,,,,,,,,,,,,{},{},{}
+25048,Hearty_Lunchbox,Hearty Lunchbox,3,0,,0,,,,,,,,,,,,,{},{},{}
+25049,Basilac_Clam,Basilac Clam,3,0,,0,,,,,,,,,,,,,{},{},{}
