@@ -1,73 +1,76 @@
+//============================================================
+//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
 //===== rAthena Script ======================================= 
 //= Rachel Guides
 //===== By: ================================================== 
 //= L0ne_W0lf
 //===== Current Version: ===================================== 
-//= 1.1
+//= 1.0
 //===== Compatible With: ===================================== 
-//= rAthena Project
+//= rAthena SVN
 //===== Description: ========================================= 
 //= [Official Conversion]
 //= Guide for the city of Rachel.
 //===== Additional Comments: ================================= 
 //= 1.0 First version, Renewal guide.
-//= 1.1 Navigation system update. [Euphy]
 //============================================================ 
 
-rachel,138,146,5	script	Rachel Guide#rachel	934,{
-	mes "[Rachel Guide]";
-	mes "Welcome to the capital of Arunafeltz, ^8B4513Rachel^000000 where the warm breath of the goddess Freya reaches.";
-	mes "If this is the first time for you to use the guide services, I suggest you ask many questions.";
-	F_Navi("[Rachel Guide]");
+rachel,138,146,5	script	拉赫导游#rachel	934,{
+	mes "[拉赫导游]";
+	mes "欢迎光临 阿卢纳贝兹首都^8B4513拉赫^000000";
+	mes "需要为您介绍吗?";
 	next;
 	while (1) {
-		switch(select("[ Main Facilities ]:[ Merchants & Helpers ]:Remove Marks from Mini-Map:Cancel")) {
+		switch(select("[ 主要设施 ]:[ 商店 & 小帮手 ]:删除小地图的标记:结束对话")) {
 		case 1:
 			set .@loop,1;
 			while (.@loop) {
-				switch(select("[ Inn ]:[ Weapon Shop ]:[ Tool Shop ]:[ Airport ]:[ Cheshrumnir ]:[ Priest Zed's Mansion ]:Previous Menu")) {
+				switch(select("[ 旅馆 ]:[ 武器店 ]:[ 道具店 ]:[ 机场 ]:[ 瑟斯隆尼勒 ]:[ 牧师宾珊特宅邸 ]:返回上一选单")) {
 				case 1:
-					mes "[Rachel Guide]";
-					mes "You can rest your fatigue of the journey in the "+F_Navi("Inn","rachel,115,144")+". The left building next to me is the Inn of Rachel.";
-					mes "Would you like to check any other locations?";
+					mes "[拉赫导游]";
+					mes "旅途劳顿是最好到旅馆一下,左侧的大楼";
+					mes "就是拉赫的旅馆";
 					viewpoint 1,115,144,0,0xFF0000;
 					next;
 					break;
 				case 2:
-					mes "[Rachel Guide]";
-					mes "Do you want to check out the weapons that are sold in Rachel? The "+F_Navi("Weapon Shop","rachel,42,82")+" is located near the west gate.";
-					mes "Would you like to check any other locations?";
+					mes "[拉赫导游]";
+					mes "拉赫的武器店就在西门附近";
 					viewpoint 1,42,82,1,0xFF4500;
 					next;
 					break;
 				case 3:
-					mes "[Rachel Guide]";
-					mes "Rachel's "+F_Navi("Tool Shop","rachel,83,73")+" sells the best quality potions. It's located near the west gate.";
-					mes "Would you like to check any other locations?";
+					mes "[拉赫导游]";
+					mes "只贩售高级药水的拉赫道具店位于西门附";
+					mes "近";
 					viewpoint 1,83,73,2,0xDAA520;
 					next;
 					break;
 				case 4:
-					mes "[Rachel Guide]";
-					mes "The "+F_Navi("Airport","rachel,272,125")+" is located outside of the east gate.";
-					mes "Would you like to check any other locations?";
+					mes "[拉赫导游]";
+					mes "飞空艇航站位于拉赫的东门外";
 					viewpoint 1,272,125,3,0x008000;
 					next;
 					break;
 				case 5:
-					mes "[Rachel Guide]";
-					mes F_Navi("Cheshrumnir","rachel,150,243")+" is a holy ground where pope, the incarnation of goddess Freya stays.";
-					mes "Take the road to the north to find the building.";
-					mes "Would you like to check any other locations?";
+					mes "[拉赫导游]";
+					mes "瑟斯隆尼勒是女神弗蕾亚的化身教皇所在";
+					mes "的神圣场所,";
+					mes "沿着路往北走即可到达";
 					viewpoint 1,150,243,4,0x0000FF;
 					next;
 					break;
 				case 6:
-					mes "[Rachel Guide]";
-					mes "I will mark the location";
-					mes "of the "+F_Navi("Priest Zed's Mansion","rachel,98,238","^000080");
-					mes "on your mini-map.";
-					mes "Would you like to check any other locations?";
+					mes "[拉赫导游]";
+					mes "^000080牧师宾珊特宅邸^000000的";
+					mes "位置已经标记在";
+					mes "小地图上了,";
 					viewpoint 1,98,238,5,0x000080;
 					next;
 					break;
@@ -80,22 +83,20 @@ rachel,138,146,5	script	Rachel Guide#rachel	934,{
 		case 2:
 			set .@loop,1;
 			while (.@loop) {
-				switch(select("[ Cool Event Corp. Staff ]:[ Eden Teleport Officer ]:Previous Menu")) {
+				switch(select("[ 准它企划公司职员 ]:[ 伊甸园传送师 ]:返回上一选单")) {
 				case 1:
-					mes "[Rachel Guide]";
-					mes "I will mark the location";
-					mes "of the "+F_Navi("Cool Event Corp. Staff","rachel,110,138","^803232");
-					mes "on your mini map.";
-					mes "Would you like to check any other locations?";
+					mes "[拉赫导游]";
+					mes "^803232准它企划公司职员^000000的";
+					mes "位置已经标记在";
+					mes "小地图上了.";
 					viewpoint 1,110,138,7,0x803232;
 					next;
 					break;
 				case 2:
-					mes "[Rachel Guide]";
-					mes "I will mark the location";
-					mes "of the "+F_Navi("Eden Teleport Officer","rachel,125,144","^556B2F");
-					mes "on your mini-map.";
-					mes "Would you like to check any other locations?";
+					mes "[拉赫导游]";
+					mes "^556B2F伊甸园传送师^000000";
+					mes "位置已经标记在";
+					mes "小地图上了,";
 					viewpoint 1,125,144,8,0x556B2F;
 					next;
 					break;
@@ -106,9 +107,9 @@ rachel,138,146,5	script	Rachel Guide#rachel	934,{
 			}
 			break;
 		case 3:
-			mes "[Rachel Guide]";
-			mes "Sure, I'll remove all marks from your mini-map.";
-			mes "Is there anything else I can do for you?";
+			mes "[拉赫导游]";
+			mes "标记已删除,";
+			mes "还需要其它服务吗?";
 			viewpoint 2,115,144,0,0xFFFFFF;
 			viewpoint 2,42,82,1,0xFFFFFF;
 			viewpoint 2,83,73,2,0xFFFFFF;
@@ -120,8 +121,8 @@ rachel,138,146,5	script	Rachel Guide#rachel	934,{
 			next;
 			break;
 		case 4:
-			mes "[Rachel Guide]";
-			mes "Have a safe journey!";
+			mes "[拉赫导游]";
+			mes "祝你旅途愉快!";
 			close;
 		}
 	}

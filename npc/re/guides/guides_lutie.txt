@@ -1,57 +1,62 @@
+//============================================================
+//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
 //===== rAthena Script ======================================= 
 //= Lutie Guide
 //===== By: ================================================== 
 //= L0ne_W0lf
 //===== Current Version: ===================================== 
-//= 1.2
+//= 1.1
 //===== Compatible With: ===================================== 
-//= rAthena Project
+//= rAthena SVN
 //===== Description: ========================================= 
 //= [Official Conversion]
 //= Guide for the city of Lutie.
 //===== Additional Comments: ================================= 
 //= 1.0 First version, Renewal guide.
 //= 1.1 Fixed and optimized. [Euphy]
-//= 1.2 Navigation system update. [Euphy]
 //============================================================ 
 
-xmas,140,137,3	script	Lutie Guide#xmas	717,{
-	mes "[Lutie Guide]";
-	mes "Welcome to ^8B4513Lutie^000000,";
-	mes "the Snow Village.";
-	mes "Do you need help navigating the village?";
-	F_Navi("[Lutie Guide]");
+xmas,140,137,3	script	姜饼城导游#xmas	717,{
+	mes "[姜饼城导游]";
+	mes "欢迎光临 ^8B4513姜饼城^000000,";
+	mes "需要为您介绍吗?";
 	while (1) {
 		next;
-		switch(select("[ Gift Shop ]:[ Church ]:[ Weapon & Armor Shop ]:[ Tool Shop ]:[ Santa's House ]:[ Toy Factory ]:Remove Marks from Mini-Map:Cancel")) {
+		switch(select("[ 礼品商店 ]:[ 教堂 ]:[ 武器及防具店 ]:[ 道具店 ]:[ 圣诞老公家 ]:[ 玩具工厂 ]:删除小地图的标记:结束对话")) {
 		case 1:
-			callsub L_Mark, F_Navi("Gift Shop","xmas,172,131","^008080");
+			callsub L_Mark,"^008080礼品商店";
 			viewpoint 1,172,131,2,0x008080;
 			break;
 		case 2:
-			callsub L_Mark, F_Navi("Church","xmas,104,287","^006400");
+			callsub L_Mark,"^006400教堂";
 			viewpoint 1,104,287,1,0xAAFF00;
 			break;
 		case 3:
-			callsub L_Mark, F_Navi("Weapon & Armor Shop","xmas,171,158","^FF1493");
+			callsub L_Mark,"^FF1493武器及防具店";
 			viewpoint 1,171,158,3,0xFF1493;
 			break;
 		case 4:
-			callsub L_Mark, F_Navi("Tool Shop","xmas,122,131","^8B4513");
+			callsub L_Mark,"^8B4513道具店";
 			viewpoint 1,122,131,4,0x8B4513;
 			break;
 		case 5:
-			callsub L_Mark, F_Navi("Santa's House","xmas,149,237","^B9062F"),1;
+			callsub L_Mark,"^B9062F圣诞老公家";
 			viewpoint 1,149,237,5,0x9400D3;
 			break;
 		case 6:
-			callsub L_Mark, F_Navi("Toy Factory","xmas,143,312","^9400D3");
+			callsub L_Mark,"^9400D3玩具工厂";
 			viewpoint 1,143,312,6,0xFF0000;
 			break;
 		case 7:
-			mes "[Lutie Guide]";
-			mes "Sure, I'll remove all marks from your mini-map.";
-			mes "Is there anything else I can do for you?";
+			mes "[姜饼城导游]";
+			mes "标记已删除,";
+			mes "还需要其它服务吗?";
 			viewpoint 2,1,1,0,0xFFFFFF;
 			viewpoint 2,1,1,1,0xFFFFFF;
 			viewpoint 2,1,1,2,0xFFFFFF;
@@ -61,17 +66,18 @@ xmas,140,137,3	script	Lutie Guide#xmas	717,{
 			viewpoint 2,1,1,6,0xFFFFFF;
 			break;
 		case 8:
-			mes "[Lutie Guide]";
-			mes "Be safe on your travels.";
+			mes "[姜饼城导游]";
+			mes "祝你旅途愉快!";
 			close;
 		}
 	}
 	end;
 L_Mark:
-	mes "[Lutie Guide]";
-	mes "Let me mark the location of "+((getarg(1,0))?"":"the");
+	mes "[姜饼城导游]";
+	mes "让我在你的小地图上标记一下";
 	mes getarg(0)+"^000000";
-	mes "on your mini-map.";
-	mes "Would you like to check any other locations?";
+	mes "的位置.";
+	mes "你还需要确认其他建筑物的位置吗?";
 	return;
+
 }

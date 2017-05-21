@@ -1,3 +1,11 @@
+//============================================================
+//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
 //===== rAthena Script ======================================= 
 //= Navigation Functions
 //===== By: ================================================== 
@@ -28,7 +36,7 @@ function	script	F_Navi	{
 		if (!.@disabled) {
 			next;
 			mes getarg(0);
-			mes "When you click on the ^B9062F[location name]^000000, you'll receive the most advanced ^B9062FNavigation^000000 services!";
+			mes "当您点击^B9062F[位置名称]^000000, 您将会获得专业的^B9062F导航^000000服务!";
 		}
 		return;
 	default: // Display navigation link, if enabled; else set text color, if available.
