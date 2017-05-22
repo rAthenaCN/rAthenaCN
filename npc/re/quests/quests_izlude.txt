@@ -22,8 +22,8 @@
 //= 1.1 Added Izlude duplicates. [Euphy]
 //============================================================
 
-izlude,179,219,2	duplicate(Edgar_izlude)	çˆ±å¾·å˜‰#izlude	49
-izlude_a,179,219,2	duplicate(Edgar_izlude)	çˆ±å¾·å˜‰#izlude_a	49
-izlude_b,179,219,2	duplicate(Edgar_izlude)	çˆ±å¾·å˜‰#izlude_b	49
-izlude_c,179,219,2	duplicate(Edgar_izlude)	çˆ±å¾·å˜‰#izlude_c	49
-izlude_d,179,219,2	duplicate(Edgar_izlude)	çˆ±å¾·å˜‰#izlude_d	49
+izlude,179,219,2	duplicate(Edgar_izlude)	°®µÂ¼Î#izlude	49
+izlude_a,179,219,2	duplicate(Edgar_izlude)	°®µÂ¼Î#izlude_a	49
+izlude_b,179,219,2	duplicate(Edgar_izlude)	°®µÂ¼Î#izlude_b	49
+izlude_c,179,219,2	duplicate(Edgar_izlude)	°®µÂ¼Î#izlude_c	49
+izlude_d,179,219,2	duplicate(Edgar_izlude)	°®µÂ¼Î#izlude_d	49

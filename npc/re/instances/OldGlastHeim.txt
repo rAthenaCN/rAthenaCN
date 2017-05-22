@@ -1,3 +1,11 @@
+//============================================================
+//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
 //===== rAthena Script ======================================= 
 //= Old Glast Heim
 //===== By: ================================================== 
@@ -15,55 +23,57 @@
 //= 1.1 Bug fixes; removed redundant OnInstanceInit scripts.
 //============================================================ 
 
-glast_01,204,273,6	script	Hugin#ghinstance	755,{
-	mes "^ff0000This isn't considered a normal progression dungeon. Please note this point.^000000";
+glast_01,204,273,6	script	华金#ghinstance	755,{
+	mes "^ff0000请注意，这里不是一个普通的副本。^000000";
 	next;
-	mes "[Hugin]";
-	mes "Huh? You feel like you have seen me in different places? I see. What can I say?";
+	mes "[华金]";
+	mes "唔？你说好像在其他地方见过我吗？是看错了吧。这次你要怎么样呢？";
 	next;
 	set .@ghins_time, checkquest(12317,PLAYTIME);
 	if (.@ghins_time == -1) {
-
 		set .@party_id,getcharid(1);
 		set .@p_name$,getpartyname(.@party_id);
 		set .@md_name$,"Old Glast Heim";
-
-		if (!instance_check_party(.@party_id,2)) {
+		if (!instance_check_party(.@party_id,1)) {
 			//custom
-			mes "[Hugin]";
-			mes "Where are your party members?";
+			mes "[华金]";
+			mes "请先组建一个队伍。";
 			close;
 		}
-
 		if (getcharid(0) == getpartyleader(.@party_id,2))
-			set .@menu$, "Create the time gap.:Enter the Old Glast Heim.:Cancel.";
+			set .@menu$, "产生时间的歪曲:进入古代的克雷斯特汉姆:取消";
 		else
-			set .@menu$, ":Enter the Old Glast Heim.:Cancel.";
+			set .@menu$, ":进入古代的克雷斯特汉姆:取消";
 		switch(select(.@menu$)) {
 		case 1:
-			if (instance_create(.@md_name$) < 0) {
-				mes "Party Name: "+.@p_name$;
-				mes "Party Leader: "+strcharinfo(0);
-				mes "^0000ff"+.@md_name$+" ^000000- Reservation Failed!";
+			if (getcharid(0) != getpartyleader(.@party_id,2)) {
+				mes "[华金]";
+				mes "请队长来进行时间的歪曲。";
 				close;
 			}
-			mes "[Hugin]";
-			mes "The time gap was created. When you're ready, talk to me again.";
+			if (instance_create(.@md_name$) < 0) {
+				mes "队伍名称："+.@p_name$;
+				mes "队    长："+strcharinfo(0);
+				mes "^0000ff"+.@md_name$+" ^000000 建立失败！";
+				close;
+			}
+			mes "[华金]";
+			mes "副本进度已经建立。你们准备好的时候，请再次与我对话。";
 			close;
 		case 2:
 			switch(instance_enter(.@md_name$)) {
 			case 3:
-				mes "An unknown error has occurred.";
+				mes "发生一个未知错误。";
 				close;
 			case 2:
-				mes "The memorial dungeon "+.@md_name$+" does not exist.";
-				mes "The party leader did not generate the dungeon yet.";
+				mes "副本进度 "+.@md_name$+" 不存在。";
+				mes "队长还没有建立副本进度。";
 				close;
 			case 1:
-				mes "Only the registered members can enter the instance "+.@md_name$+".";
+				mes "只有注册过的成员可以进入副本 "+.@md_name$+"。";
 				close;
 			case 0:
-				mapannounce "glast_01",strcharinfo(0)+", member of the party "+.@p_name$+" entered the instance "+.@md_name$+".",bc_map,"0x00ff99";
+				mapannounce "glast_01",strcharinfo(0)+"，队伍成员 "+.@p_name$+" 进入了副本 "+.@md_name$+"。",bc_map,"0x00ff99";
 				setquest 12317;
 				setquest 12318;
 				//warp "1@gl_k",150,20;
@@ -73,15 +83,15 @@ glast_01,204,273,6	script	Hugin#ghinstance	755,{
 			close;
 		}
 	} else if (.@ghins_time == 0 || .@ghins_time == 1) {
-		mes "[Hugin]";
-		mes "Oh, geez.";
-		mes "Your body is still under the effects of time travel. In this state, you will not be able to travel again.";
+		mes "[华金]";
+		mes "噢，天啊。";
+		mes "你的身上还有副本的印记。这种情况下，你是不可以再次进入副本的。";
 		next;
-		mes "[Hugin]";
-		mes "You should rest and come back later for more.";
+		mes "[华金]";
+		mes "你应该多休息一下，晚些时候再来。";
 		close;
 	} else {
-		mes "^0000ffOld Glast Heim access trail has been cleared. It is now possible to talk to Hugin.^000000";
+		mes "^0000ff古代的克雷斯特汉姆的印记已被清除。现在可以再次与华金对话了。^000000";
 		erasequest 12317;
 		if (checkquest(12318) > -1) erasequest 12318;
 		if (checkquest(12319) > -1) erasequest 12319;
@@ -91,97 +101,97 @@ glast_01,204,273,6	script	Hugin#ghinstance	755,{
 
 // Floor 1
 //============================================================
-1@gl_k,149,41,6	script	Varmunt#ghinstance1	654,{
+1@gl_k,149,41,6	script	巴尔蒙德#ghinstance1	654,{
 	if (getcharid(0) == getpartyleader(getcharid(1),2)) {
-		mes "Hey ^0000ffguys^000000, were you sent here to help me?";
-		npctalk "Varmunt : Hey guys, were you sent here to help me?";
+		mes "你们来了？你们是来帮助我们的吗？";
+		npctalk "巴尔蒙德：你们来了？你们是来帮助我们的吗？";
 		cutin "gl_barmund1",2;
 		next;
-		select("Oh. Well, about that...");
+		select("噢，是的。关于这件事…");
 		mes "["+strcharinfo(0)+"]";
-		mes "Oh yeah, hahaha, we were told to meet someone called Varmunt.";
-		unittalk getcharid(3), strcharinfo(0) +" : Oh yeah, hahaha, we were told to meet someone called Varmunt.";
+		mes "嗯，我们被告知来找一个叫巴尔蒙德的。";
+		unittalk getcharid(3),"嗯，我们被告知来找一个叫巴尔蒙德的。";
 		next;
-		mes "[Varmunt]";
-		mes "We don't have time. We must tell Sir Heinrich about Himmelmez's invasion.";
-		npctalk "Varmunt : We don't have time. We must tell Sir Heinrich about Himmelmez's invasion.";
+		mes "[巴尔蒙德]";
+		mes "那别浪费时间了。我们必须告诉海因里希司令官，希梅尔麦兹要来了。";
+		npctalk "巴尔蒙德：那别浪费时间了。我们必须告诉海因里希司令官，希梅尔麦兹要来了。";
 		cutin "gl_barmund2",2;
 		next;
-		select("What Himmelmez...");
+		select("希梅尔麦兹是谁…");
 		mes "["+strcharinfo(0)+"]";
-		mes "Himmelmez? Who the hell is she?";
-		unittalk getcharid(3), strcharinfo(0) +" : Himmelmez? Who the hell is she?";
+		mes "希梅尔麦兹？她是什么人？";
+		unittalk getcharid(3),"希梅尔麦兹？她是什么人？";
 		next;
-		mes "[Varmunt]";
-		mes "Didn't anybody give you the basic informations?";
-		npctalk "Varmunt : Didn't anybody give you the basic informations?";
+		mes "[巴尔蒙德]";
+		mes "没有人告诉过你最基本的情报吗？";
+		npctalk "巴尔蒙德：没有人告诉过你最基本的情报吗？";
 		cutin "gl_barmund3",2;
 		next;
-		mes "[Varmunt]";
-		mes "The Valkyrie of the dead. She's after the Ymir's Heart pieces hidden here.";
-		npctalk "Varmunt : The Valkyrie of the dead. She's after the Ymir's Heart pieces hidden here";
+		mes "[巴尔蒙德]";
+		mes "她是代表死亡的巴基力。她在寻找藏在这里的伊米尔之心的碎片。";
+		npctalk "巴尔蒙德：她是代表死亡的巴基力。她在寻找藏在这里的伊米尔之心的碎片。";
 		cutin "gl_barmund2",2;
 		next;
-		mes "[Varmunt]";
-		mes "She's capable of destroying the whole castle for this purpose.";
-		npctalk "Varmunt : She's capable of destroying the whole castle for this purpose.";
+		mes "[巴尔蒙德]";
+		mes "为了这个目的，她甚至会摧毁这里，她的确具备这个能力。";
+		npctalk "巴尔蒙德：为了这个目的，她甚至会摧毁这里，她的确具备这个能力。";
 		next;
-		mes "[Varmunt]";
-		mes "Hurry up! Inform Sir Heinrich that Himmelmez is coming. I will briefly explore the enchantments she made to this place!";
-		npctalk "Varmunt : Hurry up! Inform Sir Heinrich that Himmelmez is coming. I will briefly explore the enchantments she made to this place!";
+		mes "[巴尔蒙德]";
+		mes "赶快！告诉海因里希司令官，希梅尔麦兹就要来了。我也要开始制定应对她的策略了！";
+		npctalk "巴尔蒙德：赶快！告诉海因里希司令官，希梅尔麦兹就要来了。我也要开始制定应对她的策略了！";
 		close2;
 		cutin "gl_barmund2",255;
-		donpcevent instance_npcname("Varmunt#ghinstance1")+"::OnDisable2";
+		donpcevent instance_npcname("巴尔蒙德#ghinstance1")+"::OnDisable2";
 		end;
 	} else {
-		mes "[Varmunt]";
-		mes "Where is he? We";
-		mes "need his help.";
+		mes "[巴尔蒙德]";
+		mes "你们的代表在哪里？";
+		mes "我需要他的帮助。";
 		cutin "gl_barmund2",2;
 		close2;
 		cutin "gl_barmund2",255;
 		end;
 	}
 OnInstanceInit:
-	donpcevent instance_npcname("Varmunt#ghinstance1")+"::OnEnable";
+	donpcevent instance_npcname("巴尔蒙德#ghinstance1")+"::OnEnable";
 	end;
 OnDisable:
-	hideonnpc instance_npcname("Varmunt#ghinstance1");
+	hideonnpc instance_npcname("巴尔蒙德#ghinstance1");
 	end;
 OnDisable2:
-	hideonnpc instance_npcname("Varmunt#ghinstance1");
+	hideonnpc instance_npcname("巴尔蒙德#ghinstance1");
 
 	for(set .@i,1; .@i<=20; set .@i,.@i+4) {
-		hideoffnpc instance_npcname("Khalitzburg Crusader#"+.@i);
-		hideoffnpc instance_npcname("Khalitzburg Crusader#"+(.@i+1));
-		hideoffnpc instance_npcname("White Knight#"+(.@i+2));
-		hideoffnpc instance_npcname("White Knight#"+(.@i+3));
+		hideoffnpc instance_npcname("卡利斯格十字军#"+.@i);
+		hideoffnpc instance_npcname("卡利斯格十字军#"+(.@i+1));
+		hideoffnpc instance_npcname("纯白骑士#"+(.@i+2));
+		hideoffnpc instance_npcname("纯白骑士#"+(.@i+3));
 	}
-	hideoffnpc instance_npcname("Khalitzburg Crusader#21");
-	hideoffnpc instance_npcname("Khalitzburg Crusader#22");
+	hideoffnpc instance_npcname("卡利斯格十字军#21");
+	hideoffnpc instance_npcname("卡利斯格十字军#22");
 
-	hideoffnpc instance_npcname("Heinrich#ghinstance1");
-	hideoffnpc instance_npcname("Varmunt#ghinstance2");
+	hideoffnpc instance_npcname("海因里希#ghinstance1");
+	hideoffnpc instance_npcname("巴尔蒙德#ghinstance2");
 	end;
 OnEnable:
-	hideoffnpc instance_npcname("Varmunt#ghinstance1");
+	hideoffnpc instance_npcname("巴尔蒙德#ghinstance1");
 	end;
 }
 
-1@gl_k,145,54,6	script	Khalitzburg Crusader#1	655,{
+1@gl_k,145,54,6	script	卡利斯格十字军#1	655,{
 	mes "["+strnpcinfo(1)+"]";
 	switch((atoi(strnpcinfo(2)) + 1) / 2) {
-		case 1: mes "Would I be recruited?"; break;
-		case 2: mes "May I help you?"; break;
-		case 3: mes "..."; break;
-		case 4: mes "I do not like to chit-chat during work."; break;
-		case 5: mes "The aura of the castle has changed, don't you think? Something like a presence seemed to appear a little while ago."; break;
-		case 6: mes "I wonder what commandant Varmunt is doing. I heard people are running away..."; break;
-		case 7: mes "Quiet please."; break;
-		case 8: mes "A fuss seems to be near."; break;
-		case 9: mes "A dream last night really bothered me. My mother used to say that these dreams may come true..."; break;
-		case 10: mes "Is Varmunt going with you? The commandant is waiting for you."; break;
-		case 11: mes "Soon it's time to change shifts. I wonder what happened to the other knights."; break;
+		case 1: mes "又有新任务了？"; break;
+		case 2: mes "有什么需要帮忙的吗？"; break;
+		case 3: mes "…"; break;
+		case 4: mes "我不喜欢在值勤时聊天。"; break;
+		case 5: mes "城堡的气氛好怪啊，你不觉得吗？好像有什么东西来了。"; break;
+		case 6: mes "我想司令官和巴尔蒙德开始行动了。我听到平民撤离的声音…"; break;
+		case 7: mes "嘘！安静。"; break;
+		case 8: mes "我有预感会发生不好的事。"; break;
+		case 9: mes "昨晚的噩梦真让我困惑。我母亲说这些噩梦有可能成真…"; break;
+		case 10: mes "你是和巴尔蒙德一起的吗？指挥官大人正在等你们。"; break;
+		case 11: mes "要换岗了。但我不知道其他骑士去哪了。"; break;
 	}
 	close;
 OnInstanceInit:
@@ -192,89 +202,89 @@ OnEnable:
 	hideoffnpc instance_npcname(strnpcinfo(0));
 	end;
 }
-1@gl_k,154,54,3	duplicate(Khalitzburg Crusader#1)	Khalitzburg Crusader#2	655
-1@gl_k,145,59,6	duplicate(Khalitzburg Crusader#1)	White Knight#3	657
-1@gl_k,154,59,3	duplicate(Khalitzburg Crusader#1)	White Knight#4	657
-1@gl_k,145,64,6	duplicate(Khalitzburg Crusader#1)	Khalitzburg Crusader#5	655
-1@gl_k,154,64,3	duplicate(Khalitzburg Crusader#1)	Khalitzburg Crusader#6	655
-1@gl_k,145,69,6	duplicate(Khalitzburg Crusader#1)	White Knight#7	657
-1@gl_k,154,69,3	duplicate(Khalitzburg Crusader#1)	White Knight#8	657
-1@gl_k,145,74,6	duplicate(Khalitzburg Crusader#1)	Khalitzburg Crusader#9	655
-1@gl_k,154,74,3	duplicate(Khalitzburg Crusader#1)	Khalitzburg Crusader#10	655
-1@gl_k,145,79,6	duplicate(Khalitzburg Crusader#1)	White Knight#11	657
-1@gl_k,154,79,3	duplicate(Khalitzburg Crusader#1)	White Knight#12	657
-1@gl_k,145,84,6	duplicate(Khalitzburg Crusader#1)	Khalitzburg Crusader#13	655
-1@gl_k,154,84,3	duplicate(Khalitzburg Crusader#1)	Khalitzburg Crusader#14	655
-1@gl_k,145,89,6	duplicate(Khalitzburg Crusader#1)	White Knight#15	657
-1@gl_k,154,89,3	duplicate(Khalitzburg Crusader#1)	White Knight#16	657
-1@gl_k,145,94,6	duplicate(Khalitzburg Crusader#1)	Khalitzburg Crusader#17	655
-1@gl_k,154,94,3	duplicate(Khalitzburg Crusader#1)	Khalitzburg Crusader#18	655
-1@gl_k,145,99,6	duplicate(Khalitzburg Crusader#1)	White Knight#19	657
-1@gl_k,154,99,3	duplicate(Khalitzburg Crusader#1)	White Knight#20	657
-1@gl_k,145,104,6	duplicate(Khalitzburg Crusader#1)	Khalitzburg Crusader#21	655
-1@gl_k,154,104,3	duplicate(Khalitzburg Crusader#1)	Khalitzburg Crusader#22	655
+1@gl_k,154,54,3	duplicate(卡利斯格十字军#1)	卡利斯格十字军#2	655
+1@gl_k,145,59,6	duplicate(卡利斯格十字军#1)	纯白骑士#3	657
+1@gl_k,154,59,3	duplicate(卡利斯格十字军#1)	纯白骑士#4	657
+1@gl_k,145,64,6	duplicate(卡利斯格十字军#1)	卡利斯格十字军#5	655
+1@gl_k,154,64,3	duplicate(卡利斯格十字军#1)	卡利斯格十字军#6	655
+1@gl_k,145,69,6	duplicate(卡利斯格十字军#1)	纯白骑士#7	657
+1@gl_k,154,69,3	duplicate(卡利斯格十字军#1)	纯白骑士#8	657
+1@gl_k,145,74,6	duplicate(卡利斯格十字军#1)	卡利斯格十字军#9	655
+1@gl_k,154,74,3	duplicate(卡利斯格十字军#1)	卡利斯格十字军#10	655
+1@gl_k,145,79,6	duplicate(卡利斯格十字军#1)	纯白骑士#11	657
+1@gl_k,154,79,3	duplicate(卡利斯格十字军#1)	纯白骑士#12	657
+1@gl_k,145,84,6	duplicate(卡利斯格十字军#1)	卡利斯格十字军#13	655
+1@gl_k,154,84,3	duplicate(卡利斯格十字军#1)	卡利斯格十字军#14	655
+1@gl_k,145,89,6	duplicate(卡利斯格十字军#1)	纯白骑士#15	657
+1@gl_k,154,89,3	duplicate(卡利斯格十字军#1)	纯白骑士#16	657
+1@gl_k,145,94,6	duplicate(卡利斯格十字军#1)	卡利斯格十字军#17	655
+1@gl_k,154,94,3	duplicate(卡利斯格十字军#1)	卡利斯格十字军#18	655
+1@gl_k,145,99,6	duplicate(卡利斯格十字军#1)	纯白骑士#19	657
+1@gl_k,154,99,3	duplicate(卡利斯格十字军#1)	纯白骑士#20	657
+1@gl_k,145,104,6	duplicate(卡利斯格十字军#1)	卡利斯格十字军#21	655
+1@gl_k,154,104,3	duplicate(卡利斯格十字军#1)	卡利斯格十字军#22	655
 
-1@gl_k,149,100,6	script	Heinrich#ghinstance1	652,{
+1@gl_k,149,100,6	script	海因里希#ghinstance1	652,{
 	if (getcharid(0) == getpartyleader(getcharid(1),2)) {
 		cutin "gl_heinrich2",2;
-		select("Heinrich, about the castle...");
+		select("海因里希大人，关于城堡…");
 		mes "["+strcharinfo(0)+"]";
-		mes "Do you know what is happening now in the castle, Heinrich?";
-		unittalk getcharid(3), strcharinfo(0) +" : Do you know what is happening now in the castle, Heinrich?";
+		mes "你知道这里将要发生什么吗，海因里希大人？";
+		unittalk getcharid(3),"你知道这里将要发生什么吗，海因里希大人？";
 		next;
-		mes "[Heinrich]";
-		mes "You are the adventurers who have come with Varmunt, right?";
-		npctalk "Heinrich : You are the adventurers who have come with Varmunt, right?";
+		mes "[海因里希]";
+		mes "你是巴尔蒙德带来的冒险家吧？";
+		npctalk "海因里希：你是巴尔蒙德带来的冒险家吧？";
 		next;
-		mes "[Heinrich]";
-		mes "What can I do for you? Is there something wrong?";
-		npctalk "Heinrich : What can I do for you? Is there something wrong?";
+		mes "[海因里希]";
+		mes "有什么事情吗？这里有什么问题？";
+		npctalk "海因里希：有什么事情吗？这里有什么问题？";
 		next;
-		select("The Ymir's Heart. Himmelmez...");
+		select("伊米尔之心。希梅尔麦兹…");
 		mes "["+strcharinfo(0)+"]";
-		mes "Himmelmez, the Valkyrie of the dead is looking to get a piece of the Ymir's heart hidden in the castle!";
-		unittalk getcharid(3), strcharinfo(0) +" : Himmelmez, the Valkyrie of the dead is looking to get a piece of the Ymir's heart hidden in the castle!";
+		mes "希梅尔麦兹，代表死亡的巴基力，她在寻找藏在这座城堡内的伊米尔之心的碎片！";
+		unittalk getcharid(3),"希梅尔麦兹，代表死亡的巴基力，她在寻找藏在这座城堡内的伊米尔之心的碎片！";
 		next;
-		mes "[Heinrich]";
-		mes "Haha. That's a nice joke. Now tell me what brings you here.";
-		npctalk "Heinrich : Haha. That's a nice joke. Now tell me what brings you here.";
+		mes "[海因里希]";
+		mes "哈哈。这是一个不错的笑话。好了，你为什么来这里。";
+		npctalk "海因里希：哈哈。这是一个不错的笑话。好了，你为什么来这里。";
 		cutin "gl_heinrich1",2;
 		next;
-		mes "[Varmunt]";
-		mes "I am not joking Heinrich, Sir. Now, if my judgement is correct, she will be here soon.";
-		donpcevent instance_npcname("Varmunt#ghinstance2")+"::OnTalk1";
+		mes "[巴尔蒙德]";
+		mes "我不是开玩笑，海因里希司令官。现在，假设我的判断是正确的，她很快就会来了。";
+		donpcevent instance_npcname("巴尔蒙德#ghinstance2")+"::OnTalk1";
 		cutin "gl_barmund2",2;
 		next;
-		mes "[Varmunt]";
-		mes "I trust this guy following me. The Ymir's Heart pieces must be hidden in a safe place before Himmelmez takes them!";
-		donpcevent instance_npcname("Varmunt#ghinstance2")+"::OnTalk2";
+		mes "[巴尔蒙德]";
+		mes "在希梅尔麦兹找到伊米尔之心的碎片之前，我们需要把它好好的藏起来！";
+		donpcevent instance_npcname("巴尔蒙德#ghinstance2")+"::OnTalk2";
 		next;
-		select("Even if you do not believe...");
+		select("即使你不相信…");
 		mes "["+strcharinfo(0)+"]";
-		mes "Even if you don't believe it, do something. We do not have much time!";
-		unittalk getcharid(3), strcharinfo(0) +" : Even if you don't believe it, do something. We do not have much time!";
+		mes "即使你不相信，这样做也没有坏处。我们没有多少时间了！";
+		unittalk getcharid(3),"即使你不相信，这样做也没有坏处。我们没有多少时间了！";
 		cutin "gl_barmund2",255;
 		next;
-		mes "[Heinrich]";
-		mes "I will be glad if you give me two minutes, please. But now the king isn't in his room.";
-		npctalk "Heinrich : I will be glad if you give me two minutes, please. But now the king isn't in his room.";
+		mes "[海因里希]";
+		mes "谢谢你们的好意。不过，国王现在不在这里。";
+		npctalk "海因里希：谢谢你们的好意。不过，国王现在不在这里。";
 		cutin "gl_heinrich1",2;
 		next;
-		mes "[Heinrich]";
-		mes "But I think that with such a busy agenda, he won't be able to take care of this.";
-		npctalk "Heinrich : But I think that with such a busy agenda, he won't be able to take care of this.";
-		donpcevent instance_npcname("Heinrich#ghinstance1")+"::OnDisable";
-		donpcevent instance_npcname("Heinrich#ghinstance2")+"::OnEnable";
-		donpcevent instance_npcname("Himmelmez#ghinstance1")+"::OnEnable";
+		mes "[海因里希]";
+		mes "我无权下令转移这么贵重的物品。";
+		npctalk "海因里希：我无权下令转移这么贵重的物品。";
+		donpcevent instance_npcname("海因里希#ghinstance1")+"::OnDisable";
+		donpcevent instance_npcname("海因里希#ghinstance2")+"::OnEnable";
+		donpcevent instance_npcname("希梅尔麦兹#ghinstance1")+"::OnEnable";
 		donpcevent instance_npcname("#talkinstance1")+"::OnEnable";
-		mapannounce instance_mapname("1@gl_k"), "???? Shout: Ohohohoho~!",bc_map,"0xFFFF00";
+		mapannounce instance_mapname("1@gl_k"), "????大笑：噢呵呵~！",bc_map,"0xFFFF00";
 		close2;
 		cutin "gl_heinrich1",255;
 		end;
 	} else {
-		mes "[Heinrich]";
-		mes "Where is your representative?";
-		mes "I need to talk to him.";
+		mes "[海因里希]";
+		mes "你们的代表在哪里？";
+		mes "我需要和他对话。";
 		cutin "gl_heinrich2",2;
 		close2;
 		cutin "gl_heinrich2",255;
@@ -282,153 +292,153 @@ OnEnable:
 	}
 OnInstanceInit:
 OnDisable:
-	hideonnpc instance_npcname("Heinrich#ghinstance1");
+	hideonnpc instance_npcname("海因里希#ghinstance1");
 	end;
 OnEnable:
-	hideoffnpc instance_npcname("Heinrich#ghinstance1");
+	hideoffnpc instance_npcname("海因里希#ghinstance1");
 	end;
 }
 
-1@gl_k,152,97,3	script	Varmunt#ghinstance2	654,{
+1@gl_k,152,97,3	script	巴尔蒙德#ghinstance2	654,{
 	end;
 OnInstanceInit:
 OnDisable:
-	hideonnpc instance_npcname("Varmunt#ghinstance2");
+	hideonnpc instance_npcname("巴尔蒙德#ghinstance2");
 	end;
 OnEnable:
-	hideoffnpc instance_npcname("Varmunt#ghinstance2");
+	hideoffnpc instance_npcname("巴尔蒙德#ghinstance2");
 	end;
 OnTalk1:
-	npctalk "Varmunt : I am not joking Heinrich, Sir. Now, if my judgement is correct, she will be here soon.";
+	npctalk "巴尔蒙德：我不是开玩笑，海因里希司令官。现在，假设我的判断是正确的，她很快就会来了。";
 	end;
 OnTalk2:
-	npctalk "Varmunt : I trust this guy following me. The Ymir's Heart pieces must be hidden in a safe place before Himmelmez takes them!";
+	npctalk "巴尔蒙德：在希梅尔麦兹找到伊米尔之心的碎片之前，我们需要把它好好的藏起来！";
 	end;
 OnTalk3:
-	npctalk "Varmunt : Himmelmez!! Through the cracks!";
+	npctalk "巴尔蒙德：希梅尔麦兹！！什么时候来的！";
 	end;
 OnTalk4:
-	npctalk "Varmunt : Unbelievable. My men are...This kind of thing is not possible!";
+	npctalk "巴尔蒙德：这是！士兵们都……变成了怪物！";
 	end;
 OnTalk5:
-	npctalk "Varmunt : Heinrich, Sir! I need a quick decision.";
+	npctalk "巴尔蒙德：海因里希司令官！快下命令。";
 	end;
 OnTalk6:
-	npctalk "Varmunt : To prevent other attacks, go chase her!";
+	npctalk "巴尔蒙德：去追她！";
 	end;
 OnTalk7:
-	npctalk "Varmunt : Now, your help is desperately needed. I hopefully ask you.";
+	npctalk "巴尔蒙德：现在，我们迫切需要你们的帮助。";
 	end;
 }
 
-1@gl_k,149,97,6	script	Heinrich#ghinstance2	652,{
+1@gl_k,149,97,6	script	海因里希#ghinstance2	652,{
 	end;
 OnInstanceInit:
 OnDisable:
-	hideonnpc instance_npcname("Heinrich#ghinstance2");
+	hideonnpc instance_npcname("海因里希#ghinstance2");
 	end;
 OnEnable:
-	hideoffnpc instance_npcname("Heinrich#ghinstance2");
+	hideoffnpc instance_npcname("海因里希#ghinstance2");
 	end;
 OnTalk1:
-	npctalk "Heinrich : Who?!";
+	npctalk "海因里希：谁？！";
 	end;
 OnTalk2:
-	npctalk "Heinrich : That who rules the dead? No doubt, a pretty story. Here, some tea will be served to entertain the ladies. Unfortunately, I do not...";
+	npctalk "海因里希：你的意思是你主宰死亡？听起来是个美丽的故事。这里有些招待淑女的茶点。可你不算是淑女…";
 	end;
 OnTalk3:
-	npctalk "Heinrich : What did you say?";
+	npctalk "海因里希：你在说什么？";
 	end;
 OnTalk4:
-	npctalk "Heinrich : The King responded to the invitation of the Rune Midgard's Royal Family and hasn't come back yet.";
+	npctalk "海因里希：国王这是应邀参加卢恩·米德加兹王室的宴会，现在还没回来而已。";
 	end;
 OnTalk5:
-	npctalk "Heinrich : Just leave before you get in trouble. This is the King's will!";
+	npctalk "海因里希：在你惹上麻烦之前还是尽快离开吧。";
 	end;
 OnTalk6:
-	npctalk "Heinrich : Damn! She has detected the position of the Ymir's Heart pieces.";
+	npctalk "海因里希：该死！她已经感知到了伊米尔之心碎片的位置。";
 	end;
 OnTalk7:
-	npctalk "Heinrich : Now, Khalitzburg Crusaders and White Knights, follow me...";
+	npctalk "海因里希：现在，卡利斯格十字军和纯白骑士，跟我走…";
 	end;
 OnTalk8:
-	npctalk "Heinrich : Unbelievable. My men are...This kind of thing is not possible!";
+	npctalk "海因里希：怎么回事！我的部下……怎么可能！";
 	end;
 OnTalk9:
-	npctalk "Heinrich : I'm sorry...";
+	npctalk "海因里希：对不起…";
 	end;
 OnTalk10:
-	npctalk "Heinrich : I'm sorry, my lord! Do not forgive me!";
+	npctalk "海因里希：对不起，我的国王！请原谅我！";
 	end;
 }
 
-1@gl_k,149,100,6	script	Heinrich#ghinstance3	652,{
+1@gl_k,149,100,6	script	海因里希#ghinstance3	652,{
 	end;
 OnInstanceInit:
 OnDisable:
-	hideonnpc instance_npcname("Heinrich#ghinstance3");
+	hideonnpc instance_npcname("海因里希#ghinstance3");
 	end;
 OnEnable:
-	hideoffnpc instance_npcname("Heinrich#ghinstance3");
+	hideoffnpc instance_npcname("海因里希#ghinstance3");
 	end;
 OnTalk1:
-	npctalk "Heinrich : I cannot believe I killed my men with my own hands!";
+	npctalk "海因里希：我竟然亲手杀了我的部下！";
 	end;
 OnTalk2:
-	npctalk "Heinrich : Varmunt is right about that. Now is not the time to regret.";
+	npctalk "海因里希：巴尔蒙德是对的，现在可没时间懊恼。";
 	end;
 OnTalk3:
-	npctalk "Heinrich : People, gather around and follow my orders.";
+	npctalk "海因里希：士兵们，听我的命令集合。";
 	end;
 OnTalk4:
-	npctalk "Heinrich : Himmelmez is turning into monsters all the people she put to sleep.";
+	npctalk "海因里希：希梅尔麦兹使所有人都陷入了沉睡，并转化为亡灵。";
 	end;
 OnTalk5:
-	npctalk "Heinrich : I don't know if there are survivors around here yet.";
+	npctalk "海因里希：我不知道在这里是否还有幸存者。";
 	end;
 OnTalk6:
-	npctalk "Heinrich : If there are survivors from this evil thing, please rescue them.";
+	npctalk "海因里希：如果有幸存者从这个邪恶的东西手下生还，请救救他们。";
 	end;
 OnTalk7:
-	npctalk "Heinrich : With Varmunt by my side, I'm going to chase Himmelmez down.";
+	npctalk "海因里希：巴尔蒙德，我们要去追杀希梅尔麦兹。";
 	end;
 OnTalk8:
-	npctalk "Heinrich : Hurry up Varmunt, let's chase her down.";
+	npctalk "海因里希：赶快巴尔蒙德，让我们干掉她。";
 	end;
 }
 
-1@gl_k,149,89,1	script	Himmelmez#ghinstance1	650,{
+1@gl_k,149,89,1	script	希梅尔麦兹#ghinstance1	650,{
 	end;
 OnInstanceInit:
 OnDisable:
-	hideonnpc instance_npcname("Himmelmez#ghinstance1");
+	hideonnpc instance_npcname("希梅尔麦兹#ghinstance1");
 	end;
 OnEnable:
-	hideoffnpc instance_npcname("Himmelmez#ghinstance1");
+	hideoffnpc instance_npcname("希梅尔麦兹#ghinstance1");
 	end;
 OnTalk1:
-	npctalk "Himmelmez : This~ Did I interrupt your conversation? The thing is, it's been too long since the last guests saw some sadness spread...";
+	npctalk "希梅尔麦兹：呵呵~是不是打扰你们了？客人来了这么久都没发现，这很失礼啊…";
 	end;
 OnTalk2:
-	npctalk "Himmelmez : My name is Lisa Kahn Himmelmez. I am called the Valkyrie of the dead, master of the Dullahan.";
+	npctalk "希梅尔麦兹：我的名字是莉萨·卡恩·希梅尔麦兹。别人称我为代表死亡的巴基力，无颅武士领主。";
 	end;
 OnTalk3:
-	npctalk "Himmelmez : There's no need to pretend to be so laid back. Don't bluff about the whereabouts of you Majesty and things will be alright.";
+	npctalk "希梅尔麦兹：不必强装镇定，如果我告诉你你们国王现在在哪，你肯定无法再虚张声势了。";
 	end;
 OnTalk4:
-	npctalk "Himmelmez : Hohoho, do you have any questions? You're a really mysterious man.";
+	npctalk "希梅尔麦兹：呵呵，翻脸了？你可真是个有趣的人。";
 	end;
 OnTalk5:
-	npctalk "Himmelmez : Not coveting the king's throne, you're such a stupid man, only waiting for his return. Your innocence is true, I love it.";
+	npctalk "希梅尔麦兹：不贪图国王的宝座，只是傻等他归来。你真的非常忠诚，我喜欢这点。";
 	end;
 Ontalk6:
-	npctalk "Himmelmez : You make me wish we hadn't met in this situation. Too bad we did.";
+	npctalk "希梅尔麦兹：如果你我不是在这种情况下相见，那就好了。";
 	end;
 Ontalk7:
-	npctalk "Himmelmez : Well~ Today, with such a busy commandant, I won't be able to talk as much as I'd love for you to contemplate my explanation~";
+	npctalk "希梅尔麦兹：好吧~我也不想多说什么了，我可没有太多的时间~";
 	end;
 OnTalk8:
-	npctalk "Himmelmez : I gotta get my job done. Meanwhile why don't you meet my men? Hohoho.";
+	npctalk "希梅尔麦兹：我要继续做我该做的事了。你们先和我的人玩玩吧，哦呵呵呵。";
 	end;
 }
 
@@ -444,76 +454,76 @@ OnEnable:
 	initnpctimer;
 	end;
 OnTimer5000:
-	donpcevent instance_npcname("Heinrich#ghinstance2")+"::OnTalk1";
+	donpcevent instance_npcname("海因里希#ghinstance2")+"::OnTalk1";
 	end;
 OnTimer10000:
-	donpcevent instance_npcname("Himmelmez#ghinstance1")+"::OnTalk1";
+	donpcevent instance_npcname("希梅尔麦兹#ghinstance1")+"::OnTalk1";
 	end;
 OnTimer15000:
-	donpcevent instance_npcname("Varmunt#ghinstance2")+"::OnTalk3";
+	donpcevent instance_npcname("巴尔蒙德#ghinstance2")+"::OnTalk3";
 	end;
 OnTimer20000:
-	donpcevent instance_npcname("Himmelmez#ghinstance1")+"::OnTalk2";
+	donpcevent instance_npcname("希梅尔麦兹#ghinstance1")+"::OnTalk2";
 	end;
 OnTimer25000:
-	donpcevent instance_npcname("Heinrich#ghinstance2")+"::OnTalk2";
+	donpcevent instance_npcname("海因里希#ghinstance2")+"::OnTalk2";
 	end;
 OnTimer30000:
-	donpcevent instance_npcname("Himmelmez#ghinstance1")+"::OnTalk3";
+	donpcevent instance_npcname("希梅尔麦兹#ghinstance1")+"::OnTalk3";
 	end;
 OnTimer35000:
-	donpcevent instance_npcname("Heinrich#ghinstance2")+"::OnTalk3";
+	donpcevent instance_npcname("海因里希#ghinstance2")+"::OnTalk3";
 	end;
 OnTimer45000:
-	donpcevent instance_npcname("Himmelmez#ghinstance1")+"::OnTalk4";
+	donpcevent instance_npcname("希梅尔麦兹#ghinstance1")+"::OnTalk4";
 	end;	
 OnTimer50000:
-	donpcevent instance_npcname("Himmelmez#ghinstance1")+"::OnTalk5";
+	donpcevent instance_npcname("希梅尔麦兹#ghinstance1")+"::OnTalk5";
 	end;
 OnTimer55000:
-	donpcevent instance_npcname("Himmelmez#ghinstance1")+"::OnTalk6";
+	donpcevent instance_npcname("希梅尔麦兹#ghinstance1")+"::OnTalk6";
 	end;
 OnTimer60000:
-	donpcevent instance_npcname("Heinrich#ghinstance2")+"::OnTalk4";
+	donpcevent instance_npcname("海因里希#ghinstance2")+"::OnTalk4";
 	end;
 OnTimer65000:
-	donpcevent instance_npcname("Heinrich#ghinstance2")+"::OnTalk5";
+	donpcevent instance_npcname("海因里希#ghinstance2")+"::OnTalk5";
 	end;
 OnTimer70000:
-	donpcevent instance_npcname("Himmelmez#ghinstance1")+"::OnTalk7";
+	donpcevent instance_npcname("希梅尔麦兹#ghinstance1")+"::OnTalk7";
 	end;
 OnTimer75000:
-	donpcevent instance_npcname("Himmelmez#ghinstance1")+"::OnTalk8";
+	donpcevent instance_npcname("希梅尔麦兹#ghinstance1")+"::OnTalk8";
 	end;
 OnTimer80000:
-	donpcevent instance_npcname("Heinrich#ghinstance2")+"::OnTalk6";
-	donpcevent instance_npcname("Himmelmez#ghinstance1")+"::OnDisable";
+	donpcevent instance_npcname("海因里希#ghinstance2")+"::OnTalk6";
+	donpcevent instance_npcname("希梅尔麦兹#ghinstance1")+"::OnDisable";
 	end;
 OnTimer85000:
-	donpcevent instance_npcname("Heinrich#ghinstance2")+"::OnTalk7";
-	hideonnpc instance_npcname("Varmunt#ghinstance1");
+	donpcevent instance_npcname("海因里希#ghinstance2")+"::OnTalk7";
+	hideonnpc instance_npcname("巴尔蒙德#ghinstance1");
 
 	for(set .@i,1; .@i<=20; set .@i,.@i+4) {
-		hideonnpc instance_npcname("Khalitzburg Crusader#"+.@i);
-		hideonnpc instance_npcname("Khalitzburg Crusader#"+(.@i+1));
-		hideonnpc instance_npcname("White Knight#"+(.@i+2));
-		hideonnpc instance_npcname("White Knight#"+(.@i+3));
+		hideonnpc instance_npcname("卡利斯格十字军#"+.@i);
+		hideonnpc instance_npcname("卡利斯格十字军#"+(.@i+1));
+		hideonnpc instance_npcname("纯白骑士#"+(.@i+2));
+		hideonnpc instance_npcname("纯白骑士#"+(.@i+3));
 	}
-	hideonnpc instance_npcname("Khalitzburg Crusader#21");
-	hideonnpc instance_npcname("Khalitzburg Crusader#22");
+	hideonnpc instance_npcname("卡利斯格十字军#21");
+	hideonnpc instance_npcname("卡利斯格十字军#22");
 
 	set .@map$, instance_mapname("1@gl_k");
 	set .@label$, instance_npcname("#talkinstance1")+"::OnMyMobDead"; 
-	monster .@map$,145,59,"Abyss Knight",2470,1,.@label$;
-	monster .@map$,154,59,"Abyss Knight",2470,1,.@label$;
-	monster .@map$,145,69,"Abyss Knight",2470,1,.@label$;
-	monster .@map$,154,69,"Abyss Knight",2470,1,.@label$;
-	monster .@map$,145,79,"Abyss Knight",2470,1,.@label$;
-	monster .@map$,154,79,"Abyss Knight",2470,1,.@label$;
-	monster .@map$,145,89,"Abyss Knight",2470,1,.@label$;
-	monster .@map$,154,89,"Abyss Knight",2470,1,.@label$;
-	monster .@map$,145,99,"Abyss Knight",2470,1,.@label$;
-	monster .@map$,154,99,"Abyss Knight",2470,1,.@label$;
+	monster .@map$,145,59,"深渊骑士",2470,1,.@label$;
+	monster .@map$,154,59,"深渊骑士",2470,1,.@label$;
+	monster .@map$,145,69,"深渊骑士",2470,1,.@label$;
+	monster .@map$,154,69,"深渊骑士",2470,1,.@label$;
+	monster .@map$,145,79,"深渊骑士",2470,1,.@label$;
+	monster .@map$,154,79,"深渊骑士",2470,1,.@label$;
+	monster .@map$,145,89,"深渊骑士",2470,1,.@label$;
+	monster .@map$,154,89,"深渊骑士",2470,1,.@label$;
+	monster .@map$,145,99,"深渊骑士",2470,1,.@label$;
+	monster .@map$,154,99,"深渊骑士",2470,1,.@label$;
 
 	for(set .@i,1; .@i<=22; set .@i,.@i+1)
 		hideoffnpc instance_npcname(".#ghinstance"+.@i);
@@ -532,7 +542,7 @@ OnTimer85000:
 	donpcevent instance_npcname(".#ghinstance1")+"::OnTalkK";
 	end;
 OnTimer88000:
-	donpcevent instance_npcname("Heinrich#ghinstance2")+"::OnTalk8";
+	donpcevent instance_npcname("海因里希#ghinstance2")+"::OnTalk8";
 
 	for(set .@i,1; .@i<=20; set .@i,.@i+4) {
 		hideonnpc instance_npcname(".#ghinstance"+.@i);
@@ -545,31 +555,31 @@ OnTimer88000:
 
 	set .@map$, instance_mapname("1@gl_k");
 	set .@label$, instance_npcname("#talkinstance1")+"::OnMyMobDead"; 
-	monster .@map$,145,54,"Khalitzburg",2471,1,.@label$;
-	monster .@map$,154,54,"Khalitzburg",2471,1,.@label$;
-	monster .@map$,145,64,"Khalitzburg",2471,1,.@label$;
-	monster .@map$,154,64,"Khalitzburg",2471,1,.@label$;
-	monster .@map$,145,74,"Khalitzburg",2471,1,.@label$;
-	monster .@map$,154,74,"Khalitzburg",2471,1,.@label$;
-	monster .@map$,145,84,"Khalitzburg",2471,1,.@label$;
-	monster .@map$,154,84,"Khalitzburg",2471,1,.@label$;
-	monster .@map$,145,94,"Khalitzburg",2471,1,.@label$;
-	monster .@map$,154,94,"Khalitzburg",2471,1,.@label$;
-	monster .@map$,145,104,"Khalitzburg",2471,1,.@label$;
-	monster .@map$,154,104,"Khalitzburg",2471,1,.@label$;
+	monster .@map$,145,54,"卡利斯格",2471,1,.@label$;
+	monster .@map$,154,54,"卡利斯格",2471,1,.@label$;
+	monster .@map$,145,64,"卡利斯格",2471,1,.@label$;
+	monster .@map$,154,64,"卡利斯格",2471,1,.@label$;
+	monster .@map$,145,74,"卡利斯格",2471,1,.@label$;
+	monster .@map$,154,74,"卡利斯格",2471,1,.@label$;
+	monster .@map$,145,84,"卡利斯格",2471,1,.@label$;
+	monster .@map$,154,84,"卡利斯格",2471,1,.@label$;
+	monster .@map$,145,94,"卡利斯格",2471,1,.@label$;
+	monster .@map$,154,94,"卡利斯格",2471,1,.@label$;
+	monster .@map$,145,104,"卡利斯格",2471,1,.@label$;
+	monster .@map$,154,104,"卡利斯格",2471,1,.@label$;
 	end;
 OnTimer93000:
-	donpcevent instance_npcname("Varmunt#ghinstance2")+"::OnTalk4";
+	donpcevent instance_npcname("巴尔蒙德#ghinstance2")+"::OnTalk4";
 	end;
 OnTimer97000:
-	donpcevent instance_npcname("Heinrich#ghinstance2")+"::OnTalk9";
+	donpcevent instance_npcname("海因里希#ghinstance2")+"::OnTalk9";
 	end;
 OnTimer105000:
-	donpcevent instance_npcname("Heinrich#ghinstance2")+"::OnTalk10";
-	mapannounce instance_mapname("1@gl_k"), "Heinrich's Shout: Dead men, dead men all over the place!",bc_map,"0xFFFF00";
+	donpcevent instance_npcname("海因里希#ghinstance2")+"::OnTalk10";
+	mapannounce instance_mapname("1@gl_k"), "海因里希的嘶吼：亡者就该前往亡者该去的地方！",bc_map,"0xFFFF00";
 	end;
 OnTimer107000:
-	mapannounce instance_mapname("1@gl_k"), "Heinrich's Shout: Everybody! Go back!",bc_map,"0xFFFF00";
+	mapannounce instance_mapname("1@gl_k"), "海因里希的嘶吼：全部人退后！",bc_map,"0xFFFF00";
 	end;
 OnTimer110000:
 	donpcevent instance_npcname(".#ghinstance22")+"::OnEffect1";
@@ -634,53 +644,53 @@ OnTimer114750: //custom time
 	disablenpc instance_npcname(".#ghinstance20");
 	end;
 OnTimer115000:
-	donpcevent instance_npcname("Heinrich#ghinstance3")+"::OnEnable";
-	donpcevent instance_npcname("Heinrich#ghinstance2")+"::OnDisable";
-	donpcevent instance_npcname("Heinrich#ghinstance3")+"::OnTalk1";
+	donpcevent instance_npcname("海因里希#ghinstance3")+"::OnEnable";
+	donpcevent instance_npcname("海因里希#ghinstance2")+"::OnDisable";
+	donpcevent instance_npcname("海因里希#ghinstance3")+"::OnTalk1";
 	donpcevent instance_npcname(".#ghinstance2")+"::OnEffect1";
 	donpcevent instance_npcname(".#ghinstance1")+"::OnEffect1";
 	killmonster instance_mapname("1@gl_k"),instance_npcname("#talkinstance1")+"::OnMyMobDead";
 	end;
 OnTimer120000:
-	donpcevent instance_npcname("Varmunt#ghinstance2")+"::OnTalk5";
+	donpcevent instance_npcname("巴尔蒙德#ghinstance2")+"::OnTalk5";
 	end;
 OnTimer125000:
-	donpcevent instance_npcname("Varmunt#ghinstance2")+"::OnTalk6";
+	donpcevent instance_npcname("巴尔蒙德#ghinstance2")+"::OnTalk6";
 	end;
 OnTimer130000:
-	donpcevent instance_npcname("Heinrich#ghinstance3")+"::OnTalk2";
+	donpcevent instance_npcname("海因里希#ghinstance3")+"::OnTalk2";
 	end;
 OnTimer135000:
-	donpcevent instance_npcname("Heinrich#ghinstance3")+"::OnTalk3";
+	donpcevent instance_npcname("海因里希#ghinstance3")+"::OnTalk3";
 	end;
 OnTimer140000:
-	donpcevent instance_npcname("Heinrich#ghinstance3")+"::OnTalk4";
+	donpcevent instance_npcname("海因里希#ghinstance3")+"::OnTalk4";
 	end;
 OnTimer145000:
-	donpcevent instance_npcname("Heinrich#ghinstance3")+"::OnTalk5";
+	donpcevent instance_npcname("海因里希#ghinstance3")+"::OnTalk5";
 	end;
 OnTimer150000:
-	donpcevent instance_npcname("Heinrich#ghinstance3")+"::OnTalk6";
+	donpcevent instance_npcname("海因里希#ghinstance3")+"::OnTalk6";
 	end;
 OnTimer155000:
-	donpcevent instance_npcname("Heinrich#ghinstance3")+"::OnTalk7";
+	donpcevent instance_npcname("海因里希#ghinstance3")+"::OnTalk7";
 	end;
 OnTimer160000:
-	donpcevent instance_npcname("Varmunt#ghinstance2")+"::OnTalk7";
+	donpcevent instance_npcname("巴尔蒙德#ghinstance2")+"::OnTalk7";
 	end;
 OnTimer165000:
-	donpcevent instance_npcname("Heinrich#ghinstance3")+"::OnTalk8";
+	donpcevent instance_npcname("海因里希#ghinstance3")+"::OnTalk8";
 	end;
 OnTimer167000:
-	donpcevent instance_npcname("Heinrich#ghinstance3")+"::OnDisable";
+	donpcevent instance_npcname("海因里希#ghinstance3")+"::OnDisable";
 	end;
 OnTimer168000:
-	donpcevent instance_npcname("Varmunt#ghinstance2")+"::OnDisable";
-	donpcevent instance_npcname("Heinrich#ghinstance3")+"::OnDisable";
+	donpcevent instance_npcname("巴尔蒙德#ghinstance2")+"::OnDisable";
+	donpcevent instance_npcname("海因里希#ghinstance3")+"::OnDisable";
 	stopnpctimer;
 	donpcevent instance_npcname("#ghinstancewarp1")+"::OnEnable";
 	donpcevent instance_npcname("#ghinstancewarp2")+"::OnEnable";
-	mapannounce instance_mapname("1@gl_k"), "9 o'clock warp leading to zone 2 is now open.",bc_map,"0xFFFF00";
+	mapannounce instance_mapname("1@gl_k"), "9点钟方向通往第2区域的传送门已经打开了。",bc_map,"0xFFFF00";
 	donpcevent instance_npcname("#talkinstance1")+"::OnDisable";
 	donpcevent instance_npcname("#ghmemorialmob01")+"::OnEnable";
 	end;
@@ -703,18 +713,18 @@ OnEffect1:
 	end;
 OnTalkK:
 	switch(atoi(replacestr(strnpcinfo(2),"ghinstance",""))) {
-		case 1: npctalk ". : I do not want to die."; break;
-		case 2: npctalk ". : Mom..."; break;
-		case 5: npctalk ". : Help."; break;
-		case 6: npctalk ". : My stomach hurts..."; break;
-		case 9: npctalk ". : Heinrich Sir, help!"; break;
-		case 10: npctalk ". : Ack... Ugh."; break;
-		case 13: npctalk ". : I'm thirsty."; break;
-		case 14: npctalk ". : Oh... No... I cannot die..."; break;
-		case 17: npctalk ". : This is so uncomfortable. Eww!"; break;
-		case 18: npctalk ". : Who am I..."; break;
-		case 21: npctalk ". : Uhh... My body."; break;
-		case 22: npctalk ". : I'm so thirsty!"; break;
+		case 1: npctalk "我不想死。"; break;
+		case 2: npctalk "妈妈…"; break;
+		case 5: npctalk "救命。"; break;
+		case 6: npctalk "我肚子疼…"; break;
+		case 9: npctalk "海因里希大人，救命！"; break;
+		case 10: npctalk "这是…啊。"; break;
+		case 13: npctalk "我口渴得很。"; break;
+		case 14: npctalk "哦…不…我不能死…"; break;
+		case 17: npctalk "好难受。哇！"; break;
+		case 18: npctalk "我是谁…"; break;
+		case 21: npctalk "呃…我的身体。"; break;
+		case 22: npctalk "我很渴！"; break;
 	}
 	end;
 }
@@ -779,6 +789,8 @@ OnTouch:
 		case 10: warp .@map2$,174,101; break;
 		case 11: warp .@map2$,150,110; break;
 		case 12: warp .@map2$,150,179; break;
+		case 13: warp .@map2$,150,152; break;
+		case 14: warp .@map1$,150,280; break;
 	}
 	end;
 }
@@ -793,6 +805,8 @@ OnTouch:
 2@gl_k,154,101,0	duplicate(#ghinstancewarp1)	#ghinstancewarp10	45,1,2
 2@gl_k,165,101,0	duplicate(#ghinstancewarp1)	#ghinstancewarp11	45,1,2
 2@gl_k,150,163,0	duplicate(#ghinstancewarp1)	#ghinstancewarp12	45,1,2
+2@gl_k,150,167,0	duplicate(#ghinstancewarp1)	#ghinstancewarp13	45,1,2
+2@gl_k,150,41,0	duplicate(#ghinstancewarp1)	#ghinstancewarp14	45,1,2
 
 
 // Sector 1 Mobs
@@ -806,126 +820,126 @@ OnEnable:
 	enablenpc instance_npcname("#ghmemorialmob01");
 	set .@map$, instance_mapname("1@gl_k");
 	set .@label$, instance_npcname("#ghmemorialmob01")+"::OnMyMobDead";
-	areamonster .@map$,76,99,87,10,"Suffering Chamberlain",2466,15,.@label$;
-	areamonster .@map$,67,39,12,6,"Fallen Monk",2465,20,.@label$;
-	areamonster .@map$,67,39,12,6,"Suffering Chamberlain",2466,3,.@label$;
-	areamonster .@map$,32,75,51,58,"Decayed Butler",2464,6,.@label$;
-	areamonster .@map$,45,84,6,137,"Decayed Butler",2464,12,.@label$;
+	areamonster .@map$,76,99,87,10,"痛苦的侍从长",2466,15,.@label$;
+	areamonster .@map$,67,39,12,6,"堕落的修道士",2465,20,.@label$;
+	areamonster .@map$,67,39,12,6,"痛苦的侍从长",2466,3,.@label$;
+	areamonster .@map$,32,75,51,58,"腐朽的管家",2464,6,.@label$;
+	areamonster .@map$,45,84,6,137,"腐朽的管家",2464,12,.@label$;
 	end;
 OnMyMobDead:
 	set .@map$, instance_mapname("1@gl_k");
 	set .@label$, instance_npcname("#ghmemorialmob01")+"::OnMyMobDead";
 	set .@mob_dead_num, 56 - mobcount(.@map$,.@label$);
 	if (.@mob_dead_num > 35) {
-		mapannounce .@map$, "Seems like Himmelmez drains the dead's souls. They must be destroyed.",bc_map,"0xFFFFFF";
+		mapannounce .@map$, "这些看上去像是被希梅尔麦兹控制的灵魂。现在找找有没有幸存者吧。",bc_map,"0xFFFFFF";
 		killmonster .@map$,.@label$;
-		donpcevent instance_npcname("Aspiring Butcher#clearGH")+"::OnEnable";
+		donpcevent instance_npcname("候补的服事少年#clearGH")+"::OnEnable";
 		donpcevent instance_npcname("#ghmemorialmob01")+"::OnDisable";
 	}
 	end;
 }
 
-1@gl_k,17,51,3	script	Aspiring Butcher#clearGH	706,{
+1@gl_k,17,51,3	script	候补的服事少年#clearGH	706,{
 	if (getcharid(0) == getpartyleader(getcharid(1),2)) {
-		mes "[Aspiring Butcher]";
-		mes "Help me! Help me!!!";
+		mes "[候补的服事少年]";
+		mes "救命！救命！！！";
 		next;
-		select("Hey, wake up! Are there any other survivors?");
+		select("嘿，冷静点！有没有其他的幸存者？");
 		mes "["+strcharinfo(0)+"]";
-		mes "Hey, wake up! Are you alone?";
-		unittalk getcharid(3), strcharinfo(0) +" : Hey, wake up! Are you alone?";
+		mes "嘿，冷静点！还有其他幸存者吗？";
+		unittalk getcharid(3),"嘿，冷静点！还有其他幸存者吗？";
 		next;
-		mes "[Aspiring Butcher]";
-		mes "The Chamberlain... the Monk... They've become monsters. I couldn't do anything.";
-		npctalk "Aspiring Butcher : The Chamberlain... the Monk... They've become monsters. I couldn't do anything.";
+		mes "[候补的服事少年]";
+		mes "侍从长…修道士…他们都变成了怪物。我什么都做不了。";
+		npctalk "候补的服事少年：侍从长…修道士…他们都变成了怪物。我什么都做不了。";
 		next;
-		mes "[Aspiring Butcher]";
-		mes "I just stood still... Nothing, I couldn't do anything...";
-		npctalk "Aspiring Butcher : I just stood still... Nothing, I couldn't do anything...";
+		mes "[候补的服事少年]";
+		mes "我只能躲在那里…什么都做不了，什么都做不了…";
+		npctalk "候补的服事少年：我只能躲在那里…什么都做不了，什么都做不了…";
 		next;
-		select("Wake up!");
+		select("冷静！");
 		mes "["+strcharinfo(0)+"]";
-		mes "Wake up kid! Go east along the central passage to the outside! The path is safe!";
-		unittalk getcharid(3), strcharinfo(0) +" : Wake up kid! Go east along the central passage to the outside! The path is safe!";
+		mes "冷静！往东走，沿着中央通道到外面！那条路是安全的！";
+		unittalk getcharid(3),"冷静！往东走，沿着中央通道到外面！那条路是安全的！";
 		next;
-		mes "[Aspiring Butcher]";
-		mes "East passage? Alone? How?";
-		npctalk "Aspiring Butcher : East passage? Alone? How?";
+		mes "[候补的服事少年]";
+		mes "东边？一个人吗？现在就走？";
+		npctalk "候补的服事少年：东边？一个人吗？现在就走？";
 		next;
-		select("I can guide you through the path.");
+		select("我可以带你过去。");
 		mes "["+strcharinfo(0)+"]";
-		mes "I will guide you, perhaps that will help. If you want to close your eyes try not to hit anything.";
-		unittalk getcharid(3), strcharinfo(0) +" : I will guide you, perhaps that will help. If you want to close your eyes try not to hit anything.";
+		mes "我会带你过去的。如果你害怕的话，就闭上眼睛跟着我吧。";
+		unittalk getcharid(3),"我会带你过去的。如果你害怕的话，就闭上眼睛跟着我吧。";
 		next;
-		mes "[Aspiring Butcher]";
-		mes "Aspiring Butcher: I know, I... I'm trying to.";
-		npctalk "Aspiring Butcher : Aspiring Butcher: I know, I... I'm trying to.";
-		donpcevent instance_npcname("Aspiring Butcher#clearGH")+"::OnDisable";
+		mes "[候补的服事少年]";
+		mes "我知道了，我…我试试看。";
+		npctalk "候补的服事少年：我知道了，我…我试试看。";
+		donpcevent instance_npcname("候补的服事少年#clearGH")+"::OnDisable";
 		donpcevent instance_npcname("#ghmemorialmob02")+"::OnEnable";
 		close;
 	} else {
-		mes "[Aspiring Butcher]";
-		mes "Somebody help me, somebody help me, please.";
+		mes "[候补的服事少年]";
+		mes "谁帮帮我，谁帮帮我，求求你们了。";
 		close;
 	}
 OnInstanceInit:
 OnDisable:
-	hideonnpc instance_npcname("Aspiring Butcher#clearGH");
+	hideonnpc instance_npcname("候补的服事少年#clearGH");
 	end;
 OnEnable:
-	hideoffnpc instance_npcname("Aspiring Butcher#clearGH");
+	hideoffnpc instance_npcname("候补的服事少年#clearGH");
 	end;
 }
 
 // Sector 2 Mobs
 //============================================================
-1@gl_k,291,145,3	script	Hollgrehenn Destroyer	726,{
+1@gl_k,291,145,3	script	精炼工匠的母亲	726,{
 	if (getcharid(0) == getpartyleader(getcharid(1),2)) {
-		mes "[Hollgrehenn Destroyer]";
-		mes "Yaaa!! Die!!!";
-		npctalk "Hollgrehenn Destroyer : Yaaa!! Die!!!";
+		mes "[精炼工匠的母亲]";
+		mes "呀啊啊！！杀啊！！！";
+		npctalk "精炼工匠的母亲：呀啊啊！！杀啊！！！";
 		specialeffect EF_CRASHEARTH;
 		next;
-		select("Don't worry!");
+		select("不要紧张！");
 		mes "["+strcharinfo(0)+"]";
-		mes "Don't worry! Mam. Are you alone? No other survivors?";
-		unittalk getcharid(3), strcharinfo(0) +" : Don't worry! Mam. Are you alone? No other survivors?";
+		mes "不要紧张！唔。你一个人？有没有其他的幸存者？";
+		unittalk getcharid(3),"不要紧张！唔。你一个人？有没有其他的幸存者？";
 		next;
-		mes "[Hollgrehenn Destroyer]";
-		mes "I'm the only survivor left";
-		npctalk "Hollgrehenn Destroyer : I'm the only survivor left";
+		mes "[精炼工匠的母亲]";
+		mes "我是唯一逃出来的幸存者。";
+		npctalk "精炼工匠的母亲：我是唯一逃出来的幸存者。";
 		next;
-		select("This is a very dangerous place.");
+		select("这里现在非常危险。");
 		mes "["+strcharinfo(0)+"]";
-		mes "This is a very dangerous place. You know the central passage? Do you think you can move... and get to a safer place?";
-		unittalk getcharid(3), strcharinfo(0) +" : This is a very dangerous place. You know the central passage? Do you think you can move... and get to a safer place?";
+		mes "这里现在非常危险。你知道中央通道吗？你觉得你还能不能…走去别的安全地方？";
+		unittalk getcharid(3),"这里现在非常危险。你知道中央通道吗？你觉得你还能不能…走去别的安全地方？";
 		next;
-		mes "[Hollgrehenn Destroyer]";
-		mes "Yes, I am able to move. I'll move for my baby's sake.";
-		npctalk "Hollgrehenn Destroyer : Yes, I am able to move. I'll move for my baby's sake.";
+		mes "[精炼工匠的母亲]";
+		mes "是的，我还走的动。看在我孩子的份上。";
+		npctalk "精炼工匠的母亲：是的，我还走的动。看在我孩子的份上。";
 		next;
-		select("Survive the road...");
+		select("一定要活下去…");
 		mes "["+strcharinfo(0)+"]";
-		mes "You and your baby will get out of here safely. But I'm sorry I can't help you more.";
-		unittalk getcharid(3), strcharinfo(0) +" : You and your baby will get out of here safely. But I'm sorry I can't help you more.";
+		mes "你和你的孩子能安全地从这里出去。但我很抱歉，我无法帮你更多。";
+		unittalk getcharid(3),"你和你的孩子能安全地从这里出去。但我很抱歉，我无法帮你更多。";
 		next;
-		mes "[Hollgrehenn Destroyer]";
-		mes "That's ok. Thank you for helping us. I'm good to go alone. Ah and good luck also.";
-		npctalk "Hollgrehenn Destroyer : That's ok. Thank you for helping us. I'm good to go alone. Ah and good luck also.";
-		donpcevent instance_npcname("Hollgrehenn Destroyer")+"::OnDisable";
+		mes "[精炼工匠的母亲]";
+		mes "没关系。谢谢你帮助我们。我一个人可以的。也祝你们好运。";
+		npctalk "精炼工匠的母亲：没关系。谢谢你帮助我们。我一个人可以的。也祝你们好运。";
+		donpcevent instance_npcname("精炼工匠的母亲")+"::OnDisable";
 		donpcevent instance_npcname("#ghmemorialmob03")+"::OnEnable";
 		close;
 	} else {
-		mes "[Hollgrehenn Destroyer]";
-		mes "Somebody help me, somebody help me, please";
+		mes "[精炼工匠的母亲]";
+		mes "谁帮帮我，谁帮帮我，求求你们了。";
 		close;
 	}
 OnInstanceInit:
 OnDisable:
-	hideonnpc instance_npcname("Hollgrehenn Destroyer");
+	hideonnpc instance_npcname("精炼工匠的母亲");
 	end;
 OnEnable:
-	hideoffnpc instance_npcname("Hollgrehenn Destroyer");
+	hideoffnpc instance_npcname("精炼工匠的母亲");
 	end;
 }
 
@@ -940,20 +954,20 @@ OnEnable:
 	donpcevent instance_npcname("#ghinstancewarp4")+"::OnEnable";
 	set .@map$, instance_mapname("1@gl_k");
 	set .@label$, instance_npcname("#ghmemorialmob02")+"::OnMyMobDead";
-	mapannounce .@map$,"3 o'clock warp leading to zone 3 is now open.",bc_map,"0xFFFF00";
-	areamonster .@map$,241,113,291,19,"Suffering Chamberlain",2466,12,.@label$;
-	areamonster .@map$,241,113,291,19,"Decayed Monk",2464,12,.@label$;
-	areamonster .@map$,227,217,291,135,"Suffering Chamberlain",2466,12,.@label$;
-	areamonster .@map$,227,217,291,135,"Decayed Monk",2464,12,.@label$;
+	mapannounce .@map$,"3点钟方向通往第3区域的传送门已经打开了。",bc_map,"0xFFFF00";
+	areamonster .@map$,241,113,291,19,"痛苦的侍从长",2466,12,.@label$;
+	areamonster .@map$,241,113,291,19,"堕落的修道士",2464,12,.@label$;
+	areamonster .@map$,227,217,291,135,"痛苦的侍从长",2466,12,.@label$;
+	areamonster .@map$,227,217,291,135,"堕落的修道士",2464,12,.@label$;
 	end;
 OnMyMobDead:
 	set .@map$, instance_mapname("1@gl_k");
 	set .@label$, instance_npcname("#ghmemorialmob02")+"::OnMyMobDead";
 	set .@mob_dead_num, 48 - mobcount(.@map$,.@label$);
 	if (.@mob_dead_num > 28) {
-		mapannounce .@map$, "Seems like Himmelmez drains the dead's souls. They must be destroyed.",bc_map,"0xFFFFFF";
+		mapannounce .@map$, "这些看上去像是被希梅尔麦兹控制的灵魂。现在找找有没有幸存者吧。",bc_map,"0xFFFFFF";
 		killmonster .@map$,.@label$;
-		donpcevent instance_npcname("Hollgrehenn Destroyer")+"::OnEnable";
+		donpcevent instance_npcname("精炼工匠的母亲")+"::OnEnable";
 		donpcevent instance_npcname("#ghmemorialmob02")+"::OnDisable";
 	}
 	end;
@@ -961,7 +975,7 @@ OnMyMobDead:
 
 // Tramp Mobs
 //============================================================
-1@gl_k,221,82,3	script	Breathless Man#GHtramp1	849,4,4,{
+1@gl_k,221,82,3	script	气喘吁吁的人#GHtramp1	849,4,4,{
 	end;
 OnTouch:
 	set .@i, rand(1,10);
@@ -970,9 +984,9 @@ OnTouch:
 	else if (.@i == 3) set .@mobs,5;
 	else if (.@i < 7) set .@mobs,6;
 	else set .@mobs,7;
-	getmapxy(.@map$,.@x,.@y,UNITTYPE_NPC);
+	getmapxy(.@map$,.@x,.@y,1);
 	specialeffect EF_VENOMDUST;
-	monster .@map$,.@x,.@y,"Muck Worm",2467,.@mobs,instance_npcname(strnpcinfo(0))+"::OnMyMobDead";
+	monster .@map$,.@x,.@y,"蛆虫",2467,.@mobs,instance_npcname(strnpcinfo(0))+"::OnMyMobDead";
 	disablenpc instance_npcname(strnpcinfo(0));
 	end;
 OnMyMobDead:
@@ -985,37 +999,38 @@ OnDisable:
 	disablenpc instance_npcname(strnpcinfo(0));
 	end;
 }
-1@gl_k,213,63,7	duplicate(Breathless Man#GHtramp1)	Breathless Man#GHtramp2	849,4,4
-1@gl_k,230,50,2	duplicate(Breathless Man#GHtramp1)	Breathless Man#GHtramp3	849,4,4
-1@gl_k,222,39,2	duplicate(Breathless Man#GHtramp1)	Breathless Man#GHtramp4	849,4,4
-1@gl_k,214,27,3	duplicate(Breathless Man#GHtramp1)	Breathless Man#GHtramp5	849,4,4
-1@gl_k,223,17,2	duplicate(Breathless Man#GHtramp1)	Breathless Man#GHtramp6	849,4,4
-1@gl_k,235,16,4	duplicate(Breathless Man#GHtramp1)	Breathless Man#GHtramp7	849,4,4
-1@gl_k,251,20,5	duplicate(Breathless Man#GHtramp1)	Breathless Man#GHtramp8	849,4,4
-1@gl_k,240,43,5	duplicate(Breathless Man#GHtramp1)	Breathless Man#GHtramp9	849,4,4
-1@gl_k,271,19,1	duplicate(Breathless Man#GHtramp1)	Breathless Man#GHtramp10	849,4,4
-1@gl_k,246,62,7	duplicate(Breathless Man#GHtramp1)	Breathless Man#GHtramp11	849,4,4
-1@gl_k,282,48,7	duplicate(Breathless Man#GHtramp1)	Breathless Man#GHtramp12	849,4,4
-1@gl_k,285,81,7	duplicate(Breathless Man#GHtramp1)	Breathless Man#GHtramp13	849,4,4
-1@gl_k,241,86,5	duplicate(Breathless Man#GHtramp1)	Breathless Man#GHtramp14	849,4,4
-1@gl_k,249,101,3	duplicate(Breathless Man#GHtramp1)	Breathless Man#GHtramp15	849,4,4
-1@gl_k,276,106,7	duplicate(Breathless Man#GHtramp1)	Breathless Man#GHtramp16	849,4,4
-1@gl_k,252,120,7	duplicate(Breathless Man#GHtramp1)	Breathless Man#GHtramp17	849,4,4
-1@gl_k,258,150,1	duplicate(Breathless Man#GHtramp1)	Breathless Man#GHtramp18	849,4,4
-1@gl_k,255,157,6	duplicate(Breathless Man#GHtramp1)	Breathless Man#GHtramp19	849,4,4
-1@gl_k,261,164,7	duplicate(Breathless Man#GHtramp1)	Breathless Man#GHtramp20	849,4,4
-1@gl_k,269,173,7	duplicate(Breathless Man#GHtramp1)	Breathless Man#GHtramp21	849,4,4
-1@gl_k,280,167,3	duplicate(Breathless Man#GHtramp1)	Breathless Man#GHtramp22	849,4,4
-1@gl_k,293,161,3	duplicate(Breathless Man#GHtramp1)	Breathless Man#GHtramp23	849,4,4
-1@gl_k,226,96,3	duplicate(Breathless Man#GHtramp1)	Breathless Man#GHtramp24	849,4,4
-1@gl_k,222,119,5	duplicate(Breathless Man#GHtramp1)	Breathless Man#GHtramp25	849,4,4
-1@gl_k,233,123,3	duplicate(Breathless Man#GHtramp1)	Breathless Man#GHtramp26	849,4,4
-2@gl_k,147,203,5	duplicate(Breathless Man#GHtramp1)	Breathless Man#GHtramp27	849,4,4
-2@gl_k,141,222,1	duplicate(Breathless Man#GHtramp1)	Breathless Man#GHtramp28	849,4,4
-2@gl_k,167,225,3	duplicate(Breathless Man#GHtramp1)	Breathless Man#GHtramp29	849,4,4
-2@gl_k,145,236,3	duplicate(Breathless Man#GHtramp1)	Breathless Man#GHtramp30	849,4,4
-2@gl_k,143,260,3	duplicate(Breathless Man#GHtramp1)	Breathless Man#GHtramp31	849,4,4
-2@gl_k,173,258,3	duplicate(Breathless Man#GHtramp1)	Breathless Man#GHtramp32	849,4,4
+
+1@gl_k,213,63,7	duplicate(气喘吁吁的人#GHtramp1)	气喘吁吁的人#GHtramp2	849,4,4
+1@gl_k,230,50,2	duplicate(气喘吁吁的人#GHtramp1)	气喘吁吁的人#GHtramp3	849,4,4
+1@gl_k,222,39,2	duplicate(气喘吁吁的人#GHtramp1)	气喘吁吁的人#GHtramp4	849,4,4
+1@gl_k,214,27,3	duplicate(气喘吁吁的人#GHtramp1)	气喘吁吁的人#GHtramp5	849,4,4
+1@gl_k,223,17,2	duplicate(气喘吁吁的人#GHtramp1)	气喘吁吁的人#GHtramp6	849,4,4
+1@gl_k,235,16,4	duplicate(气喘吁吁的人#GHtramp1)	气喘吁吁的人#GHtramp7	849,4,4
+1@gl_k,251,20,5	duplicate(气喘吁吁的人#GHtramp1)	气喘吁吁的人#GHtramp8	849,4,4
+1@gl_k,240,43,5	duplicate(气喘吁吁的人#GHtramp1)	气喘吁吁的人#GHtramp9	849,4,4
+1@gl_k,271,19,1	duplicate(气喘吁吁的人#GHtramp1)	气喘吁吁的人#GHtramp10	849,4,4
+1@gl_k,246,62,7	duplicate(气喘吁吁的人#GHtramp1)	气喘吁吁的人#GHtramp11	849,4,4
+1@gl_k,282,48,7	duplicate(气喘吁吁的人#GHtramp1)	气喘吁吁的人#GHtramp12	849,4,4
+1@gl_k,285,81,7	duplicate(气喘吁吁的人#GHtramp1)	气喘吁吁的人#GHtramp13	849,4,4
+1@gl_k,241,86,5	duplicate(气喘吁吁的人#GHtramp1)	气喘吁吁的人#GHtramp14	849,4,4
+1@gl_k,249,101,3	duplicate(气喘吁吁的人#GHtramp1)	气喘吁吁的人#GHtramp15	849,4,4
+1@gl_k,276,106,7	duplicate(气喘吁吁的人#GHtramp1)	气喘吁吁的人#GHtramp16	849,4,4
+1@gl_k,252,120,7	duplicate(气喘吁吁的人#GHtramp1)	气喘吁吁的人#GHtramp17	849,4,4
+1@gl_k,258,150,1	duplicate(气喘吁吁的人#GHtramp1)	气喘吁吁的人#GHtramp18	849,4,4
+1@gl_k,255,157,6	duplicate(气喘吁吁的人#GHtramp1)	气喘吁吁的人#GHtramp19	849,4,4
+1@gl_k,261,164,7	duplicate(气喘吁吁的人#GHtramp1)	气喘吁吁的人#GHtramp20	849,4,4
+1@gl_k,269,173,7	duplicate(气喘吁吁的人#GHtramp1)	气喘吁吁的人#GHtramp21	849,4,4
+1@gl_k,280,167,3	duplicate(气喘吁吁的人#GHtramp1)	气喘吁吁的人#GHtramp22	849,4,4
+1@gl_k,293,161,3	duplicate(气喘吁吁的人#GHtramp1)	气喘吁吁的人#GHtramp23	849,4,4
+1@gl_k,226,96,3	duplicate(气喘吁吁的人#GHtramp1)	气喘吁吁的人#GHtramp24	849,4,4
+1@gl_k,222,119,5	duplicate(气喘吁吁的人#GHtramp1)	气喘吁吁的人#GHtramp25	849,4,4
+1@gl_k,233,123,3	duplicate(气喘吁吁的人#GHtramp1)	气喘吁吁的人#GHtramp26	849,4,4
+2@gl_k,147,203,5	duplicate(气喘吁吁的人#GHtramp1)	气喘吁吁的人#GHtramp27	849,4,4
+2@gl_k,141,222,1	duplicate(气喘吁吁的人#GHtramp1)	气喘吁吁的人#GHtramp28	849,4,4
+2@gl_k,167,225,3	duplicate(气喘吁吁的人#GHtramp1)	气喘吁吁的人#GHtramp29	849,4,4
+2@gl_k,145,236,3	duplicate(气喘吁吁的人#GHtramp1)	气喘吁吁的人#GHtramp30	849,4,4
+2@gl_k,143,260,3	duplicate(气喘吁吁的人#GHtramp1)	气喘吁吁的人#GHtramp31	849,4,4
+2@gl_k,173,258,3	duplicate(气喘吁吁的人#GHtramp1)	气喘吁吁的人#GHtramp32	849,4,4
 
 // Sector 3 Mobs
 //============================================================
@@ -1030,27 +1045,27 @@ OnEnable:
 	donpcevent instance_npcname("#ghinstancewarp6")+"::OnEnable";
 	set .@map$, instance_mapname("1@gl_k");
 	set .@label$, instance_npcname("#ghmemorialmob03")+"::OnMyMobDead";
-	mapannounce .@map$,"12 o'clock warp leading to the zone 4 was opened.",bc_map,"0xFFFF00";
-	areamonster .@map$,17,259,53,180,"Decayed Guard",2468,11,.@label$;
-	areamonster .@map$,17,259,53,180,"Sharpshooter Ranger",2469,14,.@label$;
-	areamonster .@map$,62,281,73,186,"Decayed Guard",2468,11,.@label$;
-	areamonster .@map$,62,281,73,186,"Sharpshooter Ranger",2469,14,.@label$;
-	areamonster .@map$,74,251,109,224,"Decayed Guard",2468,11,.@label$;
-	areamonster .@map$,74,251,109,224,"Sharpshooter Ranger",2469,14,.@label$;
-	areamonster .@map$,108,281,231,234,"Decayed Guard",2468,11,.@label$;
-	areamonster .@map$,108,281,231,234,"Sharpshooter Ranger",2469,14,.@label$;
+	mapannounce .@map$,"12点钟方向通往第4区域的传送门已经打开了。",bc_map,"0xFFFF00";
+	areamonster .@map$,17,259,53,180,"腐败的近卫兵",2468,11,.@label$;
+	areamonster .@map$,17,259,53,180,"徘徊的弓箭手",2469,14,.@label$;
+	areamonster .@map$,62,281,73,186,"腐败的近卫兵",2468,11,.@label$;
+	areamonster .@map$,62,281,73,186,"徘徊的弓箭手",2469,14,.@label$;
+	areamonster .@map$,74,251,109,224,"腐败的近卫兵",2468,11,.@label$;
+	areamonster .@map$,74,251,109,224,"徘徊的弓箭手",2469,14,.@label$;
+	areamonster .@map$,108,281,231,234,"腐败的近卫兵",2468,11,.@label$;
+	areamonster .@map$,108,281,231,234,"徘徊的弓箭手",2469,14,.@label$;
 	end;
 OnMyMobDead:
 	set .@map$, instance_mapname("1@gl_k");
 	set .@label$, instance_npcname("#ghmemorialmob03")+"::OnMyMobDead";
 	set .@mob_dead_num, 100 - mobcount(.@map$,.@label$);
 	if (.@mob_dead_num > 85) {
-		mapannounce .@map$,"Himmelmez: Nice parry. I thought you were going to die slowly surrounded by the dead I summoned~",bc_map,"0xFFFFFF";
+		mapannounce .@map$,"希梅尔麦兹：不错嘛。我还以为你们会死在不死军团的包围下呢~",bc_map,"0xFFFFFF";
 		killmonster .@map$,.@label$;
 		donpcevent instance_npcname("#GHMclear3")+"::OnEnable";
-		donpcevent instance_npcname("Heinrich#ghinstance4")+"::OnEnable";
-		donpcevent instance_npcname("Himmelmez#ghinstance2")+"::OnEnable";
-		donpcevent instance_npcname("Varmunt#ghinstance3")+"::OnEnable";
+		donpcevent instance_npcname("海因里希#ghinstance4")+"::OnEnable";
+		donpcevent instance_npcname("希梅尔麦兹#ghinstance2")+"::OnEnable";
+		donpcevent instance_npcname("巴尔蒙德#ghinstance3")+"::OnEnable";
 		donpcevent instance_npcname("#ghmemorialmob03")+"::OnDisable";
 	}
 	end;
@@ -1060,24 +1075,51 @@ OnMyMobDead:
 //============================================================
 1@gl_k,0,0,0	script	#ghmemorialmob04	-1,{
 OnInstanceInit:
+	'BossID1 = 0;
 OnDisable:
 	disablenpc instance_npcname("#ghmemorialmob04");
 	end;
 OnEnable:
 	enablenpc instance_npcname("#ghmemorialmob04");
-	monster instance_mapname("1@gl_k"),150,258,"Root of Corruption",2475,1,instance_npcname("#ghmemorialmob04")+"::OnMyMobDead";
+	monster instance_mapname("1@gl_k"),150,258,"堕落之根",2475,1,instance_npcname("#ghmemorialmob04")+"::OnMyMobDead";
+	'BossID1 = $@mobid[0];
+	setunitdata 'BossID1,UMOB_MATKMIN,3027;
+	setunitdata 'BossID1,UMOB_MATKMAX,5015;
+	donpcevent instance_npcname("#rootmatk") + "::OnStart";
 	end;
 OnMyMobDead:
 	set .@map$, instance_mapname("1@gl_k");
 	if (mobcount(.@map$,instance_npcname("#ghmemorialmob04")+"::OnMyMobDead") < 1) {
-		mapannounce .@map$, "12 o'clock warp leading to the Chivalry's Second Floor is now open.",bc_map,"0xFFFF00";
+		mapannounce .@map$, "12点钟方向通往二楼的传送门已经打开了。",bc_map,"0xFFFF00";
+		'BossID1 = 0;
+		donpcevent instance_npcname("#rootmatk") + "::OnEnd";
 		donpcevent instance_npcname("#ghinstancewarp7")+"::OnEnable";
-		donpcevent instance_npcname("Varmunt#ghinstance3")+"::OnTalk2";
+		donpcevent instance_npcname("#ghinstancewarp14")+"::OnEnable";
+		donpcevent instance_npcname("巴尔蒙德#ghinstance3")+"::OnTalk2";
 		donpcevent instance_npcname("#effectGH01")+"::OnEnable";
-		donpcevent instance_npcname("Heinrich#ghinstance5")+"::OnEnable";
-		donpcevent instance_npcname("Varmunt#ghinstance4")+"::OnEnable";
+		donpcevent instance_npcname("海因里希#ghinstance5")+"::OnEnable";
+		donpcevent instance_npcname("巴尔蒙德#ghinstance4")+"::OnEnable";
 		donpcevent instance_npcname("#ghmemorialmob04")+"::OnDisable";
 	}
+	end;
+}
+
+1@gl_k,0,0,0	script	#rootmatk	-1,{
+	end;
+OnStart:
+	enablenpc instance_npcname("#rootmatk");
+	initnpctimer;
+	end;
+OnTimer1000:
+	setunitdata 'BossID1,UMOB_MATKMIN,3027;
+	setunitdata 'BossID1,UMOB_MATKMAX,5015;
+	stopnpctimer;
+	initnpctimer;
+	end;
+OnEnd:
+	stopnpctimer;
+OnInstanceInit:
+	disablenpc instance_npcname("#rootmatk");
 	end;
 }
 
@@ -1097,7 +1139,7 @@ OnEnable:
 	initnpctimer;
 	end;
 OnTimer2000:
-	mapannounce instance_mapname("1@gl_k"), "Himmelmez: You got me tempted to go to the 2nd floor, come to the entrance. I'm curious about how far your luck goes.",bc_map,"0xFFFFFF";
+	mapannounce instance_mapname("1@gl_k"), "希梅尔麦兹：想找我的话就来二楼的入口吧。我很好奇你们有多少能耐。",bc_map,"0xFFFFFF";
 	stopnpctimer;
 	end;
 }
@@ -1112,43 +1154,43 @@ OnEnable:
 	initnpctimer;
 	end;
 OnTimer3000:
-	donpcevent instance_npcname("Himmelmez#ghinstance2")+"::OnTalk1";
+	donpcevent instance_npcname("希梅尔麦兹#ghinstance2")+"::OnTalk1";
 	end;
 OnTimer6000:
-	donpcevent instance_npcname("Himmelmez#ghinstance2")+"::OnTalk2";
+	donpcevent instance_npcname("希梅尔麦兹#ghinstance2")+"::OnTalk2";
 	end;
 OnTimer9000:
-	donpcevent instance_npcname("Himmelmez#ghinstance2")+"::OnTalk3";
+	donpcevent instance_npcname("希梅尔麦兹#ghinstance2")+"::OnTalk3";
 	end;
 OnTimer12000:
-	donpcevent instance_npcname("Heinrich#ghinstance4")+"::OnTalk1";
+	donpcevent instance_npcname("海因里希#ghinstance4")+"::OnTalk1";
 	end;
 OnTimer15000:
-	donpcevent instance_npcname("Himmelmez#ghinstance2")+"::OnTalk4";
+	donpcevent instance_npcname("希梅尔麦兹#ghinstance2")+"::OnTalk4";
 	end;
 OnTimer18000:
-	donpcevent instance_npcname("Varmunt#ghinstance3")+"::OnTalk1";
+	donpcevent instance_npcname("巴尔蒙德#ghinstance3")+"::OnTalk1";
 	end;
 OnTimer21000:
-	donpcevent instance_npcname("Heinrich#ghinstance4")+"::OnTalk2";
+	donpcevent instance_npcname("海因里希#ghinstance4")+"::OnTalk2";
 	end;
 OnTimer24000:
-	donpcevent instance_npcname("Himmelmez#ghinstance2")+"::OnTalk5";
+	donpcevent instance_npcname("希梅尔麦兹#ghinstance2")+"::OnTalk5";
 	end;
 OnTimer27000:
-	donpcevent instance_npcname("Himmelmez#ghinstance2")+"::OnTalk6";
+	donpcevent instance_npcname("希梅尔麦兹#ghinstance2")+"::OnTalk6";
 	end;
 OnTimer28000:
-	donpcevent instance_npcname("Himmelmez#ghinstance2")+"::OnDisable";
+	donpcevent instance_npcname("希梅尔麦兹#ghinstance2")+"::OnDisable";
 	end;
 OnTimer31000:
-	donpcevent instance_npcname("Heinrich#ghinstance4")+"::OnTalk3";
+	donpcevent instance_npcname("海因里希#ghinstance4")+"::OnTalk3";
 	end;
 OnTimer32000:
-	donpcevent instance_npcname("Heinrich#ghinstance4")+"::OnDisable";
+	donpcevent instance_npcname("海因里希#ghinstance4")+"::OnDisable";
 	end;
 OnTimer35000:
-	mapannounce instance_mapname("1@gl_k"), "An eerie echo from the depths can be heard as you get closer.",bc_map,"0xFFFFFF";
+	mapannounce instance_mapname("1@gl_k"), "令人毛骨悚然的吼叫声从深处传来。",bc_map,"0xFF0000";
 	end;
 OnTimer38000:
 	donpcevent instance_npcname("#ghmemorialmob04")+"::OnEnable";
@@ -1157,199 +1199,195 @@ OnTimer38000:
 	end;
 }
 
-1@gl_k,144,258,6	script	Heinrich#ghinstance4	652,{
-	mes "[Heinrich]";
-	mes "Himmelmez... You made my men get killed and I will never forget that.";
+1@gl_k,144,258,6	script	海因里希#ghinstance4	652,{
+	mes "[海因里希]";
+	mes "希梅尔麦兹…你杀了我的人，我们势不两立。";
 	cutin "gl_heinrich1",2;
 	close2;
 	cutin "gl_heinrich1",255;
 	end;
 OnInstanceInit:
 OnDisable:
-	hideonnpc instance_npcname("Heinrich#ghinstance4");
+	hideonnpc instance_npcname("海因里希#ghinstance4");
 	end;
 OnEnable:
-	hideoffnpc instance_npcname("Heinrich#ghinstance4");
+	hideoffnpc instance_npcname("海因里希#ghinstance4");
 	end;
 OnTalk1:
-	npctalk "Heinrich : Himmelmez! I won't let you take even a single more step here.";
+	npctalk "海因里希：希梅尔麦兹！在这里我不会让你前进哪怕一步。";
 	end;
 OnTalk2:
-	npctalk "Heinrich : What... is this?!";
+	npctalk "海因里希：这…是什么！";
 	end;
 OnTalk3:
-	npctalk "Heinrich : Varmunt Sir! Help the adventurers and I'll chase Himmelmez!";
+	npctalk "海因里希：巴尔蒙德！帮助这些冒险家，我先去追希梅尔麦兹！";
 	end;
 }
 
-1@gl_k,150,257,3	script	Himmelmez#ghinstance2	650,{
-	mes "[Himmelmez]";
-	mes "No need to stare at me with so insecure eyes. Soon they'll become relaxed...";
+1@gl_k,150,257,3	script	希梅尔麦兹#ghinstance2	650,{
+	mes "[希梅尔麦兹]";
+	mes "不要用这样的眼神看着我，他们这不是得到了永久的安息么…";
 	cutin "gl_himel2",2;
 	close2;
 	cutin "gl_himel2",255;
 	end;
 OnInstanceInit:
 OnDisable:
-	hideonnpc instance_npcname("Himmelmez#ghinstance2");
+	hideonnpc instance_npcname("希梅尔麦兹#ghinstance2");
 	end;
 OnEnable:
-	hideoffnpc instance_npcname("Himmelmez#ghinstance2");
+	hideoffnpc instance_npcname("希梅尔麦兹#ghinstance2");
 	end;
 OnTalk1:
-	npctalk "Himmelmez : What an awfully lucky, I flew all the way over here and just one of them is really powerful.";
+	npctalk "希梅尔麦兹：能跟着我到这，运气不错嘛。";
 	end;
 OnTalk2:
-	npctalk "Himmelmez : But it doesn't matter to me.";
+	npctalk "希梅尔麦兹：到此为止了。";
 	end;
 OnTalk3:
-	npctalk "Himmelmez : Now, all of you will die.";
+	npctalk "希梅尔麦兹：现在，你们全都要死。";
 	end;
 OnTalk4:
-	npctalk "Himmelmez : Hahaha, so you guys thought I would come alone?";
+	npctalk "希梅尔麦兹：哈哈哈，你们觉得我会独自前来？";
 	end;
 OnTalk5:
-	npctalk "Himmelmez : This is my new toy to keep you at my feet. Why don't you guys play while I entertain?";
+	npctalk "希梅尔麦兹：给你们看看我的新玩具，你们就好好一起玩玩吧？";
 	end;
 OnTalk6:
-	npctalk "Himmelmez : Sincerely~, If I am given the opportunity I'd like to meet you again, Heinrich.";
+	npctalk "希梅尔麦兹：另外~我很期待再次与你交手，海因里希。";
 	end;
 }
 
-1@gl_k,156,259,3	script	Varmunt#ghinstance3	654,{
+1@gl_k,156,259,3	script	巴尔蒙德#ghinstance3	654,{
 	if (checkquest(12318,HUNTING) == 2) {
 		if (checkquest(12319,HUNTING) == -1) {
-			mes "[Varmunt]";
-			mes "There's something unusual about this thing's aura. Maybe someday we will be able to understand what is behind all of this.";
+			mes "[巴尔蒙德]";
+			mes "这些东西带有非常强大的魔力，如果好好利用的话，肯定会对你们有所帮助的。";
 			cutin "gl_barmund1",2;
-			erasequest 12318;
-			if (checkquest(12319,HUNTING) == -1)
-				setquest 12319;
-			setquest 12320;
-			erasequest 12320;
-			getitem 6607,1; //Temporal_Crystal
-			getitem 6608,1; //Coagulated_Spell
+			getitem 6607,1;	
+			getitem 6608,1;
+			setquest 12319;
 			close2;
 			cutin "gl_barmund1",255;
 			end;
 		}
 	}
-	mes "[Varmunt]";
-	mes "Even after all this time, it is impossible to prevent from the will of the Transcendent.";
+	mes "[巴尔蒙德]";
+	mes "我们一定要想办法阻止这一切！";
 	cutin "gl_barmund1",2;
 	close2;
 	cutin "gl_barmund2",255;
 	end;
 OnInstanceInit:
 OnDisable:
-	hideonnpc instance_npcname("Varmunt#ghinstance3");
+	hideonnpc instance_npcname("巴尔蒙德#ghinstance3");
 	end;
 OnEnable:
-	hideoffnpc instance_npcname("Varmunt#ghinstance3");
+	hideoffnpc instance_npcname("巴尔蒙德#ghinstance3");
 	end;
 OnTalk1:
-	npctalk "Varmunt : Heinrich Sir! Something unknown holds an inexplicably powerful force!";
+	npctalk "巴尔蒙德：海因里希司令官！看来有未知的强力怪物在靠近！";
 	end;
 OnTalk2:
-	npctalk "Varmunt : From the monster I picked up some great stuff. People who are interested, talk to me.";
+	npctalk "巴尔蒙德：我们从怪物身上得到了一些奇怪的东西。有兴趣的话请来找我。";
 	end;
 }
 
 // Floor 2
 //============================================================
-2@gl_k,148,67,1	script	Heinrich#ghinstance5	652,{
-	mes "[Heinrich]";
-	mes "Himmelmez's blocking spells";
-	mes "are everywhere around here...";
+2@gl_k,148,67,1	script	海因里希#ghinstance5	652,{
+	mes "[海因里希]";
+	mes "在这里到处都是";
+	mes "希梅尔麦兹的结界法术…";
 	cutin "gl_heinrich1",2;
 	close2;
 	cutin "gl_heinrich1",255;
 	end;
 OnInstanceInit:
 OnDisable:
-	hideonnpc instance_npcname("Heinrich#ghinstance5");
+	hideonnpc instance_npcname("海因里希#ghinstance5");
 	end;
 OnEnable:
-	hideoffnpc instance_npcname("Heinrich#ghinstance5");
+	hideoffnpc instance_npcname("海因里希#ghinstance5");
 	end;
 OnTalk1:
-	npctalk "Heinrich : These things have never been in the castle!";
+	npctalk "海因里希：这座城堡从未有过这些东西！";
 	end;
 OnTalk2:
-	npctalk "Heinrich : Trying to break this power with common weapons doesn't work. I tried it.";
+	npctalk "海因里希：我试了一下寻常的武器，对这种结界完全不起作用。";
 	end;
 OnTalk3:
-	npctalk "Heinrich : It is really unforgivable.";
+	npctalk "海因里希：真是无法原谅！";
 	end;
 OnTalk4:
-	npctalk "Heinrich : I, who already was a subordinate of genocide. How much more in the future...";
+	npctalk "海因里希：牺牲的人太多了，还不知道接下来会有多少…";
 	end;
 OnTalk5:
-	npctalk "Heinrich : ...";
+	npctalk "海因里希：…";
 	end;
 }
 
-2@gl_k,151,71,7	script	Varmunt#ghinstance4	654,{
-	mes "[Varmunt]";
-	mes "Why am I doing this again? Doesn't seem like the first time. I've seen this place repeatedly dozens of times in my dreams. This feeling...";
+2@gl_k,151,71,7	script	巴尔蒙德#ghinstance4	654,{
+	mes "[巴尔蒙德]";
+	mes "我为什么这样做呢？似乎并不是第一次。我感觉我见过这个地方，它在我的梦里反复出现过数十次。这种感觉…";
 	cutin "gl_barmund1",2;
 	close2;
 	cutin "gl_barmund1",255;
 	end;
 OnInstanceInit:
 OnDisable:
-	hideonnpc instance_npcname("Varmunt#ghinstance4");
+	hideonnpc instance_npcname("巴尔蒙德#ghinstance4");
 	end;
 OnEnable:
-	hideoffnpc instance_npcname("Varmunt#ghinstance4");
+	hideoffnpc instance_npcname("巴尔蒙德#ghinstance4");
 	end;
 OnTalk2:
-	npctalk "Varmunt : Himmelmez's enchantment has completely blocked the passage to each section.";
+	npctalk "巴尔蒙德：希梅尔麦兹的魔法已经完全封锁了通道各个部分。";
 	end;
 OnTalk3:
-	npctalk "Varmunt : Get out of the way for a moment. I'll try to somehow break the spell with magical powers.";
+	npctalk "巴尔蒙德：稍等片刻。我来尝试破坏它们。";
 	end;
 OnTalk4:
-	npctalk "Varmunt : The enchantment seems to be broken.";
+	npctalk "巴尔蒙德：结界的一部分似乎被打破了。";
 	end;
 OnTalk5:
-	npctalk "Varmunt : I've never seen this spell before.";
+	npctalk "巴尔蒙德：我曾经见过这种结界。";
 	end;
 OnTalk6:
-	npctalk "Varmunt : Himmelmez doesn't use a seal on a person's body to turn it into an undead.";
+	npctalk "巴尔蒙德：希梅尔麦兹并没有采用封印的方式。";
 	end;
 OnTalk7:
-	npctalk "Varmunt : She uses enchantment stones.This way, the spell is probably maintained.";
+	npctalk "巴尔蒙德：她使用的是魔法石制作的结界，这样可以长时间维持法术。";
 	end;
 OnTalk8:
-	npctalk "Varmunt : We should kill the people who have the enchantment stones to break the spell.";
+	npctalk "巴尔蒙德：我们需要杀死持有魔法石的怪物，才能够打破整个结界。";
 	end;
 OnTalk9:
-	npctalk "Varmunt : However, we can't identify them. The purification can only be done randomly.";
+	npctalk "巴尔蒙德：然而，我们无法直接辨别出它们。所以尽可能多消灭它们。";
 	end;
 OnTalk10:
-	npctalk "Varmunt : Commandant...";
+	npctalk "巴尔蒙德：司令官…";
 	end;
 OnTalk11:
-	npctalk "Varmunt : Commandant, it seems too loose.";
+	npctalk "巴尔蒙德：司令官，你不能太软弱了。";
 	end;
 OnTalk12:
-	npctalk "Varmunt : We are related to all these people, not just a few.";
+	npctalk "巴尔蒙德：我们要对付的已经不是人类了，它们是怪物。";
 	end;
 OnTalk13:
-	npctalk "Varmunt : We can't deny that it's not their fault for what is going on.";
+	npctalk "巴尔蒙德：它们再也变不回来了。";
 	end;
 OnTalk14:
-	npctalk "Varmunt : Well, let's do it then.";
+	npctalk "巴尔蒙德：好了，让我们前行吧。";
 	end;
 OnTalk15:
-	npctalk "Varmunt : You guys are of a great help. Try to follow us.";
+	npctalk "巴尔蒙德：你们应该能帮上不少忙。尽量跟上我们。";
 	end;
 OnTalk16:
-	npctalk "Varmunt : There can be a tough fight. Hold on, and it would be nice to eat something.";
+	npctalk "巴尔蒙德：可能会有一场艰苦的战斗。最好先准备一下。";
 	end;
 OnTalk17:
-	npctalk "Varmunt : Guys. It is time to depart, Heinrich Sir.";
+	npctalk "巴尔蒙德：现在，是时候动身了，海因里希司令官。";
 	end;
 }
 
@@ -1385,80 +1423,80 @@ OnEnable:
 	initnpctimer;
 	end;
 OnTimer3000:
-	donpcevent instance_npcname("Heinrich#ghinstance5")+"::OnTalk1";
+	donpcevent instance_npcname("海因里希#ghinstance5")+"::OnTalk1";
 	donpcevent instance_npcname("#ghmemorialmob05")+"::OnEnable";
 	end;
 OnTimer6000:
-	donpcevent instance_npcname("Varmunt#ghinstance4")+"::OnTalk2";
+	donpcevent instance_npcname("巴尔蒙德#ghinstance4")+"::OnTalk2";
 	end;
 OnTimer9000:
-	donpcevent instance_npcname("Heinrich#ghinstance5")+"::OnTalk2";
+	donpcevent instance_npcname("海因里希#ghinstance5")+"::OnTalk2";
 	end;
 OnTimer12000:
-	donpcevent instance_npcname("Varmunt#ghinstance4")+"::OnTalk3";
+	donpcevent instance_npcname("巴尔蒙德#ghinstance4")+"::OnTalk3";
 	end;
 OnTimer15000:
 	donpcevent instance_npcname("#effectGH01")+"::OnEffect";
 	end;
 OnTimer18000:
 	donpcevent instance_npcname("#effectGH01")+"::OnDisable";
-	donpcevent instance_npcname("Varmunt#ghinstance4")+"::OnTalk4";
+	donpcevent instance_npcname("巴尔蒙德#ghinstance4")+"::OnTalk4";
 	end;
 OnTimer21000:
-	donpcevent instance_npcname("Varmunt#ghinstance4")+"::OnTalk5";
+	donpcevent instance_npcname("巴尔蒙德#ghinstance4")+"::OnTalk5";
 	end;
 OnTimer24000:
-	donpcevent instance_npcname("Varmunt#ghinstance4")+"::OnTalk6";
+	donpcevent instance_npcname("巴尔蒙德#ghinstance4")+"::OnTalk6";
 	end;
 OnTimer27000:
-	donpcevent instance_npcname("Varmunt#ghinstance4")+"::OnTalk7";
+	donpcevent instance_npcname("巴尔蒙德#ghinstance4")+"::OnTalk7";
 	end;
 OnTimer30000:
-	donpcevent instance_npcname("Varmunt#ghinstance4")+"::OnTalk8";
+	donpcevent instance_npcname("巴尔蒙德#ghinstance4")+"::OnTalk8";
 	end;
 OnTimer33000:
-	donpcevent instance_npcname("Varmunt#ghinstance4")+"::OnTalk9";
+	donpcevent instance_npcname("巴尔蒙德#ghinstance4")+"::OnTalk9";
 	end;
 OnTimer36000:
-	donpcevent instance_npcname("Heinrich#ghinstance5")+"::OnTalk3";
+	donpcevent instance_npcname("海因里希#ghinstance5")+"::OnTalk3";
 	end;
 OnTimer39000:
-	donpcevent instance_npcname("Heinrich#ghinstance5")+"::OnTalk4";
+	donpcevent instance_npcname("海因里希#ghinstance5")+"::OnTalk4";
 	end;
 OnTimer42000:
-	donpcevent instance_npcname("Varmunt#ghinstance4")+"::OnTalk10";
+	donpcevent instance_npcname("巴尔蒙德#ghinstance4")+"::OnTalk10";
 	end;
 OnTimer45000:
-	donpcevent instance_npcname("Varmunt#ghinstance4")+"::OnTalk11";
+	donpcevent instance_npcname("巴尔蒙德#ghinstance4")+"::OnTalk11";
 	end;
 OnTimer48000:
-	donpcevent instance_npcname("Varmunt#ghinstance4")+"::OnTalk12";
+	donpcevent instance_npcname("巴尔蒙德#ghinstance4")+"::OnTalk12";
 	end;
 OnTimer51000:
-	donpcevent instance_npcname("Varmunt#ghinstance4")+"::OnTalk13";
+	donpcevent instance_npcname("巴尔蒙德#ghinstance4")+"::OnTalk13";
 	end;
 OnTimer54000:
-	donpcevent instance_npcname("Heinrich#ghinstance5")+"::OnTalk5";
+	donpcevent instance_npcname("海因里希#ghinstance5")+"::OnTalk5";
 	end;
 OnTimer57000:
-	donpcevent instance_npcname("Varmunt#ghinstance4")+"::OnTalk14";
+	donpcevent instance_npcname("巴尔蒙德#ghinstance4")+"::OnTalk14";
 	end;
 OnTimer60000:
-	donpcevent instance_npcname("Varmunt#ghinstance4")+"::OnTalk15";
+	donpcevent instance_npcname("巴尔蒙德#ghinstance4")+"::OnTalk15";
 	end;
 OnTimer63000:
-	donpcevent instance_npcname("Varmunt#ghinstance4")+"::OnTalk16";
+	donpcevent instance_npcname("巴尔蒙德#ghinstance4")+"::OnTalk16";
 	end;
 OnTimer66000:
-	donpcevent instance_npcname("Varmunt#ghinstance4")+"::OnTalk17";
+	donpcevent instance_npcname("巴尔蒙德#ghinstance4")+"::OnTalk17";
 	end;
 OnTimer69000:
-	mapannounce instance_mapname("2@gl_k"), "9 o'clock positioned warp leading to the 1st zone has been opened. Move from the central hallway. A being with an evil aura seems to be appearing in this region.",bc_map,"0xFFFF00";
+	mapannounce instance_mapname("2@gl_k"), "9点钟方向通往第1区域的传送门已经打开了，你感觉到一股邪恶的气息。",bc_map,"0xFFFF00";
 	donpcevent instance_npcname("#ghinstancewarp8")+"::OnEnable";
 	donpcevent instance_npcname("#ghinstancewarp9")+"::OnEnable";
 	donpcevent instance_npcname("#ghmemorialmob06")+"::OnEnable";
-	donpcevent instance_npcname("Varmunt#ghinstance4")+"::OnDisable";
-	donpcevent instance_npcname("Heinrich#ghinstance5")+"::OnDisable";
+	donpcevent instance_npcname("巴尔蒙德#ghinstance4")+"::OnDisable";
+	donpcevent instance_npcname("海因里希#ghinstance5")+"::OnDisable";
 	end;
 OnTimer70000:
 	stopnpctimer;
@@ -1475,18 +1513,18 @@ OnEnable:
 	enablenpc instance_npcname("#ghmemorialmob05");
 	set .@map$, instance_mapname("2@gl_k");
 	set .@label$, instance_npcname("#ghmemorialmob05")+"::OnMyMobDead";
-	areamonster .@map$,124,20,31,162,"Decayed Guard",2468,8,.@label$;
-	areamonster .@map$,124,20,31,162,"Sharpshooter Ranger",2469,8,.@label$;
-	areamonster .@map$,124,20,31,162,"Fallen Abyss Knight",2470,8,.@label$;
-	areamonster .@map$,124,20,31,162,"Suffering Khalitzburg",2471,8,.@label$;
-	areamonster .@map$,124,20,31,162,"Swollen Knight",2472,8,.@label$;
-	set 'MyMobs,80;
+	areamonster .@map$,124,20,31,162,"腐败的近卫兵",2468,8,.@label$;
+	areamonster .@map$,124,20,31,162,"徘徊的弓箭手",2469,8,.@label$;
+	areamonster .@map$,124,20,31,162,"堕落的深渊骑士",2470,8,.@label$;
+	areamonster .@map$,124,20,31,162,"痛苦的卡利斯格",2471,8,.@label$;
+	areamonster .@map$,124,20,31,162,"血腥骑士",2472,8,.@label$;
+	set .MyMobs,80;
 	end;
 OnMyMobDead:
 	set .@map$, instance_mapname("2@gl_k");
-	set 'MyMobs, 'MyMobs-1;
-	if ('MyMobs == 0) {
-		mapannounce .@map$, "A being with an evil aura seems to be appearing in this region.",bc_map,"0xFFFF00";
+	set .MyMobs, .MyMobs-1;
+	if (.MyMobs == 40) {
+		mapannounce .@map$, "邪恶的气息在这一带蔓延。",bc_map,"0xFFFF00";
 		donpcevent instance_npcname("#ghmemorialmob06")+"::OnDisable2";
 		donpcevent instance_npcname("#ghmemorialmob07")+"::OnEnable";
 		donpcevent instance_npcname("#ghmemorialmob05")+"::OnDisable";
@@ -1494,19 +1532,19 @@ OnMyMobDead:
 		set .@label$, instance_npcname("#ghmemorialmob05")+"::OnMyMobDead";
 		switch(rand(5)) {
 		case 0:
-			areamonster .@map$,124,20,31,162,"Decayed Guard",2468,1,.@label$;
+			areamonster .@map$,124,20,31,162,"腐败的近卫兵",2468,1,.@label$;
 			break;
 		case 1:
-			areamonster .@map$,124,20,31,162,"Sharpshooter Ranger",2469,1,.@label$;
+			areamonster .@map$,124,20,31,162,"徘徊的弓箭手",2469,1,.@label$;
 			break;
 		case 2:
-			areamonster .@map$,124,20,31,162,"Fallen Abyss Knight",2470,1,.@label$;
+			areamonster .@map$,124,20,31,162,"堕落的深渊骑士",2470,1,.@label$;
 			break;
 		case 3:
-			areamonster .@map$,124,20,31,162,"Suffering Khalitzburg",2471,1,.@label$;
+			areamonster .@map$,124,20,31,162,"痛苦的卡利斯格",2471,1,.@label$;
 			break;
 		case 4:
-			areamonster .@map$,124,20,31,162,"Swollen Knight",2472,1,.@label$;
+			areamonster .@map$,124,20,31,162,"血腥骑士",2472,1,.@label$;
 			break;
 		}
 	}
@@ -1541,11 +1579,11 @@ OnTimer90000:
 		69,138,80,127,
 		34,143,39,138;
 	for(set .@i,0; .@i<getarraysize(.@c); set .@i,.@i+4) {
-		areamonster .@map$,.@c[.@i],.@c[.@i+1],.@c[.@i+2],.@c[.@i+3],"Decayed Guard",2468,1,.@label$;
-		areamonster .@map$,.@c[.@i],.@c[.@i+1],.@c[.@i+2],.@c[.@i+3],"Sharpshooter Ranger",2469,1,.@label$;
-		areamonster .@map$,.@c[.@i],.@c[.@i+1],.@c[.@i+2],.@c[.@i+3],"Fallen Abyss Knight",2470,1,.@label$;
-		areamonster .@map$,.@c[.@i],.@c[.@i+1],.@c[.@i+2],.@c[.@i+3],"Suffering Khalitzburg",2471,1,.@label$;
-		areamonster .@map$,.@c[.@i],.@c[.@i+1],.@c[.@i+2],.@c[.@i+3],"Swollen Knight",2472,1,.@label$;
+		areamonster .@map$,.@c[.@i],.@c[.@i+1],.@c[.@i+2],.@c[.@i+3],"腐败的近卫兵",2468,1,.@label$;
+		areamonster .@map$,.@c[.@i],.@c[.@i+1],.@c[.@i+2],.@c[.@i+3],"徘徊的弓箭手",2469,1,.@label$;
+		areamonster .@map$,.@c[.@i],.@c[.@i+1],.@c[.@i+2],.@c[.@i+3],"堕落的深渊骑士",2470,1,.@label$;
+		areamonster .@map$,.@c[.@i],.@c[.@i+1],.@c[.@i+2],.@c[.@i+3],"痛苦的卡利斯格",2471,1,.@label$;
+		areamonster .@map$,.@c[.@i],.@c[.@i+1],.@c[.@i+2],.@c[.@i+3],"血腥骑士",2472,1,.@label$;
 	}
 	end;
 OnTimer92000:
@@ -1561,12 +1599,12 @@ OnDisable:
 	end;
 OnEnable:
 	enablenpc instance_npcname("#ghmemorialmob07");
-	areamonster instance_mapname("2@gl_k"),124,20,31,162,"The Destruction of the First Captain",2473,1,instance_npcname("#ghmemorialmob07")+"::OnMyMobDead";
+	areamonster instance_mapname("2@gl_k"),124,20,31,162,"毁灭的第1骑士团长",2473,1,instance_npcname("#ghmemorialmob07")+"::OnMyMobDead";
 	end;
 OnMyMobDead:
 	set .@map$, instance_mapname("2@gl_k");
 	if (mobcount(.@map$,instance_npcname("#ghmemorialmob07")+"::OnMyMobDead") < 1) {
-		mapannounce .@map$, "3 o'clock positioned warp leading to the 2nd zone has been opened. Use the central hallway to get there.",bc_map,"0xFFFF00";
+		mapannounce .@map$, "3点钟方向通往第2区域的传送门已经打开了。由中央走廊可以到那里。",bc_map,"0xFFFF00";
 		donpcevent instance_npcname("#ghinstancewarp10")+"::OnEnable";
 		donpcevent instance_npcname("#ghinstancewarp11")+"::OnEnable";
 		donpcevent instance_npcname("#ghmemorialmob08")+"::OnEnable";
@@ -1584,37 +1622,37 @@ OnEnable:
 	enablenpc instance_npcname("#ghmemorialmob08");
 	set .@map$, instance_mapname("2@gl_k");
 	set .@label$, instance_npcname("#ghmemorialmob08")+"::OnMyMobDead";
-	areamonster .@map$,175,163,265,18,"Decayed Guard",2468,7,.@label$;
-	areamonster .@map$,175,163,265,18,"Sharpshooter Ranger",2469,7,.@label$;
-	areamonster .@map$,175,163,265,18,"Fallen Abyss Knight",2470,7,.@label$;
-	areamonster .@map$,175,163,265,18,"Suffering Khalitzburg",2471,7,.@label$;
-	areamonster .@map$,175,163,265,18,"Swollen Knight",2472,7,.@label$;
-	set 'MyMobs,35;
+	areamonster .@map$,175,163,265,18,"腐败的近卫兵",2468,7,.@label$;
+	areamonster .@map$,175,163,265,18,"徘徊的弓箭手",2469,7,.@label$;
+	areamonster .@map$,175,163,265,18,"堕落的深渊骑士",2470,7,.@label$;
+	areamonster .@map$,175,163,265,18,"痛苦的卡利斯格",2471,7,.@label$;
+	areamonster .@map$,175,163,265,18,"血腥骑士",2472,7,.@label$;
+	set .MyMobs,80;
 	end;
 OnMyMobDead:
 	set .@map$, instance_mapname("2@gl_k");
-	set 'MyMobs, 'MyMobs-1;
-	if ('MyMobs == 0) {
-		mapannounce .@map$, "A being with an evil aura seems to be appearing in this region.",bc_map,"0xFFFF00";
+	set .MyMobs, .MyMobs-1;
+	if (.MyMobs == 40) {
+		mapannounce .@map$, "邪恶的气息在这一带蔓延。",bc_map,"0xFFFF00";
 		donpcevent instance_npcname("#ghmemorialmob09")+"::OnEnable";
 		donpcevent instance_npcname("#ghmemorialmob08")+"::OnDisable";
 	} else {
 		set .@label$, instance_npcname("#ghmemorialmob08")+"::OnMyMobDead";
 		switch(rand(5)) {
 		case 0:
-			areamonster .@map$,175,163,265,18,"Decayed Guard",2468,1,.@label$;
+			areamonster .@map$,175,163,265,18,"腐败的近卫兵",2468,1,.@label$;
 			break;
 		case 1:
-			areamonster .@map$,175,163,265,18,"Sharpshooter Ranger",2469,1,.@label$;
+			areamonster .@map$,175,163,265,18,"徘徊的弓箭手",2469,1,.@label$;
 			break;
 		case 2:
-			areamonster .@map$,175,163,265,18,"Fallen Abyss Knight",2470,1,.@label$;
+			areamonster .@map$,175,163,265,18,"堕落的深渊骑士",2470,1,.@label$;
 			break;
 		case 3:
-			areamonster .@map$,175,163,265,18,"Suffering Khalitzburg",2471,1,.@label$;
+			areamonster .@map$,175,163,265,18,"痛苦的卡利斯格",2471,1,.@label$;
 			break;
 		case 4:
-			areamonster .@map$,175,163,265,18,"Swollen Knight",2472,1,.@label$;
+			areamonster .@map$,175,163,265,18,"血腥骑士",2472,1,.@label$;
 			break;
 		}
 	}
@@ -1628,13 +1666,14 @@ OnDisable:
 	end;
 OnEnable:
 	enablenpc instance_npcname("#ghmemorialmob09");
-	areamonster instance_mapname("2@gl_k"),175,163,265,18,"The Destruction of the Second Captain",2474,1,instance_npcname("#ghmemorialmob09")+"::OnMyMobDead";
+	areamonster instance_mapname("2@gl_k"),175,163,265,18,"毁灭的第2骑士团长",2474,1,instance_npcname("#ghmemorialmob09")+"::OnMyMobDead";
 	end;
 OnMyMobDead:
 	set .@map$, instance_mapname("2@gl_k");
 	if (mobcount(.@map$,instance_npcname("#ghmemorialmob09")+"::OnMyMobDead") < 1) {
-		mapannounce .@map$, "12 o'clock positioned warp leading to the 3rd zone has been opened. Use the central hallway to get there.",bc_map,"0xFFFF00";
+		mapannounce .@map$, "12点钟方向通往第3区域的传送门已经打开了。由中央走廊可以到那里。",bc_map,"0xFFFF00";
 		donpcevent instance_npcname("#ghinstancewarp12")+"::OnEnable";
+		donpcevent instance_npcname("#ghinstancewarp13")+"::OnEnable";
 		donpcevent instance_npcname("#controlGH6")+"::OnEnable";
 		donpcevent instance_npcname("#ghmemorialmob08")+"::OnDisable";
 		donpcevent instance_npcname("#ghmemorialmob09")+"::OnDisable";
@@ -1644,124 +1683,213 @@ OnMyMobDead:
 
 2@gl_k,0,0,0	script	#ghmemorialmob10	-1,{
 OnInstanceInit:
+	'BossID2 = 0;
 OnDisable:
 	disablenpc instance_npcname("#ghmemorialmob10");
 	end;
 OnEnable:
 	enablenpc instance_npcname("#ghmemorialmob10");
-	donpcevent instance_npcname("Gerhard#ghinstance1")+"::OnDisable";
-	monster instance_mapname("2@gl_k"),158,255,"Amdarias",2476,1,instance_npcname("#ghmemorialmob10")+"::OnMyMobDead";
+	donpcevent instance_npcname("格哈德#ghinstance1")+"::OnDisable";
+	initnpctimer;
+	monster instance_mapname("2@gl_k"),158,255,"暗达莱斯",2476,1,instance_npcname("#ghmemorialmob10")+"::OnMyMobDead";
+	'BossID2 = $@mobid[0];
+	setunitdata 'BossID2,UMOB_MATKMIN,2991;
+	setunitdata 'BossID2,UMOB_MATKMAX,4978;
+	donpcevent instance_npcname("#amdamatk") + "::OnStart";
+	unittalk 'BossID2,"走开... 不要靠近我...";
+	sleep 6000;
+	unittalk 'BossID2,"我不想... 我不想伤害任何人...呃啊...";
+	sleep 6000;
+	unittalk 'BossID2,"杀了我! 求求你杀了我！";
+	sleep 6000;
+	unittalk 'BossID2,"呃...死吧...去死吧...";
+	sleep 6000;
+	unittalk 'BossID2,"毁灭... 死亡！...";
+	end;
+OnTimer10000:
+	stopnpctimer;
+	initnpctimer;
+	getunitdata 'BossID2,.@boss_data;
+	.@x = .@boss_data[6];
+	.@y = .@boss_data[7];
+	switch(rand(3)) {
+		case 0:
+		case 1:
+			for(set .@i,1; .@i <= 9; set .@i,.@i+1) {
+				movenpc instance_npcname("#ogh_h_skillunit1"+.@i),.@x+rand(23)-11,.@y+rand(23)-11;
+				sleep 500;
+				donpcevent instance_npcname("#ogh_h_skillunit1"+.@i)+"::OnDarkCross";
+			}
+			break;
+		case 2:
+			.@map$ = instance_mapname("2@gl_k");
+			.@label$ = instance_npcname("#ghmemorialmob10")+"::OnSkillunit";
+			if(mobcount(.@map$,.@label$) < 3)
+				areamonster .@map$,.@x+5,.@y+5,.@x-5,.@y-5,"--ja--",2470,2,.@label$;
+			break;
+	}
+OnSkillunit:
 	end;
 OnMyMobDead:
 	if (mobcount(instance_mapname("2@gl_k"),instance_npcname("#ghmemorialmob10")+"::OnMyMobDead") < 1) {
-		donpcevent instance_npcname("Hugin#ghinstance1")+"::OnEnable";
+		stopnpctimer;
+		'BossID2 = 0;
+		donpcevent instance_npcname("#amdamatk") + "::OnEnd";
+		killmonster instance_mapname("2@gl_k"),instance_npcname("#ghmemorialmob10")+"::OnSkillunit";
+		donpcevent instance_npcname("华金#ghinstance1")+"::OnEnable";
+		donpcevent instance_npcname("奇怪的机关#ogh_h") + "::OnStart";
 		donpcevent instance_npcname("#ghmemorialmob10")+"::OnDisable";
 	}
 	end;
 }
 
-2@gl_k,155,250,7	script	Heinrich#ghinstance6	652,{
+2@gl_k,0,0,0	script	#amdamatk	-1,{
 	end;
+OnStart:
+	enablenpc instance_npcname("#amdamatk");
+	initnpctimer;
+	end;
+OnTimer1000:
+	setunitdata 'BossID2,UMOB_MATKMIN,2991;
+	setunitdata 'BossID2,UMOB_MATKMAX,4978;
+	stopnpctimer;
+	initnpctimer;
+	end;
+OnEnd:
+	stopnpctimer;
 OnInstanceInit:
-OnDisable:
-	hideonnpc instance_npcname("Heinrich#ghinstance6");
-	end;
-OnEnable:
-	hideoffnpc instance_npcname("Heinrich#ghinstance6");
-	end;
-OnTalk1:
-	npctalk "Heinrich : Gerhard!";
-	end;
-OnTalk2:
-	npctalk "Heinrich : What are you doing to my men, Himmelmez?!";
-	end;
-OnTalk3:
-	npctalk "Heinrich : Himmelmez! You don't need to make any more sacrifices!";
-	end;
-OnTalk4:
-	npctalk "Heinrich : Let him go! I don't want one more sacrifice!";
-	end;
-OnTalk5:
-	npctalk "Heinrich : I will not forgive you.";
-	end;
-OnTalk6:
-	npctalk "Heinrich : Just leave us alone, Himmelmez!!";
+	disablenpc instance_npcname("#amdamatk");
 	end;
 }
 
-2@gl_k,162,250,1	script	Varmunt#ghinstance5	654,{
-	mes "[Varmunt]";
-	mes "We can't escape this";
-	mes "eternal confinement...";
+2@gl_k,0,0,0	script	#ogh_h_skillunit11	HIDDEN_NPC,{
+	end;
+OnDarkCross:
+	getmapxy(.@map$,.@x,.@y,1);
+	monster instance_mapname(.@map$),.@x,.@y,"",2960,1;
+	.@skillunit[atoi(replacestr(strnpcinfo(2),"ogh_h_skillunit1",""))-1] = $@mobid[0];
+	setunitdata .@skillunit[atoi(replacestr(strnpcinfo(2),"ogh_h_skillunit1",""))-1],UMOB_DMGIMMUNE,1;
+	setunitdata .@skillunit[atoi(replacestr(strnpcinfo(2),"ogh_h_skillunit1",""))-1],UMOB_MATKMIN,1050;
+	setunitdata .@skillunit[atoi(replacestr(strnpcinfo(2),"ogh_h_skillunit1",""))-1],UMOB_MATKMAX,1950;
+	unitskilluseid .@skillunit[atoi(replacestr(strnpcinfo(2),"ogh_h_skillunit1",""))-1],353,1;
+	unitskilluseid .@skillunit[atoi(replacestr(strnpcinfo(2),"ogh_h_skillunit1",""))-1],339,10;
+	sleep 5000;
+	mobremove .@skillunit[atoi(replacestr(strnpcinfo(2),"ogh_h_skillunit1",""))-1];
+	movenpc instance_npcname(strnpcinfo(0)),0,0;
+	end;
+}
+
+2@gl_k,0,0,0	duplicate(#ogh_h_skillunit11)	#ogh_h_skillunit12	HIDDEN_NPC
+2@gl_k,0,0,0	duplicate(#ogh_h_skillunit11)	#ogh_h_skillunit13	HIDDEN_NPC
+2@gl_k,0,0,0	duplicate(#ogh_h_skillunit11)	#ogh_h_skillunit14	HIDDEN_NPC
+2@gl_k,0,0,0	duplicate(#ogh_h_skillunit11)	#ogh_h_skillunit15	HIDDEN_NPC
+2@gl_k,0,0,0	duplicate(#ogh_h_skillunit11)	#ogh_h_skillunit16	HIDDEN_NPC
+2@gl_k,0,0,0	duplicate(#ogh_h_skillunit11)	#ogh_h_skillunit17	HIDDEN_NPC
+2@gl_k,0,0,0	duplicate(#ogh_h_skillunit11)	#ogh_h_skillunit18	HIDDEN_NPC
+2@gl_k,0,0,0	duplicate(#ogh_h_skillunit11)	#ogh_h_skillunit19	HIDDEN_NPC
+
+2@gl_k,155,250,7	script	海因里希#ghinstance6	652,{
+	end;
+OnInstanceInit:
+OnDisable:
+	hideonnpc instance_npcname("海因里希#ghinstance6");
+	end;
+OnEnable:
+	hideoffnpc instance_npcname("海因里希#ghinstance6");
+	end;
+OnTalk1:
+	npctalk "海因里希：格哈德！";
+	end;
+OnTalk2:
+	npctalk "海因里希：你想对我的部下做什么，希梅尔麦兹？！";
+	end;
+OnTalk3:
+	npctalk "海因里希：希梅尔麦兹！不要再做无谓的牺牲了！";
+	end;
+OnTalk4:
+	npctalk "海因里希：让他走！我不希望更多人为此而牺牲！";
+	end;
+OnTalk5:
+	npctalk "海因里希：我一定要让你付出代价。";
+	end;
+OnTalk6:
+	npctalk "海因里希：希梅尔麦兹！！";
+	end;
+}
+
+2@gl_k,162,250,1	script	巴尔蒙德#ghinstance5	654,{
+	mes "[巴尔蒙德]";
+	mes "我们无法逃出";
+	mes "这个永恒的禁锢…";
 	cutin "gl_barmund2",2;
 	close2;
 	cutin "gl_barmund2",255;
 	end;
 OnInstanceInit:
 OnDisable:
-	hideonnpc instance_npcname("Varmunt#ghinstance5");
+	hideonnpc instance_npcname("巴尔蒙德#ghinstance5");
 	end;
 OnEnable:
-	hideoffnpc instance_npcname("Varmunt#ghinstance5");
+	hideoffnpc instance_npcname("巴尔蒙德#ghinstance5");
 	end;
 OnTalk1:
-	npctalk "Varmunt : What? This cannot be. We must prevent Amdarias's attacks!";
+	npctalk "巴尔蒙德：什么？这不可能。我们必须防止暗达莱斯造成更大的破坏！";
 	end;
 }
 
-2@gl_k,158,252,3	script	Himmelmez#ghinstance4	650,4,4,{
+2@gl_k,158,252,3	script	希梅尔麦兹#ghinstance4	650,4,4,{
 	end;	
 OnInstanceInit:
 OnDisable:
-	hideonnpc instance_npcname("Himmelmez#ghinstance4");
+	hideonnpc instance_npcname("希梅尔麦兹#ghinstance4");
 	end;
 OnEnable:
-	hideoffnpc instance_npcname("Himmelmez#ghinstance4");
+	hideoffnpc instance_npcname("希梅尔麦兹#ghinstance4");
 	end;
 OnTalk1:
-	npctalk "Himmelmez : Great~ I thought you wouldn't come near the end...";
+	npctalk "希梅尔麦兹：很好~我还以为你到不了这里呢…";
 	end;
 OnTalk2:
-	npctalk "Himmelmez : Huhu, I have already found a piece of Ymir's Heart, Heinrich.";
+	npctalk "希梅尔麦兹：呼呼，我已经找到了伊米尔之心的碎片了，海因里希。";
 	end;
 OnTalk3:
-	npctalk "Himmelmez : It would've been faster if there were no distractions.";
+	npctalk "希梅尔麦兹：如果没有你们干扰的话，那会更快。";
 	end;
 OnTalk4:
-	npctalk "Himmelmez : What do you think? Making it look like an accidental disease infected the king and the people around...";
+	npctalk "希梅尔麦兹：你觉得呢？假装这是一场瘟疫，席卷了整个王国…";
 	end;
 OnTalk5:
-	npctalk "Himmelmez : You want that?";
+	npctalk "希梅尔麦兹：你真的那样想？";
 	end;
 OnTalk6:
-	npctalk "Himmelmez : This one is your final blow, Heinrich.";
+	npctalk "希梅尔麦兹：这是你呼吸的最后一口空气了，海因里希。";
 	end;
 OnTalk7:
-	npctalk "Himmelmez : It is said that stopping me requires a skillfull person.";
+	npctalk "希梅尔麦兹：你没听说吗，没有人能阻止我。";
 	end;
 OnTalk8:
-	npctalk "Himmelmez : Seems like a perfect scenario to make my new monster, Amdarias.";
+	npctalk "希梅尔麦兹：看来这是一个好时机，让我来介绍我的新宠物，暗达莱斯。";
 	end;
 OnTalk9:
-	npctalk "Himmelmez : Booh~ I'm scared.";
+	npctalk "希梅尔麦兹：哦~我好怕怕。";
 	end;
 OnTalk10:
-	npctalk "Himmelmez : Anyway, it was nice talking to you. Maybe we'll have the chance to meet again in the next story.";
+	npctalk "希梅尔麦兹：无论如何，遇见你我很开心，下次再见咯。";
 	end;
 OnTalk11:
-	npctalk "Himmelmez : Well, make sure you will come back again.";
+	npctalk "希梅尔麦兹：还会再见的，不是吗？";
 	end;
 }
 
 2@gl_k,150,179,0	script	#controlGH6	111,2,2,{
 	end;
 OnTouch:
-	mapannounce instance_mapname("2@gl_k"), "???: Do not come! There are traps everywhere here... Aaaaack!!!!",bc_map,"0xFF0000";
+	mapannounce instance_mapname("2@gl_k"), "???：不要过来！这里到处都是陷阱！！！！",bc_map,"0xFF0000";
 	specialeffect EF_BASH;
-	donpcevent instance_npcname("Himmelmez#ghinstance3")+"::OnEnable";
-	donpcevent instance_npcname("Heinrich#ghinstance6")+"::OnEnable";
-	donpcevent instance_npcname("Varmunt#ghinstance5")+"::OnEnable";
-	donpcevent instance_npcname("Gerhard#ghinstance1")+"::OnEnable";
+	donpcevent instance_npcname("希梅尔麦兹#ghinstance3")+"::OnEnable";
+	donpcevent instance_npcname("海因里希#ghinstance6")+"::OnEnable";
+	donpcevent instance_npcname("巴尔蒙德#ghinstance5")+"::OnEnable";
+	donpcevent instance_npcname("格哈德#ghinstance1")+"::OnEnable";
 	donpcevent instance_npcname("#controlGH6")+"::OnDisable";
 	end;
 OnInstanceInit:
@@ -1773,52 +1901,52 @@ OnEnable:
 	end;
 }
 
-2@gl_k,158,252,1	script	Himmelmez#ghinstance3	650,7,7,{
+2@gl_k,158,252,1	script	希梅尔麦兹#ghinstance3	650,7,7,{
 	end;
 OnTouch:
 	specialeffect EF_BASH;
 	donpcevent instance_npcname("#controlGH5")+"::OnEnable";
-	donpcevent instance_npcname("Himmelmez#ghinstance4")+"::OnEnable";
-	donpcevent instance_npcname("Himmelmez#ghinstance3")+"::OnDisable";
+	donpcevent instance_npcname("希梅尔麦兹#ghinstance4")+"::OnEnable";
+	donpcevent instance_npcname("希梅尔麦兹#ghinstance3")+"::OnDisable";
 	end;
 OnInstanceInit:
 OnDisable:
-	disablenpc instance_npcname("Himmelmez#ghinstance3");
+	disablenpc instance_npcname("希梅尔麦兹#ghinstance3");
 	end;
 OnEnable:
-	enablenpc instance_npcname("Himmelmez#ghinstance3");
+	enablenpc instance_npcname("希梅尔麦兹#ghinstance3");
 	end;
 }
 
-2@gl_k,158,255,3	script	Gerhard#ghinstance1	651,{
+2@gl_k,158,255,3	script	格哈德#ghinstance1	651,{
 	end;
 OnInstanceInit:
 OnDisable:
-	hideonnpc instance_npcname("Gerhard#ghinstance1");
+	hideonnpc instance_npcname("格哈德#ghinstance1");
 	end;
 OnEnable:
-	hideoffnpc instance_npcname("Gerhard#ghinstance1");
+	hideoffnpc instance_npcname("格哈德#ghinstance1");
 	end;
 OnTalk1:
-	npctalk "Gerhard : Damn it! Run away! I can't withstand anymore!";
+	npctalk "格哈德：该死的！快跑！我快坚持不住了！";
 	end;
 OnTalk2:
-	npctalk "Gerhard : Commandant... Come on, you need to run away from here... Ugh.";
+	npctalk "格哈德：司令官…快走，你必须活下来…啊。";
 	end;
 OnTalk3:
-	npctalk "Gerhard : Even if you defile my body, I won't let you take my soul, Himmelmez!";
+	npctalk "格哈德：即使你转化了我的身体，我的灵魂也不会屈服，希梅尔麦兹！";
 	end;
 OnEffect1:
-	specialeffect EF_BARRIER;
+	misceffect EF_BARRIER;
 	end;
 OnEffect2:
-	specialeffect EF_CHAINCOMBO;
+	misceffect EF_CHAINCOMBO;
 	end;
 OnEffect3:
-	specialeffect EF_MAPPILLAR2;
+	misceffect EF_MAPPILLAR2;
 	end;
 OnEffect4:
-	specialeffect EF_MAPPILLAR;
+	misceffect EF_MAPPILLAR;
 	end;
 OnEffect5:
 	specialeffect EF_LORD;
@@ -1835,89 +1963,89 @@ OnEnable:
 	initnpctimer;
 	end;
 OnTimer3000:
-	donpcevent instance_npcname("Himmelmez#ghinstance4")+"::OnTalk1";
+	donpcevent instance_npcname("希梅尔麦兹#ghinstance4")+"::OnTalk1";
 	end;
 OnTimer6000:
-	donpcevent instance_npcname("Gerhard#ghinstance1")+"::OnTalk1";
+	donpcevent instance_npcname("格哈德#ghinstance1")+"::OnTalk1";
 	end;
 OnTimer9000:
-	donpcevent instance_npcname("Heinrich#ghinstance6")+"::OnTalk1";
+	donpcevent instance_npcname("海因里希#ghinstance6")+"::OnTalk1";
 	end;
 OnTimer12000:
-	donpcevent instance_npcname("Gerhard#ghinstance1")+"::OnTalk2";
+	donpcevent instance_npcname("格哈德#ghinstance1")+"::OnTalk2";
 	end;
 OnTimer15000:
-	donpcevent instance_npcname("Heinrich#ghinstance6")+"::OnTalk2";
+	donpcevent instance_npcname("海因里希#ghinstance6")+"::OnTalk2";
 	end;
 OnTimer18000:
-	donpcevent instance_npcname("Himmelmez#ghinstance4")+"::OnTalk2";
+	donpcevent instance_npcname("希梅尔麦兹#ghinstance4")+"::OnTalk2";
 	end;
 OnTimer21000:
-	donpcevent instance_npcname("Himmelmez#ghinstance4")+"::OnTalk3";
+	donpcevent instance_npcname("希梅尔麦兹#ghinstance4")+"::OnTalk3";
 	end;
 OnTimer24000:
-	donpcevent instance_npcname("Gerhard#ghinstance1")+"::OnTalk3";
+	donpcevent instance_npcname("格哈德#ghinstance1")+"::OnTalk3";
 	end;
 OnTimer27000:
-	donpcevent instance_npcname("Himmelmez#ghinstance4")+"::OnTalk4";
+	donpcevent instance_npcname("希梅尔麦兹#ghinstance4")+"::OnTalk4";
 	end;
 OnTimer30000:
-	donpcevent instance_npcname("Heinrich#ghinstance6")+"::OnTalk3";
+	donpcevent instance_npcname("海因里希#ghinstance6")+"::OnTalk3";
 	end;
 OnTimer33000:
-	donpcevent instance_npcname("Heinrich#ghinstance6")+"::OnTalk4";
+	donpcevent instance_npcname("海因里希#ghinstance6")+"::OnTalk4";
 	end;
 OnTimer36000:
-	donpcevent instance_npcname("Himmelmez#ghinstance4")+"::OnTalk5";
+	donpcevent instance_npcname("希梅尔麦兹#ghinstance4")+"::OnTalk5";
 	end;
 OnTimer39000:
-	donpcevent instance_npcname("Himmelmez#ghinstance4")+"::OnTalk6";
+	donpcevent instance_npcname("希梅尔麦兹#ghinstance4")+"::OnTalk6";
 	end;
 OnTimer42000:
-	donpcevent instance_npcname("Himmelmez#ghinstance4")+"::OnTalk7";
+	donpcevent instance_npcname("希梅尔麦兹#ghinstance4")+"::OnTalk7";
 	end;
 OnTimer45000:
-	donpcevent instance_npcname("Himmelmez#ghinstance4")+"::OnTalk8";
+	donpcevent instance_npcname("希梅尔麦兹#ghinstance4")+"::OnTalk8";
 	end;
 OnTimer48000:
-	donpcevent instance_npcname("Heinrich#ghinstance6")+"::OnTalk5";
+	donpcevent instance_npcname("海因里希#ghinstance6")+"::OnTalk5";
 	end;
 OnTimer51000:
-	donpcevent instance_npcname("Himmelmez#ghinstance4")+"::OnTalk9";
+	donpcevent instance_npcname("希梅尔麦兹#ghinstance4")+"::OnTalk9";
 	end;
 OnTimer54000:
-	donpcevent instance_npcname("Himmelmez#ghinstance4")+"::OnTalk10";
+	donpcevent instance_npcname("希梅尔麦兹#ghinstance4")+"::OnTalk10";
 	end;
 OnTimer57000:
-	donpcevent instance_npcname("Himmelmez#ghinstance4")+"::OnTalk11";
+	donpcevent instance_npcname("希梅尔麦兹#ghinstance4")+"::OnTalk11";
 	end;
 OnTimer60000:
-	donpcevent instance_npcname("Gerhard#ghinstance1")+"::OnEffect1";
+	donpcevent instance_npcname("格哈德#ghinstance1")+"::OnEffect1";
 	end;
 OnTimer63000:
-	donpcevent instance_npcname("Himmelmez#ghinstance4")+"::OnDisable";
+	donpcevent instance_npcname("希梅尔麦兹#ghinstance4")+"::OnDisable";
 	end;
 OnTimer65000:
-	donpcevent instance_npcname("Gerhard#ghinstance1")+"::OnEffect3";
+	donpcevent instance_npcname("格哈德#ghinstance1")+"::OnEffect3";
 	end;
 OnTimer66000:
-	donpcevent instance_npcname("Gerhard#ghinstance1")+"::OnEffect2";
+	donpcevent instance_npcname("格哈德#ghinstance1")+"::OnEffect2";
 	end;
 OnTimer67000:
-	donpcevent instance_npcname("Heinrich#ghinstance6")+"::OnTalk6";
-	donpcevent instance_npcname("Gerhard#ghinstance1")+"::OnEffect4";
+	donpcevent instance_npcname("海因里希#ghinstance6")+"::OnTalk6";
+	donpcevent instance_npcname("格哈德#ghinstance1")+"::OnEffect4";
 	end;
 OnTimer70000:
-	donpcevent instance_npcname("Gerhard#ghinstance1")+"::OnEffect3";
-	donpcevent instance_npcname("Gerhard#ghinstance1")+"::OnEffect4";
-	donpcevent instance_npcname("Heinrich#ghinstance6")+"::OnDisable";
-	donpcevent instance_npcname("Varmunt#ghinstance5")+"::OnTalk1";
+	donpcevent instance_npcname("格哈德#ghinstance1")+"::OnEffect3";
+	donpcevent instance_npcname("格哈德#ghinstance1")+"::OnEffect4";
+	donpcevent instance_npcname("海因里希#ghinstance6")+"::OnDisable";
+	donpcevent instance_npcname("巴尔蒙德#ghinstance5")+"::OnTalk1";
 	end;
 OnTimer73000:
-	mapannounce instance_mapname("2@gl_k"), "Leads toward Gerhard's body.",bc_map,"0xFFFFFF";
+	mapannounce instance_mapname("2@gl_k"), "格哈德的身体开始转化。",bc_map,"0xFF0000";
 	end;
 OnTimer76000:
-	donpcevent instance_npcname("Gerhard#ghinstance1")+"::OnEffect5";
+	donpcevent instance_npcname("格哈德#ghinstance1")+"::OnEffect5";
 	end;
 OnTimer80000:
 	donpcevent instance_npcname("#ghmemorialmob10")+"::OnEnable";
@@ -1926,58 +2054,56 @@ OnTimer80000:
 	end;
 }
 
-2@gl_k,158,241,1	script	Hugin#ghinstance1	755,{
+2@gl_k,158,241,1	script	华金#ghinstance1	755,{
 	if (checkquest(12319,HUNTING) == 2) {
-		mes "[Hugin]";
-		mes "Well, you are pretty ridiculous. Beginners shouldn't get the loot Amdarias drops.";
+		mes "[华金]";
+		mes "哈哈。从暗达莱斯身上找到了这些。拿去吧。";
+		erasequest 12318;
 		erasequest 12319;
-		setquest 12321;
-		setquest 12322;
-		erasequest 12321;
-		if (gh_instance) {
-			getitem 6607,1; //Temporal_Crystal
-			getitem 6608,1; //Coagulated_Spell
+		if (ghfirst != 0){
+		getitem 6607,1;
+		getitem 6608,1;
 		} else {
-			getitem 6607,5; //Temporal_Crystal
-			getitem 6608,5; //Coagulated_Spell
-			gh_instance = 1;
+		getitem 6607,5;
+		getitem 6608,5;
 		}
+		set ghfirst,1;
 		next;
-		mes "[Hugin]";
-		mes "Varmunt, I have arbitrarily stopped time. And soon, the time gap will be gone.";
+		mes "[华金]";
+		mes "我停止了巴尔蒙德的时间。我该送你走了。";
 		specialeffect2 EF_BLIND,AREA;
 		soundeffect "_blind.wav",0;
 		next;
-		mes "[Hugin]";
-		mes "Poor time travelers.";
-		mes "They will endlessly retry to prevent the tragedy that affected this city.";
+		mes "[华金]";
+		mes "可怜的时间困者。";
+		mes "他们将无休止地重试，以阻止这场悲剧发生。";
 		next;
-		mes "[Hugin]";
-		mes "But the beggining of these time travels won't redempt your actions.";
-		mes "This will continue forever...";
+		mes "[华金]";
+		mes "但是他们每次都意识不到自己之前的所作所为。";
+		mes "这将永远继续下去…";
 		next;
-		mes "[Hugin]";
-		mes "Now, I may erase your memory again. Perhaps you will have a different fate next time.";
+		mes "[华金]";
+		mes "现在，我将会删除你的记忆。也许下一次，你会遇见不同的命运。";
 		specialeffect2 EF_FREEZE;
 		close2;
-		getmapxy(.@map$,.@x,.@y,UNITTYPE_PC);
+		getmapxy(.@map$,.@x,.@y,0);
 		warp .@map$,.@x,.@y;
 		end;
 	} else {
-		mes "[Hugin]";
-		mes "The gap of time is almost distorted.";
-		mes "Done. There you go. Come!";
-		mes "I have to get out!";
+		mes "[华金]";
+		mes "时间裂缝已经开始扭曲了。";
+		mes "是时候走了！";
+		mes "我会把你送出去的！";
 		next;
-		select("Bah... Soon after you...");
-		mes "[Hugin]";
-		mes "Soon after me? Anyways...";
-		mes "Doesn't matter, soon the gap of time will be closed, I have to get out of here.";
+		select("哈……再等一会…");
+		mes "[华金]";
+		mes "嗯？还有什么事…";
+		mes "时间裂缝即将关闭，再不出去就来不及了。";
 		next;
-		switch(select("Since I'm here, let's explore more.:Please, send me out.")) {
+		switch(select("既然我来到这里，当然要探索一下:请你把我送出去")) {
 		case 1:
-			mes "[Hugin]";
-			mes "..................";
+			mes "[华金]";
+			mes "………………";
 			close;
 		case 2:
 			close2;
@@ -1987,9 +2113,173 @@ OnTimer80000:
 	}
 OnInstanceInit:
 OnDisable:
-	disablenpc instance_npcname("Hugin#ghinstance1");
+	disablenpc instance_npcname("华金#ghinstance1");
 	end;
 OnEnable:
-	enablenpc instance_npcname("Hugin#ghinstance1");
+	enablenpc instance_npcname("华金#ghinstance1");
+	end;
+}
+
+// Treasure Room
+//============================================================
+1@gl_k,269,267,0	script	奇怪的机关#ogh_h	111,{
+	mes "- 这里有一个奇怪的机关... -";
+	close2;
+	.@map$ = instance_mapname("1@gl_k");
+	warp .@map$,149,198;
+	end;	
+OnInstanceInit:
+	disablenpc instance_npcname("奇怪的机关#ogh_h");
+	end;		
+OnStart:
+	mapannounce instance_mapname("2@gl_k"),"楼下似乎传来了机关运作的声音.",bc_map,0xFFFF00;
+	enablenpc instance_npcname("奇怪的机关#ogh_h");
+	for (set .@i,1; .@i <= 8; set .@i,.@i+1)
+		enablenpc instance_npcname("奇怪的裂痕#ogh_h"+.@i);
+	end;
+}
+ 
+1@gl_k,129,136,0	script	奇怪的裂痕#ogh_h1	111,{
+	specialeffect EF_SPELLBREAKER;
+	specialeffect EF_BASH;
+	set .@random,rand(1,4);
+	set .@random_,rand(1,4);
+	for (set .@i,1; .@i<=.@random; set .@i,.@i+1)
+		makeitem 727,1,instance_mapname("1@gl_k"),129,138;
+	if (.@random == 4)
+		makeitem 6755,1,instance_mapname("1@gl_k"),129,138;
+	if (.@random_ == 4)
+		makeitem 21007,1,instance_mapname("1@gl_k"),129,138;
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("奇怪的裂痕#ogh_h1");
+	end;
+OnEnable:
+	enablenpc instance_npcname("奇怪的裂痕#ogh_h1");
+	end;
+}
+ 
+1@gl_k,135,136,0	script	奇怪的裂痕#ogh_h2	111,{
+	specialeffect EF_SPELLBREAKER;
+	specialeffect EF_BASH;
+	set .@random,rand(1,4);
+	set .@random_,rand(1,4);
+	for (set .@i,1; .@i<=.@random; set .@i,.@i+1)
+		makeitem 726,1,instance_mapname("1@gl_k"),135,138;
+	if (.@random_ == 4)
+		makeitem 2022,1,instance_mapname("1@gl_k"),135,138;
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("奇怪的裂痕#ogh_h2");
+	end;
+OnEnable:
+	enablenpc instance_npcname("奇怪的裂痕#ogh_h2");
+	end;
+}
+ 
+1@gl_k,141,136,0	script	奇怪的裂痕#ogh_h3	111,{
+	specialeffect EF_SPELLBREAKER;
+	specialeffect EF_BASH;
+	set .@random,rand(1,4);
+	set .@random_,rand(1,4);
+	for (set .@i,1; .@i<=.@random; set .@i,.@i+1)
+		makeitem 725,1,instance_mapname("1@gl_k"),141,138;
+	makeitem 7228,1,instance_mapname("1@gl_k"),141,138;
+	if (.@random_ == 4)
+		makeitem 13440,1,instance_mapname("1@gl_k"),141,138;
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("奇怪的裂痕#ogh_h3");
+	end;
+OnEnable:
+	enablenpc instance_npcname("奇怪的裂痕#ogh_h3");
+	end;
+}
+ 
+1@gl_k,147,136,0	script	奇怪的裂痕#ogh_h4	111,{
+	specialeffect EF_SPELLBREAKER;
+	specialeffect EF_BASH;
+	set .@random,rand(1,4);
+	set .@random_,rand(1,4);
+	for (set .@i,1; .@i<=.@random; set .@i,.@i+1)
+		makeitem 722,1,instance_mapname("1@gl_k"),147,138;
+	if (.@random_ == 4)
+		makeitem 2949,1,instance_mapname("1@gl_k"),147,138;
+	makeitem 6612,1,instance_mapname("1@gl_k"),147,138;
+	makeitem 6613,1,instance_mapname("1@gl_k"),147,138;
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("奇怪的裂痕#ogh_h4");
+	end;
+OnEnable:
+	enablenpc instance_npcname("奇怪的裂痕#ogh_h4");
+	end;
+}
+ 
+1@gl_k,153,136,0	script	奇怪的裂痕#ogh_h5	111,{
+	specialeffect EF_SPELLBREAKER;
+	specialeffect EF_BASH;
+	set .@random,rand(1,4);
+	set .@random_,rand(1,4);
+	for (set .@i,1; .@i<=.@random; set .@i,.@i+1)
+		makeitem 721,1,instance_mapname("1@gl_k"),153,138;
+	makeitem 7230,1,instance_mapname("1@gl_k"),153,138;
+	if (.@random_ == 4)
+		makeitem 13086,1,instance_mapname("1@gl_k"),153,138;
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("奇怪的裂痕#ogh_h5");
+	end;
+OnEnable:
+	enablenpc instance_npcname("奇怪的裂痕#ogh_h5");
+	end;
+}
+ 
+1@gl_k,159,136,0	script	奇怪的裂痕#ogh_h6	111,{
+	specialeffect EF_SPELLBREAKER;
+	specialeffect EF_BASH;
+	set .@random,rand(1,4);
+	set .@random_,rand(1,4);
+	for (set .@i,1; .@i<=.@random; set .@i,.@i+1)
+		makeitem 720,1,instance_mapname("1@gl_k"),159,138;
+	makeitem 7229,1,instance_mapname("1@gl_k"),159,138;
+	if (.@random_ == 4)
+		makeitem 15066,1,instance_mapname("1@gl_k"),159,138;
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("奇怪的裂痕#ogh_h6");
+	end;
+OnEnable:
+	enablenpc instance_npcname("奇怪的裂痕#ogh_h6");
+	end;
+}
+ 
+1@gl_k,165,136,0	script	奇怪的裂痕#ogh_h7	111,{
+	specialeffect EF_SPELLBREAKER;
+	specialeffect EF_BASH;
+	set .@random,rand(1,4);
+	for (set .@i,1; .@i<=.@random; set .@i,.@i+1)
+		makeitem 719,1,instance_mapname("1@gl_k"),165,138;
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("奇怪的裂痕#ogh_h7");
+	end;
+OnEnable:
+	enablenpc instance_npcname("奇怪的裂痕#ogh_h7");
+	end;
+}
+ 
+1@gl_k,171,136,0	script	奇怪的裂痕#ogh_h8	111,{
+	specialeffect EF_SPELLBREAKER;
+	specialeffect EF_BASH;
+	set .@random,rand(1,4);
+	for (set .@i,1; .@i<=.@random; set .@i,.@i+1)
+		makeitem 718,1,instance_mapname("1@gl_k"),171,138;
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("奇怪的裂痕#ogh_h8");
+	end;
+OnEnable:
+	enablenpc instance_npcname("奇怪的裂痕#ogh_h8");
 	end;
 }
