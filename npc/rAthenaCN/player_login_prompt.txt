@@ -1,0 +1,15 @@
+//============================================================
+//= rAthenaCN [玩家登录提示]脚本 [ www.rAthenaCN.com ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
+-	script	player_login_prompt	-1,{
+OnPCLoginEvent:
+if(getgroupid() == 0) atcommand "@kamib 欢迎玩家 - [" + strcharinfo(0) + "] 登入 rAthenaCN";
+if(getgroupid() == 5 && #VIP_announce == 0) atcommand "@kami 欢迎尊贵<VIP>会员 - [" + strcharinfo(0) + "] 登入 rAthenaCN";
+if(getgroupid() == 1 || getgroupid() == 99) atcommand "@kami 欢迎管理员 - [" + strcharinfo(0) + "] 登入 rAthenaCN";
+end;
+}
