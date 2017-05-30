@@ -26,7 +26,7 @@
 
 // Main NPC :: Card_Change_tw
 //============================================================
-prontera,160,192,4	script	卡片兑换机#pa08	562,{
+prontera,162,193,4	script	卡片兑换机#pa08	562,{
 	if (checkweight(1201,1) == 0) {
 		mes "您目前有太多的物品, 请删减后再来!";
 		close;

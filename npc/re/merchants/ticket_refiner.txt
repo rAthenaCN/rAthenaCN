@@ -26,7 +26,7 @@
 
 // Main NPC :: safety_Ref_NPC
 //============================================================
-prontera,184,177,6	script	精炼研究家	851,{
+prontera,195,173,6	script	精炼研究家	851,{
 	disable_items;
 	if (countitem(6238) || countitem(6228) || countitem(6229) || countitem(6230) || countitem(6231) || countitem(6456))
 		set .@bWeaponUp,1;
