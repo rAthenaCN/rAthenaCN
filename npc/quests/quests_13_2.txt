@@ -1,3 +1,11 @@
+//============================================================
+//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
 //===== Hercules Script ======================================
 //= Collection of episode 13.2 quests.
 //===== By: ==================================================
@@ -5628,8 +5636,8 @@ OnReset:
 	end;
 
 OnTouch:
-	emotion e_gasp,1;
-	emotion e_omg;
+	emotion ET_SURPRISE,1;
+	emotion ET_HUK;
 	disablenpc "陌生人#ep13_2_dan01";
 	donpcevent "陌生人#ep13_2_dan02::OnCall";
 	end;
@@ -5659,8 +5667,8 @@ OnReset:
 	end;
 
 OnTouch:
-	emotion e_gasp,1;
-	emotion e_omg;
+	emotion ET_SURPRISE,1;
+	emotion ET_HUK;
 	disablenpc "陌生人#ep13_2_dan02";
 	donpcevent "陌生人#ep13_2_dan01::OnCall";
 	end;
@@ -6442,7 +6450,7 @@ mid_camp,147,256,3	script	卢恩 米德加尔特魔法学家	735,{
 			mes "Lumos Nox Densaugeo Dissendium Diffindo Engorgio Mobiliarbus Expecto patronum!!!!";
 			next;
 			specialeffect EF_FLASHER; // 99 : "Rune Midgarts Magician#ep132_rhea03" EF_FLASHER
-			emotion e_gasp;
+			emotion ET_SURPRISE;
 			mes "[魔法学家 维斯帕]";
 			mes "哇, 真是难以置信.";
 			next;
@@ -7100,7 +7108,7 @@ mjolnir_01,32,309,3	script	#mj01_01	111,7,7,{
 				}
 				else {
 					mes "- 你成功挖到了矿石. -";
-					emotion e_ic,1;
+					emotion ET_AHA,1;
 					set .@stst,rand(1,5);
 					if (.@stst == 5) {
 						getitem 6077,5; //Rough_Mineral
@@ -7172,7 +7180,7 @@ mjolnir_01,32,309,3	script	#mj01_02	111,7,7,{
 				}
 				else {
 					mes "- 你成功挖到了矿石. -";
-					emotion e_ic,1;
+					emotion ET_AHA,1;
 					set .@stst,rand(1,5);
 					if (.@stst == 5) {
 						getitem 6077,5; //Rough_Mineral
@@ -7294,7 +7302,7 @@ mjolnir_02,90,195,3	script	#mj02_01	111,5,10,{
 				}
 				else {
 					mes "- 你成功挖到了矿石. -";
-					emotion e_ic,1;
+					emotion ET_AHA,1;
 					set .@stst,rand(1,5);
 					if (.@stst == 5) {
 						getitem 6077,5; //Rough_Mineral
@@ -7364,7 +7372,7 @@ mjolnir_02,206,187,3	script	#mj02_02	111,7,7,{
 				}
 				else {
 					mes "- 你成功挖到了矿石. -";
-					emotion e_ic,1;
+					emotion ET_AHA,1;
 					set .@stst,rand(1,5);
 					if (.@stst == 5) {
 						getitem 6077,5; //Rough_Mineral
@@ -7564,7 +7572,7 @@ mjolnir_04,125,380,3	script	#mj04_01	111,7,7,{
 				}
 				else {
 					mes "- 你成功挖到了矿石. -";
-					emotion e_ic,1;
+					emotion ET_AHA,1;
 					set .@stst,rand(1,5);
 					if (.@stst == 5) {
 						getitem 6077,5; //Rough_Mineral
@@ -7634,7 +7642,7 @@ mjolnir_04,220,130,3	script	#mj04_02	111,7,7,{
 					}
 					else {
 						mes "- 你成功挖到了矿石. -";
-						emotion e_ic,1;
+						emotion ET_AHA,1;
 						set .@stst,rand(1,5);
 						if (.@stst == 5) {
 							getitem 6077,5; //Rough_Mineral
@@ -8246,7 +8254,7 @@ mjolnir_09,229,214,3	script	#mj09_01	111,10,10,{
 				}
 				else {
 					mes "- 你成功挖到了矿石. -";
-					emotion e_ic,1;
+					emotion ET_AHA,1;
 					set .@stst,rand(1,5);
 					if (.@stst == 5) {
 						getitem 6077,5; //Rough_Mineral
@@ -8440,7 +8448,7 @@ mjolnir_10,188,260,3	script	#mj10_01	111,10,10,{
 					}
 					else {
 						mes "- 你成功挖到了矿石. -";
-						emotion e_ic,1;
+						emotion ET_AHA,1;
 						set .@stst,rand(1,5);
 						if (.@stst == 5) {
 							getitem 6077,5; //Rough_Mineral
@@ -8755,7 +8763,7 @@ hu_fild05,251,345,3	script	#hu_01	111,10,10,{
 				}
 				else {
 					mes "- 你成功挖到了矿石. -";
-					emotion e_ic,1;
+					emotion ET_AHA,1;
 					set .@stst,rand(1,5);
 					if (.@stst == 5) {
 						getitem 6077,5; //Rough_Mineral
@@ -8823,7 +8831,7 @@ hu_fild05,134,322,3	script	#hu_02	111,10,10,{
 				}
 				else {
 					mes "- 你成功挖到了矿石. -";
-					emotion e_ic,1;
+					emotion ET_AHA,1;
 					set .@stst,rand(1,5);
 					if (.@stst == 5) {
 							getitem 6077,5; //Rough_Mineral
@@ -8893,7 +8901,7 @@ hu_fild05,72,104,3	script	#hu_03	111,10,10,{
 				}
 				else {
 					mes "- 你成功挖到了矿石. -";
-					emotion e_ic,1;
+					emotion ET_AHA,1;
 					set .@stst,rand(1,5);
 					if (.@stst == 5) {
 						getitem 6077,5; //Rough_Mineral
@@ -8962,7 +8970,7 @@ hu_fild05,65,99,3	script	#hu_04	111,10,10,{
 				}
 				else {
 					mes "- 你成功挖到了矿石. -";
-					emotion e_ic,1;
+					emotion ET_AHA,1;
 					set .@stst,rand(1,5);
 					if (.@stst == 5) {
 						getitem 6077,5; //Rough_Mineral
@@ -9029,7 +9037,7 @@ hu_fild05,323,84,3	script	#hu_05	111,10,10,{
 				}
 				else {
 					mes "- 你成功挖到了矿石. -";
-					emotion e_ic,1;
+					emotion ET_AHA,1;
 					set .@stst,rand(1,5);
 					if (.@stst == 5) {
 						getitem 6077,5; //Rough_Mineral
@@ -9154,7 +9162,7 @@ ve_fild03,152,134,3	script	#ve_01	111,10,10,{
 				}
 				else {
 					mes "- 你成功挖到了矿石. -";
-					emotion e_ic,1;
+					emotion ET_AHA,1;
 					set .@stst,rand(1,5);
 					if (.@stst == 5) {
 						getitem 6077,5; //Rough_Mineral
@@ -9223,7 +9231,7 @@ ve_fild03,256,228,3	script	#ve_02	111,10,10,{
 				}
 				else {
 					mes "- 你成功挖到了矿石. -";
-					emotion e_ic,1;
+					emotion ET_AHA,1;
 					set .@stst,rand(1,5);
 					if (.@stst == 5) {
 						getitem 6077,5; //Rough_Mineral
@@ -9292,7 +9300,7 @@ ve_fild03,85,189,3	script	#ve_03	111,10,10,{
 				}
 				else {
 					mes "- 你成功挖到了矿石. -";
-					emotion e_ic,1;
+					emotion ET_AHA,1;
 					set .@stst,rand(1,5);
 					if (.@stst == 5) {
 						getitem 6077,5; //Rough_Mineral
@@ -9361,7 +9369,7 @@ ve_fild03,282,268,3	script	#ve_04	111,10,10,{
 				}
 				else {
 					mes "- 你成功挖到了矿石. -";
-					emotion e_ic,1;
+					emotion ET_AHA,1;
 					set .@stst,rand(1,5);
 					if (.@stst == 5) {
 						getitem 6077,5; //Rough_Mineral
@@ -9480,12 +9488,12 @@ spl_in01,30,324,3	script	高级拉皮内#grenouille	446,{
 			}
 			else if (ep13_2_tre1 == 3) {
 				if (countitem(6079) == 1) {
-					emotion e_swt;
-					emotion e_swt,1;
+					emotion ET_SWEAT;
+					emotion ET_SWEAT,1;
 					mes "[格鲁努伊]";
 					mes "哇, 这是最常见的花种之一.";
 					next;
-					emotion e_heh;
+					emotion ET_SMILE;
 					mes "[格鲁努伊]";
 					mes "哈哈, 别担心.";
 					mes "这样常见的花能带给士兵们家的感觉.";
@@ -9620,16 +9628,16 @@ spl_in02,139,65,3	script	普通拉皮内#la	438,{
 			mes "但我会尽力找到的, 你来到这里, 以帮助他总是假装顽强, 但有时他帮助别人!忽忽!";
 			next;
 			mes "- 翻箱倒柜 -";
-			emotion e_dots;
+			emotion ET_THINK;
 			next;
 			mes "- 翻箱倒柜 -";
 			mes "- 翻箱倒柜 -";
-			emotion e_dots;
+			emotion ET_THINK;
 			next;
 			mes "- 翻箱倒柜 -";
 			mes "- 翻箱倒柜 -";
 			mes "- 翻箱倒柜 -";
-			emotion e_ic;
+			emotion ET_AHA;
 			next;
 			mes "[弗拉沃利]";
 			mes "哇, 来这里, 我找到终止了!";
@@ -9816,7 +9824,7 @@ splendide,205,139,5	script	厌倦了的战士#1	447,{
 					next;
 					mes "[厌倦了的战士]";
 					mes "哇, 有种回到家乡的感觉, 这种感觉太好了!";
-					emotion e_heh;
+					emotion ET_SMILE;
 					delitem 6082,1; //Spirit_Of_Alfheim
 					close2;
 					donpcevent "#tukare_1::OnEnable";
@@ -9871,7 +9879,7 @@ splendide,181,135,5	script	厌倦了的战士#2	447,{
 					next;
 					mes "[厌倦了的战士]";
 					mes "这是怎么了, 突然感觉好快乐, 让我们继续工作吧!";
-					emotion e_heh;
+					emotion ET_SMILE;
 					delitem 6082,1; //Spirit_Of_Alfheim
 					close2;
 					donpcevent "#tukare_2::OnEnable";
@@ -9926,7 +9934,7 @@ splendide,139,178,5	script	厌倦了的战士#3	447,{
 					next;
 					mes "[厌倦了的战士]";
 					mes "啊, 我好像我们的家乡啊.让我们打败萨法族, 回到自己的家乡!";
-					emotion e_heh;
+					emotion ET_SMILE;
 					delitem 6082,1; //Spirit_Of_Alfheim
 					close2;
 					donpcevent "#tukare_3::OnEnable";
@@ -9981,7 +9989,7 @@ splendide,164,188,5	script	厌倦了的战士#4	447,{
 					next;
 					mes "[厌倦了的战士]";
 					mes "为什么突然感觉好想念家乡.";
-					emotion e_sob;
+					emotion ET_CRY;
 					delitem 6082,1; //Spirit_Of_Alfheim
 					close2;
 					donpcevent "#tukare_4::OnEnable";
@@ -10036,7 +10044,7 @@ splendide,177,257,5	script	厌倦了的战士#5	447,{
 					next;
 					mes "[厌倦了的战士]";
 					mes "哇, 有种回到家乡的感觉, 这种感觉太好了!";
-					emotion e_heh;
+					emotion ET_SMILE;
 					delitem 6082,1; //Spirit_Of_Alfheim
 					close2;
 					donpcevent "#tukare_5::OnEnable";
@@ -10091,7 +10099,7 @@ splendide,124,212,5	script	厌倦了的战士#6	447,{
 					next;
 					mes "[厌倦了的战士]";
 					mes "我感觉像回到了家乡一样.没错, 辉煌领域也是我们家乡的一部分, 加油, 拉皮内族.";
-					emotion e_heh;
+					emotion ET_SMILE;
 					delitem 6082,1; //Spirit_Of_Alfheim
 					close2;
 					donpcevent "#tukare_6::OnEnable";
@@ -10146,7 +10154,7 @@ splendide,196,153,5	script	厌倦了的战士#7	447,{
 					next;
 					mes "[厌倦了的战士]";
 					mes "哇, 有种回到家乡的感觉, 这种感觉太好了!";
-					emotion e_heh;
+					emotion ET_SMILE;
 					delitem 6082,1; //Spirit_Of_Alfheim
 					close2;
 					donpcevent "#tukare_7::OnEnable";
@@ -10201,7 +10209,7 @@ mid_camp,283,198,5	script	巴杰特 提布莱克#ep13bs	883,{
 		mes "恩......";
 		mes "真的很有意思......";
 		mes "应该把它写到研究日志中.";
-		emotion e_ic,"巴杰特 提布莱克#ep13bs";
+		emotion ET_AHA,"巴杰特 提布莱克#ep13bs";
 		next;
 		mes "[努力地干着什么的男人]";
 		mes "点头点头";
@@ -10223,7 +10231,7 @@ mid_camp,283,198,5	script	巴杰特 提布莱克#ep13bs	883,{
 			mes "恩......";
 			mes "真的很有意思......";
 			mes "应该把它写到研究日志中.";
-			emotion e_ic,"巴杰特 提布莱克#ep13bs";
+			emotion ET_AHA,"巴杰特 提布莱克#ep13bs";
 			next;
 			mes "[努力地干着什么的男人]";
 			mes "点头点头";
@@ -10241,14 +10249,14 @@ mid_camp,283,198,5	script	巴杰特 提布莱克#ep13bs	883,{
 			mes "[努力地干着什么的男人]";
 			mes "额, 你是谁?";
 			mes "你站在这里多久了?";
-			emotion e_omg,"巴杰特 提布莱克#ep13bs";
+			emotion ET_HUK,"巴杰特 提布莱克#ep13bs";
 			next;
 			mes "["+strcharinfo(0)+"]";
 			mes "你看起来很忙, 继续吧.";
 			next;
 			mes "["+strcharinfo(0)+"]";
 			mes "再见!";
-			emotion e_swt2,1;
+			emotion ET_PROFUSELY_SWEAT,1;
 			next;
 			mes "[努力地干着什么的男人]";
 			mes "等等, 你手指上的是?";
@@ -10261,12 +10269,12 @@ mid_camp,283,198,5	script	巴杰特 提布莱克#ep13bs	883,{
 			next;
 			mes "[努力地干着什么的男人]";
 			mes "我的研究进展不是很顺利.可能是上帝派你来帮我的, 我很确信.";
-			emotion e_no1,"巴杰特 提布莱克#ep13bs";
+			emotion ET_BEST,"巴杰特 提布莱克#ep13bs";
 			next;
 			mes "["+strcharinfo(0)+"]";
 			mes "......";
 			mes "......什么?";
-			emotion e_omg,1;
+			emotion ET_HUK,1;
 			next;
 			mes "[努力地干着什么的男人]";
 			mes "你愿意协助我进行我的研究吗?";
@@ -10316,7 +10324,7 @@ mid_camp,283,198,5	script	巴杰特 提布莱克#ep13bs	883,{
 					mes ".............";
 					mes ".............";
 					mes "...........为什么?";
-					emotion e_sob,"巴杰特 提布莱克#ep13bs";
+					emotion ET_CRY,"巴杰特 提布莱克#ep13bs";
 					next;
 					mes "[努力地干着什么的男人]";
 					mes "假如你改变主意, 请回来找我.";
@@ -10374,7 +10382,7 @@ mid_camp,283,198,5	script	巴杰特 提布莱克#ep13bs	883,{
 				mes ".............";
 				mes ".............";
 				mes "...........为什么?";
-				emotion e_sob,"巴杰特 提布莱克#ep13bs";
+				emotion ET_CRY,"巴杰特 提布莱克#ep13bs";
 				next;
 				mes "[努力地干着什么的男人]";
 				mes "假如你改变主意, 请回来找我.";
@@ -10459,7 +10467,7 @@ mid_camp,283,198,5	script	巴杰特 提布莱克#ep13bs	883,{
 			mes "[努力地干着什么的男人]";
 			mes ".............";
 			mes "好吧, 如果你改变主意, 请回来找我.";
-			emotion e_sob,"巴杰特 提布莱克#ep13bs";
+			emotion ET_CRY,"巴杰特 提布莱克#ep13bs";
 			close;
 		}
 	}
@@ -10597,7 +10605,7 @@ manuk,193,135,0	script	工人#ep13bs	454,{
 				mes "......";
 				mes ".........";
 				mes "别介意, 没事.";
-				emotion e_omg,"工人#ep13bs";
+				emotion ET_HUK,"工人#ep13bs";
 				next;
 				mes "["+strcharinfo(0)+"]";
 				mes "你没必要这样.";
@@ -10609,7 +10617,7 @@ manuk,193,135,0	script	工人#ep13bs	454,{
 				next;
 				mes "["+strcharinfo(0)+"]";
 				mes "既然我来到这里, 那么我想这是我必须要会的...";
-				emotion e_heh,1," ET_SMILE";
+				emotion ET_SMILE, playerattached();
 				next;
 				mes "[工人]";
 				mes "哈哈, 是嘛?";
@@ -10653,8 +10661,8 @@ manuk,193,135,0	script	工人#ep13bs	454,{
 				next;
 				mes "[工人]";
 				mes "?..";
-				emotion e_sob,"工人#ep13bs";
-				emotion e_sob,1;
+				emotion ET_CRY,"工人#ep13bs";
+				emotion ET_CRY,1;
 				next;
 				mes "[工人]";
 				mes "我不能只顾着骄傲.";
@@ -10718,7 +10726,7 @@ manuk,193,135,0	script	工人#ep13bs	454,{
 				mes "......";
 				mes ".........";
 				mes "别介意, 没事.";
-				emotion e_omg,"工人#ep13bs";
+				emotion ET_HUK,"工人#ep13bs";
 				next;
 				mes "["+strcharinfo(0)+"]";
 				mes "你没必要这样.";
@@ -10730,7 +10738,7 @@ manuk,193,135,0	script	工人#ep13bs	454,{
 				next;
 				mes "["+strcharinfo(0)+"]";
 				mes "既然我来到这里, 那么我想这是我必须要会的...";
-				emotion e_heh,1," ET_SMILE";
+				emotion ET_SMILE, playerattached();
 				next;
 				mes "[工人]";
 				mes "哈哈, 是嘛?";
@@ -10774,8 +10782,8 @@ manuk,193,135,0	script	工人#ep13bs	454,{
 				next;
 				mes "[工人]";
 				mes "?..";
-				emotion e_sob,"工人#ep13bs";
-				emotion e_sob,1;
+				emotion ET_CRY,"工人#ep13bs";
+				emotion ET_CRY,1;
 				next;
 				mes "[工人]";
 				mes "我不能只顾着骄傲.";

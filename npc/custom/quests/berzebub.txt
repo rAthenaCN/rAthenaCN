@@ -60,7 +60,7 @@ prontera,165,178,7	script	Old Woman	8_F_GRANDMOTHER,{
 	getitem 4145,1;
 		 set BerzQuest, 1;
 		mes "恭喜你! 你带来了全部的材料,拿好你的Berzebub卡吧!";
-		 emotion e_grat;
+		 emotion ET_CONGRATULATION;
 		 close;
 
 M_Leave:

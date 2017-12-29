@@ -93,7 +93,7 @@ M_Q1:
 
 	mes "[典狱长]";
 	if(checkcart() || checkfalcon() || checkriding()){
-		emotion e_hmm;
+		emotion ET_SCRATCH;
 		mes "你要取消你的手推车,猎鹰,狼!";
 		close;
 	}
@@ -149,13 +149,13 @@ sec_in02,137,57,1	script	监工	4_M_PAY_SOLDIER,{
 	if ( countitem(1069)<PRISON_Q ) close;//Items: Orange_Net_Mushroom,
 	mes "把桔色网蘑菇给我吧...";
 	mes "我看看... "+countitem(1069)+" 个可使用的...";//Items: Orange_Net_Mushroom,
-	mes "和 "+countitem(1070)+" 没用的死蘑菇.";//Items: Orange_Gooey_Mushroom_,
+	mes "和 "+countitem(1070)+" 没用的死蘑菇.";//Items: OrangET_GOoey_Mushroom_,
 	next;
 	mes "[奥利弗]";
 	mes "谢谢. 你自由了!";
 	set PRISON_Q,0;
 	delitem 1069,countitem(1069);//Items: Orange_Net_Mushroom,
-	delitem 1070,countitem(1070);//Items: Orange_Gooey_Mushroom_,
+	delitem 1070,countitem(1070);//Items: OrangET_GOoey_Mushroom_,
 	next;
 	savepoint "izlude",105,112;
 	warp "izlude",105,112;
@@ -165,9 +165,9 @@ L_GET_Q:
 	set PRISON,PRISON+1;
 	if (PRISON > 1) mes "嗯...你已经在这了..很好...";
 
-	if ( countitem(1069) || countitem(1070) ) mes "扔掉这些蘑菇!! 他们有毒!";//Items: Orange_Net_Mushroom, Orange_Gooey_Mushroom_,
+	if ( countitem(1069) || countitem(1070) ) mes "扔掉这些蘑菇!! 他们有毒!";//Items: Orange_Net_Mushroom, OrangET_GOoey_Mushroom_,
 	delitem 1069,countitem(1069);//Items: Orange_Net_Mushroom,
-	delitem 1070,countitem(1070);//Items: Orange_Gooey_Mushroom_,
+	delitem 1070,countitem(1070);//Items: OrangET_GOoey_Mushroom_,
 
 	set PRISON_Q, PRISON*3 + BaseLevel/3;
 	set PRISON_Q, PRISON_Q * (readparam(bAspd)/55 + 1);

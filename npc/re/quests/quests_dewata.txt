@@ -786,19 +786,19 @@ dewata,109,262,4	script	梅莫#dew_drink	4_M_DEWOLDMAN,{
 		if (rand(3)) {
 			mes "[梅莫]";  
 			mes "哦, 上帝! 我们没有从贾提部落的消息呢. ";
-			emotion e_swt2;
+			emotion ET_PROFUSELY_SWEAT;
 			next;
 			mes "[梅莫]";  
 			mes "他们从来没有打破10年的承诺, 我不知道原因. 这是怎么回事? ";
 			next;
 			mes "[梅莫]";  
 			mes "我可能会破坏所有的液体, 如果它是怎么回事这个样子. ";
-			emotion e_sob;
+			emotion ET_CRY;
 			close;
 		}
 		mes "[梅莫]";  
 		mes "我该怎么办? 我还没有从贾提部落的任何消息. ";
-		emotion e_swt2;
+		emotion ET_PROFUSELY_SWEAT;
 		next;
 		mes "[梅莫]";  
 		mes "哦不?所有的液体会破坏...";
@@ -806,7 +806,7 @@ dewata,109,262,4	script	梅莫#dew_drink	4_M_DEWOLDMAN,{
 		select("发生了什么事? ");
 		mes "[梅莫]";  
 		mes "你是谁? ";
-		emotion e_what;
+		emotion ET_QUESTION;
 		next;
 		mes "[梅莫]";  
 		mes "你是一个冒险家, 对不对? ";
@@ -829,9 +829,9 @@ dewata,109,262,4	script	梅莫#dew_drink	4_M_DEWOLDMAN,{
 		next;
 		mes "[梅莫]";  
 		mes "......";
-		emotion e_dots;
+		emotion ET_THINK;
 		next;
-		emotion e_gasp;
+		emotion ET_SURPRISE;
 		mes "[梅莫]";  
 		mes "啊, 对了! 你现在忙吗? ";
 		next;
@@ -839,7 +839,7 @@ dewata,109,262,4	script	梅莫#dew_drink	4_M_DEWOLDMAN,{
 			mes "[梅莫]";  
 			mes "嗯, 我别无选择. ";
 			mes "你不关心别人是麻烦. 什么这个世界来? ";
-			emotion e_pif;
+			emotion ET_HNG;
 			close;
 		}
 		mes "[梅莫]";  
@@ -867,7 +867,7 @@ dewata,109,262,4	script	梅莫#dew_drink	4_M_DEWOLDMAN,{
 		next;
 		mes "[梅莫]";  
 		mes "............";
-		emotion e_dots;
+		emotion ET_THINK;
 		next;
 		mes "[梅莫]";  
 		mes "你没弄明白发生了什么事? ";
@@ -926,7 +926,7 @@ dewata,109,262,4	script	梅莫#dew_drink	4_M_DEWOLDMAN,{
 		if (checkquest(5043,PLAYTIME) == 0) {
 			mes "[梅莫]";  
 			mes ".........";
-			emotion e_swt2;
+			emotion ET_PROFUSELY_SWEAT;
 			next;
 			mes "- 备注正在方舟.  - ";
 			close;
@@ -964,7 +964,7 @@ dewata,109,262,4	script	梅莫#dew_drink	4_M_DEWOLDMAN,{
 		mes "[梅莫]";  
 		mes "换句话说, 它很容易地说, 我们会帮助别人, 但很难真正做到的动作. ";
 		next;
-		emotion e_thx;
+		emotion ET_THANKS;
 		mes "[梅莫]";  
 		mes "你真的做的非常出色. 我喜欢你, 因为你是从今天的youngins不同. ";
 		changequest 5043,5044;
@@ -1088,18 +1088,18 @@ dew_fild01,114,275,4	script	勒罗#dew_drink	4_M_DEWMAN,{
 		mes "[勒罗]";  
 		mes "哦, 不! 我有这么多的订单, 我跑出来的成分. ";
 		mes "还没有? 这是怎么回事, 博比? 他去哪儿了? ";
-		emotion e_an;
+		emotion ET_FRET;
 		next;
 		select("对不起, 但你勒罗? ");
 		mes "[勒罗]";  
 		mes "当博比回来这里, 我会给他一个跳动, 他永远不会忘记! ";
-		emotion e_ag;
+		emotion ET_ANGER;
 		next;
 		mes "- 勒罗似乎很生气的人, 而忽略你 - ";
 		next;
 		mes "[勒罗]";  
 		mes "哎呀. 你是谁? ";
-		emotion e_what;
+		emotion ET_QUESTION;
 		next;
 		select("备忘录派我来这里. ");
 		mes "[勒罗]";  
@@ -1131,7 +1131,7 @@ dew_fild01,114,275,4	script	勒罗#dew_drink	4_M_DEWMAN,{
 	} else if (dew_drink == 2) {
 		mes "[勒罗]";  
 		mes "你有没有发现博比? ";
-		emotion e_what;
+		emotion ET_QUESTION;
 		next;
 		mes "[勒罗]";  
 		mes ".........";
@@ -1143,7 +1143,7 @@ dew_fild01,114,275,4	script	勒罗#dew_drink	4_M_DEWMAN,{
 		mes "[勒罗]";  
 		mes "你回来了......和...... 博比 ...";
 		mes "如何博比? ";
-		emotion e_what;
+		emotion ET_QUESTION;
 		next;
 		select("博比 .....");
 		mes "[勒罗]";  
@@ -1204,7 +1204,7 @@ dew_fild01,114,275,4	script	勒罗#dew_drink	4_M_DEWMAN,{
 			mes "[勒罗]";  
 			mes "60件坚果的, 没错. 我会按油现在. ";
 			next;
-			emotion e_sry;
+			emotion ET_SORRY;
 			mes "[勒罗]";  
 			mes "这需要一些时间, 所以回去备注先生告诉他的情况. 还告诉他, 我很抱歉耽搁. ";
 			delitem 6402,60; //Oil_Palm_F
@@ -1228,7 +1228,7 @@ dew_fild01,114,275,4	script	勒罗#dew_drink	4_M_DEWMAN,{
 		mes "[勒罗]";  
 		mes "它比你想象的更重, 所以携带时要小心. ";
 		next;
-		emotion e_sry;
+		emotion ET_SORRY;
 		mes "[勒罗]";  
 		mes "哦, 告诉备忘录先生, 我很抱歉迟交货, 并解释说, 这不是我的错. ";
 		changequest 5041,5042;
@@ -1240,7 +1240,7 @@ dew_fild01,114,275,4	script	勒罗#dew_drink	4_M_DEWMAN,{
 			mes "[勒罗]";  
 			mes "它比你想象的更重, 所以携带时要小心. ";
 			next;
-			emotion e_sry;
+			emotion ET_SORRY;
 			mes "[勒罗]";  
 			mes "哦, 告诉备忘录先生, 我很抱歉迟交货, 并解释说, 这不是我的错. ";
 			close;
@@ -1255,7 +1255,7 @@ dew_fild01,114,275,4	script	勒罗#dew_drink	4_M_DEWMAN,{
 			mes "我清楚地记得给你30瓶棕榈树油, 你失去这一切? ";
 			next;
 			select("对不起, 这是我的错......");
-			emotion e_an;
+			emotion ET_FRET;
 			mes "[勒罗]";  
 			mes "这是棕榈树油是供不应求. 小心皮斯. 这是真的很难得到这个...";
 			getitem 6401,.@num; //Palm_O
@@ -1264,15 +1264,15 @@ dew_fild01,114,275,4	script	勒罗#dew_drink	4_M_DEWMAN,{
 	} else if (dew_drink == 8) {
 		mes "[勒罗]";  
 		mes "什么备忘先生说的? ";
-		emotion e_what;
+		emotion ET_QUESTION;
 		next;
 		mes "["+ strcharinfo(0)+"]";  
-		emotion e_loud,1;
+		emotion ET_BLABLA,1;
 		mes "............";
 		next;
 		mes "[勒罗]";  
 		mes "啊...我明白...";
-		emotion e_ok;
+		emotion ET_OK;
 		close;
 	} else if (dew_drink == 10) {
 		for(set .@i,0; .@i<7; set .@i,.@i+1)
@@ -1354,7 +1354,7 @@ dew_fild01,259,48,4	script	博比#dew_drink	4_M_DEWBOY,{
 	if (dew_drink == 2) {
 		mes "[博比]";  
 		mes "啊?腰酸...";
-		emotion e_swt2;
+		emotion ET_PROFUSELY_SWEAT;
 		next;
 		select("你是博比? ");
 		mes "[博比]";  
@@ -1367,7 +1367,7 @@ dew_fild01,259,48,4	script	博比#dew_drink	4_M_DEWBOY,{
 		next;
 		mes "[博比]";  
 		mes "你在这里为我签名吗? ";
-		emotion e_what;
+		emotion ET_QUESTION;
 		next;
 		select("勒罗让我来这里. ");
 		mes "[博比]";  
@@ -1375,14 +1375,14 @@ dew_fild01,259,48,4	script	博比#dew_drink	4_M_DEWBOY,{
 		next;
 		mes "[博比]";  
 		mes "! ＃$ @ *＆％! @ $＆! $％! $＃*＆! @＃$";
-		emotion e_sob;
+		emotion ET_CRY;
 		next;
 		mes "[博比]";  
 		mes "而且我还从未有过一个女朋友...";
 		next;
 		mes "[博比]";  
 		mes "! ＃$ @ *＆％! @ $＆! $％! $＃*＆! @＃$";
-		emotion e_sob;
+		emotion ET_CRY;
 		next;
 		mes "[博比]";  
 		mes "啊! 抱歉. 告诉勒罗先生, 我会回去, 如果我能找到一种方法来移动. ";
@@ -1398,7 +1398,7 @@ dew_fild01,259,48,4	script	博比#dew_drink	4_M_DEWBOY,{
 		next;
 		mes "[博比]";  
 		mes "我不能动弹'因为这个腰酸...";
-		emotion e_swt2;
+		emotion ET_PROFUSELY_SWEAT;
 		close;
 	} else if (dew_drink == 4) {
 		if (checkquest(5039) > -1) {
@@ -1420,14 +1420,14 @@ dew_fild01,259,48,4	script	博比#dew_drink	4_M_DEWBOY,{
 		}
 		mes "[博比]";  
 		mes "啊?腰酸...";
-		emotion e_swt2;
+		emotion ET_PROFUSELY_SWEAT;
 		next;
 		mes "[博比]";  
 		mes "哦! 让隐私无处藏 - 让我猜...";
 		next;
 		mes "[博比]";  
 		mes "............";
-		emotion e_dots;
+		emotion ET_THINK;
 		next;
 		mes "[博比]";  
 		mes "...你回来了! 你打算赶上, 而不是我棕油果, 对不对? ";
@@ -1444,7 +1444,7 @@ dew_fild01,259,48,4	script	博比#dew_drink	4_M_DEWBOY,{
 		next;
 		mes "[博比]";  
 		mes "好吧! 收集60棕榈油水果, 并把该金额勒罗先生. ";
-		emotion e_gasp;
+		emotion ET_SURPRISE;
 		close;
 	} else if (dew_drink == 10) {
 		mes "[博比]";  
@@ -1501,7 +1501,7 @@ dew_fild01,259,48,4	script	博比#dew_drink	4_M_DEWBOY,{
 	}
 	mes "[博比]";  
 	mes "啊?我的刻着的背疼得要命. ";
-	emotion e_sob;
+	emotion ET_CRY;
 	close;
 }
 
@@ -1581,7 +1581,7 @@ dew_fild01,259,48,4	script	博比#dew_drink	4_M_DEWBOY,{
 		specialeffect2 EF_BASH;
 		if (isequipped(5009)) { //Safety_Helmet
 			mes "东西落在你的头上, 但因为你戴着安全帽你安然无恙. ";
-			emotion e_no1,1;
+			emotion ET_BEST,1;
 			break;
 		} else {
 			mes "摔破的东西倒在你的头上, 右边那个地方情有独钟的是, $＃* @! 这是一个万里挑一的拍摄. ";
@@ -1996,7 +1996,7 @@ dew_fild01,127,240,4	script	加蒂#weapon	2_M_OLDBLSMITH,{
 		next;
 		specialeffect2 EF_REPAIRWEAPON;
 		next;
-		emotion e_swt2;
+		emotion ET_PROFUSELY_SWEAT;
 		next;
 		mes "[加蒂]";  
 		mes "我完成了制作武器. 这是根据蓝图称为爱抚. ";
@@ -2040,7 +2040,7 @@ dew_fild01,127,240,4	script	加蒂#weapon	2_M_OLDBLSMITH,{
 				next;
 				specialeffect2 EF_REPAIRWEAPON;
 				next;
-				emotion e_swt2;
+				emotion ET_PROFUSELY_SWEAT;
 				next;
 				mes "[加蒂]";  
 				mes "这里是爱抚! 问我任何时候. ";
@@ -2215,7 +2215,7 @@ dew_fild01,127,240,4	script	加蒂#weapon	2_M_OLDBLSMITH,{
 		if (.@s3 == 0 && .@s4 == 0) {
 			mes "[加蒂]";  
 			mes "哦, 我的??几乎得手......但是失败了. 对不起, 对不起......";
-			emotion e_omg;
+			emotion ET_HUK;
 			close;
 		}
 		getitem2 13067,1,1,0,0,0,0,.@s3,.@s4;

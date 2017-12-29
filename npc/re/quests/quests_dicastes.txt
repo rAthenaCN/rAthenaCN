@@ -1340,7 +1340,7 @@ OnTouch:
 		mes "你托起在艾哈特的声音的声音你的头";
 		mes "但你看到一个人在高级沙帕衣服在你面前.";
 		sc_end SC_BLIND;
-		emotion e_omg,1;
+		emotion ET_HUK,1;
 		set ep13_3_secret, 14;
 		erasequest 7198;
 		close2;
@@ -1545,7 +1545,7 @@ dic_in01,300,280,5	script	部长艾哈特#ep133_21	4_HUMAN_GERUTOO,{
 		mes "你托起在艾哈特的声音的声音你的头";
 		mes "但你看到一个人在高级沙帕衣服在你面前.";
 		sc_end SC_BLIND;
-		emotion e_omg,1;
+		emotion ET_HUK,1;
 		set ep13_3_secret, 14;
 		erasequest 7198;
 		close2;
@@ -4601,7 +4601,7 @@ dic_fild01,231,174,5	script	BK#ep133_18	4_M_MERCAT2,{
 			mes "你想要什么.";
 			mes "你为什么要骚扰我.";
 			mes "欺负...泣";
-			emotion e_sob;
+			emotion ET_CRY;
 			next;
 			mes "[BK]";  
 			mes "好吧.我会合作.";
@@ -5080,7 +5080,7 @@ dic_in01,165,104,0	script	弗雷德#13_3_in	4_MAN_PIOM5,{
 			mes "[弗雷德]";  
 			mes "噢,我的!你为什么出汗这么多!";
 			mes "你看起来有点苍白太......";
-			emotion e_omg;
+			emotion ET_HUK;
 			next;
 			mes "["+ strcharinfo(0)+"]";  
 			mes "不,这没什么.";
@@ -6431,7 +6431,7 @@ function	script	eldicastes_c	{
 			mes "指挥官!";
 			mes "你来在如此短的时间.";
 			mes "是否有一个情况呢?";
-			emotion e_omg,0,"猎犬#ep133_is06";
+			emotion ET_HUK, getnpcid(0, "猎犬#ep133_is06");
 			next;
 			mes "[西巴阿吉普]";  
 			mes "咦?什么都没有.";
@@ -6496,8 +6496,8 @@ function	script	eldicastes_c	{
 			setquest 7185;
 			next;
 			disablenpc "西巴阿吉普#ep133_is07";
-			emotion e_swt2,0,"猎犬#ep133_is06";
-			emotion e_swt2,0,"来自马努克的沙帕";
+			emotion ET_PROFUSELY_SWEAT, getnpcid(0, "猎犬#ep133_is06");
+			emotion ET_PROFUSELY_SWEAT, getnpcid(0, "来自马努克的沙帕");
 			mes "指挥官西巴阿吉普迅速离开了房间说什么,他想说的话后.";
 			mes "首先,让我们来听听Vyhannus的故事.";
 			close;
@@ -7478,7 +7478,7 @@ moc_para01,44,19,3	script	猫手代理#gekk	4_M_MERCAT2,{
 		mes "它打破我的心脏去思考我的同事也会发抖的暴风雪.我希望我不会遇到麻烦,因为我不能做任何事情,对不对?";
 		next;
 		if (select ("你为什么不自己领取?:我很遗憾听到这个消息.") == 1) {
-				emotion e_omg;
+				emotion ET_HUK;
 				mes "[猫手代理]";  
 				mes "人类!你真是个天才!";
 				mes "你是怎么想出的?";
@@ -7605,7 +7605,7 @@ moc_fild20,368,197,3	script	猫#to22	4_CAT,{
 		mes "小身材不一样高,你的脚踝和它的小而厚的爪子看起来像小垫子.即向后弯曲,当它看着你有多大激起了你的保护本能的耳朵.";
 		next;
 		mes "你似乎没有好意思踩猫手代理.";
-		emotion e_sob;
+		emotion ET_CRY;
 		close;
 	}
 	mes "你看看猫手代理的小背和翻越围墙尽可能快,这样就不会注意到你的体重.";

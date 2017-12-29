@@ -57,7 +57,7 @@ prt_castle,43,30,3	script	夏罗乐 欧罗莱昂#cook	4_M_OILMAN,{
 			mes "如果您不是到厨房里来帮忙的";
 			mes "麻烦请您马上离开!";
 			next;
-			emotion e_an;
+			emotion ET_FRET;
 			mes "[夏罗乐 欧罗莱昂]";
 			mes "没有要冒犯你的意思, ";
 			mes "但有个像你这样的小鬼头";
@@ -81,7 +81,7 @@ prt_castle,43,30,3	script	夏罗乐 欧罗莱昂#cook	4_M_OILMAN,{
 	else if (getequipid(EQI_HEAD_TOP) != 5026) {
 		if (Sex) {
 			cutin "orleans_5",0;
-			emotion e_an;
+			emotion ET_FRET;
 			mes "[夏罗乐 欧罗莱昂]";
 			mes "..........................";
 			next;
@@ -126,7 +126,7 @@ prt_castle,43,30,3	script	夏罗乐 欧罗莱昂#cook	4_M_OILMAN,{
 			mes "(喵喵...)";
 			next;
 			cutin "orleans_2",0;
-			emotion e_heh;
+			emotion ET_SMILE;
 			mes "[夏罗乐 欧罗莱昂]";
 			mes "真乖巧...";
 			mes "要乖乖的喔";
@@ -140,7 +140,7 @@ prt_castle,43,30,3	script	夏罗乐 欧罗莱昂#cook	4_M_OILMAN,{
 			mes "(喵喵)";
 			next;
 			cutin "orleans_2",0;
-			emotion e_lv2;
+			emotion ET_THROB2;
 			mes "[夏罗乐 欧罗莱昂]";
 			mes "虽然跟姐姐感觉不太像, ";
 			mes "但是真的很乖巧又可爱, ";
@@ -156,7 +156,7 @@ prt_castle,43,30,3	script	夏罗乐 欧罗莱昂#cook	4_M_OILMAN,{
 			next;
 			cutin "orleans_4",0;
 			cutin "orleans_3",0;
-			emotion e_swt2;
+			emotion ET_PROFUSELY_SWEAT;
 			mes "[夏罗乐 欧罗莱昂]";
 			mes "失, 失礼了, 竟然对小姐";
 			mes "如此没礼貌... 不知道";
@@ -217,7 +217,7 @@ prt_castle,43,30,3	script	夏罗乐 欧罗莱昂#cook	4_M_OILMAN,{
 	}
 	else if (cooking_q == 0) {
 		cutin "orleans_5",0;
-		emotion e_dots;
+		emotion ET_THINK;
 		mes "[夏罗乐 欧罗莱昂]";
 		mes "啊-啊- 好烦啊, 好烦, 这是干嘛, ";
 		mes "与其在这里消磨时间, ";
@@ -245,7 +245,7 @@ prt_castle,43,30,3	script	夏罗乐 欧罗莱昂#cook	4_M_OILMAN,{
 			next;
 			cutin "orleans_4",0;
 			cutin "orleans_3",0;
-			emotion e_omg;
+			emotion ET_HUK;
 			mes "[夏罗乐 欧罗莱昂]";
 			mes "天?∧阆诺轿伊?";
 			mes "真是个有问题的小鬼";
@@ -403,7 +403,7 @@ prt_castle,43,30,3	script	夏罗乐 欧罗莱昂#cook	4_M_OILMAN,{
 	else if (cooking_q == 1) {
 		if (countitem(940) > 4 && countitem(7031) > 0 && countitem(7457) > 0) {
 			cutin "orleans_4",0;
-			emotion e_an;
+			emotion ET_FRET;
 			mes "[夏罗乐 欧罗莱昂]";
 			mes "你在干嘛!! 很慢耶!!";
 			mes "这么晚来的话, 材料的新鲜度";
@@ -808,7 +808,7 @@ prt_castle,43,30,3	script	夏罗乐 欧罗莱昂#cook	4_M_OILMAN,{
 		next;
 		switch(select("What's your name, kid?:Do you want to eat something?:Here, kitty~:Get out!")) {
 		case 1:
-			emotion e_ok,0,"拎着小猫的 小孩#cook";
+			emotion ET_OK, getnpcid(0, "拎着小猫的 小孩#cook");
 			mes "[拎着小猫的 小孩]";
 			mes "Nyaaa~";
 			mes "nyaaa~";
@@ -822,7 +822,7 @@ prt_castle,43,30,3	script	夏罗乐 欧罗莱昂#cook	4_M_OILMAN,{
 			goto L_End;
 		case 2:
 			cutin "nyuang_2",2;
-			emotion e_pif,0,"拎着小猫的 小孩#cook";
+			emotion ET_HNG, getnpcid(0, "拎着小猫的 小孩#cook");
 			mes "[拎着小猫的 小孩]";
 			mes "Nyaaaa~";
 			mes "(Purrrrrr~)";
@@ -838,7 +838,7 @@ prt_castle,43,30,3	script	夏罗乐 欧罗莱昂#cook	4_M_OILMAN,{
 			goto L_End;
 		case 3:
 			cutin "nyuang_3",2;
-			emotion e_heh,0,"拎着小猫的 小孩#cook";
+			emotion ET_SMILE, getnpcid(0, "拎着小猫的 小孩#cook");
 			mes "[拎着小猫的 小孩]";
 			mes "Nyahahaha~";
 			mes "Nyhhahaha~";
@@ -850,13 +850,13 @@ prt_castle,43,30,3	script	夏罗乐 欧罗莱昂#cook	4_M_OILMAN,{
 			mes "...Then I don't need you to be here.";
 			goto L_End;
 		case 4:
-			emotion e_dots,0,"拎着小猫的 小孩#cook";
+			emotion ET_THINK, getnpcid(0, "拎着小猫的 小孩#cook");
 			mes "[拎着小猫的 小孩]";
 			mes "...";
 			mes "(喵?)";
 			next;
 			cutin "nyuang_4",2;
-			emotion e_an,0,"拎着小猫的 小孩#cook";
+			emotion ET_FRET, getnpcid(0, "拎着小猫的 小孩#cook");
 			specialeffect2 EF_HIT2;
 			percentheal -10,0;
 			mes "[拎着小猫的 小孩]";
@@ -874,7 +874,7 @@ prt_castle,43,30,3	script	夏罗乐 欧罗莱昂#cook	4_M_OILMAN,{
 	}
 	else if (cooking_q == 9) {
 		cutin "orleans_5",0;
-		emotion e_an;
+		emotion ET_FRET;
 		mes "[夏罗乐 欧罗莱昂]";
 		mes "Alright, enough";
 		mes "is enough. We can't";
@@ -893,14 +893,14 @@ prt_castle,43,30,3	script	夏罗乐 欧罗莱昂#cook	4_M_OILMAN,{
 		mes "or shed on any of the food!";
 		next;
 		cutin "nyuang_4",2;
-		emotion e_an,0,"拎着小猫的 小孩#cook";
+		emotion ET_FRET, getnpcid(0, "拎着小猫的 小孩#cook");
 		mes "[拎着小猫的 小孩]";
 		mes "Grrrrrrr!";
 		mes "RRRRreow!";
 		next;
 		donpcevent "Wickebine#cook::OnEnable";
-		emotion e_omg;
-		emotion e_ho,0,"拎着小猫的 小孩#cook";
+		emotion ET_HUK;
+		emotion ET_DELIGHT, getnpcid(0, "拎着小猫的 小孩#cook");
 		next;
 		cutin "job_black_hucke01",1;
 		mes "[Wickebine]";
@@ -928,7 +928,7 @@ prt_castle,43,30,3	script	夏罗乐 欧罗莱昂#cook	4_M_OILMAN,{
 		mes "bothering Charles, Nyuyang?";
 		next;
 		cutin "nyuang_3",2;
-		emotion e_heh,0,"拎着小猫的 小孩#cook";
+		emotion ET_SMILE, getnpcid(0, "拎着小猫的 小孩#cook");
 		mes "[拎着小猫的 小孩]";
 		mes "Nyuuuunyuuu~";
 		mes "nyuuuunyuuu~";
@@ -946,7 +946,7 @@ prt_castle,43,30,3	script	夏罗乐 欧罗莱昂#cook	4_M_OILMAN,{
 		mes "wants you to leave?";
 		next;
 		cutin "orleans_3",0;
-		emotion e_swt2;
+		emotion ET_PROFUSELY_SWEAT;
 		mes "[夏罗乐 欧罗莱昂]";
 		mes "Hahahahah, what";
 		mes "are you talking about!";
@@ -964,7 +964,7 @@ prt_castle,43,30,3	script	夏罗乐 欧罗莱昂#cook	4_M_OILMAN,{
 		mes "So do not worry, Madam~";
 		next;
 		cutin "job_black_hucke01",1;
-		emotion e_what,0,"Wickebine#cook";
+		emotion ET_QUESTION, getnpcid(0, "Wickebine#cook");
 		mes "[Wickebine]";
 		mes "Are you sure, Charles?";
 		mes "I know how serious you";
@@ -981,18 +981,18 @@ prt_castle,43,30,3	script	夏罗乐 欧罗莱昂#cook	4_M_OILMAN,{
 		mes "Well then, take care~";
 		next;
 		cutin "nyuang_3",2;
-		emotion e_heh,0,"拎着小猫的 小孩#cook";
+		emotion ET_SMILE, getnpcid(0, "拎着小猫的 小孩#cook");
 		mes "[拎着小猫的 小孩]";
 		mes "Nyahahaha~";
 		mes "Nyahahaha~";
 		mes "(Meow, meow~)";
 		next;
 		cutin "job_black_hucke02",255;
-		emotion e_ho,0,"Wickebine#cook";
+		emotion ET_DELIGHT, getnpcid(0, "Wickebine#cook");
 		donpcevent "Wickebine#cook::OnDisable";
 		next;
-		emotion e_dots;
-		emotion e_dots,0,"拎着小猫的 小孩#cook";
+		emotion ET_THINK;
+		emotion ET_THINK, getnpcid(0, "拎着小猫的 小孩#cook");
 		mes "[夏罗乐 欧罗莱昂]";
 		mes "......";
 		next;
@@ -1038,7 +1038,7 @@ prt_castle,43,30,3	script	夏罗乐 欧罗莱昂#cook	4_M_OILMAN,{
 		mes "suggests that he is hiding";
 		mes "in the Schwaltzvalt Republic...";
 		next;
-		emotion e_go;
+		emotion ET_GO;
 		mes "[夏罗乐 欧罗莱昂]";
 		mes "Praise the glories of the";
 		mes "Rune-Midgarts Kingdom!";
@@ -1047,7 +1047,7 @@ prt_castle,43,30,3	script	夏罗乐 欧罗莱昂#cook	4_M_OILMAN,{
 	}
 	else if (cooking_q == 11) {
 		cutin "orleans_5",0;
-		emotion e_dots;
+		emotion ET_THINK;
 		mes "[夏罗乐 欧罗莱昂]";
 		mes "好吧, 到底是何事呢?";
 		next;
@@ -2076,7 +2076,7 @@ prt_castle,45,28,3	script	拎着小猫的 小孩#cook	4_F_YUNYANG,{
 	set .@nyu,rand(1,2);
 	if (.@nyu == 1) {
 		cutin "nyuang_1",2;
-		emotion e_what;
+		emotion ET_QUESTION;
 		mes "[拎着小猫的 小孩]";
 		mes "...Nya?";
 		mes "(...Meow?)";
@@ -2085,7 +2085,7 @@ prt_castle,45,28,3	script	拎着小猫的 小孩#cook	4_F_YUNYANG,{
 		end;
 	}
 	cutin "nyuang_3",2;
-	emotion e_ho;
+	emotion ET_DELIGHT;
 	mes "[拎着小猫的 小孩]";
 	mes "Nyahahahaha,";
 	mes "nyahahahaha~";

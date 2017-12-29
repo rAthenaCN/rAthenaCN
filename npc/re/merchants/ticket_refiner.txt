@@ -52,7 +52,7 @@ prontera,195,173,6	script	精炼研究家	851,{
 			close;
 		}
 	}
-	emotion e_gasp;
+	emotion ET_SURPRISE;
 	mes "[精炼研究家]";
 	mes "你好!";
 	mes "你可以将你的物品精炼到 ^006400与精炼能力提升券相同的级别^000000.";
@@ -78,7 +78,7 @@ prontera,195,173,6	script	精炼研究家	851,{
 		close;
 	}
 	if (!getequipisenableref(.@part)) {
-		emotion e_otl;
+		emotion ET_OTL;
 		mes "[精炼研究家]";
 		mes "噢, 我很抱歉.";
 		mes "这个物品无法被精炼.";
@@ -103,7 +103,7 @@ prontera,195,173,6	script	精炼研究家	851,{
 		break;
 	}
 	if (!.@check) {
-		emotion e_dots;
+		emotion ET_THINK;
 		mes "[精炼研究家]";
 		mes "如果你想要精炼这个 ^006400"+.@type$+"^000000, 请带上 ^006400"+.@type$+"精炼能力提升券^000000.";
 		mes "再见!";
@@ -119,7 +119,7 @@ prontera,195,173,6	script	精炼研究家	851,{
 	set .@ticket_lv, .@levels[.@select];
 	set .@ticket_id, .@tickets[.@select];
 	if (countitem(.@ticket_id) == 0) {
-		emotion e_what;
+		emotion ET_QUESTION;
 		mes "[精炼研究家]";
 		mes getitemname(.@ticket_id)+" 不再你身上, 你是不是把它放仓库了?";
 		mes "请检查一下.";
@@ -127,7 +127,7 @@ prontera,195,173,6	script	精炼研究家	851,{
 		close;
 	}
 	if (getequiprefinerycnt(.@part) >= .@ticket_lv) {
-		emotion e_swt2;
+		emotion ET_PROFUSELY_SWEAT;
 		mes "[精炼研究家]";
 		mes "^8B4513这个道具已经精炼到极致了.^000000";
 		mes "请拿一件不到你精炼能力提升券级别的装备来.";
@@ -138,7 +138,7 @@ prontera,195,173,6	script	精炼研究家	851,{
 	mes "我继续?";
 	next;
 	if(select("- 否.:- 是.") == 1) {
-		emotion e_dots;
+		emotion ET_THINK;
 		mes "[精炼研究家]";
 		mes "噢, 你改变主意了.";
 		mes "好吧.";
@@ -161,7 +161,7 @@ prontera,195,173,6	script	精炼研究家	851,{
 	}
 	successrefitem .@part, .@ticket_lv - getequiprefinerycnt(.@part);
 	next;
-	emotion e_ho;
+	emotion ET_DELIGHT;
 	mes "[精炼研究家]";
 	mes "好了, 就是它了~";
 	mes "很好, ^0000FF"+strcharinfo(0)+"^000000!";

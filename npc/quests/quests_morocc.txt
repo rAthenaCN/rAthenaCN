@@ -879,7 +879,7 @@ que_job01,70,84,1	script	女孩#moc_ex002	4_F_SITDOWN,{
 	mes "Oh, the world.. the world is doomed..";
 	mes "-sobbing-";
 	mes "Nothing seems to be working now..";
-	emotion e_sob;
+	emotion ET_CRY;
 	next;
 	mes "["+ strcharinfo(0) +"]";
 	mes "....啧啧...";
@@ -2173,14 +2173,14 @@ moc_ruins,137,70,3	script	抚摸书的男子#garas	1_M_02,{
 			next;
 			mes "^660000他看着你傻笑.看起来像是金字塔里干燥的尸体,但他显然是活着,似乎是一个怪物.不知何故,你发现自己不得不处理这个有趣的男人.^000000";
 			next;
-			emotion e_lv;
+			emotion ET_THROB;
 			mes "[抚摸书的男子]";
 			mes "啊... 玛莉...";
 			next;
 			mes "[抚摸书的男子]";
 			mes "你健康的皮肤在梦罗克金光闪闪的阳光祝福下发光.";
 			next;
-			emotion e_sob;
+			emotion ET_CRY;
 			mes "[抚摸书的男子]";
 			mes "你的微笑像瓦尔哈拉的神之光环.你是一个活生生的福音.你的笑容让菲力亚女神藏在阴影中害羞!啊...宝贝,我的宝贝!";
 			next;
@@ -2191,7 +2191,7 @@ moc_ruins,137,70,3	script	抚摸书的男子#garas	1_M_02,{
 				mes "["+ strcharinfo(0) +"]";
 				mes "你在和自己说话?";
 				next;
-				emotion e_omg;
+				emotion ET_HUK;
 				mes "[抚摸书的男子]";
 				mes "哇!我的天!你必定是一个魔鬼的使者,试图打断我和玛莉的感应!";
 				mes "我不怕你,因为有他!";
@@ -2202,11 +2202,11 @@ moc_ruins,137,70,3	script	抚摸书的男子#garas	1_M_02,{
 				mes "["+ strcharinfo(0) +"]";
 				mes "谁是玛莉?";
 				next;
-				emotion e_omg;
+				emotion ET_HUK;
 				mes "[抚摸书的男子]";
 				mes "什么?你居然不知道玛莉,那可是卢恩·米德加兹三位最大伟大的名人之一.";
 				next;
-				emotion e_sigh;
+				emotion ET_OHNO;
 				mes "[抚摸书的男子]";
 				mes "你什么都不知道吗?嗯,从你愚蠢的脸上,我猜你只是一个坐着毫无意义的杂事,替人跑腿的冒险家.嘿嘿!";
 				next;
@@ -2219,7 +2219,7 @@ moc_ruins,137,70,3	script	抚摸书的男子#garas	1_M_02,{
 				mes "[抚摸书的男子]";
 				mes "她在一次采访中提到了'梦罗克时代' ,她想遇到和她一样爱书的男人.";
 				next;
-				emotion e_awsm;
+				emotion ET_COOL;
 				mes "[抚摸书的男子]";
 				mes "这意味着...她在等待像我这样的人.呵呵呵!";
 				mes "你知道吗,卢恩·米德加兹图书馆中的班杰明给每一本书写上他们的作者...那就是我!";
@@ -2240,7 +2240,7 @@ moc_ruins,137,70,3	script	抚摸书的男子#garas	1_M_02,{
 				mes "[班杰明]";
 				mes "我真的需要去读那本书,告诉她说我在这里.但我没时间喘口气,因为我们现在面对这样的情况!";
 				next;
-				emotion e_sob;
+				emotion ET_CRY;
 				mes "[班杰明]";
 				mes "我的玛莉枕套被埋在了废墟下...*喘气*!";
 				mes "玛莉,我来了!你千万别死!";
@@ -2249,7 +2249,7 @@ moc_ruins,137,70,3	script	抚摸书的男子#garas	1_M_02,{
 				next;
 				mes "^660000他深深的吸了口气,然后突然转头看你.^000000";
 				next;
-				emotion e_ic;
+				emotion ET_AHA;
 				mes "[班杰明]";
 				mes "....对... , 没错,就是你!";
 				next;
@@ -2317,7 +2317,7 @@ moc_ruins,137,70,3	script	抚摸书的男子#garas	1_M_02,{
 			next;
 			mes "^660000你小心的走近他,拍了一下他的肩膀.^000000";
 			next;
-			emotion e_omg;
+			emotion ET_HUK;
 			mes "[班杰明]";
 			mes "哇! 谁敢碰我?!";
 			next;
@@ -2349,12 +2349,12 @@ moc_ruins,137,70,3	script	抚摸书的男子#garas	1_M_02,{
 			next;
 			mes "[班杰明]";
 			mes "啊啊啊... 玛莉! 我在这里, 追随你高贵的味道来阅读这样的一本书! 玛莉...!";
-			emotion e_lv2;
+			emotion ET_BIGTHROB;
 			next;
 			mes "[班杰明]";
 			mes "我很兴奋有机会阅读玛莉的文学! 太好了!";
 			mes "我应该马上去阅读这本书!呵呵呵!";
-			emotion e_ho;
+			emotion ET_DELIGHT;
 			next;
 			mes "[班杰明]";
 			mes "哎呀,我不会忘记报答你的.你知道的,我是一个有礼貌的人.";
@@ -2558,7 +2558,7 @@ prt_in,179,92,3	script	图书馆管理员#garas	1_M_LIBRARYMASTER,{
 				}
 				break;
 			}
-			emotion e_ic;
+			emotion ET_AHA;
 			mes "[图书馆管理员]";
 			mes "对了!我想我知道你说的这本书:";
 			next;
@@ -2697,7 +2697,7 @@ yuno,333,210,5	script	图书馆馆长#garas	1_M_LIBRARYMASTER,{
 		mes "我保证你很快就会好的.";
 		next;
 		mes "^660000听起来他很真诚,但肉汤听起来并不一定更有效...^000000";
-		emotion e_dots,1;
+		emotion ET_THINK,1;
 		set barmunt_crow,3;
 		close;
 	}
@@ -2797,7 +2797,7 @@ OnTouch:
 		mes "我保证你很快就会好的.";
 		next;
 		mes "^660000听起来他很真诚,但肉汤听起来并不一定更有效...^000000";
-		emotion e_dots,1;
+		emotion ET_THINK,1;
 		set barmunt_crow,3;
 		close;
 	}
@@ -2825,7 +2825,7 @@ yuno_in04,111,57,3	script	图书馆兼职人员#garas	4_F_LGTGIRL,{
 		next;
 		mes "["+ strcharinfo(0) +"]";
 		mes "我在找奥利弗希尔帕特的<命运的乌鸦>...阿嚏";
-		emotion e_wah,1;
+		emotion ET_KEK,1;
 		specialeffect2 EF_VENOMDUST;
 		next;
 		mes "[图书馆兼职人员]";
@@ -3200,7 +3200,7 @@ yuno_in04,169,123,3	script	可疑的男人#oliver_h	4_M_ATEIL,{
 		case 2:
 			mes "[奥利弗 希尔帕特]";
 			mes "好吧... 我明白...";
-			emotion e_sob;
+			emotion ET_CRY;
 			close2;
 			cutin "",255;
 			end;
@@ -3281,13 +3281,13 @@ yuno_in04,169,123,3	script	可疑的男人#oliver_h	4_M_ATEIL,{
 		mes "这羽毛怎么了?";
 		next;
 		mes "[奥利弗 希尔帕特]";
-		emotion e_wah;
+		emotion ET_KEK;
 		mes "啊!这是我做的吗?";
 		mes "我的天,我很抱歉!我很抱歉!";
 		next;
 		mes "^660000他又变回原来的性格,并开始向你道歉他刚才的行为.^000000";
 		next;
-		emotion e_sob;
+		emotion ET_CRY;
 		mes "[奥利弗 希尔帕特]";
 		mes "我...我不知道该如何道歉...";
 		mes "我只是... 我变得非常生气.我—!唉,对不起!";
@@ -3471,7 +3471,7 @@ yuno_in04,167,120,3	script	破旧的书#garas	HIDDEN_NPC,{
 		mes "[奥利弗 希尔帕特]";
 		mes "哇!";
 		mes "可不是吗?!";
-		emotion e_omg;
+		emotion ET_HUK;
 		next;
 		mes "["+ strcharinfo(0) +"]";
 		mes "嗯?";
@@ -3496,7 +3496,7 @@ yuno_in04,167,120,3	script	破旧的书#garas	HIDDEN_NPC,{
 		emotion 14;
 		next;
 		mes "^660000这是梦罗克的班杰明喜欢的卢恩·米德加兹最伟大的三大偶像之一玛莉的相册,这一定是奥利弗如此喜悦的原因.^000000";
-		emotion e_dots,1;
+		emotion ET_THINK,1;
 		next;
 		mes "["+ strcharinfo(0) +"]";
 		mes "阿嚏!你也是玛莉的粉丝吗?";
@@ -3520,12 +3520,12 @@ yuno_in04,167,120,3	script	破旧的书#garas	HIDDEN_NPC,{
 		mes "[奥利弗 希尔帕特]";
 		mes "...哇!";
 		cutin "mami01",4;
-		emotion e_lv;
+		emotion ET_THROB;
 		next;
 		mes "[奥利弗 希尔帕特]";
 		mes "...哇哦!";
 		cutin "mami02",4;
-		emotion e_lv;
+		emotion ET_THROB;
 		next;
 		cutin "oliver_smile",2;
 		mes "[奥利弗 希尔帕特]";
@@ -3546,7 +3546,7 @@ yuno_in04,167,120,3	script	破旧的书#garas	HIDDEN_NPC,{
 		mes "["+ strcharinfo(0) +"]";
 		mes "...............";
 		mes "我... 我明白了...";
-		emotion e_swt,1;
+		emotion ET_SWEAT,1;
 		next;
 		mes "[奥利弗 希尔帕特]";
 		mes "嗯...";
@@ -3568,7 +3568,7 @@ yuno_in04,167,120,3	script	破旧的书#garas	HIDDEN_NPC,{
 		case 2:
 			mes "[奥利弗 希尔帕特]";
 			mes "好吧... 我明白...";
-			emotion e_sob;
+			emotion ET_CRY;
 			set barmunt_crow,13;
 			close2;
 			cutin "",255;
@@ -3977,7 +3977,7 @@ cave,82,97,3	script	洞穴中的人#g1	4_M_CAVE1,3,3,{
 				mes "嗯...";
 				mes "在这等等.";
 				next;
-				emotion e_com;
+				emotion ET_COMEON;
 				mes "[洞穴中的人]";
 				mes "嘿,佳德!";
 				enablenpc "佳德#garas1";
@@ -4066,7 +4066,7 @@ OnTouch:
 				mes "嗯...";
 				mes "在这等等.";
 				next;
-				emotion e_com;
+				emotion ET_COMEON;
 				mes "[洞穴中的人]";
 				mes "嘿,佳德!";
 				enablenpc "佳德#garas1";
@@ -4385,7 +4385,7 @@ prontera,153,353,4	script	传令#prince1	8W_SOLDIER,{
 				next;
 				switch(select("逝世了吗?:又要举行登基仪式了?")) {
 				case 1:
-					emotion e_gasp;
+					emotion ET_SURPRISE;
 					mes "[传令]";
 					mes "你已经知道这件事了...";
 					mes "那我不需要和你解释太多.";
@@ -5475,7 +5475,7 @@ prt_castle,274,372,4	script	侍者#hans	1_M_02,{
 			mes "这是我全部要说的.";
 			mes "哈...~";
 			next;
-			emotion e_gasp;
+			emotion ET_SURPRISE;
 			mes "[侍者 汉斯]";
 			mes "啊,王子!";
 			mes "你要小心你的手指!";
@@ -6286,7 +6286,7 @@ prt_castle,314,373,4	script	王子#eisen	4_M_1STPRIN1,{
 			mes "不要这么极端.";
 			mes "我会和兄弟们一起治理这个国家,永远.";
 			next;
-			emotion e_gasp;
+			emotion ET_SURPRISE;
 			mes "[艾伦]";
 			mes "嗯?鉴定师来了.";
 			mes "你怎么在我们的交谈中忽然出现?";
@@ -6621,7 +6621,7 @@ prt_castle,314,373,4	script	王子#eisen	4_M_1STPRIN1,{
 				mes "虽然这样的制度可以在我成为";
 				mes "国王后取消,我有这样的能力!";
 				mes "哈哈哈.";
-				emotion e_heh;
+				emotion ET_SMILE;
 				next;
 				mes "[艾伦]";
 				mes "我很清楚这次国王的人选.";
@@ -6935,7 +6935,7 @@ OnTouch:
 		mes "一切为了卢恩·米德加兹的未来...";
 		mes "嗯?";
 		next;
-		emotion e_gasp;
+		emotion ET_SURPRISE;
 		mes "[一个沃尔特家族的男人]";
 		mes "安静... 有人来了.";
 		mes "保重.";
@@ -7093,7 +7093,7 @@ prt_castle,314,371,0	script	王子#another_ern	4_M_2NDPRIN1,{
 		mes "不要这么极端.";
 		mes "我会和兄弟们一起治理这个国家,永远.";
 		next;
-		emotion e_gasp;
+		emotion ET_SURPRISE;
 		mes "[艾伦]";
 		mes "嗯?鉴定师来了.";
 		mes "你怎么在我们的交谈中忽然出现?";

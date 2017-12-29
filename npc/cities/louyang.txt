@@ -135,7 +135,7 @@ louyang,297,167,2	script	肌肉发达的女人#lou	815,{
 		next;
 		mes "[李芷清]";
 		mes "最近招不到新人咯, 所以俺回来看看有没有女淫们愿意加入俺们.";
-		emotion e_dots;
+		emotion ET_THINK;
 		close;
 	}
 	mes "[李芷清]";

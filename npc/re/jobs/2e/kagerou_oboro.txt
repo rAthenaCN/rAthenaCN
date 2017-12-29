@@ -1093,7 +1093,7 @@ function	script	F_KO_Survival_dice2	{
 //Return: 1:win, 0:draw, -1:lose
 function	script	F_KO_Survival_rps	{
 	setarray .@rps$[1], "Scissors", "Rock", "Paper";
-	setarray .@emote[1], e_scissors, e_rock, e_paper;  //might be iRO custom(?)
+	setarray .@emote[1], ET_SCISSOR, ET_ROCK, ET_WRAP;  //might be iRO custom(?)
 
 	mes "Rock! Paper! Scissors!";
 	next;

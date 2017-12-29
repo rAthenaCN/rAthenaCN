@@ -46,12 +46,12 @@ job3_gen01,12,44,3	script	维奥雷尔#job3_gen01	542,{
 					getitem 6415,1; //Strange_Embryo
 				else if (countitem(6415) > 1)
 					delitem 6415, (countitem(6415) - 1); //Strange_Embryo
-				warp "que_house_s",63,41;
+				warp "quET_DELIGHTuse_s",63,41;
 				end;
 			}
 			enable_items;
 		} else if (Class == Job_Novice_High || Class == Job_Merchant_High || Class == Job_Alchemist || Class == Job_Creator) {
-			emotion e_what;
+			emotion ET_QUESTION;
 			mes "[维奥雷尔]";
 			mes "我不知道发生了什么事情，但我记得，你应该是合格的 ^FF4800人工生命体^000000研究员.";
 			next;
@@ -89,7 +89,7 @@ job3_gen01,12,44,3	script	维奥雷尔#job3_gen01	542,{
 				mes "不错的选择.";
 				mes "现在,闭上双眼...";
 				close2;
-				warp "que_house_s",19,42;
+				warp "quET_DELIGHTuse_s",19,42;
 				end;
 			case 2:
 				mes "[维奥雷尔]";
@@ -112,7 +112,7 @@ job3_gen01,12,44,3	script	维奥雷尔#job3_gen01	542,{
 				mes "不错的选择.";
 				mes "现在,闭上双眼...";
 				close2;
-				warp "que_house_s",63,41;
+				warp "quET_DELIGHTuse_s",63,41;
 				end;
 			case 2:
 				mes "[维奥雷尔]";
@@ -156,7 +156,7 @@ job3_gen01,12,44,3	script	维奥雷尔#job3_gen01	542,{
 				close2;
 				setquest 4154;
 				setquest 4155;
-				warp "que_house_s",19,42;
+				warp "quET_DELIGHTuse_s",19,42;
 				end;
 			case 2:
 				mes "[维奥雷尔]";
@@ -172,21 +172,21 @@ job3_gen01,12,44,3	script	维奥雷尔#job3_gen01	542,{
 			next;
 			switch(select("不,再见!:我很忙.:这正是我想听到的.:为什么你总是站在那里?")) {
 			case 1:
-				emotion e_heh;
+				emotion ET_SMILE;
 				mes "[维奥雷尔]";
 				mes "好的.";
 				mes "见到你很高兴.";
 				mes "再见了~!";
 				close;
 			case 2:
-				emotion e_omg;
+				emotion ET_HUK;
 				mes "[维奥雷尔]";
 				mes "!!!!";
 				mes "我...我明白.";
 				mes "我想你会来这里找我的.";
 				close;
 			case 3:
-				emotion e_ic;
+				emotion ET_AHA;
 				mes "[维奥雷尔]";
 				mes "和我想的一样.";
 				mes "等吉亚娜走后,我们一起去见见老朋友吧.";
@@ -201,7 +201,7 @@ job3_gen01,12,44,3	script	维奥雷尔#job3_gen01	542,{
 				playbgm "08.mp3"; // Theme of Prontera
 				end;
 			case 4:
-				emotion e_swt;
+				emotion ET_SWEAT;
 				mes "[维奥雷尔]";
 				mes "不行,我可受不了天天待在这里.";
 				mes "真无法理解,你竟然能天天待在这地方?";
@@ -250,7 +250,7 @@ job3_gen01,12,44,3	script	维奥雷尔#job3_gen01	542,{
 		mes "现在, 如果你不介意的话~!";
 		close;
 	case 3:
-		emotion e_swt;
+		emotion ET_SWEAT;
 		mes "[维奥雷尔]";
 		mes "怎么样, 看到一个炼金术士在自己的实验室很奇怪?";
 		mes "怎么会这样?";
@@ -269,7 +269,7 @@ L_CheckHomunculus:
 		mes " ";
 		mes "(似乎在思考着什么.)";
 		next;
-		emotion e_heh;
+		emotion ET_SMILE;
 		mes "[维奥雷尔]";
 		mes "哈哈~";
 		mes "我想我把你认成另外一个人了.";
@@ -281,7 +281,7 @@ L_CheckHomunculus:
 
 que_house_s,24,47,3	script	维奥雷尔#homun_s	542,{
 	if (checkquest(4155) > -1) {
-		emotion e_dum;
+		emotion ET_HUM;
 		mes "[维奥雷尔]";
 		mes "很好.";
 		mes "我想看看你所说的那些生意.";
@@ -300,7 +300,7 @@ que_house_s,24,47,3	script	维奥雷尔#homun_s	542,{
 		next;
 		switch(select("- 就像, 生物实验...?!:- 好的, 耶, 自然.:- 我不想伤害我的生命体!")) {
 		case 1:
-			emotion e_swt2;
+			emotion ET_PROFUSELY_SWEAT;
 			mes "[维奥雷尔]";
 			mes "别大惊小怪的.";
 			mes "生命伦理在生物学的伦理中至今还是一种很模糊的概念.";
@@ -314,7 +314,7 @@ que_house_s,24,47,3	script	维奥雷尔#homun_s	542,{
 			next;
 			break;
 		case 2:
-			emotion e_sigh;
+			emotion ET_OHNO;
 			mes "[维奥雷尔]";
 			mes "是的.";
 			mes "你有没有感到不高兴, 我很高兴.";
@@ -331,7 +331,7 @@ que_house_s,24,47,3	script	维奥雷尔#homun_s	542,{
 			next;
 			break;
 		case 3:
-			emotion e_swt;
+			emotion ET_SWEAT;
 			mes "[维奥雷尔]";
 			mes "我理解你关心的东西.";
 			mes "不过, 我想向你保证, 这种突变并不损害或伤害你的 ^FF4800生命体^000000.";
@@ -364,14 +364,14 @@ que_house_s,24,47,3	script	维奥雷尔#homun_s	542,{
 		mes "^006400真相不会存在于一个单一的形式~!^000000";
 		mes "哈哈.";
 		next;
-		emotion e_flash;
+		emotion ET_SPARK;
 		mes "[维奥雷尔]";
 		mes "我知道这是有点突兀, 但...";
 		mes "如果你想改变你的 ^FF4800生命体^000000 通过我那难以置信的伟大成就发明, ^006400生命体突变系统^000000?";
 		next;
 		switch(select("- 探讨^006400生命体突变系统^000000.:- 取消.")) {
 		case 1:
-			emotion e_no1;
+			emotion ET_BEST;
 			mes "[维奥雷尔]";
 			mes "不错的选择.";
 			mes "要突破传统思维的束缚, 对吗?";
@@ -383,10 +383,10 @@ que_house_s,24,47,3	script	维奥雷尔#homun_s	542,{
 			close2;
 			setquest 4156;
 			erasequest 4155;
-			warp "que_house_s",63,41;
+			warp "quET_DELIGHTuse_s",63,41;
 			end;
 		case 2:
-			emotion e_dots;
+			emotion ET_THINK;
 			mes "[维奥雷尔]";
 			mes "我不明白为什么你毫不犹豫地就做出决定.";
 			mes "我不是想欺骗你.";
@@ -398,7 +398,7 @@ que_house_s,24,47,3	script	维奥雷尔#homun_s	542,{
 				mes "我们将讨论一下, 然后.";
 				close;
 			case 2:
-				emotion e_otl;
+				emotion ET_OTL;
 				mes "[维奥雷尔]";
 				mes "耻辱.";
 				mes "然而, 我尊重你的意见.";
@@ -465,7 +465,7 @@ que_house_s,24,47,3	script	维奥雷尔#homun_s	542,{
 					end;
 				}
 			}
-			emotion e_no1;
+			emotion ET_BEST;
 			playbgm "19.mp3"; // Under the Ground
 			mes "[维奥雷尔]";
 			mes "不错的选择.";
@@ -524,7 +524,7 @@ que_house_s,24,47,3	script	维奥雷尔#homun_s	542,{
 			hommutate .@Homunculus;
 			break;
 		case 2:
-			emotion e_hmm;
+			emotion ET_SCRATCH;
 			mes "[维奥雷尔]";
 			mes "你选择的是不稳定的突变过程.";
 			mes "你相信命运?";
@@ -539,14 +539,14 @@ que_house_s,24,47,3	script	维奥雷尔#homun_s	542,{
 				mes "你需要更多的时间好好想想.";
 				close;
 			}
-			emotion e_dots;
+			emotion ET_THINK;
 			mes "[维奥雷尔]";
 			mes "嗯...";
 			mes "知识的探索";
 			mes "是充满惊喜的.";
 			mes ".......";
 			next;
-			emotion e_heh;
+			emotion ET_SMILE;
 			mes "[维奥雷尔]";
 			mes "哈哈.";
 			mes "嘿, 我觉得自己像一个商人!";
@@ -572,7 +572,7 @@ que_house_s,24,47,3	script	维奥雷尔#homun_s	542,{
 		}
 		erasequest 4160;
 		erasequest 4154;
-		emotion e_ho;
+		emotion ET_DELIGHT;
 		playbgm "64.mp3"; // One Fine Day
 		mes "[维奥雷尔]";
 		mes "好的, 突变完成.";
@@ -617,12 +617,12 @@ que_house_s,24,47,3	script	维奥雷尔#homun_s	542,{
 que_house_s,80,42,3	script	吉亚娜#homun_s	558,{
 	if (checkquest(4156) > -1) {
 		playbgm "28.mp3"; // You're in Ruins
-		emotion e_gasp;
+		emotion ET_SURPRISE;
 		mes "[吉亚娜]";
 		mes "欢迎.";
 		mes "我刚收到 ^005DFF维奥雷尔^000000 的信息, 说你要来.";
 		next;
-		emotion e_hmm;
+		emotion ET_SCRATCH;
 		mes "[吉亚娜]";
 		mes "顺便说一下...";
 		mes "他说服你做某件事...?";
@@ -630,13 +630,13 @@ que_house_s,80,42,3	script	吉亚娜#homun_s	558,{
 		next;
 		mes "[吉亚娜]";
 		mes "他需要它们, 因为炼金术士是一群很尴尬群体.";
-		emotion e_sigh;
+		emotion ET_OHNO;
 		next;
 		mes "[吉亚娜]";
 		mes "不管怎么说~";
 		mes "^0000FF"+strcharinfo(0)+"^000000 和 ^005DFF维奥雷尔^000000 看起来像一个豆荚里的两颗豌豆.";
 		next;
-		emotion e_heh;
+		emotion ET_SMILE;
 		mes "[吉亚娜]";
 		mes "嘎嘎嘎~ 没有违法.";
 		mes "我认为这是一件好事.";
@@ -648,11 +648,11 @@ que_house_s,80,42,3	script	吉亚娜#homun_s	558,{
 		mes "你为什么不来看看在黑板上的信息?";
 		mes "关于 ^006400生命体突变系统^000000 的 ^0000FF5种不同类型^000000 的新基因突变.";
 		next;
-		emotion e_gasp,0,"魔力黑板#homun_s";
+		emotion ET_SURPRISE, getnpcid(0, "魔力黑板#homun_s");
 		mes "[吉亚娜]";
 		mes "你的 ^FF4800生命体^000000 可能变异成5种不同的形式.";
 		next;
-		emotion e_ic;
+		emotion ET_AHA;
 		mes "[吉亚娜]";
 		mes "让我们来看看...";
 		mes "这 ^006400生命体突变系统^000000 是来自普通 ^0000FF生命体^000000 的一种进化.";
@@ -664,7 +664,7 @@ que_house_s,80,42,3	script	吉亚娜#homun_s	558,{
 		mes "原来的技能";
 		mes "^006400即使在突变后也可保留和使用^000000.";
 		next;
-		emotion e_gasp,0,"魔力黑板#homun_s";
+		emotion ET_SURPRISE, getnpcid(0, "魔力黑板#homun_s");
 		mes "[吉亚娜]";
 		mes "多看一看在我身后的魔力黑板, 然后你自己做出决定.";
 		close2;
@@ -672,11 +672,11 @@ que_house_s,80,42,3	script	吉亚娜#homun_s	558,{
 		erasequest 4156;
 		end;
 	} else if (checkquest(4157) > -1) {
-		emotion e_what;
+		emotion ET_QUESTION;
 		mes "[吉亚娜]";
 		mes "看看我身后的黑板, 在右侧.";
 		close2;
-		emotion e_gasp,0,"魔力黑板#homun_s";
+		emotion ET_SURPRISE, getnpcid(0, "魔力黑板#homun_s");
 		end;
 	} else if (checkquest(4158) > -1) {
 		playbgm "28.mp3"; // You're in Ruins
@@ -728,7 +728,7 @@ que_house_s,80,42,3	script	吉亚娜#homun_s	558,{
 				mes "等你完成后回来.";
 				close;
 			}
-			emotion e_no1;
+			emotion ET_BEST;
 			mes "[吉亚娜]";
 			mes "思路很清晰.";
 			mes "像我们这样的炼金术士如果害怕挑战. 是不可接受的.";
@@ -756,12 +756,12 @@ que_house_s,80,42,3	script	吉亚娜#homun_s	558,{
 			morphembryo;
 			setquest 4159;
 			erasequest 4158;
-			emotion e_ho;
+			emotion ET_DELIGHT;
 			mes "[吉亚娜]";
 			mes "表示不快~ 全部完成.";
 			mes "嗯, 它的状态是有点怪.";
 			next;
-			emotion e_heh;
+			emotion ET_SMILE;
 			mes "[吉亚娜]";
 			mes "我猜它会好起来的.";
 			mes "不要把 ^0000FF奇怪的胚胎^000000 弄丢.";
@@ -777,7 +777,7 @@ que_house_s,80,42,3	script	吉亚娜#homun_s	558,{
 			close;
 		case 2:
 			playbgm "28.mp3"; // You're in Ruins
-			emotion e_sigh;
+			emotion ET_OHNO;
 			mes "[吉亚娜]";
 			mes "也许我不应该要求在第一时间.";
 			close;
@@ -797,7 +797,7 @@ que_house_s,80,42,3	script	吉亚娜#homun_s	558,{
 		close2;
 		setquest 4160;
 		erasequest 4159;
-		warp "que_house_s",19,42;
+		warp "quET_DELIGHTuse_s",19,42;
 		end;
 	} else {
 		if (checkquest(4154) > -1)
@@ -1321,10 +1321,10 @@ OnInit:
 	initnpctimer;
 	end;
 OnTimer6000:
-	emotion e_gasp;
+	emotion ET_SURPRISE;
 	end;
 OnTimer7000:
-	emotion e_gasp,0,"#04homun_s";
+	emotion ET_SURPRISE, getnpcid(0, "#04homun_s");
 	stopnpctimer;
 	initnpctimer;
 	end;
@@ -1341,7 +1341,7 @@ que_house_s,24,46,3	script	乔纳森#homun_s	6002,{
 }
 
 que_house_s,23,46,3	script	#05homun_s	111,{
-	emotion e_no,0,"乔纳森#homun_s";
+	emotion ET_STARE_ABOUT, getnpcid(0, "乔纳森#homun_s");
 	if (gethominfo(1) < 6048 || gethominfo(1) > 6052) { // Not mutated Homunculus-S
 		mes "[乔纳森]";
 		mes "哇呃~ 哇呃!";
@@ -1356,7 +1356,7 @@ que_house_s,23,46,3	script	#05homun_s	111,{
 		mes "[乔纳森]";
 		mes "哇呃~?!";
 		next;
-		emotion e_swt2,0,"乔纳森#homun_s";
+		emotion ET_PROFUSELY_SWEAT, getnpcid(0, "乔纳森#homun_s");
 		mes "[乔纳森]";
 		mes "*吸气* ...";
 		next;

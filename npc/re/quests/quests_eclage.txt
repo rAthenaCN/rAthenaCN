@@ -188,13 +188,13 @@ ecl_fild01,111,320,2	script	入境官员#ep1	445,{
 		mes "[入境官员]";
 		mes "有什么能帮你的么?";
 		mes "正如您所见, 我这里已经够忙的了, 所以除非您有事, 请不要打扰我.";
-		emotion e_an;
+		emotion ET_FRET;
 		close;
 	} else if (ep14_2_enter == 1) {
 		mes "[入境官员]";
 		mes "ho! 很抱歉让你们等了这么久.";
 		mes "访客实在是太多了.";
-		emotion e_wah;
+		emotion ET_KEK;
 		next;
 		mes "[入境官员]";
 		mes "请把表格放在这里...";
@@ -204,12 +204,12 @@ ecl_fild01,111,320,2	script	入境官员#ep1	445,{
 		mes "一切安好, 对吧?";
 		mes "快点让我过去!";
 		cutin "bu_du1.bmp",2;
-		emotion e_omg,1;
+		emotion ET_HUK,1;
 		next;
 		cutin "bu_du1.bmp",255;
 		mes "[入境官员]";
 		mes "我在这里管理入境的人员, 请等到您的时候再来.";
-		emotion e_swt;
+		emotion ET_SWEAT;
 		next;
 		mes "[???]";
 		mes "你在想什么!";
@@ -219,7 +219,7 @@ ecl_fild01,111,320,2	script	入境官员#ep1	445,{
 		cutin "bu_du3.bmp",255;
 		mes "[入境官员]";
 		mes "好吧,您被推后了因为你还没填完表格, 所以你必须多等等了.";
-		emotion e_ag;
+		emotion ET_ANGER;
 		next;
 		mes "[???]";
 		mes "什么?! 你说你在管理入境的人员!!!";
@@ -286,7 +286,7 @@ ecl_fild01,111,320,2	script	入境官员#ep1	445,{
 		mes "山口山, 这太疯狂了.";
 		mes "15696号来这边,你的文件已经弄好了.";
 		mes "您和保安说话后就可以入城了.";
-		emotion e_go;
+		emotion ET_GO;
 		next;
 		mes "[???]";
 		mes "好慢, 好慢!";
@@ -295,7 +295,7 @@ ecl_fild01,111,320,2	script	入境官员#ep1	445,{
 		cutin "bu_oliver0.bmp",255;
 		mes "[入境官员]";
 		mes "杜梁先生, 请把你们的人带进来吧.你们实在太吵了.";
-		emotion e_an;
+		emotion ET_FRET;
 		next;
 		mes "[杜 梁]";
 		mes "哇哈哈!!";
@@ -330,7 +330,7 @@ ecl_fild01,111,320,2	script	入境官员#ep1	445,{
 		next;
 		mes "[马克爱莎]";
 		mes "我的老天......";
-		emotion e_swt2,1;
+		emotion ET_PROFUSELY_SWEAT,1;
 		set ep14_2_enter,2;
 		erasequest 11310;
 		setquest 11311;
@@ -343,7 +343,7 @@ ecl_fild01,111,320,2	script	入境官员#ep1	445,{
 		mes strcharinfo(0)+".";
 		mes "拿好, 你的文件已被批准了.";
 		mes "和保安说话您就能进入城市了.";
-		emotion e_go;
+		emotion ET_GO;
 		close;
 	}
 }
@@ -354,7 +354,7 @@ eclage,102,32,4	script	精灵木匠#ep14_2	443,{
 	if (BaseLevel < 120) {
 		mes "[精灵木匠]";
 		mes "请小心, 这座桥有点坏了.";
-		emotion e_sob;
+		emotion ET_CRY;
 		close;
 	}
 	if (checkquest(11312) == -1) {
@@ -369,7 +369,7 @@ eclage,102,32,4	script	精灵木匠#ep14_2	443,{
 		case 2:
 			mes "[精灵木匠]";
 			mes "哦,几分钟前, 有个人类从这走过, 不小心踩滑了, 然后弄坏了个树枝就砸坏了.";
-			emotion e_an;
+			emotion ET_FRET;
 			next;
 			mes "[精灵木匠]";
 			mes "损坏太靠近入口了, 这实在是需要马上修好.";
@@ -384,12 +384,12 @@ eclage,102,32,4	script	精灵木匠#ep14_2	443,{
 				next;
 				mes "[精灵木匠]";
 				mes "我还是不敢相信世界上还有这么无情之人... 唔, 看走眼了...";
-				emotion e_sob;
+				emotion ET_CRY;
 				next;
 				mes "[精灵木匠]";
 				mes "您能否给我带个新桥来, 我才好修好它?";
 				mes "在别人受到伤害之前, 我会用我的魔法来维持他的稳定.";
-				emotion e_go;
+				emotion ET_GO;
 				//setquest 11312;
 				close;
 			case 2:
@@ -419,7 +419,7 @@ eclage,102,32,4	script	精灵木匠#ep14_2	443,{
 	next;
 	mes "[精灵木匠]";
 	mes "这座断桥的话... 从这里到那里大概有19米, 而我们有3米, 5米和10米的桥片......";
-	emotion e_swt2;
+	emotion ET_PROFUSELY_SWEAT;
 	next;
 	mes "[精灵木匠]";
 	mes "Hmm.......";
@@ -427,22 +427,22 @@ eclage,102,32,4	script	精灵木匠#ep14_2	443,{
 	mes "[精灵木匠]";
 	mes "Hmm.......";
 	mes "......";
-	emotion e_swt2;
+	emotion ET_PROFUSELY_SWEAT;
 	next;
 	mes "[精灵木匠]";
 	mes "......Hmm.........";
-	emotion e_swt2;
+	emotion ET_PROFUSELY_SWEAT;
 	next;
 	mes "- 这可能只是我的想象, 不过烟正在从他的头上冒出, 对吧? -";
 	next;
 	mes "[精灵木匠]";
 	mes "喔 吼!";
 	mes "袁芳, 你怎么看?";
-	emotion e_heh;
+	emotion ET_SMILE;
 	next;
 	mes "[精灵木匠]";
 	mes "为了使用最少的桥片来修桥,3米, 5米和10米的桥片我们应该怎么组合呢?";
-	emotion e_what;
+	emotion ET_QUESTION;
 	next;
 	mes "[精灵木匠]";
 	mes "请写下各种碎片需要的数量. 如果哪种桥片我们不需要的话, 请写 0.";
@@ -455,7 +455,7 @@ eclage,102,32,4	script	精灵木匠#ep14_2	443,{
 	mes "[精灵木匠]";
 	mes "液, 看起来不错啊?";
 	mes "特别是让它们看起来不是那么的笔直.";
-	emotion e_ic;
+	emotion ET_AHA;
 	next;
 	mes "[精灵木匠]";
 	mes "好吧, 如果你去找 [戈列] 就是在城市外面工作的那个家伙, 他会给你桥片的.";
@@ -484,7 +484,7 @@ eclage,283,275,4	script	戈拉斯#ep14_2	438,{
 	mes "为什么... 为什么我却有那么多时间...?";
 	mes "我是现在全艾卡拉奇唯一有空的人么?";
 	mes "真的只有我有空么?";
-	emotion e_omg;
+	emotion ET_HUK;
 	close;
 }
 
@@ -499,7 +499,7 @@ eclage,266,216,4	script	莫仁#ep14_2	444,{
 	mes "[莫仁]";
 	mes "芽 事实上代表着 蛋.";
 	mes "在拉菲尼斯, 芽 甚至代表着超越了家庭的东西...";
-	emotion e_shy;
+	emotion ET_SHY;
 	close;
 }
 
@@ -541,14 +541,14 @@ ecl_in01,60,71,4	script	老人#ep14_2	443,{
 	mes "[老人]";
 	mes "现在, 打破了各种规矩之后事情都简单了很多.";
 	mes "现在都是传送和飞空艇飞来飞去的, 过去冒险的那种浪漫去哪了?";
-	emotion e_pif;
+	emotion ET_HNG;
 	next;
 	mes "[老人]";
 	mes "现在的年轻人可能都不知道青蛙卵吃起来是什么味道的了.";
 	next;
 	mes "[老人]";
 	mes "事情就如同发生在昨天一样我存了足够的杰诺比结晶去买了把日本刀, 不过那把刀已经被不知道丢在仓库的哪个角落了.";
-	emotion e_sob;
+	emotion ET_CRY;
 	close;
 }
 
@@ -561,7 +561,7 @@ ecl_in01,44,53,4	script	送货员#ep14_2	513,{
 	mes "等一下...";
 	mes "可能晚送一点会更好...";
 	mes "我记得我看到在仓库里有很多从波令（马来西亚温泉）送来的箱子需要运输了...";
-	emotion e_sob;
+	emotion ET_CRY;
 	close;
 }
 
@@ -578,7 +578,7 @@ ecl_in01,70,88,4	script	麻袋商人#ep14_2	495,{
 ecl_in01,73,51,4	script	缪拉时#ep14_2	442,{
 	mes "[缪拉时]";
 	mes "唔... 我应该给他什么礼物呢?";
-	emotion e_flash;
+	emotion ET_SPARK;
 	close;
 }
 
@@ -851,7 +851,7 @@ ecl_in01,32,52,4	script	旅行者吡唑#tl01	515,3,3,{
 				mes "此外, 艾卡拉奇最近这么人满的原因是...!!!";
 				next;
 				select("- 是...?!");
-				emotion e_loud;
+				emotion ET_BLABLA;
 				mes "[吡唑]";
 				mes "一位新的市长 骏 已经诞生了!";
 				next;
@@ -915,7 +915,7 @@ ecl_in01,32,52,4	script	旅行者吡唑#tl01	515,3,3,{
 OnTouch:
 	if (ep14_2_tl == 0 && checkquest(7411) == -1 && checkquest(7412) == -1 && checkquest(7413) == -1) {
 		mes "一群来自爱阿富汗的旅行者正在交谈.";
-		emotion e_loud;
+		emotion ET_BLABLA;
 		next;
 		if(select("忽略他们.:加入交谈.") == 1) {
 			mes "他们看起来不怎么关心.";
@@ -1633,7 +1633,7 @@ ecl_fild01,205,86,4	script	艾卡拉奇信使罗伊#tl	461,{
 			mes "这很难.";
 			mes "这真的很难.";
 			mes "我越这么想,我就觉得我像有了坏脾气的社尼莫.";
-			emotion e_gasp;
+			emotion ET_SURPRISE;
 			next;
 			mes "[罗伊]";
 			mes "你, 你这个正好出现在我有危机时的家伙.";
@@ -1718,7 +1718,7 @@ eclage,112,40,4	script	艾卡拉奇守卫利奥#tl	461,{
 		if (checkquest(7420) == -1) {
 			mes "[利奥]";
 			mes "hi, 你好?";
-			emotion e_gasp;
+			emotion ET_SURPRISE;
 			next;
 			mes "[利奥]";
 			mes "你好, 我是认真的!";

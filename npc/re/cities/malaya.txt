@@ -331,11 +331,11 @@ malaya,227,311,4	script	婆婆#ma01	4_F_BARYO_OLD,{
 
 malaya,189,263,4	script	击鼓的 年轻人#ma02	4_M_BARYO_MAN,{
 	if (malaya_hi < 10) {
-		emotion e_omg;
+		emotion ET_HUK;
 		mes "[击鼓的 年轻人]";
 		mes "呃..这就和以前那时候一样...";
 		next;
-		emotion e_omg;
+		emotion ET_HUK;
 		mes "[击鼓的 年轻人]";
 		mes "当月亮被吞掉的时候..呃!!";
 		close;
@@ -343,7 +343,7 @@ malaya,189,263,4	script	击鼓的 年轻人#ma02	4_M_BARYO_MAN,{
 		mes "[击鼓的 年轻人]";
 		mes "我记得当时村庄被一位无名的英雄所拯救.";
 		next;
-		emotion e_sigh;
+		emotion ET_OHNO;
 		mes "[击鼓的 年轻人]";
 		mes "唔..我觉得食月暴龙又出现了!!";
 		close;
@@ -360,7 +360,7 @@ malaya,189,263,4	script	击鼓的 年轻人#ma02	4_M_BARYO_MAN,{
 	mes "不过我还知道,食月暴龙还会吞食人类!!";
 	next;
 	select("靠!那不是很危险?!");
-	emotion e_gg;
+	emotion ET_KIK;
 	mes "[击鼓的 年轻人]";
 	mes "哈哈哈,不过还是有办法阻止食月暴龙吞食人类的~";
 	next;
@@ -384,12 +384,12 @@ malaya,189,263,4	script	击鼓的 年轻人#ma02	4_M_BARYO_MAN,{
 
 malaya,270,59,4	script	港口 守卫#ma03	4_MAL_SOLDIER,{
 	if (malaya_hi < 10) {
-		emotion e_swt2;
+		emotion ET_PROFUSELY_SWEAT;
 		mes "[港口 守卫]";
 		mes "村子里最近不怎么太平.我就这么离开不好吧?";
 		close;
 	} else if (malaya_hi < 20) {
-		emotion e_no;
+		emotion ET_STARE_ABOUT;
 		mes "[港口 守卫]";
 		mes "现在,村庄里已经安定多了,不过即使这样,夜晚出门的时候也请小心.";
 		close;
@@ -399,7 +399,7 @@ malaya,270,59,4	script	港口 守卫#ma03	4_MAL_SOLDIER,{
 		mes getd("$ma_name0"+rand(1,6)+"$")+"据说曾经被宝箱巨鳄俘获过,不过他逃脱了.他肯定是个厉害角色!";
 		close;
 	}
-	emotion e_omg;
+	emotion ET_HUK;
 	mes "[港口 守卫]";
 	mes "什么?!港口解除警报!!";
 	next;
@@ -428,7 +428,7 @@ malaya,270,59,4	script	港口 守卫#ma03	4_MAL_SOLDIER,{
 		mes "[港口 守卫]";
 		mes "如果你听见食尸鬼从远处飞翔而来的声音,一定要立刻躲进最近的建筑里去.";
 		next;
-		emotion e_hmm;
+		emotion ET_SCRATCH;
 		mes "[港口 守卫]";
 		mes "不过要是听不见声音或者煽动翅膀的声音并不是很大,那你就自求多福,随时保持警惕吧!";
 		close;

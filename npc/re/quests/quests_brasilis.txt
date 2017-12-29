@@ -91,7 +91,7 @@ OnTimer10000:
 	end;
 
 OnGo:
-	emotion e_gasp;
+	emotion ET_SURPRISE;
 	initnpctimer;
 	end;
 }
@@ -173,7 +173,7 @@ brasilis,192,133,6	script	露西亚#brasilis	4_F_BRZ_WOMAN,{
 		mes "南海滩.";
 		mes "我希望一些有经验的冒险者";
 		mes "会来帮忙.";
-		emotion e_sigh;
+		emotion ET_OHNO;
 		close;
 	}
 	else {
@@ -219,7 +219,7 @@ brasilis,192,133,6	script	露西亚#brasilis	4_F_BRZ_WOMAN,{
 				mes "自愿参加这项工作.";
 				mes " ";
 				mes "我真的很讨厌水润!";
-				emotion e_sob;
+				emotion ET_CRY;
 				close;
 			}
 		}
@@ -289,7 +289,7 @@ brasilis,192,133,6	script	露西亚#brasilis	4_F_BRZ_WOMAN,{
 						mes "自愿参加这项工作.";
 						mes " ";
 						mes "我真的很讨厌水润!";
-						emotion e_sob;
+						emotion ET_CRY;
 						close;
 					}
 				}
@@ -346,7 +346,7 @@ brasilis,192,133,6	script	露西亚#brasilis	4_F_BRZ_WOMAN,{
 					mes "自愿参加这项工作.";
 					mes " ";
 					mes "我真的很讨厌水润!";
-					emotion e_sob;
+					emotion ET_CRY;
 					close;
 				}
 			}
@@ -359,7 +359,7 @@ OnInit:
 	end;
 
 OnTimer7000:
-	emotion e_gasp;
+	emotion ET_SURPRISE;
 	stopnpctimer;
 	initnpctimer;
 	end;
@@ -781,7 +781,7 @@ brasilis,203,64,3	script	奇异小子#bra	4_M_KID1,{
 		next;
 		mes "- 你走近,假装请审慎行事. - ";
 		next;
-		emotion e_kis;
+		emotion ET_CHUP;
 		mes "(亲亲?)";
 		next;
 		mes "- 这孩子又笑了,然后轻轻把东西在你手里. - ";
@@ -794,8 +794,8 @@ brasilis,203,64,3	script	奇异小子#bra	4_M_KID1,{
 		mes "["+strcharinfo(0)+"]";  
 		mes "哎呀,瓜浆果?";
 		mes "啊!非常感谢你!";
-		emotion e_kis2,1;
-		emotion e_heh;
+		emotion ET_CHUP2,1;
+		emotion ET_SMILE;
 		next;
 		mes "["+strcharinfo(0)+"]";  
 		mes "如果我有,我可以做一个瓜糖果.";
@@ -942,7 +942,7 @@ OnTouch_:
 		mes "冥冥之中,一个人的!";
 		mes "我得到了它.你!";
 		specialeffect EF_HIT1,AREA,"Jaguar#bra";
-		emotion e_omg,1;
+		emotion ET_HUK,1;
 		next;
 		mes "[捷豹]";  
 		mes "不要害怕人类.";
@@ -1492,7 +1492,7 @@ brasilis,270,145,5	script	巴西利亚斯女孩#bra	4_F_BRZ_INDIAN,5,5,{
 		mes "谁是JASI?";
 		mes "你....情人?";
 		next;
-		emotion e_omg;
+		emotion ET_HUK;
 		mes "[Jasira]";  
 		mes "升...的... V. .. E ...情人?!";
 		mes "没办法?";
@@ -1518,7 +1518,7 @@ brasilis,270,145,5	script	巴西利亚斯女孩#bra	4_F_BRZ_INDIAN,5,5,{
 		mes "[Jasira]";  
 		mes "的Cuz'JASI真的是华丽的,最重要的是,他走的是睡莲Brasilis的照顾.";
 		next;
-		emotion e_omg,1;
+		emotion ET_HUK,1;
 		mes "["+strcharinfo(0)+"]";  
 		mes "Brasilis睡莲?!";
 		mes "是不是它的潮头花?";
@@ -1703,7 +1703,7 @@ brasilis,270,145,5	script	巴西利亚斯女孩#bra	4_F_BRZ_INDIAN,5,5,{
 
 OnTouch:
 	if (brazil_regia == 2)
-		emotion e_an;
+		emotion ET_FRET;
 	end;
 }
 
@@ -1876,7 +1876,7 @@ bra_dun02,71,200,3	script	睡莲#bra	HIDDEN_NPC,{
 		mes "[JASI]";  
 		mes "这让我怀念我的童年.";
 		next;
-		emotion e_omg,0,"Recluse#bra";
+		emotion ET_HUK, getnpcid(0, "Recluse#bra");
 		mes "[JASI]";  
 		mes "HOHO!!";
 		mes "我一直在这里,只要我还记得...";
@@ -2053,7 +2053,7 @@ brasilis,185,246,5	script	佩德罗#bra	1_M_SIZ,{
 		mes "[佩德罗]";  
 		mes ",我们应该还能做什么?如果我们不这样做别人会.";
 		next;
-		emotion e_an,0,"马里亚纳#bra";
+		emotion ET_FRET, getnpcid(0, "马里亚纳#bra");
 		mes "[马里亚纳]";  
 		mes "呃?男孩是如此令人沮丧的时候.";
 		next;
@@ -2586,7 +2586,7 @@ bra_in01,151,180,3	script	镜子#bra	CLEAR_NPC,{
 					mes "在你身后......";
 					enablenpc "Ghost#bra";
 					next;
-					emotion e_omg,1;
+					emotion ET_HUK,1;
 					mes "["+strcharinfo(0)+"]";  
 					mes "关于鬼的故事是真实的?!";
 					next;
@@ -2615,7 +2615,7 @@ bra_in01,151,180,3	script	镜子#bra	CLEAR_NPC,{
 							set .@cpudice,rand(1,6);
 							set .@pcdice,rand(1,6);
 							if (.@cpudice != .@pcdice) {
-								emotion (57+.@cpudice),0,"幽灵#bra";
+								emotion (57+.@cpudice), getnpcid(0, "幽灵#bra");
 								emotion (57+.@cpudice),1;
 								break;
 							}
@@ -2633,7 +2633,7 @@ bra_in01,151,180,3	script	镜子#bra	CLEAR_NPC,{
 							end;
 						}
 						else {
-							emotion e_bzz,1;
+							emotion ET_STARE, playerattached();
 							mes "[幽灵]";  
 							mes "啊!";
 							mes "鬼消失在洗手间.";

@@ -1866,7 +1866,7 @@ dicastes02,125,192,0	script	#call_cheshir_ep14	139,0,3,{
 OnTouch:
 	if (ep13_3_secret > 22) {
 		if (rand(2)) {
-			emotion e_ho,1;
+			emotion ET_DELIGHT,1;
 			mes "..........?";
 			mes "你觉得有人在周围走动.";
 			mes "下面肯定有人.";
@@ -2550,12 +2550,12 @@ mora,31,138,6	script	草精研究员#ep14	522,{
 		mes "[草精研究员]";
 		mes "哦不~ 我的研究工具...";
 		mes "什么...... 那是什么?";
-		emotion e_sob;
+		emotion ET_CRY;
 		next;
 		select("你是做什么的?");
 		mes "[草精研究员]";
 		mes "嗯?";
-		emotion e_what;
+		emotion ET_QUESTION;
 		next;
 		mes "[草精研究员]";
 		mes "你是人类...? 你是人类...?";
@@ -2571,14 +2571,14 @@ mora,31,138,6	script	草精研究员#ep14	522,{
 		mes "[草精研究员]";
 		mes "你过来一下!";
 		mes "这只是个小小的实验, 你不用害怕!";
-		emotion e_gg;
+		emotion ET_KIK;
 		next;
 		if(select("好奇怪的守护精灵, 还是快跑吧!:... ...") == 1) {
 			mes "[草精研究员]";
 			mes "你说你是从裂缝那边来的,";
 			mes "所以我很好奇你是什么种族的,";
 			mes "只是人类? 你怎么能够来到这儿?";
-			emotion e_lv;
+			emotion ET_THROB;
 			close;
 		}
 		if (BaseLevel < 100) {
@@ -2594,7 +2594,7 @@ mora,31,138,6	script	草精研究员#ep14	522,{
 		}
 		mes "[草精研究员]";
 		mes "... ... ...";
-		emotion e_dots;
+		emotion ET_THINK;
 		next;
 		mes "[草精研究员]";
 		mes "你... 你不像其他人类.";
@@ -2624,7 +2624,7 @@ mora,31,138,6	script	草精研究员#ep14	522,{
 		mes "但你是确实在意";
 		mes "他人困难的人.";
 		mes "你一定是一个^FF0000非常^000000好的人.";
-		emotion e_no1;
+		emotion ET_BEST;
 		next;
 		mes "[草精研究员]";
 		mes "鉴于时间关系, 我就不作过多感谢了.";
@@ -2667,13 +2667,13 @@ mora,31,138,6	script	草精研究员#ep14	522,{
 		next;
 		mes "[草精研究员]";
 		mes "一路顺风.";
-		emotion e_paper;
+		emotion ET_WRAP;
 		close;
 	} else if (ep14_1_muk == 1) {
 		if (checkquest(5016) > -1 && countitem(6385) == 0) {
 			mes "[草精研究员]";
 			mes "你回来了? 我的研究工具呢?";
-			emotion e_what;
+			emotion ET_QUESTION;
 			next;
 			mes "[草精研究员]";
 			mes "你还没找到我的研究工具吗?";
@@ -2737,7 +2737,7 @@ mora,31,138,6	script	草精研究员#ep14	522,{
 			mes "我仍然在准备着做研究.";
 			mes "但不幸的是, 一些研究工具";
 			mes "损坏了.";
-			emotion e_an;
+			emotion ET_FRET;
 			close;
 		case 2:
 			mes "[草精研究员]";
@@ -2749,14 +2749,14 @@ mora,31,138,6	script	草精研究员#ep14	522,{
 			mes "问你跟谁一起工作,";
 			mes "你可以说^0000FF我与研究员舒芙蕾一起工作.^000000";
 			mes "这就是为什么告诉你我的名字.";
-			emotion e_ok;
+			emotion ET_OK;
 			close;
 		case 3:
 			mes "[草精研究员]";
 			mes "什么? 旅馆关门了?";
 			mes "这可真奇怪, 不应该啊.";
 			mes "你再去试试呢?";
-			emotion e_what;
+			emotion ET_QUESTION;
 			close;
 		case 4:
 			break;
@@ -2768,7 +2768,7 @@ mora,31,138,6	script	草精研究员#ep14	522,{
 			mes "简直不敢相信我会被袭击...";
 			mes "真TMD难以置信...";
 			mes "唉, 你怎么看?";
-			emotion e_an;
+			emotion ET_FRET;
 			close;
 		}
 		mes "[草精研究员]";
@@ -2812,12 +2812,12 @@ mora,31,138,6	script	草精研究员#ep14	522,{
 		mes "你可以在它的脸上画画,";
 		mes "蹂躏它, 调戏它, 随便你想怎样.";
 		mes "总之折磨它3次.";
-		emotion e_gg;
+		emotion ET_KIK;
 		close;
 	} else if (ep14_1_muk == 6) {
 		mes "[草精研究员]";
 		mes "替我报仇了吗? 真是痛快!";
-		emotion e_heh;
+		emotion ET_SMILE;
 		next;
 		mes "[草精研究员]";
 		mes "我一时半会还睡不着,";
@@ -2902,7 +2902,7 @@ mora,31,138,6	script	草精研究员#ep14	522,{
 		mes "基本的检验已经完成.";
 		mes "如我所料...";
 		mes "水里有很多有趣的物质.";
-		emotion e_ho;
+		emotion ET_DELIGHT;
 		next;
 		mes "[草精研究员]";
 		mes "最值得关注的是这个无法识别的DNA.";
@@ -3002,7 +3002,7 @@ mora,31,138,6	script	草精研究员#ep14	522,{
 				mes "[草精研究员]";
 				mes "解析结果显示,";
 				mes "你采集的样本只是普通生物的, 并非我们需要的.";
-				emotion e_swt2;
+				emotion ET_PROFUSELY_SWEAT;
 				next;
 				mes "[草精研究员]";
 				mes "一定是因为有太多种类的生物,";
@@ -3035,8 +3035,8 @@ mora,31,138,6	script	草精研究员#ep14	522,{
 			mes "我的脑海里充斥着各种疑问.";
 			next;
 			mes "... ... ... ... ...";
-			emotion e_dots;
-			emotion e_dots,1;
+			emotion ET_THINK;
+			emotion ET_THINK,1;
 			next;
 			mes "[草精研究员]";
 			mes "村里的老人说,";
@@ -3339,7 +3339,7 @@ mora,31,138,6	script	草精研究员#ep14	522,{
 			next;
 			mes "[草精研究员]";
 			mes "... ... ... ...";
-			emotion e_dots;
+			emotion ET_THINK;
 			next;
 			mes "[草精研究员]";
 			mes "可能我真没给你看过.";
@@ -3353,7 +3353,7 @@ mora,31,138,6	script	草精研究员#ep14	522,{
 				mes "这份穆拉村三温暖神奇效果的";
 				mes "调查报告.";
 				mes "你想再看看吗?";
-				emotion e_what;
+				emotion ET_QUESTION;
 				next;
 				switch(select("再看看:不看了")) {
 				case 1:
@@ -3486,7 +3486,7 @@ mora,114,79,0	script	黑影怪#ep14_muk	844,{
 			mes "别来折磨我.";
 			next;
 			if(select("就是要折磨:停手") == 1) {
-				emotion e_sob;
+				emotion ET_CRY;
 				set ep14_1_goki,0;
 				close2;
 				donpcevent "黑影怪#ep14_muk::OnDisable";
@@ -3513,7 +3513,7 @@ mora,114,79,0	script	黑影怪#ep14_muk	844,{
 			mes "你...很好. 帮助费丝?";
 			next;
 			if(select("不帮它:帮它") == 1) {
-				emotion e_sob;
+				emotion ET_CRY;
 				set ep14_1_goki,0;
 				close2;
 				donpcevent "黑影怪#ep14_muk::OnDisable";
@@ -5365,6 +5365,6 @@ mora,112,161,5	script	村落骑士团领袖#mo	523,{
 	mes "嘿! 我说, 首领就是首领!";
 	mes "不, 首席是最好的!";
 	mes "你怎么能那么粗鲁! 我是这里的团长!";
-	emotion e_swt2,1;
+	emotion ET_PROFUSELY_SWEAT,1;
 	close;
 }

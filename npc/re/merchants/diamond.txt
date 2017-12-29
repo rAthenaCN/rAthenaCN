@@ -40,7 +40,7 @@
 	mes "你可以把它作为礼物送给你的爱人.";
 	mes "收到 ^FF82FF'17克拉钻石'^000000 的人一定会爱死它的";
 	mes "当然也会爱死你.";
-	emotion e_loud;
+	emotion ET_BLABLA;
 	next;
 	
 	mes .@npc$;
@@ -67,7 +67,7 @@
 		mes "是最高质量的 17克拉钻石.";
 		mes "如同豌豆般大小, 比任何一颗你";
 		mes "能够从梦罗克挖到的更完美!";
-		emotion e_omg;
+		emotion ET_HUK;
 		next;
 		
 		mes .@npc$;
@@ -147,7 +147,7 @@
 					mes "合计的钻石价格和服务费..";
 					mes "5,010,000 Zeny.";
 					mes "已确认金额.";
-					emotion e_loud;
+					emotion ET_BLABLA;
 					set Zeny, Zeny - 5010000;
 					getitem 6024, 1;
 					next;
@@ -156,7 +156,7 @@
 					mes "您可以随时将钻石变现.";
 					mes "当然, 需要 10,000z 的手续费.";
 					mes "感谢您的惠顾.";
-					emotion e_thx;
+					emotion ET_THANKS;
 					close;
 				}
 				else {
@@ -165,7 +165,7 @@
 					mes "我很抱歉, 但你没有足够的资金.";
 					mes "包括服务费, 需要5,010,000 z.";
 					mes "请检查您的金币余额, 然后再试一次.";
-					emotion e_hmm;
+					emotion ET_SCRATCH;
 					close;
 				}
 			}
@@ -179,13 +179,13 @@
 	case 2:
 		mes .@npc$;
 		mes "啊哈. 您想将您的 ^FF82FF'17克拉钻石'^000000 换成 Zeny?";
-		emotion e_gasp;
+		emotion ET_SURPRISE;
 		next;
 		if (select("- 是:- 否") == 2) {
 			mes .@npc$;
 			mes "那, 您想干嘛?..";
 			mes ". . . . . ....";
-			emotion e_dots;
+			emotion ET_THINK;
 			close;
 		}
 
@@ -226,7 +226,7 @@
 				mes "感谢您的惠顾.";
 				mes "如果您还需要 ^FF82FF'17克拉钻石'^000000,";
 				mes "请随时带着5,000,000z来取.";
-				emotion e_thx;
+				emotion ET_THANKS;
 				delitem 6024, 1;
 				set Zeny, Zeny + 4990000;
 				close;

@@ -32,7 +32,7 @@ lighthalzen,303,303,6	script	贾科莫吉罗拉莫#kiup2	4_M_KHMAN,3,3,{
 	if (lhz_boss > 30) {
 		if (!lght_duk01) {
 			if (Sex) {
-				emotion e_pif, "Giacomo Girolamo#kiup2";
+				emotion ET_HNG, "Giacomo Girolamo#kiup2";
 				mes "[贾科莫吉罗拉莫]";
 				mes "....一个人....?";
 				next;
@@ -40,33 +40,33 @@ lighthalzen,303,303,6	script	贾科莫吉罗拉莫#kiup2	4_M_KHMAN,3,3,{
 				mes "啊!嘿!男人!";
 				next;
 				select("这是怎么回事?");
-				emotion e_what, 1;
+				emotion ET_QUESTION, 1;
 				mes "[贾科莫吉罗拉莫]";
 				mes "你有没有听说过的可怕的人体实验, 其总部设在里希塔乐镇";
 				next;
 				select("什么?人体实验!!");
-				emotion e_omg, 1;
+				emotion ET_HUK, 1;
 				mes "[贾科莫吉罗拉莫]";
 				mes "是啊!人体实验!";
 				mes "有很多传言说实际上是进行可怕的人体实验, 但这些人在贫民窟....真不敢相信";
 				next;
-				emotion e_swt2, "Giacomo Girolamo#kiup2";
+				emotion ET_PROFUSELY_SWEAT, "Giacomo Girolamo#kiup2";
 				mes "[贾科莫吉罗拉莫]";
 				mes "好吧!而那些有钱的人, 似乎知道某些事情, 但他们从来没有提及";
 				next;
 				mes "[贾科莫吉罗拉莫]";
 				mes "啊!这是一个秘密, 只是有些人知道.";
 				next;
-				emotion e_hmm, "Giacomo Girolamo#kiup2";
+				emotion ET_SCRATCH, "Giacomo Girolamo#kiup2";
 				mes "[贾科莫吉罗拉莫]";
 				mes "反正!名为沃尔夫科学家..突然被解雇了.他必须与这个传闻有关, 我觉得...";
 				next;
 				select("你的意思是...... 狼骑士?");
-				emotion e_gasp, "Giacomo Girolamo#kiup2";
+				emotion ET_SURPRISE, "Giacomo Girolamo#kiup2";
 				mes "[贾科莫吉罗拉莫]";
 				mes "哦, 是的!狼骑士!这个名字是狼骑士..疯狂的科学家..";
 				next;
-				emotion e_ok, "Giacomo Girolamo#kiup2";
+				emotion ET_OK, "Giacomo Girolamo#kiup2";
 				mes "[贾科莫吉罗拉莫]";
 				mes "我想, 那么快你就可以明白故事, 我相信他参与了谣言.我发誓.";
 				next;
@@ -84,16 +84,16 @@ lighthalzen,303,303,6	script	贾科莫吉罗拉莫#kiup2	4_M_KHMAN,3,3,{
 					mes "["+ strcharinfo(0) +"]";
 					mes "他偏偏去研究生命体瞒着公司, 然后有一个人告诉给了公司, 所以他被解雇了.";
 					next;
-					emotion e_no1, "Giacomo Girolamo#kiup2";
+					emotion ET_BEST, "Giacomo Girolamo#kiup2";
 					mes "[贾科莫吉罗拉莫]";
 					mes "哦!男人..!你似乎知道相当多!";
 					next;
-					emotion e_dots;
+					emotion ET_THINK;
 					mes "["+ strcharinfo(0) +"]";
 					mes "... .... ...";
 					next;
 				}
-				emotion e_hmm, "Giacomo Girolamo#kiup2";
+				emotion ET_SCRATCH, "Giacomo Girolamo#kiup2";
 				mes "[贾科莫吉罗拉莫]";
 				mes "不要担心.我并没有什么恶意.";
 				next;
@@ -107,11 +107,11 @@ lighthalzen,303,303,6	script	贾科莫吉罗拉莫#kiup2	4_M_KHMAN,3,3,{
 				mes "应该调查那里.";
 				close;
 			} else {
-				emotion e_lv, "Giacomo Girolamo#kiup2";
+				emotion ET_THROB, "Giacomo Girolamo#kiup2";
 				mes "[贾科莫吉罗拉莫]";
 				mes "哦!多么美丽的小姐!";
 				next;
-				emotion e_what, "Giacomo Girolamo#kiup2";
+				emotion ET_QUESTION, "Giacomo Girolamo#kiup2";
 				mes "[贾科莫吉罗拉莫]";
 				mes "为什么一个美女在这里";
 				next;
@@ -137,12 +137,12 @@ lighthalzen,303,303,6	script	贾科莫吉罗拉莫#kiup2	4_M_KHMAN,3,3,{
 			mes "[贾科莫吉罗拉莫]";
 			mes "啊, 我怎么敢对这么高端的淑女感兴趣呢?";
 			next;
-			emotion e_ok, "Giacomo Girolamo#kiup2";
+			emotion ET_OK, "Giacomo Girolamo#kiup2";
 			mes "[贾科莫吉罗拉莫]";
 			mes "我只希望你相信这个小镇的危险传言..";
 			next;
 			select("危险的谣言?");
-			emotion e_what, 1;
+			emotion ET_QUESTION, 1;
 			mes "[贾科莫吉罗拉莫]";
 			mes "啊......夫人可能没有听说过的传闻.";
 			next;
@@ -153,7 +153,7 @@ lighthalzen,303,303,6	script	贾科莫吉罗拉莫#kiup2	4_M_KHMAN,3,3,{
 			mes "然后谣言就上来了, 因为失踪案件发生相当频繁, 传言说有人可能在进行可怕的人体实验";
 			next;
 			select("你说什么?!人体实验?");
-			emotion e_omg, 1;
+			emotion ET_HUK, 1;
 			mes "[贾科莫吉罗拉莫]";
 			mes "是啊!人体实验!";
 			mes "有很多传言说实际上是进行可怕的人体实验, 但这些人在贫民窟....";
@@ -175,33 +175,33 @@ lighthalzen,303,303,6	script	贾科莫吉罗拉莫#kiup2	4_M_KHMAN,3,3,{
 		} else {
 			mes "[贾科莫吉罗拉莫]";
 			if (Sex) {
-				emotion e_paper, "Giacomo Girolamo#kiup2";
+				emotion ET_WRAP, "Giacomo Girolamo#kiup2";
 				mes "好好照顾自己";
 			} else {
-				emotion e_lv2, "Giacomo Girolamo#kiup2";
+				emotion ET_BIGTHROB, "Giacomo Girolamo#kiup2";
 				mes "要小心, 夫人.";
 			}
 			close;
 		}
 	} else {
 		if (Sex) {
-			emotion e_ho, "Giacomo Girolamo#kiup2";
+			emotion ET_DELIGHT, "Giacomo Girolamo#kiup2";
 			mes "[贾科莫吉罗拉莫]";
 			mes "只有那些美丽的女士是我生命的理由~!";
 			mes "我, 贾科莫吉罗拉莫从来都对女生相当有兴趣!!";
 			next;
-			emotion e_an, "Giacomo Girolamo#kiup2";
+			emotion ET_FRET, "Giacomo Girolamo#kiup2";
 			mes "[贾科莫吉罗拉莫]";
 			mes "但我可以听你的......你想说什么";
 			next;
 			switch(select("没什么..?", "关于女生..", "你这个好色之徒", "羡慕你...", "有人辟谣吗?")) {
 			case 1:
-				emotion e_hmm, "Giacomo Girolamo#kiup2";
+				emotion ET_SCRATCH, "Giacomo Girolamo#kiup2";
 				mes "[贾科莫吉罗拉莫]";
 				mes "嘿, 你, 走自己的路..";
 				close;
 			case 2:
-				emotion e_an, "Giacomo Girolamo#kiup2";
+				emotion ET_FRET, "Giacomo Girolamo#kiup2";
 				mes "[贾科莫吉罗拉莫]";
 				mes "我不喜欢谈论女生.";
 				close;
@@ -209,19 +209,19 @@ lighthalzen,303,303,6	script	贾科莫吉罗拉莫#kiup2	4_M_KHMAN,3,3,{
 				mes "[贾科莫吉罗拉莫]";
 				mes "哎..对不起!但我不是一个'好色之徒', 我只是一个崇拜女性的人";
 				next;
-				emotion e_ok, "Giacomo Girolamo#kiup2";
+				emotion ET_OK, "Giacomo Girolamo#kiup2";
 				mes "[贾科莫吉罗拉莫]";
 				mes "当然.....是啊...如果我是一个好色之徒, 地球上所有的男人都是!.";
 				close;
 			case 4:
-				emotion e_what, "Giacomo Girolamo#kiup2";
+				emotion ET_QUESTION, "Giacomo Girolamo#kiup2";
 				mes "[贾科莫吉罗拉莫]";
 				mes "哈啊......你...... ?你没有姐妹或者母亲吗?";
 				next;
 				mes "[贾科莫吉罗拉莫]";
 				mes "... .... ...";
 				next;
-				emotion e_swt2, "Giacomo Girolamo#kiup2";
+				emotion ET_PROFUSELY_SWEAT, "Giacomo Girolamo#kiup2";
 				mes "[贾科莫吉罗拉莫]";
 				mes "哦......对不起......";
 				close;
@@ -237,7 +237,7 @@ lighthalzen,303,303,6	script	贾科莫吉罗拉莫#kiup2	4_M_KHMAN,3,3,{
 				close;
 			}
 		} else {
-			emotion e_what, "Giacomo Girolamo#kiup2";
+			emotion ET_QUESTION, "Giacomo Girolamo#kiup2";
 			mes "[贾科莫吉罗拉莫]";
 			mes "嘿, 小姐?";
 			next;
@@ -284,7 +284,7 @@ lighthalzen,303,303,6	script	贾科莫吉罗拉莫#kiup2	4_M_KHMAN,3,3,{
 				next;
 				break;
 			}
-			emotion e_lv2, "Giacomo Girolamo#kiup2";
+			emotion ET_BIGTHROB, "Giacomo Girolamo#kiup2";
 			mes "[贾科莫吉罗拉莫]";
 			mes "今天是我们相识的第一天, 但是我爱你, 夫人.";
 			next;
@@ -296,7 +296,7 @@ lighthalzen,303,303,6	script	贾科莫吉罗拉莫#kiup2	4_M_KHMAN,3,3,{
 
 OnTouch:
 	if (!lght_duk01)
-		emotion (Sex ? e_pif : e_lv2), "Giacomo Girolamo#kiup2";
+		emotion (Sex ? ET_HNG : ET_BIGTHROB), "Giacomo Girolamo#kiup2";
 	end;
 }
 
@@ -379,11 +379,11 @@ que_lhz,206,74,4	script	研究员#02	4_LGTSCIENCE,3,3,{
 
 OnTouch:
 	if (lght_duk01 == 2) {
-		emotion e_omg, 1;
+		emotion ET_HUK, 1;
 		mes "["+ strcharinfo(0) +"]";
 		  mes "你!!!是查夫?";
 		next;
-		emotion e_gg, "Researcher#02";
+		emotion ET_KIK, "Researcher#02";
 		  mes "[查夫]";
 		  mes "一个人类!哈哈哈, 人们往往讨厌这个地方, 你为什么在这里?";
 		next;
@@ -393,7 +393,7 @@ OnTouch:
 		mes "["+ strcharinfo(0) +"]";
 		  mes "你竟然还在进行着!!";
 		next;
-		emotion e_gg, "Researcher#02";
+		emotion ET_KIK, "Researcher#02";
 		  mes "[查夫]";
 		  mes "我可以看到, 你知道我的一些事.";
 		  mes "你怎么还敢过来";
@@ -407,7 +407,7 @@ OnTouch:
 		erasequest 5109;
 		setquest 5110;
 		lght_duk01 = 3;
-		emotion e_omg, 1;
+		emotion ET_HUK, 1;
 		mes "["+ strcharinfo(0) +"]";
 		  mes "哇!查夫, 停下来!";
 		close2;
@@ -422,7 +422,7 @@ que_lhz,94,119,4	script	研究员#03	4_LGTSCIENCE,{
 		close;
 	}
 	if (lght_duk01 == 3) {
-		emotion e_swt2, "Researcher#03";
+		emotion ET_PROFUSELY_SWEAT, "Researcher#03";
 		mes "[查夫]";
 		mes "(喘气) 算了吧......你还是跟着我.嘿, 为什么你们会不停跟着我?";
 		next;
@@ -435,7 +435,7 @@ que_lhz,94,119,4	script	研究员#03	4_LGTSCIENCE,{
 		mes "["+ strcharinfo(0) +"]";
 		mes "但是, 您的实验看起来真的很危险.怎么来的, 这是每个人都想要的东西?";
 		next;
-		emotion e_gg, "Researcher#03";
+		emotion ET_KIK, "Researcher#03";
 		mes "[查夫]";
 		mes "人人有更强的愿望, 并希望支配别人, 所以与其服从他人还不如自己做, 难道你没有这样的欲望吗?";
 		next;
@@ -465,7 +465,7 @@ que_lhz,147,224,4	script	研究员#04	4_LGTSCIENCE,{
 		mes "[查夫]";
 		mes "你很执着, 不是吗?或者我想.......你喜欢我, 是吧?.";
 		next;
-		emotion e_dots;
+		emotion ET_THINK;
 		mes "["+ strcharinfo(0) +"]";
 		mes "... .... ...";
 		next;
@@ -477,7 +477,7 @@ que_lhz,147,224,4	script	研究员#04	4_LGTSCIENCE,{
 		mes "[查夫]";
 		mes "再次..是时候说再见了.";
 		next;
-		emotion e_gasp, "Researcher#04";
+		emotion ET_SURPRISE, "Researcher#04";
 		mes "[查夫]";
 		mes "好吧!!或许....";
 		next;
@@ -486,7 +486,7 @@ que_lhz,147,224,4	script	研究员#04	4_LGTSCIENCE,{
 		next;
 		donpcevent "#Eventctrl::OnEnable";
 		progressbar "FF00FF", 5;
-		emotion e_omg, "Researcher#04";
+		emotion ET_HUK, "Researcher#04";
 		mes "[查夫]";
 		mes "哦, 我,  ......发生什么事了?";
 		next;
@@ -509,7 +509,7 @@ que_lhz,147,224,4	script	研究员#04	4_LGTSCIENCE,{
 			mes "- 打他把他叫醒 -";
 			next;
 			specialeffect EF_DARKBREATH;
-			emotion e_no;
+			emotion ET_STARE_ABOUT;
 			mes "["+ strcharinfo(0) +"]";
 			mes "嘿, 老兄!无论如何, 首先让我们离开这里!";
 			next;
@@ -528,7 +528,7 @@ que_lhz,147,224,4	script	研究员#04	4_LGTSCIENCE,{
 			mes "去'^0000FF查夫的实验室^000000' 在12点钟方向...";
 			close;
 		} else {
-			emotion e_spin, "Researcher#04";
+			emotion ET_CONFUSE, "Researcher#04";
 			mes "查夫是一头雾水, 不知道现在因为那些怪物正在攻击他了";
 			close;
 		}
@@ -696,7 +696,7 @@ lhz_dun04,151,276,3	script	研究员#memo	4_LGTSCIENCE,{
 		mes "[查夫]";
 		mes "我想他们会毁了我的整个实验室!";
 		next;
-		emotion e_loud, 1;
+		emotion ET_BLABLA, 1;
 		mes "["+ strcharinfo(0) +"]";
 		mes "嘿! 查夫!!";
 		next;

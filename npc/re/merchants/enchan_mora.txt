@@ -1180,7 +1180,7 @@ mora,124,82,4	script	遗迹收藏家#blan	522,{
 		close;
 	}
 	disable_items;
-	emotion e_ho;
+	emotion ET_DELIGHT;
 	mes "这些莫拉的文物看上去是如此的完美!";
 	mes "但我知道你希望他们能够变的更强!";
 	next;
@@ -1191,7 +1191,7 @@ mora,124,82,4	script	遗迹收藏家#blan	522,{
 	case 1:
 		break;
 	case 2:
-		emotion e_ok;
+		emotion ET_OK;
 		mes "[遗迹收藏家]";
 		mes "你看上去像个不错的大主教.";
 		next;
@@ -1199,35 +1199,35 @@ mora,124,82,4	script	遗迹收藏家#blan	522,{
 		mes "我们在这里研究莫拉的古代遗物已经超过200年了. 为了得到完美的 +9 遗物!";
 		next;
 		select("咽口水... +9?!");
-		emotion e_omg,1;
+		emotion ET_HUK,1;
 		mes "[遗迹收藏家]";
 		mes "我的生意是收集并提取这些文物的精华.";
 		next;
-		emotion e_sob;
+		emotion ET_CRY;
 		mes "[遗迹收藏家]";
 		mes "通过试验来获得完美遗迹装备是我毕生的心愿.";
 		mes "能够看到祖先的遗物获得附加的能力, 这是多让人高兴的事情啊.";
 		next;
 		select("我能想象那有多高兴.");
-		emotion e_pat;
+		emotion ET_GOODBOY;
 		mes "[遗迹收藏家]";
 		mes "谢谢你人类.";
 		next;
 		mes "[遗迹收藏家]";
 		mes "我已经在这里工作了200年了, 垂手可得的神器的时代已经一去不复返了, 遗迹装备和遗迹工匠已经无法卖给我更多有用的东西了...";
 		next;
-		emotion e_dots;
+		emotion ET_THINK;
 		mes "[遗迹收藏家]";
 		mes "不过也许人类的来访能够带来一些新的契机!";
 		next;
 		select("人类... Stock?");
-		emotion e_what,1;
+		emotion ET_QUESTION,1;
 		mes "[遗迹收藏家]";
 		mes "是的! 如果人类能带给我新的文物, 我想我有可能能够完成我的终极成就!";
 		next;
 		select("终极成就?");
-		emotion e_what,1;
-		emotion e_ok;
+		emotion ET_QUESTION,1;
+		emotion ET_OK;
 		mes "[遗迹收藏家]";
 		mes "耐心等待, 我们就会得到...";
 		next;
@@ -1238,24 +1238,24 @@ mora,124,82,4	script	遗迹收藏家#blan	522,{
 		mes "[遗迹收藏家]";
 		mes "你很可能就是那个能够帮我完成完美计划的人类.";
 		next;
-		emotion e_otl;
+		emotion ET_OTL;
 		mes "[遗迹收藏家]";
 		mes "我太热爱这份工作了...";
 		next;
 		mes "[遗迹收藏家]";
 		mes "+1, +2, +3, +4, +5, +6 这些级别的精炼还无法承载我的技艺.";
 		next;
-		emotion e_otl,0;
+		emotion ET_OTL,0;
 		mes "[遗迹收藏家]";
 		mes "但是 +7! +7 是最低的一个精炼级别, 可以勉强的承载我的技艺.";
 		next;
 		select("我会再度被滥用...");
-		emotion e_hmm,1;
+		emotion ET_SCRATCH,1;
 		mes "[遗迹收藏家]";
 		mes "你是对的! 我知道你们人类很乐意帮助自己的朋友, 即使你的朋友没有提出帮忙的要求...";
 		next;
 		select("我不确定如果...");
-		emotion e_what,1;
+		emotion ET_QUESTION,1;
 		mes "[遗迹收藏家]";
 		mes "当然, 我接受你的帮助!  找到...";
 		next;
@@ -1267,7 +1267,7 @@ mora,124,82,4	script	遗迹收藏家#blan	522,{
 		mes "- 审判之锤 -";
 		next;
 		select("还有其他事情吗?");
-		emotion e_what,1;
+		emotion ET_QUESTION,1;
 		mes "[遗迹收藏家]";
 		mes "除了 +7, 有助于推动这一进程的还有一些非常特殊的遗迹装备附魔.";
 		next;
@@ -1275,15 +1275,15 @@ mora,124,82,4	script	遗迹收藏家#blan	522,{
 		mes "除非 +7 或者特定附魔, 否则我是无法做到这点的.";
 		next;
 		select("那精炼值会被保留?");
-		emotion e_omg,1;
-		emotion e_an;
+		emotion ET_HUK,1;
+		emotion ET_FRET;
 		mes "[遗迹收藏家]";
 		mes "不, 但你将得到的会是更好的!";
 		next;
 		mes "[遗迹收藏家]";
 		mes "你知道我们现在正在寻找更多的文物遗迹?";
 		next;
-		emotion e_what;
+		emotion ET_QUESTION;
 		mes "[遗迹收藏家]";
 		mes "来吧继续!";
 		next;
@@ -1292,7 +1292,7 @@ mora,124,82,4	script	遗迹收藏家#blan	522,{
 		while(1) {
 			set .@i, select("- 我不感兴趣:- 慈爱权杖:- 审判之锤:- 黄金权杖:- 流水之杖:- 赤红之杖:- 森林之杖")-2;
 			if (.@i == -1) {
-				emotion e_what;
+				emotion ET_QUESTION;
 				mes "[遗迹收藏家]";
 				mes "好吧, 也许有一天你会.";
 				close;
@@ -1328,12 +1328,12 @@ mora,124,82,4	script	遗迹收藏家#blan	522,{
 		mes "祝你游戏快乐. 再见~";
 		close;
 	}
-	emotion e_flash;
+	emotion ET_SPARK;
 	mes "[遗迹收藏家]";
 	mes "让我看看你带来了什么.";
 	next;
 	if (!getequipisequiped(EQI_HAND_R)) {
-		emotion e_an;
+		emotion ET_FRET;
 		mes "[遗迹收藏家]";
 		mes "我不清楚你究竟想干什么... 你没有任何东西可以让我帮你附魔的.";
 		close;
@@ -1362,29 +1362,29 @@ mora,124,82,4	script	遗迹收藏家#blan	522,{
 			set .@empowered,16018; //Mace_Of_Judgement2
 		break;
 	default:
-		emotion e_an;
+		emotion ET_FRET;
 		mes "[遗迹收藏家]";
 		mes "我无法为一件不属于遗迹装备的武器进行附魔.";
 		close;
 	}
 	if (getequiprefinerycnt(EQI_HAND_R) < 7) {
-		emotion e_an;
+		emotion ET_FRET;
 		mes "[遗迹收藏家]";
 		mes "你的遗迹装备精炼值至少需要达到 +7!";
 		close;
 	}
 	if (!.@empowered) {
-		emotion e_an;
+		emotion ET_FRET;
 		mes "[遗迹收藏家]";
 		mes "这些属性不在我的研究范围内, 尝试重新附魔.";
 		close;
 	}
-	emotion e_slur;
+	emotion ET_SEXY;
 	mes "[遗迹收藏家]";
 	mes "我太兴奋了!";
 	mes "你带来了我想要的一切!!";
 	next;
-	emotion e_ok;
+	emotion ET_OK;
 	mes "[遗迹收藏家]";
 	mes "如果你准备好了, 我将告诉你我可以如何改造你的 +"+getequiprefinerycnt(EQI_HAND_R)+" 遗迹装备!";
 	next;
@@ -1393,7 +1393,7 @@ mora,124,82,4	script	遗迹收藏家#blan	522,{
 	next;
 	switch(select("- 不!:- 是的, 准备好了!:- 之后会发生什么?")) {
 	case 1:
-		emotion e_an;
+		emotion ET_FRET;
 		mes "[遗迹收藏家]";
 		mes "你一定是在开玩笑... 你无视我的理想...";
 		close;
@@ -1405,14 +1405,14 @@ mora,124,82,4	script	遗迹收藏家#blan	522,{
 		mes "你确定要继续?";
 		next;
 		if(select("- 不, 我不要.:- 是的, 干吧!") == 1) {
-			emotion e_an;
+			emotion ET_FRET;
 			mes "[遗迹收藏家]";
 			mes "你一定是在开玩笑... 你无视我的理想...";
 			close;
 		}
 		break;
 	}
-	emotion e_heh;
+	emotion ET_SMILE;
 	delequip EQI_HAND_R;
 	getitem .@empowered,1;
 	mes "[遗迹收藏家]";

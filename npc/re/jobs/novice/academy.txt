@@ -25,7 +25,7 @@
 
 // - 船长卡鲁 (Ship)
 // -----------------------------------------------------------------------------
-iz_int,100,91,3	script	船长卡鲁#iz_int	4_M_REINDEER,{
+iz_int,18,30,3	script	船长卡鲁#iz_int	4_M_REINDEER,{
 	if(Class == Job_Novice) {
 		cutin "fly_trock", 2;
 		if(!isbegin_quest(7471)) {
@@ -78,14 +78,14 @@ iz_int,100,91,3	script	船长卡鲁#iz_int	4_M_REINDEER,{
 	}
 }
 
-iz_int01,100,91,3	duplicate(船长卡鲁#iz_int)	船长卡鲁#iz_int01	4_M_REINDEER
-iz_int02,100,91,3	duplicate(船长卡鲁#iz_int)	船长卡鲁#iz_int02	4_M_REINDEER
-iz_int03,100,91,3	duplicate(船长卡鲁#iz_int)	船长卡鲁#iz_int03	4_M_REINDEER
-iz_int04,100,91,3	duplicate(船长卡鲁#iz_int)	船长卡鲁#iz_int04	4_M_REINDEER
+iz_int01,18,30,3	duplicate(船长卡鲁#iz_int)	船长卡鲁#iz_int01	4_M_REINDEER
+iz_int02,18,30,3	duplicate(船长卡鲁#iz_int)	船长卡鲁#iz_int02	4_M_REINDEER
+iz_int03,18,30,3	duplicate(船长卡鲁#iz_int)	船长卡鲁#iz_int03	4_M_REINDEER
+iz_int04,18,30,3	duplicate(船长卡鲁#iz_int)	船长卡鲁#iz_int04	4_M_REINDEER
 
 // - 鲁米 (Ship)
 // -----------------------------------------------------------------------------
-iz_int,91,81,3	script	鲁米#iz_int	4_M_NOV_RUMIN,{
+iz_int,56,32,3	script	鲁米#iz_int	4_M_NOV_RUMIN,{
 	if(Class == Job_Novice) {
 		if(!isbegin_quest(7471)) {
         mes "[鲁米]";
@@ -175,13 +175,13 @@ iz_int,91,81,3	script	鲁米#iz_int	4_M_NOV_RUMIN,{
 	}
 }
 
-iz_int01,91,81,3	duplicate(鲁米#iz_int)	鲁米#iz_int01	4_M_NOV_RUMIN
-iz_int02,91,81,3	duplicate(鲁米#iz_int)	鲁米#iz_int02	4_M_NOV_RUMIN
-iz_int03,91,81,3	duplicate(鲁米#iz_int)	鲁米#iz_int03	4_M_NOV_RUMIN
-iz_int04,91,81,3	duplicate(鲁米#iz_int)	鲁米#iz_int04	4_M_NOV_RUMIN
+iz_int01,56,32,3	duplicate(鲁米#iz_int)	鲁米#iz_int01	4_M_NOV_RUMIN
+iz_int02,56,32,3	duplicate(鲁米#iz_int)	鲁米#iz_int02	4_M_NOV_RUMIN
+iz_int03,56,32,3	duplicate(鲁米#iz_int)	鲁米#iz_int03	4_M_NOV_RUMIN
+iz_int04,56,32,3	duplicate(鲁米#iz_int)	鲁米#iz_int04	4_M_NOV_RUMIN
 
 //-------------船上传送-----------------------
-iz_int,96,73,0	script	iz_int	45,1,1,{
+/*iz_int,96,73,0	script	iz_int	45,1,1,{
 OnTouch:
 		if(!isbegin_quest(7471)) {
 		message strcharinfo(0),"怎么还没有看到陆地...过去问问船长航行情况吧";
@@ -192,7 +192,7 @@ OnTouch:
 		savepoint "izlude",201,210;
 		}
 }
-
+*/
 
 // - 船长卡鲁
 // -----------------------------------------------------------------------------
@@ -616,9 +616,9 @@ OnInit:
 
 OnTouch:
 	if (Class == Job_Novice && BaseLevel < 15 && !isbegin_quest(4269))
-		emotion e_gasp;
+		emotion ET_SURPRISE;
 	else
-		emotion e_heh;
+		emotion ET_SMILE;
 	end;
 }
 
@@ -784,7 +784,7 @@ izlude,122,207,3	script	克里图拉学院员工勋#0	4_M_KHKYEL,3,3,{
 							mes "<NAVI>[学院大楼]<INFO>iz_ac01,100,39</INFO></NAVI>.";
 							mes "任何人都可以申请入学，并可以享受学院的各种福利。";
 							next;
-							emotion e_gasp, 0, "导览人员#"+strnpcinfo(2);
+							emotion ET_SURPRISE, getnpcid(0, "导览人员#"+strnpcinfo(2));
 							mes "[导览人员]";
 							mes "抱歉~插个嘴。。。";
 							mes "如果 ^4d4dff 需要地区信息的话，随时都可以问我哦！^000000";
@@ -806,7 +806,7 @@ izlude,122,207,3	script	克里图拉学院员工勋#0	4_M_KHKYEL,3,3,{
 							mes "那里有很多像你一样的冒险家,未来的路都被点亮了.";
 							mes "吼吼吼.";
 							next;
-							emotion e_gasp, 0, "导览人员#"+strnpcinfo(2);
+							emotion ET_SURPRISE, getnpcid(0, "导览人员#"+strnpcinfo(2));
 							mes "[导览人员]";
 							mes "抱歉~插个嘴。。。";
 							mes "如果 ^4d4dff 需要地区信息的话，随时都可以问我哦！^000000";
@@ -825,7 +825,7 @@ izlude,122,207,3	script	克里图拉学院员工勋#0	4_M_KHKYEL,3,3,{
 							mes "<NAVI>[学院大楼]<INFO>iz_ac01,100,39</INFO></NAVI>.";
 							mes "这很棒,不是么?";
 							next;
-							emotion e_gasp, 0, "导览人员#"+strnpcinfo(2);
+							emotion ET_SURPRISE, getnpcid(0, "导览人员#"+strnpcinfo(2));
 							mes "[导览人员]";
 							mes "你是对的.";
 							mes "做好一切准备是成功的关键.";
@@ -860,7 +860,7 @@ izlude,122,207,3	script	克里图拉学院员工勋#0	4_M_KHKYEL,3,3,{
 						mes "<NAVI>[学院大楼]<INFO>iz_ac01,100,39</INFO></NAVI>.";
 						mes "任何人都可以申请入学，并可以享受学院的各种福利.";
 						next;
-						emotion e_gasp, 0, "导览人员#"+strnpcinfo(2);
+						emotion ET_SURPRISE, getnpcid(0, "导览人员#"+strnpcinfo(2));
 						mes "[导览人员]";
 						mes "抱歉~插个嘴。。。";
 						mes "如果 ^4d4dff 需要地区信息的话，随时都可以问我哦！^000000";
@@ -882,7 +882,7 @@ izlude,122,207,3	script	克里图拉学院员工勋#0	4_M_KHKYEL,3,3,{
 						mes "像你这样的人越多越好。";
 						mes "哈哈哈哈.";
 						next;
-						emotion e_gasp, 0, "导览人员#"+strnpcinfo(2);
+						emotion ET_SURPRISE, getnpcid(0, "导览人员#"+strnpcinfo(2));
 						mes "[导览人员]";
 						mes "抱歉~插个嘴。。。";
 						mes "如果 ^4d4dff 需要地区信息的话，随时都可以问我哦！^000000";
@@ -901,7 +901,7 @@ izlude,122,207,3	script	克里图拉学院员工勋#0	4_M_KHKYEL,3,3,{
 						mes "<NAVI>[学院大楼]<INFO>iz_ac01,100,39</INFO></NAVI>.";
 						mes "大家好才是真的好，不是吗？";
 						next;
-						emotion e_gasp, 0, "导览人员#"+strnpcinfo(2);
+						emotion ET_SURPRISE, getnpcid(0, "导览人员#"+strnpcinfo(2));
 						mes "[导览人员]";
 						mes "就和刚才说的一样。";
 						mes "赶快行动起来吧！";
@@ -938,9 +938,9 @@ OnInit:
 
 OnTouch:
 		if (!isbegin_quest(4269))
-			emotion e_gasp;
+			emotion ET_SURPRISE;
 		else
-			emotion e_heh;
+			emotion ET_SMILE;
 		end;
 }
 
@@ -1595,7 +1595,7 @@ OnInit:
 
 OnTouch:
 	if (isbegin_quest(7474) == 1 && !isbegin_quest(7475))
-		emotion e_gasp;
+		emotion ET_SURPRISE;
 	end;
 }
 
@@ -1747,7 +1747,7 @@ OnInit:
 
 OnTouch:
 	if (isbegin_quest(7474) == 1 && !isbegin_quest(7476))
-		emotion e_gasp;
+		emotion ET_SURPRISE;
 	end;
 }
 
@@ -1900,7 +1900,7 @@ OnInit:
 
 OnTouch:
 	if (isbegin_quest(7474) == 1 && !isbegin_quest(7477))
-		emotion e_gasp;
+		emotion ET_SURPRISE;
 	end;
 }
 
@@ -2054,7 +2054,7 @@ iz_ac01,59,43,3	script	治疗师#ac	4_M_6THPRIN1,{
 				completequest 7478;
 				getexp 2000,50;
 				getitem 569,30;// Novice_Potion
-				getitem 11058,1;// Novice_Combi_Book
+				getitem 11058,1;// NovicET_COMEONbi_Book
 				getitem 12849,10;// Combination_Kit
 				getitem 507,1;// Red_Herb
 				getitem 512,1;// Apple
@@ -2124,8 +2124,8 @@ izlude,141,251,0	script	种植中的红色草#0	1078,3,3,{
 OnTouch:
 	if (isbegin_quest(7478) == 1 && !isbegin_quest(7479)) {
 		specialeffect EF_STEAL;
-		emotion e_heh, 0, "学院学生#"+strnpcinfo(2);
-		emotion e_gasp, 1;
+		emotion ET_SMILE, getnpcid(0, "学院学生#"+strnpcinfo(2));
+		emotion ET_SURPRISE, 1;
 		donpcevent "种植中的红色草#"+strnpcinfo(2)+"::OnDisable";
 	}
 	end;
@@ -2157,8 +2157,8 @@ izlude,140,249,7	script	学院学生#0	4_M_NOV_RUMIN,{
 	if (isbegin_quest(7478) == 1 && !isbegin_quest(7479)) {
 		specialeffect EF_STEAL, AREA, "种植中的红色草#"+strnpcinfo(2);
 		donpcevent "种植中的红色草#"+strnpcinfo(2)+"::OnDisable";
-		emotion e_gasp, 1;
-		emotion e_heh;
+		emotion ET_SURPRISE, 1;
+		emotion ET_SMILE;
 		mes "[鲁米]";
 		mes "小乌龟你好呀.";
 		mes "你真的是非常慢噢.";
@@ -2291,12 +2291,12 @@ izlude,140,260,3	script	导师阿尔戈斯#iz	4_M_LIEMAN,{
 		mes "哈欠~~. 你的动静太大了,吵到我了...";
 		next;
 		select("你不是死了吗?");
-		emotion e_omg, 1;
+		emotion ET_HUK, playerattached();
 		mes "[导师阿尔戈斯]";
 		mes "谁死了?!";
 		mes "我么?噗哈哈哈哈哈!!";
 		next;
-		emotion e_heh;
+		emotion ET_SMILE;
 		mes "[导师阿尔戈斯]";
 		mes "我很抱歉啊哈哈哈哈!";
 		mes "我刚才只是在打盹.";
@@ -2331,7 +2331,7 @@ izlude,140,260,3	script	导师阿尔戈斯#iz	4_M_LIEMAN,{
 		mes "[导师阿尔戈斯]";
 		mes "明智的决定!";
 		mes "我会把你教好的.";
-		emotion e_no1;
+		emotion ET_BEST;
 		next;
 		mes "[导师阿尔戈斯]";
 		mes "一个初学者永远不会知道有潜在的强大敌人.";
@@ -2353,7 +2353,7 @@ izlude,140,260,3	script	导师阿尔戈斯#iz	4_M_LIEMAN,{
 		mes "[导师阿尔戈斯]";
 		mes "我曾经面对过死亡的风险, 因为那时候我的装死技♂巧并不咋滴.";
 		mes "现在回想起来还真是扣人心弦...";
-		emotion e_wah;
+		emotion ET_KEK;
 		next;
 		mes "[导师阿尔戈斯]";
 		mes "让我们继续.";
@@ -2478,7 +2478,7 @@ iz_ac01,100,39,5	script	学院接待人员#1	4_F_01,{
 				setquest 4269;
 				completequest 4269;
 				getitem 2352,1;// Novice_Plate
-				getitem 2510,1;// Novice_Hood
+				getitem 2510,1;// NovicET_DELIGHTod
 				getitem 2414,1;// Novice_Boots
 				getitem 5055,1;// Novice_Egg_Cap
 				getitem 1243,1;// Novice_Knife
@@ -2728,7 +2728,7 @@ iz_ac01,134,47,5	script	教官 马因斯#ac	4_M_KY_KNT,4,4,{
 		mes "[马因斯]";
 		mes "假设当你陷入昏迷状态时，魔物们纷纷涌入的话…";
 
-		emotion e_wah;
+		emotion ET_KEK;
 		next;
 		mes "[马因斯]";
 		mes "好了，这次就来告诉你<^FF0000睡眠^000000>的知识吧。";
@@ -2762,7 +2762,7 @@ iz_ac01,134,47,5	script	教官 马因斯#ac	4_M_KY_KNT,4,4,{
 		mes "[马因斯]";
 		mes "晚上不要玩太晚，早睡早起才能够积蓄力量迎接充满活力的早晨！";
 		mes "如果问我是谁的话，我是马因斯！";
-		emotion e_flash;
+		emotion ET_SPARK;
 		next;
 		mes "[马因斯]";
 		mes "…不小心说了毫无意义的话呢！";
@@ -2819,7 +2819,7 @@ iz_ac01,134,47,5	script	教官 马因斯#ac	4_M_KY_KNT,4,4,{
 		mes "[马因斯]";
 		mes "喂，你！";
 		mes "你是正在这里修炼的新人吗？";
-		emotion e_flash;
+		emotion ET_SPARK;
 		next;
 		mes "[马因斯]";
 		mes "我是克里图拉学院负责进行教育的马因斯教官。";
@@ -2858,14 +2858,14 @@ iz_ac01,134,47,5	script	教官 马因斯#ac	4_M_KY_KNT,4,4,{
 			mes "[马因斯]";
 			mes "难道最后还是我要吃吗？…哎";
 			close2;
-			emotion e_sigh;
+			emotion ET_OHNO;
 			end;
 		}
 		mes "[马因斯]";
 		mes "好，你的决定是对的！";
 		mes "我也非常想吃，但为了身心疲惫的你，我";
 		mes "决定特别让给你吃，希望你明白这一点！";
-		emotion e_no1;
+		emotion ET_BEST;
 		next;
 		mes "- 打开教官给的便当后，";
 		mes "- 里面有着难以辨认的";
@@ -2890,7 +2890,7 @@ iz_ac01,134,47,5	script	教官 马因斯#ac	4_M_KY_KNT,4,4,{
 		mes "[马因斯]";
 		mes "你是怎么了？";
 		mes "看起来身体状态不是很好的样子？";
-		emotion e_what;
+		emotion ET_QUESTION;
 		next;
 		mes "[马因斯]";
 		mes "真是糟糕…";
@@ -2917,7 +2917,7 @@ iz_ac01,134,47,5	script	教官 马因斯#ac	4_M_KY_KNT,4,4,{
 		mes "- 因为实在太荒谬，于是一直瞪他。";
 		mes "- 马因斯教官大概察觉到不对劲了，";
 		mes "- 于是便刻意转过头。";
-		emotion e_bzz;
+		emotion ET_STARE;
 		next;
 		mes "[马因斯]";
 		mes "咳咳…不管怎么样…还真是抱歉。";
@@ -2939,7 +2939,7 @@ iz_ac01,134,47,5	script	教官 马因斯#ac	4_M_KY_KNT,4,4,{
 		mes "[马因斯]";
 		mes "我绝对不是因为老婆做的便当很难吃，所";
 		mes "以才故意拿给别人吃的，希望你明白这一点！";
-		emotion e_otl;
+		emotion ET_OTL;
 		next;
 		mes "[马因斯]";
 		mes "...为了向你表示歉意，我就传授你在米德加尔特大陆可能会遇到的几种状态异常。";
@@ -2948,7 +2948,7 @@ iz_ac01,134,47,5	script	教官 马因斯#ac	4_M_KY_KNT,4,4,{
 		mes "不需要客气，准备好的话，就再来找我吧！";
 		setquest 15000;
 		close2;
-		emotion e_sry;
+		emotion ET_SORRY;
 		end;
 	} else {
 		mes "[马因斯]";
@@ -3023,7 +3023,7 @@ iz_ac01,134,47,5	script	教官 马因斯#ac	4_M_KY_KNT,4,4,{
 				mes "[马因斯]";
 				mes "想像一下如果怪物正在冲向你而你又中了这个状态...";
 				mes "这种事情经常发生的.";
-				emotion e_wah;
+				emotion ET_KEK;
 				next;
 				mes "[马因斯]";
 				mes "还有其他困惑的事吗?";
@@ -3060,7 +3060,7 @@ iz_ac01,134,47,5	script	教官 马因斯#ac	4_M_KY_KNT,4,4,{
 				next;
 				mes "[马因斯]";
 				mes "睡眠状态是非常好解除的,但是如果你陷入一场战斗的时候不一定对你有好处.";
-				emotion e_flash;
+				emotion ET_SPARK;
 				next;
 				mes "[马因斯]";
 				mes "还有其他困惑的事吗?";
@@ -3108,14 +3108,14 @@ iz_ac01,134,47,5	script	教官 马因斯#ac	4_M_KY_KNT,4,4,{
 				mes "呵呵...";
 				mes "我该怎么处理这份便当呢?";
 				close2;
-				emotion e_sigh;
+				emotion ET_OHNO;
 				end;
 			}
 		}
 	}
 
 OnTouch:
-	emotion e_otl;
+	emotion ET_OTL;
 	end;
 }
 
@@ -3782,20 +3782,20 @@ iz_ac01,147,50,3	script	达克瓦兹#ac	4_COOK,{
 			mes "["+strcharinfo(0)+"]";
 			mes ""+strcharinfo(0)+", hello.";
 			next;
-			emotion e_no1;
+			emotion ET_BEST;
 			mes "[达克瓦兹]";
 			mes "我是卢恩米德加尔特传说中鼎鼎大名的主";
 			mes "厨 ^0000cd夏罗乐 欧里莱昂^000000的徒弟达克瓦兹";
 			next;
-			emotion e_no1, 0, "艾克莱尔#"+strnpcinfo(2);
+			emotion ET_BEST, getnpcid(0, "艾克莱尔#"+strnpcinfo(2));
 			mes "[艾克莱尔]";
 			mes "还有我们是欧里莱昂的^0000cd粉丝团我爱莱昂^000000的会员。";
 			next;
-			emotion e_lv,"觅佩优#"+strnpcinfo(2);
+			emotion ET_THROB,"觅佩优#"+strnpcinfo(2);
 			mes "[觅佩优]";
 			mes "欧里莱昂是我们的！";
 			next;
-			emotion e_sob;
+			emotion ET_CRY;
 			mes "[达克瓦兹]";
 			mes "啊啊！这世上愚蠢的家伙都怎么吃饭的啊？";
 			next;
@@ -3817,7 +3817,7 @@ iz_ac01,147,50,3	script	达克瓦兹#ac	4_COOK,{
 			mes "[艾克莱尔]";
 			mes "你不想深入了解料理吗？";
 			next;
-			emotion e_lv, 0, "觅佩优#"+strnpcinfo(2);
+			emotion ET_THROB, getnpcid(0, "觅佩优#"+strnpcinfo(2));
 			mes "[觅佩优]";
 			mes "Will you exeprience the various spectrums of cooking?";
 			next;
@@ -3833,15 +3833,15 @@ iz_ac01,147,50,3	script	达克瓦兹#ac	4_COOK,{
 				mes "吃地瓜的时候，如果不小心噎到就记得拍拍胸口啊！";
 				close;
 			}
-			emotion e_no1;
+			emotion ET_BEST;
 			mes "[达克瓦兹]";
 				mes "好吧！我们是帮你指引料理之路的亲切解说员。";
 			next;
-			emotion e_no1, 0, "艾克莱尔#"+strnpcinfo(2);
+			emotion ET_BEST, getnpcid(0, "艾克莱尔#"+strnpcinfo(2));
 			mes "[艾克莱尔]";
 			mes "如果有疑问什么都可以问哦！";
 			next;
-			emotion e_lv, 0, "觅佩优#"+strnpcinfo(2);
+			emotion ET_THROB, getnpcid(0, "觅佩优#"+strnpcinfo(2));
 			mes "[觅佩优]";
 			mes "亲切就是我们的骄傲！";
 			next;
@@ -3851,7 +3851,7 @@ iz_ac01,147,50,3	script	达克瓦兹#ac	4_COOK,{
 				mes "唷！你想知道料理的效能对吧？";
 				mes "料理可分为两个效能。";
 				next;
-				emotion e_gasp;
+				emotion ET_SURPRISE;
 				mes "[达克瓦兹]";
 				mes "第一个就是，^0000cd提升素质^000000！嘟嘟！";
 				next;
@@ -3861,7 +3861,7 @@ iz_ac01,147,50,3	script	达克瓦兹#ac	4_COOK,{
 				mes "[觅佩优]";
 				mes "能提升的数值依照料理的等级而有所不同。";
 				next;
-				emotion e_gasp;
+				emotion ET_SURPRISE;
 				mes "[达克瓦兹]";
 				mes "还有效能，就是第二个！！嘟嘟！！";
 				next;
@@ -3898,25 +3898,25 @@ iz_ac01,147,50,3	script	达克瓦兹#ac	4_COOK,{
 				mes "[达克瓦兹]";
 				mes "准备阶段也是分为两种。";
 				next;
-				emotion e_gasp;
+				emotion ET_SURPRISE;
 				break;
 			case 2:
 				mes "[达克瓦兹]";
 				mes "很好！料理前需要一些准备，这也可以分为两种。";
 				next;
-				emotion e_gasp,"达克瓦兹#"+strnpcinfo(2);
+				emotion ET_SURPRISE,"达克瓦兹#"+strnpcinfo(2);
 				break;
 			case 3:
-				emotion e_an;
+				emotion ET_FRET;
 				mes "[达克瓦兹]";
 				mes "什么？？？";
 				mes "宝贵的时间就是这样浪费的！";
 				next;
-				emotion e_ag, 0, "艾克莱尔#"+strnpcinfo(2);
+				emotion ET_ANGER, getnpcid(0, "艾克莱尔#"+strnpcinfo(2));
 				mes "[艾克莱尔]";
 				mes "我以为增加我们会员数量。";
 				next;
-				emotion e_lv, 0, "觅佩优#"+strnpcinfo(2);
+				emotion ET_THROB, getnpcid(0, "觅佩优#"+strnpcinfo(2));
 				mes "[觅佩优]";
 				mes "再也不要出现在我们面前！";
 				close;
@@ -3939,7 +3939,7 @@ iz_ac01,147,50,3	script	达克瓦兹#ac	4_COOK,{
 			mes "[觅佩优]";
 			mes "料理书^0000cd就是通过任务^000000获得或^0000cd通过怪物^000000获得。";
 			next;
-			emotion e_gasp;
+			emotion ET_SURPRISE;
 			mes "[达克瓦兹]";
 			mes "如果获得料理书的话，接下来就是第二项准备！";
 			mes "那就是 ^0000cd食材^000000！";
@@ -3965,7 +3965,7 @@ iz_ac01,147,50,3	script	达克瓦兹#ac	4_COOK,{
 				mes "喔喔！非常积极的态度！";
 				mes "我们开始做做看吧！";
 				mes "你先心平气和后再来找我吧！";
-				emotion e_no1;
+				emotion ET_BEST;
 			} else {
 				mes "[艾克莱尔]";
 				mes "就算失败也跟我们没有关系喔！";
@@ -3980,15 +3980,15 @@ iz_ac01,147,50,3	script	达克瓦兹#ac	4_COOK,{
 				if(select("对！全部找回来了！", "太麻烦了，我想要放弃。") == 2) {
 					mes "[达克瓦兹]";
 					mes "利用我们珍贵的时间告诉你有关料理的世界，你还说放弃？";
-					emotion e_an;
+					emotion ET_FRET;
 					next;
 					mes "[艾克莱尔]";
 					mes "你侮辱了我们！";
-					emotion e_ag, 0, "艾克莱尔#"+strnpcinfo(2);
+					emotion ET_ANGER, getnpcid(0, "艾克莱尔#"+strnpcinfo(2));
 					next;
 					mes "[觅佩优]";
 					mes "以后如果想学习记得回来找我喔~";
-					emotion e_dots, 0, "觅佩优#"+strnpcinfo(2);
+					emotion ET_THINK, getnpcid(0, "觅佩优#"+strnpcinfo(2));
 					close2;
 					if (isbegin_quest(14154) == 1)
 						erasequest 14154;
@@ -4007,16 +4007,16 @@ iz_ac01,147,50,3	script	达克瓦兹#ac	4_COOK,{
 					mes "[达克瓦兹]";
 					mes "喔喔，你带来的很正确！";
 					mes "那么，我会遵守约定立刻做给你，呃呃啊啊啊！电光石化！";
-					emotion e_flash;
+					emotion ET_SPARK;
 					next;
 					mes "[艾克莱尔]";
 					mes "吃完这个后再去打猎看看！力气会莫名的冒来哦。";
-					emotion e_no1, 0, "艾克莱尔#"+strnpcinfo(2);
+					emotion ET_BEST, getnpcid(0, "艾克莱尔#"+strnpcinfo(2));
 					next;
 					mes "[觅佩优]";
 					mes "^0000cd你可以偷偷去普隆德拉地下找夏罗乐 欧罗莱昂^000000看看，应该可以开始真正的料理。";
 					mes "Kya... Sir Orleans!!";
-					emotion e_lv, 0, "觅佩优#"+strnpcinfo(2);
+					emotion ET_THROB, getnpcid(0, "觅佩优#"+strnpcinfo(2));
 					close2;
 					delitem 705,1;// Clover
 					delitem 511,1;// Green_Herb
@@ -4029,16 +4029,16 @@ iz_ac01,147,50,3	script	达克瓦兹#ac	4_COOK,{
 								mes "[达克瓦兹]";
 					mes "喔喔，你带来的很正确！";
 					mes "那么，我会遵守约定立刻做给你，呃呃啊啊啊！电光石化！";
-					emotion e_flash;
+					emotion ET_SPARK;
 					next;
 					mes "[艾克莱尔]";
 					mes "你吃吃看这个！";
 					mes "你会比任何人快，又跟别人不一样，像一个老鹰一样动的很快！";
-					emotion e_no1, 0, "艾克莱尔#"+strnpcinfo(2);
+					emotion ET_BEST, getnpcid(0, "艾克莱尔#"+strnpcinfo(2));
 					next;
 					mes "[觅佩优]";
 					mes "^0000cd你可以偷偷去普隆德拉地下找夏罗乐 欧罗莱昂^000000看看，应该可以开始真正的料理。";
-					emotion e_lv, 0, "觅佩优#"+strnpcinfo(2);
+					emotion ET_THROB, getnpcid(0, "觅佩优#"+strnpcinfo(2));
 					close2;
 					delitem 512,1;// Apple
 					delitem 515,2;// Carrot
@@ -4050,15 +4050,15 @@ iz_ac01,147,50,3	script	达克瓦兹#ac	4_COOK,{
 					mes "[达克瓦兹]";
 					mes "喔喔，你带来的很正确！";
 					mes "那么，我会遵守约定立刻做给你，呃呃啊啊啊！电光石化！";
-					emotion e_flash;
+					emotion ET_SPARK;
 					next;
 					mes "[艾克莱尔]";
 					mes "你没有感到流在体内的血管的不知名力量了吗？你已经在吃了！";
-					emotion e_no1, 0, "艾克莱尔#"+strnpcinfo(2);
+					emotion ET_BEST, getnpcid(0, "艾克莱尔#"+strnpcinfo(2));
 					next;
 					mes "[觅佩优]";
 					mes "^0000cd你可以偷偷去普隆德拉地下找夏罗乐 欧罗莱昂^000000看看，应该可以开始真正的料理。";
-					emotion e_lv, 0, "觅佩优#"+strnpcinfo(2);
+					emotion ET_THROB, getnpcid(0, "觅佩优#"+strnpcinfo(2));
 					close2;
 					delitem 909,1;// Jellopy
 					delitem 914,1;// Fluff
@@ -4071,17 +4071,17 @@ iz_ac01,147,50,3	script	达克瓦兹#ac	4_COOK,{
 					mes "[达克瓦兹]";
 					mes "喔喔，你带来的很正确！";
 					mes "那么，我会遵守约定立刻做给你，呃呃啊啊啊！电光石化！";
-					emotion e_flash;
+					emotion ET_SPARK;
 					next;
 					mes "[艾克莱尔]";
 					mes "吃这个的话，你也可以百发百中！";
 					mes "其实因为是等级1才可以百发百中！…";
 					mes "是有点夸张，只是听听就可以了。";
-					emotion e_no1, 0, "艾克莱尔#"+strnpcinfo(2);
+					emotion ET_BEST, getnpcid(0, "艾克莱尔#"+strnpcinfo(2));
 					next;
 					mes "[觅佩优]";
 					mes "^0000cd你可以偷偷去普隆德拉地下找夏罗乐 欧罗莱昂^000000看看，应该可以开始真正的料理。";
-					emotion e_lv, 0, "觅佩优#"+strnpcinfo(2);
+					emotion ET_THROB, getnpcid(0, "觅佩优#"+strnpcinfo(2));
 					close2;
 					delitem 512,1;// Apple
 					delitem 705,1;// Clover
@@ -4118,34 +4118,34 @@ iz_ac01,147,50,3	script	达克瓦兹#ac	4_COOK,{
 				mes "[觅佩优]";
 				mes "本来需要食谱和调理道具，因为对初学者而言较难，还是我来做给你吧！";
 				next;
-				emotion e_bzz;
+				emotion ET_STARE;
 				mes "[达克瓦兹]";
 				mes "为什么做给我那些？";
 				next;
-				emotion e_hmm, 0, "觅佩优#"+strnpcinfo(2);
+				emotion ET_SCRATCH, getnpcid(0, "觅佩优#"+strnpcinfo(2));
 				mes "[觅佩优]";
 				mes "啊，不行吗？";
 				next;
 				mes "[达克瓦兹]";
 				mes "不管如何，我们火焰三剑客的队长还是我啊！";
 				next;
-				emotion e_omg, 0, "艾克莱尔#"+strnpcinfo(2);
+				emotion ET_HUK, getnpcid(0, "艾克莱尔#"+strnpcinfo(2));
 				mes "[艾克莱尔]";
 				mes "什么？！什么时候定那些的？";
 				next;
-				emotion e_no;
+				emotion ET_STARE_ABOUT;
 				mes "[达克瓦兹]";
 				mes "这里还有谁比我年纪大的？";
 				next;
-				emotion e_omg, 0, "艾克莱尔#"+strnpcinfo(2);
+				emotion ET_HUK, getnpcid(0, "艾克莱尔#"+strnpcinfo(2));
 				mes "[艾克莱尔]";
 				mes "年龄！啊… 那没办法了。";
 				next;
-				emotion e_ok,"觅佩优#"+strnpcinfo(2);
+				emotion ET_OK,"觅佩优#"+strnpcinfo(2);
 				mes "[觅佩优]";
 				mes "堆了一岁后还享受到对年长者的恭敬，真拿你没办法。";
 				next;
-				emotion e_an;
+				emotion ET_FRET;
 				mes "[达克瓦兹]";
 				mes "安静点！！";
 				next;
@@ -4272,16 +4272,16 @@ iz_ac01,147,50,3	script	达克瓦兹#ac	4_COOK,{
 				end;
 			}
 		} else {
-			emotion e_no1;
+			emotion ET_BEST;
 			mes "[达克瓦兹]";
 			mes "我是卢恩米德加尔特传说中鼎鼎大名的主";
 			mes "厨 ^0000cd夏罗乐 欧里莱昂^000000的徒弟达克瓦兹";
 			next;
-			emotion e_no1, 0, "艾克莱尔#"+strnpcinfo(2);
+			emotion ET_BEST, getnpcid(0, "艾克莱尔#"+strnpcinfo(2));
 			mes "[艾克莱尔]";
 			mes "料理不但可以增加你的属性还可以帮助恢复HP和SP。";
 			next;
-			emotion e_lv, 0, "觅佩优#"+strnpcinfo(2);
+			emotion ET_THROB, getnpcid(0, "觅佩优#"+strnpcinfo(2));
 			mes "[觅佩优]";
 			mes "如果你想做真正的料理，^0000cd你可以去普隆德拉地下找夏罗乐 欧罗莱昂^000000，你肯定会成为他的粉丝的。";
 			close;
@@ -4360,7 +4360,7 @@ iz_ac01,68,49,3	script	综合商店#ac	4_F_03,{
 				mes "给你~.";
 				mes "这本书是专门给初心者设计的.如果你能使用正确的姿势可以组合出很多有用的东西噢.";
 				Zeny -= 1000;
-				getitem 11058,1;// Novice_Combi_Book
+				getitem 11058,1;// NovicET_COMEONbi_Book
 			} else {
 				mes "[克里]";
 				mes "这本书的价格是 1000zeny.";
@@ -5050,29 +5050,29 @@ new_1-3,99,169,3	script	陷入烦恼的波利#ac	4_PORING,{
 		next;
 		mes "[幽灵波利]";
 		mes "我是谁呢？！";
-		emotion e_gasp, 0, "幽灵波利#cupet";
+		emotion ET_SURPRISE, getnpcid(0, "幽灵波利#cupet");
 		next;
 		mes "[迟钝的菜鸟]";
 		mes "是地上最强的幽灵波利大人。";
-		emotion e_paper, 0, "小心翼翼的菜鸟#pet_1";
-		emotion e_paper, 0, "迟钝的菜鸟#pet_2";
-		emotion e_paper, 0, "发呆的菜鸟#pet_3";
+		emotion ET_WRAP, getnpcid(0, "小心翼翼的菜鸟#pet_1");
+		emotion ET_WRAP, getnpcid(0, "迟钝的菜鸟#pet_2");
+		emotion ET_WRAP, getnpcid(0, "发呆的菜鸟#pet_3");
 		next;
 		mes "[幽灵波利]";
 		mes "我是哪一种魔物呢？";
-		emotion e_gasp, 0, "幽灵波利#cupet";
+		emotion ET_SURPRISE, getnpcid(0, "幽灵波利#cupet");
 		next;
 		mes "[迟钝的菜鸟]";
 		mes "等级高达90！任何人都无法抗衡的炎属性的恶魔！";
-		emotion e_paper, 0, "小心翼翼的菜鸟#pet_1";
-		emotion e_paper, 0, "迟钝的菜鸟#pet_2";
-		emotion e_paper, 0, "发呆的菜鸟#pet_3";
+		emotion ET_WRAP, getnpcid(0, "小心翼翼的菜鸟#pet_1");
+		emotion ET_WRAP, getnpcid(0, "迟钝的菜鸟#pet_2");
+		emotion ET_WRAP, getnpcid(0, "发呆的菜鸟#pet_3");
 		next;
 		mes "[幽灵波利]";
 		mes "噗嘿嘿嘿嘿嘿~~~~";
-		emotion e_heh, 0, "幽灵波利#cupet";
+		emotion ET_SMILE, getnpcid(0, "幽灵波利#cupet");
 		next;
-		emotion e_sob, 0, "陷入烦恼的波利#ac";
+		emotion ET_CRY, getnpcid(0, "陷入烦恼的波利#ac");
 		mes "[波利]";
 		mes "呜啊啊啊啊啊~~~~";
 		mes "菜鸟们说话的口气太奇怪了，变得一点都不可爱了！";
@@ -5096,14 +5096,14 @@ new_1-3,99,169,3	script	陷入烦恼的波利#ac	4_PORING,{
 		mes "[迟钝的菜鸟]";
 		mes "幽灵波利达人，我们会一直处于待命状态的！";
 		mes "真是令人心跳加快！";
-		emotion e_paper, 0, "小心翼翼的菜鸟#pet_1";
-		emotion e_paper, 0, "迟钝的菜鸟#pet_2";
-		emotion e_paper, 0, "发呆的菜鸟#pet_3";
+		emotion ET_WRAP, getnpcid(0, "小心翼翼的菜鸟#pet_1");
+		emotion ET_WRAP, getnpcid(0, "迟钝的菜鸟#pet_2");
+		emotion ET_WRAP, getnpcid(0, "发呆的菜鸟#pet_3");
 		next;
 		mes "[波利]";
 		mes "不、不行！";
 		mes "快帮忙我！我要救出菜鸟们！";
-		emotion e_omg, 0, "陷入烦恼的波利#ac";
+		emotion ET_HUK;
 		next;
 		select("难道就没有好方法吗？");
 		mes "[波利]";
@@ -5148,7 +5148,7 @@ new_1-3,99,169,3	script	陷入烦恼的波利#ac	4_PORING,{
 			mes "["+strcharinfo(0)+"]";
 			mes "使用你给的青苹果后，它就变成了蛋。";
 			next;
-			emotion e_sob, 0, "陷入烦恼的波利#ac";
+			emotion ET_CRY, getnpcid(0, "陷入烦恼的波利#ac");
 			mes "[波利]";
 			mes "我只是将菜鸟喜欢的东西交给他而已！波利没有错！呜呜呜呜呜！菜鸟！！";
 			next;
@@ -5566,7 +5566,7 @@ izlude,102,150,5	script	结婚小帮手#iz	1_F_LIBRARYGIRL,{
 			next;
 			break;
 		case 4:
-			emotion e_omg;
+			emotion ET_HUK;
 			mes "[结婚小帮手]";
 			mes "不懂爱情魅力的你真的很可怜！";
 			close;
@@ -5594,7 +5594,7 @@ izlude,95,146,5	script	妈妈#iz	4_F_CAVE1,{
 	mes "[爸爸]";
 	mes "没看见~";
 	next;
-	emotion e_an;
+	emotion ET_FRET;
 	mes "[妈妈]";
 	mes "那下子又跑去哪鬼混了？待在家里一个";
 	mes "小时都办不到！难道我又得使用那个东";
@@ -5603,7 +5603,7 @@ izlude,95,146,5	script	妈妈#iz	4_F_CAVE1,{
 	mes "[爸爸]";
 	mes "就让他去吧~大概又在哪玩耍了吧？";
 	next;
-	emotion e_an;
+	emotion ET_FRET;
 	mes "[妈妈]";
 	mes "就是因为你每次都这样袒护他，他才会变";
 	mes "成如此无礼！我一定要好好教训他一顿！";
@@ -5619,7 +5619,7 @@ izlude,95,146,5	script	妈妈#iz	4_F_CAVE1,{
 	mes "[妈妈]";
 	mes "还需要问吗？";
 	next;
-	emotion e_ag, 0, "孩子#"+strnpcinfo(2);
+	emotion ET_ANGER, getnpcid(0, "孩子#"+strnpcinfo(2));
 	mes "[孩子]";
 	mes "啊，又来了！为何偏偏选在人家猎捕兽人正高兴的时候…！！";
 	next;
@@ -5632,12 +5632,12 @@ izlude,95,146,5	script	妈妈#iz	4_F_CAVE1,{
 	mes "[妈妈]";
 	mes "你、你这孩子？！";
 	next;
-	emotion e_sigh, 0, "孩子#"+strnpcinfo(2);
+	emotion ET_OHNO, getnpcid(0, "孩子#"+strnpcinfo(2));
 	mes "[孩子]";
 	mes "人家去就是了…";
 	next;
 	disablenpc "孩子#"+strnpcinfo(2);
-	emotion e_sob, 0, "Dad#"+strnpcinfo(2);
+	emotion ET_CRY, getnpcid(0, "Dad#"+strnpcinfo(2));
 	mes "[Dad]";
 	mes "孩子，真是抱歉…都怪爸爸没有权威…";
 	close;
@@ -5690,7 +5690,7 @@ izlude_d,97,144,1	duplicate(孩子#iz)	孩子#iz_d	4_M_DEWBOY
 // - 肉麻情侣男
 // -----------------------------------------------------------------------------
 izlude,99,138,3	script	肉麻情侣男#iz	4_M_SITDOWN,{
-	emotion e_ho;
+	emotion ET_DELIGHT;
 	mes "[肉麻情侣男]";
 	mes "离开吧~两个人~将一切抛开脑后~";
 	mes "在夏威夷蓝天星空下~";
@@ -5698,17 +5698,17 @@ izlude,99,138,3	script	肉麻情侣男#iz	4_M_SITDOWN,{
 	mes "[肉麻情侣男]";
 	mes "为了纪念我们结婚10周年，我们决定到新婚旅行时曾去过的夏威夷！";
 	next;
-	emotion e_lv;
+	emotion ET_THROB;
 	mes "[肉麻情侣男]";
 	mes "我们要在那边借结婚礼服和燕尾服，重温";
 	mes "以前的回忆！这样会让我们的关系加温！";
 	next;
 	specialeffect EF_HEARTCASTING, AREA, "肉麻情侣女#"+strnpcinfo(2);
-	emotion e_kis, 0, "肉麻情侣女#"+strnpcinfo(2);
+	emotion ET_CHUP, getnpcid(0, "肉麻情侣女#"+strnpcinfo(2));
 	mes "[肉麻情侣女]";
 	mes "啊~爱你哦！亲爱的~";
 	next;
-	emotion e_kis2;
+	emotion ET_CHUP2;
 	mes "[肉麻情侣男]";
 	mes "不，我更爱你！";
 	close;
@@ -5725,7 +5725,7 @@ izlude,97,138,5	script	肉麻情侣女#iz	4_F_SITDOWN,{
 	mes "[肉麻情侣女]";
 	mes "想念另一半的时候，就要像这样呐喊！";
 	next;
-	emotion e_lv, 0, "肉麻情侣女#"+strnpcinfo(2);
+	emotion ET_THROB, getnpcid(0, "肉麻情侣女#"+strnpcinfo(2));
 	mes "[肉麻情侣女]";
 	mes "^0000cd[想念你]^000000";
 	next;
@@ -5739,7 +5739,7 @@ izlude,97,138,5	script	肉麻情侣女#iz	4_F_SITDOWN,{
 	mes "蹲着很辛苦吧？";
 	next;
 	specialeffect EF_HEARTCASTING, AREA, "肉麻情侣女#"+strnpcinfo(2);
-	emotion e_kis, 0, "肉麻情侣女#"+strnpcinfo(2);
+	emotion ET_CHUP, getnpcid(0, "肉麻情侣女#"+strnpcinfo(2));
 	mes "[肉麻情侣女]";
 	mes "亲爱的！爱你哦！";
 	next;
@@ -5747,12 +5747,12 @@ izlude,97,138,5	script	肉麻情侣女#iz	4_F_SITDOWN,{
 	mes "你给我的SP果然是最棒的！你也很累吧？";
 	next;
 	specialeffect EF_HEARTCASTING, AREA, "肉麻情侣男#"+strnpcinfo(2);
-	emotion e_kis2, 0, "肉麻情侣男#"+strnpcinfo(2);
+	emotion ET_CHUP2, getnpcid(0, "肉麻情侣男#"+strnpcinfo(2));
 	mes "[肉麻情侣男]";
 	mes "[肉麻情侣男]";
 	mes "亲爱的，我爱你！";
 	next;
-	emotion e_lv, 0, "肉麻情侣女#"+strnpcinfo(2);
+	emotion ET_THROB, getnpcid(0, "肉麻情侣女#"+strnpcinfo(2));
 	mes "[肉麻情侣女]";
 	mes "啊~亲爱的果然是最棒的！！";
 	close;
@@ -5779,10 +5779,10 @@ izlude,93,143,3	script	疯狂科学家#0	-1,{
 
 OnTimer30000:
 	if (rand(1,2) == 1) {
-		emotion e_no1;
+		emotion ET_BEST;
 		specialeffect EF_PHARMACY_OK;
 	} else {
-		emotion e_omg;
+		emotion ET_HUK;
 		specialeffect EF_PHARMACY_FAIL;
 	}
 	end;
@@ -6299,7 +6299,7 @@ iz_ac01,138,69,3	script	小姐#ac	1_F_ORIENT_02,{
 	next;
 	mes "[小姐]";
 	mes "名字还真是美丽，不祥…我似乎喜欢上你的作品了。";
-	emotion e_lv;
+	emotion ET_THROB;
 	close;
 }
 
@@ -6324,7 +6324,7 @@ iz_ac01_d,149,46,3	duplicate(艾克莱尔#ac)	艾克莱尔#ac_d	4_F_KAFRA7
 // - 觅佩优
 // -----------------------------------------------------------------------------
 iz_ac01,150,50,3	script	觅佩优#ac	4_F_KAFRA8,{
-	emotion e_lv;
+	emotion ET_THROB;
 	mes "[觅佩优]";
 	mes "啊啊，不知道奥尔良过的好不好。";
 	close;
@@ -6364,7 +6364,7 @@ iz_ac01,159,32,3	script	饥饿的学生#ac	4_M_SIT_NOVICE,{
 	mes "已经超过一个小时了…";
 	mes "这些人不过来点餐还愣在那边在干什么…";
 	next;
-	emotion e_an, 0, "勤奋的学生#"+strnpcinfo(2);
+	emotion ET_FRET, getnpcid(0, "勤奋的学生#"+strnpcinfo(2));
 	mes "[勤奋的学生]";
 	mes "咦，这个人怎么还在这里！！";
 	mes "我已经跟你讲过八百遍了！";
@@ -6374,7 +6374,7 @@ iz_ac01,159,32,3	script	饥饿的学生#ac	4_M_SIT_NOVICE,{
 	mes "自助式？那什么？吃的吗？";
 	mes "还是因为我是从乡下来的土包子，所以你就看不起我吗？什么？";
 	next;
-	emotion e_ag;
+	emotion ET_ANGER;
 	mes "[饥饿的学生]";
 	mes "不要说太难懂的话，简单跟我说吧！";
 	close;
@@ -6642,7 +6642,7 @@ mes "西边有斐扬村，往南边走则可以到达艾帕罗多。";
 next;
 mes "[小姐]";
 mes "斐扬真是不错的都市，可以转职为弓箭手或跆拳，而且还有很棒的洞穴，有空的话，一定要去一趟。";
-	emotion e_heh;
+	emotion ET_SMILE;
 	close;
 }
 
@@ -6759,12 +6759,12 @@ iz_ac02_d,107,180,3	duplicate(ac_board)	[克里图拉总长室]#ad	2_BULLETIN_BOARD
 iz_ac02,143,55,3	script	休可宁#ac	4_M_KID1,{
 	cutin "choucream_n.bmp", 2;
 	if (Class == Job_Novice) {
-		emotion e_what;
+		emotion ET_QUESTION;
 		mes "[休可宁]";
   mes "你是初学者吗？对吧？应该不会错的！";
 		next;
 	} else {
-		emotion e_sigh;
+		emotion ET_OHNO;
 		mes "[休可宁]";
   mes "对有职业的人来说，要进行职业评测是很逞强的，毕竟要更换职业是很困难的！";
 		close2;
@@ -6776,7 +6776,7 @@ mes "你还没决定好职业吗？";
 	next;
 	if(select("不会吧？你怎么会知道呢？:不，已经决定了！") == 2) {
 		cutin "choucream_d.bmp",2;
-		emotion e_sigh;
+		emotion ET_OHNO;
 		mes "[休可宁]";
   mes "啊！已经决定了吗？那就没办法了。";
 		next;
@@ -6787,7 +6787,7 @@ mes "你还没决定好职业吗？";
 		end;
 	}
 	cutin "choucream_e.bmp",2;
-	emotion e_flash;
+	emotion ET_SPARK;
 	mes "[休可宁]";
 mes "噢噢！真是太好了，我还剩下一本";
 mes "^0000FF当作乐趣看的职业评测^000000";
@@ -6803,7 +6803,7 @@ switch(select("职业评测？:进行职业评测。:算了。")) {
 			mes "[休可宁]";
   mes "利用3种形式进行测试，总共要解30个题目。";
 			next;
-			emotion e_what;
+			emotion ET_QUESTION;
 			mes "[休可宁]";
   mes "若是你目前有空，而且尚未决定职业的话，要不要试试看进行检测呢？";
 			next;
@@ -6812,7 +6812,7 @@ switch(select("职业评测？:进行职业评测。:算了。")) {
 			break;
 		case 3:
 			cutin "choucream_d.bmp",2;
-			emotion e_pif;
+			emotion ET_HNG;
 			mes "[休可宁]";
   mes "我知道了，再见。";
 			close2;
@@ -7266,7 +7266,7 @@ mes "根据职业评测的结果来看！";
 		end;
 	}
 	next;
-	emotion e_no1;
+	emotion ET_BEST;
 	mes "[休可宁]";
 	mes "^8014EB"+.@job_name$+"^000000 职业是最适合的！.";
 	next;
@@ -7277,7 +7277,7 @@ mes "上面这样写着呢。";
 	mes "[休可宁]";
 mes "不需要非得是职业评测中出现的职业，毕竟这说到底也只是为了有趣而进行的职业评测。";
 	next;
-	emotion e_what;
+	emotion ET_QUESTION;
 	mes "[休可宁]";
 mes "如果想要的话，我会送你到职业评测中出现的职业教室前面。";
 	next;
@@ -7358,7 +7358,7 @@ iz_ac02,142,85,6	script	鲁斯#ac	4_F_GUNSLINGER,{
 			if (isequippedcnt(.@manuals[.@i]) || countitem(.@manuals[.@i]))
 				.@has_manual = 1;
 		}
-		emotion e_awsm;
+		emotion ET_COOL;
 		mes "[鲁斯]";
   mes "唷！ 好可爱的初学者啊，你想成为神枪手才过来的吗？";
 		next;
@@ -7369,7 +7369,7 @@ iz_ac02,142,85,6	script	鲁斯#ac	4_F_GUNSLINGER,{
 		}
 		switch(select(.@menu$)) {
 		case 1:
-			emotion e_lv;
+			emotion ET_THROB;
 			mes "[鲁斯]";
   mes "唷唷！ 可爱的初学者想了解神枪手啊！";
 			next;
@@ -7471,7 +7471,7 @@ iz_ac02,142,85,6	script	鲁斯#ac	4_F_GUNSLINGER,{
 			end;
 		case 3:
 			if (Upper == 2) {
-				emotion e_slur;
+				emotion ET_SEXY;
 				mes "[鲁斯]";
     mes "小朋友… 对不起！ 你不能转职神枪手喔！";
 				next;
@@ -7619,7 +7619,7 @@ iz_ac02,142,85,6	script	鲁斯#ac	4_F_GUNSLINGER,{
 			cutin "", 255;
 			end;
 		} else if (nov_3_guns == 7) {
-			emotion e_ok;
+			emotion ET_OK;
 			mes "[鲁斯]";
   mes "可爱的初学者穿着神枪手的衣服回来啦！没想到对你这么合适，恭喜你！";
 			next;
@@ -8428,7 +8428,7 @@ iz_ac02_d,162,86,4	duplicate(公会派驻人员#ac)	公会派驻人员#ac_d	4W_M_02
 iz_ac02,70,85,5	script	阿郎#ac	4_F_TAEKWON,{
 	mes "[阿郎]";
 mes "嗨，早安！";
-	emotion e_ho;
+	emotion ET_DELIGHT;
 	cutin "arang03.bmp", 0;
 	next;
 	if (Class == Job_Novice) {
@@ -8560,19 +8560,19 @@ mes "嗨，早安！";
 					mes "[阿郎]";
         mes "是真的吗？太好了，现在我也是老师了！好了，任何问题都能尽管问！";
 					nov_3_taekwon = 1;
-					emotion e_heh;
+					emotion ET_SMILE;
 					close2;
 					cutin "", 255;
 					end;
 				}
 				mes "[阿郎]";
         mes "哈哈哈…对我有兴趣吗？";
-				emotion e_an;
+				emotion ET_FRET;
 				cutin "arang03.bmp", 0;
 				next;
         mes "瞬间，阿郎的转身踢飞到了眼前。";
 				specialeffect2 EF_TRIPLEATTACK;
-				emotion e_wah, 1;
+				emotion ET_KEK, 1;
 				next;
 				cutin "", 255;
         mes "眼前一片漆黑，精神顿时变得相当茫然。";
@@ -12624,7 +12624,7 @@ mes "麻烦你先去办理注册， ^ff0000就可以参与克里图拉学院的各种教育和服务^000000。
         	mes "[服事导师 艾莉丝]";
         	mes "如果 ^ff0000你想体验服事技能的话，你可以询问你旁边的^000000姊妹。";
         	mes "因为正在看技能书。";
-				emotion e_omg, 0, "修女#"+strnpcinfo(2);
+				emotion ET_HUK, getnpcid(0, "修女#"+strnpcinfo(2));
 				close2;
 				cutin "", 255;
 				end;
@@ -13091,7 +13091,7 @@ izlude,153,126,1	script	精炼所主人 韩#iz	4_M_02,{
 		mes "对于可以让你变强的^3E86C3精炼^000000，你是否有兴趣呢？";
 		next;
 		if(select("没兴趣", "精炼？是吃的东西吗？") == 1) {
-			emotion e_sry;
+			emotion ET_SORRY;
 			mes "[精炼所主人 韩]";
 			mes "啊…抱歉，看来我打扰到你了。";
 			close;
@@ -14831,6 +14831,7 @@ izlude_d,158,130,4	duplicate(修理工#iz)	修理工#iz_d	4_M_04
 // = Old Novice Training Grounds
 // = These NPCs will teleport any stuck player to the new starting area.
 // =============================================================================
+/*
 new_1-1,53,114,3	script	培训人员#1a	4_F_03,{
 	mes "[培训人员]";
 	mes "训练场地进行了修正.";
@@ -14887,3 +14888,4 @@ new_5-2,161,182,5	duplicate(培训人员#1a)	培训人员#5d	4_F_03
 new_5-2,33,172,4	duplicate(培训人员#1a)	培训人员#5e	4_F_03
 new_5-3,96,30,4	duplicate(培训人员#1a)	培训人员#5f	4_F_03
 new_5-4,100,29,1	duplicate(培训人员#1a)	培训人员#5g	4_F_03
+*/

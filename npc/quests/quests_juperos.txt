@@ -1044,7 +1044,7 @@ yuno_in04,186,125,4	script	Bundle of Files	111,{
 					mes "less clear I am on what";
 					mes "the theory actually is.";
 					mes "I don't think there is one...";
-					emotion e_swt,1;
+					emotion ET_SWEAT,1;
 					close;
 				}
 				mes "^8B6914What is most unsettling";
@@ -1627,11 +1627,11 @@ juperos_01,215,127,4	script	Machine Statue	844,{
 //============================================================
 // 1rd Floor -> 2nd Floor
 //============================================================
-juperos_01,100,91,0	script	jupe_goto#1	-1,2,2,{
+juperos_01,100,91,0	script	jupET_GOto#1	-1,2,2,{
 	end;
 
 OnTouch:
-	initnpctimer "jupe_goto#1",1;
+	initnpctimer "jupET_GOto#1",1;
 	mes "^777777["+ strcharinfo(0) +"]^000000";
 	mes "This light...";
 	mes "It feels like...";
@@ -1665,18 +1665,18 @@ OnTouch:
 OnTimer10000:
 	stopnpctimer;
 	warp "juperos_02",128,278;
-	donpcevent "jupe_goto#2::OnEnable";
+	donpcevent "jupET_GOto#2::OnEnable";
 	end;
 }
 
-juperos_01,100,91,0	script	jupe_goto#2	-1,2,2,{
+juperos_01,100,91,0	script	jupET_GOto#2	-1,2,2,{
 OnInit:
-	disablenpc "jupe_goto#2";
+	disablenpc "jupET_GOto#2";
 	end;
 
 OnEnable:
-	enablenpc "jupe_goto#2";
-	disablenpc "jupe_goto#1";
+	enablenpc "jupET_GOto#2";
+	disablenpc "jupET_GOto#1";
 	initnpctimer;
 	end;
 
@@ -1685,8 +1685,8 @@ OnTouch:
 	end;
 
 OnTimer2000:
-	enablenpc "jupe_goto#1";
-	disablenpc "jupe_goto#2";
+	enablenpc "jupET_GOto#1";
+	disablenpc "jupET_GOto#2";
 	end;
 }
 
@@ -4969,7 +4969,7 @@ OnTimer2000:
 	end;
 }
 
-juperos_02,33,59,0	script	jupe_goto2F	45,2,2,{
+juperos_02,33,59,0	script	jupET_GOto2F	45,2,2,{
 OnTouch:
 	switch(rand(1,4)) {
 	case 1: warp "juperos_01",120,72; end;

@@ -512,7 +512,7 @@ function	script	F_SetKafCode	{
 				set @code,callfunc("F_EntKafCode");
 				if(!@code || @code != #kafra_code) {
 					mes "密码错误. 您无法修改密码，请重新操作.";
-					emotion e_hmm;
+					emotion ET_SCRATCH;
 					break;
 				}
 				next;
@@ -524,14 +524,14 @@ function	script	F_SetKafCode	{
 				set @code,callfunc("F_EntKafCode");
 				if(!@code) {
 					mes "密码未被删除.";
-					emotion e_hmm;
+					emotion ET_SCRATCH;
 					break;
 				}
 				next;
 				mes .@npc_name$;
 				if(Zeny < 1000) {
 					mes "您没有足够的zeny.";
-					emotion e_cash;
+					emotion ET_MONEY;
 					break;
 				}
 				set Zeny,Zeny-1000;
@@ -539,11 +539,11 @@ function	script	F_SetKafCode	{
 					set #kafra_code,0;
 					mes "您已成功清除了您的旧密码.";
 					mes "感谢您使用 "+getarg(1)+".";
-					emotion e_thx;
+					emotion ET_THANKS;
 				} else {
 					mes "密码错误. 我们不会归还您的 1000z.";
 					mes "请输入正确的密码，再试一次.";
-					emotion e_sry;
+					emotion ET_SORRY;
 				}
 				break;
 			case 3:
@@ -568,21 +568,21 @@ S_SET:
 	set @code,callfunc("F_EntKafCode");
 	if(!@code) {
 		mes "密码没有改变.";
-		emotion e_hmm;
+		emotion ET_SCRATCH;
 		return;
 	}
 	next;
 	mes .@npc_name$;
 	if(Zeny < 5000) {
 		mes "您没有足够的Zeny.";
-		emotion e_cash;
+		emotion ET_MONEY;
 		return;
 	}
 	set Zeny,Zeny-5000;
 	set #kafra_code,@code;
 	mes "您已经拥有了一个密码来保护您的仓库.";
 	mes "感谢您的使用 "+getarg(1)+".";
-	emotion e_thx;
+	emotion ET_THANKS;
 	return;
 }
 

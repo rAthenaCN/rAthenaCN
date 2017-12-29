@@ -31,7 +31,7 @@ prt_in,48,172,3	script	莫利孙#juice	62,{
 	if(MISC_QUEST&1 || @MORRISON > 10) {
 		mes "哼... 滚开! 别管我!";
 		mes "我会因为这些愚蠢的蔬菜水果而死, 你快滚一边去吧!";
-		emotion e_pif;
+		emotion ET_HNG;
 		close;
 	}
 	if(@MORRISON == 10) {
@@ -51,28 +51,28 @@ prt_in,48,172,3	script	莫利孙#juice	62,{
 	}
 	mes "啊.. 啊啊啊啊!!! 不.. 不吃";
 	mes "哼..不吃水果!!";
-	emotion e_sob;
+	emotion ET_CRY;
 	next;
 	if(select("对话:关闭")==2) {
 		mes "[小孩子 莫利孙]";
 		mes "啊啊啊啊!!受够了!!已经不能在吃水果了!";
 		mes "讲实话,水果呢~先要拨皮还有很多的水份.吃的时候感觉不舒服";
 		mes "而且会酸酸黏黏的..还吃不饱.啊啊啊啊!给我肉吧~";
-		emotion e_sob;
+		emotion ET_CRY;
 		close;
 	}
 	if(countitem(517)) {
 		mes "[小孩子 莫利孙]";
 		mes "啊啊! 肉.肉.噢";
 		mes "啊 肚 肚子饿了 真香  这  给我1块肉行不行?";
-		emotion e_ic;
+		emotion ET_AHA;
 		next;
 		next;
 		if(select("给他肉:不给他肉")==1) {
 			if(countitem(517) == 0) {
 				mes "哼... 滚开! 别管我!";
 				mes "我会因为这些愚蠢的蔬菜水果而死, 你快滚一边去吧!";
-				emotion e_pif;
+				emotion ET_HNG;
 				close;
 			}
 			delitem 517,1;
@@ -81,21 +81,21 @@ prt_in,48,172,3	script	莫利孙#juice	62,{
 			mes "哇~!!! 真的是肉耶! 肉!";
 			mes "咕噜! 我口水都流下来了.";
 			mes "真是太感谢你了. 我现在觉得快乐多了. 哈哈...";
-			emotion e_awsm;
+			emotion ET_COOL;
 			close;
 		}
 		set @MORRISON,11;
 		mes "[小孩子 莫利孙]";
 		mes "哼...";
 		mes "哼... 好... 很好, 非常好~!!! 自私的家伙!";
-		emotion e_bzz;
+		emotion ET_STARE;
 		close;
 	}
 	mes "[小孩子 莫利孙]";
 	mes "啊啊啊啊!!受够了!!已经不能在吃水果了!";
 	mes "讲实话,水果呢~先要拨皮还有很多的水份.吃的时候感觉不舒服";
 	mes "而且会酸酸黏黏的..还吃不饱.啊啊啊啊!给我肉吧~";
-	emotion e_wah;
+	emotion ET_KEK;
 	close;
 }
 
@@ -108,7 +108,7 @@ prt_in,49,172,2	script	玛丽亚棱#juice	53,{
 		mes "[家庭主妇 玛丽亚棱]";
 		mes "啊!好像有一个城市会把水果抹成泥状.";
 		mes "那是斐扬? 梦罗克";
-		emotion e_hmm;
+		emotion ET_SCRATCH;
 		set @MORRISON,0;
 		set MISC_QUEST,MISC_QUEST | 1;
 		close;
@@ -118,17 +118,17 @@ prt_in,49,172,2	script	玛丽亚棱#juice	53,{
 		mes "不!! 这..这到底";
 		mes "世界上怎么会发生这种事情!!你不要把奇怪的食物给我儿子吃!";
 		mes "哎呀~~真烦!! 快滚出去!";
-		emotion e_pif;
+		emotion ET_HNG;
 		close;
 	}
 	mes "莫利孙!!求你吃一点水果~!啊呦~!!活不下去了!";
 	mes "这个坏习惯真像你爸...";
-	emotion e_sob;
+	emotion ET_CRY;
 	next;
 	if(select("交谈:取消")==2) {
 		mes "[家庭主妇 玛丽亚棱]";
 		mes "莫利孙!! 你再这样我要发火了!";
-		emotion e_bzz;
+		emotion ET_STARE;
 		close;
 	}
 	mes "[家庭主妇 玛丽亚棱]";
@@ -206,7 +206,7 @@ payon_in03,188,146,5	script	马雷克汉森#juice	4_M_04,{
 				if(countitem(.@fruit) < .@make || countitem(713) <  .@make || Zeny < .@make * 3) {
 					mes "[商人马雷克汉森]";
 					mes "这个,这个...材料不够啊";
-					emotion e_gasp;
+					emotion ET_SURPRISE;
 					close;
 				}
 				break;
@@ -218,7 +218,7 @@ payon_in03,188,146,5	script	马雷克汉森#juice	4_M_04,{
 				if(.@make > 0) break;
 				mes "[商人马雷克汉森]";
 				mes "噢...您的材料不够呢!";
-				emotion e_gasp;
+				emotion ET_SURPRISE;
 				close;
 			case 3:
 				mes "[商人马雷克汉森]";

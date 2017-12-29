@@ -95,6 +95,6 @@ dicastes01,181,191,5	script	√∞œ’º“ ∞¢À’#info	4_M_SHADOWCHASER,2,2,{
 	}
 OnTouch:
 	if (ep13_3_invite == 6) 
-		emotion e_gasp,0;
+		emotion ET_SURPRISE,0;
 	end;
 }

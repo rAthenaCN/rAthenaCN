@@ -133,7 +133,7 @@
 	if (getequippercentrefinery(.@part) > rand(100) || getequippercentrefinery(.@part) > rand(100)) {
 		successrefitem .@part;
 		next;
-		emotion e_no1;
+		emotion ET_BEST;
 		mes "[铁匠 麦特·铁锤]";
 		mes "每当我的脑海中响起这种声音.";
 		mes "我就知道成功了, 拿去, 完美的作品!";
@@ -141,7 +141,7 @@
 	}
 	downrefitem .@part;
 	next;
-	emotion e_omg;
+	emotion ET_HUK;
 	mes "[铁匠 麦特·铁锤]";
 	mes "唉呀!!";
 	next;
@@ -282,7 +282,7 @@ lhz_in02,280,19,3	duplicate(MightyHammer)	麦特·铁锤#lhz	826
 	if (getequippercentrefinery(.@part) > rand(100) || getequippercentrefinery(.@part) > rand(100)) {
 		successrefitem .@part;
 		next;
-		emotion e_no1;
+		emotion ET_BEST;
 		mes "[巴斯塔]";
 		mes "很好! 干的漂亮!!";
 		mes "我真的是整个世界里最好的铁匠!";
@@ -290,7 +290,7 @@ lhz_in02,280,19,3	duplicate(MightyHammer)	麦特·铁锤#lhz	826
 	}
 	downrefitem .@part;
 	next;
-	emotion (!rand(5))?e_cash:e_omg;
+	emotion (!rand(5))?ET_MONEY:ET_HUK;
 	mes "[巴斯塔]";
 	mes "Aaaaaaaaaaak!!!";
 	next;

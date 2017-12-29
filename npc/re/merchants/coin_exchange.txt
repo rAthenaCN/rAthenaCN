@@ -971,13 +971,13 @@ ecl_in01,64,97,4	script	开洞专家纳图尔#ecl	4_F_FAIRYKID,{
 }
 
 ecl_in01,67,39,4	script	复制专家帕尔特	4_M_FAIRYKID4,{
-	emotion e_lv;
+	emotion ET_THROB;
 	mes "[帕尔特]";
 	mes "喔厚厚. 你需要点啥? 我这里有很多好东西.";
 	next;
 	switch(select("- 不了,谢谢.:- 再说一遍?:- 我知道你手里有不少好东西!")) {
 	case 1:
-		emotion e_an;
+		emotion ET_FRET;
 		mes "[帕尔特]";
 		mes "真的? 喔?";
 		close;
@@ -989,20 +989,20 @@ ecl_in01,67,39,4	script	复制专家帕尔特	4_M_FAIRYKID4,{
 		mes "无论这是啥, 我都会给你个好价钱的. 相信我.";
 		next;
 		select("你能为我做什么?");
-		emotion e_no1;
+		emotion ET_BEST;
 		mes "[帕尔特]";
 		mes "嘿,我喜欢你的态度.";
 		next;
 		mes "[帕尔特]";
 		mes "噢- 你现在带的那顶帽子";
 		next;
-		emotion e_what;
+		emotion ET_QUESTION;
 		mes "[帕尔特]";
 		mes "你还知道仓库里哪里有这样的坚固的不过十分丑的帽子么?你知道, 对吧?";
 		next;
 		select(".........");
-		emotion e_dots,1;
-		emotion e_heh;
+		emotion ET_THINK,1;
+		emotion ET_SMILE;
 		mes "[帕尔特]";
 		mes "看见了吧!我就知道. 从第一分钟看到你我就知道.";
 		next;
@@ -1018,7 +1018,7 @@ ecl_in01,67,39,4	script	复制专家帕尔特	4_M_FAIRYKID4,{
 		mes "我需要 1 ^0571B0帽子来复制^000000 同时";
 		mes "我需要^E1281E 4 水晶镜子^000000 来利用魔力, ^E1281E 1 精灵魔法粉末^000000 作为催化剂,和 ^E1281E 绿宝石, 红宝石, 蓝宝石, 黄宝石, 和皓石, 每样十个^000000, 来放大魔力.";
 		next;
-		emotion e_no;
+		emotion ET_STARE_ABOUT;
 		mes "[帕尔特]";
 		mes "这要挺多材料的,对吧? 好吧, 我必须要这些材料.与魔法打交道可不是儿戏.";
 		next;
@@ -1035,7 +1035,7 @@ ecl_in01,67,39,4	script	复制专家帕尔特	4_M_FAIRYKID4,{
 		mes "你觉得怎样? 如果有材料的佣金, 我马上就能给你做.";
 		next;
 		if(select("- 晚一些再说吧.:- 展示给我看!") == 1) {
-			emotion e_dots;
+			emotion ET_THINK;
 			mes "[帕尔特]";
 			mes "什么? 你在开玩笑吧? 请告诉我你是在开玩笑的!";
 			close;
@@ -1091,7 +1091,7 @@ ecl_in01,67,39,4	script	复制专家帕尔特	4_M_FAIRYKID4,{
 	mes "是 ^0571B0"+getitemname(.@item)+"^000000 么?";
 	next;
 	if (.@item_check == 0 || countitem(.@item) == 0) {
-		emotion e_sob;
+		emotion ET_CRY;
 		mes "[帕尔特]";
 		mes "呀... 赊账是不好的.";
 		next;

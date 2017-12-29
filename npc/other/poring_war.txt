@@ -1687,11 +1687,11 @@ OnTouch:
 	next;
 	mes "[波利]";
 	mes "出发! 战斗! 必胜, 必胜, 必胜!!!";
-	emotion e_go,0,"天使阵营波利#wa1";
-	emotion e_go,0,"天使阵营波利#wa2";
-	emotion e_go,0,"天使阵营波利#wa3";
-	emotion e_go,0,"天使阵营波利#wa4";
-	emotion e_go,0,"天使阵营波利#wa5";
+	emotion ET_GO, getnpcid(0, "天使阵营波利#wa1");
+	emotion ET_GO, getnpcid(0, "天使阵营波利#wa2");
+	emotion ET_GO, getnpcid(0, "天使阵营波利#wa3");
+	emotion ET_GO, getnpcid(0, "天使阵营波利#wa4");
+	emotion ET_GO, getnpcid(0, "天使阵营波利#wa5");
 	next;
 	if(wop_team == 1) {
 		mes "[波利]";
@@ -1705,20 +1705,20 @@ OnTouch:
 		mes "站住, 你! 你不是恶魔阵营的人吗?!";
 		mes "快滚! 离开这里!!";
 		mes "波波波波波~ 波波~ 波波波~";
-		emotion e_omg,0,"天使阵营波利#wa1";
-		emotion e_an,0,"天使阵营波利#wa2";
-		emotion e_omg,0,"天使阵营波利#wa3";
-		emotion e_an,0,"天使阵营波利#wa4";
-		emotion e_gasp,0,"天使阵营波利#wa5";
+		emotion ET_HUK, getnpcid(0, "天使阵营波利#wa1");
+		emotion ET_FRET, getnpcid(0, "天使阵营波利#wa2");
+		emotion ET_HUK, getnpcid(0, "天使阵营波利#wa3");
+		emotion ET_FRET, getnpcid(0, "天使阵营波利#wa4");
+		emotion ET_SURPRISE, getnpcid(0, "天使阵营波利#wa5");
 	}
 	else {
 		mes "[波利]";
 		mes "嘿, 人类. 和天使阵营一起感觉如何??!";
-		emotion e_hlp,0,"天使阵营波利#wa1";
-		emotion e_go,0,"天使阵营波利#wa2";
-		emotion e_hlp,0,"天使阵营波利#wa3";
-		emotion e_go,0,"天使阵营波利#wa4";
-		emotion e_go,0,"天使阵营波利#wa5";
+		emotion ET_HELP, getnpcid(0, "天使阵营波利#wa1");
+		emotion ET_GO, getnpcid(0, "天使阵营波利#wa2");
+		emotion ET_HELP, getnpcid(0, "天使阵营波利#wa3");
+		emotion ET_GO, getnpcid(0, "天使阵营波利#wa4");
+		emotion ET_GO, getnpcid(0, "天使阵营波利#wa5");
 	}
 	next;
 	mes "[波利]";
@@ -1740,11 +1740,11 @@ OnTouch:
 	next;
 	mes "[恶魔波利]";
 	mes "出发! 战斗! 为了胜利!!!!";
-	emotion e_go,0,"恶魔阵营波利#wd1";
-	emotion e_go,0,"恶魔阵营波利#wd2";
-	emotion e_go,0,"恶魔阵营波利#wd3";
-	emotion e_go,0,"恶魔阵营波利#wd4";
-	emotion e_go,0,"恶魔阵营波利#wd5";
+	emotion ET_GO, getnpcid(0, "恶魔阵营波利#wd1");
+	emotion ET_GO, getnpcid(0, "恶魔阵营波利#wd2");
+	emotion ET_GO, getnpcid(0, "恶魔阵营波利#wd3");
+	emotion ET_GO, getnpcid(0, "恶魔阵营波利#wd4");
+	emotion ET_GO, getnpcid(0, "恶魔阵营波利#wd5");
 	next;
 	if (wop_team == 2) {
 		mes "[恶魔波利]";
@@ -1757,20 +1757,20 @@ OnTouch:
 		mes "站住, 你! 你不是天使阵营的人吗?!";
 		mes "快滚! 离开这里!!";
 		mes "波波波波波~ 波~ 波波~";
-		emotion e_omg,0,"恶魔阵营波利#wd1";
-		emotion e_an,0,"恶魔阵营波利#wd2";
-		emotion e_omg,0,"恶魔阵营波利#wd3";
-		emotion e_an,0,"恶魔阵营波利#wd4";
-		emotion e_gasp,0,"恶魔阵营波利#wd5";
+		emotion ET_HUK, getnpcid(0, "恶魔阵营波利#wd1");
+		emotion ET_FRET, getnpcid(0, "恶魔阵营波利#wd2");
+		emotion ET_HUK, getnpcid(0, "恶魔阵营波利#wd3");
+		emotion ET_FRET, getnpcid(0, "恶魔阵营波利#wd4");
+		emotion ET_SURPRISE, getnpcid(0, "恶魔阵营波利#wd5");
 	}
 	else {
 		mes "[恶魔波利]";
 		mes "嘿, 人类. 要为恶魔战队战斗么, 为了黑暗? 想说什么?!";
-		emotion e_hlp,0,"恶魔阵营波利#wd1";
-		emotion e_go,0,"恶魔阵营波利#wd2";
-		emotion e_hlp,0,"恶魔阵营波利#wd3";
-		emotion e_go,0,"恶魔阵营波利#wd4";
-		emotion e_go,0,"恶魔阵营波利#wd5";
+		emotion ET_HELP, getnpcid(0, "恶魔阵营波利#wd1");
+		emotion ET_GO, getnpcid(0, "恶魔阵营波利#wd2");
+		emotion ET_HELP, getnpcid(0, "恶魔阵营波利#wd3");
+		emotion ET_GO, getnpcid(0, "恶魔阵营波利#wd4");
+		emotion ET_GO, getnpcid(0, "恶魔阵营波利#wd5");
 	}
 	next;
 	mes "[恶魔波利]";
