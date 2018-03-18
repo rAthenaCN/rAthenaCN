@@ -29,7 +29,7 @@
 //= 1.8 Updated to match the latest official script. [Euphy]
 //============================================================
 
-moc_para01,27,35,5	script	秘书莱美埃文诺	952,{
+moc_para01,27,35,5	script	秘书莱美埃文诺	4_F_EDEN_OFFICER,{
 	if (checkweight(1201,1) == 0 || (MaxWeight - Weight) < 2000) {
 		mes "- 等一下!! -";
 		mes "- 你身上带了太多的物品了. -";
@@ -258,6 +258,7 @@ izlude_c,131,148,4	duplicate(eto)	伊甸园官方传送官#30::eto_iz_c	729
 izlude_d,131,148,4	duplicate(eto)	伊甸园官方传送官#30::eto_iz_d	729
 umbala,105,158,3	duplicate(eto)	伊甸园官方传送官#31	729
 malaya,238,206,6	duplicate(eto)	伊甸园官方传送官#32	729
+verus04,116,243,0	duplicate(eto)	伊甸园官方传送官#33	729
 
 moc_para01,30,10,0	script	#eden_out	45,1,1,{
 OnTouch:
@@ -294,6 +295,7 @@ OnTouch:
 		case 30: warp "izlude",134,118; end;	// Old coordinates: (127,142)
 		case 31: warp "umbala",94,154; end;
 		case 32: warp "malaya",234,199; end;
+		case 33: warp "verus04",115,243; end;
 		default: warp "prontera",116,72; end;
 	}
 	end;

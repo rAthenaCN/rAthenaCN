@@ -304,7 +304,7 @@ int npc_rr_secure_timeout_timer(int tid, unsigned int tick, int id, intptr_t dat
 /*==========================================
  * Dequeue event and add timer for execution (100ms)
  *------------------------------------------*/
-int npc_event_dequeue(struct map_session_data* sd)
+int npc_event_dequeue(struct map_session_data* sd,bool free_script_stack)
 {
 	nullpo_ret(sd);
 
@@ -314,7 +314,7 @@ int npc_event_dequeue(struct map_session_data* sd)
 			clif_clearunit_single(sd->npc_id, CLR_OUTSIGHT, sd->fd);
 			sd->state.using_fake_npc = 0;
 		}
-		if (sd->st) {
+		if (free_script_stack&&sd->st) {
 			script_free_state(sd->st);
 			sd->st = NULL;
 		}
@@ -2026,7 +2026,7 @@ uint8 npc_selllist(struct map_session_data* sd, int n, unsigned short *item_list
 
 		if( sd->inventory_data[idx]->type == IT_PETEGG && sd->inventory.u.items_inventory[idx].card[0] == CARD0_PET )
 		{
-			if( search_petDB_index(sd->inventory.u.items_inventory[idx].nameid, PET_EGG) >= 0 )
+			if( pet_db_search(sd->inventory.u.items_inventory[idx].nameid, PET_EGG) )
 			{
 				intif_delete_petdata(MakeDWord(sd->inventory.u.items_inventory[idx].card[1], sd->inventory.u.items_inventory[idx].card[2]));
 			}
@@ -3595,10 +3595,11 @@ void npc_unsetcells(struct npc_data* nd)
 	map_foreachinallarea( npc_unsetcells_sub, m, x0, y0, x1, y1, BL_NPC, nd->bl.id );
 }
 
-void npc_movenpc(struct npc_data* nd, int16 x, int16 y)
+bool npc_movenpc(struct npc_data* nd, int16 x, int16 y)
 {
 	const int16 m = nd->bl.m;
-	if (m < 0 || nd->bl.prev == NULL) return;	//Not on a map.
+	if (m < 0 || nd->bl.prev == NULL) 
+		return false;	//Not on a map.
 
 	x = cap_value(x, 0, map[m].xs-1);
 	y = cap_value(y, 0, map[m].ys-1);
@@ -3606,6 +3607,7 @@ void npc_movenpc(struct npc_data* nd, int16 x, int16 y)
 	map_foreachinallrange(clif_outsight, &nd->bl, AREA_SIZE, BL_PC, &nd->bl);
 	map_moveblock(&nd->bl, x, y, gettick());
 	map_foreachinallrange(clif_insight, &nd->bl, AREA_SIZE, BL_PC, &nd->bl);
+	return true;
 }
 
 /// Changes the display name of the npc.

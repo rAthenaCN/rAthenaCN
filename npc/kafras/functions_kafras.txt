@@ -6,15 +6,15 @@
 //= Œ Ã‚∑¥¿° https://github.com/rAthenaCN/rAthenaCN/issues
 //============================================================
 
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Kafra Functions
-//===== By: ================================================== 
+//===== By: ==================================================
 //= rAthena Dev Team
 //= Darlskies, Darkchild, Syrus22, Lupus, kobra_k88 (2.0)
 //= L0ne_W0lf
-//===== Current Version: ===================================== 
+//===== Current Version: =====================================
 //= 6.8
-//===== Compatible With: ===================================== 
+//===== Compatible With: =====================================
 //= rAthena Project
 //===== Description: =========================================
 //= These functions handle save, storage, cart rental, teleport,
@@ -23,7 +23,7 @@
 //= Kafra's will need a lot of work. The Welcome Message argument
 //= may become obsolete, as most kafras have a slightly differing
 //= Welcome message.
-//===== Additional Comments: ================================= 
+//===== Additional Comments: =================================
 //= 1.1 Now using functions v2.1 Added Cart Rent for Classes: Whitesmith, Professor.
 //=     Replaced checkoption(x) into checkcart(0) [Lupus] v2.1b Added Fix Kafra Pass Func [Kobra_k88]
 //= 2.2 Final fix of the Kafra Pass Exploit! [Lupus] a -Izlude[4] fix
@@ -47,7 +47,7 @@
 //= 5.1a Temporary? Added F_ClearGarbage to clear unused/outdated variables [Lupus]
 //= 5.2 By default commented out custom Guilds Kafra's "Guild Storage". [Lupus]
 //= 5.3 uncommented Guild Storage. Confirmed kRO feature. [Lupus]
-//= 5.4 added -Guide option (Kafra shows you nearest Guide) Work in progress. 
+//= 5.4 added -Guide option (Kafra shows you nearest Guide) Work in progress.
 //=     Need all coords for all guides.. and somehow pass their coords to kafra.
 //=     Removed universal Kafra Pass, added 3 new Kafra Tickets [Lupus]
 //= 5.4b temporary moved "-Guide" from the 1st menu punct [Lupus]
@@ -55,7 +55,7 @@
 //=     Cleaned up the menus a bit. Got rid of the proceeding "-" prefix.
 //= 5.5b Missed a preceeding hyphen, which was screwing up teleporting. [L0ne_W0lf]
 //= 5.6 Further dialog updates, added  dynamic costs for cart and storage use. [L0ne_W0lf]
-//=     Updated some functions to handle Guild Kafras the way they should. 
+//=     Updated some functions to handle Guild Kafras the way they should.
 //= 5.6a Corrected a few wrong names in the teleport function. [L0ne_W0lf]
 //= 5.7 Correced end message no longer displaying, and the duplicate names [L0ne_W0lf]
 //=     Thanks to Barron-Monster for pointing out the issues.
@@ -71,7 +71,7 @@
 //= 6.6 Added Warp Points / View Points Function. [Joseph]
 //= 6.7 Added Rune Knight Kafra. [Euphy]
 //= 6.8 Updated some functions and added VIP features. [Euphy]
-//============================================================ 
+//============================================================
 
 //=== Main Function ========================================================
 //=   arg(0): Used to determine which welcome message to show.

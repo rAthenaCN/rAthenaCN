@@ -1,29 +1,19 @@
-<!-- NOTE: Anything within these brackets will be hidden on the preview of the Issue. -->
+<!-- 注意: 以下这些括号内的任何内容都会隐藏在问题的预览上. -->
 
-* **rAthena Hash**: 
+* **rAthenaCN Hash**: <!-- 请指明遇见问题的 rAthenaCN [GitHub hash](https://help.github.com/articles/autolinked-references-and-urls/#commit-shas). -->
 
-<!-- Please specify the rAthena [GitHub hash](https://help.github.com/articles/autolinked-references-and-urls/#commit-shas) on which you encountered this issue. 
-How to get your GitHub Hash:
-1. cd your/rAthena/directory/
-2. git rev-parse --short HEAD
-3. Copy the resulting hash.
--->
+* **客户端日期**: <!-- 请指明您使用的客户端版本日期. -->
 
-* **Client Date**: 
+* **服务端模式**: <!-- 请指明您使用的模式: 复兴前(二转) 还是 复兴后(三转)? -->
 
-<!-- Please specify the client date you used. -->
-
-* **Server Mode**: 
-
-<!-- Which mode does your server use: Pre-Renewal or Renewal? -->
-
-* **Description of Issue**: 
-  * Result: <!-- Describe the issue that you experienced in detail. -->
-  * Expected Result: <!-- Describe what you would expect to happen in detail. -->
-  * How to Reproduce: <!-- If you have not stated in the description of the result already, please give us a short guide how we can reproduce your issue. -->
-  * Official Information:<!-- If possible, provide information from official servers (kRO or other sources) which prove that the result is wrong. Please take into account that iRO (especially iRO Wiki) is not always the same as kRO. -->
-  <!-- * _NOTE: Make sure you quote ``` `@atcommands` ``` just like this so that you do not tag uninvolved GitHub users!_ -->
-
-* **Modifications that may affect results**: 
-  <!-- * Please provide any information that could influence the expected result. -->
-  <!-- * This can be either configurations you changed, database values you changed, or even external source modifications. -->
+* **问题说明**: 
+ 
+  * 发生的错误: <!-- 请描述下您所经历的问题. -->
+  
+  * 期望的修正: <!-- 请描述下您所期望的修正. -->
+  
+  * 错误如何重现: <!-- 如果您不能正确描述所经历的问题, 那请给我们操作方法, 我们可按照此方法重现问题并加以修正. -->
+  
+  * 官方信息: <!-- 如果可以的话, 可以提供官方信息(KRO或其他来源), 以此来证明结果是错误的. 要注意的是, 不同国家对RO的定义略有不同. -->
+  
+* **可能是正确的修正建议**: <!-- 请提供任何可能是正确的修正建议. 这可以是您修正的配置, 数据库, 也可以是外部源的修改. -->

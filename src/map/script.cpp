@@ -5087,6 +5087,20 @@ BUILDIN_FUNC(next)
 	return SCRIPT_CMD_SUCCESS;
 }
 
+/// Clears the dialog and continues the script without a next button.
+///
+/// clear;
+BUILDIN_FUNC(clear)
+{
+	TBL_PC* sd;
+
+	if (!script_rid2sd(sd))
+		return SCRIPT_CMD_FAILURE;
+
+	clif_scriptclear(sd, st->oid);
+	return SCRIPT_CMD_SUCCESS;
+}
+
 /// Ends the script and displays the button 'close' on the npc dialog.
 /// The dialog is closed when the button is pressed.
 ///
@@ -10096,22 +10110,23 @@ BUILDIN_FUNC(cooking)
  *------------------------------------------*/
 BUILDIN_FUNC(makepet)
 {
-	TBL_PC* sd;
-	int id,pet_id;
+	struct map_session_data* sd;
+	uint16 mob_id;
+	struct s_pet_db* pet;
 
 	if( !script_rid2sd(sd) )
-		return SCRIPT_CMD_SUCCESS;
+		return SCRIPT_CMD_FAILURE;
 
-	id=script_getnum(st,2);
+	mob_id = script_getnum(st,2);
+	pet = pet_db(mob_id);
 
-	pet_id = search_petDB_index(id, PET_CLASS);
-
-	if (pet_id < 0)
-		pet_id = search_petDB_index(id, PET_EGG);
-	if (pet_id >= 0 && sd) {
-		sd->catch_target_class = pet_db[pet_id].class_;
-		intif_create_pet(sd->status.account_id, sd->status.char_id, pet_db[pet_id].class_, mob_db(pet_db[pet_id].class_)->lv, pet_db[pet_id].EggID, 0, pet_db[pet_id].intimate, 100, 0, 1, pet_db[pet_id].jname);
+	if( !pet ){
+		ShowError( "buildin_makepet: failed to create a pet with mob id %hu\n", mob_id);
+		return SCRIPT_CMD_FAILURE;
 	}
+
+	sd->catch_target_class = mob_id;
+	intif_create_pet( sd->status.account_id, sd->status.char_id, pet->class_, mob_db(pet->class_)->lv, pet->EggID, 0, pet->intimate, 100, 0, 1, pet->jname );
 
 	return SCRIPT_CMD_SUCCESS;
 }
@@ -18598,7 +18613,7 @@ BUILDIN_FUNC(unitskillusepos)
 
 /// Pauses the execution of the script, detaching the player
 ///
-/// sleep <mili seconds>;
+/// sleep <milli seconds>;
 BUILDIN_FUNC(sleep)
 {
 	// First call(by function call)
@@ -18608,7 +18623,7 @@ BUILDIN_FUNC(sleep)
 		ticks = script_getnum(st, 2);
 
 		if (ticks <= 0) {
-			ShowError("buildin_sleep2: negative amount('%d') of milli seconds is not supported\n", ticks);
+			ShowError("buildin_sleep: negative or zero amount('%d') of milli seconds is not supported\n", ticks);
 			return SCRIPT_CMD_FAILURE;
 		}
 
@@ -18641,7 +18656,7 @@ BUILDIN_FUNC(sleep2)
 		ticks = script_getnum(st, 2);
 
 		if (ticks <= 0) {
-			ShowError( "buildin_sleep2: negative amount('%d') of milli seconds is not supported\n", ticks );
+			ShowError( "buildin_sleep2: negative or zero amount('%d') of milli seconds is not supported\n", ticks );
 			return SCRIPT_CMD_FAILURE;
 		}
 
@@ -18979,7 +18994,7 @@ BUILDIN_FUNC(mercenary_create)
 
 	class_ = script_getnum(st,2);
 
-	if( !mercenary_class(class_) )
+	if( !mercenary_db(class_) )
 		return SCRIPT_CMD_SUCCESS;
 
 	contract_time = script_getnum(st,3);
@@ -20992,16 +21007,16 @@ BUILDIN_FUNC(checkre)
 	return SCRIPT_CMD_SUCCESS;
 }
 
-/* getrandgroupitem <group_id>{,<quantity>{,<sub_group>}} */
+/* getrandgroupitem <group_id>{,<quantity>{,<sub_group>{,<identify>{,<char_id>}}}} */
 BUILDIN_FUNC(getrandgroupitem) {
 	TBL_PC* sd;
-	int i, get_count = 0;
+	int i, get_count = 0, identify = 0;
 	uint16 group, qty = 0;
 	uint8 sub_group = 1;
 	struct item item_tmp;
 	struct s_item_group_entry *entry = NULL;
 
-	if (!script_rid2sd(sd))
+	if (!script_charid2sd(6, sd))
 		return SCRIPT_CMD_SUCCESS;
 
 	group = script_getnum(st,2);
@@ -21013,6 +21028,7 @@ BUILDIN_FUNC(getrandgroupitem) {
 
 	FETCH(3, qty);
 	FETCH(4, sub_group);
+	FETCH(5, identify);
 
 	entry = itemdb_get_randgroupitem(group,sub_group);
 	if (!entry)
@@ -21020,7 +21036,7 @@ BUILDIN_FUNC(getrandgroupitem) {
 
 	memset(&item_tmp,0,sizeof(item_tmp));
 	item_tmp.nameid   = entry->nameid;
-	item_tmp.identify = itemdb_isidentified(entry->nameid);
+	item_tmp.identify = identify ? 1 : itemdb_isidentified(entry->nameid);
 
 	if (!qty)
 		qty = entry->amount;
@@ -21050,17 +21066,17 @@ BUILDIN_FUNC(getrandgroupitem) {
 	return SCRIPT_CMD_SUCCESS;
 }
 
-/* getgroupitem <group_id>{,<char_id>};
+/* getgroupitem <group_id>{,<identify>{,<char_id>}};
  * Gives item(s) to the attached player based on item group contents
  */
 BUILDIN_FUNC(getgroupitem) {
 	TBL_PC *sd;
 	int group_id = script_getnum(st,2);
 	
-	if (!script_charid2sd(3,sd))
+	if (!script_charid2sd(4,sd))
 		return SCRIPT_CMD_SUCCESS;
 	
-	if (itemdb_pc_get_itemgroup(group_id,sd)) {
+	if (itemdb_pc_get_itemgroup(group_id, (script_hasdata(st, 3) ? script_getnum(st, 3) != 0 : false), sd)) {
 		ShowError("buildin_getgroupitem: Invalid group id '%d' specified.\n",group_id);
 		return SCRIPT_CMD_FAILURE;
 	}
@@ -23696,6 +23712,36 @@ BUILDIN_FUNC(round) {
 	return SCRIPT_CMD_SUCCESS;
 }
 
+BUILDIN_FUNC(getequiptradability) {
+	int i, num;
+	TBL_PC *sd;
+
+	num = script_getnum(st, 2);
+
+	if (!script_charid2sd(3, sd)) {
+		return SCRIPT_CMD_FAILURE;
+	}
+
+	if (equip_index_check(num))
+		i = pc_checkequip(sd, equip_bitmask[num]);
+	else{
+		ShowError("buildin_getequiptradability: Unknown equip index '%d'\n",num);
+		return SCRIPT_CMD_FAILURE;
+	}
+
+	if (i >= 0) {
+		bool tradable = (sd->inventory.u.items_inventory[i].expire_time == 0 &&
+			(!sd->inventory.u.items_inventory[i].bound || pc_can_give_bounded_items(sd)) &&
+			itemdb_cantrade(&sd->inventory.u.items_inventory[i], pc_get_group_level(sd), pc_get_group_level(sd))
+			);
+		script_pushint(st, tradable);
+	}
+	else
+		script_pushint(st, false);
+
+	return SCRIPT_CMD_SUCCESS;
+}
+
 #include "../custom/script.inc"
 
 // declarations that were supposed to be exported from npc_chat.c
@@ -23750,6 +23796,7 @@ struct script_function buildin_func[] = {
 	// NPC interaction
 	BUILDIN_DEF(mes,"s*"),
 	BUILDIN_DEF(next,""),
+	BUILDIN_DEF(clear,""),
 	BUILDIN_DEF(close,""),
 	BUILDIN_DEF(close2,""),
 	BUILDIN_DEF(menu,"sl*"),
@@ -23920,6 +23967,8 @@ struct script_function buildin_func[] = {
 	BUILDIN_DEF(debugmes,"s"),
 	BUILDIN_DEF2(catchpet,"pet","i"),
 	BUILDIN_DEF2(birthpet,"bpet",""),
+	BUILDIN_DEF(catchpet,"i"),
+	BUILDIN_DEF(birthpet,""),
 	BUILDIN_DEF(resetlvl,"i?"),
 	BUILDIN_DEF(resetstatus,"?"),
 	BUILDIN_DEF(resetskill,"?"),
@@ -24220,7 +24269,7 @@ struct script_function buildin_func[] = {
 	BUILDIN_DEF(get_revision,""),
 	BUILDIN_DEF(get_githash,""),
 	BUILDIN_DEF(freeloop,"?"),
-	BUILDIN_DEF(getrandgroupitem,"i??"),
+	BUILDIN_DEF(getrandgroupitem,"i????"),
 	BUILDIN_DEF(cleanmap,"s"),
 	BUILDIN_DEF2(cleanmap,"cleanarea","siiii"),
 	BUILDIN_DEF(npcskill,"viii"),
@@ -24267,7 +24316,7 @@ struct script_function buildin_func[] = {
 	BUILDIN_DEF(vip_time,"i?"),
 	BUILDIN_DEF(bonus_script,"si????"),
 	BUILDIN_DEF(bonus_script_clear,"??"),
-	BUILDIN_DEF(getgroupitem,"i?"),
+	BUILDIN_DEF(getgroupitem,"i??"),
 	BUILDIN_DEF(enable_command,""),
 	BUILDIN_DEF(disable_command,""),
 	BUILDIN_DEF(getguildmember,"i??"),
@@ -24341,6 +24390,7 @@ struct script_function buildin_func[] = {
 	BUILDIN_DEF2(round, "round", "i"),
 	BUILDIN_DEF2(round, "ceil", "i"),
 	BUILDIN_DEF2(round, "floor", "i"),
+	BUILDIN_DEF(getequiptradability, "i?"),
 #include "../custom/script_def.inc"
 
 	{NULL,NULL,NULL},

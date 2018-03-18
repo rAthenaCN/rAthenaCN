@@ -25,7 +25,7 @@
 //============================================================
 
 //==================================================
-// niflheim - Nifflheim, Realm of the Dead
+// niflheim - Niflheim, Realm of the Dead
 //==================================================
 niflheim,0,0,0,0	monster	南瓜魂	1509,20,5000,0,0
 niflheim,0,0,0,0	monster	万圣魔	1508,20,5000,0,0
@@ -34,7 +34,7 @@ niflheim,0,0,0,0	monster	兔斯拉	1510,10,5000,0,0
 niflheim,0,0,0,0	monster	无颅武士	1504,5,5000,0,0
 
 //==================================================
-// nif_fild01 - Skellington, a Solitary Village in Nifflheim
+// nif_fild01 - Skellington, a Solitary Village in Niflheim
 //==================================================
 nif_fild01,0,0,0,0	monster	假面鬼	1506,50,5000,0,0
 nif_fild01,0,0,0,0	monster	万圣魔	1508,30,5000,0,0

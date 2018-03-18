@@ -572,8 +572,8 @@ struct map_session_data {
 
 	char fakename[NAME_LENGTH]; // fake names [Valaris]
 
-	int duel_group; // duel vars [LuzZza]
-	int duel_invite;
+	size_t duel_group; // duel vars [LuzZza]
+	size_t duel_invite;
 
 	int killerrid, killedrid;
 
@@ -607,7 +607,6 @@ struct map_session_data {
 		int total_score;                  ///< Total achievement points
 		int level;                        ///< Achievement level
 		bool save;                        ///< Flag to know if achievements need to be saved
-		bool sendlist;                    ///< Flag to know if all achievements should be sent to the player (refresh list if an achievement has a title)
 		uint16 count;                     ///< Total achievements in log
 		uint16 incompleteCount;           ///< Total incomplete achievements in log
 		struct achievement *achievements; ///< Achievement log entries

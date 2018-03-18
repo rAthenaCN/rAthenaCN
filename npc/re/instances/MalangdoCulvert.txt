@@ -1046,7 +1046,7 @@ OnTouch:
 2@pump,1,1,4	duplicate(怪物洞#n)	怪物洞#h	-1
 2@pump,1,1,4	duplicate(Boss Creation#n)	Boss Creation#h	-1
 2@pump,39,88,4	duplicate(清洁工小林#no)	清洁工小林#ho	545
-2@pump,38,100,0	duplicate(排水沟入口#n)	排水沟入口#h	45,3,3
+2@pump,38,100,0	duplicate(排水沟入口#n)	排水沟入口#h	3,3
 
 //MD_Putmob "2@pump" 0 0 0 0 20 海德拉 0 0 2
 2@pump,1,1,4	duplicate(海德拉#n)	海德拉#h	-1

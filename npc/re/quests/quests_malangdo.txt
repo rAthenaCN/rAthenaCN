@@ -10668,6 +10668,7 @@ mal_in01,15,16,3	script	堕落天使#mal	403,{
 		}
 		specialeffect2 EF_REPAIRWEAPON;
 		progressbar "ffff00",2;
+		setarray .@equip_card[0], getequipcardid(EQI_GARMENT,0),getequipcardid(EQI_GARMENT,1),getequipcardid(EQI_GARMENT,2),getequipcardid(EQI_GARMENT,3);
 		if (getequipisequiped(EQI_GARMENT) == 0) {
 			mes "[堕落天使]";
 			mes "您没有装备天使之翼!";
@@ -10683,13 +10684,12 @@ mal_in01,15,16,3	script	堕落天使#mal	403,{
 			mes "如果您支付不了,我就不能为您服务!";
 			close;
 		}
-		if (getequipcardid(EQI_GARMENT,3) < 4700) { // Armor Enchant System
+		if (callfunc("F_IsCharm",.@equip_card[3]) == false) {
 			mes "[堕落天使]";
 			mes "该装备还没有附魔,请检查一遍!";
 			close;
 		}
 		set .@equip_refine, getequiprefinerycnt(EQI_GARMENT);
-		setarray .@equip_card[0], getequipcardid(EQI_GARMENT,0),getequipcardid(EQI_GARMENT,1),getequipcardid(EQI_GARMENT,2);
 		delitem 6417,3; //Silvervine
 		delequip EQI_GARMENT;
 		getitem2 2573,1,1,.@equip_refine,0,.@equip_card[0],.@equip_card[1],.@equip_card[2],0; //Archangel_Wing
