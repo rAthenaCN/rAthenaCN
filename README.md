@@ -1,9 +1,9 @@
 rAthenaCN 汉化项目组
 =======
 
-Build Status: [![Build Status](https://travis-ci.org/rathena/rathena.png?branch=master)](http://www.rAthenaCN.com)
+构建状态: [![Build Status](https://travis-ci.org/rathena/rathena.png?branch=master)](http://www.rAthenaCN.com)
 
-Table of Contents
+目录
 ---------
 1. 项目普及
 2. 获取准备
@@ -14,18 +14,13 @@ Table of Contents
 
 1. 项目普及
 ---------
-rAthena is a collaborative software development project revolving around the
-creation of a robust massively multiplayer online role playing game (MMORPG)
-server package. Written in C, the program is very versatile and provides NPCs,
-warps and modifications. The project is jointly managed by a group of volunteers
-located around the world as well as a tremendous community providing QA and
-support. rAthena is a continuation of the eAthena project.
+rAthena是一个协作软件开发项目，围绕创建强大的大型多人在线角色扮演游戏（MMORPG）服务器包进行。
+用C编写，该程序非常灵活，可以提供NPC修改。该项目由世界各地的一组志愿者共同管理，
+以及提供质量保证和支持的巨大社区。rAthena是eAthena项目的延续。
 
 2. 获取准备
 ---------
-Before installing rAthena there are certain tools and applications you will need.
-This differs between the varying operating systems available, so the following
-is broken down into Windows and Linux prerequisites.
+在安装rAthena之前，您将需要某些工具和应用程序。这在可用的不同操作系统之间有所不同，所以下面将分解为Windows和Linux的先决条件。
 
 * Windows
 	* MySQL ( http://www.mysql.com/downloads/mysql/ )
@@ -34,7 +29,7 @@ is broken down into Windows and Linux prerequisites.
 	* TortoiseGIT ( http://code.google.com/p/tortoisegit/ )
 	* MSysGit ( http://msysgit.github.io/ or https://github.com/msysgit/git/releases )
 
-* Linux (names of packages may require specific version numbers on certain distributions)
+* Linux (软件包的名称可能需要某些分发版本的特定版本号)
 	* gcc
 	* make
 	* mysql
@@ -46,8 +41,7 @@ is broken down into Windows and Linux prerequisites.
 
 3. 安装指南 
 ---------
-This section is a very brief set of installation instructions. For more concise guides
-relevant to your Operation System, please refer to the Wiki (links at the end of this file).
+本节是一组非常简短的安装说明。有关您的操作系统的更简明指南，请参阅Wiki (文末尾的链接)
 
 * Windows
 	* Install prerequisites
@@ -96,13 +90,12 @@ relevant to your Operation System, please refer to the Wiki (links at the end of
 
 4. 解决方案
 ---------
-If you're having problems with starting your server, the first thing you should
-do is check what's happening on your consoles. More often that not, all support issues
-can be solved simply by looking at the error messages given.
+如果您在启动服务器时遇到问题，您应该做的第一件事是检查控制台上发生了什么。
+更常见的情况不是，所有支持问题都可以通过查看给出的错误信息来解决。
 
-Examples:
+例子:
 
-* You get an error on your map-server that looks something like this:
+* 您的地图服务器上出现如下错误:
 
 			[Error]: npc_parsesrcfile: Unable to parse, probably a missing or extra TAB in 
 				file 'npc/custom/jobmaster.txt', line '17'. Skipping line...
@@ -111,8 +104,8 @@ Examples:
 				* w3=123,{
 				* w4=
 
-    If you look at the error, it's telling you that you're missing (or have an extra) TAB.
-		This is easily fixed by looking at this part of the error:
+    如果你看看这个错误，它会告诉你你错过了 (或者有一个额外的) TAB.
+		通过查看这部分错误可以很容易地解决这个问题:
 
 				* w1=prontera,153,193,6 script
 
@@ -181,8 +174,5 @@ Examples:
 
 6. 更多文档
 ---------
-rAthena has a large collection of help files and sample NPC scripts located in the /doc/
-directory. These include detailed explanations of NPC script commands, atcommands (@),
-group permissions, item bonuses, and packet structures, among many other topics. We
-recommend that all users take the time to look over this directory before asking for
-assistance elsewhere.
+rAthena拥有大量的帮助文件和位于/ doc /目录中的示例NPC脚本。这些包括对NPC脚本命令，atcommands（@），
+组权限，项目奖金和数据包结构以及许多其他主题的详细解释。我们建议所有用户花时间在其他地方寻求帮助之前查看此目录。
