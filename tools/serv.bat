@@ -2,6 +2,7 @@
 IF "%1"=="" GOTO DIRECT
 IF "%2"=="" GOTO DIRECT
 IF NOT EXIST "%1" GOTO NOTFOUND
+GOTO START_RA
 
 IF "%3"=="" ( set "restart_mode=on"
 ) else set "restart_mode=%~3"
