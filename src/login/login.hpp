@@ -111,6 +111,13 @@ struct Login_Config {
 		unsigned int char_increase;					/// number of char-slot to increase in VIP state
 	} vip_sys;
 #endif
+
+//= 登录时[客户端]显示在线虚拟人数 ==========================================
+	int fake_user_head;
+	int fake_user_first;
+	int fake_user_second;
+//===========================================================================
+
 };
 extern struct Login_Config login_config;
 

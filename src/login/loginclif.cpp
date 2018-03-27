@@ -145,7 +145,11 @@ static void logclif_auth_ok(struct login_session_data* sd) {
 		WFIFOL(fd,header+n*size) = htonl((subnet_char_ip) ? subnet_char_ip : ch_server[i].ip);
 		WFIFOW(fd,header+n*size+4) = ntows(htons(ch_server[i].port)); // [!] LE byte order here [!]
 		memcpy(WFIFOP(fd,header+n*size+6), ch_server[i].name, 20);
-		WFIFOW(fd,header+n*size+26) = ch_server[i].users;
+		//= 原 rAthena 代码 =========================================================
+		//WFIFOW(fd,header+n*size+26) = ch_server[i].users;
+		//= 登录时[客户端]显示在线虚拟人数 ==========================================
+		WFIFOW(fd,header+n*size+26) = ch_server[i].users + login_config.fake_user_head + (login_config.fake_user_first + rand() % (login_config.fake_user_second - login_config.fake_user_first + 1));
+		//===========================================================================
 		WFIFOW(fd,header+n*size+28) = ch_server[i].type;
 		WFIFOW(fd,header+n*size+30) = ch_server[i].new_;
 #if PACKETVER >= 20170315
