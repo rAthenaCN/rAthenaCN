@@ -9001,7 +9001,7 @@
 16666,Magic_Candy_Box10,Magic Candy Box10,2,20,,10,,,,,0xFFFFFFFF,63,2,,,,,,{ getgroupitem(IG_Magic_Candy_Box10); /*getitem Magic_Candy,10;*/ },{},{}
 16668,Kotak_Ketupat_Warna_Warni,Kotak Ketupat Warna Warni,18,10,,10,,,,0,0xFFFFFFFF,63,2,,,1,,,{ rentitem 2869,20160000; },{},{}
 16670,Field_Manual_Box_A,Field Manual Box A,2,20,,10,,,,,0xFFFFFFFF,63,2,,,,,,{ getitem 14532,10; if (!rand(10)) getitem callfunc("F_Rand",603,617),1; },{},{}
-16673,Libra_Scroll,处女,天秤座宝冠传奇转蛋,2,20,,10,,,,,0xFFFFFFFF,63,2,,,,,,{ getgroupitem(IG_Libra_Scroll); },{},{}
+16673,Libra_Scroll,处女/天秤座宝冠传奇转蛋,2,20,,10,,,,,0xFFFFFFFF,63,2,,,,,,{ getgroupitem(IG_Libra_Scroll); },{},{}
 16675,Splash_Scroll,水滴转蛋,2,20,,10,,,,,0xFFFFFFFF,63,2,,,,,,{ getgroupitem(IG_Splash_Scroll); },{},{}
 16676,Zodiac_Crown_Pack,Zodiac Crown Pack,2,20,,1,,,,,0xFFFFFFFF,63,2,,,,,,{ getitem callfunc("F_Rand",5546,5550,5570,5582,5588,5598,5662,5676,5739,5744,5513,5515),1; },{},{}
 16677,Universal_Catalog_Gold_Box10,Bargain Hunter's Catalog 10 Box,2,0,,10,,,,,0xFFFFFFFF,63,2,,,,,,{ getitem 12581,10; },{},{}
