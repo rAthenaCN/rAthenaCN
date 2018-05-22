@@ -416,3 +416,7 @@ moc_para01,20,35,5	script	办公室助理内德	814,{
 	mes "呃? 你听到什么了? 天哪~!";
 	close;
 }
+
+function	script	F_HasEdenGroupMark	{
+	return (countitem(6219) > 0 || countitem(22508) > 0);
+}
