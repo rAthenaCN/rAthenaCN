@@ -3170,9 +3170,9 @@
 4991,ASPD_Supplement_Reactor,辅助附魔_ASPD,6,0,,,,,,,,,,,,,,,{ bonus bAspd,1; },{},{}
 4992,HPAbsorb1_Supplement_Reactor,HP吸收1,6,0,,,,,,,,,,,,,,,{ bonus2 bHPDrainRate,10,1; },{},{}
 4993,SPAbsorb1_Supplement_Reactor,SP吸收1,6,0,,,,,,,,,,,,,,,{ bonus2 bSPDrainRate,10,1; },{},{}
-4994,Rune_of_Strength_Lv_1,力量尼夫v 1Lv,6,20,,,,,,,,,,,,,,,{ .@r = getrefine(); if (.@r>=7) { bonus bStr,5; } if (.@r>=10) { bonus bAtkRate,5; } },{},{}
-4995,Rune_of_Strength_Lv_2,力量尼夫v 2Lv,6,20,,,,,,,,,,,,,,,{ .@r = getrefine(); if (.@r>=7) { bonus bStr,6; } if (.@r>=11) { bonus bStr,1; bonus bAtkRate,7; } },{},{}
-4996,Rune_of_Strength_Lv_3,力量尼夫v 3Lv,6,20,,,,,,,,,,,,,,,{ .@r = getrefine(); if (.@r>=7) { bonus bStr,7; } if (.@r>=12) { bonus bStr,1; bonus bAtkRate,8; } if (.@r>=13) { bonus bStr,1; bonus bAtkRate,2; } },{},{}
+4994,Rune_of_Strength_Lv_1,力量尼夫v 1Lv,6,20,,,,,,,,,,,,,,,{ .@r = getrefine(); if (.@r>=7) { bonus bStr,5; } if (.@r>=10) { bonus2 bAddClass,Class_All,5; } },{},{}
+4995,Rune_of_Strength_Lv_2,力量尼夫v 2Lv,6,20,,,,,,,,,,,,,,,{ .@r = getrefine(); if (.@r>=7) { bonus bStr,6; } if (.@r>=11) { bonus bStr,1; bonus2 bAddClass,Class_All,7; } },{},{}
+4996,Rune_of_Strength_Lv_3,力量尼夫v 3Lv,6,20,,,,,,,,,,,,,,,{ .@r = getrefine(); if (.@r>=7) { bonus bStr,7; } if (.@r>=12) { bonus bStr,1; bonus2 bAddClass,Class_All,8; } if (.@r>=13) { bonus bStr,1; bonus2 bAddClass,Class_All,2; } },{},{}
 4997,Rune_of_Agility_Lv_1,敏捷尼夫v 1Lv,6,20,,,,,,,,,,,,,,,{ .@r = getrefine(); if (.@r>=7) { bonus bAgi,5; } if (.@r>=10) { bonus bFlee2,5; } },{},{}
 4998,Rune_of_Agility_Lv_2,敏捷尼夫v 2Lv,6,20,,,,,,,,,,,,,,,{ .@r = getrefine(); if (.@r>=7) { bonus bAgi,6; } if (.@r>=11) { bonus bAgi,1; bonus bFlee2,7; } },{},{}
 4999,Rune_of_Agility_Lv_3,敏捷尼夫v 3Lv,6,20,,,,,,,,,,,,,,,{ .@r = getrefine(); if (.@r>=7) { bonus bAgi,7; } if (.@r>=12) { bonus bAgi,1; bonus bFlee2,5; } if (.@r>=13) { bonus bAgi,1; bonus bFlee2,5; } },{},{}
@@ -8575,12 +8575,12 @@
 14612,M_Mdef_Potion,中型魔法防御药水,11,0,,10,,,,,0xFFFFFFFF,63,2,,,,,,{ specialeffect2 EF_SPELLBREAKER; sc_start SC_MDEF_RATE,120000,3; },{},{}
 14613,RWC_Scroll_2012,2012 RWC转蛋,2,20,,10,,,,,0xFFFFFFFF,63,2,,,,,,{ getgroupitem(IG_RWC_Scroll_2012); },{},{}
 14614,Ex_Def_Potion,特级防御药水,2,0,,10,,,,,0xFFFFFFFF,63,2,,,,,,{ specialeffect2 EF_GUARD; sc_start SC_DEF_RATE,1800000,3; sc_start SC_MDEF_RATE,1800000,3; },{},{}
-14616,STR_Biscuit_Stick,力量棒棒条[活动专用],18,1,,10,,,,,0xFFFFFFFF,63,2,,,,,,{ sc_start SC_FOOD_STR_CASH,1800000,15; sc_start SC_ATKPOTION,600000,rand(11,111); },{},{}
-14617,VIT_Biscuit_Stick,体力棒棒条[活动专用],18,1,,10,,,,,0xFFFFFFFF,63,2,,,,,,{ sc_start SC_FOOD_VIT_CASH,1800000,15; bonus_script "{ bonus bHPRecovRate,rand(11,33); }",1800,1; },{},{}
-14618,AGI_Biscuit_Stick,敏捷棒棒条[活动专用],18,1,,10,,,,,0xFFFFFFFF,63,2,,,,,,{ sc_start SC_FOOD_AGI_CASH,1800000,15; sc_start SC_FLEEFOOD,600000,rand(11,33); },{},{}
-14619,INT_Biscuit_Stick,智慧棒棒条[活动专用],18,1,,10,,,,,0xFFFFFFFF,63,2,,,,,,{ sc_start SC_FOOD_INT_CASH,1800000,15; sc_start SC_MATKPOTION,600000,rand(11,111); },{},{}
-14620,DEX_Biscuit_Stick,灵巧棒棒条[活动专用],18,1,,10,,,,,0xFFFFFFFF,63,2,,,,,,{ sc_start SC_FOOD_DEX_CASH,1800000,15; sc_start SC_HITFOOD,600000,rand(11,33); },{},{}
-14621,LUK_Biscuit_Stick,幸运棒棒条[活动专用],18,1,,10,,,,,0xFFFFFFFF,63,2,,,,,,{ sc_start SC_FOOD_LUK_CASH,1800000,15; sc_start SC_CRIFOOD,600000,rand(11,33); },{},{}
+14616,STR_Biscuit_Stick,力量棒棒条[活动专用],2,1,,10,,,,,0xFFFFFFFF,63,2,,,,,,{ sc_start SC_FOOD_STR_CASH,1800000,15; sc_start SC_ATKPOTION,600000,rand(11,111); },{},{}
+14617,VIT_Biscuit_Stick,体力棒棒条[活动专用],2,1,,10,,,,,0xFFFFFFFF,63,2,,,,,,{ sc_start SC_FOOD_VIT_CASH,1800000,15; bonus_script "{ bonus bHPRecovRate,rand(11,33); }",1800,1; },{},{}
+14618,AGI_Biscuit_Stick,敏捷棒棒条[活动专用],2,1,,10,,,,,0xFFFFFFFF,63,2,,,,,,{ sc_start SC_FOOD_AGI_CASH,1800000,15; sc_start SC_FLEEFOOD,600000,rand(11,33); },{},{}
+14619,INT_Biscuit_Stick,智慧棒棒条[活动专用],2,1,,10,,,,,0xFFFFFFFF,63,2,,,,,,{ sc_start SC_FOOD_INT_CASH,1800000,15; sc_start SC_MATKPOTION,600000,rand(11,111); },{},{}
+14620,DEX_Biscuit_Stick,灵巧棒棒条[活动专用],2,1,,10,,,,,0xFFFFFFFF,63,2,,,,,,{ sc_start SC_FOOD_DEX_CASH,1800000,15; sc_start SC_HITFOOD,600000,rand(11,33); },{},{}
+14621,LUK_Biscuit_Stick,幸运棒棒条[活动专用],2,1,,10,,,,,0xFFFFFFFF,63,2,,,,,,{ sc_start SC_FOOD_LUK_CASH,1800000,15; sc_start SC_CRIFOOD,600000,rand(11,33); },{},{}
 14623,Golden_Treasure_Box_,Golden Treasure Box,18,10,,10,,,,0,0xFFFFFFFF,63,2,,,,,,{ /*getitem callfunc("F_Rand",Devilring card, Angeling card, 11 weapons smelting ticket, armor smelting 11 ticket , horns of the buffalo, ring of recovery, pink bunny costume hair band)*/ },{},{}
 14624,Blue_Scroll,蓝色转蛋,2,20,,10,,,,,0xFFFFFFFF,63,2,,,,,,{ getgroupitem(IG_Blue_Scroll); },{},{}
 14626,Indigo_Scroll,靛青转蛋,2,20,,0,,,,,0xFFFFFFFF,63,2,,,,,,{ getgroupitem(IG_Indigo_Scroll); },{},{}
@@ -9825,7 +9825,7 @@
 18819,Blue_Pencil_In_Mouth,叼在嘴里蓝色铅笔,4,20,,100,,0,,0,0xFFFFFFFF,63,2,1,,0,0,932,{ bonus bUnbreakableHelm; bonus bHit,3; },{},{}
 18820,Gray_Helmet,黄土头盔,4,20,,450,,35,,1,0xFFFFFFFF,56,2,256,,120,1,941,{ bonus2 bSubEle,Ele_Holy,3+getrefine()/2; },{},{}
 18821,Rainbow_Feather_Deco,五色羽毛饰品,4,20,,300,,5,,1,0xFFFFFFFF,63,2,256,,1,1,934,{ bonus2 bAddClass,Class_All,1; bonus bMatkRate,1; },{},{}
-18823,Imperial_Feather,帝国羽翼发饰,4,10,,500,,,,0,0xFFFFFFFF,63,2,512,,70,1,935,{ bonus bAspdRate,1; bonus2 bSubEle,Ele_Wind,5; if(readparam(bAgi)>108){ bonus bAspd,1; bonus bAspdRate,1; } },{},{}
+18823,Imperial_Feather,帝国羽翼发饰,4,10,,500,,,,0,0xFFFFFFFF,63,2,512,,70,1,935,{ bonus bAspdRate,1; bonus2 bSubEle,Ele_Wind,5; if(readparam(bAgi)>107){ bonus bAspd,1; bonus bAspdRate,1; } },{},{}
 18827,Valkyrie_Circlet,ヴァルキリーサークレット,4,0,,300,,10,,1,0xFFFFFFFF,63,2,256,,,1,940,{ bonus bStr,3; bonus2 bAddEle,Ele_Dark,10; bonus2 bAddRace,RC_Demon,10; },{},{}
 18828,2012RMSCNO1,2012 RMSC 冠军的专属头饰,4,1000,,1000,,20,,1,0xFFFFFFFF,63,2,256,,60,1,942,{ bonus bAllStats,5; bonus bMdef,5; bonus bSpeedAddRate,10; skill "AL_TELEPORT",1; bonus bUnbreakableHelm; },{},{}
 18829,2012RMSCNO2,2012 RMSC 亚军专属头饰,4,1000,,1000,,20,,1,0xFFFFFFFF,63,2,256,,60,1,943,{ bonus bAllStats,4; bonus bMdef,5; bonus bSpeedAddRate,10; skill "AL_TELEPORT",1; bonus bUnbreakableHelm; },{},{}
@@ -10002,6 +10002,7 @@
 19180,Anubis_Helm_,Anubis Helm,4,20,,0,,8,,1,0xFFFFFFFF,63,2,768,,65,0,485,{ bonus bMdef,5; bonus2 bSubClass,Class_Boss,10; bonus bHealpower2,10; bonus bAddItemHealRate,10; },{},{}
 19181,New_Wave_Sunglasses_,New Wave Sunglasses,4,20,,100,,1,,1,0xFFFFFFFF,63,2,512,,30,0,856,{ bonus bDelayRate,-5; },{},{}
 //
+19246,Royal_Guard_Necklace,守護騎士の首飾り,4,20,,300,,0,,0,0xFFFFFFFF,63,2,1,,80,0,1629,{ bonus bAspd,1; },{},{}
 19306,Gambler_Card,くわえたハートのエース,4,20,,300,,0,,0,0xFFFFFFFF,63,2,1,,80,0,1679,{ bonus bCritAtkRate,5; },{},{}
 //===================================================================
 // Costume System
@@ -11570,9 +11571,9 @@
 27253,Geffen_Shoplifter_Card,Geffen Shoplifter Card,6,20,,10,,,,,,,,64,,,,,{ bonus bMatkRate,3; bonus2 bMagicAtkEle,Ele_Fire,5; bonus2 bMagicAtkEle,Ele_Holy,5; },{},{}
 27254,Faymont_Card,Faymont Card,6,20,,10,,,,,,,,64,,,,,{ bonus bSPrecovRate,10; bonus3 bAutoSpellWhenHit,"CH_SOULCOLLECT",1,10; },{},{}
 27255,Ordre_Card,Ordre Card,6,20,,10,,,,,,,,64,,,,,{ bonus bMatkRate,3; bonus2 bMagicAtkEle,Ele_Wind,5; bonus2 bMagicAtkEle,Ele_Water,5; },{},{}
-27256,Blut_Hase_Card,Blut Hase Card,6,20,,10,,,,,,,,64,,,,,{ bonus bAtkRate,3; bonus bLongAtkRate,5; },{},{}
+27256,Blut_Hase_Card,Blut Hase Card,6,20,,10,,,,,,,,64,,,,,{ bonus2 bAddClass,Class_All,3; bonus bLongAtkRate,5; },{},{}
 27257,Kuro_Akuma_Card,Kuro Akuma Card,6,20,,10,,,,,,,,64,,,,,{ bonus bCastrate,3; bonus bLongAtkRate,5; bonus2 bSkillAtk,"NJ_HUUJIN",5; bonus2 bSkillAtk,"NJ_HYOUSENSOU",5; bonus2 bSkillAtk,"NJ_KOUENKA",5; },{},{}
-27258,Ifodes_Card,Ifodes Card,6,20,,10,,,,,,,,64,,,,,{ bonus bAtkRate,3; bonus bAspdRate,5; },{},{}
+27258,Ifodes_Card,Ifodes Card,6,20,,10,,,,,,,,64,,,,,{ bonus2 bAddClass,Class_All,3; bonus bAspdRate,5; },{},{}
 27259,Licheniyes_Card,Licheniyes Card,6,20,,10,,,,,,,,64,,,,,{ bonus bMatkRate,3; bonus2 bMagicAtkEle,Ele_Holy,5; bonus bHealPower,5; },{},{}
 27260,Odoric_Card,Odoric Card,6,20,,10,,,,,,,,64,,,,,{ bonus bAspdRate,3; bonus bLongAtkRate,5; },{},{}
 27261,Ju_Card,Ju Card,6,20,,10,,,,,,,,2,,,,,{ .@rate = 10 + (getiteminfo(getequipid(EQI_HAND_R),11) == W_BOOK ? 20 : 0) + (getrefine() >= 14 ? 20 : 0); bonus2 bSkillAtk,"MG_FIREBOLT",.@rate; bonus2 bSkillAtk,"MG_COLDBOLT",.@rate; bonus2 bSkillAtk,"MG_LIGHTNINGBOLT",.@rate; },{},{}
@@ -11692,6 +11693,7 @@
 28472,Para_Team_Agi_Necklace160,Awakened Eden Group Necklace of Agility V,4,0,,0,,0,,0,0xFFFFFFFF,63,2,136,,160,,,{ bonus bDex,4; skill "AL_TELEPORT",1; },{},{}
 28483,Royal_Guardian_Ring,国王守护之戒,4,0,,10,,1,,1,0xFFFFFFFF,63,2,136,,99,,,{ .@b = min(BaseLevel/25,7); bonus bMaxHPrate,.@b; bonus bMaxSPrate,.@b; },{},{}
 28499,Proof_of_Glory,栄光の証,4,0,,100,,0,,0,0xFFFFFFFF,63,2,136,,100,,,{ bonus bAllStats,1; bonus2 bAddRace,RC_All,2; bonus2 bMagicAddRace,RC_All,2; if(BaseLevel>=150) { bonus bAllStats,1; bonus2 bAddRace,RC_All,2; bonus2 bMagicAddRace,RC_All,2; } },{},{}
+28551,Imperial_Glove,インペリアルグローブ,4,20,,400,,0,,1,0xFFFFFFFF,63,2,136,,100,0,0,{ bonus2 bAddClass,Class_All,5; bonus bVariableCastrate,-10; bonus bNoCastCancel; },{},{}
 //===================================================================
 // More books
 //===================================================================
