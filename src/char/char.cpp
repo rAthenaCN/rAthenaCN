@@ -1,40 +1,40 @@
-// Copyright (c) Athena Dev Teams - Licensed under GNU GPL
+// Copyright (c) rAthena Dev Teams - Licensed under GNU GPL
 // For more information, see LICENCE in the main folder
 
 #pragma warning(disable:4800)
 #include "char.hpp"
 
-#include <time.h>
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
-#include "../common/cbasetypes.h"
-#include "../common/core.h"
-#include "../common/db.h"
-#include "../common/malloc.h"
-#include "../common/mapindex.h"
-#include "../common/mmo.h"
-#include "../common/random.h"
-#include "../common/showmsg.h"
-#include "../common/socket.h"
-#include "../common/strlib.h"
-#include "../common/timer.h"
-#include "../common/cli.h"
+#include "../common/cbasetypes.hpp"
+#include "../common/cli.hpp"
+#include "../common/core.hpp"
+#include "../common/db.hpp"
+#include "../common/malloc.hpp"
+#include "../common/mapindex.hpp"
+#include "../common/mmo.hpp"
+#include "../common/random.hpp"
+#include "../common/showmsg.hpp"
+#include "../common/socket.hpp"
+#include "../common/strlib.hpp"
+#include "../common/timer.hpp"
 
+#include "char_clif.hpp"
+#include "char_cnslif.hpp"
+#include "char_logif.hpp"
+#include "char_mapif.hpp"
+#include "inter.hpp"
+#include "int_elemental.hpp"
 #include "int_guild.hpp"
 #include "int_homun.hpp"
 #include "int_mail.hpp"
 #include "int_mercenary.hpp"
-#include "int_elemental.hpp"
 #include "int_party.hpp"
 #include "int_storage.hpp"
-#include "inter.hpp"
-#include "char_logif.hpp"
-#include "char_mapif.hpp"
-#include "char_cnslif.hpp"
-#include "char_clif.hpp"
 
 //definition of exported var declared in .h
 int login_fd=-1; //login file descriptor
@@ -2737,7 +2737,7 @@ void char_set_defaults(){
 	charserv_config.log_inter = 1;	// loggin inter or not [devil]
 	charserv_config.char_check_db =1;
 
-	// See const.h to change the default values
+	// See const.hpp to change the default values
 	charserv_config.start_point[0].map = mapindex_name2id(MAP_DEFAULT_NAME); 
 	charserv_config.start_point[0].x = MAP_DEFAULT_X;
 	charserv_config.start_point[0].y = MAP_DEFAULT_Y;

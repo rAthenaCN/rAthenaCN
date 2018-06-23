@@ -1,32 +1,32 @@
-// Copyright (c) Athena Dev Teams - Licensed under GNU GPL
+// Copyright (c) rAthena Dev Teams - Licensed under GNU GPL
 // For more information, see LICENCE in the main folder
 
 #include "guild.hpp"
 
 #include <stdlib.h>
 
-#include "../common/cbasetypes.h"
-#include "../common/timer.h"
-#include "../common/nullpo.h"
-#include "../common/malloc.h"
-#include "../common/mapindex.h"
-#include "../common/showmsg.h"
-#include "../common/ers.h"
-#include "../common/strlib.h"
-#include "../common/utils.h"
+#include "../common/cbasetypes.hpp"
+#include "../common/ers.hpp"
+#include "../common/malloc.hpp"
+#include "../common/mapindex.hpp"
+#include "../common/nullpo.hpp"
+#include "../common/showmsg.hpp"
+#include "../common/strlib.hpp"
+#include "../common/timer.hpp"
+#include "../common/utils.hpp"
 
-#include "map.hpp"
-#include "storage.hpp"
 #include "battle.hpp"
-#include "npc.hpp"
-#include "pc.hpp"
+#include "channel.hpp"
+#include "clif.hpp"
 #include "instance.hpp"
 #include "intif.hpp"
-#include "channel.hpp"
 #include "log.hpp"
-#include "trade.hpp"
-#include "clif.hpp"
+#include "map.hpp"
 #include "mob.hpp"
+#include "npc.hpp"
+#include "pc.hpp"
+#include "storage.hpp"
+#include "trade.hpp"
 
 static DBMap* guild_db; // int guild_id -> struct guild*
 static DBMap* castle_db; // int castle_id -> struct guild_castle*

@@ -1,4 +1,4 @@
-// Copyright (c) Athena Dev Teams - Licensed under GNU GPL
+// Copyright (c) rAthena Dev Teams - Licensed under GNU GPL
 // For more information, see LICENCE in the main folder
 
 #include "int_pet.hpp"
@@ -6,13 +6,13 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../common/mmo.h"
-#include "../common/malloc.h"
-#include "../common/socket.h"
-#include "../common/strlib.h"
-#include "../common/showmsg.h"
-#include "../common/utils.h"
-#include "../common/sql.h"
+#include "../common/malloc.hpp"
+#include "../common/mmo.hpp"
+#include "../common/showmsg.hpp"
+#include "../common/socket.hpp"
+#include "../common/sql.hpp"
+#include "../common/strlib.hpp"
+#include "../common/utils.hpp"
 
 #include "char.hpp"
 #include "inter.hpp"

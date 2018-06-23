@@ -5,21 +5,21 @@
 
 #include <stdlib.h>
 
-#include "../common/cbasetypes.h"
-#include "../common/malloc.h"
-#include "../common/conf.h" //libconfig
-#include "../common/showmsg.h"
-#include "../common/strlib.h" //safestrncpy
-#include "../common/socket.h" //set_eof
-#include "../common/timer.h"  // DIFF_TICK
-#include "../common/nullpo.h"
+#include "../common/cbasetypes.hpp"
+#include "../common/conf.hpp" //libconfig
+#include "../common/malloc.hpp"
+#include "../common/nullpo.hpp"
+#include "../common/showmsg.hpp"
+#include "../common/socket.hpp" //set_eof
+#include "../common/strlib.hpp" //safestrncpy
+#include "../common/timer.hpp"  // DIFF_TICK
 
-#include "map.hpp" //msg_conf
-#include "clif.hpp" //clif_chsys_msg
-#include "pc.hpp"
-#include "guild.hpp"
-#include "pc_groups.hpp"
 #include "battle.hpp"
+#include "clif.hpp" //clif_chsys_msg
+#include "guild.hpp"
+#include "map.hpp" //msg_conf
+#include "pc.hpp"
+#include "pc_groups.hpp"
 
 static DBMap* channel_db; // channels
 

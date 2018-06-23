@@ -1,38 +1,37 @@
-// Copyright (c) Athena Dev Teams - Licensed under GNU GPL
+// Copyright (c) rAthena Dev Teams - Licensed under GNU GPL
 // For more information, see LICENCE in the main folder
 
 #include "npc.hpp"
 
+#include <errno.h>
 #include <map>
+#include <stdlib.h>
 #include <vector>
 
-#include <stdlib.h>
-#include <errno.h>
+#include "../common/cbasetypes.hpp"
+#include "../common/db.hpp"
+#include "../common/ers.hpp"
+#include "../common/malloc.hpp"
+#include "../common/nullpo.hpp"
+#include "../common/showmsg.hpp"
+#include "../common/strlib.hpp"
+#include "../common/timer.hpp"
+#include "../common/utils.hpp"
 
-#include "../common/cbasetypes.h"
-#include "../common/timer.h"
-#include "../common/nullpo.h"
-#include "../common/malloc.h"
-#include "../common/showmsg.h"
-#include "../common/strlib.h"
-#include "../common/utils.h"
-#include "../common/ers.h"
-#include "../common/db.h"
-
-#include "map.hpp"
-#include "log.hpp"
+#include "battle.hpp"
+#include "chat.hpp"
 #include "clif.hpp"
 #include "date.hpp" // days of week enum
+#include "guild.hpp"
+#include "instance.hpp"
 #include "intif.hpp"
+#include "log.hpp"
+#include "log.hpp"
+#include "map.hpp"
+#include "mob.hpp"
 #include "pc.hpp"
 #include "pet.hpp"
-#include "instance.hpp"
-#include "chat.hpp"
 #include "script.hpp" // script_config
-#include "guild.hpp"
-#include "battle.hpp"
-#include "mob.hpp"
-#include "log.hpp"
 
 struct npc_data* fake_nd;
 
@@ -267,7 +266,7 @@ struct npc_data* npc_name2id(const char* name)
 	return (struct npc_data *) strdb_get(npcname_db, name);
 }
 /**
- * For the Secure NPC Timeout option (check config/Secure.h) [RR]
+ * For the Secure NPC Timeout option (check src/config/secure.hpp) [RR]
  **/
 #ifdef SECURE_NPCTIMEOUT
 /**
@@ -1243,7 +1242,7 @@ void run_tomb(struct map_session_data* sd, struct npc_data* nd)
 	strftime(time, sizeof(time), "%H:%M", localtime(&nd->u.tomb.kill_time));
 
 	// TODO: Find exact color?
-	snprintf(buffer, sizeof(buffer), msg_txt(sd,657), nd->u.tomb.md->db->jname);
+	snprintf(buffer, sizeof(buffer), msg_txt(sd,657), nd->u.tomb.md->db->name);
 	clif_scriptmes(sd, nd->bl.id, buffer);
 
 	clif_scriptmes(sd, nd->bl.id, msg_txt(sd,658));
@@ -4253,7 +4252,7 @@ static const char* npc_parse_mapflag(char* w1, char* w2, char* w3, char* w4, con
 			}
 		}
 #else
-		ShowInfo("npc_parse_mapflag: skill_damage: ADJUST_SKILL_DAMAGE is inactive (core.h). Skipping this mapflag..\n");
+		ShowInfo("npc_parse_mapflag: skill_damage: ADJUST_SKILL_DAMAGE is inactive (core.hpp). Skipping this mapflag..\n");
 #endif
 	}
 	else

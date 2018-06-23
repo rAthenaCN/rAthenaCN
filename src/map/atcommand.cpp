@@ -1,53 +1,54 @@
-// Copyright (c) Athena Dev Teams - Licensed under GNU GPL
+// Copyright (c) rAthena Dev Teams - Licensed under GNU GPL
 // For more information, see LICENCE in the main folder
 
 #include "atcommand.hpp"
 
-#include <stdlib.h>
 #include <math.h>
+#include <stdlib.h>
 
-#include "../common/cbasetypes.h"
-#include "../common/mmo.h"
-#include "../common/timer.h"
-#include "../common/nullpo.h"
-#include "../common/showmsg.h"
-#include "../common/malloc.h"
-#include "../common/random.h"
-#include "../common/socket.h"
-#include "../common/strlib.h"
-#include "../common/utils.h"
+#include "../common/cbasetypes.hpp"
+#include "../common/cli.hpp"
+#include "../common/conf.hpp"
+#include "../common/malloc.hpp"
+#include "../common/mmo.hpp"
+#include "../common/nullpo.hpp"
+#include "../common/random.hpp"
+#include "../common/showmsg.hpp"
+#include "../common/socket.hpp"
+#include "../common/strlib.hpp"
+#include "../common/timer.hpp"
 #include "../common/utilities.hpp"
-#include "../common/conf.h"
+#include "../common/utils.hpp"
 
-#include "map.hpp"
+#include "achievement.hpp"
 #include "battle.hpp"
-#include "chat.hpp"
 #include "channel.hpp"
+#include "chat.hpp"
 #include "chrif.hpp"
+#include "clan.hpp"
+#include "clif.hpp"
 #include "duel.hpp"
+#include "elemental.hpp"
+#include "guild.hpp"
+#include "homunculus.hpp"
 #include "instance.hpp"
 #include "intif.hpp"
-#include "pet.hpp"
-#include "homunculus.hpp"
+#include "itemdb.hpp" // MAX_ITEMGROUP
+#include "log.hpp"
 #include "mail.hpp"
+#include "map.hpp"
+#include "mapreg.hpp"
 #include "mercenary.hpp"
-#include "elemental.hpp"
+#include "mob.hpp"
+#include "npc.hpp"
 #include "party.hpp"
+#include "pc.hpp"
+#include "pc_groups.hpp"
+#include "pet.hpp"
+#include "quest.hpp"
 #include "script.hpp"
 #include "storage.hpp"
 #include "trade.hpp"
-#include "mapreg.hpp"
-#include "quest.hpp"
-#include "pc.hpp"
-#include "pc_groups.hpp"
-#include "npc.hpp"
-#include "guild.hpp"
-#include "clif.hpp"
-#include "log.hpp"
-#include "itemdb.hpp" // MAX_ITEMGROUP
-#include "mob.hpp"
-#include "achievement.hpp"
-#include "clan.hpp"
 
 #define ATCOMMAND_LENGTH 50
 #define ACMD_FUNC(x) static int atcommand_ ## x (const int fd, struct map_session_data* sd, const char* command, const char* message)
@@ -1064,7 +1065,8 @@ ACMD_FUNC(jobchange)
 
 	if (job == JOB_KNIGHT2 || job == JOB_CRUSADER2 || job == JOB_WEDDING || job == JOB_XMAS || job == JOB_SUMMER || job == JOB_HANBOK || job == JOB_OKTOBERFEST
 		|| job == JOB_LORD_KNIGHT2 || job == JOB_PALADIN2 || job == JOB_BABY_KNIGHT2 || job == JOB_BABY_CRUSADER2 || job == JOB_STAR_GLADIATOR2
-		|| (job >= JOB_RUNE_KNIGHT2 && job <= JOB_MECHANIC_T2) || (job >= JOB_BABY_RUNE2 && job <= JOB_BABY_MECHANIC2) || job == JOB_BABY_STAR_GLADIATOR2)
+		|| (job >= JOB_RUNE_KNIGHT2 && job <= JOB_MECHANIC_T2) || (job >= JOB_BABY_RUNE2 && job <= JOB_BABY_MECHANIC2) || job == JOB_BABY_STAR_GLADIATOR2
+		|| job == JOB_STAR_EMPEROR2 || job == JOB_BABY_STAR_EMPEROR2)
 	{ // Deny direct transformation into dummy jobs
 		clif_displaymessage(fd, msg_txt(sd,923)); //"You can not change to this job by command."
 		return 0;
@@ -2969,7 +2971,7 @@ ACMD_FUNC(char_block)
 /*==========================================
  * accountban command (usage: ban <%time> <player_name>)
  * charban command (usage: charban <%time> <player_name>)
- * %time see common/timer.c::solve_time()
+ * %time see common/timer.cpp::solve_time()
  *------------------------------------------*/
 ACMD_FUNC(char_ban)
 {

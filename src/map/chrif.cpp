@@ -1,4 +1,4 @@
-// Copyright (c) Athena Dev Teams - Licensed under GNU GPL
+// Copyright (c) rAthena Dev Teams - Licensed under GNU GPL
 // For more information, see LICENCE in the main folder
 
 #include "chrif.hpp"
@@ -6,32 +6,32 @@
 #include <cstdlib>
 #include <cstring>
 
-#include "../common/cbasetypes.h"
-#include "../common/malloc.h"
-#include "../common/socket.h"
-#include "../common/timer.h"
-#include "../common/nullpo.h"
-#include "../common/showmsg.h"
-#include "../common/strlib.h"
-#include "../common/ers.h"
+#include "../common/cbasetypes.hpp"
+#include "../common/ers.hpp"
+#include "../common/malloc.hpp"
+#include "../common/nullpo.hpp"
+#include "../common/showmsg.hpp"
+#include "../common/socket.hpp"
+#include "../common/strlib.hpp"
+#include "../common/timer.hpp"
 
-#include "map.hpp"
 #include "battle.hpp"
 #include "clan.hpp"
 #include "clif.hpp"
+#include "elemental.hpp"
+#include "guild.hpp"
+#include "homunculus.hpp"
+#include "instance.hpp"
 #include "intif.hpp"
+#include "log.hpp"
+#include "map.hpp"
+#include "mercenary.hpp"
 #include "npc.hpp"
 #include "pc.hpp"
 #include "pc_groups.hpp"
 #include "pet.hpp"
-#include "homunculus.hpp"
-#include "instance.hpp"
-#include "mercenary.hpp"
-#include "elemental.hpp"
 #include "script.hpp" // script_config
 #include "storage.hpp"
-#include "guild.hpp"
-#include "log.hpp"
 
 static int check_connect_char_server(int tid, unsigned int tick, int id, intptr_t data);
 
@@ -1705,7 +1705,7 @@ int chrif_bsdata_save(struct map_session_data *sd, bool quit) {
 		}
 
 		if (i != sd->bonus_script.count && sd->bonus_script.count > MAX_PC_BONUS_SCRIPT)
-			ShowWarning("Only allowed to save %d (mmo.h::MAX_PC_BONUS_SCRIPT) bonus script each player.\n", MAX_PC_BONUS_SCRIPT);
+			ShowWarning("Only allowed to save %d (mmo.hpp::MAX_PC_BONUS_SCRIPT) bonus script each player.\n", MAX_PC_BONUS_SCRIPT);
 	}
 
 	WFIFOB(char_fd, 8) = i;
