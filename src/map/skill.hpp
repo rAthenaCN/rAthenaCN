@@ -1,12 +1,13 @@
 // Copyright (c) rAthena Dev Teams - Licensed under GNU GPL
 // For more information, see LICENCE in the main folder
 
-#ifndef _SKILL_HPP_
-#define _SKILL_HPP_
+#ifndef SKILL_HPP
+#define SKILL_HPP
 
 #include "../common/cbasetypes.hpp"
 #include "../common/db.hpp"
 #include "../common/mmo.hpp" // MAX_SKILL, struct square
+#include "../common/timer.hpp"
 
 #include "map.hpp" // struct block_list
 
@@ -225,9 +226,7 @@ struct s_skill_db {
 	uint8 unit_nonearnpc_type;	//type of NPC [Cydh]
 
 	// skill_damage_db.txt
-#ifdef ADJUST_SKILL_DAMAGE
 	struct s_skill_damage damage;
-#endif
 
 	// skill_copyable_db.txt
 	struct s_copyable { // [Cydh]
@@ -441,8 +440,8 @@ uint16 skill_idx2id(uint16 idx);
 uint16 SKILL_MAX_DB(void);
 
 int skill_isammotype(struct map_session_data *sd, unsigned short skill_id);
-int skill_castend_id(int tid, unsigned int tick, int id, intptr_t data);
-int skill_castend_pos(int tid, unsigned int tick, int id, intptr_t data);
+TIMER_FUNC(skill_castend_id);
+TIMER_FUNC(skill_castend_pos);
 int skill_castend_map( struct map_session_data *sd,uint16 skill_id, const char *map);
 
 int skill_cleartimerskill(struct block_list *src);
@@ -524,7 +523,7 @@ int skill_castend_pos2( struct block_list *src, int x,int y,uint16 skill_id,uint
 int skill_blockpc_start(struct map_session_data*, int, int);
 int skill_blockpc_get(struct map_session_data *sd, int skillid);
 int skill_blockpc_clear(struct map_session_data *sd);
-int skill_blockpc_end(int tid, unsigned int tick, int id, intptr_t data);
+TIMER_FUNC(skill_blockpc_end);
 int skill_blockhomun_start (struct homun_data*,uint16 skill_id,int);
 int skill_blockmerc_start (struct mercenary_data*,uint16 skill_id,int);
 
@@ -2213,19 +2212,6 @@ void skill_combo(struct block_list* src,struct block_list *dsrc, struct block_li
 
 void skill_reveal_trap_inarea(struct block_list *src, int range, int x, int y);
 
-#ifdef ADJUST_SKILL_DAMAGE
-/// Skill Damage target
-enum e_skill_damage_caster {
-	SDC_PC   = 0x01,
-	SDC_MOB  = 0x02,
-	SDC_PET  = 0x04,
-	SDC_HOM  = 0x08,
-	SDC_MER  = 0x10,
-	SDC_ELEM = 0x20,
-	SDC_ALL  = SDC_PC|SDC_MOB|SDC_PET|SDC_HOM|SDC_MER|SDC_ELEM,
-};
-#endif
-
 /// Variable name of copied skill by Plagiarism
 #define SKILL_VAR_PLAGIARISM "CLONE_SKILL"
 /// Variable name of copied skill level by Plagiarism
@@ -2241,4 +2227,4 @@ enum e_skill_damage_caster {
 #define SKILL_CHK_ELEM(skill_id)  ( (skill_id) >= EL_SKILLBASE && (skill_id) < EL_SKILLBASE+MAX_ELEMENTALSKILL )
 #define SKILL_CHK_GUILD(skill_id) ( (skill_id) >= GD_SKILLBASE && (skill_id) < GD_SKILLBASE+MAX_GUILDSKILL )
 
-#endif /* _SKILL_HPP_ */
+#endif /* SKILL_HPP */

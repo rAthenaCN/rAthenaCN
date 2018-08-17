@@ -1,8 +1,8 @@
 // Copyright (c) rAthena Dev Teams - Licensed under GNU GPL
 // For more information, see LICENCE in the main folder
 
-#ifndef _CLIF_OBFUSCATION_HPP_
-#define _CLIF_OBFUSCATION_HPP_
+#ifndef CLIF_OBFUSCATION_HPP
+#define CLIF_OBFUSCATION_HPP
 
 #if defined(PACKET_OBFUSCATION) || defined(PACKET_OBFUSCATION_WARN)
 	#define packet_keys(a,b,c) static unsigned int clif_cryptKey[] = { a, b, c };
@@ -348,7 +348,7 @@
 	#elif PACKETVER == 20170607 // 2017-06-07cRagexeRE
 		packet_keys(0x50564ACD,0x79CA4E15,0x405F4894);
 	#elif PACKETVER == 20170614 // 2017-06-14bRagexeRE
-		packet_keys(0x1a0b121e,0x23690c3d,0x0db76ad9);	// rAthenaCN 自定义封包秘钥
+		packet_keys(0x5ED10A48,0x667F4301,0x2E5D761F);
 	#elif PACKETVER == 20170621 // 2017-06-21aRagexeRE
 		packet_keys(0x155F34EC,0x2D943FA9,0x3D9170EB);
 	#elif PACKETVER == 20170628 // 2017-06-28bRagexeRE
@@ -427,4 +427,4 @@
 	#undef packet_keys
 #endif
 
-#endif /* _CLIF_OBFUSCATION_HPP_ */
+#endif /* CLIF_OBFUSCATION_HPP */
