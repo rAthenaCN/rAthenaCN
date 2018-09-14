@@ -211,6 +211,12 @@ struct s_bonus_script_entry {
 	int tid;
 };
 
+// ===================== 自动吃药代码 [开始] =====================
+struct autopots {
+	int hp_rate, sp_rate, hp_nameid, sp_nameid;
+};
+// ===================== 自动吃药代码 [结束] =====================
+
 struct map_session_data {
 	struct block_list bl;
 	struct unit_data ud;
@@ -324,6 +330,8 @@ struct map_session_data {
 	int npc_timer_id; //For player attached npc timers. [Skotlex]
 	unsigned int chatID;
 	time_t idletime;
+	
+	struct autopots autopots;	// 自动吃药代码
 
 	struct s_progressbar {
 		int npc_id;

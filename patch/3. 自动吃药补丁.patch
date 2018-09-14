@@ -1,0 +1,157 @@
+Index: src/map/atcommand.cpp
+===================================================================
+--- src/map/atcommand.cpp	(版本 174)
++++ src/map/atcommand.cpp	(工作副本)
+@@ -9100,6 +9100,106 @@
+ 	return;
+ }
+ 
++// ===================== 自动吃药代码 [开始] =====================
++void autoatpots_clean(struct map_session_data *sd)
++{
++	if( sd )
++	{
++		sd->sc.option &= ~OPTION_AUTOPOTS;
++		sd->autopots.hp_nameid = 0;
++		sd->autopots.hp_rate = 0;
++		sd->autopots.sp_nameid = 0;
++		sd->autopots.sp_rate = 0;
++		clif_changeoption(&sd->bl);
++	}
++	return;
++}
++int autoatpots_timer(int tid, unsigned int tick, int id, intptr_t data)
++{
++	struct map_session_data *sd=NULL;
++	struct item_data* item = NULL;
++	int index;
++	sd=map_id2sd(id);
++	if( sd == NULL )
++		return 0;
++	if(sd->sc.option & OPTION_AUTOPOTS)
++	{
++		int hp_rate = sd->autopots.hp_rate;
++		int sp_rate = sd->autopots.sp_rate;
++		int hp_nameid = sd->autopots.hp_nameid;
++		int sp_nameid = sd->autopots.sp_nameid;
++		if( ( !sp_rate && !hp_rate ) || pc_isdead(sd) )
++		{
++			clif_displaymessage(sd->fd, "Auto-pots : OFF_");
++			autoatpots_clean(sd);
++			return 0;
++		}
++		if( ( sd->battle_status.hp*100/sd->battle_status.max_hp ) < hp_rate && hp_nameid && hp_rate )
++		{
++			ARR_FIND(0, MAX_INVENTORY, index, sd->inventory.u.items_inventory[index].nameid == hp_nameid);
++			if (sd->inventory.u.items_inventory[index].nameid == hp_nameid)
++				pc_useitem(sd,index);
++		}
++		if( ( sd->battle_status.sp*100/sd->battle_status.max_sp ) < sp_rate && sp_nameid && sp_rate )
++		{
++			ARR_FIND(0, MAX_INVENTORY, index, sd->inventory.u.items_inventory[index].nameid == sp_nameid);
++			if (sd->inventory.u.items_inventory[index].nameid == sp_nameid)
++				pc_useitem(sd,index);
++		}
++		add_timer(gettick()+500,autoatpots_timer,sd->bl.id,0);
++	}
++	return 0;
++}
++ACMD_FUNC(autopots)
++{
++	int hp_rate=0, hp_nameid=0, sp_rate=0, sp_nameid=0, type=0;
++	nullpo_retr(-1, sd);
++
++	if (!message || !*message || 
++		sscanf(message, "%d %d %d %d %d", &type, &hp_rate, &hp_nameid, &sp_rate, &sp_nameid) < 5 ||
++		( type <= 0 || type > 1 ) ||
++		( hp_rate < 0 || hp_rate > 99 ) ||
++		( sp_rate < 0 || sp_rate > 99 ) )
++	{
++		clif_displaymessage(fd, "@autopots <type> <hp_rate> <hp_item id> <sp_rate> <sp_item id>");
++		clif_displaymessage(fd, "Auto-pots : OFF");
++		autoatpots_clean(sd);
++		return 0;
++	}
++
++	if (sd->sc.option & OPTION_AUTOPOTS)
++	{
++		autoatpots_clean(sd);
++	}
++	if( hp_rate == 0 ) hp_nameid = 0;
++	if( sp_rate == 0 ) sp_nameid = 0;
++	if( hp_nameid == 0 ) hp_rate = 0;
++	if( sp_nameid == 0 ) sp_rate = 0;
++	if( itemdb_exists(hp_nameid) == NULL && hp_nameid )
++	{
++		hp_nameid = 0;
++		hp_rate = 0;
++		clif_displaymessage(fd, "Auto-pots : Invalid item for HP");
++	}
++	if( itemdb_exists(sp_nameid) == NULL && sp_nameid )
++	{
++		sp_nameid = 0;
++		sp_rate = 0;
++		clif_displaymessage(fd, "Auto-pots : Invalid item for SP");
++	}
++	clif_displaymessage(fd, "Auto-pots : ON");
++	sd->sc.option |= OPTION_AUTOPOTS;
++	sd->autopots.hp_nameid = hp_nameid;
++	sd->autopots.hp_rate = hp_rate;
++	sd->autopots.sp_nameid = sp_nameid;
++	sd->autopots.sp_rate = sp_rate;
++	add_timer(gettick()+200,autoatpots_timer,sd->bl.id,0);
++
++	clif_changeoption(&sd->bl);
++	return 0;
++}
++// ===================== 自动吃药代码 [结束] =====================
++
+ /*==========================================
+  * @commands Lists available @ commands to you
+  *------------------------------------------*/
+@@ -10012,6 +10112,7 @@
+ 	 **/
+ 	AtCommandInfo atcommand_base[] = {
+ #include "../custom/atcommand_def.inc"
++		ACMD_DEF(autopots),	// 自动吃药代码
+ 		ACMD_DEF2R("warp", mapmove, ATCMD_NOCONSOLE),
+ 		ACMD_DEF(where),
+ 		ACMD_DEF(jumpto),
+Index: src/map/pc.hpp
+===================================================================
+--- src/map/pc.hpp	(版本 174)
++++ src/map/pc.hpp	(工作副本)
+@@ -211,6 +211,12 @@
+ 	int tid;
+ };
+ 
++// ===================== 自动吃药代码 [开始] =====================
++struct autopots {
++	int hp_rate, sp_rate, hp_nameid, sp_nameid;
++};
++// ===================== 自动吃药代码 [结束] =====================
++
+ struct map_session_data {
+ 	struct block_list bl;
+ 	struct unit_data ud;
+@@ -324,6 +330,8 @@
+ 	int npc_timer_id; //For player attached npc timers. [Skotlex]
+ 	unsigned int chatID;
+ 	time_t idletime;
++	
++	struct autopots autopots;	// 自动吃药代码
+ 
+ 	struct s_progressbar {
+ 		int npc_id;
+Index: src/map/status.hpp
+===================================================================
+--- src/map/status.hpp	(版本 174)
++++ src/map/status.hpp	(工作副本)
+@@ -3000,6 +3000,7 @@
+ 	// compound constants
+ 	OPTION_DRAGON	= OPTION_DRAGON1|OPTION_DRAGON2|OPTION_DRAGON3|OPTION_DRAGON4|OPTION_DRAGON5,
+ 	OPTION_COSTUME	= OPTION_WEDDING|OPTION_XMAS|OPTION_SUMMER|OPTION_HANBOK|OPTION_OKTOBERFEST|OPTION_SUMMER2,
++	OPTION_AUTOPOTS	= 0x40000000,	// 自动吃药代码
+ };
+ 
+ ///Defines for the manner system [Skotlex]
