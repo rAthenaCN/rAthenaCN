@@ -853,6 +853,12 @@ enum sc_type : int16 {
 	SC_GLASTHEIM_ITEMDEF,
 	SC_GLASTHEIM_HPSP,
 
+	// Nightmare Biolab Buffs
+	SC_LHZ_DUN_N1,
+	SC_LHZ_DUN_N2,
+	SC_LHZ_DUN_N3,
+	SC_LHZ_DUN_N4,
+
 	SC_ANCILLA,
 
 #ifdef RENEWAL
@@ -2877,6 +2883,8 @@ enum efst_types : short{
 
 	EFST_ANCILLA = 1095,
 
+	EFST_FESTIVE_ENERGY = 1104,
+
 	EFST_WEAPONBLOCK_ON = 1107,
 	EFST_CRI_DAMAGE,
 	EFST_DEF_POWER,
@@ -2884,6 +2892,9 @@ enum efst_types : short{
 	EFST_BOW_ATK_POWER,
 	EFST_RED_ORG_POTION,
 	EFST_CAST_TIME,
+
+	EFST_EXCLUSIVE_RECEIVEITEM = 1119,
+	EFST_EXCLUSIVE_PLUSEXP,
 
 	EFST_OVERLAPEXPUP2 = 1123,
 /// @APIHOOK_END
@@ -3433,14 +3444,17 @@ int status_check_visibility(struct block_list *src, struct block_list *target);
 int status_change_spread(struct block_list *src, struct block_list *bl, bool type);
 
 #ifndef RENEWAL
-	unsigned short status_base_matk_min(const struct status_data* status);
-	unsigned short status_base_matk_max(const struct status_data* status);
+unsigned short status_base_matk_min(const struct status_data* status);
+unsigned short status_base_matk_max(const struct status_data* status);
 #else
-	unsigned int status_weapon_atk(struct weapon_atk wa, struct map_session_data *sd);
-	unsigned short status_base_matk(struct block_list *bl, const struct status_data* status, int level);
+unsigned int status_weapon_atk(struct weapon_atk wa, struct map_session_data *sd);
+unsigned short status_base_atk_min(struct block_list *bl, const struct status_data* status, int level);
+unsigned short status_base_atk_max(struct block_list *bl, const struct status_data* status, int level);
+unsigned short status_base_matk_min(struct block_list *bl, const struct status_data* status, int level);
+unsigned short status_base_matk_max(struct block_list *bl, const struct status_data* status, int level);
 #endif
 
-unsigned short status_base_atk(const struct block_list *bl, const struct status_data *status);
+unsigned short status_base_atk(const struct block_list *bl, const struct status_data *status, int level);
 
 void initChangeTables(void);
 int status_readdb(void);
