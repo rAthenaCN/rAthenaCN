@@ -9138,7 +9138,7 @@ void autoatpots_clean(struct map_session_data *sd)
 	}
 	return;
 }
-int autoatpots_timer(int tid, unsigned int tick, int id, intptr_t data)
+int autoatpots_timer(int tid, t_tick tick, int id, intptr_t data)
 {
 	struct map_session_data *sd=NULL;
 	struct item_data* item = NULL;
