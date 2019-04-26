@@ -14,12 +14,12 @@ un_myst,163,38,5	script	Mark	4_M_BLUEMAN,{
 	if (BaseLevel < 150) {
 		mes "It's dangerous here.";
 		mes "It would be better to come back next time when we are stronger.";
-		close2;
+		close3;
 	}
 	if (getcharid(1) < 1) {
 		mes "...It doesn't feel right here.";
 		mes "It may be dangerous alone so it might be better to form a party.";
-		close2;
+		close3;
 	}
 	mes "Unlike the other doors we saw this door has traces of it being blocked from this side.";
 	next;
@@ -29,7 +29,7 @@ un_myst,163,38,5	script	Mark	4_M_BLUEMAN,{
 	switch( checkquest(11379,PLAYTIME) ) {
 	case -1:
 		.@party_id = getcharid(1);
-		if (getpartyleader(.@party_id,2) == getcharid(0))
+		if (is_party_leader() == true)
 			.@string$ = "Open door.";
 		.@s = select( .@string$, "Go in.", "Quit." );
 		if (.@s == 1) {
@@ -54,20 +54,20 @@ un_myst,163,38,5	script	Mark	4_M_BLUEMAN,{
 				break;
 			}
 		}
-		close2;
+		close3;
 	case 0:
 	case 1:
 		mes "[Mark]";
 		cutin "bu_mark1.bmp",0;
 		mes "...You look tired.";
 		mes "Since you went there you should take a day to rest.";
-		close2;
+		close3;
 	case 2:
 		mes "[Mark]";
 		cutin "bu_mark1.bmp",0;
 		mes "I can't believe you want to enter a place like this again...";
 		erasequest 11379;// Final Room
-		close2;
+		close3;
 	}
 }
 
@@ -76,15 +76,15 @@ un_myst,163,38,5	script	Mark	4_M_BLUEMAN,{
 	mes "[Mark]";
 	mes "Something doesn't feel right. It is better that we move carefully.";
 	cutin "bu_mark4.bmp",0;
-	close2;
+	close3;
 }
 
-1@uns,145,32,5	script	Alp#room1	4_M_BLACKMAN,{
-	mes "[Alp]";
+1@uns,145,32,5	script	Alph#room1	4_M_BLACKMAN,{
+	mes "[Alph]";
 	mes "There are suspicious traces everywhere.";
 	mes "Some kind of heavy machine seems to have passed...";
 	cutin "bu_alp1.bmp",2;
-	close2;
+	close3;
 }
 
 1@uns,145,37,3	script	Tamarin#room1	4_M_TAMARIN,{
@@ -92,21 +92,21 @@ un_myst,163,38,5	script	Mark	4_M_BLUEMAN,{
 	mes "Verity, are you alright?";
 	mes "You do not look good...";
 	cutin "ep143_taang.bmp",2;
-	close2;
+	close3;
 }
 
 1@uns,143,38,5	script	Du#room1	4_M_REDMAN,{
 	mes "[Du]";
 	mes "I have a bad feeling about this...";
 	cutin "bu_du1.bmp",2;
-	close2;
+	close3;
 }
 
 1@uns,143,39,5	script	Maggi#room1	4_F_PINKWOMAN,{
 	mes "[Maggi]";
 	mes "Aahh....";
 	cutin "bu_maggi4.bmp",2;
-	close2;
+	close3;
 }
 
 1@uns,144,37,3	script	Verity#room1	4_F_BERRYTEA,{
@@ -114,9 +114,9 @@ un_myst,163,38,5	script	Mark	4_M_BLUEMAN,{
 		mes "[Verity]";
 		mes "Umph...I suddenly have a feeling that's not good.";
 		cutin "EP15_2_brt_6.bmp",2;
-		if (getpartyleader(getcharid(1),2) != getcharid(0)) {
+		if (is_party_leader() == false) {
 			mes "I wish to talk with the leader.";
-			close2;
+			close3;
 		}
 		npctalk "Verity: Umph...I suddenly have a feeling that's not good.";
 		next;
@@ -184,7 +184,7 @@ OnTouch:
 		disablenpc instance_npcname("Tamarin#room1");
 		disablenpc instance_npcname("Verity#room1");
 		disablenpc instance_npcname("Maggi#room1");
-		disablenpc instance_npcname("Alp#room1");
+		disablenpc instance_npcname("Alph#room1");
 		mapannounce 'map_name$, "-----------------Creak---------------------",bc_map,"0xFF0000";
 		sleep 2000;
 		mapannounce 'map_name$, "-----Creak---Wrr--------------------------",bc_map,"0xFF0000";
@@ -238,12 +238,12 @@ OnMyMobDead2:
 	mes "[Tamarin]";
 	mes "Huff huff... Verity suddenly huff huff couldn't even stand straight before huff huff...";
 	cutin "ep143_tahuk.bmp",2;
-	if (getpartyleader(getcharid(1),2) != getcharid(0)) {
+	if (is_party_leader() == false) {
 		next;
 		mes "[Tamarin]";
 		mes "I don't think this is a problem we can solve by talking amongst ourselves.";
 		mes "Let's ask the leader's opinion first.";
-		close2;
+		close3;
 	}
 	npctalk "Tamarin: Huff huff... Verity suddenly huff huff couldn't even stand straight before huff huff...";
 	next;
@@ -320,7 +320,7 @@ OnMyMobDead:
 		mes "[Verity]";
 		mes "Go back...we have to go back...";
 		cutin "EP15_2_brt_7.bmp",2;
-		close2;
+		close3;
 	}
 	mes "[Verity]";
 	mes "Quickly...we have to go back...";
@@ -400,7 +400,7 @@ OnMyMobDead:
 	stopnpctimer;
 	killmonster 'map_name$, instance_npcname("protocole3") + "::OnMyMobDead2";
 	mapannounce 'map_name$, "System message : All protocols failed. Locking down area excluding threat element.",bc_map,"0xFF0000";
-	enablenpc instance_npcname("Alp#room4");
+	enablenpc instance_npcname("Alph#room4");
 	enablenpc instance_npcname("Tamarin#room4");
 	enablenpc instance_npcname("Maggi#room4");
 	enablenpc instance_npcname("Du#room4");
@@ -412,11 +412,11 @@ OnMyMobDead2:
 	end;
 }
 	
-1@uns,236,258,1	script	Alp#room4	4_M_BLACKMAN,{
-	mes "[Alp]";
+1@uns,236,258,1	script	Alph#room4	4_M_BLACKMAN,{
+	mes "[Alph]";
 	mes "It's too early to relax...";
 	cutin "bu_alp1.bmp",2;
-	close2;
+	close3;
 }
 
 1@uns,244,257,3	script	Tamarin#room4	4_M_TAMARIN,{
@@ -424,14 +424,14 @@ OnMyMobDead2:
 	mes "Verity!!!";
 	mes "Pull yourself together!";
 	cutin "ep143_tahuk.bmp",2;
-	close2;
+	close3;
 }
 
 1@uns,245,254,3	script	Maggi#room4	4_F_PINKWOMAN,{
 	mes "[Maggi]";
 	mes "Verity, are you alright?";
 	cutin "bu_maggi4.bmp",2;
-	close2;
+	close3;
 }
 
 1@uns,244,254,3	script	Du#room4	4_M_REDMAN,{
@@ -440,7 +440,7 @@ OnMyMobDead2:
 	mes "What happened?!";
 	mes "Are you alright?";
 	cutin "bu_du5.bmp",2;
-	close2;
+	close3;
 }
 
 1@uns,242,255,5	script	Mark#room4	4_M_BLUEMAN,{
@@ -448,7 +448,7 @@ OnMyMobDead2:
 	mes "Everybody out of the way!";
 	mes "I will cast Heal!!!";
 	cutin "bu_mark4.bmp",0;
-	close2;
+	close3;
 }
 
 1@uns,242,253,3	script	Verity#room4	4_F_BERRYTEA,{
@@ -521,10 +521,10 @@ OnMyMobDead2:
 	cutin "bu_du4.bmp",2;
 	npctalk "Du: Just now something tremendous...", instance_npcname("Du#room4");
 	next;
-	mes "[Alp]";
+	mes "[Alph]";
 	mes "Hey... I don't think this is a situation where we should be chatting right now.";
 	cutin "bu_alp3.bmp",2;
-	npctalk "Alp: Hey... I don't think this is a situation where we should be chatting right now.", instance_npcname("Alp#room4");
+	npctalk "Alph: Hey... I don't think this is a situation where we should be chatting right now.", instance_npcname("Alph#room4");
 	next;
 	mes "[Du]";
 	mes "You call this chatting?";
@@ -532,11 +532,11 @@ OnMyMobDead2:
 	cutin "bu_du4.bmp",2;
 	npctalk "Du: You call this chatting? It was tremendous before okay?", instance_npcname("Du#room4");
 	next;
-	mes "[Alp]";
+	mes "[Alph]";
 	mes "Do you hear this?";
 	mes "Something is coming...";
 	cutin "bu_alp1.bmp",2;
-	npctalk "Alp: Do you hear this? Something is coming...", instance_npcname("Alp#room4");
+	npctalk "Alph: Do you hear this? Something is coming...", instance_npcname("Alph#room4");
 	next;
 	mes "[Tamarin]";
 	mes "Now...now that I look the ground is..., shaking a little, right?";
@@ -548,11 +548,11 @@ OnMyMobDead2:
 	cutin "bu_du4.bmp",2;
 	npctalk "Du: What...what's this?", instance_npcname("Du#room4");
 	next;
-	mes "[Alp]";
+	mes "[Alph]";
 	mes "This is...dangerous.";
 	mes "This is not a level we can handle...";
 	cutin "bu_alp2.bmp",2;
-	npctalk "Alp: This is...dangerous. This is not a level we can handle...", instance_npcname("Alp#room4");
+	npctalk "Alph: This is...dangerous. This is not a level we can handle...", instance_npcname("Alph#room4");
 	next;
 	mes "[Mark]";
 	mes "Qui...quickly outside!!!!!";
@@ -580,7 +580,7 @@ OnInstanceInit:
 	// Last step
 	disablenpc instance_npcname("Verity#room3");
 	disablenpc instance_npcname("protocole3");
-	disablenpc instance_npcname("Alp#room4");
+	disablenpc instance_npcname("Alph#room4");
 	disablenpc instance_npcname("Tamarin#room4");
 	disablenpc instance_npcname("Maggi#room4");
 	disablenpc instance_npcname("Du#room4");

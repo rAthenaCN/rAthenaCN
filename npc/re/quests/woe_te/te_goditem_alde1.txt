@@ -33,7 +33,7 @@ te_aldecas1,226,34,3	script	Blacksmith Cano#tegod01	4_M_RACHMAN1,{
 		mes "Don't worry about me.";
 		close;
 	}
-	if (getguildmaster(.@guild_id) != strcharinfo(0)) {
+	if (is_guild_leader() == false) {
 		mes "I feel so grateful all the time about you letting me stay here.";
 		mes "It's nothing special... but if you want, I'll make you tools that could be of use.";
 		next;
@@ -346,7 +346,7 @@ S_Fuse:
 			mes "It shouldn't take long.";
 			mes "Here it is.";
 			mes "It is an essential material for making Hervor and Jormungand.";
-			delitem 12735,200;// RunstonET_FRETcient
+			delitem 12735,200;// Runstone_Ancient
 			delitem 12736,100;// Runstone_Mystic
 			getitem 6604,1;// Essence_Of_Rune
 			close;

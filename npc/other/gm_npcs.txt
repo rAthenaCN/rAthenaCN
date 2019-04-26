@@ -29,7 +29,7 @@ function	script	F_GM_NPC	{
 	// To set a minimum GM level to access the NPCs, edit the line below.
 	if (getgmlevel() < 99) {
 		// Log the event.
-		getmapxy(.@map$,.@x,.@y,UNITTYPE_NPC);
+		getmapxy(.@map$,.@x,.@y,BL_NPC);
 		logmes strcharinfo(0)+" ³¢ÊÔ·ÃÎÊGM NPC"+strnpcinfo(0)+" ("+.@map$+","+.@x+","+.@y+").";
 		end;
 	}
@@ -97,6 +97,7 @@ List of GM Management NPCs (incomplete)
 - Bakonawa's Rage (RE)
 - Bangungot Gate (RE)
 - Horror Toy Factory (RE)
+- Faceworm's Nest (RE)
 
 [ Job-related ]
 ----- 3rd Class (RE) -----
@@ -111,6 +112,7 @@ List of GM Management NPCs (incomplete)
 - Button Girl#sura
 - Battle Test Control#ko
 - Guide#ko_helper
+- Admin1
 --------------------------
 - Soul Linker Var
 - 1st Job Quest Reset
