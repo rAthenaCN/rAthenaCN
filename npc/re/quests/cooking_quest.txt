@@ -7,9 +7,9 @@
 //= 1.0 Location changed in ep16.1 [Capuche]
 //============================================================
 
-prt_cas,324,200,5	duplicate(Charles Orleans#cook_)	Charles Orleans#cook	4_M_OILMAN
-prt_cas,329,206,3	duplicate(Madeleine Chu#cook_)	Madeleine Chu#cook	4_COOK
-prt_cas,329,194,3	duplicate(Child with Cat#cook_)	Child with Cat#cook	4_F_YUNYANG
+prt_cas,324,200,5	duplicate(夏罗乐 欧罗莱昂#cook)	夏罗乐 欧罗莱昂#cook_	4_M_OILMAN
+prt_cas,329,206,3	duplicate(马德连 修#cook)	马德连 修#cook_	4_COOK
+prt_cas,329,194,3	duplicate(拎着小猫的 小孩#cook)	拎着小猫的 小孩#cook_	4_F_YUNYANG
 
 // inaccurate
-prt_cas,329,192,3	duplicate(Wickebine#cook_)	Wickebine#cook	4_F_JOB_ASSASSIN
+prt_cas,329,192,3	duplicate(Wickebine#cook)	Wickebine#cook_	4_F_JOB_ASSASSIN

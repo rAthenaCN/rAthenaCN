@@ -8,4 +8,4 @@
 
 // Teleport to Lutie
 //============================================================
-aldebaran,168,168,4	duplicate(Mr. Claus)	Mr. Claus#1	718
+aldebaran,168,168,4	duplicate(连结耶诞)	连结耶诞#1	718

@@ -27,10 +27,9 @@
 //= 1.7 Updated to match AEGIS script. [Kisuka]
 //============================================================
 
-// Teleport to Lutie, 台版坐标不同
+// Teleport to Lutie
 //============================================================
-//aldebaran,223,222,4	script	Mr. Claus	718,{
-aldebaran,168,168,4	script	连结耶诞	718,{
+aldebaran,223,222,4	script	连结耶诞	718,{
 	mes "[修沓云]";
 	mes "呵　呵　呵";
 	mes "圣诞快乐!!";
