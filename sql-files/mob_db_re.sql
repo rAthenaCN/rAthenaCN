@@ -5,7 +5,7 @@
 DROP TABLE IF EXISTS `mob_db_re`;
 CREATE TABLE `mob_db_re` (
   `ID` mediumint(9) unsigned NOT NULL default '0',
-  `Sprite` text NOT NULL,
+  `Sprite` varchar(24) NOT NULL,
   `kName` text NOT NULL,
   `iName` text NOT NULL,
   `LV` tinyint(6) unsigned NOT NULL default '0',
@@ -61,7 +61,8 @@ CREATE TABLE `mob_db_re` (
   `Drop9per` smallint(9) unsigned NOT NULL default '0',
   `DropCardid` smallint(5) unsigned NOT NULL default '0',
   `DropCardper` smallint(9) unsigned NOT NULL default '0',
-  PRIMARY KEY  (`ID`)
+  PRIMARY KEY  (`ID`),
+  UNIQUE KEY (`Sprite`)
 ) ENGINE=MyISAM;
 
 # Monster Database
@@ -3793,6 +3794,10 @@ REPLACE INTO `mob_db_re` VALUES (3790,'SWEETS_DROPS','Sweets Drops','Sweets Drop
 #20583,MD_C_WHITEKNIGHT_G
 #20584,MD_C_KHALITZBURG_G
 #20585,MD_C_RAY_ARCHER_G
+
+#20589,SWING_TALE
+
+#20591,PAPARE
 
 #31999,HUNTING_GID_DEFAULT
 #32000,MONSTER_2ND_END

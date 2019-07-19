@@ -729,6 +729,9 @@ bool pc_can_sell_item(struct map_session_data *sd, struct item *item, enum npc_s
 		return false;
 	}
 
+	if (itemdb_ishatched_egg(item))
+		return false;
+
 	switch (shoptype) {
 		case NPCTYPE_SHOP:
 			if (item->bound && battle_config.allow_bound_sell&ISR_BOUND_SELLABLE && (
@@ -2301,14 +2304,12 @@ static void pc_bonus_autospell(std::vector<s_autospell> &spell, short id, short 
 			flag |= BF_NORMAL; //By default autospells should only trigger on normal weapon attacks.
 	}
 
-	if (!battle_config.autospell_stacking && rate > 0) // Stacking disabled, make a new entry
-		;
-	else {
-		for (auto &it : spell) {
-			if ((it.card_id == card_id || it.rate < 0 || rate < 0) && it.id == id && it.lv == lv && it.flag == flag) {
-				it.rate = cap_value(it.rate + rate, -10000, 10000);
+	for (auto &it : spell) {
+		if ((it.card_id == card_id || it.rate < 0 || rate < 0) && it.id == id && it.lv == lv && it.flag == flag) {
+			if (!battle_config.autospell_stacking && it.rate > 0 && rate > 0) // Stacking disabled
 				return;
-			}
+			it.rate = cap_value(it.rate + rate, -10000, 10000);
+			return;
 		}
 	}
 
@@ -3382,6 +3383,13 @@ void pc_bonus(struct map_session_data *sd,int type,int val)
 			if(!sd->state.lr_flag)
 				sd->bonus.hp_gain_value += val;
 			break;
+		case SP_LONG_SP_GAIN_VALUE:
+			if(!sd->state.lr_flag)
+				sd->bonus.long_sp_gain_value += val;
+		case SP_LONG_HP_GAIN_VALUE:
+			if(!sd->state.lr_flag)
+				sd->bonus.long_hp_gain_value += val;
+			break;		
 		case SP_MAGIC_SP_GAIN_VALUE:
 			if(!sd->state.lr_flag)
 				sd->bonus.magic_sp_gain_value += val;
@@ -5354,6 +5362,10 @@ enum e_additem_result pc_cart_additem(struct map_session_data *sd,struct item *i
 
 	if(item->nameid == 0 || amount <= 0)
 		return ADDITEM_INVALID;
+
+	if (itemdb_ishatched_egg(item))
+		return ADDITEM_INVALID;
+
 	data = itemdb_search(item->nameid);
 
 	if( data->stack.cart && amount > data->stack.amount )
@@ -8452,6 +8464,8 @@ int pc_readparam(struct map_session_data* sd,int type)
 		case SP_UNSTRIPABLE_SHIELD: val = (sd->bonus.unstripable_equip&EQP_SHIELD)?1:0; break;
 		case SP_SP_GAIN_VALUE:   val = sd->bonus.sp_gain_value; break;
 		case SP_HP_GAIN_VALUE:   val = sd->bonus.hp_gain_value; break;
+		case SP_LONG_SP_GAIN_VALUE:   val = sd->bonus.long_sp_gain_value; break;
+		case SP_LONG_HP_GAIN_VALUE:   val = sd->bonus.long_hp_gain_value; break;
 		case SP_MAGIC_SP_GAIN_VALUE: val = sd->bonus.magic_sp_gain_value; break;
 		case SP_MAGIC_HP_GAIN_VALUE: val = sd->bonus.magic_hp_gain_value; break;
 		case SP_ADD_HEAL_RATE:   val = sd->bonus.add_heal_rate; break;
@@ -9367,7 +9381,7 @@ void pc_setmadogear(struct map_session_data* sd, int flag)
  *------------------------------------------*/
 bool pc_candrop(struct map_session_data *sd, struct item *item)
 {
-	if( item && (item->expire_time || (item->bound && !pc_can_give_bounded_items(sd))) )
+	if( item && ((item->expire_time || (item->bound && !pc_can_give_bounded_items(sd))) || (itemdb_ishatched_egg(item))) )
 		return false;
 	if( !pc_can_give_items(sd) || sd->sc.cant.drop) //check if this GM level can drop items
 		return false;
