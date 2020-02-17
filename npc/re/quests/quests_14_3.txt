@@ -143,14 +143,14 @@ morocc,138,238,4	script	Piled Rags#ep14bs	4_M_DIEMAN,{
 		if (select( "Tell him the place.", "Say you don't know." ) == 2) {
 			mes "[Tamarin]";
 			mes "Water is scarce in the desert, huh?";
-			close2;
+			close3;
 		}
 		mes "[Tamarin]";
 		mes "Ah,";
 		mes "do you mean the ^0000FFoasis near the northwestern sphinx^000000?";
 		next;
 		mes "[Tamarin]";
-		mes "I've been in Morroc, but this is my first time inside the village.";
+		mes "I've been in Morocc, but this is my first time inside the village.";
 		mes "I remember hearing that the place holds special water.";
 		next;
 		mes "[Tamarin]";
@@ -169,7 +169,7 @@ morocc,138,238,4	script	Piled Rags#ep14bs	4_M_DIEMAN,{
 			next;
 			mes "[Tamarin]";
 			mes "Wait, wait!";
-			close2;
+			close3;
 		}
 		mes "[Tamarin]";
 		mes "How kind of you!";
@@ -180,7 +180,7 @@ morocc,138,238,4	script	Piled Rags#ep14bs	4_M_DIEMAN,{
 		erasequest 11350;// Dimensional Travel
 		setquest 11351;// Dimensional Travel
 		ep14_3_dimensional_travel = 3;
-		close2;
+		close3;
 	}
 	if (ep14_3_dimensional_travel == 3) {
 		mes "[Tamarin]";
@@ -190,14 +190,13 @@ morocc,138,238,4	script	Piled Rags#ep14bs	4_M_DIEMAN,{
 		next;
 		mes "[Tamarin]";
 		mes "Then, let's go to the ^0000FFoasis near the northwestern sphinx^000000.";
-		close2;
+		close3;
 	}
 	mes "- There is a pile of dirty rags. -";
 	close;
 
 OnInit:
-	questinfo 11349, QTYPE_QUEST, 1;
-	setquestinfo_level 11349,140,175;
+	questinfo( QTYPE_QUEST, QMARK_YELLOW, "BaseLevel >= 140 && !isbegin_quest(11349)" );
 	end;
 }
 
@@ -245,7 +244,7 @@ moc_ruins,106,140,4	script	Tamarin#ep14bs_ru	4_M_TAMARIN,{
 				mes "[Tamarin]";
 				mes "*Retch*";
 				cutin "ep143_taang.bmp",2;
-				close2;
+				close3;
 			}
 			ep14_3_dimensional_travel = 4;
 			mes "[Tamarin]";
@@ -314,7 +313,7 @@ moc_ruins,106,140,4	script	Tamarin#ep14bs_ru	4_M_TAMARIN,{
 			mes "My knees gave way and I rolled on my side. When I looked around, I was back at the ^0000FFDimensional Crack^000000 where my friends and I first arrived.";
 			next;
 			mes "[Tamarin]";
-			mes "I came out through the ^0000FFMorroc Dimensional Teleporter^000000 and used every ounce of my energy to get to Morroc.";
+			mes "I came out through the ^0000FFMorocc Dimensional Teleporter^000000 and used every ounce of my energy to get to Morocc.";
 			next;
 			mes "[Tamarin]";
 			mes "Sigh...";
@@ -328,7 +327,7 @@ moc_ruins,106,140,4	script	Tamarin#ep14bs_ru	4_M_TAMARIN,{
 		cutin "ep143_tasmi.bmp",2;
 		next;
 		mes "[Tamarin]";
-		mes "Fortunately for me, with the ^0000FFMorroc restoration work^000000 underway, I shouldn't have a problem making money through some part-time jobs.";
+		mes "Fortunately for me, with the ^0000FFMorocc restoration work^000000 underway, I shouldn't have a problem making money through some part-time jobs.";
 		next;
 		if (select( "Tell him have safe travel.", "Tell him you want to tag along." ) == 1) {
 			mes "[Tamarin]";
@@ -342,8 +341,8 @@ moc_ruins,106,140,4	script	Tamarin#ep14bs_ru	4_M_TAMARIN,{
 			cutin "ep143_tasmi.bmp",2;
 			next;
 			mes "[Tamarin]";
-			mes "I'll be in Morroc for a while, making some money and getting ready for another adventure. I hope I can see you again before I leave.";
-			close2;
+			mes "I'll be in Morocc for a while, making some money and getting ready for another adventure. I hope I can see you again before I leave.";
+			close3;
 		}
 		mes "[Tamarin]";
 		mes "!!";
@@ -366,7 +365,7 @@ moc_ruins,106,140,4	script	Tamarin#ep14bs_ru	4_M_TAMARIN,{
 		erasequest 11351;// Dimensional Travel
 		setquest 11352;// Dimensional Travel
 		ep14_3_dimensional_travel = 5;
-		close2;
+		close3;
 	}
 	if (ep14_3_dimensional_travel == 5) {
 		mes "[Tamarin]";
@@ -375,13 +374,13 @@ moc_ruins,106,140,4	script	Tamarin#ep14bs_ru	4_M_TAMARIN,{
 		next;
 		mes "[Tamarin]";
 		mes "It may take a while for me to get everything packed, so get your other business done in the meantime.";
-		close2;
+		close3;
 	}
 	mes "[Tamarin]";
 	mes "Pah!";
 	mes "This feels great!";
 	cutin "ep143_tasmi.bmp",2;
-	close2;
+	close3;
 }
 
 dali,112,69,4	script	Tamarin#ep14bs_cha	4_M_TAMARIN,{
@@ -410,7 +409,7 @@ dali,112,69,4	script	Tamarin#ep14bs_cha	4_M_TAMARIN,{
 		erasequest 11352;// Dimensional Travel
 		setquest 11353;// Dimensional Travel
 		ep14_3_dimensional_travel = 6;
-		close2;
+		close3;
 	}
 	if (ep14_3_dimensional_travel == 6) {
 		mes "[Tamarin]";
@@ -424,12 +423,12 @@ dali,112,69,4	script	Tamarin#ep14bs_cha	4_M_TAMARIN,{
 		mes "[Tamarin]";
 		mes "Meet me in front of the ^0000FFHidden Crack^000000. Make sure no one follows you there.";
 		mes "I've ^0000FFcovered the opening with dirt^000000. I hope no one dug it open.";
-		close2;
+		close3;
 	}
 	mes "[Tamarin]";
 	mes "Hm, my mark had better stay where I left it.";
 	cutin "ep143_tahuk.bmp",2;
-	close2;
+	close3;
 }
 
 dali02,90,62,0	script	Sand Mound#ep14bs	4_SOIL,{
@@ -454,7 +453,7 @@ dali02,90,62,0	script	Sand Mound#ep14bs	4_SOIL,{
 			mes "[Tamarin]";
 			mes "Aren't you going in?";
 			cutin "ep143_tahuk.bmp",2;
-			close2;
+			close3;
 		}
 		mes "- The passage is barely wide enough to contain one person. -";
 		completequest 11353;// Dimensional Travel
@@ -537,11 +536,11 @@ ecl_in01,40,96,3	script	Eclage Guard#143_6	4_M_FAIRYSOLDIER,{
 		next;
 		mes "[Eclage Guard]";
 		mes "Many a warrior already left to the hideout.";
-		mes "So long as Morroc exists, Yggdrasil is not safe. I'm going to join the Expedition.";
+		mes "So long as Morocc exists, Yggdrasil is not safe. I'm going to join the Expedition.";
 		close;
 	case 2:
 		mes "[Eclage Guard]";
-		mes "It turns out Demon God ran from Morroc to hide out in our dimension.";
+		mes "It turns out Demon God ran from Morocc to hide out in our dimension.";
 		mes "He has to be dealt with, either banished back to his realm or destroyed.";
 		next;
 		mes "[Eclage Guard]";
@@ -620,7 +619,7 @@ moro_vol,132,140,4	script	Tamarin#ep14bs_ju	4_M_TAMARIN,{
 		mes "They might kick us out if they know we sneaked in.";
 		mes "Let's do what they ask for now, yeah?";
 		cutin "ep143_taang.bmp",2;
-		close2;
+		close3;
 	}
 	if (ep14_3_dimensional_travel == 10 || ep14_3_dimensional_travel == 11) {
 		mes "[Tamarin]";
@@ -634,7 +633,7 @@ moro_vol,132,140,4	script	Tamarin#ep14bs_ju	4_M_TAMARIN,{
 			setquest 11357;// Specimen Collection
 			ep14_3_dimensional_travel = 11;
 		}
-		close2;
+		close3;
 	}
 	if (ep14_3_dimensional_travel == 12) {
 		if (countitem(6690) < 25) {
@@ -643,39 +642,39 @@ moro_vol,132,140,4	script	Tamarin#ep14bs_ju	4_M_TAMARIN,{
 			mes "You don't have enough stems.";
 			mes "Get more and take them to Barget.";
 			cutin "ep143_tahuk.bmp",2;
-			close2;
+			close3;
 		}
 		mes "[Tamarin]";
 		mes "Let's report to Barget first.";
 		cutin "ep143_tahuk.bmp",2;
-		close2;
+		close3;
 	}
 	if (ep14_3_dimensional_travel == 14 || ep14_3_dimensional_travel == 15) {
 		mes "[Tamarin]";
 		mes "Come on,";
 		mes "hurry over to ^0000FFInstructor Rugen^000000!";
 		cutin "ep143_tahuk.bmp",2;
-		close2;
+		close3;
 	}
 	if (ep14_3_dimensional_travel == 16) {
 		mes "[Tamarin]";
 		mes "Thank the gods, who knew that thing I ate out of hunger would save me?";
 		mes "Let's report to Barget.";
 		cutin "ep143_tahuk.bmp",2;
-		close2;
+		close3;
 	}
 	if (ep14_3_dimensional_travel > 16) {
 		mes "[Tamarin]";
 		mes "Arrgh!";
 		mes "" + strcharinfo(0) + " Get in the cave before everyone else explores it!";
 		cutin "ep143_tahuk.bmp",2;
-		close2;
+		close3;
 	}
 	mes "[Tamarin]";
 	mes "Ugh...";
 	mes "I was the first to come to this place!";
 	cutin "ep143_taang.bmp",2;
-	close2;
+	close3;
 }
 
 moro_vol,142,131,5	script	Barget Tiblack#ep14bs	4_M_ALCHE_D,{
@@ -786,7 +785,7 @@ moro_vol,142,131,5	script	Barget Tiblack#ep14bs	4_M_ALCHE_D,{
 		mes "Hm...";
 		mes "" + strcharinfo(0) + ", wait!";
 		cutin "ep143_tahuk.bmp",2;
-		close2;
+		close3;
 	}
 	if (ep14_3_dimensional_travel == 12) {
 		if (countitem(6690) < 25) {
@@ -1059,14 +1058,14 @@ moro_vol,198,179,4	script	Tamarin#ep14bs_st	4_M_TAMARIN,{
 		mes "Hm...";
 		mes "We don't have time for this!";
 		cutin "ep143_taang.bmp",2;
-		close2;
+		close3;
 	}
 	if (ep14_3_dimensional_travel == 11) {
 		if (countitem(6690) < 25 || checkquest(11357,HUNTING) != 2) {
 			mes "[Tamarin]";
 			mes "^0000FFWhen you collect 25 Sonia stems, meet me here^000000.";
 			cutin "ep143_tasta.bmp",2;
-			close2;
+			close3;
 		}
 		mes "[Tamarin]";
 		mes "I don't remember this rock was so big.";
@@ -1104,27 +1103,27 @@ moro_vol,198,179,4	script	Tamarin#ep14bs_st	4_M_TAMARIN,{
 		erasequest 11357;// Specimen Collection
 		setquest 11358;// Specimen Collection
 		ep14_3_dimensional_travel = 12;
-		close2;
+		close3;
 	}
 	if (ep14_3_dimensional_travel == 12) {
 		mes "[Tamarin]";
 		mes "I've got only a few left. Let's take turns to gather some more.";
 		cutin "ep143_tasmi.bmp",2;
-		close2;
+		close3;
 	}
 	if (ep14_3_dimensional_travel < 16) {
 		mes "[Tamarin]";
 		mes "Come on,";
 		mes "hurry over to ^0000FFInstructor Rugen^000000!";
 		cutin "ep143_tahuk.bmp",2;
-		close2;
+		close3;
 	}
 	if (ep14_3_dimensional_travel == 16) {
 		mes "[Tamarin]";
 		mes "Thank the gods, who knew that thing I ate out of hunger would save me?";
 		mes "Let's report to Barget.";
 		cutin "ep143_tahuk.bmp",2;
-		close2;
+		close3;
 	}
 	mes "[Tamarin]";
 	mes "Arrgh!";
@@ -1135,7 +1134,7 @@ moro_vol,198,179,4	script	Tamarin#ep14bs_st	4_M_TAMARIN,{
 		mes "[Tamarin]";
 		mes "Ah...";
 		cutin "ep143_taang.bmp",2;
-		close2;
+		close3;
 	}
 	mes "[Tamarin]";
 	mes "The floor is dark. Watch your step!";
