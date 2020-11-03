@@ -29,7 +29,7 @@
 
 prt_church,103,88,3	script	Praying Minister#arch	60,{
 	if (BaseJob != Job_Priest) {
-		if (Class == Job_Arch_Bishop || Class == Job_Arch_Bishop_T || Class == Job_Baby_Bishop) {
+		if (Class == Job_Arch_Bishop || Class == Job_Arch_Bishop_T || Class == JOB_BABY_ARCH_BISHOP) {
 			mes "[Praying Minister]";
 			mes "Ah! An Archbishop.";
 			mes "You have reached the state of light.";
@@ -193,7 +193,7 @@ umbala,139,227,3	script	Priest#arch	60,{
 		mes "Is that... right?";
 		mes "Hmm... so...";
 		mes "Um...ma? Umau...ma?";
-		emotion e_swt;
+		emotion ET_SWEAT;
 		next;
 		mes "[Utan Boy]";
 		mes "...............";
@@ -788,7 +788,7 @@ job3_arch01,29,34,3	script	Valkyrie#arch	403,{
 	if (Class != Job_Priest && Class != Job_High_Priest && Class != Job_Baby_Priest) {
 		warp "odin_tem02",282,263;
 		end;
-	} else if (Class != Job_Arch_Bishop && Class != Job_Arch_Bishop_T && Class != Job_Baby_Bishop) {
+	} else if (Class != Job_Arch_Bishop && Class != Job_Arch_Bishop_T && Class != JOB_BABY_ARCH_BISHOP) {
 		if (job_arch < 5) {
 			warp "odin_tem02",282,263;
 			end;
@@ -1261,7 +1261,7 @@ OnTouch:
 	mes "- Shoooo -";
 	specialeffect EF_CLOAKING,AREA,"Valkyrie Anguhilde#end";
 	hideonnpc "Valkyrie Anguhilde#end";
-	emotion e_omg,1;
+	emotion ET_HUK,1;
 	next;
 	mes "[Valkyrie of the heavens]";
 	mes "Set your mind at ease.";

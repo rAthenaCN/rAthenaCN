@@ -168,14 +168,14 @@ ayothaya,171,152,5	script	少女#Lalitha	838,{
 		mes "请问~其他国家的女孩子，";
 		mes "她们平常穿着什么样的服装呢~?";
 		mes "还有会佩带什么样的装饰品呢..";
-		emotion e_what;
+		emotion ET_QUESTION;
 		next;
 		mes "[" +strcharinfo(0)+ "]";
 		mes ".........";
 		next;
 		mes "[莱莉妲]";
 		mes "..........";
-		emotion e_swt;
+		emotion ET_SWEAT;
 		next;
 		mes "[莱莉妲]";
 		mes "那边国家的哥哥都很厉害吧?";
@@ -199,7 +199,7 @@ ayothaya,171,152,5	script	少女#Lalitha	838,{
 		mes "啊...";
 		mes "像现在这样的年代，所谓有正义的勇士，";
 		mes "还会存在吗~啊啊~";
-		emotion e_lv;
+		emotion ET_THROB;
 		next;
 		mes "["+strcharinfo(0)+"]";
 		mes "Don't you mean...";
@@ -302,12 +302,12 @@ ayothaya,241,264,5	script	青年#5ayothaya2	843,{
 		next;
 		mes "[艾易]";
 		mes "真正的强壮是靠着相互对练而练成的!";
-		emotion e_wah;
+		emotion ET_KEK;
 		close;
 	}
 	mes "[艾易]";
 	mes "所以请你不要怕锻练啊, 好妈?";
-	emotion e_pif;
+	emotion ET_HNG;
 	close;
 }
 

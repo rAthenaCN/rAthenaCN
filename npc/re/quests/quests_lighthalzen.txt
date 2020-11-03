@@ -86,7 +86,7 @@ function	script	lhz4enter	{
 			mes "[科研人员]";
 			mes "你是谁?";
 			mes "................";
-			emotion e_omg;
+			emotion ET_HUK;
 			next;
 			mes "男子逃跑, 你需要追上他.";
 		}
@@ -225,12 +225,12 @@ OnTouch:
 		next;
 		mes "["+strcharinfo(0)+"]";
 		mes "你是沃尔岑夫教授?";
-		emotion e_omg,1;
+		emotion ET_HUK,1;
 		next;
 		mes "[沃尔岑夫]";
 		mes "很多人都来这里找我. 不过绝大部分都不是自愿的.";
 		mes "你在这里想干嘛?";
-		emotion e_gg;
+		emotion ET_KIK;
 		next;
 		mes "["+strcharinfo(0)+"]";
 		mes "我听说这里正在进行生物实验.";
@@ -243,7 +243,7 @@ OnTouch:
 		mes "我想我知道你想说什么, 你是不是在指责我?";
 		mes "我可不想听你唠叨.";
 		mes "你最好快点离开这里.";
-		emotion e_gg;
+		emotion ET_KIK;
 		next;
 		mes "[沃尔岑夫]";
 		mes "他似乎已经哭了很长一段时间... 我很忙, 失陪!";
@@ -252,7 +252,7 @@ OnTouch:
 		next;
 		mes "["+strcharinfo(0)+"]";
 		mes "嘿! 沃尔岑夫 这...";
-		emotion e_omg,1;
+		emotion ET_HUK,1;
 		changequest 5109,5110;
 		set lhz_dun04,2;
 		close2;
@@ -268,7 +268,7 @@ que_lhz,94,119,3	script	科研人员#ins2	4_LGTSCIENCE,{
 	if (lhz_dun04 == 2) {
 		mes "[沃尔岑夫]";
 		mes "嘿嘿嘿. 你真的执着! 你想从我这里得到什么?";
-		emotion e_swt2;
+		emotion ET_PROFUSELY_SWEAT;
 		next;
 		mes "["+strcharinfo(0)+"]";
 		mes "沃尔岑夫... 你自己都坦言它是危险的. 所有这些调查...";
@@ -281,7 +281,7 @@ que_lhz,94,119,3	script	科研人员#ins2	4_LGTSCIENCE,{
 		next;
 		mes "[沃尔岑夫]";
 		mes "每个人都想成为强大的可以主宰别人的人. 让所有人服从, 得到一切尊重和敬仰. 难道你不想要? 嘿嘿.";
-		emotion e_gg;
+		emotion ET_KIK;
 		next;
 		mes "["+strcharinfo(0)+"]";
 		mes "... ... ...";
@@ -316,7 +316,7 @@ que_lhz,147,224,3	script	科研人员#ins3	4_LGTSCIENCE,{
 		next;
 		mes "["+strcharinfo(0)+"]";
 		mes "... ... ...";
-		emotion e_dots,1;
+		emotion ET_THINK,1;
 		next;
 		mes "沃尔岑夫再也不想和你说话了, 他变笑边按下了手中的一个控制器. 然后他疯狂了.";
 		specialeffect EF_SIGHTRASHER;
@@ -327,7 +327,7 @@ que_lhz,147,224,3	script	科研人员#ins3	4_LGTSCIENCE,{
 		next;
 		mes "[沃尔岑夫]";
 		mes "你真是个傻瓜.";
-		emotion e_gasp;
+		emotion ET_SURPRISE;
 		next;
 		mes "[沃尔岑夫]";
 		mes "看到这些生命体么, 你会被他们包围, 让我们来看看好戏吧.";
@@ -339,7 +339,7 @@ que_lhz,147,224,3	script	科研人员#ins3	4_LGTSCIENCE,{
 		mes "[沃尔岑夫]";
 		mes "不!! ...你干了什么!! 你";
 		mes "是个疯子!!!";
-		emotion e_omg;
+		emotion ET_HUK;
 		next;
 		mes "[沃尔岑夫]";
 		mes "回去!";
@@ -359,7 +359,7 @@ que_lhz,147,224,3	script	科研人员#ins3	4_LGTSCIENCE,{
 		mes "["+strcharinfo(0)+"]";
 		mes "让我们先离开这里! 有什么地方我们能去的?";
 		specialeffect EF_DARKBREATH;
-		emotion e_no,1;
+		emotion ET_STARE_ABOUT,1;
 		next;
 		mes "[沃尔岑夫]";
 		mes "这里. 我的实验室... 我的实验室...";

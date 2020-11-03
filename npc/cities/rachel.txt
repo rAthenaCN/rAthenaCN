@@ -239,7 +239,7 @@ rachel,206,30,3	script	菲依雅 神官#play	920,{
 	next;
 	mes "[菲依雅 神官]";
 	mes "我好无聊啦??????";
-	emotion e_ag;
+	emotion ET_ANGER;
 	next;
 	if (select("啊~ 是....:我来逗你开心吧?") == 1) {
 		mes "[菲依雅 神官]";
@@ -298,7 +298,7 @@ rachel,197,137,3	script	流浪诗人#aru	51,{
 	next;
 	mes "[流浪诗人]";
 	mes ".........................";
-	emotion e_sob;
+	emotion ET_CRY;
 	close;
 }
 ra_temple,148,91,3	script	信徒 雅卡莉娜	917,{
@@ -363,7 +363,7 @@ ra_temin,138,64,5	script	小孩 信徒#in1	914,{
 	mes "[小孩 信徒]";
 	mes "呜呜是上周在路上捡到的可爱小鸟，";
 	mes "我有很细心的照料它却仍然死掉了，哭泣..";
-	emotion e_sob;
+	emotion ET_CRY;
 	next;
 	mes "[小孩 信徒]";
 	mes "我本来打算请求教皇救回我的小鸟";
@@ -475,7 +475,7 @@ rachel,127,117,4	script	小孩 信徒#2	914,{
 	mes "等待神的旨意";
 	mes "这才是人要做的事情啊";
 	next;
-	emotion e_what,1;
+	emotion ET_QUESTION,1;
 	mes "[迪浓]";
 	mes "虽然现在有点听不懂，";
 	mes "总有一天会有瞭解的一天";

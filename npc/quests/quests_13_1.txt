@@ -2830,7 +2830,7 @@ mid_camp,222,283,4	script	玛丽安#ep13bs	4_F_JOB_HUNTER,{
 			case 1:
 				mes "[玛丽安]";
 				mes "好不撒谎的告诉你, 我见过的人是不会忘记的.";
-				emotion e_lv;
+				emotion ET_THROB;
 				next;
 				mes "[玛丽安]";
 				mes "恩......反正......";
@@ -2868,20 +2868,20 @@ mid_camp,222,283,4	script	玛丽安#ep13bs	4_F_JOB_HUNTER,{
 	if (ep13_newbs == 1) {
 		mes "[玛丽安]";
 		mes "^0000FF卢根教官^000000, 往右边直走就能见到";
-		emotion e_lv;
+		emotion ET_THROB;
 		close;
 	}
 	if ((ep13_newbs > 1) && (ep13_newbs < 13)) {
 		mes "[玛丽安]";
 		mes "很高兴再次见到你.";
 		mes "你在这里感觉适应了吗?";
-		emotion e_lv;
+		emotion ET_THROB;
 		close;
 	}
 	if (ep13_newbs == 13) {
 		mes "[玛丽安]";
 		mes "嘿, 你怎么会来这里喔?";
-		emotion e_lv;
+		emotion ET_THROB;
 		next;
 		mes "["+ strcharinfo(0) +"]";
 		mes "同盟长送我过来的.他告诉我, 应该报效祖国.";
@@ -2899,7 +2899,7 @@ mid_camp,222,283,4	script	玛丽安#ep13bs	4_F_JOB_HUNTER,{
 		if (countitem(6045) < 3) {
 			mes "[玛丽安]";
 			mes "哈哈, 你是来领取补给箱子的?!";
-			emotion e_omg;
+			emotion ET_HUK;
 			next;
 			mes "[玛丽安]";
 			mes "好的, 给你, 拿好了!";
@@ -2909,7 +2909,7 @@ mid_camp,222,283,4	script	玛丽安#ep13bs	4_F_JOB_HUNTER,{
 		else {
 			mes "[玛丽安]";
 			mes "做好你的分内事, 见到长官要有礼貌喔.";
-			emotion e_lv;
+			emotion ET_THROB;
 			close;
 		}
 	}
@@ -2917,13 +2917,13 @@ mid_camp,222,283,4	script	玛丽安#ep13bs	4_F_JOB_HUNTER,{
 		mes "[玛丽安]";
 		mes "嘿~";
 		mes "你最近可好?我最近很忙喔...";
-		emotion e_sob;
+		emotion ET_CRY;
 		next;
 		mes "[玛丽安]";
 		mes "从大陆运输过来的补给物品...";
 		mes "呃...";
 		mes "没事, 别在意...";
-		emotion e_omg;
+		emotion ET_HUK;
 		close;
 	}
 }
@@ -3186,7 +3186,7 @@ mid_camp,261,284,4	script	教官 卢根#ep13bs	4_M_YOUNGKNIGHT,{
 		next;
 		mes "[教官卢根]";
 		mes "我今天有很多事情要做, 先忙去了, 哈哈...";
-		emotion e_pif;
+		emotion ET_HNG;
 		set ep13_newbs,21;
 		completequest 11098;
 		close;
@@ -3195,7 +3195,7 @@ mid_camp,261,284,4	script	教官 卢根#ep13bs	4_M_YOUNGKNIGHT,{
 		if (rand(1,3) == 2) {
 			mes "[教官卢根]";
 			mes "哎, 真是没有休息过啊.";
-			emotion e_pif;
+			emotion ET_HNG;
 			next;
 			mes "["+ strcharinfo(0) +"]";
 			mes "你怎么啦?";
@@ -3246,7 +3246,7 @@ mid_camp,261,284,4	script	教官 卢根#ep13bs	4_M_YOUNGKNIGHT,{
 		else {
 			mes "[教官卢根]";
 			mes "哎, 真是没有休息过啊.";
-			emotion e_pif;
+			emotion ET_HNG;
 			close;
 		}
 	}
@@ -3254,7 +3254,7 @@ mid_camp,261,284,4	script	教官 卢根#ep13bs	4_M_YOUNGKNIGHT,{
 		mes "[教官卢根]";
 		mes "[教官卢根]";
 		mes "哎, 真是没有休息过啊.";
-		emotion e_pif;
+		emotion ET_HNG;
 		next;
 		switch(select("- 帮他送信.:- 静静地听着.")) {
 		case 1:
@@ -3462,7 +3462,7 @@ mid_campin,106,122,4	script	登记员 布林克#ep13b	4_M_ORIENT02,{
 		mes "那个..";
 		mes "嗯...";
 		mes "...所以呢...";
-		emotion e_swt2;
+		emotion ET_PROFUSELY_SWEAT;
 		close;
 	}
 	if (ep13_newbs == 3) {
@@ -3472,7 +3472,7 @@ mid_campin,106,122,4	script	登记员 布林克#ep13b	4_M_ORIENT02,{
 		mes "那个..";
 		mes "嗯...";
 		mes "...所以呢...";
-		emotion e_swt2;
+		emotion ET_PROFUSELY_SWEAT;
 		next;
 		switch(select("- 说自己是来登记的.:- 安静地站着.")) {
 		case 1:
@@ -3481,7 +3481,7 @@ mid_campin,106,122,4	script	登记员 布林克#ep13b	4_M_ORIENT02,{
 			mes "那个..";
 			mes "嗯...";
 			mes "你叫什么名字...";
-			emotion e_swt2;
+			emotion ET_PROFUSELY_SWEAT;
 			next;
 			mes "["+ strcharinfo(0) +"]";
 			mes "我叫 "+ strcharinfo(0) +".";
@@ -3490,14 +3490,14 @@ mid_campin,106,122,4	script	登记员 布林克#ep13b	4_M_ORIENT02,{
 			mes "...嗯...";
 			mes ""+ strcharinfo(0) +"...";
 			mes "好了, 登记完毕...";
-			emotion e_swt2;
+			emotion ET_PROFUSELY_SWEAT;
 			next;
 			mes "[布林克]";
 			mes "这里...";
 			mes "嗯...";
 			mes "登记...";
 			next;
-			emotion e_swt2;
+			emotion ET_PROFUSELY_SWEAT;
 			next;
 			mes "["+ strcharinfo(0) +"]";
 			mes "完成了吗?";
@@ -3514,7 +3514,7 @@ mid_campin,106,122,4	script	登记员 布林克#ep13b	4_M_ORIENT02,{
 		case 2:
 			mes "[布林克]";
 			mes "......这...";
-			emotion e_swt2;
+			emotion ET_PROFUSELY_SWEAT;
 			close;
 		}
 	}
@@ -3536,14 +3536,14 @@ mid_camp,264,263,4	script	迪艾格#ep13bs	4_M_RACHMAN1,{
 	if (ep13_newbs < 5) {
 		mes "[迪艾格]";
 		mes "我现在很忙!";
-		emotion e_swt2;
+		emotion ET_PROFUSELY_SWEAT;
 		close;
 	}
 	if (ep13_newbs == 5) {
 		mes "[迪艾格]";
 		mes "哇塞?";
 		mes "那边路过的冒险家, 来帮帮忙吧.";
-		emotion e_sob;
+		emotion ET_CRY;
 		next;
 		switch(select("- 帮助他.:- 无视他.")) {
 		case 1:
@@ -3565,11 +3565,11 @@ mid_camp,264,263,4	script	迪艾格#ep13bs	4_M_RACHMAN1,{
 			next;
 			mes "["+ strcharinfo(0) +"]";
 			mes "你怎么知道我的名字?!";
-			emotion e_omg,1;
+			emotion ET_HUK,1;
 			next;
 			mes "[迪艾格]";
 			mes "你的狗牌上不是有吗.";
-			emotion e_dots;
+			emotion ET_THINK;
 			next;
 			select("那么我要如何帮你呢.");
 			mes "[迪艾格]";
@@ -3591,7 +3591,7 @@ mid_camp,264,263,4	script	迪艾格#ep13bs	4_M_RACHMAN1,{
 			mes "...";
 			mes "你太差劲了.";
 			mes "呜呜...";
-			emotion e_sob;
+			emotion ET_CRY;
 			close;
 		}
 	}
@@ -3601,7 +3601,7 @@ mid_camp,264,263,4	script	迪艾格#ep13bs	4_M_RACHMAN1,{
 			mes "哇!!";
 			mes "你终于把材料带回来了啊!";
 			mes "太感谢了!!";
-			emotion e_sob;
+			emotion ET_CRY;
 			delitem 6041,20; //Strong_Bine
 			delitem 6042,20; //Ordinary_Branch
 			set ep13_newbs,7;
@@ -3640,7 +3640,7 @@ mid_camp,264,263,4	script	迪艾格#ep13bs	4_M_RACHMAN1,{
 			next;
 			mes "["+ strcharinfo(0) +"]";
 			mes "我可能要在这边宿舍住一阵.";
-			emotion e_swt2,1;
+			emotion ET_PROFUSELY_SWEAT,1;
 			next;
 			mes "[迪艾格]";
 			mes "哇!!!";
@@ -3661,7 +3661,7 @@ mid_camp,264,263,4	script	迪艾格#ep13bs	4_M_RACHMAN1,{
 	else {
 		mes "[迪艾格]";
 		mes "我现在很忙!";
-		emotion e_swt2;
+		emotion ET_PROFUSELY_SWEAT;
 		close;
 	}
 }
@@ -3755,7 +3755,7 @@ mid_campin,292,120,4	script	达比#ep13bs	4_M_DIEMAN,{
 	mes "[达比]";
 	mes "唉呦! 我的身体啊!";
 	mes "走太多路全身酸痛";
-	emotion e_sob;
+	emotion ET_CRY;
 	close;
 }
 
@@ -3784,7 +3784,7 @@ mid_camp,160,298,4	script	扎安#ep13bs	4_LGTSCIENCE,{
 		else {
 			mes "[扎安]";
 			mes "我订了一个月的补给箱子还没送来?";
-			emotion e_an;
+			emotion ET_FRET;
 			close;
 		}
 	}
@@ -3801,7 +3801,7 @@ mid_camp,160,298,4	script	扎安#ep13bs	4_LGTSCIENCE,{
 		next;
 		mes "[扎安]";
 		mes "秘密, 哈哈...";
-		emotion e_shy;
+		emotion ET_SHY;
 		close;
 	}
 	else {
@@ -3840,7 +3840,7 @@ mid_camp,30,168,4	script	杰拉尔#ep13bs	4_DST_SOLDIER,{
 			next;
 			mes "[杰拉尔]";
 			mes "告诉教官, 我会再待一段时间.";
-			emotion e_no1;
+			emotion ET_BEST;
 			delitem 6045,1; //Supply_Box
 			set ep13_newbs,18;
 			getitem 12322,1; //Chocolate_Pie
@@ -3852,7 +3852,7 @@ mid_camp,30,168,4	script	杰拉尔#ep13bs	4_DST_SOLDIER,{
 			mes "Hhhh, 我饿死了.";
 			mes "如果物资将来到?";
 			mes "这疼得要命...";
-			emotion e_sob;
+			emotion ET_CRY;
 			close;
 		}
 	}
@@ -3897,7 +3897,7 @@ man_fild01,80,248,4	script	阿尔贝托#ep13bs	4_M_RASWORD,{
 			next;
 			mes "[阿尔贝托]";
 			mes "告诉教官, 我还活着, 哈哈.";
-			emotion e_sob;
+			emotion ET_CRY;
 			delitem 6045,1; //Supply_Box
 			set ep13_newbs,20;
 			getitem 12322,1; //Chocolate_Pie
@@ -3907,7 +3907,7 @@ man_fild01,80,248,4	script	阿尔贝托#ep13bs	4_M_RASWORD,{
 		else {
 			mes "[阿尔贝托]";
 			mes "这里好冷啊~";
-			emotion e_sob;
+			emotion ET_CRY;
 			close;
 		}
 	}
@@ -4030,7 +4030,7 @@ mid_camp,267,263,0	script	柱子#ep13bs1	HIDDEN_NPC,{
 						mes "[迪艾格]";
 						mes "...";
 						mes "为什么你不帮一下忙啊?";
-						emotion e_sob;
+						emotion ET_CRY;
 						close;
 					}
 				}
@@ -4099,7 +4099,7 @@ mid_camp,267,258,0	script	柱子#ep13bs2	HIDDEN_NPC,{
 						mes "[迪艾格]";
 						mes "...";
 						mes "为什么你不帮一下忙啊?";
-						emotion e_sob;
+						emotion ET_CRY;
 						close;
 					}
 				}
@@ -4163,7 +4163,7 @@ mid_camp,188,254,3	script	怪物学者#ep13	4_M_ALCHE_D,{
 			mes "植物学者 布拉克 泰利斯 是";
 			mes "我的孪生兄弟.";
 			next;
-			emotion e_dots;
+			emotion ET_THINK;
 			mes "[布拉克 卢米斯]";
 			mes "这里不仅长期冻结,";
 			mes "而且,这里是废弃的,太安静了...";
@@ -4545,7 +4545,7 @@ mid_camp,188,254,3	script	怪物学者#ep13	4_M_ALCHE_D,{
 				changequest 2153,2154;
 				close;
 			case 2:
-				emotion e_sob;
+				emotion ET_CRY;
 				mes "[布拉克 卢米斯]";
 				mes "哦.........";
 				close;
@@ -4780,7 +4780,7 @@ mid_camp,240,270,3	script	植物学者#ep13	4_M_ALCHE_C,{
 		mes "未知的生活!";
 		mes "关于这个世界的一切都让我兴奋.";
 		next;
-		emotion e_lv2;
+		emotion ET_BIGTHROB;
 		mes "[植物学者]";
 		mes "太好了..哈哈!";
 		mes "这是怎么一回事...";
@@ -4793,7 +4793,7 @@ mid_camp,240,270,3	script	植物学者#ep13	4_M_ALCHE_C,{
 			mes "未知的生活!";
 			mes "关于这个世界的一切都让我兴奋.";
 			next;
-			emotion e_lv2;
+			emotion ET_BIGTHROB;
 			mes "[植物学者]";
 			mes "太好了..哈哈!";
 			mes "这是怎么一回事...";
@@ -4805,8 +4805,8 @@ mid_camp,240,270,3	script	植物学者#ep13	4_M_ALCHE_C,{
 			mes "未知的生活!";
 			mes "关于这个世界的一切都让我兴奋.";
 			next;
-			emotion e_lv2;
-			emotion e_dots,1;
+			emotion ET_BIGTHROB;
+			emotion ET_THINK,1;
 			mes "[植物学者]";
 			mes "太好了..哈哈!";
 			mes "这是怎么一回事...";
@@ -4823,7 +4823,7 @@ mid_camp,240,270,3	script	植物学者#ep13	4_M_ALCHE_C,{
 				next;
 				break;
 			case 2:
-				emotion e_lv2,1;
+				emotion ET_BIGTHROB,1;
 				mes "["+strcharinfo(0)+"]";
 				mes "我赞成.这里有许多值得研究的东西!";
 				next;
@@ -4839,11 +4839,11 @@ mid_camp,240,270,3	script	植物学者#ep13	4_M_ALCHE_C,{
 			next;
 			mes "- 你把猪笼草标本交给植物学家. -";
 			next;
-			emotion e_bzz;
+			emotion ET_STARE;
 			mes "[植物学者]";
 			mes "哦...? 这不是?!";
 			next;
-			emotion e_omg,1;
+			emotion ET_HUK,1;
 			mes "[植物学者]";
 			mes "...好吧,我这里至少有一吨这种标本,很抱歉.";
 			next;
@@ -4871,14 +4871,14 @@ mid_camp,240,270,3	script	植物学者#ep13	4_M_ALCHE_C,{
 			mes "[植物学者]";
 			mes "通常双胞胎可以分享彼此的感情和想法,我能感受到他的努力.";
 			next;
-			emotion e_sigh;
+			emotion ET_OHNO;
 			mes "[植物学者]";
 			mes "让我感觉一下卢米斯现在在做什么...额,他左手挖着鼻孔在吃一块面包.";
 			mes "上帝,这太恶心了!";
 			next;
 			switch(select("- 去看看卢米斯这是不是真的.:- 不要相信他的话.")) {
 			case 1:
-				emotion e_heh;
+				emotion ET_SMILE;
 				mes "[植物学者]";
 				mes "哈哈哈!";
 				mes "哈哈哈哈!";
@@ -4891,7 +4891,7 @@ mid_camp,240,270,3	script	植物学者#ep13	4_M_ALCHE_C,{
 				next;
 				break;
 			case 2:
-				emotion e_sigh;
+				emotion ET_OHNO;
 				mes "[植物学者]";
 				mes "嗯?";
 				mes "你不相信我吗?我只是开个玩笑缓解一下这寒意.";
@@ -4899,7 +4899,7 @@ mid_camp,240,270,3	script	植物学者#ep13	4_M_ALCHE_C,{
 				next;
 				break;
 			}
-			emotion e_pif;
+			emotion ET_HNG;
 			mes "[植物学者]";
 			mes "总而言之,就像我说的.我有很多猪笼草的标本.";
 			mes "但是我会感激自命不凡的他带来的礼物.";
@@ -5820,7 +5820,7 @@ spl_fild02,34,223,5	script	小妖精#spl	4_M_FAIRYKID,{
 			mes "她的背上长着一对很小的翅膀...";
 			mes "这是妖精吧!";
 			next;
-			emotion e_an;
+			emotion ET_FRET;
 			mes "[小妖精]";
 			mes "RLGHLRXLA TKANTLFDMS";
 			mes "WJACK TNAHRDNJSDMFH";
@@ -5834,7 +5834,7 @@ spl_fild02,34,223,5	script	小妖精#spl	4_M_FAIRYKID,{
 			close;
 		}
 	}
-	emotion e_an;
+	emotion ET_FRET;
 	if (!isequipped(2782) && ep13_2_rhea < 100) {
 		mes "[小妖精]";
 		mes "RLGHLRXLA TKANTLFDMS";
@@ -5863,7 +5863,7 @@ man_fild03,236,105,3	script	树人#man	4_MAN_PIOM,{
 			mes "你发现在树枝上有东西在移动.";
 			mes "乍一看, 这似乎是一棵树, 但原来是一个巨大的半树人.";
 			next;
-			emotion e_dots;
+			emotion ET_THINK;
 			mes "[树人]";
 			mes "TJDTMFJDNS CJFDI";
 			mes "TKADLFDMF QKATOS";
@@ -5877,7 +5877,7 @@ man_fild03,236,105,3	script	树人#man	4_MAN_PIOM,{
 			close;
 		}
 	}
-	emotion e_dots;
+	emotion ET_THINK;
 	if (!isequipped(2782) && ep13_2_rhea < 100) {
 		mes "[树人]";
 		mes "TJDTMFJDNS CJFDI";
@@ -6045,7 +6045,7 @@ OnTouch:
 			next;
 			mes "[联合调查队事务官]";
 			mes "可是, 总行不断地催我提交一份报告......如果我能创造奇迹!";
-			emotion e_sob;
+			emotion ET_CRY;
 			next;
 			mes "[联合调查队事务官]";
 			mes "我不能独自去和所有人, 调解困扰着他们之间的矛盾...这是不可能的....除非有人帮助, 我!我需要......有人帮忙......";
@@ -6119,7 +6119,7 @@ OnTouch:
 			next;
 			mes "[联合调查队事务官]";
 			mes "首先, 你应该去满足这些调查人员对他们的检查准备会议.希望他们不会带任何武器...";
-			emotion e_sob;
+			emotion ET_CRY;
 			close;
 		}
 		else if (ep13_1_rhea == 19) {
@@ -6209,7 +6209,7 @@ OnTouch:
 			mes "呃, 呵......";
 			mes "真丢人.";
 			mes "要是怪物和奇怪的生物倒好一点, 我最讨厌那些黑乎乎的东西了......";
-			emotion e_sob;
+			emotion ET_CRY;
 			next;
 			mes "- 敲门声. -";
 			mes "- 调查人员们重新回到了会议室. -";
@@ -11515,7 +11515,7 @@ OnDisable:
 	end;
 
 OnOK:
-	emotion e_ok;
+	emotion ET_OK;
 	end;
 
 OnEffect:
@@ -11545,7 +11545,7 @@ OnDisable:
 	end;
 
 OnGaspp:
-	emotion e_gasp;
+	emotion ET_SURPRISE;
 	end;
 
 OnEffect:
@@ -15582,8 +15582,8 @@ OnTouch:
 	next;
 	specialeffect EF_BEGINSPELL2,AREA,"蒲公英成员#moc2_1";
 	specialeffect EF_BEGINSPELL2,AREA,"蒲公英成员#moc2_2";
-	emotion e_gasp;
-	emotion e_gasp,1;
+	emotion ET_SURPRISE;
+	emotion ET_SURPRISE,1;
 	mes "[琳]";
 	mes "你并不孤单 ?";
 	mes "你还是跟着我 !";
@@ -15608,7 +15608,7 @@ OnTouch:
 	donpcevent "蒲公英成员#moc2_5::OnEnable";
 	next;
 	specialeffect EF_FREEZED,AREA,"琳#moc2_bt_rin02";
-	emotion e_gasp;
+	emotion ET_SURPRISE;
 	mapannounce "que_dan01", "琳: 什么时候.. 什么时候你...!?!",bc_map,"0x7b68ee";
 	mes "[瑞安]";
 	mes "我很抱歉, 我必须这样做.";

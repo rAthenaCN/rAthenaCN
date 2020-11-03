@@ -886,15 +886,7 @@ OnInstanceInit:
 	end;
 }
 
-1@pump,32,100,0	script	排水沟入口#n	45,3,3,{
-	end;
-OnInstanceInit:
-	disablenpc instance_npcname(strnpcinfo(0));
-	end;
-OnTouch:
-	warp "mal_in01",161,32;
-	end;
-}
+1@pump,32,100,0	warp2	排水沟入口#n	3,3,mal_in01,161,32
 
 //MD_Putmob "1@pump" 0 0 0 0 20 海德拉 0 0 2
 1@pump,1,1,4	script	海德拉#n	-1,{
@@ -1046,7 +1038,7 @@ OnTouch:
 2@pump,1,1,4	duplicate(怪物洞#n)	怪物洞#h	-1
 2@pump,1,1,4	duplicate(Boss Creation#n)	Boss Creation#h	-1
 2@pump,39,88,4	duplicate(清洁工小林#no)	清洁工小林#ho	545
-2@pump,38,100,0	duplicate(排水沟入口#n)	排水沟入口#h	45,3,3
+2@pump,38,100,0	duplicate(排水沟入口#n)	排水沟入口#h	3,3
 
 //MD_Putmob "2@pump" 0 0 0 0 20 海德拉 0 0 2
 2@pump,1,1,4	duplicate(海德拉#n)	海德拉#h	-1

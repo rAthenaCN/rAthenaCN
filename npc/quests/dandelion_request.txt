@@ -3101,7 +3101,7 @@ que_job01,16,21,5	script	Valdes#1	55,{
 				mes "Hey there~";
 				mes "I'm Kidd.";
 				mes "Nice to meet you.";
-				emotion e_ok,0,"Kidd#1";
+				emotion ET_OK,0,"Kidd#1";
 				cutin "mocseal_kid01.bmp",2;
 				next;
 				mes "[Valdes]";
@@ -3136,7 +3136,7 @@ que_job01,16,21,5	script	Valdes#1	55,{
 				mes "I'm lookin' forward";
 				mes "to working together";
 				mes "with you. Heh heh~";
-				emotion e_ok,0,"Lin#1";
+				emotion ET_OK,0,"Lin#1";
 				cutin "mocseal_rin01.bmp",2;
 				next;
 				mes "[Valdes]";
@@ -5512,7 +5512,7 @@ que_job01,91,83,3	script	Kidd#hall	884,{
 		mes "[Dandelion Member]";
 		mes "I still can't believe it...";
 		mes "Those poor, poor children...";
-		emotion e_hmm,1;
+		emotion ET_SCRATCH,1;
 		close2;
 	}
 	else if(mao_request > 102 && mao_request < 126)
@@ -7747,7 +7747,7 @@ moc_castle,40,20,3	script	Man	849,{
 	{
 		mes "^3355FFYou find the body";
 		mes "of a dead man.^000000";
-		emotion e_hmm,1;
+		emotion ET_SCRATCH,1;
 		close;
 	}
 	mes "^3355FFYou find a man lying";
@@ -8295,7 +8295,7 @@ OnStop2:
 
 OnTouch:
 	initnpctimer;
-	emotion e_wah,1;
+	emotion ET_KEK,1;
 	disablenpc "#maogate1_battle";
 	end;
 
@@ -8361,7 +8361,7 @@ que_job02,66,85,5	script	Dandelion Member#1_bt	880,{
 		mes "...I said--!";
 		mes "...That's...";
 		mes "Why I oughta--!";
-		emotion e_gasp,0;
+		emotion ET_SURPRISE,0;
 		next;
 		mes "[Dandelion Member]";
 		mes "Yeah, that's him again.";
@@ -8371,7 +8371,7 @@ que_job02,66,85,5	script	Dandelion Member#1_bt	880,{
 		mes "your strength while I go";
 		mes "in there and help him...";
 		close2;
-		emotion e_gasp,1;
+		emotion ET_SURPRISE,1;
 		set mao_request,27;
 		disablenpc "Dandelion Member#1_bt";
 		end;
@@ -8435,7 +8435,7 @@ OnTouch:
 	mes "on here? Kidd! Lin?";
 	mes "A-and who's that guy?";
 	mes "Could it possibly be...";
-	emotion e_gasp,1;
+	emotion ET_SURPRISE,1;
 	next;
 	cutin "mocseal_kid01.bmp",0;
 	mes "[Kidd]";
@@ -8454,7 +8454,7 @@ OnTouch:
 	mes "working for, the Dandelion";
 	mes "Organization, have been";
 	mes "hunting Mr. Moore down...";
-	emotion e_wah,0,"Lin#maogate1_1";
+	emotion ET_KEK,0,"Lin#maogate1_1";
 	next;
 	cutin "mocseal_kid01.bmp",0;
 	mes "[Kidd]";
@@ -8477,7 +8477,7 @@ OnTouch:
 	mes "me everything you know";
 	mes "about your own client,";
 	mes "the Dandelion Organization...";
-	emotion e_hmm,0,"R#maogate1";
+	emotion ET_SCRATCH,0,"R#maogate1";
 	next;
 	cutin "mocseal_rin01.bmp",255;
 	cutin "mocseal_kid01.bmp",255;
@@ -8494,8 +8494,8 @@ OnTouch:
 	mes "Your blood will be used";
 	mes "to revive Morroc Satan!";
 	donpcevent "R#maogate1::OnSpell";
-	emotion e_gasp,0,"Kidd#maogate1_1";
-	emotion e_gasp,1;
+	emotion ET_SURPRISE,0,"Kidd#maogate1_1";
+	emotion ET_SURPRISE,1;
 	next;
 	mes "[Kidd]";
 	mes "Watch out!";
@@ -8525,7 +8525,7 @@ OnTouch:
 	mes "Fine, you leave me";
 	mes "no choice. Feel the";
 	mes "power of Morroc Satan!";
-	emotion e_gg,0,"R#maogate1";
+	emotion ET_KIK,0,"R#maogate1";
 	next;
 	donpcevent "R#maogate1::OnInit";
 	initnpctimer;
@@ -8558,10 +8558,10 @@ OnTimer500:
 	mapannounce "que_job02","I'll back you up!",1,0x90EE90;
 	donpcevent "Dandelion#maogate1_3::OnEnter";
 	donpcevent "Dandelion#maogate1_4::OnEnter";
-	emotion e_go,0,"Dandelion#maogate1_1";
-	emotion e_go,0,"Dandelion#maogate1_2";
-	emotion e_go,0,"Dandelion#maogate1_3";
-	emotion e_go,0,"Dandelion#maogate1_4";
+	emotion ET_GO,0,"Dandelion#maogate1_1";
+	emotion ET_GO,0,"Dandelion#maogate1_2";
+	emotion ET_GO,0,"Dandelion#maogate1_3";
+	emotion ET_GO,0,"Dandelion#maogate1_4";
 	end;
 
 OnTimer3000:
@@ -9278,7 +9278,7 @@ OnStop2:
 	
 OnTouch:
 	initnpctimer;
-	emotion e_wah,1;
+	emotion ET_KEK,1;
 	disablenpc "#maogate2_battle";
 	end;
 	
@@ -9356,7 +9356,7 @@ que_job03,66,85,5	script	Dandelion Member#2_bt	880,{
 		mes "...S-stop...";
 		mes "...This is...";
 		mes "This is all insane!";
-		emotion e_gasp,0;
+		emotion ET_SURPRISE,0;
 		next;
 		mes "["+ strcharinfo(0) +"]";
 		mes "That's... That's Lin's";
@@ -9428,7 +9428,7 @@ OnTouch:
 	mes "on here? Kidd! Lin?";
 	mes "A-and who's that guy?";
 	mes "Could it possibly be...";
-	emotion e_gasp,1;
+	emotion ET_SURPRISE,1;
 	next;
 	cutin "mocseal_kid01.bmp",0;
 	mes "[Kidd]";
@@ -9447,7 +9447,7 @@ OnTouch:
 	mes "working for, the Dandelion";
 	mes "Organization, have been";
 	mes "hunting Mr. Moore down...";
-	emotion e_wah,0,"Lin#maogate2_1";
+	emotion ET_KEK,0,"Lin#maogate2_1";
 	next;
 	cutin "mocseal_kid01.bmp",0;
 	mes "[Kidd]";
@@ -9470,7 +9470,7 @@ OnTouch:
 	mes "me everything you know";
 	mes "about your own client,";
 	mes "the Dandelion Organization...";
-	emotion e_hmm,0,"R#maogate2";
+	emotion ET_SCRATCH,0,"R#maogate2";
 	next;
 	cutin "mocseal_rin01.bmp",255;
 	cutin "mocseal_kid01.bmp",255;
@@ -9487,8 +9487,8 @@ OnTouch:
 	mes "Your blood will be used";
 	mes "to revive Morroc Satan!";
 	donpcevent "R#maogate2::OnSpell";
-	emotion e_gasp,0,"Kidd#maogate2_1";
-	emotion e_gasp,1;
+	emotion ET_SURPRISE,0,"Kidd#maogate2_1";
+	emotion ET_SURPRISE,1;
 	next;
 	mes "[Kidd]";
 	mes "Watch out!";
@@ -9518,7 +9518,7 @@ OnTouch:
 	mes "Fine, you leave me";
 	mes "no choice. Feel the";
 	mes "power of Morroc Satan!";
-	emotion e_gg,0,"R#maogate2";
+	emotion ET_KIK,0,"R#maogate2";
 	next;
 	donpcevent "R#maogate2::OnInit";
 	initnpctimer;
@@ -9552,10 +9552,10 @@ OnTimer500:
 	mapannounce "que_job03","I'll back you up!",1,0x90EE90;
 	donpcevent "Dandelion#maogate2_3::OnEnter";
 	donpcevent "Dandelion#maogate2_4::OnEnter";
-	emotion e_go,0,"Dandelion#maogate2_1";
-	emotion e_go,0,"Dandelion#maogate2_2";
-	emotion e_go,0,"Dandelion#maogate2_3";
-	emotion e_go,0,"Dandelion#maogate2_4";
+	emotion ET_GO,0,"Dandelion#maogate2_1";
+	emotion ET_GO,0,"Dandelion#maogate2_2";
+	emotion ET_GO,0,"Dandelion#maogate2_3";
+	emotion ET_GO,0,"Dandelion#maogate2_4";
 	end;
 
 OnTimer3000:
@@ -10174,13 +10174,13 @@ que_job01,68,88,5	script	Simon#mao	881,{
 	mes "...No. How many";
 	mes "times must I tell you?";
 	mes "I'm not going back.";
-	emotion e_swt,0,"Simon#mao";
+	emotion ET_SWEAT,0,"Simon#mao";
 	next;
 	mes "[Kimmie]";
 	mes "Please...";
 	mes "We really need";
 	mes "you back home...";
-	emotion e_sob,0,"Kimmie";
+	emotion ET_CRY,0,"Kimmie";
 	next;
 	mes "[Simon]";
 	mes "I'm sorry, Kimmie.";
@@ -10196,7 +10196,7 @@ que_job01,68,88,5	script	Simon#mao	881,{
 	mes "I d-didn't want to tell you";
 	mes "this, but Jimmy's been getting";
 	mes "in trouble with the law and...";
-	emotion e_wah,0,"Kimmie";
+	emotion ET_KEK,0,"Kimmie";
 	next;
 	mes "[Simon]";
 	mes "Then it's his own";

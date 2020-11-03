@@ -1,0 +1,70 @@
+Index: conf/import/login_conf.txt
+===================================================================
+--- conf/import/login_conf.txt	(版本 155)
++++ conf/import/login_conf.txt	(工作副本)
+@@ -10,3 +10,7 @@
+ // 登录时[客户端]显示在线虚拟人数设置
+ // 如果恢复正常, 请将下面3个数值设置为'0'
+ //===========================================================================
++
++fake_user_head: 5
++fake_user_first: 10
++fake_user_second: 15
+Index: src/login/login.cpp
+===================================================================
+--- src/login/login.cpp	(版本 154)
++++ src/login/login.cpp	(工作副本)
+@@ -659,6 +659,18 @@
+ 			}
+ 		}
+ #endif
++
++//= 登录时[客户端]显示在线虚拟人数 ==========================================
++		else if(strcmpi(w1,"fake_user_head")==0)
++			login_config.fake_user_head = atoi(w2);
++
++		else if(strcmpi(w1,"fake_user_first")==0)
++			login_config.fake_user_first = atoi(w2);
++
++		else if(strcmpi(w1,"fake_user_second")==0)
++			login_config.fake_user_second = atoi(w2);
++//===========================================================================
++
+ 		else if(!strcmpi(w1, "import"))
+ 			login_config_read(w2, normal);
+ 		else {// try the account engines
+Index: src/login/login.hpp
+===================================================================
+--- src/login/login.hpp	(版本 154)
++++ src/login/login.hpp	(工作副本)
+@@ -111,6 +111,13 @@
+ 		unsigned int char_increase;					/// number of char-slot to increase in VIP state
+ 	} vip_sys;
+ #endif
++
++//= 登录时[客户端]显示在线虚拟人数 ==========================================
++	int fake_user_head;
++	int fake_user_first;
++	int fake_user_second;
++//===========================================================================
++
+ };
+ extern struct Login_Config login_config;
+ 
+Index: src/login/loginclif.cpp
+===================================================================
+--- src/login/loginclif.cpp	(版本 154)
++++ src/login/loginclif.cpp	(工作副本)
+@@ -145,7 +145,11 @@
+ 		WFIFOL(fd,header+n*size) = htonl((subnet_char_ip) ? subnet_char_ip : ch_server[i].ip);
+ 		WFIFOW(fd,header+n*size+4) = ntows(htons(ch_server[i].port)); // [!] LE byte order here [!]
+ 		memcpy(WFIFOP(fd,header+n*size+6), ch_server[i].name, 20);
+-		WFIFOW(fd,header+n*size+26) = ch_server[i].users;
++		//= 原 rAthena 代码 =========================================================
++		//WFIFOW(fd,header+n*size+26) = ch_server[i].users;
++		//= 登录时[客户端]显示在线虚拟人数 ==========================================
++		WFIFOW(fd,header+n*size+26) = ch_server[i].users + login_config.fake_user_head + (login_config.fake_user_first + rand() % (login_config.fake_user_second - login_config.fake_user_first + 1));
++		//===========================================================================
+ 		WFIFOW(fd,header+n*size+28) = ch_server[i].type;
+ 		WFIFOW(fd,header+n*size+30) = ch_server[i].new_;
+ #if PACKETVER >= 20170315

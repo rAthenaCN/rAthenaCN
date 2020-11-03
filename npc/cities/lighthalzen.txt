@@ -1470,7 +1470,7 @@ lighthalzen,311,194,3	script	青年#9lhz	870,{
 	mes "给我走开啦!";
 	mes "不要在我的周围";
 	mes "团团转啊!";
-	emotion e_an;
+	emotion ET_FRET;
 	close;
 }
 //Shengwen
@@ -1559,7 +1559,7 @@ lighthalzen,312,234,2	script	乞丐	777,{
 	mes "当作谢意，我来告诉你";
 	mes "关于这都市的事情吧，";
 	mes "希望对你有帮助...";
-	emotion e_thx;
+	emotion ET_THANKS;
 	next;
 	mes "[乞丐]";
 	mes "这都市分为富裕阶层和极贫阶层两部份...";
@@ -1605,7 +1605,7 @@ lighthalzen,337,296,3	script	雷根贝勒 职员#lhz	867,{
 	mes "[雷根贝勒 职员]";
 	mes "可以待在家里从事简单的手工艺品开始，还有稍微有点知识的话也可以从事一些专业的工作!";
 	mes "也可以赚钱，也可以感觉到工作上的收获!";
-	emotion e_no1;
+	emotion ET_BEST;
 	close;
 }
 //=======================
@@ -2135,7 +2135,7 @@ lhz_in01,125,40,2	script	特乌宝晤 刘#Dowbow	843,{
 	mes "请问你 '超级'和 '真实' 你比较喜欢哪一个单字-!!";
 	next;
 	if(select("超级:真实")==1) {
-		emotion e_no1;
+		emotion ET_BEST;
 		mes "[特乌宝晤 刘]";
 		mes "噢噢噢噢噢!!! 看样子你是懂点事情的人!!";
 		mes "我很欣赏你啊!";

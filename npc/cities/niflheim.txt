@@ -177,7 +177,7 @@ niflheim,350,258,1	script	被诅咒的 灵魂#nif	802,{
 		mes "喀哈哈啊啊.... 相当有胆量";
 		mes "的家伙啊啊...!! 来...";
 		mes "开始念咒文吧啊啊啊...!!";
-		emotion e_gg;
+		emotion ET_KIK;
 		next;
 		if(select("克罗柏(Clover):克拉图(Klaatu):克雷易托思(Kleitos)")==2)
 			set .@spell,.@spell+1;

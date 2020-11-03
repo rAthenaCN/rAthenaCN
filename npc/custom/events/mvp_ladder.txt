@@ -316,7 +316,7 @@ OnInit:
 
 //	Config Ends --------------------------------------------------------------
 
-	getmapxy .map$, .x, .y, UNITTYPE_NPC;
+	getmapxy .map$, .x, .y, BL_NPC;
 	mapwarp .eventmap$, .map$, .x, .y;
 	killmonsterall .eventmap$;
 	.@size = getarraysize( .@mapflag );

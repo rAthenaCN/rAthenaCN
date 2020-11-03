@@ -170,7 +170,7 @@ job3_guil01,91,93,3	script	稀有草药收集者	1_M_03,{
 		mes "- 再进行交易. -";
 		close;
 	}
-	if (Class == Job_Guillotine_Cross || Class == Job_Guillotine_Cross_T || Class == Job_Baby_Cross) {
+	if (Class == Job_Guillotine_Cross || Class == Job_Guillotine_Cross_T || Class == JOB_BABY_GUILLOTINE_CROSS) {
 		mes "[稀有草药收集者]";
 		mes "我徘徊在世界各地收集罕见的毒药药材. 最近, 我开始处理药草称为Izidor. 如果您有兴趣, 您可以购买它.";
 		next;

@@ -357,7 +357,7 @@ amatsu,269,221,1	script	告白 少女#ama	758,{
 	mes "告白之后一定要在隔天";
 	mes "礼拜六晚上之前回应";
 	next;
-	emotion e_lv2;
+	emotion ET_BIGTHROB;
 	mes "[乎塔利 希欧阔]";
 	mes "如果心里有喜欢的人的话...";
 	mes "不妨约在那树下";
@@ -389,7 +389,7 @@ amatsu,243,202,3	script	戏剧 老师#ama	760,{
 		mes "很少...";
 		close;
 	}
-	emotion e_gasp;
+	emotion ET_SURPRISE;
 	mes "[Garakame sensei]";
 	mes "Are you interested in acting?";
 	mes "I need someone who sees";
@@ -417,19 +417,19 @@ amatsu,283,203,1	script	宝奴宝奴#ama1	1323,{
 
 amatsu,283,203,1	script	宝奴宝奴#ama2	111,{
 	set jap_tree,3;
-	emotion e_swt2;
+	emotion ET_PROFUSELY_SWEAT;
 	mes "[宝奴宝奴]";
 	mes "这山坡上的树木已经";
 	mes "很久很久了,是棵很大而";
 	mes "总是盛开着樱花的王樱花树";
 	next;
-	emotion e_swt2;
+	emotion ET_PROFUSELY_SWEAT;
 	mes "[宝奴宝奴]";
 	mes "而且很感激这颗树,";
 	mes "有伤心或是难过的事";
 	mes "总是会坐在那棵树下";
 	next;
-	emotion e_swt2;
+	emotion ET_PROFUSELY_SWEAT;
 	mes "[宝奴宝奴]";
 	mes "这样的话不管是伤心或难过的事";
 	mes "全部都可以忘记....";
@@ -437,7 +437,7 @@ amatsu,283,203,1	script	宝奴宝奴#ama2	111,{
 	mes "平且可以让我们忘记难过的事情";
 	mes "的神奇树";
 	next;
-	emotion e_swt2;
+	emotion ET_PROFUSELY_SWEAT;
 	mes "[宝奴宝奴]";
 	mes "有伤心难过的事的话";
 	mes "不妨坐在那棵树下吧";
@@ -473,7 +473,7 @@ amatsu,274,178,7	script	兽医#ama	735,{
 		mes "不管怎样要我不要跟我";
 		mes "打个赌啊...?";
 		next;
-		emotion e_dots;
+		emotion ET_THINK;
 		mes "[撒库拉 塞宜齐]";
 		mes "万一我呢...";
 		mes "............";
@@ -491,7 +491,7 @@ amatsu,274,178,7	script	兽医#ama	735,{
 	mes "小心点吧,总有一天这种事";
 	mes "也会发生在您身上..";
 	next;
-	emotion e_dots;
+	emotion ET_THINK;
 	mes "[撒库拉 塞宜齐]";
 	mes "哈哈哈... 哈哈哈哈.....";
 	mes "...............";

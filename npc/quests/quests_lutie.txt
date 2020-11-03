@@ -235,7 +235,7 @@ xmas,115,297,4	script	自动贩卖机	HIDDEN_NPC,{
 			delitem 1036,20;  //Dragon_Scale
 			delitem 7012,200;  //Tough_Scalelike_Stem
 			delitem 7065,300;  //Sea_Otter_Leather
-			emotion e_oh;
+			emotion ET_O;
 			mes "^3355FF*Vroooooom~~*";
 			mes "*Bzzzzzt*";
 			mes "*choogachooga*";
@@ -256,7 +256,7 @@ xmas,115,297,4	script	自动贩卖机	HIDDEN_NPC,{
 			delitem 7033,850;  //Poison_Spore
 			delitem 7068,300;  //Burn_Tree
 			delitem 1015,1;  //Thin_N'_Long_Tongue
-			emotion e_oh;
+			emotion ET_O;
 			mes "^3355FF*Vroooooom~~*";
 			mes "*Bzzzzzt*";
 			mes "*choogachooga*";
@@ -282,7 +282,7 @@ xmas,115,297,4	script	自动贩卖机	HIDDEN_NPC,{
 			mes "*Kapang!*";
 			mes "*BeepBoopBeepBoop*";
 			mes "*Beeeeeeoop*^000000";
-			emotion e_oh;
+			emotion ET_O;
 			getitem 5050,1; // Mystery_Fruit_Shell
 			next;
 			mes "[Audi]";
@@ -299,7 +299,7 @@ xmas,115,297,4	script	自动贩卖机	HIDDEN_NPC,{
 			delitem 5015,1;  //Egg_Shell
 			delitem 978,1;  //Cobaltblue_Dyestuffs
 			delitem 7030,50;  //Claw_Of_Desert_Wolf
-			emotion e_oh;
+			emotion ET_O;
 			mes "^3355FF*Vroooooom~~*";
 			mes "*Bzzzzzt*";
 			mes "*choogachooga*";
@@ -318,7 +318,7 @@ xmas,115,297,4	script	自动贩卖机	HIDDEN_NPC,{
 			mes "^3355FFYou gingerly place all 100 Aprons into the snowman's mouth.^000000";
 			next;
 			delitem 7047,100;  //Alice's_Apron
-			emotion e_oh;
+			emotion ET_O;
 			mes "^3355FF*Vroooooom~~*";
 			mes "*Bzzzzzt*";
 			mes "*choogachooga*";
@@ -344,7 +344,7 @@ xmas,115,297,4	script	自动贩卖机	HIDDEN_NPC,{
 			delitem 982,1;  //White_Dyestuffs
 			delitem 949,330;  //Feather
 			delitem 1036,450;  //Dragon_Scale
-			emotion e_oh;
+			emotion ET_O;
 			mes "^3355FF*Vroooooom~~*";
 			mes "*Bzzzzzt*";
 			mes "*choogachooga*";
@@ -366,7 +366,7 @@ xmas,115,297,4	script	自动贩卖机	HIDDEN_NPC,{
 			delitem 2279,1;  //Bomb_Wick
 			delitem 7035,50;  //Matchstick
 			delitem 526,100;  //Royal_Jelly
-			emotion e_oh;
+			emotion ET_O;
 			mes "^3355FF*Vroooooom~~*";
 			mes "*Bzzzzzt*";
 			mes "*choogachooga*";
@@ -389,7 +389,7 @@ xmas,115,297,4	script	自动贩卖机	HIDDEN_NPC,{
 			delitem 538,15;  //Well_Baked_Cookie
 			delitem 539,20;  //Piece_Of_Cake
 			delitem 999,10;  //Steel
-			emotion e_oh;
+			emotion ET_O;
 			mes "^3355FF*Vroooooom~~*";
 			mes "*Bzzzzzt*";
 			mes "*choogachooga*";
@@ -410,7 +410,7 @@ xmas,115,297,4	script	自动贩卖机	HIDDEN_NPC,{
 		mes "Items.^000000";
 		close;
 	}
-	emotion e_X;
+	emotion ET_X;
 	mes "[Audi]";
 	mes "^555555Error Error!";
 	mes "Incorrect items!^000000";

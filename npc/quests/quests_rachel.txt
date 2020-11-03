@@ -2618,7 +2618,7 @@ rachel,157,183,3	script	虔诚的信徒 乌丝提阿拉	4_F_MASK1,{
 		mes "啊, 你好吗";
 		next;
 		if (select("我来是为了接受菲依雅的教诲:我只是来观光") == 1) {
-			emotion e_ok;
+			emotion ET_OK;
 			mes "[乌丝提阿拉]";
 			mes "待纯真烂漫的菲依雅复活的那天来临时, ";
 			mes "就会把我们全都引导至巴哈拉的, ";
@@ -2803,7 +2803,7 @@ ice_dun02,120,105,3	script	冰里的男子#cave	4_M_FROZEN1,5,5,{
 	}
 	if (ice_necklace_q == 1) {
 		cutin "ra_magic3",2;
-		emotion e_omg;
+		emotion ET_HUK;
 		mes "[冰里的男子]";
 		mes "喂喂! 救我出去! 帮我打破这冰块!!";
 		next;
@@ -2841,7 +2841,7 @@ ice_dun02,120,105,3	script	冰里的男子#cave	4_M_FROZEN1,5,5,{
 		mes "不动如山..";
 		mes "以我的力量有些困难, 怎么办呢?";
 		next;
-		emotion e_sob;
+		emotion ET_CRY;
 		mes "[冰里的男子]";
 		mes "呜呜...!";
 		mes "果然是最棒的魔法师所施展的最强魔法威";
@@ -2851,7 +2851,7 @@ ice_dun02,120,105,3	script	冰里的男子#cave	4_M_FROZEN1,5,5,{
 		mes "你就是最厉害的魔法师马西欧吗?";
 		next;
 		cutin "ra_magic1",2;
-		emotion e_gg;
+		emotion ET_KIK;
 		mes "[魔法师 马西欧]";
 		mes "没错, ";
 		mes "呼呼...我是只会施展最强魔法的厉害魔";
@@ -2913,13 +2913,13 @@ ice_dun02,120,105,3	script	冰里的男子#cave	4_M_FROZEN1,5,5,{
 		mes "虽然偶而会有一些人为了取得冰块冒着生";
 		mes "命危险进出那里, 不过也仅有一两次而已";
 		next;
-		emotion e_sob;
+		emotion ET_CRY;
 		mes "[魔法师 马西欧]";
 		mes "总之, 本来想解决完传闻中雪兽群后意气";
 		mes "风发的准备返回村落大肆炫耀一凡, 不知";
 		mes "道怎么搞的..";
 		next;
-		emotion e_flash,1;
+		emotion ET_SPARK,1;
 		mes "["+strcharinfo(0)+"]";
 		mes "雪兽意外地非常强悍是吧!";
 		next;
@@ -2953,7 +2953,7 @@ ice_dun02,120,105,3	script	冰里的男子#cave	4_M_FROZEN1,5,5,{
 		mes "...................................";
 		mes "....................";
 		next;
-		emotion e_flash,1;
+		emotion ET_SPARK,1;
 		mes "["+strcharinfo(0)+"]";
 		mes "所以然后呢?";
 		next;
@@ -3057,7 +3057,7 @@ ice_dun02,120,105,3	script	冰里的男子#cave	4_M_FROZEN1,5,5,{
 				next;
 				mes "[魔法师 马西欧]";
 				mes "嗨, 嗨! 你就不能先放开我?";
-				emotion e_sob;
+				emotion ET_CRY;
 				close;
 			}
 		}
@@ -3089,7 +3089,7 @@ ice_dun02,120,105,3	script	冰里的男子#cave	4_M_FROZEN1,5,5,{
 		mes "- 啪啊!! -";
 		next;
 		setnpcdisplay "冰里的男子#cave",937;
-		emotion e_gasp;
+		emotion ET_SURPRISE;
 		mes "[魔法师 马西欧]";
 		mes "!!!!!! 终于! 我终于自由了!!";
 		next;
@@ -3184,8 +3184,8 @@ OnTouch:
 	end;
 
 OnTouchNPC: 
-	emotion e_an;
-	//emotion e_gg,1; //Emote on monster - unsupported
+	emotion ET_FRET;
+	//emotion ET_KIK,1; //Emote on monster - unsupported
 	end;
 
 OnMyMobDead:
@@ -3397,7 +3397,7 @@ rachel,113,96,5	script	莫哈迪安	4_M_MIDDLE,10,10,{
 		mes "[莫哈迪安]";
 		mes "嗯? 冰洞穴?";
 		next;
-		emotion e_ic;
+		emotion ET_AHA;
 		mes "[莫哈迪安]";
 		mes "啊哈..!";
 		mes "客人, 客人!!";
@@ -3795,7 +3795,7 @@ OnTouch:
 			mes " == 门是关闭的 ==";
 			next;
 			select("用脚踢:拿出武器来");
-			emotion e_omg,0,"Nemma#ra_temple";
+			emotion ET_HUK, getnpcid(0, "Nemma#ra_temple");
 			mes "[内麻]";
 			mes "不要这样做!";
 			close;
@@ -3843,7 +3843,7 @@ ra_temple,116,174,3	script	内麻#ra_temple	4_F_TRAINEE,{
 			mes "^0000FF某一个好东西^000000之后, 会给献金";
 			mes "的人们做为礼物的, 什么是好的东西我们";
 			mes "也不清楚, 只要有拿到我们就给他们啊";
-			emotion e_ho;
+			emotion ET_DELIGHT;
 			next;
 			cutin "ra_nemma03",2;
 			mes "[内麻 神官]";
@@ -4046,7 +4046,7 @@ ra_temple,116,174,3	script	内麻#ra_temple	4_F_TRAINEE,{
 			goto L_End;
 		}
 		else if (ra_tem_q == 11) {
-			emotion e_ho;
+			emotion ET_DELIGHT;
 			cutin "ra_nemma03",2;
 			mes "[内麻 神官]";
 			mes "募款已经结束了, ";
@@ -5299,7 +5299,7 @@ ra_temin,277,159,3	script	杰德 大神官#rachel	4_M_RACHOLD1,{
 				mes "me like that! Saying";
 				mes "it like that is kind of";
 				mes "overdoing it, isn't it?";
-				emotion e_sigh,1;
+				emotion ET_OHNO,1;
 				next;
 				mes "[杰德 大神官]";
 				mes "你不是说要往南边沙漠去旅行似的..";
@@ -5831,7 +5831,7 @@ ra_temin,277,159,3	script	杰德 大神官#rachel	4_M_RACHOLD1,{
 					mes "before the other High";
 					mes "Priests ruin our nation.";
 					next;
-					emotion e_omg,1;
+					emotion ET_HUK,1;
 					mes "["+strcharinfo(0)+"]";
 					mes "Y-you're not thinking";
 					mes "of overthrowing the";
@@ -5839,7 +5839,7 @@ ra_temin,277,159,3	script	杰德 大神官#rachel	4_M_RACHOLD1,{
 					mes "that a bit extreme?";
 					next;
 					cutin "ra_gman2",2;
-					emotion e_swt;
+					emotion ET_SWEAT;
 					mes "[杰德 大神官]";
 					mes "What? No, no!";
 					mes "Don't jump to conclusions";
@@ -5958,7 +5958,7 @@ ra_temin,277,159,3	script	杰德 大神官#rachel	4_M_RACHOLD1,{
 					mes "I already have someone in";
 					mes "mind that might help us.";
 					next;
-					emotion e_flash,1;
+					emotion ET_SPARK,1;
 					mes "["+strcharinfo(0)+"]";
 					mes "That sounds good.";
 					mes "Who is he?";
@@ -5971,7 +5971,7 @@ ra_temin,277,159,3	script	杰德 大神官#rachel	4_M_RACHOLD1,{
 					mes "may even think I deserve";
 					mes "to be excommunicated...";
 					next;
-					emotion e_no1,1;
+					emotion ET_BEST,1;
 					mes "["+strcharinfo(0)+"]";
 					mes "Come on, it wouldn't";
 					mes "hurt to try! Besides,";

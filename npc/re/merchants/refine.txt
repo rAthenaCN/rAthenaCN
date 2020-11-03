@@ -85,7 +85,7 @@ function	script	refinenew	{
 		mes "你选择的这个部位";
 		mes "为什么都没穿,";
 		mes "你让我精炼什么?";
-		emotion e_an;
+		emotion ET_FRET;
 		close;
 	}
 	if (!getequipisenableref(.@part)) {
@@ -169,7 +169,7 @@ function	script	refinenew	{
 		if (callfunc("F_IsEquipIDHack", .@part, .@refineitemid) ||
 		    callfunc("F_IsEquipRefineHack", .@part, .@refinerycnt)) {
 			mes "["+ .@npc_name$ +"]";
-			emotion e_an;
+			emotion ET_FRET;
 			mes "稍等...";
 			mes "你当我是傻子?!";
 			mes "你在我眼皮底下更换装备?! 滚出去死骗子!";
@@ -180,7 +180,7 @@ function	script	refinenew	{
 			mes "锵! 锵! 锵! 锵!";
 			successrefitem .@part;
 			next;
-			emotion e_no1;
+			emotion ET_BEST;
 			mes "["+ .@npc_name$ +"]";
 			mes "很好! 完成!!!";
 			mes "我是最好的铁匠.";
@@ -191,7 +191,7 @@ function	script	refinenew	{
 				mes "锵! 锵! 锵! 锵!";
 				downrefitem .@part,3; // Failed refine attempts decrease the item's refine level by 3
 				next;
-				emotion (!rand(5))?e_cash:e_omg;
+				emotion (!rand(5))?ET_MONEY:ET_HUK;
 				mes "["+ .@npc_name$ +"]";
 				mes "啊啊!!!";
 				next;
@@ -203,7 +203,7 @@ function	script	refinenew	{
 				mes "锵! 锵! 锵!";
 				failedrefitem .@part;
 				next;
-				emotion (!rand(5))?e_cash:e_omg;
+				emotion (!rand(5))?ET_MONEY:ET_HUK;
 				mes "["+ .@npc_name$ +"]";
 				mes "唔!";
 				next;
@@ -300,7 +300,7 @@ function	script	refinenew	{
 				mes "锵! 锵! 锵! 锵!";
 				downrefitem .@part,3; // Failed refine attempts decrease the item's refine level by 3
 				next;
-				emotion (!rand(5))?e_cash:e_omg;
+				emotion (!rand(5))?ET_MONEY:ET_HUK;
 				mes "["+ .@npc_name$ +"]";
 				mes "啊啊!!!";
 				next;
@@ -312,7 +312,7 @@ function	script	refinenew	{
 				mes "锵! 锵! 锵!";
 				failedrefitem .@part;
 				next;
-				emotion (!rand(5))?e_cash:e_omg;
+				emotion (!rand(5))?ET_MONEY:ET_HUK;
 				mes "["+ .@npc_name$ +"]";
 				mes "唔!";
 				next;
@@ -328,7 +328,7 @@ function	script	refinenew	{
 			close;
 		}
 	}
-	emotion e_no1;
+	emotion ET_BEST;
 	mes "["+ .@npc_name$ +"]";
 	mes "非常好! 完成!!!";
 	mes "我是最好的铁匠.";
@@ -525,11 +525,11 @@ malangdo,224,172,6	script	Clink#mal_normal	544,{
 		mes "Cry Hammer!! Cry!!!";
 		next;
 		switch(rand(1,5)) {
-			case 1: emotion e_sob; break;
-			case 2: emotion e_swt2; break;
-			case 3: emotion e_wah; break;
-			case 4: emotion e_hmm; break;
-			case 5: emotion e_lv2; break;
+			case 1: emotion ET_CRY; break;
+			case 2: emotion ET_PROFUSELY_SWEAT; break;
+			case 3: emotion ET_KEK; break;
+			case 4: emotion ET_SCRATCH; break;
+			case 5: emotion ET_BIGTHROB; break;
 		}
 		mes "[Clink]";
 		mes "Huh?! I failed?!";
@@ -547,7 +547,7 @@ malangdo,224,172,6	script	Clink#mal_normal	544,{
 	mes "[Clink]";
 	mes "Cry Hammer!! Cry!!!";
 	next;
-	emotion e_kis;
+	emotion ET_CHUP;
 	mes "[Clink]";
 	mes "Ok!! Perfect!!";
 	mes "There's nothing I can't refine";

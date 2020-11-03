@@ -29,7 +29,7 @@
 //= 1.8 Updated to match the latest official script. [Euphy]
 //============================================================
 
-moc_para01,27,35,5	script	秘书莱美埃文诺	952,{
+moc_para01,27,35,5	script	秘书莱美埃文诺	4_F_EDEN_OFFICER,{
 	if (checkweight(1201,1) == 0 || (MaxWeight - Weight) < 2000) {
 		mes "- 等一下!! -";
 		mes "- 你身上带了太多的物品了. -";
@@ -80,7 +80,7 @@ moc_para01,27,35,5	script	秘书莱美埃文诺	952,{
 					mes "你的名字是^3131FFBo"+.@input$+"Ba^000000..? 对么？";
 					mes "呃...不是这个??";
 					next;
-					emotion e_swt;
+					emotion ET_SWEAT;
 					mes "[莱美 埃文诺]";
 					mes "唔.. 这不是你写的?";
 					mes "呃.. 这名字念起来真奇怪..";
@@ -93,7 +93,7 @@ moc_para01,27,35,5	script	秘书莱美埃文诺	952,{
 					mes "啊哈! 你叫^3131FF"+strcharinfo(0)+"^000000呀!";
 					mes "这回没错了.";
 					next;
-					emotion e_no1;
+					emotion ET_BEST;
 					mes "[莱美 埃文诺]";
 					mes "我已经把你的名字登记入列表了!";
 					mes "欢迎成为伊甸园团体的一员!";
@@ -152,11 +152,11 @@ moc_para01,27,35,5	script	秘书莱美埃文诺	952,{
 				mes "[莱美 埃文诺]";
 				mes "唔.. 呼??..................";
 				next;
-				emotion e_dots;
+				emotion ET_THINK;
 				mes "[莱美 埃文诺]";
 				mes "在你发布新任务前, 我想你应该先完成我们给你的任务.";
 				next;
-				emotion e_pif;
+				emotion ET_HNG;
 				mes "[莱美 埃文诺]";
 				mes "^3131FF发布者: 莱美 埃文诺^000000";
 				mes "^3131FF任务: 练习你的书法一个月.^000000";
@@ -258,6 +258,7 @@ izlude_c,131,148,4	duplicate(eto)	伊甸园官方传送官#30::eto_iz_c	729
 izlude_d,131,148,4	duplicate(eto)	伊甸园官方传送官#30::eto_iz_d	729
 umbala,105,158,3	duplicate(eto)	伊甸园官方传送官#31	729
 malaya,238,206,6	duplicate(eto)	伊甸园官方传送官#32	729
+verus04,116,243,0	duplicate(eto)	伊甸园官方传送官#33	729
 
 moc_para01,30,10,0	script	#eden_out	45,1,1,{
 OnTouch:
@@ -294,6 +295,7 @@ OnTouch:
 		case 30: warp "izlude",134,118; end;	// Old coordinates: (127,142)
 		case 31: warp "umbala",94,154; end;
 		case 32: warp "malaya",234,199; end;
+		case 33: warp "verus04",115,243; end;
 		default: warp "prontera",116,72; end;
 	}
 	end;
@@ -341,16 +343,16 @@ moc_para01,182,48,3	script	伊甸园集团首席大厨#eden	886,{
 	mes "[Eden's Chief]";
 	mes ""+.@eggf+".. "+.@eggf_1+"... "+.@eggf_2+".... "+.@eggf_6+"..?";
 	next;
-	emotion e_sob;
+	emotion ET_CRY;
 	mes "[伊甸园集团首席大厨]";
 	mes "喔, 攻击! 我数了几个了?";
 	mes "啊呀!!! 我彻底忘记了! 我得重数一次!";
 	next;
-	emotion e_sob;
+	emotion ET_CRY;
 	mes "[伊甸园集团首席大厨]";
 	mes "你为什么要问我做这件事呢? 是什么样的使命?";
 	next;
-	emotion e_sob;
+	emotion ET_CRY;
 	mes "[伊甸园集团首席大厨]";
 	mes "你有什么与这些鸡蛋有关的想法吗? 我相信你不会是想要吃掉它们. 你只是想来扰乱我计算的吧, 是吗?";
 	close;
@@ -386,7 +388,7 @@ moc_para01,20,35,5	script	办公室助理内德	814,{
 	mes "[内德]";
 	mes "还有, 你有没看到 ^3131FF健身房^000000 在 ^3131FF大堂北侧^000000 的拐角处? 训练时他们总是大喊大叫, 在这里就能够听到!";
 	next;
-	emotion e_ag;
+	emotion ET_ANGER;
 	mes "[内德]";
 	mes "^3131FF二楼^000000 那奇怪的女孩 整天哭哭啼啼. 她的哭声快要把我逼疯了.";
 	next;
@@ -396,21 +398,25 @@ moc_para01,20,35,5	script	办公室助理内德	814,{
 	mes "[内德]";
 	mes "我不知道她在做什么. 但是无时无刻都能听到她的哭喊声. 噢, 有时我听到 '嘭!', 巨大的声响... 我不知道它是从哪里来的.";
 	next;
-	emotion e_omg;
+	emotion ET_HUK;
 	mes "[内德]";
 	mes "等等!";
 	mes "嘘! 这是一个秘密, 你不能告诉任何人!";
 	next;
 	mes "[内德]";
-	emotion e_sigh;
+	emotion ET_OHNO;
 	mes "我可不相信埃文诺. 她从来不表露真实意图... 她肯定会给老板打小报告的.";
 	next;
-	emotion e_pif,0,"莱美 埃文诺";
+	emotion ET_HNG, getnpcid(0, "莱美 埃文诺");
 	mes "[莱美 埃文诺]";
 	mes "我不是那种人.";
 	next;
-	emotion e_wah;
+	emotion ET_KEK;
 	mes "[内德]";
 	mes "呃? 你听到什么了? 天哪~!";
 	close;
+}
+
+function	script	F_HasEdenGroupMark	{
+	return (countitem(6219) > 0 || countitem(22508) > 0);
 }

@@ -1139,7 +1139,7 @@ S_StorySong:
 				if (.@random == 1)
 					soundeffect "ring_of_nibelungen.wav",0;
 				else if (.@random == 2)
-					soundeffect "dont_forget_me_not.wav",0;
+					soundeffect "dont_forget_mET_STARE_ABOUTt.wav",0;
 				else
 					soundeffect "in_to_the_abyss.wav",0;
 
@@ -2908,7 +2908,7 @@ yuno_in04,33,119,3	script	Adventurer#1	828,{
 	mes "What is it?";
 	next;
 	if (!Sex) {
-		emotion e_heh;
+		emotion ET_SMILE;
 		mes "[Energetic Young Man]";
 		mes "Oh...!";
 		mes "A beautiful,";
@@ -2932,7 +2932,7 @@ yuno_in04,33,119,3	script	Adventurer#1	828,{
 			next;
 			mes "[Energetic Young Man]";
 			mes "I shall remember your name, my lady. Oh, but I'm so sorry. I'm kind of busy right now. Would you come back later? I'll do my best to please you next time.";
-			emotion e_kis;
+			emotion ET_CHUP;
 			close;
 
 		} else {
@@ -2940,7 +2940,7 @@ yuno_in04,33,119,3	script	Adventurer#1	828,{
 			next;
 			mes "[Energetic Young Man]";
 			mes "Eh, whatever. Oh, but I'm so sorry. I'm kind of busy right now. Would you come back later? I'll do my best to please you next time.";
-			emotion e_heh;
+			emotion ET_SMILE;
 			close;
 		}
 

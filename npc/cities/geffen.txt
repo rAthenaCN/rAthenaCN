@@ -109,7 +109,7 @@ geffen,147,26,0	script	拉尔菲	97,{
 	mes "拥有了它，你将越发强大... 即便像我一样的弱者，哈哈哈哈哈,";
 	mes "我必须获得它!";
 	next;
-	Emotion e_gasp;
+	Emotion ET_SURPRISE;
 	mes "[拉尔菲]";
 	mes "...好家伙!";
 	mes "自从来了之后";
@@ -163,7 +163,7 @@ geffen,111,48,0	script	斯坦西	101,{
 			mes "它是...";
 			mes "这就像你所包围这难以置信的阳刚气息! 哦~! 对于女孩来说，这是无法被抗拒的!";
 			next;
-			Emotion e_lv;
+			Emotion ET_THROB;
 			mes "[斯坦西]";
 			mes "我也不例外.";
 		}
@@ -467,7 +467,7 @@ geffen_in,22,125,1	script	克鲁帕	52,{
 			mes "[克鲁帕]";
 			mes "Ooooooooh";
 			mes "啊！";
-			Emotion e_gasp;
+			Emotion ET_SURPRISE;
 			next;
 			mes "[克鲁帕]";
 			mes "救救我啊！！";
@@ -505,7 +505,7 @@ geffen_in,22,125,1	script	克鲁帕	52,{
 		mes "[克鲁帕]";
 		mes "啊...";
 		mes "传说？";
-		Emotion e_What;
+		Emotion ET_QUESTION;
 		next;
 		mes "[克鲁帕]";
 		mes "我不知道那是什么。但我想不应该是个半坏的法师。";

@@ -757,7 +757,7 @@ kh_school,57,139,0	script	学生#khb	4_F_HUWOMAN,{
 	mes "哦...那里..";
 	mes "也就是说...";
 	mes "呜嗯...";
-	emotion e_swt2;
+	emotion ET_PROFUSELY_SWEAT;
 	close;
 }
 
@@ -926,7 +926,7 @@ kh_school,179,39,0	script	看似可爱的 学生#kh	4_F_KHELLY,{
 					mes "是是是~";
 					mes "打扰到你真是抱歉啊..";
 					mes "呜唉唉...";
-					emotion e_sob;
+					emotion ET_CRY;
 					close2;
 					cutin "",255;
 					end;
@@ -993,7 +993,7 @@ kh_school,179,39,0	script	看似可爱的 学生#kh	4_F_KHELLY,{
 			delitem 7488,1; //送货用的箱子
 			set KielHyreQuest,8;
 			set KHPubMasterEnd,0;
-			emotion e_ho;
+			emotion ET_DELIGHT;
 		}
 	}
 	else if (KielHyreQuest == 8) {

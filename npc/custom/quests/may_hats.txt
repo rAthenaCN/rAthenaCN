@@ -31,7 +31,7 @@ gonryun,187,140,4	script	雅基马	4_F_EINWOMAN,{
 
 	mes "[雅基马]";
 	mes "哇, 这对于任何怪物猎人来说都是极好的物件.";
-	emotion e_rock;
+	emotion ET_ROCK;
 	next;
 	mes "[雅基马]";
 	mes "为了制作帽子我需要:";
@@ -57,7 +57,7 @@ gonryun,187,140,4	script	雅基马	4_F_EINWOMAN,{
 M_2:
 	mes "[雅基马]";
 	mes "答对了! 很多人都对狮子有种莫名的恐惧..因为它的不怒自威..";
-	emotion e_slur;
+	emotion ET_SEXY;
 	next;
 	mes "[雅基马]";
 	mes "为了制作帽子我需要:";
@@ -86,7 +86,7 @@ M_3:
 	mes "[雅基马]";
 	mes "我真希望能够尽快把这邪恶的披风卖出..";
 	mes "事实上它并没有看起来那么的平整..嗯..";
-	emotion e_wah;
+	emotion ET_KEK;
 	next;
 	mes "[雅基马]";
 	mes "我几乎可以免费把它给你, 只需要:";
@@ -115,7 +115,7 @@ M_4:
 	mes "[雅基马]";
 	mes "这是最新款! 配饰和包包二合一! 你会感觉到力量+2..萨比巢跟它完全不是一个档次的!";
 	mes "它只适合商人装备.";
-	emotion e_heh;
+	emotion ET_SMILE;
 	next;
 	mes "[雅基马]";
 	mes "现在我的仓库里都是那种背包..所以只要给我三种关于花的物品和一种粗糙的衣物我就可以把它给你.";
@@ -144,7 +144,7 @@ M_5:
 	mes "[雅基马]";
 	mes "很好, 很好, 很好, 这种指示牌在某种程度上来说适用于所有人.";
 	mes "你的竞争对手会被弄得头晕目眩!";
-	emotion e_no1;
+	emotion ET_BEST;
 	next;
 	mes "[雅基马]";
 	mes "那么, 我们需要以下的日常物品来制作它.";
@@ -176,7 +176,7 @@ M_5:
 L_NOITEM:
 	mes "[雅基马]";
 	mes "你没有准备好所有物品.请准备好再来.";
-	emotion e_sry;
+	emotion ET_SORRY;
 	close;
 
 M_Exit:

@@ -181,7 +181,7 @@ malangdo,213,167,4	script	ß÷ßÏß÷ßÏ#mal	555,{
 			case 1176: callsub L_Socket,1,2; //Muscle_Cutter
 			case 1178: callsub L_Socket,1,2; //Schweizersabel_
 			case 1180: callsub L_Socket,1,2; //Dragon_Slayer_
-			case 1181: callsub L_Socket,1,2; //Tae_Goo_Lyeon
+			case 1181: callsub L_Socket,1,2; //TaET_GOo_Lyeon
 			case 1182: callsub L_Socket,1,2; //Bloody_Eater
 			case 1188: callsub L_Socket,1,2; //Veteran_Sword
 			case 1189: callsub L_Socket,1,3; //Krasnaya
@@ -205,7 +205,7 @@ malangdo,213,167,4	script	ß÷ßÏß÷ßÏ#mal	555,{
 			case 1418: callsub L_Socket,1,2; //Gungnir_
 			case 1433: callsub L_Socket,2,2; //Imperial_Spear
 			case 1415: callsub L_Socket,2,2; //Skewer
-			case 1421: callsub L_Socket,2,2; //Battle_Hook
+			case 1421: callsub L_Socket,2,2; //BattlET_DELIGHTok
 			case 1422: callsub L_Socket,4,2; //Hunting_Spear
 		}
 		break;
@@ -674,9 +674,9 @@ L_Socket:
 		delequip EQI_HAND_R;
 
 //		GetNonSlotItemSock2 .@equip_refine .@equip_id .@equip_card[0] .@equip_card[1] .@equip_card[2] .@equip_card[3]
-		for(set .@i,0; .@i<4; set .@i,.@i+1) {
-			if (.@equip_card[.@i] >= 4700) // Armor Enchant System
-				set .@equip_card[.@i],0;
+		for ( .@i = getiteminfo(.@equip_id,10); .@i < MAX_SLOTS; .@i++ ) {
+			if (callfunc("F_IsCharm",.@equip_card[.@i]) == true)
+				.@equip_card[.@i] = 0;// Armor Enchant System
 		}
 		getitem2 .@equip_id,1,1,.@equip_refine,0,.@equip_card[0],.@equip_card[1],.@equip_card[2],.@equip_card[3];
 

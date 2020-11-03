@@ -181,7 +181,7 @@ malaya,266,76,3	script	罗德尔 守卫#malaya	4_MAL_SOLDIER,4,4,{
 		close;
 	}
 OnTouch:
-	emotion e_gasp;
+	emotion ET_SURPRISE;
 	end;
 
 OnInit:
@@ -3898,8 +3898,8 @@ malaya,305,281,3	script	警卫#buwaya	4_MAL_SOLDIER,7,7,{
 	close;
 OnTouch:
 	if ((malaya_hi > 19) && (malaya_buwaya == 0)) {
-		emotion e_gasp;
-		emotion e_gasp,1;
+		emotion ET_SURPRISE;
+		emotion ET_SURPRISE,1;
 	}
 	end;
 }
@@ -3908,16 +3908,16 @@ malaya,276,288,5	script	Port 马来亚港的村民::buwaya_A	582,{
 		mes "- 他们互相耳语的时候, 谨慎的看着你. -";
 		close;
 	} else if (malaya_buwaya == 1) {
-		emotion e_gasp,0,"buwaya_A";
+		emotion ET_SURPRISE, getnpcid(0, "buwaya_A");
 		mes "[马来亚港的村民]";
 		mes "不, 我听说他们在森林里迷路了.";
 		mes "像我们这样小村子里的人们怎么会去埋宝藏呢?";
 		next;
-		emotion e_swt2,0,"buwaya_B";
+		emotion ET_PROFUSELY_SWEAT, getnpcid(0, "buwaya_B");
 		mes "[马来亚港的村民]";
 		mes "难道是怪兽? 我奶奶说有一只大头龙住在森林的深处.";
 		next;
-		emotion e_no,0,"buwaya_C";
+		emotion ET_STARE_ABOUT, getnpcid(0, "buwaya_C");
 		mes "[马来亚港的村民]";
 		mes "不. 听我说.";
 		next;
@@ -3925,70 +3925,70 @@ malaya,276,288,5	script	Port 马来亚港的村民::buwaya_A	582,{
 		mes "你们知道 ^3131FF土豆^000000 吗? 这个小孩就住在 ^3131FF马来亚旅馆^000000 里.";
 		mes "你们知道土豆从森林里回来了吗?";
 		next;
-		emotion e_omg,0,"buwaya_A";
-		emotion e_omg,0,"buwaya_B";
+		emotion ET_HUK, getnpcid(0, "buwaya_A");
+		emotion ET_HUK, getnpcid(0, "buwaya_B");
 		mes "[马来亚港的村民]";
 		mes "真的吗??? 他活着回来了?";
 		next;
-		emotion e_gasp,0,"buwaya_C";
+		emotion ET_SURPRISE, getnpcid(0, "buwaya_C");
 		mes "[马来亚港的村民]";
 		mes "是的啊. 但是比较奇怪的是, 这个原本是个熊孩子的小屁孩儿, 现在却一直呆在家里从来不出去.";
 		next;
-		emotion e_what,0,"buwaya_B";
+		emotion ET_QUESTION, getnpcid(0, "buwaya_B");
 		mes "[马来亚港的村民]";
 		mes "为什么呢?";
 		next;
-		emotion e_gasp,0,"buwaya_C";
+		emotion ET_SURPRISE, getnpcid(0, "buwaya_C");
 		mes "[马来亚港的村民]";
 		mes "还不明白吗? 土豆肯定找到了宝藏.";
 		next;
-		emotion e_omg,0,"buwaya_A";
-		emotion e_omg,0,"buwaya_B";
+		emotion ET_HUK, getnpcid(0, "buwaya_A");
+		emotion ET_HUK, getnpcid(0, "buwaya_B");
 		mes "[马来亚港的村民]";
 		mes "我靠!!!! 那 ^3131FF土豆^000000 现在不是暴富了?";
 		next;
-		emotion e_no,0,"buwaya_C";
+		emotion ET_STARE_ABOUT, getnpcid(0, "buwaya_C");
 		mes "[马来亚港的村民]";
 		mes "我不这样认为.";
 		mes "我的确看到 ^3131FF土豆^000000 回来了, 但他手里并没有拿着什么东西.";
 		mes "但是接下来, 我肯定漏掉了什么因为我马上跑回家了.";
 		next;
-		emotion e_what,0,"buwaya_B";
+		emotion ET_QUESTION, getnpcid(0, "buwaya_B");
 		mes "[马来亚港的村民]";
 		mes "现在 ^3131FF土豆^000000 在家里做什么呢?";
 		next;
-		emotion e_dots,0,"buwaya_C";
+		emotion ET_THINK, getnpcid(0, "buwaya_C");
 		mes "[马来亚港的村民]";
 		mes "我想土豆正在策化着怎么把宝藏带回来, 不告诉我们.";
 		mes "把所有宝藏据为己有, 太贪婪了.";
 		next;
-		emotion e_what,0,"buwaya_A";
+		emotion ET_QUESTION, getnpcid(0, "buwaya_A");
 		mes "[马来亚港的村民]";
 		mes "真的吗?";
 		next;
-		emotion e_lv2,0,"buwaya_B";
+		emotion ET_THROB2, getnpcid(0, "buwaya_B");
 		mes "[马来亚港的村民]";
 		mes "这些宝藏要是在我手里多好啊 ~";
 		mes "我会每天擦洗着这些宝藏, 耀眼的光亮让它们看上去就是美丽的艺术品. 噢~~~";
 		next;
-		emotion e_dots,0,"buwaya_C";
+		emotion ET_THINK, getnpcid(0, "buwaya_C");
 		mes "[马来亚港的村民]";
 		mes "那么, 我们去和土豆谈谈, 让他把宝藏的位置泄露给我们, 怎么样?";
 		next;
-		emotion e_what,0,"buwaya_A";
+		emotion ET_QUESTION, getnpcid(0, "buwaya_A");
 		mes "[马来亚港的村民]";
 		mes "哇噢. 这个想法好啊. 不用怀疑了, 你就是发起人!";
 		next;
-		emotion e_dots,0,"buwaya_A";
+		emotion ET_THINK, getnpcid(0, "buwaya_A");
 		mes "[马来亚港的村民]";
 		mes "但是 ^3131FF土豆^000000 会轻易的告诉我们吗?";
 		mes "土豆很狡猾啊, 他会把话题叉开的.";
 		next;
-		emotion e_sob,0,"buwaya_B";
+		emotion ET_CRY, getnpcid(0, "buwaya_B");
 		mes "[马来亚港的村民]";
 		mes "那么我们就说服 ^3131FF土豆^000000 告诉我们宝藏在哪儿, 而不是让我们自己去找.";
 		next;
-		emotion e_sob,0,"buwaya_B";
+		emotion ET_CRY, getnpcid(0, "buwaya_B");
 		mes "[马来亚港的村民]";
 		mes "啊~~~这些天想得到什么好东西实在是太难了~~~!!!!";
 		set malaya_buwaya,2;
@@ -4016,7 +4016,7 @@ ma_in01,47,101,3	script	土豆#buwaya	4_M_BARYO_BOY,7,7,{
 		next;
 		if (select("轻拍一下他的肩膀.:不管他.") == 2)
 			close;
-		emotion e_omg;
+		emotion ET_HUK;
 		mes "[土豆]";
 		mes "哇! 不! 走开! 放开我!";
 		next;
@@ -4067,13 +4067,13 @@ ma_in01,47,101,3	script	土豆#buwaya	4_M_BARYO_BOY,7,7,{
 		}
 		close;
 	} else if (malaya_buwaya == 4) {
-		emotion e_gasp;
+		emotion ET_SURPRISE;
 		mes "[土豆]";
 		mes "我能看到了!! 我的眼睛好了!!!";
 		mes "呼! 我感觉好多了!";
 		next;
-		emotion e_dots,1;
-		emotion e_no1;
+		emotion ET_THINK,1;
+		emotion ET_BEST;
 		mes "[土豆]";
 		mes "哇! 你看起来比声音听起来要帅多了. 哈哈";
 		next;
@@ -4083,16 +4083,16 @@ ma_in01,47,101,3	script	土豆#buwaya	4_M_BARYO_BOY,7,7,{
 		mes "那是什么玩意儿?";
 		next;
 		select("告诉他, 人们都在谈论的事情.");
-		emotion e_heh;
+		emotion ET_SMILE;
 		mes "[土豆]";
 		mes "什么?";
 		mes "噗! 土豆发啦! 是一夜暴富哈!!";
 		next;
-		emotion e_pif;
+		emotion ET_HNG;
 		mes "[土豆]";
 		mes "对不起, 我去森林里是为了收集一些小虫子. 我还真希望我看到了一处宝藏. 搞笑呢!";
 		next;
-		emotion e_dots;
+		emotion ET_THINK;
 		mes "[土豆]";
 		mes "我的确去了森林的深处因为这附近收集不到我想要的虫子. 但谁会想到我却陷入了这种混乱?";
 		next;
@@ -4100,7 +4100,7 @@ ma_in01,47,101,3	script	土豆#buwaya	4_M_BARYO_BOY,7,7,{
 			mes "[土豆]";
 			mes "我只是想向人们展示一下我收集到的可爱的小虫子.";
 			next;
-			emotion e_heh;
+			emotion ET_SMILE;
 			mes "[土豆]";
 			mes "把雪球和虫子放在大人们的衣服上很好玩的, 不是吗?";
 			next;
@@ -4114,7 +4114,7 @@ ma_in01,47,101,3	script	土豆#buwaya	4_M_BARYO_BOY,7,7,{
 		mes "[土豆]";
 		mes "啊哈, 花蹦蹦是一只可爱的小狗. 他长的真帅. 他是我在这个世界上最好的朋友.";
 		next;
-		emotion e_dots;
+		emotion ET_THINK;
 		mes "[土豆]";
 		mes "花蹦蹦经常会汪汪的叫并用嘴巴拉扯我的衣袖, 这时候我就会提高警惕.";
 		next;
@@ -4131,7 +4131,7 @@ ma_in01,47,101,3	script	土豆#buwaya	4_M_BARYO_BOY,7,7,{
 		mes "[土豆]";
 		mes "最可怕的是, 那个怪物有两个头. 你只有看到了才会相信我说的话.";
 		next;
-		emotion e_sob;
+		emotion ET_CRY;
 		mes "[土豆]";
 		mes "花蹦蹦用尽全力咬住怪物的腿让我逃跑. 以后我就不知道发生什么事情了. *用力吸口气*~";
 		next;
@@ -4183,7 +4183,7 @@ ma_in01,47,101,3	script	土豆#buwaya	4_M_BARYO_BOY,7,7,{
 		mes "可怜的花蹦蹦啊, 我再也见不到你了!!!!";
 		close;
 	} else if (malaya_buwaya == 12) {
-		emotion e_sob;
+		emotion ET_CRY;
 		mes "[土豆]";
 		mes "可怜的花蹦蹦啊, 我再也见不到你了!!!!";
 		next;
@@ -4191,7 +4191,7 @@ ma_in01,47,101,3	script	土豆#buwaya	4_M_BARYO_BOY,7,7,{
 		mes "[小狗]";
 		mes "汪汪!!";
 		next;
-		emotion e_omg;
+		emotion ET_HUK;
 		mes "[土豆]";
 		mes "花蹦蹦!!";
 		mes "花蹦蹦!!! 你还活着啊!!!";
@@ -4224,7 +4224,7 @@ ma_in01,47,101,3	script	土豆#buwaya	4_M_BARYO_BOY,7,7,{
 		mes "嗯... 嘿!";
 		next;
 		select("你是一位" + ((Sex) ? "男孩" : "女孩") + ", 不是吗?");
-		emotion e_omg,1;
+		emotion ET_HUK,1;
 		mes "[土豆]";
 		mes "嗯?";
 		if (!Sex) {
@@ -4287,7 +4287,7 @@ ma_in01,47,101,3	script	土豆#buwaya	4_M_BARYO_BOY,7,7,{
 		close;
 	}
 OnTouch:
-	emotion e_omg;
+	emotion ET_HUK;
 	end;
 }
 
@@ -4763,7 +4763,7 @@ ma_fild02,312,259,3	script	小狗#buwaya	4_DOG01,{
 		mes "[" + strcharinfo(0) + "]";
 		mes "你没有被宝箱巨鳄杀掉, 真是一只好命的狗狗啊. 让我们回去找你的主人吧.";
 		next;
-		emotion e_ho;
+		emotion ET_DELIGHT;
 		mes "[小狗]";
 		mes "汪汪汪汪!!";
 		next;
@@ -6409,7 +6409,7 @@ OnTouch:
 		mes "[怯懦的工人]";
 		mes "上去你就会找到";
 		mes "那个沮丧的的工人.";
-		emotion e_swt,1;
+		emotion ET_SWEAT,1;
 		close;
 	}
 	end;
@@ -6505,7 +6505,7 @@ ma_scene01,175,170,5	script	伤感的工人#bako2	4_M_BARYO_MAN,{
 		mes "我悄悄的保护陷阱!";
 		mes "我想听到尖叫.";
 		mes "我前面有一处陷阱啊! 哇哈哈哈哈~";
-		emotion e_swt2,1;
+		emotion ET_PROFUSELY_SWEAT,1;
 		close;
 	}
 	end;
@@ -6651,7 +6651,7 @@ function	script	F_Malaya_Nurse	{
 		mes "好的!";
 		mes "我想到了.";
 		mes "不如把护身符插在我们在二楼门上看到的那个上面, 怎么样?";
-		emotion e_ic;
+		emotion ET_AHA;
 		next;
 		mes "[护士 赖斯]";
 		mes "或许可以抵挡那里散发出来的不怀好意的气息.";
@@ -6663,7 +6663,7 @@ function	script	F_Malaya_Nurse	{
 		mes "好的!";
 		mes "我想到了.";
 		mes "不如把护身符插在我们在二楼门上看到的那个上面, 怎么样?";
-		emotion e_ic;
+		emotion ET_AHA;
 		cutin "malaya_nurseA01",2;
 		next;
 		mes "[护士 赖斯]";
@@ -6678,7 +6678,7 @@ function	script	F_Malaya_Nurse	{
 		next;
 		mes "[护士 赖斯]";
 		mes "我以为你不会做这样的事情.";
-		emotion e_dots;
+		emotion ET_THINK;
 		next;
 		mes "[护士 赖斯]";
 		mes "在被赶出来之前, 我们正准备进入恶梦死神的房间...";
@@ -6875,7 +6875,7 @@ malaya,55,72,4	script	护士#ma_n1	4_F_NURSE,{
 	if (malaya_hi < 20) {
 		mes "[护士]";
 		mes "这个村子的村民对外地人都很警惕.";
-		emotion e_ag;
+		emotion ET_ANGER;
 		cutin "malaya_nurseA01",2;
 		next;
 		mes "[护士]";
@@ -6912,7 +6912,7 @@ malaya,55,72,4	script	护士#ma_n1	4_F_NURSE,{
 				next;
 				mes "[护士]";
 				mes "我听说这刚修建不久, 但是看起来毛骨悚然....";
-				emotion e_swt;
+				emotion ET_SWEAT;
 				next;
 				mes "[护士]";
 				mes "当我刚来这里时, 我也很奇怪.";
@@ -6929,7 +6929,7 @@ malaya,55,72,4	script	护士#ma_n1	4_F_NURSE,{
 				mes "[护士]";
 				mes "就让我一个人来了, 欢迎我的连一个鬼影都没有!";
 				mes "太糟糕了!";
-				emotion e_sob;
+				emotion ET_CRY;
 				next;
 				mes "[护士]";
 				mes "更过份的是, 我一直在这里面对着这个恐怖的上了锁的医院!";
@@ -6947,7 +6947,7 @@ malaya,55,72,4	script	护士#ma_n1	4_F_NURSE,{
 				mes "[护士]";
 				mes "就让我一个人来了, 欢迎我的连一个鬼影都没有!";
 				mes "太糟糕了!";
-				emotion e_sob;
+				emotion ET_CRY;
 				next;
 				mes "[护士]";
 				mes "更过份的是, 我一直在这里面对着这个恐怖的上了锁的医院!";
@@ -6959,7 +6959,7 @@ malaya,55,72,4	script	护士#ma_n1	4_F_NURSE,{
 				next;
 				mes "[护士]";
 				mes "我听说这刚修建不久, 但是看起来毛骨悚然....";
-				emotion e_swt;
+				emotion ET_SWEAT;
 				next;
 				mes "[护士]";
 				mes "当我刚来这里时, 我也很奇怪.";
@@ -6972,7 +6972,7 @@ malaya,55,72,4	script	护士#ma_n1	4_F_NURSE,{
 				mes "好吧.";
 				mes "我不打扰你了.";
 				mes "别管我了. *啜泣*";
-				emotion e_sob;
+				emotion ET_CRY;
 				cutin "malaya_nurseA03",2;
 				close2;
 				cutin "",255;
@@ -6982,7 +6982,7 @@ malaya,55,72,4	script	护士#ma_n1	4_F_NURSE,{
 		case 2:
 			mes "[护士]";
 			mes "噢, 我懂了...";
-			emotion e_sob;
+			emotion ET_CRY;
 			close2;
 			cutin "",255;
 			end;
@@ -6999,7 +6999,7 @@ malaya,55,72,4	script	护士#ma_n1	4_F_NURSE,{
 		next;
 		mes "[护士]";
 		mes "早知道是这么回事儿, 我就不穿成这个样子了... *哼*";
-		emotion e_sob;
+		emotion ET_CRY;
 		next;
 		switch(select("帮她.:不管她.")) {
 		case 1:
@@ -7007,7 +7007,7 @@ malaya,55,72,4	script	护士#ma_n1	4_F_NURSE,{
 			mes "*啜泣*";
 			mes "我就知道世上自有真情在.";
 			mes "你太好了.";
-			emotion e_sob;
+			emotion ET_CRY;
 			next;
 			mes "[护士 赖斯]";
 			mes "我叫 '赖斯', 我被派到这个医院工作.";
@@ -7019,7 +7019,7 @@ malaya,55,72,4	script	护士#ma_n1	4_F_NURSE,{
 			mes "[护士 赖斯]";
 			mes "在这之前....";
 			mes "你能找些什么东西把我的脚缠上吗? 我穿不上鞋了因为我脚上磨起了水泡.";
-			emotion e_hlp;
+			emotion ET_HELP;
 			cutin "malaya_nurseA04",2;
 			next;
 			mes "[护士 赖斯]";
@@ -7035,7 +7035,7 @@ malaya,55,72,4	script	护士#ma_n1	4_F_NURSE,{
 			mes "好吧.";
 			mes "我不会打扰你了.";
 			mes "别管我了. *啜泣*";
-			emotion e_sob;
+			emotion ET_CRY;
 			cutin "malaya_nurseA03",2;
 			close2;
 			cutin "",255;
@@ -7068,7 +7068,7 @@ malaya,55,72,4	script	护士#ma_n1	4_F_NURSE,{
 			mes "[护士 赖斯]";
 			mes "在这之前....";
 			mes "你能找些什么东西把我的脚缠上吗? 我穿不上鞋了因为我脚上磨起了水泡.";
-			emotion e_hlp;
+			emotion ET_HELP;
 			cutin "malaya_nurseA03",2;
 			next;
 			mes "[护士 赖斯]";
@@ -7086,7 +7086,7 @@ malaya,55,72,4	script	护士#ma_n1	4_F_NURSE,{
 		mes "[护士 赖斯]";
 		mes "噢...... 这种气味......";
 		mes "我的新鞋要坏掉了...";
-		emotion e_swt2;
+		emotion ET_PROFUSELY_SWEAT;
 		next;
 		mes "[护士 赖斯]";
 		mes "好了!!!!!!";
@@ -7107,7 +7107,7 @@ malaya,55,72,4	script	护士#ma_n1	4_F_NURSE,{
 	} else if (malaya_bang == 4) {
 		mes "["+strcharinfo(0)+"]";
 		mes "我们又拉又推, 一点儿作用也没有.";
-		emotion e_swt2,1;
+		emotion ET_PROFUSELY_SWEAT,1;
 		next;
 		mes "[护士 赖斯]";
 		mes "奇怪了~";
@@ -7117,7 +7117,7 @@ malaya,55,72,4	script	护士#ma_n1	4_F_NURSE,{
 		mes "[护士 赖斯]";
 		mes "嗯!";
 		mes "完全不懂了!";
-		emotion e_an;
+		emotion ET_FRET;
 		next;
 		mes "[护士 赖斯]";
 		mes "我要和总部联系一下, 你帮我去询问一下市民好吗?";
@@ -7145,7 +7145,7 @@ malaya,55,72,4	script	护士#ma_n1	4_F_NURSE,{
 	} else if (malaya_bang == 6) {
 		mes "[护士 赖斯]";
 		mes "她都说了些什么?";
-		emotion e_what;
+		emotion ET_QUESTION;
 		cutin "malaya_nurseA02",2;
 		next;
 		select("告诉她小女孩说了些什么.");
@@ -7181,7 +7181,7 @@ malaya,55,72,4	script	护士#ma_n1	4_F_NURSE,{
 		mes "一间旅馆?";
 		mes "天啊!";
 		mes "他们要是早点儿跟我说的话, 我也不会一直站在外面这么久了!";
-		emotion e_pif;
+		emotion ET_HNG;
 		cutin "malaya_nurseA01",2;
 		next;
 		mes "[护士 赖斯]";
@@ -7194,7 +7194,7 @@ malaya,55,72,4	script	护士#ma_n1	4_F_NURSE,{
 		next;
 		mes "[护士 赖斯]";
 		mes "因为我的脚的原因我想我哪儿也不能去了. 你能为我到旅馆跑一趟吗?";
-		emotion e_swt2;
+		emotion ET_PROFUSELY_SWEAT;
 		cutin "malaya_nurseA03",2;
 		next;
 		mes "[护士 赖斯]";
@@ -7211,7 +7211,7 @@ malaya,55,72,4	script	护士#ma_n1	4_F_NURSE,{
 	} else if (malaya_bang == 9) {
 		mes "[护士 赖斯]";
 		mes "因为我的脚的原因我想我哪儿也不能去了. 你能为我到旅馆跑一趟吗?";
-		emotion e_swt2;
+		emotion ET_PROFUSELY_SWEAT;
 		cutin "malaya_nurseA03",2;
 		next;
 		mes "[护士 赖斯]";
@@ -7253,8 +7253,8 @@ malaya,55,72,4	script	护士#ma_n1	4_F_NURSE,{
 		mes "门并没有锁上?";
 		mes "这是怎么回事儿?????";
 		mes "????";
-		emotion e_what;
-		emotion e_what,1;
+		emotion ET_QUESTION;
+		emotion ET_QUESTION,1;
 		cutin "malaya_nurseA04",2;
 		next;
 		mes "[护士 赖斯]";
@@ -7269,8 +7269,8 @@ malaya,55,72,4	script	护士#ma_n1	4_F_NURSE,{
 		next;
 		mes "[???]";
 		mes "*偷偷的笑*";
-		emotion e_what,1;
-		emotion e_what;
+		emotion ET_QUESTION,1;
+		emotion ET_QUESTION;
 		next;
 		mes "[???]";
 		mes "嘿 "+((Sex)?"伙计":"小姐")+",";
@@ -7391,7 +7391,7 @@ malaya,55,72,4	script	护士#ma_n1	4_F_NURSE,{
 		next;
 		mes "[护士 赖斯]";
 		mes "嘿你在草丛里, 如果你不会家的话我会告发你的!";
-		emotion e_omg,0,"Bushes#ma";
+		emotion ET_HUK, getnpcid(0, "Bushes#ma");
 		close2;
 		cutin "",255;
 		end;
@@ -7413,7 +7413,7 @@ malaya,55,72,4	script	护士#ma_n1	4_F_NURSE,{
 		mes "[护士 赖斯]";
 		mes "不管如何, 一楼的门打开了, 让我们进去看看吧.";
 		mes "如果通向二楼的门打不开的话, 一切都毫无意义了.";
-		emotion e_sob;
+		emotion ET_CRY;
 		set malaya_bang,19;
 		changequest 11299,11300;
 		close2;
@@ -7424,7 +7424,7 @@ malaya,55,72,4	script	护士#ma_n1	4_F_NURSE,{
 		mes "[护士 赖斯]";
 		mes "不管如何, 一楼的门打开了, 让我们进去看看吧.";
 		mes "如果通向二楼的门打不开的话, 一切都毫无意义了.";
-		emotion e_sob;
+		emotion ET_CRY;
 		cutin "malaya_nurseA01",2;
 		close2;
 		cutin "",255;
@@ -7820,11 +7820,11 @@ malaya,53,68,4	script	草丛#ma	CLEAR_NPC,{
 		mes "不要再靠近了!";
 		mes "老 "+((Sex)?"男人":"女人")+"!";
 		mes "你怎么知道我在这儿的?";
-		emotion e_omg;
+		emotion ET_HUK;
 		next;
 		mes "["+strcharinfo(0)+"]";
 		mes "我并不老.";
-		emotion e_an,1;
+		emotion ET_FRET,1;
 		next;
 		switch(select("关于进入医院.:关于这个母亲.:关于 ???.:问问老女人.:问问医院周围的事.:取消.")) {
 		case 1:
@@ -7888,7 +7888,7 @@ malaya,53,68,4	script	草丛#ma	CLEAR_NPC,{
 		case 6:
 			mes "[???]";
 			mes "哼!!";
-			emotion e_pif;
+			emotion ET_HNG;
 			close;
 		}
 		mes "[???]";
@@ -7904,11 +7904,11 @@ malaya,53,68,4	script	草丛#ma	CLEAR_NPC,{
 		mes "不要再靠近了!";
 		mes "老 "+((Sex)?"男人":"女人")+"!";
 		mes "你怎么知道我在这里的?";
-		emotion e_omg;
+		emotion ET_HUK;
 		next;
 		mes "["+strcharinfo(0)+"]";
 		mes "我并不老.";
-		emotion e_an,1;
+		emotion ET_FRET,1;
 		close;
 	} else {
 		mes "这儿有一个小孩的痕迹.";
@@ -8116,19 +8116,19 @@ malaya,114,183,3	script	弯腰老太太#ma	4_F_BARYO_OLD,{
 		mes "[弯腰老太太]";
 		mes "什么?";
 		mes "啊~~~~~~~~~~~~";
-		emotion e_omg;
+		emotion ET_HUK;
 		next;
 		mes "[弯腰老太太]";
 		mes "啊~~~~~~~~~~~~~~~~~~~~~";
-		emotion e_omg;
+		emotion ET_HUK;
 		next;
 		mes "[弯腰老太太]";
 		mes "啊~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-		emotion e_omg;
+		emotion ET_HUK;
 		next;
 		mes "[弯腰老太太]";
 		mes "啊!!!!!!!!!!!";
-		emotion e_omg;
+		emotion ET_HUK;
 		next;
 		mes "[弯腰老太太]";
 		mes "你都做了些什么啊!";
@@ -8425,11 +8425,11 @@ ma_fild01,179,260,2	script	小帮手 伊斯科#pin	4_M_BARYO_BOY,{
 		if ($malaya_pintados_01 > 999 && $malaya_pintados_02 > 999 && $malaya_pintados_03 > 299) {
 			set $malaya_pintados_00,1;
 			donpcevent "庆典负责人#pin::OnEnable";
-			emotion e_lv;
+			emotion ET_THROB;
 			mes "[伊斯科]";
 			mes "许多冒险家曾帮助整理我带来的庆典物品.";
 			next;
-			emotion e_ho;
+			emotion ET_DELIGHT;
 			mes "[伊斯科]";
 			mes "嘿嘿... 现在我们可以举行'^7A96E0城市庆典^000000'了.";
 			close;
@@ -8440,7 +8440,7 @@ ma_fild01,179,260,2	script	小帮手 伊斯科#pin	4_M_BARYO_BOY,{
 		mes "嘿嘿... 有趣的'^7A96E0城市庆典^000000'隆重开始了.";
 		next;
 		if ($malaya_pintados_00 > 0 && $malaya_pintados_00 < 50) {
-			emotion e_ho;
+			emotion ET_DELIGHT;
 			mes "[伊斯科]";
 			mes "今天是'^7A96E0城市庆典^000000'的第一天. 庆典为期一周, 祝你好运了.";
 			close;
@@ -8471,18 +8471,18 @@ ma_fild01,179,260,2	script	小帮手 伊斯科#pin	4_M_BARYO_BOY,{
 			mes "你见过^FF8440食月暴龙^000000了吗, 那个可以吞掉月亮的怪兽? 据说它很残忍啊.";
 			close;
 		} else if ($malaya_pintados_00 > 245 && $malaya_pintados_00 < 295) {
-			emotion e_sob;
+			emotion ET_CRY;
 			mes "[伊斯科]";
 			mes "好悲伤啊. 许多冒险家来帮助举行的'^7A96E0城市庆典^000000'只余下最后一天了.";
 			close;
 		} else {
-			emotion e_sob;
+			emotion ET_CRY;
 			mes "[伊斯科]";
 			mes "天啊! 今天是'^7A96E0城市庆典^000000'的最后一天了. 不敢相信以后再没有大型庆典了.";
 			close;
 		}
 	}
-	emotion e_spin;
+	emotion ET_CONFUSE;
 	mes "[伊斯科]";
 	mes "天啊. 在庆典的最后我们该做些什么呢.";
 	next;
@@ -8492,7 +8492,7 @@ ma_fild01,179,260,2	script	小帮手 伊斯科#pin	4_M_BARYO_BOY,{
 		mes "这是自古以来的一个传统节日.";
 		mes "在巴勒攸马西瓦哥, 我们称之为'^7A96E0城市庆典^000000'.";
 		next;
-		emotion e_otl;
+		emotion ET_OTL;
 		mes "[伊斯科]";
 		mes "这次庆典, 我想我可能完不成任务了.";
 		next;
@@ -8504,7 +8504,7 @@ ma_fild01,179,260,2	script	小帮手 伊斯科#pin	4_M_BARYO_BOY,{
 		mes "但是无处不在的'^FF8440独眼怪^000000'把我的物品都抢走了.";
 		next;
 		select("你受伤了吗?");
-		emotion e_sigh;
+		emotion ET_OHNO;
 		mes "[伊斯科]";
 		mes "很幸运, 我没受伤.";
 		next;
@@ -8518,7 +8518,7 @@ ma_fild01,179,260,2	script	小帮手 伊斯科#pin	4_M_BARYO_BOY,{
 		mes "[伊斯科]";
 		mes "小护身符"+$malaya_pintados_01+", 纯银十字架"+$malaya_pintados_02+", 染料"+$malaya_pintados_03+", 就是这些了.";
 		next;
-		emotion e_sigh;
+		emotion ET_OHNO;
 		mes "[伊斯科]";
 		mes "唉... 我们物品还是短缺, 不能举行'^7A96E0城市庆典^000000'.";
 		close;
@@ -8526,7 +8526,7 @@ ma_fild01,179,260,2	script	小帮手 伊斯科#pin	4_M_BARYO_BOY,{
 		set .@str$, (Sex)?"Bro":"Sis";
 		break;
 	}
-	emotion e_lv;
+	emotion ET_THROB;
 	mes "[伊斯科]";
 	mes "噢, 是吗, 太棒了!";
 	mes "谢谢你! "+strcharinfo(0)+" "+.@str$+"!!";
@@ -8643,7 +8643,7 @@ ma_fild01,172,223,6	script	刺青师#pin	4_M_BARYO_OLD,{
 		mes "不能继续进行任务. 你的负重太大了..";
 		close;
 	}
-	emotion e_what;
+	emotion ET_QUESTION;
 	mes "[刺青师]";
 	mes "为什么想要一个纹身?";
 	next;
@@ -8780,7 +8780,7 @@ ma_fild01,172,223,6	script	刺青师#pin	4_M_BARYO_OLD,{
 		mes "需要10个古代符文, 1个"+.@name$+"灵魂碎片, 1个"+.@name$+"人偶, 才能绘制1个^EE1D11"+.@name$+"纹身^000000.";
 		close;
 	}
-	emotion e_flash;
+	emotion ET_SPARK;
 	mes "[刺青师]";
 	mes "这些材料都有神圣的能量. 通过这些会制出一个强大的纹身的.";
 	next;
@@ -8799,7 +8799,7 @@ ma_fild01,172,223,6	script	刺青师#pin	4_M_BARYO_OLD,{
 	mes "刺青师兴奋的看着玩偶, 好像要把它的样子完全印入脑海一样.";
 	next;
 	if(select("你在搞什么搞啊?:... ... ..") == 1) {
-		emotion e_an;
+		emotion ET_FRET;
 		delitem 6499,5; //Ancient_Grudge
 		mes "[刺青师]";
 		mes "噢不, 你把一切都打乱了.";
@@ -8808,7 +8808,7 @@ ma_fild01,172,223,6	script	刺青师#pin	4_M_BARYO_OLD,{
 		mes "拿回来5个古代符文, "+.@name$+"人偶, "+.@name$+"灵魂碎片.";
 		close;
 	}
-	emotion e_bzz;
+	emotion ET_STARE;
 	mes "他在用眼神熔化玩偶吗?";
 	next;
 	specialeffect EF_SONICBLOWHIT;
@@ -8816,12 +8816,12 @@ ma_fild01,172,223,6	script	刺青师#pin	4_M_BARYO_OLD,{
 	next;
 	mes "马上就绘出"+.@name$+"纹身的雏形了.";
 	next;
-	emotion e_an;
+	emotion ET_FRET;
 	mes "但是他一直注视着绘画的几个角落,  好像对一些细节不是很满意.";
 	next;
 	if(select("我看挺好啊.:... ... ..") == 1) {
-		emotion e_an;
-		emotion e_ag;
+		emotion ET_FRET;
+		emotion ET_ANGER;
 		delitem 6499,5; //Ancient_Grudge
 		mes "[刺青师]";
 		mes "我艹! 我跟你说过不要打扰我的";
@@ -8838,12 +8838,12 @@ ma_fild01,172,223,6	script	刺青师#pin	4_M_BARYO_OLD,{
 	next;
 	mes "看起来, 他对这个"+.@name$+"绘画很满意.";
 	next;
-	emotion e_dum;
+	emotion ET_HUM;
 	mes "但是现在他望着天空什么也没做. 他在等什么呢?";
 	next;
 	if(select("什么时候才好啊?:... ... ..") == 1) {
-		emotion e_an;
-		emotion e_ag;
+		emotion ET_FRET;
+		emotion ET_ANGER;
 		delitem 6499,5; //Ancient_Grudge
 		mes "[刺青师]";
 		mes "我艹! 我告诉过你不要来打扰我!";
@@ -8856,7 +8856,7 @@ ma_fild01,172,223,6	script	刺青师#pin	4_M_BARYO_OLD,{
 		mes "拿回5个古代符文, "+.@name$+"人偶, "+.@name$+"灵魂碎片.";
 		close;
 	}
-	emotion e_dots;
+	emotion ET_THINK;
 	mes "[刺青师]";
 	mes ".";
 	next;
@@ -8866,7 +8866,7 @@ ma_fild01,172,223,6	script	刺青师#pin	4_M_BARYO_OLD,{
 	mes "[刺青师]";
 	mes ". . .";
 	next;
-	emotion e_dots;
+	emotion ET_THINK;
 	mes "[刺青师]";
 	mes ". . . .";
 	next;
@@ -8879,7 +8879,7 @@ ma_fild01,172,223,6	script	刺青师#pin	4_M_BARYO_OLD,{
 	mes "[刺青师]";
 	mes ". . . . . . .";
 	next;
-	emotion e_flash;
+	emotion ET_SPARK;
 	mes "刺青师凝视了天空一会儿以后, 眼神变的坚定起来, 接着他用双手把"+.@name$+"灵魂碎片打成粉末.";
 	next;
 	specialeffect EF_DETOXICATION;
@@ -8888,8 +8888,8 @@ ma_fild01,172,223,6	script	刺青师#pin	4_M_BARYO_OLD,{
 	if(select("为什么要把碎片打粉...:... ... ..") == 1) {
 		delitem 6499,5; //Ancient_Grudge
 		delitem .@spirit,1;
-		emotion e_an;
-		emotion e_ag;
+		emotion ET_FRET;
+		emotion ET_ANGER;
 		mes "[刺青师]";
 		mes "我艹! 我告诉过你, 不要来打扰我!";
 		next;
@@ -8919,7 +8919,7 @@ ma_fild01,172,223,6	script	刺青师#pin	4_M_BARYO_OLD,{
 	next;
 	mes "刺青师终于满意的笑了.";
 	next;
-	emotion e_heh;
+	emotion ET_SMILE;
 	mes "[刺青师]";
 	mes "哈哈, 成功了.";
 	next;

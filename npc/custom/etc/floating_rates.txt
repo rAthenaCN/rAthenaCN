@@ -31,7 +31,7 @@ OnHour18:
 	//Job exp
 	setbattleflag("job_exp_rate",$@jrate);
 	//Drops
-	setbattleflag("item_rate_common",$@drate);
+	setbattleflag("item_ratET_COMEONmon",$@drate);
 	setbattleflag("item_rate_heal",$@drate);
 	setbattleflag("item_rate_use",$@drate);
 	setbattleflag("item_rate_equip",$@drate);

@@ -603,7 +603,7 @@ function	script	refinemain	{
 		mes "要不要我把";
 		mes "你的头脑锻治得";
 		mes "聪明一点啊?";
-		emotion e_an;
+		emotion ET_FRET;
 		close;
 	}
 	//Check if the item is refinable...
@@ -726,7 +726,7 @@ function	script	refinemain	{
 		if (callfunc("F_IsEquipIDHack", .@part, .@refineitemid) ||
 		    callfunc("F_IsEquipRefineHack", .@part, .@refinerycnt)) {
 			mes "["+ .@npc_name$ +"]";
-			emotion e_an;
+			emotion ET_FRET;
 			mes "等一会儿..";
 			mes "你以为我是笨蛋吗?!";
 			mes "快出去,不然我会用我的铁锤打你..";
@@ -736,7 +736,7 @@ function	script	refinemain	{
 		if(getequippercentrefinery(.@part) <= rand(100)) {
 			failedrefitem .@part;
 			mes "["+ .@npc_name$ +"]";
-			emotion (!rand(5))?e_cash:e_omg;
+			emotion (!rand(5))?ET_MONEY:ET_HUK;
 			set .@lose,rand(1,3);
 			if (.@lose == 1) {
 				mes "哦!我的天";
@@ -757,7 +757,7 @@ function	script	refinemain	{
 		}
 		mes "["+getarg(0)+"]";
 		successrefitem .@part;
-		emotion e_heh;
+		emotion ET_SMILE;
 		set .@win,rand(1,3);
 		if (.@win == 1) {
 			mes "太棒了!";
@@ -854,7 +854,7 @@ function	script	refinemain	{
 		mes "匡匡, 匡匡!!!";
 		if(.@menu2 == 2 && getequippercentrefinery(.@part) <= rand(100)) {
 			failedrefitem .@part;
-			emotion e_omg;
+			emotion ET_HUK;
 			mes "[" + getarg(0) + "]";
 			mes "咳咳咳咳咳咳咳!!! 武器在锻治的过程中损坏了...";
 			set .@refinecnt,.@refinecnt - 1;
@@ -866,7 +866,7 @@ function	script	refinemain	{
 			close;
 		}
 		successrefitem .@part;
-		emotion e_no1;
+		emotion ET_BEST;
 		set .@refinecnt,.@refinecnt - 1;
 		next;
 	}

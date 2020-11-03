@@ -65,7 +65,7 @@ moc_para01,22,16,5	script	检索达人#catal01	4_M_BIBI,{
 				mes "你不想买噢!";
 				mes "接下来不知如何是好...";
 				mes "我应该怎么办呢?";
-				emotion e_swt2,1;
+				emotion ET_PROFUSELY_SWEAT,1;
 				close;
 			} else if (.@input < 1 || .@input > 50) {
 				mes "新产品一次最多只能购买50张~.";
@@ -94,7 +94,7 @@ moc_para01,22,16,5	script	检索达人#catal01	4_M_BIBI,{
 		mes "需要重新给你解说一下吗？";
 		mes "接下来不知如何是好...";
 		mes "我该怎么办呢？";
-		emotion e_swt2,1;
+		emotion ET_PROFUSELY_SWEAT,1;
 		close;
 	case 3:
 		mes "[检索达人]";

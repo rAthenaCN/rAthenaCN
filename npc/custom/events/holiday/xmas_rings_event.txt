@@ -27,7 +27,7 @@ prontera,156,174,4	script	雪诺尔	4_M_06,{
 	}else if(Q_XMSRINGS==3){
 		mes "雪诺伊已经让她的小鸟送信来告诉我你帮忙的事情了...";
 		mes "让我来告诉你一个魔戒的秘密.";
-		emotion e_no1;
+		emotion ET_BEST;
 		next;
 		mes "[雪诺尔]";
 		mes "它们的魔力只有在12月8日到1月8日之间才存在.";
@@ -42,7 +42,7 @@ prontera,156,174,4	script	雪诺尔	4_M_06,{
 	}else{
 		mes "你好! 我和我的两个姐妹正在为全部三个节日准备礼物!";
 	}
-	emotion e_sob;
+	emotion ET_CRY;
 	next;
 	menu "- 你的姐妹在哪里?",-, "- 什么节日?",M_PR,"- 什么礼物?",M_WRAP,"- 我可以帮什么吗?",M_QUEST;
 
@@ -109,12 +109,12 @@ louyang,224,249,4	script	雪伊	4_F_KID3,{
 	mes "[雪伊]";
 	if(Q_XMSRINGS==0){
 		mes "你好! 我正在等我姐姐的小鸟送信过来...";
-		emotion e_sob;
+		emotion ET_CRY;
 		close;
 	}
 	if(Q_XMSRINGS==1){
 		mes "我真希望我还能有4个灰色礼物盒给当地的孩子们...";
-		emotion e_sob;
+		emotion ET_CRY;
 		next;
 		mes "[雪伊]";
 		mes "噢, 你好. 我的哥哥雪诺尔把事情都告诉你了吗?";
@@ -124,27 +124,27 @@ louyang,224,249,4	script	雪伊	4_F_KID3,{
 		mes "[雪伊]";
 		if(countitem(644)<4){
 			mes "给我4个礼物送给穷孩子们吧... 等等, 你还不满4个!";
-			emotion e_sry;
+			emotion ET_SORRY;
 			close;
 		}
 		set Q_XMSRINGS,2;
 		delitem 644,4;
 		getnameditem 2637,strcharinfo(0);
-		emotion e_kis2;
+		emotion ET_CHUPCHUP;
 		mes "谢谢! 这是我送你的一点小小心意!";
 		next;
 		mes "[雪伊]";
 		mes "对了, 如果你带上2个不同的戒指, 你的节日等级提升会更容易!";
 		close;
 	}
-	emotion e_thx;
+	emotion ET_THANKS;
 	mes "再次感谢! 所有的孩子们都会有节日礼物啦!";
 	close;
 
 M_End:
 	mes "[雪伊]";
 	mes "真可惜... 我有一个圣诞老人的魔力戒指... 我想用它来换4个礼物盒...";
-	emotion e_swt;
+	emotion ET_SWEAT;
 	close;
 }
 
@@ -152,7 +152,7 @@ izlu2dun,133,160,2	script	雪诺伊	4_F_06,{
 	mes "[雪诺伊]";
 	if(Q_XMSRINGS==0){
 		mes "你好哦! 你认识我的弟弟和妹妹吗? 不认识? 我的弟弟雪诺尔在普隆德拉很有名气的!! 随便找个那边的孩子问问就知道了.";
-		emotion e_hmm;
+		emotion ET_SCRATCH;
 		close;
 	}
 	if(Q_XMSRINGS==1){
@@ -176,17 +176,17 @@ izlu2dun,133,160,2	script	雪诺伊	4_F_06,{
 		mes "[雪诺伊]";
 		if(countitem(644)<3){
 			mes "噢!! 你还没有收集全3个灰色礼物盒.";
-			emotion e_sry;
+			emotion ET_SORRY;
 			close;
 		}
 		set Q_XMSRINGS,3;
 		delitem 644,3;
 		getnameditem 2636,strcharinfo(0);
-		emotion e_kis;
+		emotion ET_CHUP;
 		mes "谢谢! 收下这个魔力戒指吧!";
 		close;
 	}
-	emotion e_thx;
+	emotion ET_THANKS;
 	mes "噢... 全体海军队员们都很感谢你! 他们非常喜欢这些礼物!!!";
 	if(rand(2))mes "你不会不知道圣诞帽能够显现出戒指的真实魔力吧?";
 	close;
@@ -194,6 +194,6 @@ izlu2dun,133,160,2	script	雪诺伊	4_F_06,{
 M_End:
 	mes "[雪诺伊]";
 	mes "我想用一个金色的魔力戒指来交换3个礼物盒...";
-	emotion e_swt;
+	emotion ET_SWEAT;
 	close;
 }

@@ -214,7 +214,7 @@ prontera,162,193,4	script	¿¨Æ¬¶Ò»»»ú#pa08	562,{
 		else if (.@r <= 24804) getitem 4167,1; //Neraid_Card
 		else if (.@r <= 24855) getitem 4170,1; //Dark_Frame_Card
 		else if (.@r <= 24906) getitem 4171,1; //Dark_Priest_Card
-		else if (.@r <= 24957) getitem 4172,1; //The_Paper_Card
+		else if (.@r <= 24957) getitem 4172,1; //ThET_WRAP_Card
 		else if (.@r <= 25008) getitem 4173,1; //Demon_Pungus_Card
 		else if (.@r <= 25059) getitem 4175,1; //Poison_Toad_Card
 		else if (.@r <= 25110) getitem 4176,1; //Dullahan_Card
@@ -266,7 +266,7 @@ prontera,162,193,4	script	¿¨Æ¬¶Ò»»»ú#pa08	562,{
 		else if (.@r <= 27456) getitem 4232,1; //Wild_Ginseng_Card
 		else if (.@r <= 27507) getitem 4233,1; //Baby_Leopard_Card
 		else if (.@r <= 27558) getitem 4234,1; //Anolian_Card
-		else if (.@r <= 27609) getitem 4235,1; //Cookie_XMAS_Card
+		else if (.@r <= 27609) getitem 4235,1; //CookiET_XMAS_Card
 		else if (.@r <= 27660) getitem 4239,1; //Iron_Fist_Card
 		else if (.@r <= 27711) getitem 4240,1; //Arclouse_Card
 		else if (.@r <= 27762) getitem 4242,1; //Apocalips_Card
@@ -319,7 +319,7 @@ prontera,162,193,4	script	¿¨Æ¬¶Ò»»»ú#pa08	562,{
 		else if (.@r <= 30159) getitem 4312,1; //Fur_Seal_Card
 		else if (.@r <= 30210) getitem 4313,1; //Punk_Card
 		else if (.@r <= 30261) getitem 4315,1; //Pest_Card
-		else if (.@r <= 30312) getitem 4316,1; //Fake_Angel_Card
+		else if (.@r <= 30312) getitem 4316,1; //FakET_FRETgel_Card
 		else if (.@r <= 30363) getitem 4319,1; //Freezer_Card
 		else if (.@r <= 30414) getitem 4321,1; //Hylozoist_Card
 		else if (.@r <= 30465) getitem 4322,1; //High_Orc_Card

@@ -88,7 +88,7 @@ payon,157,146,6	script	龙仙儒#cash	85,{
 	if (getequippercentrefinery(.@part) > rand(100) || getequippercentrefinery(.@part) > rand(100)) {
 		successrefitem .@part;
 		next;
-		emotion e_no1;
+		emotion ET_BEST;
 		mes "[龙仙儒]";
 		mes "拿去吧! 已经做好了.";
 		mes "好久没精炼出这么优质的装备了,";
@@ -97,7 +97,7 @@ payon,157,146,6	script	龙仙儒#cash	85,{
 	}
 	failedrefitem .@part;
 	next;
-	emotion (!rand(5))?e_cash:e_omg;
+	emotion (!rand(5))?ET_MONEY:ET_HUK;
 	mes "[龙仙儒]";
 	mes "咳咳咳咳咳咳咳!!!!";
 	next;

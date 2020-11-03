@@ -378,7 +378,7 @@ L_Reward:
 			mes "好的..";
 			close;
 		}
-		emotion e_swt2, "Weird old man#Bio4Reward";
+		emotion ET_PROFUSELY_SWEAT, "Weird old man#Bio4Reward";
 		progressbar "FF00FF", 2;
 		delitem 6469, .@amount[0]; //Will_Of_Warrior
 		delitem 6470, .@amount[1]; //Blood_Thirst
@@ -404,7 +404,7 @@ lhz_cube,233,24,4	script	巫师#Bio4Reward	4_M_UMDANCEKID,{
 	next;
 	switch(select("Umba umba humbaa", "你在这里做什么?", "这是迄今为止发现的设备?", "给你, 先生")) {
 	case 1:
-		emotion e_an;
+		emotion ET_FRET;
 		mes "[布丁]";
 		mes "嘿, 对不起, 但我不是汶巴拉人!你真粗鲁";
 		close;
@@ -413,11 +413,11 @@ lhz_cube,233,24,4	script	巫师#Bio4Reward	4_M_UMDANCEKID,{
 		mes "正如你所看到的, 我是个巫师, 我的名字叫布丁.";
 		next;
 		select("....?");
-		emotion e_an;
+		emotion ET_FRET;
 		mes "[布丁]";
 		mes "... 那是什么脸?我开始感到不愉快..";
 		next;
-		emotion e_ok;
+		emotion ET_OK;
 		mes "[布丁]";
 		mes "前两天,我感到奇怪, 古怪色彩.所以我也跟着说, 它把我带到这里";
 		next;
@@ -431,20 +431,20 @@ lhz_cube,233,24,4	script	巫师#Bio4Reward	4_M_UMDANCEKID,{
 		mes "[布丁]";
 		mes "从这些怪物中, 我能找到稀有物品 '^F2766E勇士的意志^000000' '^952420血的饥渴^000000' '^88C6F7亡者的寒气^000000' 他们不会出现在其他地方.";
 		next;
-		emotion e_what, "Sorcerer#Bio4Reward";
+		emotion ET_QUESTION, "Sorcerer#Bio4Reward";
 		mes "[布丁]";
 		mes "很多时间对我自己的研究后, 我终于想出了一个办法来使用这些物品.你想知道吗?";
 		next;
 		switch(select("呵呵....","当然了, 我真的很想知道")) {
 		case 1:
-			emotion e_omg, 1;
-			emotion e_an, "Sorcerer#Bio4Reward";
+			emotion ET_HUK, 1;
+			emotion ET_FRET, "Sorcerer#Bio4Reward";
 			mes "[布丁]";
 			mes "噢, 我的!你睡着了, 你叫我什么呢?好吧, 反正我觉得懒得再解释, 所以我只会继续下去";
 			next;
 			break;
 		case 2:
-			emotion e_heh, "Sorcerer#Bio4Reward";
+			emotion ET_SMILE, "Sorcerer#Bio4Reward";
 			mes "[布丁]";
 			mes "不错, 你仔细听我说话然后我会一一解释.";
 			next;
@@ -471,8 +471,8 @@ lhz_cube,233,24,4	script	巫师#Bio4Reward	4_M_UMDANCEKID,{
 		mes "只能从实验室的那些怪物身上获取这些材料";
 		next;
 		select("那么, 结论是什么?");
-		emotion e_what, 1;
-		emotion e_an;
+		emotion ET_QUESTION, 1;
+		emotion ET_FRET;
 		mes "[布丁]";
 		mes "啧啧......我告诉过你在我说话的时候不要打断我, 好吧, 我会回答这个重要的问题的.";
 		next;
@@ -544,7 +544,7 @@ lhz_cube,233,24,4	script	巫师#Bio4Reward	4_M_UMDANCEKID,{
 		}
 		close;
 	case 4:
-		emotion e_flash;
+		emotion ET_SPARK;
 		mes "[布丁]";
 		mes "啊啊啊啊, 你没有把它们带来吗?";
 		next;
@@ -672,12 +672,12 @@ lhz_cube,233,24,4	script	巫师#Bio4Reward	4_M_UMDANCEKID,{
 		specialeffect2 EF_SPHERE;
 		progressbar "ffff00", 2;
 		specialeffect2 EF_SUI_EXPLOSION;
-		emotion e_sob;
+		emotion ET_CRY;
 		mes "[布丁]";
 		mes "呃, 该装备不能接受'^F2766E勇士的意志^000000' 或者 '^952420血的饥渴^000000'的能力.";
 		close;
 	}
-	emotion e_ho;
+	emotion ET_DELIGHT;
 	mes "[布丁]";
 	mes "这装备可以接受 '^F2766E勇士的意志^000000' 或者 '^952420血的饥渴^000000'的能力.";
 	next;
@@ -977,14 +977,14 @@ lhz_cube,233,24,4	script	巫师#Bio4Reward	4_M_UMDANCEKID,{
 		
 		if (.@enchant == 0){
 			specialeffect2 EF_SUI_EXPLOSION;
-			emotion e_otl;
+			emotion ET_OTL;
 			mes "[布丁]";
 			mes "唉, 该装备无法接受 "+((.@socket_type==3)?"'^952420血的饥渴^000000'":"'^F2766E勇士的意志^000000'")+", 它将被破坏";
 			close;
 		} else {
 			specialeffect2 EF_FIREHIT;
 			getitem2 .@equip_item, 1, 1, .@refine_count, 0, .@equip_card[0], .@equip_card[1], .@equip_card[2], .@equip_card[3];
-			emotion e_ho;
+			emotion ET_DELIGHT;
 			mes "[布丁]";
 			mes "幸运的是"+((.@socket_type==3)?"'^952420血的饥渴^000000'":"'^F2766E勇士的意志^000000'")+"已经注入到装备上了..";
 			close;

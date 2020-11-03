@@ -119,7 +119,7 @@ geffen,103,42,5	script	斯波尼亚	99,{
 	mes "[斯波尼亚]";
 	mes "哇哦, 你是新~新~新~新~新来的吧?";
 	mes "好一张纯洁天真烂漫的面孔! 哈~ hohoho~.";
-	emotion e_gg;
+	emotion ET_KIK;
 	next;
 	mes "[斯波尼亚]";
 	mes "别在这儿瞎晃悠浪费时间啦，快到外面的世界狩猎去吧！";
@@ -671,7 +671,7 @@ L_Reward:
 	next;
 	mes "[大夏]";
 	mes "太感谢了！上帝保佑你!";
-	emotion e_heh;
+	emotion ET_SMILE;
 	next;
 	mes "[大夏]";
 	mes "哈哈！";

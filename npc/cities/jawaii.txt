@@ -248,7 +248,7 @@ jawaii,141,200,3	script	职员#sroom	798,{
 	mes "[啊喽哇]";
 	mes "^666666*嗤*^000000";
 	mes "不-不过我保证这-这间房间是非常的棒, 非常的干-干净! 请-请你再考虑回-回来!";
-	Emotion e_sob;
+	Emotion ET_CRY;
 	close;
 }
 
@@ -438,10 +438,10 @@ jawaii_in,25,94,0	script	职员#jaw1	724,{
 	close;
 
 OnWelcome:
-	Emotion e_kis;
+	Emotion ET_CHUP;
 	end;
 OnSolo:
-	Emotion e_omg;
+	Emotion ET_HUK;
 	end;
 }
 
@@ -468,10 +468,10 @@ jawaii_in,25,96,0	script	职员#jaw2	724,{
 	close;
 
 OnWelcome:
-	Emotion e_kis;
+	Emotion ET_CHUP;
 	end;
 OnSolo:
-	Emotion e_omg;
+	Emotion ET_HUK;
 	end;
 }
 
@@ -509,10 +509,10 @@ jawaii_in,25,98,0	script	职员#jaw3	724,{
 	close;
 
 OnWelcome:
-	Emotion e_kis;
+	Emotion ET_CHUP;
 	end;
 OnSolo:
-	Emotion e_omg;
+	Emotion ET_HUK;
 	end;
 }
 
@@ -546,10 +546,10 @@ jawaii_in,25,100,0	script	职员#jaw4	724,{
 	close;
 
 OnWelcome:
-	Emotion e_kis;
+	Emotion ET_CHUP;
 	end;
 OnSolo:
-	Emotion e_omg;
+	Emotion ET_HUK;
 	end;
 }
 
@@ -579,10 +579,10 @@ jawaii_in,30,94,4	script	职员#jaw5	724,{
 	close;
 
 OnWelcome:
-	Emotion e_kis;
+	Emotion ET_CHUP;
 	end;
 OnSolo:
-	Emotion e_omg;
+	Emotion ET_HUK;
 	end;
 }
 
@@ -604,10 +604,10 @@ jawaii_in,30,96,4	script	职员#jaw6	724,{
 	close;
 	
 OnWelcome:
-	Emotion e_kis;
+	Emotion ET_CHUP;
 	end;
 OnSolo:
-	Emotion e_omg;
+	Emotion ET_HUK;
 	end;
 }
 
@@ -638,10 +638,10 @@ jawaii_in,30,98,4	script	职员#jaw7	724,{
 	close;
 
 OnWelcome:
-	Emotion e_kis;
+	Emotion ET_CHUP;
 	end;
 OnSolo:
-	Emotion e_omg;
+	Emotion ET_HUK;
 	end;
 }
 
@@ -662,10 +662,10 @@ jawaii_in,30,100,4	script	职员#jaw8	724,{
 	close;
 
 OnWelcome:
-	Emotion e_kis;
+	Emotion ET_CHUP;
 	end;
 OnSolo:
-	Emotion e_omg;
+	Emotion ET_HUK;
 	end;
 }
 
@@ -703,7 +703,7 @@ jawaii_in,15,104,0	script	服务员#jawaii	80,{
 		mes "[服务员]";
 		mes "你好,";
 		mes "我能为你做点什么?";
-		Emotion e_kis;
+		Emotion ET_CHUP;
 		next;
 		switch(select("来点吃的.:给我点饮料.:吧台在哪?")) {
 		case 1:
@@ -760,7 +760,7 @@ jawaii_in,15,104,0	script	服务员#jawaii	80,{
 			close;
 		}
 	}
-	Emotion e_omg;
+	Emotion ET_HUK;
 	mes "[服务员]";
 	mes "嘿, 嘿...!";
 	mes "我不知道你为什么会在这里...";
@@ -1161,7 +1161,7 @@ jawaii_in,41,106,3	script	顾客#Cage	98,{
 
 // 普隆德拉内部
 //============================================================
-prt_in,172,13,4	script	顾客#SoloHan	86,{
+prt_in,173,13,4	script	顾客#SoloHan	86,{
 	mes "[韩索罗]";
 	if (!getpartnerid()) {
 		mes "噢, 你好...";
@@ -1187,7 +1187,7 @@ prt_in,172,13,4	script	顾客#SoloHan	86,{
 		next;
 		mes "[巴彻卡]";
 		mes "...!";
-		emotion e_no1,0,"Customer#Bachewcca";
+		emotion ET_BEST, getnpcid(0, "Customer#Bachewcca");
 		next;
 		mes "[韩索罗]";
 		mes "你结婚没结婚真的没关";
@@ -1334,12 +1334,12 @@ prt_in,172,13,4	script	顾客#SoloHan	86,{
 	close;
 }
 	
-prt_in,170,15,0	script	顾客#Bachewcca	89,{
+prt_in,170,14,0	script	顾客#Bachewcca	89,{
 	mes "[巴彻卡]";
 	mes "..............";
 	mes "^666666*吞咽.... 吞咽...*^000000";
 	mes "呜咽!! 好吃又美味!";
-	emotion e_sob;
+	emotion ET_CRY;
 	close;
 }
 

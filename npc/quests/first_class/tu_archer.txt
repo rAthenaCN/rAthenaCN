@@ -55,7 +55,7 @@ payon_in02,67,65,3	script	吟呦诗人 杰特#tu	1_M_BARD,{
 		mes "让我告诉你一个笑话!";
 		mes "相信我, 它的热闹?";
 		mes "*咳咳*";
-		emotion e_gasp;
+		emotion ET_SURPRISE;
 		next;
 		mes "[杰特]";
 		mes "白蚁走";
@@ -63,7 +63,7 @@ payon_in02,67,65,3	script	吟呦诗人 杰特#tu	1_M_BARD,{
 		mes "'这是调酒师在这里?'";
 		mes "HAHAHAHAHA!";
 		mes "Bwehehehehe!";
-		emotion e_lv;
+		emotion ET_THROB;
 		next;
 		mes "[杰特]";
 		mes "哈哈哈?!";
@@ -72,7 +72,7 @@ payon_in02,67,65,3	script	吟呦诗人 杰特#tu	1_M_BARD,{
 		mes "现在, 你试试!";
 		mes "来吧, 告诉你";
 		mes "一个笑话?!";
-		emotion e_gg;
+		emotion ET_KIK;
 		next;
 		if (Sex == 1) {
 			select("一个笑话, 呃?");
@@ -96,7 +96,7 @@ payon_in02,67,65,3	script	吟呦诗人 杰特#tu	1_M_BARD,{
 			mes "我不知道为什么, 但是这是了不起的事情. 你必须有";
 			mes "如何才能成为一名舞者...";
 		}
-		emotion e_no1;
+		emotion ET_BEST;
 		next;
 		mes "[杰特]";
 		mes "但在此之前的任何的, 你一定要摆脱弓箭手的样子, 不是吗? ";
@@ -118,7 +118,7 @@ payon_in02,67,65,3	script	吟呦诗人 杰特#tu	1_M_BARD,{
 		next;
 		specialeffect2 EF_TALK_FROSTJOKE;
 		//specialeffect EF_TALK_FROSTJOKE,"Bard Jet#tu";
-		emotion e_no1;
+		emotion ET_BEST;
 		mes "[杰特]";
 		mes "让我们来看看...";
 		mes "我一直在努力";
@@ -450,7 +450,7 @@ pay_arche,103,165,5	script	雷丁·科西嘉#tu	4_M_REIDIN_KURS,{
 				mes "卡瓦路克告诉你";
 				mes "到我这里来, 是吗? ";
 				mes "好吧. 好吧. ";
-				emotion e_gg;
+				emotion ET_KIK;
 				next;
 				break;
 			case 2:
@@ -536,7 +536,7 @@ pay_arche,103,165,5	script	雷丁·科西嘉#tu	4_M_REIDIN_KURS,{
 				mes "这就是我说的对!是啊!只要相信我, 你会了解弓手技能几乎一切!让我们开始吧!";
 				next;
 				select("是的, 长官!");
-				emotion e_ok;
+				emotion ET_OK;
 				mes "[雷丁·科西嘉]";
 				mes "大...!";
 				mes "我喜欢你的风格!";
@@ -594,7 +594,7 @@ pay_arche,103,165,5	script	雷丁·科西嘉#tu	4_M_REIDIN_KURS,{
 							mes "关于努力成为为";
 							mes "好是最伟大的射手";
 							mes "曾: 我. ";
-							emotion e_dots;
+							emotion ET_THINK;
 							next;
 							mes "[雷丁·科西嘉]";
 							mes "好吧...!";
@@ -619,7 +619,7 @@ pay_arche,103,165,5	script	雷丁·科西嘉#tu	4_M_REIDIN_KURS,{
 							close;
 						}
 					case 2:
-						emotion e_an;
+						emotion ET_FRET;
 						mes "[雷丁·科西嘉]";
 						mes "说什么...? ";
 						mes "好吧, 那么. ";
@@ -630,7 +630,7 @@ pay_arche,103,165,5	script	雷丁·科西嘉#tu	4_M_REIDIN_KURS,{
 					}
 
 				} else {
-					emotion e_ag;
+					emotion ET_ANGER;
 					mes "呵呵. 所以, 你已经知道了一些关于猫头鹰的眼睛已经, 是吧? 那么, 我想我现在应该谈论一些你不知道的!";
 					set tu_archer01, 7;
 					getexp 500,0;
@@ -654,7 +654,7 @@ pay_arche,103,165,5	script	雷丁·科西嘉#tu	4_M_REIDIN_KURS,{
 				mes "你已经把我";
 				mes "等待一段时间!";
 				next;
-				emotion e_gasp;
+				emotion ET_SURPRISE;
 				mes "[雷丁·科西嘉]";
 				mes "啊, 但你的眼睛看起来很多比以前更清晰. ";
 				mes "在这里, 这是给你一个小的, 特殊的奖励. ";
@@ -662,7 +662,7 @@ pay_arche,103,165,5	script	雷丁·科西嘉#tu	4_M_REIDIN_KURS,{
 				set tu_archer01, 7;
 				getexp 500,0;
 				next;
-				emotion e_pif;
+				emotion ET_HNG;
 				mes "[雷丁·科西嘉]";
 				mes "不坏, 但你真的应该掌握猫头鹰的眼睛. 这意味着";
 				mes "你需要学习所有的方式";
@@ -702,7 +702,7 @@ pay_arche,103,165,5	script	雷丁·科西嘉#tu	4_M_REIDIN_KURS,{
 				mes "没错!";
 				break;
 			case 2:
-				emotion e_lv2;
+				emotion ET_BIGTHROB;
 				mes "[雷丁·科西嘉]";
 				mes "哈哈哈哈!";
 				mes "好吧, 我是有名的";
@@ -715,7 +715,7 @@ pay_arche,103,165,5	script	雷丁·科西嘉#tu	4_M_REIDIN_KURS,{
 			mes "[雷丁·科西嘉]";
 			mes "秃鹰盘旋在天空, 在地面上找到一个目标, 然后非常迅速地俯冲下来, 并诱捕猎物在自己的爪子. ";
 			next;
-			emotion e_lv;
+			emotion ET_THROB;
 			mes "[雷丁·科西嘉]";
 			mes "这一点毫无疑问. ";
 			mes "秃鹰是真棒!";
@@ -724,7 +724,7 @@ pay_arche,103,165,5	script	雷丁·科西嘉#tu	4_M_REIDIN_KURS,{
 			mes "鹰眼技能可以让";
 			mes "训练你的目标, 成为像秃鹫的. 你会增加你的攻击准确度, 可以从更远的目标敌人. ";
 			next;
-			emotion e_no;
+			emotion ET_STARE_ABOUT;
 			mes "[雷丁·科西嘉]";
 			mes "我知道, 你可以攻击";
 			mes "从远处了, 但不";
@@ -788,7 +788,7 @@ pay_arche,103,165,5	script	雷丁·科西嘉#tu	4_M_REIDIN_KURS,{
 			} else {
 				mes "诶? ";
 				mes "等一下...";
-				emotion e_what;
+				emotion ET_QUESTION;
 				next;
 				mes "[雷丁·科西嘉]";
 				mes "你已经";
@@ -889,7 +889,7 @@ pay_arche,103,165,5	script	雷丁·科西嘉#tu	4_M_REIDIN_KURS,{
 					set tu_archer01, 10;
 					getexp 0,500;
 				}
-				emotion e_no1;
+				emotion ET_BEST;
 				next;
 				mes "[雷丁·科西嘉]";
 				mes "现在, 还有一个技能叫做箭雨. 凡双扫射使用2个箭头, 箭雨激发了一堆箭头的一次. ";
@@ -897,13 +897,13 @@ pay_arche,103,165,5	script	雷丁·科西嘉#tu	4_M_REIDIN_KURS,{
 				mes "[雷丁·科西嘉]";
 				mes "甚至我可以处理";
 				mes "箭雨那么好, 因为它真的很难. 不过, 也许, 如果你在它训练了, 你会设法把它关闭? ";
-				emotion e_heh;
+				emotion ET_SMILE;
 				close;
 			}
 		} else if(tu_archer01 == 10){
 			if (checkre(0)) {
 				mes "现在, 我已经教了你很多东西, 我想确保你保留它的所有. 这就是为什么我要你把这个中期. 你的任务: 攻击的摇椅!";
-				emotion e_no1;
+				emotion ET_BEST;
 				next;
 				mes "[雷丁·科西嘉]";
 				mes "摇滚乐队就住在西南普隆德拉的. ";
@@ -919,7 +919,7 @@ pay_arche,103,165,5	script	雷丁·科西嘉#tu	4_M_REIDIN_KURS,{
 				mes "它更容易找到他们, 如果你路过普隆德拉的南大门, 然后前往西部. 好了, 就行了, "+ strcharinfo(0)+"?";
 			} else {
 				mes "现在, 我已经教了你很多东西, 我想确保你保留它的所有. 这就是为什么我要你把这个中期. 你的任务: 攻击的摇椅!";
-				emotion e_no1;
+				emotion ET_BEST;
 				next;
 				mes "[雷丁·科西嘉]";
 				mes "有一艘船";
@@ -959,7 +959,7 @@ pay_arche,103,165,5	script	雷丁·科西嘉#tu	4_M_REIDIN_KURS,{
 				mes "嘿, 你回来了!";
 				mes "现在让我们来看看......";
 				next;
-				emotion e_no1;
+				emotion ET_BEST;
 				mes "[雷丁·科西嘉]";
 				mes "好!你通过. ";
 				mes "不要忘了, 你得保持训练和提高自己的技能. 您知道它之前, 你会是一个专家几乎一样好我!";
@@ -999,7 +999,7 @@ pay_arche,103,165,5	script	雷丁·科西嘉#tu	4_M_REIDIN_KURS,{
 			mes "它是在一个痛苦";
 			mes "屁股, 但我们终于";
 			mes "与所有的功课完成. ";
-			emotion e_pif;
+			emotion ET_HNG;
 			next;
 			mes "[雷丁·科西嘉]";
 			mes "啊, 但它不是时候";
@@ -1068,7 +1068,7 @@ pay_arche,103,165,5	script	雷丁·科西嘉#tu	4_M_REIDIN_KURS,{
 					mes "好吧!";
 					mes "哦, 如果你得到";
 					mes "的机会, 给你好我的侍僧朋友在那里等我?";
-					emotion e_heh;
+					emotion ET_SMILE;
 					close2;
 					warp "mjolnir_11",25,221;
 					end;
@@ -1107,17 +1107,17 @@ pay_arche,103,165,5	script	雷丁·科西嘉#tu	4_M_REIDIN_KURS,{
 			mes "[雷丁·科西嘉]";
 			mes "嗯, 这就像你是一个完全成熟的射手了. 老实说, ";
 			mes "我没有什么更多的来教你. 好了, 关于射箭, 反正. ";
-			emotion e_heh;
+			emotion ET_SMILE;
 			next;
 			mes "[雷丁·科西嘉]";
 			mes "好吧, 如果你跟他说话, 师父Kavaruk可能有东西给你做. 他刚好有我跑来跑去做跑腿";
 			mes "对他来说太. 这家伙!";
-			emotion e_pif;
+			emotion ET_HNG;
 			next;
 			mes "[雷丁·科西嘉]";
 			mes "那么, "+ strcharinfo(0)+", ";
 			mes "它会想办法让我真的很高兴, 如果你到了那里你开发射箭艺术真爱的地步. 我会看到你的某个时候, 好吗? ";
-			emotion e_no1;
+			emotion ET_BEST;
 			close;
 		} else if(tu_archer01 == 16){
 			mes "我真的很喜欢这个城市. ";
@@ -1126,7 +1126,7 @@ pay_arche,103,165,5	script	雷丁·科西嘉#tu	4_M_REIDIN_KURS,{
 			next;
 			mes "[雷丁·科西嘉]";
 			mes "当然, 我有朋友在这里, 我可以用我的生命信任. 我们始终认为, 但我们都希望什么是最适合对方. ";
-			emotion e_pif;
+			emotion ET_HNG;
 			next;
 			mes "[雷丁·科西嘉]";
 			mes "不会吧";
@@ -1144,7 +1144,7 @@ pay_arche,103,165,5	script	雷丁·科西嘉#tu	4_M_REIDIN_KURS,{
 			mes "[雷丁·科西嘉]";
 			mes "这也可能是因为我有我在这里与我值得信赖的朋友. 哈哈. ";
 			mes "我们始终认为, 但我们内部互相关心深处. ";
-			emotion e_pif;
+			emotion ET_HNG;
 			next;
 			mes "[雷丁·科西嘉]";
 			mes "..'朋友'是一个美好的词. 难道你不同意吗? ";
@@ -1153,26 +1153,26 @@ pay_arche,103,165,5	script	雷丁·科西嘉#tu	4_M_REIDIN_KURS,{
 	}
 	mes "请允许我自我介绍一下. 我所有的弓箭手的弓箭手, 雷丁·科西嘉, 伊卡洛斯协会的法师!";
 	next;
-	emotion e_no1;
+	emotion ET_BEST;
 	mes "[雷丁·科西嘉]";
 	mes "现在, 我们将有一个特殊的事件!申请费为伊卡洛斯协会已经削减了50％!现在就加入将没有年费!";
 	next;
-	emotion e_lv;
+	emotion ET_THROB;
 	mes "[雷丁·科西嘉]";
 	mes "在我们的特别活动, 我们不会有任何作业类的限制!";
 	mes "作为额外的奖励, 所有新的男性成员将被引入到美丽的舞者的女孩!";
 	next;
-	emotion e_heh;
+	emotion ET_SMILE;
 	mes "[雷丁·科西嘉]";
 	mes "而新的女性成员将有特别的机会, 出去跟我约会!千万不要错过!";
 	next;
-	emotion e_cash;
+	emotion ET_MONEY;
 	mes "[雷丁·科西嘉]";
 	mes "现在就加入吧";
 	mes "为1,000,000只一次性收费, 金币!赶快加入伊卡洛斯协会, 而";
 	mes "此优惠仍然持续!";
 	next;
-	emotion e_pif,"Arpesto";
+	emotion ET_HNG,"Arpesto";
 	mes "[Arpesto]";
 	mes "Reiden ...";
 	mes "别鬼混了. ";
@@ -1180,12 +1180,12 @@ pay_arche,103,165,5	script	雷丁·科西嘉#tu	4_M_REIDIN_KURS,{
 	mes "主伊卡洛斯公会";
 	mes "在该建筑物. ";
 	next;
-	emotion e_omg;
+	emotion ET_HUK;
 	mes "[雷丁·科西嘉]";
 	mes "Arpesto ...!";
 	mes "你为什么......? !";
 	next;
-	emotion e_ag;
+	emotion ET_ANGER;
 	mes "[雷丁·科西嘉]";
 	mes "*叹气*";
 	mes "你让我, 你让我. ";
@@ -1426,7 +1426,7 @@ pay_arche,76,135,3	script	#Target	111,{ end; }
 			mes "呃......哦不?";
 			mes "那我该怎么";
 			mes "叔告诉你......? ";
-			emotion e_swt2;
+			emotion ET_PROFUSELY_SWEAT;
 			next;
 			mes "[侍僧]";
 			mes "呵呵, 因为我训练成为一个侍僧, 我应该帮了别人, 他已经教. 所以...";
@@ -1448,7 +1448,7 @@ pay_arche,76,135,3	script	#Target	111,{ end; }
 				mes "如果您不需要";
 				mes "我的帮助, 我猜";
 				mes "这是正常的...";
-				emotion e_sob;
+				emotion ET_CRY;
 				close;
 			case 3:
 				mes "[侍僧]";
@@ -1570,7 +1570,7 @@ pay_arche,130,113,3	script	炼金术士工会成员#tu	2_M_ALCHE,{
 			mes "对于伊卡洛斯协会";
 			mes "发送人";
 			mes "来帮助我们!终于来了!";
-			emotion e_sob;
+			emotion ET_CRY;
 			next;
 			mes "[炼金术士工会成员]";
 			mes "你想卖茎";
@@ -1608,13 +1608,13 @@ pay_arche,130,113,3	script	炼金术士工会成员#tu	2_M_ALCHE,{
 				mes "认真...";
 				mes "我在乞讨的边缘!";
 				mes "炼金术士协会确实需要大量的新的供应, 以保持我们的花卉场跑!";
-				emotion e_sob;
+				emotion ET_CRY;
 				close;
 			}
 		} else {
 			mes "我不知道你是否听说过";
 			mes "从Kavaruk, 但我们的植物领域是越来越毁了流浪猫. ";
-			emotion e_sob;
+			emotion ET_CRY;
 			next;
 			mes "[炼金术士工会成员]";
 			mes "不管我们是多么地追";
@@ -1718,7 +1718,7 @@ prontera,126,335,5	script	阿黛尔	1_M_BARD,{
 		mes "我感觉到的东西";
 		mes "黑暗和不祥...";
 		mes "我不知道可能是什么? ";
-		emotion e_hmm;
+		emotion ET_SCRATCH;
 		next;
 		mes "[阿黛尔]";
 		mes "我可能只是强调和排出. 我会感觉更好, 一旦";
@@ -1758,7 +1758,7 @@ prontera,126,335,5	script	阿黛尔	1_M_BARD,{
 		next;
 		mes "[????]";
 		mes "AAAAAAAAAAAAAAAHHHHHHHHHHH!!";
-		emotion e_omg;
+		emotion ET_HUK;
 		soundeffectall "se_scream_w01.wav",0;
 		next;
 		mes "["+strcharinfo(0)+"]";
@@ -1846,7 +1846,7 @@ prontera,144,301,5	script	法师#tu	2_F_MAGICMASTER,{
 	mes "谈论越来越";
 	mes "您的肥皂盒!";
 	next;
-	emotion e_pif;
+	emotion ET_HNG;
 	mes "[法师]";
 	mes "难道他不知道有";
 	mes "很多著名的行业协会围绕时下? 为什么会有人想要";

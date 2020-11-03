@@ -349,7 +349,7 @@ prt_church,97,100,4	script	快乐的玛丽#w	1_F_LIBRARYGIRL,{
 			mes "你们都需要与主教对话";
 			mes "才能开始你们正确的";
 			mes "结婚典礼.";
-			emotion e_lv;
+			emotion ET_THROB;
 			next;
 			mes "[快乐的玛丽]";
 			if (Sex) {
@@ -392,47 +392,47 @@ prt_church,97,100,4	script	快乐的玛丽#w	1_F_LIBRARYGIRL,{
 		donpcevent "一名军人#Payon::OnEnable";
 		donpcevent "一名军人#Amatsu::OnEnable";
 		donpcevent "一名军人#Gonryun::OnEnable";
-		emotion e_omg;
+		emotion ET_HUK;
 		mes "[FFF团]";
 		mes "^CC9933你必须精炼";
 		mes "你所拥有的装备";
 		mes "使他变得更极品!^000000";
-		emotion e_rock,0,"一名军人#Prontera";
+		emotion ET_ROCK, getnpcid(0, "一名军人#Prontera");
 		next;
 		mes "[FFF团]";
 		mes "^330099在副本里练级";
 		mes "简直就是在浪费时间";
 		mes "我自己撸撸就能";
 		mes "练级了!^000000";
-		emotion e_rock,0,"一名军人#Geffen";
+		emotion ET_ROCK, getnpcid(0, "一名军人#Geffen");
 		next;
 		mes "[FFF团]";
 		mes "^666666该死,";
 		mes "我从出生开始就在不断的";
 		mes "训练我自己, 只为了";
 		mes "能够挫出火球!^000000";
-		emotion e_rock,0,"一名军人#Morocc";
+		emotion ET_ROCK, getnpcid(0, "一名军人#Morocc");
 		next;
 		mes "[FFF团]";
 		mes "^666600我选择花费";
 		mes "孤单的圣诞夜...";
 		mes "玩玩纸牌";
 		mes "玩玩填字游戏, 撸撸睡了!^000000";
-		emotion e_rock,0,"一名军人#Payon";
+		emotion ET_ROCK, getnpcid(0, "一名军人#Payon");
 		next;
 		mes "[FFF团]";
 		mes "^CC9966师傅说";
 		mes "山下的女人是老虎, 能吃了你的灵魂";
 		mes "不过他们绝对不能带走我的自由!^000000";
-		emotion e_rock,0,"一名军人#Amatsu";
+		emotion ET_ROCK, getnpcid(0, "一名军人#Amatsu");
 		next;
 		mes "[FFF团]";
 		mes "^669900...我们是自由的! ";
 		mes "我们是一只无法被打倒的军队!^000000";
-		emotion e_rock,0,"一名军人#Gonryun";
+		emotion ET_ROCK, getnpcid(0, "一名军人#Gonryun");
 		close2;
 		cutin "wedding_marry01",255;
-		emotion e_swt;
+		emotion ET_SWEAT;
 		donpcevent "一名军人#Prontera::OnInit";
 		donpcevent "一名军人#Geffen::OnInit";
 		donpcevent "一名军人#Morocc::OnInit";
@@ -464,7 +464,7 @@ OnInit:
 
 OnEnable:
 	hideoffnpc "一名军人#Prontera";
-	emotion e_go;
+	emotion ET_GO;
 	end;
 }
 
@@ -482,7 +482,7 @@ OnInit:
 
 OnEnable:
 	hideoffnpc "一名军人#Geffen";
-	emotion e_go;
+	emotion ET_GO;
 	end;
 }
 
@@ -499,7 +499,7 @@ OnInit:
 
 OnEnable:
 	hideoffnpc "一名军人#Morocc";
-	emotion e_go;
+	emotion ET_GO;
 	end;
 }
 
@@ -517,7 +517,7 @@ OnInit:
 
 OnEnable:
 	hideoffnpc "一名军人#Payon";
-	emotion e_go;
+	emotion ET_GO;
 	end;
 }
 
@@ -534,7 +534,7 @@ OnInit:
 
 OnEnable:
 	hideoffnpc "一名军人#Amatsu";
-	emotion e_go;
+	emotion ET_GO;
 	end;
 }
 
@@ -550,7 +550,7 @@ OnInit:
 
 OnEnable:
 	hideoffnpc "一名军人#Gonryun";
-	emotion e_go;
+	emotion ET_GO;
 	end;
 }
 

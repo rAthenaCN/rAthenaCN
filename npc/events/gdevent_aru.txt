@@ -183,7 +183,7 @@ arug_dun01,199,195,5	script	矮人#aru_gd	4_M_DWARF,{
 			case 2:
 				set $@gdeventv_a1,0;
 				set $@gdevents_a$,"";
-				emotion e_sob;
+				emotion ET_CRY;
 				mes "[矮人]";
 				mes "啊啊....";
 				close;
@@ -316,7 +316,7 @@ arug_dun01,199,195,5	script	矮人#aru_gd	4_M_DWARF,{
 				case 2:
 					set $@gdeventv_a1,0;
 					set $@gdevents_a$,"";
-					emotion e_sob;
+					emotion ET_CRY;
 					mes "[矮人]";
 					mes "Ah....";
 					close;
@@ -458,7 +458,7 @@ arug_dun01,199,195,5	script	矮人#aru_gd	4_M_DWARF,{
 				case 2:
 					set $@gdeventv_a1,0;
 					set $@gdevents_a$,"";
-					emotion e_sob;
+					emotion ET_CRY;
 					mes "[矮人]";
 				mes "啊啊....";
 				close;
@@ -545,22 +545,22 @@ arug_que01,100,81,3	script	小丑玩偶#aru_gd	4_M_PIERROT,{
 					mes "让我来看看。";
 					mapannounce "arug_que01","小丑: 让我来看看.",bc_map,"0x99CC00";
 					next;
-					emotion e_dots;
+					emotion ET_THINK;
 					mes "[小丑皮埃尔]";
 					mes "嗯……";
 					mapannounce "arug_que01","小丑: 嗯......",bc_map,"0x99CC00";
 					next;
-					emotion e_dots;
+					emotion ET_THINK;
 					mes "[小丑皮埃尔]";
 					mes "好的，原来如此……";
 					mapannounce "arug_que01","小丑: 好的, 原来如此......",bc_map,"0x99CC00";
 					next;
-					emotion e_dots;
+					emotion ET_THINK;
 					mes "[小丑皮埃尔]";
 					mes "果然……";
 					mapannounce "arug_que01","小丑: 果然......",bc_map,"0x99CC00";
 					next;
-					emotion e_gasp;
+					emotion ET_SURPRISE;
 					mes "[小丑皮埃尔]";
 					mes "确认结束！";
 					mapannounce "arug_que01","小丑: 确认结束!",bc_map,"0x99CC00";
@@ -576,12 +576,12 @@ arug_que01,100,81,3	script	小丑玩偶#aru_gd	4_M_PIERROT,{
 				mes "^3131FF<你是脑袋里尽想着先有鸡还是先有鸡蛋的杂七杂八想法，集中力不足的人>^000000。";
 				mapannounce "arug_que01","小丑: <你是脑袋里尽想着先有鸡还是先有鸡蛋的杂七杂八想法, 集中力不足的人>",bc_map,"0x99CC00";
 				next;
-				emotion e_ho;
+				emotion ET_DELIGHT;
 				mes "[小丑皮埃尔]";
 				mes "嗯？不是这么想的吗？";
 				mapannounce "arug_que01","小丑: 嗯? 不是这么想的吗?",bc_map,"0x99CC00";
 				next;
-				emotion e_heh;
+				emotion ET_SMILE;
 				mes "[小丑皮埃尔]";
 				mes "哈哈，开个玩笑。哔噜。";
 				mes "你就是杰尔高斯大人说的那个人没错。哔噜。";
@@ -636,7 +636,7 @@ arug_que01,100,81,3	script	小丑玩偶#aru_gd	4_M_PIERROT,{
 				case 2:
 					break;
 				case 3:
-					emotion e_sob;
+					emotion ET_CRY;
 					mes "[小丑皮埃尔]";
 					mes "哦，怎么会这样。没有我应该也会玩了吧？";
 					close;
@@ -892,21 +892,21 @@ arug_que01,100,81,3	script	小丑玩偶#aru_gd	4_M_PIERROT,{
 				mes "让我来看看。";
 				mapannounce "arug_que01", "小丑玩偶: Let me see...",bc_map,"0x99CC00";
 				next;
-				emotion e_dots;
+				emotion ET_THINK;
 				mes "[小丑皮埃尔]";
 				mes "嗯……";
 				mapannounce "arug_que01", "小丑玩偶: Hm...",bc_map,"0x99CC00";
 				next;
-				emotion e_dots;
+				emotion ET_THINK;
 				mes "[小丑皮埃尔]";
 				mes "好的，原来如此……";
 				mapannounce "arug_que01", "小丑玩偶: Okay, I see...",bc_map,"0x99CC00";
 				next;
-				emotion e_dots;
+				emotion ET_THINK;
 				mes "[小丑皮埃尔]";
 				mes "果然……";
 				next;
-				emotion e_bzz;
+				emotion ET_STARE;
 				mes "[小丑皮埃尔]";
 				mes "确认结束！";
 				mapannounce "arug_que01", "小丑玩偶: Verification completed!",bc_map,"0x99CC00";
@@ -918,11 +918,11 @@ arug_que01,100,81,3	script	小丑玩偶#aru_gd	4_M_PIERROT,{
 				mes "那个人什么时候过来？皮埃尔很无聊-！";
 				close;
 			}
-			emotion e_heh;
+			emotion ET_SMILE;
 			mes "[小丑皮埃尔]";
 			mes "^3131FF听说<你是个性格怪癖，但对自己喜欢的东西又能显出愉快和善良的心的谜一样的人>^000000。哔噜噜。";
 			next;
-			emotion e_swt2;
+			emotion ET_PROFUSELY_SWEAT;
 			mes "[小丑皮埃尔]";
 			mes "啊，难道不是吗？哔噜噜噜？";
 			next;

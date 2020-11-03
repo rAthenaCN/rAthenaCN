@@ -364,7 +364,7 @@ einbroch,40,116,1	script	飞空艇 修理工#ein-1	855,{
 			mes "这个并没多特别";
 			mes "你是疯子.";
 			next;
-			emotion e_an;
+			emotion ET_FRET;
 			mes "[飞空艇 修理工]";
 			mes "什-什么...?!";
 			close;

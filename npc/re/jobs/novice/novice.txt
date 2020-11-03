@@ -305,7 +305,7 @@ new_5-2,100,29,4	duplicate(NvSprakkiB)	Sprakki#nv5b	90
 		}
 		set job_novice_q,4;
 		getitem 2352,1; //Novice_Plate
-		getitem 2510,1; //Novice_Hood
+		getitem 2510,1; //NovicET_DELIGHTod
 		getitem 2414,1; //Novice_Boots
 		getitem 5055,1; //Novice_Egg_Cap
 		getitem 1243,1; //Novice_Knife
@@ -2273,7 +2273,7 @@ S_Warp:
 	end;
 	
 OnTouch:
-	emotion e_gasp;
+	emotion ET_SURPRISE;
 	end;
 }
 new_1-3,97,50,4	duplicate(NvEden)	Eden Group Officer#nv1	729,5,5

@@ -390,7 +390,7 @@ mal_in02,28,56,5	script	萨穆埃尔#mal	4_M_MERCAT1,{
 		mes "黎?很高兴!!";
 		mes "我被迷住了吸引力,并采取了船,导航!";
 		mes "这东西就是所谓的一个人的浪漫.胡胡?";
-		emotion e_shy;
+		emotion ET_SHY;
 		next;
 		mes "[萨穆埃尔]";   
 		mes "嗯......他的角质层,似乎已经坏了一点,他村长的责任,因为他在喵喵岛结算.但他的眼睛仍然是相同的.";
@@ -428,7 +428,7 @@ mal_in02,22,62,3	script	托马斯#mal	4_CAT_ADMIRAL,{
 		mes "[萨穆埃尔]";   
 		mes "是的,将军!";
 		mes "感动所有的3万箱,其中包括我刚刚收到,到存储的之一.下一箱,预计在5小时内交付!";
-		emotion e_omg,0,"萨穆埃尔#mal";
+		emotion ET_HUK, getnpcid(0, "萨穆埃尔#mal");
 		next;
 		mes "[托马斯 村长]";   
 		mes "萨穆埃尔!";
@@ -437,7 +437,7 @@ mal_in02,22,62,3	script	托马斯#mal	4_CAT_ADMIRAL,{
 		mes "[萨穆埃尔]";   
 		mes "对不起!村长!";
 		mes "我会改正我自己!";
-		emotion e_omg,0,"萨穆埃尔#mal";
+		emotion ET_HUK, getnpcid(0, "萨穆埃尔#mal");
 		next;
 		mes "[托马斯 村长]";   
 		mes "嗯,嗯!";
@@ -449,22 +449,22 @@ mal_in02,22,62,3	script	托马斯#mal	4_CAT_ADMIRAL,{
 		mes "[萨穆埃尔]";   
 		mes "没错!村长!";
 		mes "海带,海参,海鞘,海葵的权利!紫菜和眼镜楼下!发送凤尾鱼和鼓的聚集地!让其余的角落里assortatively栈!";
-		emotion e_omg,0,"萨穆埃尔#mal";
+		emotion ET_HUK, getnpcid(0, "萨穆埃尔#mal");
 		next;
 		mes "[托马斯 村长]";   
 		mes "它不是.";
 		mes "海参,海鞘,海葵的权利.紫菜和海带楼下.凤尾鱼和鼓的聚集地.让其余的角落里assortatively叠加.";
-		emotion e_dots;
+		emotion ET_THINK;
 		next;
 		mes "[萨穆埃尔]";   
 		mes "是的!";
-		emotion e_omg,0,"萨穆埃尔#mal";
+		emotion ET_HUK, getnpcid(0, "萨穆埃尔#mal");
 		next;
 		mes "[托马斯 村长]";   
 		mes "Huuu ...";
 		mes "它似乎并没有结束.";
 		mes "仍有文书工作堆做...我就会有麻烦,除非我完成他们的下一个箱子到达之前.";
-		emotion e_sigh;
+		emotion ET_OHNO;
 		next;
 		mes "[托马斯 村长]";   
 		mes "因此,下一个方块的量是1300 ....";
@@ -481,7 +481,7 @@ mal_in02,22,62,3	script	托马斯#mal	4_CAT_ADMIRAL,{
 			case 1:
 				mes "[托马斯 村长]";   
 				mes "...所以我告诉你,你的脸不熟悉.";
-				emotion e_dots;
+				emotion ET_THINK;
 				next;
 				mes "[托马斯 村长]";   
 				mes "嗯......对不起,但我之前告诉过你,你会跟其他的猫科动物,如果它不是那么迫切,因为我有很多没有完成的工作,没有时间和你交谈.";
@@ -490,7 +490,7 @@ mal_in02,22,62,3	script	托马斯#mal	4_CAT_ADMIRAL,{
 				mes "[托马斯 村长]";   
 				mes "...无论如何都是一件好事,离??开我的工作.";
 				mes "无情的人...";
-				emotion e_an;
+				emotion ET_FRET;
 				next;
 				mes "[托马斯 村长]";   
 				mes "嗯......说了这么多,你会不会说话,如果它不是那么迫切了其他猫,因为我得到了很多的工作要做百废待兴,没有时间跟你说话吗?";
@@ -539,11 +539,11 @@ mal_in02,22,62,3	script	托马斯#mal	4_CAT_ADMIRAL,{
 		mes "海军上将!";
 		mes "鲈鱼,海凉粉,海海绵都安排好就对了!";
 		mes "海带和猕猴桃楼下!鳀鱼和鳕鱼的聚集地!让其余的角落里assortatively栈?";
-		emotion e_omg,0,"Samuel#mal";
+		emotion ET_HUK, getnpcid(0, "Samuel#mal");
 		next;
 		mes "[托马斯 村长]";   
 		mes "....";
-		emotion e_dots;
+		emotion ET_THINK;
 		next;
 		mes "[托马斯 村长]";   
 		mes "....";
@@ -558,7 +558,7 @@ mal_in02,22,62,3	script	托马斯#mal	4_CAT_ADMIRAL,{
 		mes "你!";
 		mes "我多少次告诉你!喵~";
 		mes "咦?!";
-		emotion e_an;
+		emotion ET_FRET;
 		cutin "ma_tomas03",2;
 		next;
 		mes "[托马斯 村长]";   
@@ -566,7 +566,7 @@ mal_in02,22,62,3	script	托马斯#mal	4_CAT_ADMIRAL,{
 		next;
 		mes "[托马斯 村长]";   
 		mes "咦?!如果你真想把鲈鱼来那么多,让自己站在那里一整天的权利!喵~";
-		emotion e_omg,0,"Samuel#mal";
+		emotion ET_HUK, getnpcid(0, "Samuel#mal");
 		next;
 		mes "[托马斯 村长]";   
 		mes "我是够忙的,没有你.你让我的神经!喵~";
@@ -575,14 +575,14 @@ mal_in02,22,62,3	script	托马斯#mal	4_CAT_ADMIRAL,{
 		mes "[托马斯 村长]";   
 		mes "抱歉!";
 		mes "!!";
-		emotion e_omg;
+		emotion ET_HUK;
 		next;
 		mes "[托马斯 村长]";   
 		mes "嗯,嗯...";
 		mes "嗯......那你还在这里做什么?";
 		mes "去正规的会议现在在走廊的尽头举行.";
 		mes "咳咳....";
-		emotion e_swt2;
+		emotion ET_PROFUSELY_SWEAT;
 		cutin "ma_tomas02",2;
 		close2;
 		cutin "",255;
@@ -593,7 +593,7 @@ mal_in02,22,62,3	script	托马斯#mal	4_CAT_ADMIRAL,{
 		mes "嗯......那你还在这里做什么?";
 		mes "去正规的会议现在在走廊的尽头举行.";
 		mes "咳咳....";
-		emotion e_swt2;
+		emotion ET_PROFUSELY_SWEAT;
 		cutin "ma_tomas02",2;
 		close2;
 		cutin "",255;
@@ -602,7 +602,7 @@ mal_in02,22,62,3	script	托马斯#mal	4_CAT_ADMIRAL,{
 		mes "[托马斯 村长]";   
 		mes "会议是怎么回事?";
 		mes "这是一个漫长的时间,因为我参观了,因为我很忙...啧啧...";
-		emotion e_swt2;
+		emotion ET_PROFUSELY_SWEAT;
 		cutin "ma_tomas02",2;
 		close2;
 		cutin "",255;
@@ -611,13 +611,13 @@ mal_in02,22,62,3	script	托马斯#mal	4_CAT_ADMIRAL,{
 		mes "[托马斯 村长]";   
 		mes "可可西里!";
 		mes "已经有这样的问题!";
-		emotion e_ic;
+		emotion ET_AHA;
 		cutin "ma_tomas04",2;
 		next;
 		mes "[托马斯 村长]";   
 		mes "我感到不安,因为我不能照顾你,这么忙.";
 		mes "你已经习惯了喵喵岛不够好自己.";
-		emotion e_heh;
+		emotion ET_SMILE;
 		next;
 		mes "[托马斯 村长]";   
 		mes "然后,村长和猫协会的海军上将,我希望你能和我一起的!";
@@ -632,7 +632,7 @@ mal_in02,22,62,3	script	托马斯#mal	4_CAT_ADMIRAL,{
 	mes "哈哈哈!";
 	mes "你怎么样?";
 	mes "到我这里来如果有什么困难的发生.";
-	emotion e_heh;
+	emotion ET_SMILE;
 	cutin "ma_tomas04",2;
 	close2;
 	cutin "",255;
@@ -663,27 +663,27 @@ mal_in02,182,61,3	script	会议主席#mal	4_M_BOSSCAT,{
 		mes "嗯......是的.那么,请您先说,斯科特福尔德.";
 		set ma_tomas,2;
 		changequest 11209,11210;
-		emotion e_paper,0,"斯科特福尔德#mal";
+		emotion ET_WRAP, getnpcid(0, "斯科特福尔德#mal");
 		close;
 	} else if (ma_tomas == 2) {
 		mes "[会议主席]";   
 		mes "嗯......是的.请先说话,斯科特福尔德.";
-		emotion e_paper,0,"斯科特福尔德#mal";
+		emotion ET_WRAP, getnpcid(0, "斯科特福尔德#mal");
 		close;
 	} else if (ma_tomas == 3) {
 		mes "[会议主席]";   
 		mes "请说,冠....下一个.";
-		emotion e_paper,0,"Koon#mal";
+		emotion ET_WRAP, getnpcid(0, "Koon#mal");
 		close;
 	} else if (ma_tomas == 4) {
 		mes "[会议主席]";   
 		mes "会出现在他的研究介绍了德沃尔博士不断.";
-		emotion e_paper,0,"语言学家德沃尔#mal";
+		emotion ET_WRAP, getnpcid(0, "语言学家德沃尔#mal");
 		close;
 	} else if (ma_tomas == 5) {
 		mes "[会议主席]";   
 		mes "请说下一次,马里博士.";
-		emotion e_paper,0,"Geologist Mali#mal";
+		emotion ET_WRAP, getnpcid(0, "Geologist Mali#mal");
 		close;
 	} else if (ma_tomas == 6) {
 		mes "[会议主席]";   
@@ -701,7 +701,7 @@ mal_in02,182,61,3	script	会议主席#mal	4_M_BOSSCAT,{
 	next;
 	mes "[会议主席]";   
 	mes "我觉得真的生病有时当会议被延长.";
-	emotion e_sob;
+	emotion ET_CRY;
 	close;
 }
 
@@ -731,7 +731,7 @@ mal_in02,178,66,5	script	斯科特福尔德#mal	4_M_BABYCAT,{
 		mes "然后下一个......是的,冠现在请你发言.";
 		set ma_tomas,3;
 		changequest 11210,11211;
-		emotion e_paper,0,"冠#mal";
+		emotion ET_WRAP, getnpcid(0, "冠#mal");
 		close;
 	}
 	mes "[斯科特福尔德]";   
@@ -772,7 +772,7 @@ mal_in02,177,58,7	script	冠#mal	4_CAT_SAILOR3,{
 		mes "是.继续请.";
 		set ma_tomas,4;
 		changequest 11211,11212;
-		emotion e_paper,0,"语言学家德沃尔#mal";
+		emotion ET_WRAP, getnpcid(0, "语言学家德沃尔#mal");
 		close;
 	}
 	mes "[冠]";   
@@ -797,7 +797,7 @@ mal_in02,174,64,5	script	语言学家德沃尔#mal	4_CAT_MERMASTER,{
 		next;
 		mes "[语言学家德沃尔]";   
 		mes "让我说的明确结论第一.因为从我们喵喵岛结算的时候开始研究的海星语言,还有的一直没有显着的成果呢.";
-		emotion e_swt2;
+		emotion ET_PROFUSELY_SWEAT;
 		next;
 		mes "[语言学家德沃尔]";   
 		mes "当然,这是有可能以某种方式与饼干说话,但是这并不接近我们预期的要解决这种情况的结果.";
@@ -831,7 +831,7 @@ mal_in02,174,64,5	script	语言学家德沃尔#mal	4_CAT_MERMASTER,{
 		mes "那么,让我们包的语言研究的进展,并听取地质学家,马里博士.";
 		set ma_tomas,5;
 		changequest 11212,11213;
-		emotion e_paper,0,"Geologist Mali#mal";
+		emotion ET_WRAP, getnpcid(0, "Geologist Mali#mal");
 		close;
 	} else if (ma_tomas < 18) {
 		mes "[语言学家德沃尔]";   
@@ -841,7 +841,7 @@ mal_in02,174,64,5	script	语言学家德沃尔#mal	4_CAT_MERMASTER,{
 		mes "[语言学家德沃尔]";   
 		mes "我应该很快就解决了令人费解的海星语言.";
 		mes "我很惭愧地看到你都喜欢这样的结果.";
-		emotion e_swt2;
+		emotion ET_PROFUSELY_SWEAT;
 		close;
 	} else if (ma_tomas == 18) {
 		mes "[语言学家德沃尔]";   
@@ -858,7 +858,7 @@ mal_in02,174,64,5	script	语言学家德沃尔#mal	4_CAT_MERMASTER,{
 		mes "但是,这是海星只是神秘.";
 		mes "我无法理解的事.";
 		mes "我比较怀疑说这是实际的'语言'.";
-		emotion e_swt2;
+		emotion ET_PROFUSELY_SWEAT;
 		next;
 		mes "[语言学家德沃尔]";   
 		mes "我不知道,但我学习它的各种方式.";
@@ -875,7 +875,7 @@ mal_in02,174,64,5	script	语言学家德沃尔#mal	4_CAT_MERMASTER,{
 		mes "[语言学家德沃尔]";   
 		mes "Wooaaa wooaaa ahhh!!!!";
 		mes "我看不出有什么错在这里!";
-		emotion e_omg;
+		emotion ET_HUK;
 		next;
 		mes "[语言学家德沃尔]";   
 		mes "为什么他们在这里和他们想要什么!";
@@ -887,7 +887,7 @@ mal_in02,174,64,5	script	语言学家德沃尔#mal	4_CAT_MERMASTER,{
 		mes "[语言学家德沃尔]";   
 		mes "Wooaaa wooaaa ahhh!!!!";
 		mes "我看不出有什么错在这里!";
-		emotion e_omg;
+		emotion ET_HUK;
 		next;
 		mes "[语言学家德沃尔]";   
 		mes "为什么他们在这里和他们想要什么!";
@@ -898,7 +898,7 @@ mal_in02,174,64,5	script	语言学家德沃尔#mal	4_CAT_MERMASTER,{
 		mes "什么?!你说什么?!";
 		mes "流利说!";
 		mes "怎么来的!";
-		emotion e_omg;
+		emotion ET_HUK;
 		next;
 		mes "[语言学家德沃尔]";   
 		mes "我不能相信它,除非我看到它我自己的眼睛.";
@@ -913,7 +913,7 @@ mal_in02,174,64,5	script	语言学家德沃尔#mal	4_CAT_MERMASTER,{
 		mes "[语言学家德沃尔]";   
 		mes "通过这段时间的研究只是做一个完全错误的猜测!";
 		mes "但你失望之前,我宁愿有足够的幸福才能得到答案.";
-		emotion e_no1;
+		emotion ET_BEST;
 		next;
 		mes "[语言学家德沃尔]";   
 		mes "一旦我们得到了答案,这只是时间了解海星语言迟早的事.";
@@ -922,7 +922,7 @@ mal_in02,174,64,5	script	语言学家德沃尔#mal	4_CAT_MERMASTER,{
 		mes "[语言学家德沃尔]";   
 		mes "是真的吗?!";
 		mes "难道饼干这样说?!";
-		emotion e_omg;
+		emotion ET_HUK;
 		next;
 		mes "[语言学家德沃尔]";   
 		mes "啊,啊!谢谢你, "+ strcharinfo(0)+" !";
@@ -935,7 +935,7 @@ mal_in02,174,64,5	script	语言学家德沃尔#mal	4_CAT_MERMASTER,{
 		mes "[语言学家德沃尔]";   
 		mes "啊,我真的想告诉这个好消息给我们的首席,托马斯.";
 		mes "请!";
-		emotion e_hlp;
+		emotion ET_HELP;
 		set ma_tomas,35;
 		changequest 11236,11237;
 		getitem 6422,30; //Egrade_Coin
@@ -944,14 +944,14 @@ mal_in02,174,64,5	script	语言学家德沃尔#mal	4_CAT_MERMASTER,{
 		mes "[语言学家德沃尔]";   
 		mes "啊,我真的想告诉这个好消息给我们的首席,托马斯.";
 		mes "请!";
-		emotion e_hlp;
+		emotion ET_HELP;
 		close;
 	}
 	mes "[语言学家德沃尔]";   
 	mes "啊,啊!";
 	mes "对海星的研究进展顺利.";
 	mes "它真有可能是一场灾难,如果你, "+ strcharinfo(0)+" ,没有帮我们.";
-	emotion e_thx;
+	emotion ET_THANKS;
 	close;
 }
 
@@ -960,7 +960,7 @@ mal_in02,179,57,1	script	地质学家马里#mal	4_CAT_ADV1,{
 		mes "[地质学家马里]";   
 		mes "喵喵岛被命名,是因为这里的地面是如此柔软,喵~";
 		mes "虽然困难重重,当你触摸它,喵~";
-		emotion e_slur;
+		emotion ET_SEXY;
 		close;
 	} else if (ma_tomas == 5) {
 		mes "[地质学家马里]";   
@@ -977,25 +977,25 @@ mal_in02,179,57,1	script	地质学家马里#mal	4_CAT_ADV1,{
 		next;
 		mes "[地质学家马里]";   
 		mes "由于每个人都有自己的工作要做,我明白,我们都必须处于繁忙状态.但我想参加本次修复,因为它关系到我们的生活.";
-		emotion e_hlp;
+		emotion ET_HELP;
 		next;
 		mes "[布里]";   
 		mes "等待!";
 		mes "这不是要与即时的维修只完成了!";
 		mes "我的父亲是认真的,前段时间地震中受伤!";
-		emotion e_omg,0,"布里#mal";
+		emotion ET_HUK, getnpcid(0, "布里#mal");
 		next;
 		mes "[会议主席]";   
 		mes "布里先生!我明白你的情况,但是请蛤的承,因为我们有一个会议.";
 		set ma_tomas,6;
 		changequest 11213,11214;
-		emotion e_paper,0,"布里#mal";
+		emotion ET_WRAP, getnpcid(0, "布里#mal");
 		close;
 	} else if (ma_tomas < 13) {
 		mes "[地质学家马里]";   
 		mes "你参加的会议,而不是你的父亲今天,布里.";
 		mes "他是相当不友好,但专门到他的父母,喵~";
-		emotion e_heh;
+		emotion ET_SMILE;
 		next;
 		mes "[地质学家马里]";   
 		mes "布里先生不是我们组的第一个成员,但他加入在得到这个消息,他的父亲,菜,加入了新的贸易发展历程,喵~后";
@@ -1017,12 +1017,12 @@ mal_in02,179,57,1	script	地质学家马里#mal	4_CAT_ADV1,{
 		mes "[地质学家马里]";   
 		mes "软而粘的感觉像这样...";
 		mes "哈哈?它可以让你上瘾了...";
-		emotion e_shy;
+		emotion ET_SHY;
 		next;
 		mes "[地质学家马里]";   
 		mes "哎呀!";
 		mes "我快要被沉入这个柔软,喵喵~!";
-		emotion e_omg;
+		emotion ET_HUK;
 		next;
 		mes "[地质学家马里]";   
 		mes "尽管它有让您失去你的心灵的风险,它帮助船舶导航不打破,喵喵~";
@@ -1033,7 +1033,7 @@ mal_in02,179,57,1	script	地质学家马里#mal	4_CAT_ADV1,{
 		mes "[地质学家马里]";   
 		mes "此外!";
 		mes "为什么它被破解了这个柔软,喵喵~!";
-		emotion e_omg;
+		emotion ET_HUK;
 		next;
 		mes "[地质学家马里]";   
 		mes "如果这条裂缝的推移,地下支撑可能会崩溃,海鸥...";
@@ -1051,7 +1051,7 @@ mal_in02,179,57,1	script	地质学家马里#mal	4_CAT_ADV1,{
 			mes "Khhh!";
 			mes "多么美丽的年轻的人在这个世界上辛苦!";
 			mes "每当我遇到一个人喜欢你,我觉得这样的生活还是不错的生活,喵~";
-			emotion e_sob;
+			emotion ET_CRY;
 			next;
 			mes "[地质学家马里]";   
 			mes "请听我的助手,鲍勃在细节,喵~";
@@ -1063,7 +1063,7 @@ mal_in02,179,57,1	script	地质学家马里#mal	4_CAT_ADV1,{
 			mes "[地质学家马里]";   
 			mes "Woohoohoo.";
 			mes "我??会是?等待??为你??";
-			emotion e_lv2;
+			emotion ET_THROB2;
 			close;
 		}
 	} else if (ma_tomas == 14) {
@@ -1071,7 +1071,7 @@ mal_in02,179,57,1	script	地质学家马里#mal	4_CAT_ADV1,{
 		mes "Khhh!";
 		mes "多么美丽的年轻的人在这个世界上辛苦!";
 		mes "每当我遇到一个人喜欢你,我觉得这样的生活还是不错的生活,喵~";
-		emotion e_sob;
+		emotion ET_CRY;
 		next;
 		mes "[地质学家马里]";   
 		mes "请听我的助手,鲍勃在细节,喵~";
@@ -1087,17 +1087,17 @@ mal_in02,179,57,1	script	地质学家马里#mal	4_CAT_ADV1,{
 		mes "[地质学家马里]";   
 		mes "啊!鲍勃称赞你这么多你的伟大的工作,喵~";
 		mes "请帮助我们下次再来的时候就可以了,喵~";
-		emotion e_no1;
+		emotion ET_BEST;
 		next;
 		mes "[语言学家德沃尔]";   
 		mes "我做了这个,因为海星研究是很好完成,你不需要做这样那样的辛勤工作!";
 		mes "Sob sob!!!";
-		emotion e_sob,0,"语言学家德沃尔#mal";
+		emotion ET_CRY, getnpcid(0, "语言学家德沃尔#mal");
 		next;
 		mes "[地质学家马里]";   
 		mes "哦??!你在说什么德沃尔博士,喵喵~!!";
 		mes "我不认为这样的??一切,喵喵~!";
-		emotion e_omg;
+		emotion ET_HUK;
 		next;
 		mes "[地质学家马里]";   
 		mes "每个人都知道如何,德沃尔博士,正在努力学习,喵喵~!";
@@ -1152,7 +1152,7 @@ mal_in02,179,57,1	script	地质学家马里#mal	4_CAT_ADV1,{
 	mes "[地质学家马里]";   
 	mes "软而粘的感觉像这样...";
 	mes "哈哈?它可以让你上瘾了...";
-	emotion e_slur;
+	emotion ET_SEXY;
 	close;
 }
 
@@ -1161,7 +1161,7 @@ mal_in02,140,94,0	script	鲍勃#mal	4_CAT_DOWN,{
 		mes "[鲍勃]";   
 		mes "你汪汪!鞠躬!哇!我与mew!喵喵!喵喵!";
 		mes "我成汁美味的鱼,喵~";
-		emotion e_ho;
+		emotion ET_DELIGHT;
 		close;
 	} else if (ma_tomas == 14) {
 		// Dialogue in repeatable quest is identical.
@@ -1173,12 +1173,12 @@ mal_in02,140,94,0	script	鲍勃#mal	4_CAT_DOWN,{
 		mes "[鲍勃]";   
 		mes "你汪汪!鞠躬!哇!我与mew!喵喵!喵喵!";
 		mes "我成汁美味的鱼,喵~";
-		emotion e_ho;
+		emotion ET_DELIGHT;
 		next;
 		mes "[鲍勃]";   
 		mes "啊唉唉!!!!";
 		mes "你在这里志愿服务?";
-		emotion e_omg;
+		emotion ET_HUK;
 		next;
 		if (checkweight(1201,1) == 0) {
 			mes "[鲍勃]";   
@@ -1199,14 +1199,14 @@ mal_in02,140,94,0	script	鲍勃#mal	4_CAT_DOWN,{
 			mes "感动!";
 			mes "我很感动!";
 			mes "令人印象深刻的心灵飞舞在我的心脏!";
-			emotion e_omg;
+			emotion ET_HUK;
 			next;
 			mes "[鲍勃]";   
 			mes "我治疗的人喜欢我看不起他们,因此对人类的偏见!";
 			mes "我觉得像有鳞片哭了!!";
 			mes "感动!";
 			mes "印象飞马狂飙!";
-			emotion e_omg;
+			emotion ET_HUK;
 			next;
 			select("别闹了!请告诉我如何修复裂缝.");
 			mes "[鲍勃]";   
@@ -1240,7 +1240,7 @@ mal_in02,140,94,0	script	鲍勃#mal	4_CAT_DOWN,{
 			mes "我看到...";
 			mes "失望...";
 			mes "Hoohoot shh shh~";
-			emotion e_otl;
+			emotion ET_OTL;
 			close;
 		}
 	} else if (ma_tomas == 15) {
@@ -1279,7 +1279,7 @@ mal_in02,140,94,0	script	鲍勃#mal	4_CAT_DOWN,{
 		mes "[鲍勃]";   
 		mes "Khhh~~~~~~~~~~~~~~~~~~~~~~";
 		mes "这是完美的!";
-		emotion e_no1;
+		emotion ET_BEST;
 		next;
 		mes "[鲍勃]";   
 		mes "粘合剂填补了恰到好处!";
@@ -1290,7 +1290,7 @@ mal_in02,140,94,0	script	鲍勃#mal	4_CAT_DOWN,{
 		mes "感动!";
 		mes "神秘!";
 		mes "震惊!";
-		emotion e_omg;
+		emotion ET_HUK;
 		next;
 		mes "[鲍勃]";   
 		mes "你做了伟大的工作的确!";
@@ -1310,7 +1310,7 @@ mal_in02,140,94,0	script	鲍勃#mal	4_CAT_DOWN,{
 	mes "[鲍勃]";   
 	mes "你汪汪!鞠躬!哇!我与mew!喵喵!喵喵!";
 	mes "我成汁美味的鱼,喵~";
-	emotion e_ho;
+	emotion ET_DELIGHT;
 	close;
 }
 
@@ -1577,7 +1577,7 @@ mal_in01,114,169,5	script	菜#mal	4_CAT_SAILOR4,{
 		mes "Woo waa hoohoo...";
 		mes "Woowaa ahhh ahh ahh...";
 		mes "我很不耐烦......留在家里这样!";
-		emotion e_yawn;
+		emotion ET_SLEEPY;
 		next;
 		mes "[菜]";   
 		mes "如果将我的腿恢复,什么时候?!";
@@ -1590,7 +1590,7 @@ mal_in01,114,169,5	script	菜#mal	4_CAT_SAILOR4,{
 		mes "所有我能做的就是按下按钮整天?";
 		mes "这不是令人兴奋可言?";
 		mes "我不愿意做任何事情越来越多";
-		emotion e_yawn;
+		emotion ET_SLEEPY;
 		next;
 		select("对不起.这是菜的房子?");
 		mes "[菜]";   
@@ -1599,7 +1599,7 @@ mal_in01,114,169,5	script	菜#mal	4_CAT_SAILOR4,{
 		mes "我很菜!";
 		mes "这是很好的看你,因为我太无聊了...";
 		mes "告诉我发生了什么吧!现在!";
-		emotion e_omg;
+		emotion ET_HUK;
 		next;
 		select("询问新鲜水果.");
 		mes "[菜]";   
@@ -1607,7 +1607,7 @@ mal_in01,114,169,5	script	菜#mal	4_CAT_SAILOR4,{
 		mes "你...你知道的东西!";
 		mes "嗯,哈哈哈!";
 		mes "只有少数猫知道新鲜水果!";
-		emotion e_flash;
+		emotion ET_SPARK;
 		next;
 		mes "[菜]";   
 		mes "嗯,以前我换他们与人类喜欢你,新鲜水果并没有被认为是一个非常了不起的成果.";
@@ -1615,7 +1615,7 @@ mal_in01,114,169,5	script	菜#mal	4_CAT_SAILOR4,{
 		mes "[菜]";   
 		mes "它曾经在这里有我的老城区展开.它没有一个良好的口感和引起消化不良,喵~";
 		mes "猫需要吃鱼类,自然.";
-		emotion e_slur;
+		emotion ET_SEXY;
 		next;
 		mes "[菜]";   
 		mes "但是,如果人类吃这个,它可以让你完全充满.";
@@ -1630,14 +1630,14 @@ mal_in01,114,169,5	script	菜#mal	4_CAT_SAILOR4,{
 		mes "[菜]";   
 		mes "很早就...";
 		mes "我们的团队离开了这座城市的新课程进行交易.";
-		emotion e_shy;
+		emotion ET_SHY;
 		next;
 		mes "[菜]";   
 		mes "其实,我们身边主宰我们的城市地区,它就像找到未开发的领域是一个挑战.";
 		next;
 		mes "[菜]";   
 		mes "但发现未知是男人的浪漫,不是吗?";
-		emotion e_awsm;
+		emotion ET_COOL;
 		next;
 		mes "[菜]";   
 		mes "嗯,一开始是相当不错的,反正.";
@@ -1645,7 +1645,7 @@ mal_in01,114,169,5	script	菜#mal	4_CAT_SAILOR4,{
 		next;
 		mes "[菜]";   
 		mes "海有足够的鱼在里面,但它使我厌烦.我想吃调料,像萝卜与鸡最.";
-		emotion e_rice;
+		emotion ET_HUNGRY;
 		next;
 		mes "[菜]";   
 		mes "虽然我们漂流了很长一段时间,我们无法降落在任何岛屿.相反,我们遇到风暴.";
@@ -1661,7 +1661,7 @@ mal_in01,114,169,5	script	菜#mal	4_CAT_SAILOR4,{
 		mes "Khhh khhh!";
 		mes "你能相信吗?";
 		mes "那巨大的船刚刚飞过,弗鲁姆??喜欢的飞艇,被丢弃在这里在这个岛的中部!";
-		emotion e_omg;
+		emotion ET_HUK;
 		next;
 		mes "[菜]";   
 		mes "无论如何,我活了下来,但大部分货物在船上被横扫,而只有新鲜水果我们留下.";
@@ -1669,7 +1669,7 @@ mal_in01,114,169,5	script	菜#mal	4_CAT_SAILOR4,{
 		mes "[菜]";   
 		mes "咦?为什么我们要加载它们,如果我们不吃点东西吗?";
 		mes "这......这是秘密......";
-		emotion e_swt;
+		emotion ET_SWEAT;
 		next;
 		mes "[菜]";   
 		mes "嗯,这并不重要.正如我们派出侦察组在那里,我们发现,还有那里的另一种生活之地,不喜欢我们.";
@@ -1692,12 +1692,12 @@ mal_in01,114,169,5	script	菜#mal	4_CAT_SAILOR4,{
 		next;
 		mes "[菜]";   
 		mes "由于它消失在我们准备,这是肯定的最适合我们的团体.";
-		emotion e_pat;
+		emotion ET_GOODBOY;
 		next;
 		mes "[菜]";   
 		mes "顺便说一句,因为我受伤了在这个重要的季节,它损害了我的信誉,如果我没有在最后期限前交付量订购!";
 		mes "交易是信誉!";
-		emotion e_omg;
+		emotion ET_HUK;
 		next;
 		mes "[菜]";   
 		mes "出于这个原因,你愿意帮我吗?";
@@ -1712,25 +1712,25 @@ mal_in01,114,169,5	script	菜#mal	4_CAT_SAILOR4,{
 			mes "[菜]";   
 			mes "收获新鲜水果是很容易的.";
 			mes "你可以得到它时,你只是挖在地上,喵~";
-			emotion e_omg,1;
+			emotion ET_HUK,1;
 			next;
 			select("?!");
 			mes "[菜]";   
 			mes "咦?";
 			mes "没有它最初来自地面?";
-			emotion e_omg,1;
+			emotion ET_HUK,1;
 			next;
 			select("难道不是长在树上?");
 			mes "[菜]";   
 			mes "那么,新鲜水果在米德加兹可以这样做.";
 			mes "但是,我们在这里挖我们新鲜水果从地面.";
-			emotion e_omg,1;
+			emotion ET_HUK,1;
 			next;
 			mes "[菜]";   
 			mes "你可以得到它在喵喵岛岛轻松.带给我大概30岁.";
 			mes "啊!保守这个秘密给我儿子肯定?";
 			mes "那么请!欢迎!请???";
-			emotion e_kis;
+			emotion ET_CHUP;
 			set ma_tomas,9;
 			changequest 11216,11217;
 			close;
@@ -1746,7 +1746,7 @@ mal_in01,114,169,5	script	菜#mal	4_CAT_SAILOR4,{
 			mes "你可以得到它在喵喵岛岛轻松.带给我大概30岁.";
 			mes "啊!保守这个秘密给我儿子肯定?";
 			mes "那么请!欢迎!请???";
-			emotion e_kis;
+			emotion ET_CHUP;
 			close;
 		}
 		mes "[菜]";   
@@ -1848,7 +1848,7 @@ mal_in01,114,169,5	script	菜#mal	4_CAT_SAILOR4,{
 				mes "30个 新鲜水果.你可以很容易地找到它在喵喵岛!";
 				mes "啊!保守这个秘密给我儿子肯定?";
 				mes "那么请!欢迎!请???";
-				emotion e_kis;
+				emotion ET_CHUP;
 				setquest 11238;
 				close;
 			case 2:
@@ -1881,7 +1881,7 @@ mal_in01,116,168,0	script	干燥机#mal	2_SLOT_MACHINE,{
 		case 1:
 			mes "[菜]";   
 			mes "我会通过自己按按钮!";
-			emotion e_omg,0,"Rican#mal";
+			emotion ET_HUK, getnpcid(0, "Rican#mal");
 			next;
 			mes "- 本机开始运转 - ";
 			mes "- 当他按下按钮. - ";
@@ -1919,7 +1919,7 @@ mal_in01,116,168,0	script	干燥机#mal	2_SLOT_MACHINE,{
 			mes "- 我觉得我感动 - ";
 			mes "- 这是不好的. - ";
 			mes "- 啊,啊!感觉不好...  - ";
-			emotion e_omg,1;
+			emotion ET_HUK,1;
 		}
 		set .off,1;
 		donpcevent "水沙"+strnpcinfo(2)+"#mal::OnEnable";
@@ -2006,12 +2006,12 @@ mal_dun01,136,122,3	script	饼干#mal	4_ASTER,{
 		mes "[饼干]";   
 		mes "星星糖牺牲自己这个样子,但是那些家伙都设置了绕柱子为自己唯一的.";
 		mes "Hewww!";
-		emotion e_ag;
+		emotion ET_ANGER;
 		next;
 		mes "[饼干]";   
 		mes "他们跟她说话,但不理我,当我向她倾诉.";
 		mes "我不喜欢他们不惜一切!";
-		emotion e_ag;
+		emotion ET_ANGER;
 		next;
 		mes "- 不像德沃尔博士的话说,饼干出现流利的口语能力. - ";
 		next;
@@ -2034,7 +2034,7 @@ mal_dun01,136,122,3	script	饼干#mal	4_ASTER,{
 		mes "[语言学家德沃尔]";   
 		mes "嗯?你是什??么意思?";
 		mes "我什么也听不到.";
-		emotion e_what,0,"语言学家德沃尔#mald";
+		emotion ET_QUESTION, getnpcid(0, "语言学家德沃尔#mald");
 		next;
 		mes "[ "+ strcharinfo(0)+" ]";   
 		mes "咦?饼干说：'嗯,这家伙经常一个无视我的话.他摇摆不定有话想说,让我不舒服.'?";
@@ -2042,29 +2042,29 @@ mal_dun01,136,122,3	script	饼干#mal	4_ASTER,{
 		mes "[语言学家德沃尔]";   
 		mes "什么?你在达灵呢?";
 		mes "我什么也听不到.";
-		emotion e_what,0,"语言学家德沃尔#mald";
+		emotion ET_QUESTION, getnpcid(0, "语言学家德沃尔#mald");
 		next;
 		mes "[ "+ strcharinfo(0)+" ]";   
 		mes "Huh?";
-		emotion e_what,1;
+		emotion ET_QUESTION,1;
 		next;
 		mes "[语言学家德沃尔]";   
 		mes "Ah?!";
 		mes "Ah?!?!?!?!?!?";
 		mes "Ah!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
-		emotion e_omg,0,"语言学家德沃尔#mald";
+		emotion ET_HUK, getnpcid(0, "语言学家德沃尔#mald");
 		next;
 		mes "[语言学家德沃尔]";   
 		mes "如果......如果是这样的原因!";
 		mes "我们可能完全误解了!";
-		emotion e_omg,0,"语言学家德沃尔#mald";
+		emotion ET_HUK, getnpcid(0, "语言学家德沃尔#mald");
 		next;
 		mes "[语言学家德沃尔]";   
 		mes "噢,我的,我们不可能知道,因为我们住在这里只有我们自己.";
 		next;
 		mes "[语言学家德沃尔]";   
 		mes "每一个生命的东西都有自己的区域可听度和发声.但是,我们和饼干均略有不同领域!";
-		emotion e_omg,0,"语言学家德沃尔#mald";
+		emotion ET_HUK, getnpcid(0, "语言学家德沃尔#mald");
 		next;
 		mes "[语言学家德沃尔]";   
 		mes "在这种条件下,我们听不到任何语言正确!";
@@ -2084,7 +2084,7 @@ mal_dun01,136,122,3	script	饼干#mal	4_ASTER,{
 		mes "[ "+ strcharinfo(0)+" ]";   
 		mes "等待,德沃尔博士,究竟什么是未来...?";
 		mes "我该怎么办......?";
-		emotion e_dots,1;
+		emotion ET_THINK,1;
 		next;
 		mes "[语言学家德沃尔]";   
 		mes "哈哈哈?你是谁可以有饼干谈话的那种.请尽量跟他说话.";
@@ -2092,7 +2092,7 @@ mal_dun01,136,122,3	script	饼干#mal	4_ASTER,{
 		next;
 		mes "[饼干]";   
 		mes "哎......不要小看我!";
-		emotion e_ag;
+		emotion ET_ANGER;
 		donpcevent "语言学家德沃尔#mald::OnDisable";
 		set ma_tomas,22;
 		completequest 11228;
@@ -2109,7 +2109,7 @@ mal_dun01,136,122,3	script	饼干#mal	4_ASTER,{
 				mes "星星糖?";
 				mes "啧啧啧!";
 				mes "这是没有去,卑微的家伙.";
-				emotion e_ag;
+				emotion ET_ANGER;
 				next;
 				mes "[饼干]";   
 				mes "你可以从星星糖认可以前和神秘的感觉!";
@@ -2119,12 +2119,12 @@ mal_dun01,136,122,3	script	饼干#mal	4_ASTER,{
 				mes "她多么华丽的是......嗯......";
 				mes "只是华丽.";
 				mes "她是如此的华丽......但我不知道该怎么解释它...";
-				emotion e_swt2;
+				emotion ET_PROFUSELY_SWEAT;
 				next;
 				mes "[饼干]";   
 				mes "Khummm ...";
 				mes "这就是为什么千丝万缕的声音说话有刺激性.";
-				emotion e_ag;
+				emotion ET_ANGER;
 				next;
 				select("谈到与声音?");
 				mes "[饼干]";   
@@ -2146,7 +2146,7 @@ mal_dun01,136,122,3	script	饼干#mal	4_ASTER,{
 				mes "[饼干]";   
 				mes "我?";
 				mes "我是一个助理星星糖,一颗新星在海星种族与多方位的人才!";
-				emotion e_flash;
+				emotion ET_SPARK;
 				next;
 				mes "[饼干]";   
 				mes "啊,啊......";
@@ -2156,7 +2156,7 @@ mal_dun01,136,122,3	script	饼干#mal	4_ASTER,{
 				mes "[饼干]";   
 				mes "但如果老人看到这一点,他们会干出我在阳光下...";
 				mes "这是一个生活像火焰......呜咽呜咽抽泣泣";
-				emotion e_sob;
+				emotion ET_CRY;
 				if (ma_tomas == 23)
 					set ma_tomas,24;
 				if (ma_tomas == 25)
@@ -2200,14 +2200,14 @@ mal_dun01,136,122,3	script	饼干#mal	4_ASTER,{
 			next;
 			mes "[饼干]";   
 			mes "如何粗鲁...";
-			emotion e_ag;
+			emotion ET_ANGER;
 			next;
 			mes "[饼干]";   
 			mes "你不是我的下属,所以强行我不能为了你.但是,如果星星糖不能有她一顿的时候,你要记住,这个岛屿将全面崩溃.";
 			next;
 			mes "[ "+ strcharinfo(0)+" ]";   
 			mes "...这不是一个要求,而是一个威胁......";
-			emotion e_dots,1;
+			emotion ET_THINK,1;
 			close;
 		}
 	} else if (ma_tomas == 26) {
@@ -2274,7 +2274,7 @@ mal_dun01,136,122,3	script	饼干#mal	4_ASTER,{
 		mes "这是什么!";
 		mes "她的皮肤!!";
 		mes "她得到了一个脓肿,她的皮肤,用明亮如宝石!!";
-		emotion e_omg;
+		emotion ET_HUK;
 		next;
 		mes "[饼干]";   
 		mes "她得到了与她干的皮肤烦恼,因为她在这里!";
@@ -2282,7 +2282,7 @@ mal_dun01,136,122,3	script	饼干#mal	4_ASTER,{
 		next;
 		mes "[饼干]";   
 		mes "啊,啊!她是那么善良,她牺牲自己来拯救这样的事情.呜咽抽泣.";
-		emotion e_sob;
+		emotion ET_CRY;
 		next;
 		mes "[饼干]";   
 		mes "啊,啊......";
@@ -2336,7 +2336,7 @@ mal_dun01,136,122,3	script	饼干#mal	4_ASTER,{
 			next;
 			mes "[饼干]";   
 			mes "对于这样庞大的皮肤,因为星星糖的,它的全藤壶,牡蛎和贻贝的!";
-			emotion e_omg;
+			emotion ET_HUK;
 			close;
 		}
 	} else if (ma_tomas < 33) {
@@ -2366,12 +2366,12 @@ mal_dun01,136,122,3	script	饼干#mal	4_ASTER,{
 		mes "[饼干]";   
 		mes "干得好!";
 		mes "现在,我看到她美丽的脸已经恢复.";
-		emotion e_awsm;
+		emotion ET_COOL;
 		next;
 		mes "[饼干]";   
 		mes "皮肤会变坏,如果你不每天都进行清洁.";
 		mes "有一种说法...清洁你的皮肤比使用化妆要重要得多.";
-		emotion e_no1;
+		emotion ET_BEST;
 		next;
 		mes "[饼干]";   
 		mes "你干得不错.";
@@ -2386,7 +2386,7 @@ mal_dun01,136,122,3	script	饼干#mal	4_ASTER,{
 		next;
 		mes "[饼干]";   
 		mes "这是不是你......和在座的各位,无论是.这是相当的星星糖,以尽快得到休息,你懂的!";
-		emotion e_pif;
+		emotion ET_HNG;
 		set ma_tomas,34;
 		erasequest 11235;
 		setquest 11236;
@@ -2534,7 +2534,7 @@ mal_dun01,133,125,5	script	星星糖#mal	4_F_STARFISHGIRL,{
 		mes "[ "+ strcharinfo(0)+" ]";   
 		mes "?!";
 		mes "你可以谈!";
-		emotion e_omg,1;
+		emotion ET_HUK,1;
 		next;
 		mes "[饼干]";   
 		mes "什么?";
@@ -2548,7 +2548,7 @@ mal_dun01,133,125,5	script	星星糖#mal	4_F_STARFISHGIRL,{
 		mes "[饼干]";   
 		mes "我们宝贵的星星糖谦虚地支持他们,他们对待她这个样子.";
 		mes "他们不知道该如何表达谢意!";
-		emotion e_ag,0,"Biscuit#mal";
+		emotion ET_ANGER, getnpcid(0, "Biscuit#mal");
 		next;
 		select("支持?");
 		mes "[饼干]";   
@@ -2575,7 +2575,7 @@ mal_dun01,133,125,5	script	星星糖#mal	4_F_STARFISHGIRL,{
 		mes "[饼干]";   
 		mes "星星糖牺牲自己这个样子,但是那些家伙都设置了绕柱子为自己唯一的.";
 		mes "Hewww!";
-		emotion e_ag,0,"饼干#mal";
+		emotion ET_ANGER, getnpcid(0, "饼干#mal");
 		next;
 		mes "[饼干]";   
 		mes "他们跟她说话,但不理我,当我向她倾诉.";
@@ -2948,7 +2948,7 @@ malangdo,175,206,3	script	Gobonge#ml	4_CAT_SAILOR5,{
 			mes "漂亮的衣服.";
 			mes "我不能让你走,";
 			mes "这伤害了我这么惨!";
-			emotion e_sob;
+			emotion ET_CRY;
 			next;
 			switch(select("你应得的痛苦!:需要帮助?")) {
 			case 1:
@@ -2989,7 +2989,7 @@ malangdo,175,206,3	script	Gobonge#ml	4_CAT_SAILOR5,{
 			mes "如果我往常一样,我会铭记的东西";
 			mes "用你的泪......";
 			mes "让你的包包在这里,而不是!";
-			emotion e_sob;
+			emotion ET_CRY;
 			close;
 		}
 	} else if (malang_bad_guys == 1) {
@@ -3026,7 +3026,7 @@ malangdo,175,206,3	script	Gobonge#ml	4_CAT_SAILOR5,{
 		mes "[Gobonge]";   
 		mes "你怎么知道坏罐的来源?";
 		mes "你有时间做缓慢的时刻?";
-		emotion e_sob;
+		emotion ET_CRY;
 		close;
 	} else if (malang_bad_guys == 8) {
 		mes "[Gobonge]";   
@@ -3072,7 +3072,7 @@ malangdo,175,206,3	script	Gobonge#ml	4_CAT_SAILOR5,{
 		mes "而不是我们的,你做了不好的行为.";
 		mes "很好听的?";
 		mes "这就是老师看到最好的学生?";
-		emotion e_swt;
+		emotion ET_SWEAT;
 		next;
 		mes "[Gobonge]";   
 		mes "你值得奖励!";
@@ -3305,7 +3305,7 @@ malangdo,171,163,3	script	正宗罐头经销商	4_MASK_SMOKEY,{
 			mes "[正宗罐头经销商]";   
 			mes "它只是看起来美妙.";
 			mes "没有什么更多的有哪些?";
-			emotion e_ho;
+			emotion ET_DELIGHT;
 			close;
 		case 2:
 			mes "[正宗罐头经销商]";   
@@ -3467,15 +3467,15 @@ malangdo,125,147,3	script	巡警负责人#ml	4_CAT_SAILOR2,{
 			next;
 			mes "[预防犯罪工作人员]";   
 			mes "队长,我们已经工作了,对不对?";
-			emotion e_sob;
-			emotion e_sob,0,"Crime Prevention Staff#ml";
+			emotion ET_CRY;
+			emotion ET_CRY, getnpcid(0, "Crime Prevention Staff#ml");
 			next;
 			mes "[巡警负责人]";   
 			mes "隐藏你的眼泪,并保存你的眼泪!";
 			mes "有线索的坏账活动时,您应该哭";
 			mes "在犯罪现场!";
-			emotion e_sob;
-			emotion e_sob,0,"Crime Prevention Staff#ml";
+			emotion ET_CRY;
+			emotion ET_CRY, getnpcid(0, "Crime Prevention Staff#ml");
 			next;
 			mes "[巡警负责人]";   
 			mes "我会骂你,一旦调查结束!";
@@ -3593,13 +3593,13 @@ mal_in02,76,63,7	script	清洁工 杨	4_CAT_SAILOR1,{
 	}
 	if (mal_qook == 0) {
 		mes "水手的猫哭伤心地.";
-		emotion e_sob;
+		emotion ET_CRY;
 		next;
 		mes "[清洁工 杨]";   
 		mes "喵喵!";
 		mes "这是怎么回事... HEU ... heuk ...";
 		mes "你不必知道.HEU ... heuk ...";
-		emotion e_sob;
+		emotion ET_CRY;
 		next;
 		mes "无法继续说话.";
 		next;
@@ -3607,7 +3607,7 @@ mal_in02,76,63,7	script	清洁工 杨	4_CAT_SAILOR1,{
 		case 1:
 			mes "我安慰他受伤的心脏只是站在他.";
 			next;
-			emotion e_sob;
+			emotion ET_CRY;
 			mes "[清洁工 杨]";   
 			mes "这是不公正的...... Heuheuk ...";
 			mes "厨师......他总是给我骂.";
@@ -3635,7 +3635,7 @@ mal_in02,76,63,7	script	清洁工 杨	4_CAT_SAILOR1,{
 			next;
 			switch(select("不要问了.:问计害虫的地方来了.")) {
 			case 1:
-				emotion e_sob;
+				emotion ET_CRY;
 				mes "[清洁工 杨]";   
 				mes "...有什么错你的脸?";
 				mes "你害怕发送的差事呢?";
@@ -3664,14 +3664,14 @@ mal_in02,76,63,7	script	清洁工 杨	4_CAT_SAILOR1,{
 		}
 	} else if (mal_qook == 1) {
 		if (checkquest(7261) != -1 && checkquest(7262) != -1 && checkquest(7263) != -1) {
-			emotion e_omg;
+			emotion ET_HUK;
 			mes "[清洁工 杨]";   
 			mes "呃.那是什么?喵.";
 			mes "这是猫的硬饼干...这可能会留很长一段时间...";
 			mes "没办法......!";
 			next;
 			select("是啊,这是它.");
-			emotion e_hmm;
+			emotion ET_SCRATCH;
 			mes "[清洁工 杨]";   
 			mes "有驱除粮食害虫,因为水手hided,离开了猫的硬饼干..";
 			mes "我刚刚得到了牙齿磨的责骂原因是什么?";
@@ -3985,7 +3985,7 @@ mal_in02,29,67,0	script	#CaptainRoom3	CLEAR_NPC,{
 				mes "无视托马斯和垃圾下搜索.";
 				mes "在那个时候......";
 				next;
-				emotion e_omg;
+				emotion ET_HUK;
 				mes "其中刚刚过去的黑色的影子,我不多久的地方是左.";
 				mes "找猫的硬饼干.";
 				switch(rand(3)) {
@@ -4017,7 +4017,7 @@ mal_in02,29,67,0	script	#CaptainRoom3	CLEAR_NPC,{
 			next;
 			mes "在那个时候......";
 			mes "该地方刚刚过去的阴影中,查找最近hided猫的硬饼干.";
-			emotion e_omg;
+			emotion ET_HUK;
 			switch(rand(3)) {
 				case 0: monster "mal_in02",30,67,"Quick Dark Shadow",2209,1;
 				case 1: monster "mal_in02",30,65,"Quick Dark Shadow",2209,1;
@@ -4056,7 +4056,7 @@ mal_in02,183,49,0	script	#MeetingFloor4	CLEAR_NPC,{
 				next;
 				mes "其中刚刚过去的阴影,我不多久的地方是左.";
 				mes "找猫的硬饼干.";
-				emotion e_omg;
+				emotion ET_HUK;
 				switch(rand(2)) {
 					case 0: monster "mal_in02",182,50,"Quick Dark Shadow",2209,1;
 					case 1: monster "mal_in02",184,50,"Quick Dark Shadow",2209,1;
@@ -4099,7 +4099,7 @@ mal_in02,103,22,0	script	#MalBed5	CLEAR_NPC,{
 				next;
 				mes "其中刚刚过去的阴影,我不多久的地方是左.";
 				mes "找猫的硬饼干.";
-				emotion e_omg;
+				emotion ET_HUK;
 				monster "mal_in02",102,23,"Quick Dark Shadow",2209,1;
 				setquest 7262;
 				getitem 11536,1; //Cat_Hard_Biscuit
@@ -4144,7 +4144,7 @@ malangdo,141,178,0	script	#Darkweed6	CLEAR_NPC,{
 				next;
 				mes "从那里黑暗的阴影刚刚过去,有人最近hided的地方.";
 				mes "找猫的硬饼干.";
-				emotion e_omg;
+				emotion ET_HUK;
 				monster "malangdo",141,178,"Quick Dark Shadow",2209,1;
 				setquest 7269;
 				getitem 11536,1; //Cat_Hard_Biscuit
@@ -4191,7 +4191,7 @@ malangdo,133,134,0	script	一堆奇怪的沙子#7	4_SOIL,{
 				mes "找到猫的硬饼干一些筹码.";
 				setquest .@quest;
 				if (!rand(3)) {
-					emotion e_omg;
+					emotion ET_HUK;
 					getmapxy(.@map$,.@x,.@y,1);
 					monster .@map$,.@x,.@y,"Quick Dark Shadow",2209,1;
 				} else
@@ -4225,7 +4225,7 @@ malangdo,232,131,0	script	#UnderStairs8	CLEAR_NPC,{
 			mes "找到猫的硬饼干一些筹码.";
 			setquest 7271;
 			if (!rand(3)) {
-				emotion e_omg;
+				emotion ET_HUK;
 				monster "malangdo",231,130,"Quick Dark Shadow",2209,1;
 			} else
 				getitem 11536,1; //Cat_Hard_Biscuit
@@ -4259,7 +4259,7 @@ mal_in01,74,20,0	script	#CornerTower9	CLEAR_NPC,{
 			mes "找到猫的硬饼干一些筹码.";
 			setquest 7272;
 			if (!rand(3)) {
-				emotion e_omg;
+				emotion ET_HUK;
 				monster "mal_in01",73,19,"Quick Dark Shadow",2209,1;
 			} else
 				getitem 11536,1; //Cat_Hard_Biscuit
@@ -4290,7 +4290,7 @@ mal_in01,159,225,0	script	#CornerLocker10	CLEAR_NPC,{
 			mes "找到猫的硬饼干一些筹码.";
 			setquest 7273;
 			if (!rand(3)) {
-				emotion e_omg;
+				emotion ET_HUK;
 				monster "mal_in01",159,225,"Quick Dark Shadow",2209,1;
 			} else
 				getitem 11536,1; //Cat_Hard_Biscuit
@@ -4321,7 +4321,7 @@ mal_in01,24,72,0	script	#FootholdTower11	CLEAR_NPC,{
 			mes "找到猫的硬饼干一些筹码.";
 			setquest 7274;
 			if (!rand(3)) {
-				emotion e_omg;
+				emotion ET_HUK;
 				monster "mal_in01",24,71,"Quick Dark Shadow",2209,1;
 			} else
 				getitem 11536,1; //Cat_Hard_Biscuit
@@ -4902,7 +4902,7 @@ malangdo,211,203,4	script	[喵喵队] 沙罗#nya_11	4_CAT_ADV2,{
 		mes "[沙罗]";   
 		mes "我们固定的Duruduru指南针,我们现在只需要一个访问者...";
 		mes "嘿,你想成为一个游客?";
-		emotion e_gasp;
+		emotion ET_SURPRISE;
 		next;
 		select("访客?");
 		mes "[沙罗]";   
@@ -6266,8 +6266,8 @@ L_ShowLights:
 		mes "纺丝的速度越来越按下按钮后更快.";
 		mes "毕竟...";
 		specialeffect EF_BEGINSPELL6;
-		emotion e_gasp,0,"猫侦探#nya_14";
-		emotion e_gasp,0,"Friend of Detective#mal";
+		emotion ET_SURPRISE, getnpcid(0, "猫侦探#nya_14");
+		emotion ET_SURPRISE, getnpcid(0, "Friend of Detective#mal");
 		next;
 		cutin "mal_homnya_s",2;
 		mes "[Homnya]";   
@@ -6545,7 +6545,7 @@ mal_in01,31,210,2	script	猫玩家主任	4_CAT_MERMASTER,{
 		next;
 		mes "[猫玩家主任]";   
 		mes "男人!10负排...";
-		emotion e_sigh;
+		emotion ET_OHNO;
 		next;
 		mes "[猫玩家主任]";   
 		mes "我们是'猫游戏玩家的公会.";
@@ -6593,7 +6593,7 @@ mal_in01,31,210,2	script	猫玩家主任	4_CAT_MERMASTER,{
 		mes "[猫玩家主任]";   
 		mes "现在我知道原因,";
 		mes "应该有一个解决了这一点.";
-		emotion e_hmm;
+		emotion ET_SCRATCH;
 		next;
 		select("嗯......猫先生...");
 		mes "[猫玩家主任]";   
@@ -6610,7 +6610,7 @@ mal_in01,31,210,2	script	猫玩家主任	4_CAT_MERMASTER,{
 		mes "[猫玩家主任]";   
 		mes "所以,很高兴见到你!";
 		mes "什么是顺便说一下你的名字吗?";
-		emotion e_gasp;
+		emotion ET_SURPRISE;
 		next;
 		mes "[ "+ strcharinfo(0)+" ]";   
 		mes "我的名字是 "+ strcharinfo(0)+" ,猫先生.";
@@ -6627,7 +6627,7 @@ mal_in01,31,210,2	script	猫玩家主任	4_CAT_MERMASTER,{
 		next;
 		mes "[ "+ strcharinfo(0)+" ]";   
 		mes "一个弱点是不再当你大声说出来的弱点.";
-		emotion e_no1,1;
+		emotion ET_BEST,1;
 		next;
 		mes "[猫玩家主任]";   
 		mes "哈哈哈哈,我喜欢这句话.";
@@ -6648,7 +6648,7 @@ mal_in01,31,210,2	script	猫玩家主任	4_CAT_MERMASTER,{
 			mes "一个人如何能调用自理愚蠢的.";
 			mes "现在我可以看到你是多么愚蠢.";
 			mes "再见?";
-			emotion e_hmm;
+			emotion ET_SCRATCH;
 			close;
 		case 2:
 			mes "[猫玩家主任]";   
@@ -6671,7 +6671,7 @@ mal_in01,31,210,2	script	猫玩家主任	4_CAT_MERMASTER,{
 	} else if (malang_gamer == 4) {
 		mes "[猫玩家主任]";   
 		mes "OK OK.所以做了经理的猫说的气氛是什么,这些天??";
-		emotion e_what;
+		emotion ET_QUESTION;
 		next;
 		mes "你告诉他的经理猫说什么.";
 		next;
@@ -6680,14 +6680,14 @@ mal_in01,31,210,2	script	猫玩家主任	4_CAT_MERMASTER,{
 		next;
 		mes "[猫玩家主任]";   
 		mes "不要犹豫......只要告诉我一切?";
-		emotion e_what;
+		emotion ET_QUESTION;
 		next;
 		mes "[ "+ strcharinfo(0)+" ]";   
 		mes "嗯......玩家猫是怕你...";
 		next;
 		mes "[猫玩家主任]";   
 		mes "什么......你说什么?";
-		emotion e_omg;
+		emotion ET_HUK;
 		next;
 		mes "猫玩家主任似乎在震动.让我们给他一些时间冷静下来.";
 		set malang_gamer,5;
@@ -6702,12 +6702,12 @@ mal_in01,31,210,2	script	猫玩家主任	4_CAT_MERMASTER,{
 		mes "[猫玩家主任]";   
 		mes "那是不可能的!";
 		mes "有没有其他的猫这是更好的比我!";
-		emotion e_sob;
+		emotion ET_CRY;
 		next;
 		mes "[猫玩家主任]";   
 		mes "我真的那么可怕吗?";
 		mes "是那些球员谁保释的做法怕我吗?";
-		emotion e_swt2;
+		emotion ET_PROFUSELY_SWEAT;
 		next;
 		mes "[猫玩家主任]";   
 		mes "它不能是吧?ehehehehe?";
@@ -6721,7 +6721,7 @@ mal_in01,31,210,2	script	猫玩家主任	4_CAT_MERMASTER,{
 		mes strcharinfo(0)+", will you help me out?";
 		mes "有4名球员谁逃离练习说他们太累了.";
 		mes "你可以检查,如果他们跑了,因为我的离开?ehehehe?";
-		emotion e_what;
+		emotion ET_QUESTION;
 		next;
 		mes "[猫玩家主任]";   
 		mes "他们的名字是阿亚,炖,酱,和伊夫.";
@@ -6746,11 +6746,11 @@ mal_in01,31,210,2	script	猫玩家主任	4_CAT_MERMASTER,{
 			next;
 			mes "[猫玩家主任]";   
 			mes "有什么好处呢诈骗无辜的猫??";
-			emotion e_gg;
+			emotion ET_KIK;
 			next;
 			mes "[ "+ strcharinfo(0)+" ]";   
 			mes "是的,我认为你是对的.";
-			emotion e_hmm,1;
+			emotion ET_SCRATCH,1;
 			next;
 			mes "[猫玩家主任]";   
 			mes "呵呵,所以你遇到阿亚,炖,酱,和伊夫";
@@ -6842,7 +6842,7 @@ mal_in01,31,210,2	script	猫玩家主任	4_CAT_MERMASTER,{
 		next;
 		mes "[猫玩家主任]";   
 		mes "好吧,我有种被偷听时, "+ strcharinfo(0)+" 和经理猫在谈论在一起.嘿?";
-		emotion e_heh;
+		emotion ET_SMILE;
 		next;
 		mes "[ "+ strcharinfo(0)+" ]";   
 		mes "............";
@@ -6872,7 +6872,7 @@ mal_in01,31,210,2	script	猫玩家主任	4_CAT_MERMASTER,{
 		next;
 		mes "[猫玩家主任]";   
 		mes "嘿?让我看看......'笨笨猫LEA ......去......'";
-		emotion e_an;
+		emotion ET_FRET;
 		next;
 		mes "- 揉皱的纸 - ";
 		mes "猫玩家主任已皱巴巴的纸而丢弃.";
@@ -6893,7 +6893,7 @@ mal_in01,31,210,2	script	猫玩家主任	4_CAT_MERMASTER,{
 		mes "嘿?我明白了.";
 		mes "我能积极利用这个.";
 		mes "嘿?让我们转移到另一个.";
-		emotion e_ok;
+		emotion ET_OK;
 		next;
 		mes "??阅读";
 		next;
@@ -6904,7 +6904,7 @@ mal_in01,31,210,2	script	猫玩家主任	4_CAT_MERMASTER,{
 		mes "[猫玩家主任]";   
 		mes "嘿?这其中也听起来生产力.";
 		mes "嘿?信访信件都不错,我猜......嘿?";
-		emotion e_ok;
+		emotion ET_OK;
 		next;
 		mes "阅读...?";
 		next;
@@ -6916,7 +6916,7 @@ mal_in01,31,210,2	script	猫玩家主任	4_CAT_MERMASTER,{
 		mes "嘿?我们的团队是绝对";
 		mes "就像一个家庭在这里?有人是";
 		mes "在这里打球,你知道的.嘿?";
-		emotion e_gasp;
+		emotion ET_SURPRISE;
 		next;
 		mes "阅读...?";
 		next;
@@ -6962,7 +6962,7 @@ mal_in01,31,210,2	script	猫玩家主任	4_CAT_MERMASTER,{
 			mes "我没有从一个人喜欢你想到拒绝, "+ strcharinfo(0)+" .";
 			mes "但尽管如此,这里的一些硬币给你?";
 			mes "嘿?";
-			emotion e_sob;
+			emotion ET_CRY;
 			next;
 			mes "[猫玩家主任]";   
 			mes "我们将随时欢迎你, "+ strcharinfo(0)+" ,作为猫玩家的客人成员.";
@@ -6978,7 +6978,7 @@ mal_in01,31,210,2	script	猫玩家主任	4_CAT_MERMASTER,{
 			mes "[猫玩家主任]";   
 			mes "嘿?不错的选择.";
 			mes "我就知道你会帮我们猫游戏玩家...嘿?";
-			emotion e_no1;
+			emotion ET_BEST;
 			next;
 			mes "[猫玩家主任]";   
 			mes "嘿嘿?谢谢你的帮助.";
@@ -7018,7 +7018,7 @@ mal_in01,31,210,2	script	猫玩家主任	4_CAT_MERMASTER,{
 			mes "嘿?最后!";
 			mes strcharinfo(0)+" will become our honorable member!!";
 			mes "我将做一个'猫玩家证书'的时候了.嘿?";
-			emotion e_ho;
+			emotion ET_DELIGHT;
 			next;
 			mes "[猫玩家主任]";   
 			mes "回来一个小时,我将让你一个'猫玩家证书'.";
@@ -7034,7 +7034,7 @@ mal_in01,31,210,2	script	猫玩家主任	4_CAT_MERMASTER,{
 			next;
 			mes "[猫玩家主任]";   
 			mes "所以,这是一个有点棘手......嘿?请进来以后.嘿?";
-			emotion e_ho;
+			emotion ET_DELIGHT;
 			close;
 		}
 		mes "[猫玩家主任]";   
@@ -7075,7 +7075,7 @@ mal_in01,31,210,2	script	猫玩家主任	4_CAT_MERMASTER,{
 	}
 	mes "[猫玩家主任]";   
 	mes "嘿?你好, "+ strcharinfo(0)+" .究竟如何与玩家练?";
-	emotion e_what;
+	emotion ET_QUESTION;
 	next;
 	switch(select("如何球员在干什么?:刚停下来打个招呼?:这里的当前状态...")) {
 	case 1:
@@ -7132,7 +7132,7 @@ mal_in01,31,210,2	script	猫玩家主任	4_CAT_MERMASTER,{
 	case 3:
 		mes "[猫玩家主任]";   
 		mes "嘿?怎么了你的脸, "+ strcharinfo(0)+" ?猜你从实践中失去了,对不对?嘿?";
-		emotion e_gg;
+		emotion ET_KIK;
 		next;
 		mes "[猫玩家主任]";   
 		mes "嘿?我看到了玩家在'信访箱'思想促进笔记.嘿?猜猜这是你的工作.让我看看...";
@@ -7310,7 +7310,7 @@ L_CompleteQuest:
 	next;
 	mes "[猫玩家主任]";   
 	mes "嘿?谢谢你能来通过, "+ strcharinfo(0)+" .嘿?保持良好的工作.嘿?";
-	emotion e_thx;
+	emotion ET_THANKS;
 	close;
 }
 
@@ -7335,25 +7335,25 @@ malangdo,127,111,4	script	奇怪的猫#gamer	4_CAT_SAILOR4,{
 		next;
 		mes "[经理猫]";   
 		mes "你想干什么?";
-		emotion e_what;
+		emotion ET_QUESTION;
 		next;
 		set .@cat_gam, rand(1,10);
 		select("询问球队的态度...");
 		if (.@cat_gam == 5) {
 			mes "[经理猫]";   
 			mes "不要骗我!我怎么能相信你,并揭示我们的团队秘诀是什么?是不是你的狗队是间谍?";
-			emotion e_ag;
+			emotion ET_ANGER;
 			next;
 			select("噢,来吧......");
 			mes "你用谷子附近玩耍,然后再问.";
 			next;
 			select("猫玩家主任说...");
 			mes "经理人猫似乎是有意在谷子,并开始回答.";
-			emotion e_awsm;
+			emotion ET_COOL;
 			next;
 			mes "[经理猫]";   
 			mes "玩家怕猫玩家主任.当他们看到猫董事玩家在游戏中,他们感到紧张.";
-			emotion e_lv;
+			emotion ET_THROB;
 			next;
 			mes "[经理猫]";   
 			mes "你可以给我吗?";
@@ -7370,7 +7370,7 @@ malangdo,127,111,4	script	奇怪的猫#gamer	4_CAT_SAILOR4,{
 			mes "并给我们团队的信息?";
 			mes "你不是狗团队间谍......?";
 			mes "离我远点.";
-			emotion e_ag;
+			emotion ET_ANGER;
 			next;
 			mes "这种猫可能会打你.";
 			close;
@@ -7378,59 +7378,59 @@ malangdo,127,111,4	script	奇怪的猫#gamer	4_CAT_SAILOR4,{
 	} else if (malang_gamer < 8) {
 		mes "经理人猫在玩你给他的谷子.";
 		mes "他似乎喜欢它...";
-		emotion e_lv;
+		emotion ET_THROB;
 		close;
 	} else if (malang_gamer == 8) {
 		mes "经理人猫在玩你给他的谷子.";
 		mes "他似乎喜欢它...";
-		emotion e_lv;
+		emotion ET_THROB;
 		next;
 		switch(select("帮助?火?:哎?!:你想听到的东西?")) {
 		case 1:
 			mes "[经理猫]";   
 			mes "不要说谎?我们不使用火了?";
-			emotion e_an;
+			emotion ET_FRET;
 			next;
 			break;
 		case 2:
 			mes "经理人猫不理你,并不断与谷子打.";
-			emotion e_lv;
+			emotion ET_THROB;
 			close;
 		case 3:
 			mes "[经理猫]";   
 			mes "喵~我要告诉你一个故事?跟我喵~让谈话在那边,喵~";
-			emotion e_gg;
+			emotion ET_KIK;
 			next;
 			break;
 		}
 		mes "[ "+ strcharinfo(0)+" ]";   
 		mes "哈哈,我只是开玩笑.其实我要告诉你,猫玩家处长有一个问题...";
-		emotion e_swt2,1;
+		emotion ET_PROFUSELY_SWEAT,1;
 		next;
 		mes "你能解释一下这个故事给管理员猫.";
-		emotion e_swt2,1;
+		emotion ET_PROFUSELY_SWEAT,1;
 		next;
 		mes "[经理猫]";   
 		mes "可怕的形象......喵喵,我明白了...猫玩家董事应该感到祥和而放弃的东西.";
-		emotion e_hmm;
+		emotion ET_SCRATCH;
 		next;
 		mes "[ "+ strcharinfo(0)+" ]";   
 		mes ".........";
-		emotion e_dots,1;
+		emotion ET_THINK,1;
 		next;
 		mes "[经理猫]";   
 		mes "喵!去告诉他,喵~准备一个盒子,喵~";
 		next;
 		mes "[ "+ strcharinfo(0)+" ]";   
 		mes "一箱?";
-		emotion e_what,1;
+		emotion ET_QUESTION,1;
 		next;
 		mes "[经理猫]";   
 		mes "上访是,喵!有一些地方,人类做这样的事情,我认为这将有助于我们?";
 		next;
 		mes "[ "+ strcharinfo(0)+" ]";   
 		mes "好吧,我会去告诉它的游戏总监?";
-		emotion e_ok,1;
+		emotion ET_OK,1;
 		set malang_gamer,9;
 		erasequest 5066;
 		setquest 5067;
@@ -7468,7 +7468,7 @@ malangdo,127,111,4	script	奇怪的猫#gamer	4_CAT_SAILOR4,{
 	case 1:
 		mes "[经理猫]";   
 		mes "噢,你好喵~";
-		emotion e_heh;
+		emotion ET_SMILE;
 		close;
 	case 2:
 		switch(rand(1,7)) {
@@ -7481,7 +7481,7 @@ malangdo,127,111,4	script	奇怪的猫#gamer	4_CAT_SAILOR4,{
 			mes "嘿?>>普通";
 			mes "大声笑呵?>>快乐";
 			mes "大声笑大声笑呵?>>疯狂喵";
-			emotion e_ok;
+			emotion ET_OK;
 			close;
 		case 2:
 			mes "[经理猫]";   
@@ -7627,13 +7627,13 @@ malangdo,161,197,4	script	阿亚#gamer	4_CAT,{
 				mes "[阿亚]";   
 				mes "Arrgg.走开......";
 				mes "我不知道你说的是谁.";
-				emotion e_an;
+				emotion ET_FRET;
 				break;
 			case 2:
 				mes "[阿亚]";   
 				mes "嗯?人类杂志?";
 				mes "是否有这样的事情吗?";
-				emotion e_what;
+				emotion ET_QUESTION;
 				next;
 				mes "[ "+ strcharinfo(0)+" ]";   
 				mes "我们已经发布了10年.";
@@ -7645,7 +7645,7 @@ malangdo,161,197,4	script	阿亚#gamer	4_CAT,{
 				next;
 				mes "[阿亚]";   
 				mes "嗯...... OK.不过,我有什么可以帮忙的吗?";
-				emotion e_what;
+				emotion ET_QUESTION;
 				next;
 				mes "[ "+ strcharinfo(0)+" ]";   
 				mes "我在写一个名为'游戏玩猫'的文章的中间......";
@@ -7654,7 +7654,7 @@ malangdo,161,197,4	script	阿亚#gamer	4_CAT,{
 				next;
 				mes "[阿亚]";   
 				mes "'狗华尔兹'?";
-				emotion e_what;
+				emotion ET_QUESTION;
 				next;
 				mes "[ "+ strcharinfo(0)+" ]";   
 				mes "哦!没错!";
@@ -7665,7 +7665,7 @@ malangdo,161,197,4	script	阿亚#gamer	4_CAT,{
 				next;
 				mes "[阿亚]";   
 				mes "我不记得从'狗华尔兹'那么多的人.";
-				emotion e_dots;
+				emotion ET_THINK;
 				next;
 				mes "[ "+ strcharinfo(0)+" ]";   
 				mes "该人并不重要.";
@@ -7674,7 +7674,7 @@ malangdo,161,197,4	script	阿亚#gamer	4_CAT,{
 				mes "只需回答几个问题要问我,好吗?";
 				mes "做你自己,你会做得很好.";
 				mes "好了,第一个问题：多少钱你每天练习?";
-				emotion e_what,1;
+				emotion ET_QUESTION,1;
 				next;
 				mes "[阿亚]";   
 				mes "通常约8小时,但我要告诉你,我不上队了...";
@@ -7682,7 +7682,7 @@ malangdo,161,197,4	script	阿亚#gamer	4_CAT,{
 				mes "[ "+ strcharinfo(0)+" ]";   
 				mes "等等,什么?";
 				mes "你是不是与球队吗?怎么会......?";
-				emotion e_omg,1;
+				emotion ET_HUK,1;
 				next;
 				mes "[阿亚]";   
 				mes "嗯......";
@@ -7710,7 +7710,7 @@ malangdo,161,197,4	script	阿亚#gamer	4_CAT,{
 				mes "[阿亚]";   
 				mes "呵呵...";
 				mes "对不起,让你浪费你的时间.";
-				emotion e_sry;
+				emotion ET_SORRY;
 				next;
 				mes "[ "+ strcharinfo(0)+" ]";   
 				mes "呵呵,别担心.";
@@ -7738,7 +7738,7 @@ malangdo,161,197,4	script	阿亚#gamer	4_CAT,{
 			mes "对不起,我试图采访另一只猫...";
 			mes "回来给你按错.";
 			mes "对不起.";
-			emotion e_sry,1;
+			emotion ET_SORRY,1;
 			next;
 			mes "[阿亚]";   
 			mes "啊...我知道了.多多保重.";
@@ -7764,7 +7764,7 @@ malangdo,161,197,4	script	阿亚#gamer	4_CAT,{
 		mes "[阿亚]";   
 		mes "这是什么?你是什??么意思'"+ .@inputstr$ +"'...?";
 		mes "啊......你不是作家?";
-		emotion e_an;
+		emotion ET_FRET;
 		next;
 		mes "[ "+ strcharinfo(0)+" ]";   
 		mes "呵呵...那是谁..?";
@@ -7790,7 +7790,7 @@ malangdo,161,197,4	script	阿亚#gamer	4_CAT,{
 		} else {
 			mes "[阿亚]";   
 			mes "你不是作家?";
-			emotion e_what;
+			emotion ET_QUESTION;
 			next;
 			mes "[ "+ strcharinfo(0)+" ]";   
 			mes "呵呵...那是谁..?";
@@ -7837,7 +7837,7 @@ malangdo,230,197,4	script	炖肉#gamer	4_CAT_3COLOR,{
 			next;
 			mes "[炖肉]";   
 			mes "喵...?你是谁,喵~";
-			emotion e_what;
+			emotion ET_QUESTION;
 			next;
 			switch(select("在猫游戏玩家的经理送我.:喵~哎呀~:我与'转臂'公司.")) {
 			case 1:
@@ -7852,7 +7852,7 @@ malangdo,230,197,4	script	炖肉#gamer	4_CAT_3COLOR,{
 			case 3:
 				mes "[炖肉]";   
 				mes "'轰灿'公司,喵~";
-				emotion e_what;
+				emotion ET_QUESTION;
 				next;
 				mes "[ "+ strcharinfo(0)+" ]";   
 				mes "你不知道'轰能'的食物?";
@@ -7861,7 +7861,7 @@ malangdo,230,197,4	script	炖肉#gamer	4_CAT_3COLOR,{
 				next;
 				mes "[炖肉]";   
 				mes "是的喵~炖喜欢罐头食品很喵~";
-				emotion e_lv;
+				emotion ET_THROB;
 				next;
 				mes "[ "+ strcharinfo(0)+" ]";   
 				mes "啊!那么好.";
@@ -7886,7 +7886,7 @@ malangdo,230,197,4	script	炖肉#gamer	4_CAT_3COLOR,{
 				mes "[炖肉]";   
 				mes "狗是natually这样的?";
 				mes "你知道人类的动物?";
-				emotion e_ok;
+				emotion ET_OK;
 				next;
 				mes "[ "+ strcharinfo(0)+" ]";   
 				mes "谢谢!我受宠若惊.?";
@@ -7922,7 +7922,7 @@ malangdo,230,197,4	script	炖肉#gamer	4_CAT_3COLOR,{
 				mes "啊!我明白.";
 				mes "好吧,调查已经结束了.";
 				mes "感谢您对我们的调查为'轰灿'的公司的意见.";
-				emotion e_thx,1;
+				emotion ET_THANKS,1;
 				next;
 				mes "[炖肉]";   
 				mes "喵~你AKS什么喵~";
@@ -7931,13 +7931,13 @@ malangdo,230,197,4	script	炖肉#gamer	4_CAT_3COLOR,{
 				mes "我已经问过你的一切...";
 				mes "你不记得了?";
 				mes "共有10个问题!";
-				emotion e_what,1;
+				emotion ET_QUESTION,1;
 				next;
 				mes "[炖肉]";   
 				mes "真喵~奇怪的喵.";
 				mes "对不起喵~不记得喵.";
 				mes "它没有感觉像一个采访喵.";
-				emotion e_sry;
+				emotion ET_SORRY;
 				next;
 				mes "[ "+ strcharinfo(0)+" ]";   
 				mes "那么你做的方式比狗更好.";
@@ -7961,12 +7961,12 @@ malangdo,230,197,4	script	炖肉#gamer	4_CAT_3COLOR,{
 			mes "[炖肉]";   
 			mes "从'繁荣能否'公司不是吗?";
 			mes "另一项调查喵~";
-			emotion e_what;
+			emotion ET_QUESTION;
 			next;
 			mes "[ "+ strcharinfo(0)+" ]";   
 			mes "糟糕!我应该满足其他猫科动物.";
 			mes "我很抱歉......";
-			emotion e_sry,1;
+			emotion ET_SORRY,1;
 			next;
 			mes "[炖肉]";   
 			mes "它的确定喵~再见喵~";
@@ -7979,7 +7979,7 @@ malangdo,230,197,4	script	炖肉#gamer	4_CAT_3COLOR,{
 	} else if (checkquest(5085) == 0 || checkquest(5085) == 1) {
 		mes "[炖肉]";   
 		mes "你是谁喵~";
-		emotion e_what;
+		emotion ET_QUESTION;
 		next;
 		mes "你有什么想说的?";
 		next;
@@ -7993,7 +7993,7 @@ malangdo,230,197,4	script	炖肉#gamer	4_CAT_3COLOR,{
 		mes "[炖肉]";   
 		mes "这是什么?你是什??么意思'"+ .@inputstr$ +"'喵...";
 		mes "还有......你不是从'轰灿'公司,喵~";
-		emotion e_what;
+		emotion ET_QUESTION;
 		next;
 		mes "[ "+ strcharinfo(0)+" ]";   
 		mes "咦?那是什么?";
@@ -8066,7 +8066,7 @@ malangdo,244,144,4	script	番茄酱#gamer	4_CAT_SAILOR3,{
 			next;
 			mes "[番茄酱]";   
 			mes "喵...?你是谁?";
-			emotion e_what;
+			emotion ET_QUESTION;
 			next;
 			switch(select("哎呀?弓哇?:的游戏总监猫送我.:我是从'罐的小猫'.")) {
 			case 1:
@@ -8080,16 +8080,16 @@ malangdo,244,144,4	script	番茄酱#gamer	4_CAT_SAILOR3,{
 			case 3:
 				mes "[番茄酱]";   
 				mes "哦,是吗?'罐的小猫'?";
-				emotion e_what;
+				emotion ET_QUESTION;
 				next;
 				mes "[ "+ strcharinfo(0)+" ]";   
 				mes "我想与大家分享一些我们的理念.";
 				mes "你相信在给别人呢?";
-				emotion e_what,1;
+				emotion ET_QUESTION,1;
 				next;
 				mes "[番茄酱]";   
 				mes "嗯我猜是这样......";
-				emotion e_slur;
+				emotion ET_SEXY;
 				next;
 				mes "[ "+ strcharinfo(0)+" ]";   
 				mes "'罐小猫'是一种宗教,包括所有的猫科动物.";
@@ -8119,16 +8119,16 @@ malangdo,244,144,4	script	番茄酱#gamer	4_CAT_SAILOR3,{
 				mes "[番茄酱]";   
 				mes "对不起.真的很抱歉.";
 				mes "请原谅我罐主.";
-				emotion e_sob;
+				emotion ET_CRY;
 				next;
 				mes "[番茄酱]";   
 				mes "该董事猫是太吓人了?!";
 				mes "我说了这么多不好的事情,当我离开的猫游戏玩家...";
 				mes "请原谅.";
-				emotion e_sob;
+				emotion ET_CRY;
 				next;
-				emotion e_dots;
-				emotion e_dots,1;
+				emotion ET_THINK;
+				emotion ET_THINK,1;
 				next;
 				mes "[ "+ strcharinfo(0)+" ]";   
 				mes "罐的主宽恕番茄酱的罪.";
@@ -8148,7 +8148,7 @@ malangdo,244,144,4	script	番茄酱#gamer	4_CAT_SAILOR3,{
 		} else if (checkquest(5064) == 2) {
 			mes "[番茄酱]";   
 			mes "你是...";
-			emotion e_omg;
+			emotion ET_HUK;
 			next;
 			mes "番茄酱给你一个歉意的外观和逃跑.";
 			mes "他大概做了坏事了.";
@@ -8161,7 +8161,7 @@ malangdo,244,144,4	script	番茄酱#gamer	4_CAT_SAILOR3,{
 	} else if (checkquest(5087) == 0 || checkquest(5087) == 1) {
 		mes "[番茄酱]";   
 		mes "你是谁?";
-		emotion e_what;
+		emotion ET_QUESTION;
 		next;
 		mes "你有什么想说的?";
 		next;
@@ -8172,8 +8172,8 @@ malangdo,244,144,4	script	番茄酱#gamer	4_CAT_SAILOR3,{
 			mes "[番茄酱]";   
 			mes "这是什么?你说的'回来'的意思是......?";
 			mes "可以......'罐的小猫'?";
-			emotion e_omg;
-			emotion e_what;
+			emotion ET_HUK;
+			emotion ET_QUESTION;
 			next;
 			mes "番茄酱认可你跑掉了.";
 			mes "你发出的信息.";
@@ -8182,7 +8182,7 @@ malangdo,244,144,4	script	番茄酱#gamer	4_CAT_SAILOR3,{
 			mes "[番茄酱]";   
 			mes "这是什么?你是什??么意思'"+.@inputstr$+"'...?";
 			mes "可以......'罐的小猫'?";
-			emotion e_omg;
+			emotion ET_HUK;
 			next;
 			mes "[ "+ strcharinfo(0)+" ]";   
 			mes "咦?那是什么?";
@@ -8194,7 +8194,7 @@ malangdo,244,144,4	script	番茄酱#gamer	4_CAT_SAILOR3,{
 	} else if (checkquest(5088) == 0 || checkquest(5088) == 1) {
 		mes "[番茄酱]";   
 		mes "可以......'罐的小猫'?";
-		emotion e_omg;
+		emotion ET_HUK;
 		next;
 		mes "番茄酱跑了一次.";
 		close2;
@@ -8255,14 +8255,14 @@ malangdo,181,119,7	script	伊夫#gamer	4_CAT_ADV2,{
 			next;
 			mes "[伊夫]";   
 			mes "你是谁喵~";
-			emotion e_what;
+			emotion ET_QUESTION;
 			next;
 			switch(select("我有一些很好的投资消息...:A. ..猫?:的'猫游戏玩家的导演给我发...")) {
 			case 1:
 				mes "[伊夫]";   
 				mes "投资资讯?喵~?";
 				mes "那是什么?喵~?";
-				emotion e_what;
+				emotion ET_QUESTION;
 				next;
 				mes "[ "+ strcharinfo(0)+" ]";   
 				mes "有兴趣的,是吧?";
@@ -8272,7 +8272,7 @@ malangdo,181,119,7	script	伊夫#gamer	4_CAT_ADV2,{
 				mes "[ "+ strcharinfo(0)+" ]";   
 				mes "哈哈!你今天是幸运的.";
 				mes "你听说过没有土地可以是一个很好的投资,对不对?";
-				emotion e_what,1;
+				emotion ET_QUESTION,1;
 				next;
 				mes "[伊夫]";   
 				mes "哦,哦?我也这么认为.喵~";
@@ -8282,7 +8282,7 @@ malangdo,181,119,7	script	伊夫#gamer	4_CAT_ADV2,{
 				next;
 				mes "[伊夫]";   
 				mes "普隆德拉喵~是的,我知道.喵~";
-				emotion e_heh;
+				emotion ET_SMILE;
 				next;
 				mes "[ "+ strcharinfo(0)+" ]";   
 				mes "还有一些地点,";
@@ -8295,7 +8295,7 @@ malangdo,181,119,7	script	伊夫#gamer	4_CAT_ADV2,{
 				mes "嗯,这是最高机密.";
 				mes "一些不能在所有被发现...";
 				mes "你真的能保守这个秘密......?";
-				emotion e_what,1;
+				emotion ET_QUESTION,1;
 				next;
 				mes "[伊夫]";   
 				mes "嗯......我一直称为是一个好门将的秘密喵.";
@@ -8307,7 +8307,7 @@ malangdo,181,119,7	script	伊夫#gamer	4_CAT_ADV2,{
 				next;
 				mes "[伊夫]";   
 				mes "我得到了它.喵~";
-				emotion e_ok;
+				emotion ET_OK;
 				next;
 				mes "[ "+ strcharinfo(0)+" ]";   
 				mes "嗯,我听说有一个在朱诺一个位置,地下大款将投资约10,000,000,000金币.";
@@ -8326,17 +8326,17 @@ malangdo,181,119,7	script	伊夫#gamer	4_CAT_ADV2,{
 				next;
 				mes "[伊夫]";   
 				mes "活泉!100罐?喵~";
-				emotion e_omg;
+				emotion ET_HUK;
 				next;
 				mes "[ "+ strcharinfo(0)+" ]";   
 				mes "那么,有多少罐,你想投资?";
 				mes "你会是部分业主因此要确保投资可以承受的最大.";
-				emotion e_what,1;
+				emotion ET_QUESTION,1;
 				next;
 				mes "[伊夫]";   
 				mes "我想投资.";
 				mes "但是,我没有易拉罐和我在一起.喵~";
-				emotion e_sob;
+				emotion ET_CRY;
 				next;
 				mes "[ "+ strcharinfo(0)+" ]";   
 				mes "你总是可以得到的贷款!";
@@ -8356,7 +8356,7 @@ malangdo,181,119,7	script	伊夫#gamer	4_CAT_ADV2,{
 				next;
 				mes "[ "+ strcharinfo(0)+" ]";   
 				mes "什么!为什么你会放弃这么好的演出!你疯了?";
-				emotion e_omg,1;
+				emotion ET_HUK,1;
 				next;
 				mes "[ "+ strcharinfo(0)+" ]";   
 				mes "比方说,我们获得了贷款后投资1,000罐.";
@@ -8580,18 +8580,18 @@ mal_in01,91,216,4	script	瑟尔#gamer	4_CAT_SAILOR1,{
 		next;
 		mes "[瑟尔]";   
 		mes "剪刀击败纸,";
-		emotion e_scissors;
-		emotion e_paper,1;
+		emotion ET_SCISSOR;
+		emotion ET_WRAP,1;
 		next;
 		mes "[瑟尔]";   
 		mes "纸跳动摇滚,";
-		emotion e_paper;
-		emotion e_rock,1;
+		emotion ET_WRAP;
+		emotion ET_ROCK,1;
 		next;
 		mes "[瑟尔]";   
 		mes "和摇滚节拍剪刀.";
-		emotion e_rock;
-		emotion e_scissors,1;
+		emotion ET_ROCK;
+		emotion ET_SCISSOR,1;
 		next;
 		mes "[瑟尔]";   
 		mes "好吧?明白了吗?";
@@ -8608,7 +8608,7 @@ mal_in01,91,216,4	script	瑟尔#gamer	4_CAT_SAILOR1,{
 		close;
 	}
 	setarray .@rps$[0], "石头", "布", "剪刀";
-	setarray .@emote[0], e_rock, e_paper, e_scissors;
+	setarray .@emote[0], ET_ROCK, ET_WRAP, ET_SCISSOR;
 	setarray .@count$[0],"第一次","第二次","第三次","第四次","最后一次";
 	while(1) {
 		mes "[瑟尔]";   
@@ -8940,7 +8940,7 @@ mal_in01,86,222,4	script	帕阿#gamer	4_CAT_SAILOR1,{
 		close;
 	}
 	setarray .@rps$[0], "石头", "布", "剪刀";
-	setarray .@emote[0], e_rock, e_paper, e_scissors;
+	setarray .@emote[0], ET_ROCK, ET_WRAP, ET_SCISSOR;
 	setarray .@count$[0],"第一次","第二次","第三次","第四次","最后一次";
 	while(1) {
 		mes "[帕阿]";   
@@ -9630,18 +9630,18 @@ mal_in01,134,221,4	script	宽宽#gamer	4_M_BABYCAT,{
 		next;
 		mes "[宽宽 & "+strcharinfo(0)+"]";
 		mes "Kong!";
-		emotion e_loud,1;
-		emotion e_loud;
+		emotion ET_BLABLA, playerattached();
+		emotion ET_BLABLA;
 		next;
 		mes "[宽宽 & "+strcharinfo(0)+"]";
 		mes "Kong! Nyang!";
-		emotion e_loud,1;
-		emotion e_loud;
+		emotion ET_BLABLA, playerattached();
+		emotion ET_BLABLA;
 		next;
 		mes "[宽宽 & "+strcharinfo(0)+"]";
 		mes "Kong! Nyang! Kong!";
-		emotion e_loud,1;
-		emotion e_loud;
+		emotion ET_BLABLA, playerattached();
+		emotion ET_BLABLA;
 		next;
 		set .@cat_hand, rand(1,10);
 		switch(.@attack_turn) {
@@ -9747,7 +9747,7 @@ mal_in01,134,221,4	script	宽宽#gamer	4_M_BABYCAT,{
 		cutin "cat_g_lose",4;
 		mes "[宽宽]";   
 		mes "抽泣......";
-		emotion e_sob;
+		emotion ET_CRY;
 		next;
 		cutin "",255;
 		mes "[宽宽]";   
@@ -10023,7 +10023,7 @@ mal_in01,133,214,6	script	Leader#gamer	4_CAT_SAILOR3,{
 
 	// Emotions displayed when cats' flags not waved.
 	setarray .@cat_emote[1],
-		e_ho,e_no,e_an,e_no1,e_spin;
+		ET_DELIGHT,ET_STARE_ABOUT,ET_FRET,ET_BEST,ET_CONFUSE;
 
 	// .@cat_action[] when cats' flags are not waved.
 	setarray .@cat_emotes$[1],
@@ -10129,15 +10129,15 @@ mal_in01,133,214,6	script	Leader#gamer	4_CAT_SAILOR3,{
 		set .@rounds_nowave, .@rounds_nowave+1;
 		if (.@you_flag == 1) {
 			set .@you_flag$, "你挥舞着旗子";
-			set .@emotion[0], e_korea;
+			set .@emotion[0], ET_FLAG;
 		} else {
 			set .@you_flag$, "你没有挥舞着旗子";
-			set .@emotion[0], e_swt2;
+			set .@emotion[0], ET_PROFUSELY_SWEAT;
 		}
 		for(set .@i,1; .@i<=5; set .@i,.@i+1) {
 			if (.@flag_point_cat[.@i] == 0) {
 				set .@cat_flag$[.@i], "没有足够的旗点,不能挥动";
-				set .@emotion[.@i], e_ho;
+				set .@emotion[.@i], ET_DELIGHT;
 			} else {
 				if (compare(.@cat_emotes$[.@i],""+.@cat_action[.@i])) {
 					set .@cat_flag$[.@i], "不能挥动";
@@ -10146,7 +10146,7 @@ mal_in01,133,214,6	script	Leader#gamer	4_CAT_SAILOR3,{
 					set .@cat_flag$[.@i], "挥动了";
 					set .@flag_point_cat[.@i], .@flag_point_cat[.@i]-1;
 					set .@cat_flags_waved, .@cat_flags_waved+1;
-					set .@emotion[.@i], e_korea;
+					set .@emotion[.@i], ET_FLAG;
 				}
 			}
 		}
@@ -10164,7 +10164,7 @@ mal_in01,133,214,6	script	Leader#gamer	4_CAT_SAILOR3,{
 			mes "~ "+.@cat_name$[.@i]+.@cat_desc$[.@i]+" ~";
 			mes "^FF0000"+.@cat_flag$[.@i]+"^000000 对游戏的旗帜 ^C1653E"+.@round+"^000000.";
 			mes .@flag_point_cat[.@i]+" 旗点剩余的 "+.@cat_name$[.@i]+".";
-			emotion .@emotion[.@i],0,.@npc_name$[.@i];
+			emotion .@emotion[.@i], getnpcid(0, .@npc_name$[.@i]);
 			next;
 		}
 		if (.@you_flag == 1) {
@@ -10298,7 +10298,7 @@ mal_in01,136,216,2	script	静致#gamer	4_CAT_DOWN,{
 		next;
 		mes "[静致]";   
 		mes "嘿,你为什么不看看周围?谁知道?也许我们可以找到一个美味的罐头?";
-		emotion e_no;
+		emotion ET_STARE_ABOUT;
 		next;
 		mes "[静致]";   
 		mes "然后,你可以给我一个.呵呵?";
@@ -10306,7 +10306,7 @@ mal_in01,136,216,2	script	静致#gamer	4_CAT_DOWN,{
 	} else {
 		mes "[静致]";   
 		mes "我饿了?任何剩余的罐头吗?";
-		emotion e_no;
+		emotion ET_STARE_ABOUT;
 		close;
 	}
 	end;
@@ -10325,7 +10325,7 @@ mal_in01,136,215,2	script	罗瓦#gamer	4_CAT_ADV1,{
 		next;
 		mes "[罗瓦]";   
 		mes "但是,你知道你永远无法打败我,伟大的行.";
-		emotion e_gg;
+		emotion ET_KIK;
 		close;
 	} else {
 		mes "[罗瓦]";   
@@ -10346,7 +10346,7 @@ mal_in01,136,214,2	script	德波#gamer	4_CAT,{
 		next;
 		mes "[德波]";   
 		mes "来到这里,你,喵.我来接你的头发喵.";
-		emotion e_lv;
+		emotion ET_THROB;
 		close;
 	} else {
 		mes "猫是捡你的头发.";
@@ -10359,7 +10359,7 @@ mal_in01,136,213,2	script	利布斯#gamer	4_M_BOSSCAT,{
 	if (malang_gamer == 20) {
 		mes "[利布斯]";   
 		mes "Arrgg!我为什么要在这里玩这个愚蠢的国旗挥舞着游戏?";
-		emotion e_an;
+		emotion ET_FRET;
 		next;
 		mes "[利布斯]";   
 		mes "嘿你.你怎么看?我知道你已经听我!";
@@ -10369,11 +10369,11 @@ mal_in01,136,213,2	script	利布斯#gamer	4_M_BOSSCAT,{
 		next;
 		mes "[利布斯]";   
 		mes "好吧,我相信你不会有一个线索,为什么发生这种情况.我原谅你.";
-		emotion e_ok;
+		emotion ET_OK;
 		next;
 		mes "[利布斯]";   
 		mes "试问一个人的理解猫的压倒性心脏.";
-		emotion e_pif;
+		emotion ET_HNG;
 		close;
 	} else {
 		mes "[利布斯]";   
@@ -10390,19 +10390,19 @@ mal_in01,136,212,2	script	勇勇#gamer	4_CAT_REST,{
 	if (malang_gamer == 20) {
 		mes "[勇勇]";   
 		mes "喵~我很恼火喵~";
-		emotion e_an;
+		emotion ET_FRET;
 		next;
 		mes "[勇勇]";   
 		mes "恼人的喵~";
-		emotion e_an;
+		emotion ET_FRET;
 		next;
 		mes "[勇勇]";   
 		mes "你讨厌喵~";
-		emotion e_an;
+		emotion ET_FRET;
 		next;
 		mes "[勇勇]";   
 		mes "你是什??么,一只狗?喵~!";
-		emotion e_an;
+		emotion ET_FRET;
 		specialeffect EF_SONICBLOW2;
 		next;
 		mes "[勇勇]";   
@@ -10668,6 +10668,7 @@ mal_in01,15,16,3	script	堕落天使#mal	403,{
 		}
 		specialeffect2 EF_REPAIRWEAPON;
 		progressbar "ffff00",2;
+		setarray .@equip_card[0], getequipcardid(EQI_GARMENT,0),getequipcardid(EQI_GARMENT,1),getequipcardid(EQI_GARMENT,2),getequipcardid(EQI_GARMENT,3);
 		if (getequipisequiped(EQI_GARMENT) == 0) {
 			mes "[堕落天使]";
 			mes "您没有装备天使之翼!";
@@ -10683,13 +10684,12 @@ mal_in01,15,16,3	script	堕落天使#mal	403,{
 			mes "如果您支付不了,我就不能为您服务!";
 			close;
 		}
-		if (getequipcardid(EQI_GARMENT,3) < 4700) { // Armor Enchant System
+		if (callfunc("F_IsCharm",.@equip_card[3]) == false) {
 			mes "[堕落天使]";
 			mes "该装备还没有附魔,请检查一遍!";
 			close;
 		}
 		set .@equip_refine, getequiprefinerycnt(EQI_GARMENT);
-		setarray .@equip_card[0], getequipcardid(EQI_GARMENT,0),getequipcardid(EQI_GARMENT,1),getequipcardid(EQI_GARMENT,2);
 		delitem 6417,3; //Silvervine
 		delequip EQI_GARMENT;
 		getitem2 2573,1,1,.@equip_refine,0,.@equip_card[0],.@equip_card[1],.@equip_card[2],0; //Archangel_Wing

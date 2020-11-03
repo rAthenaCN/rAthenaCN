@@ -257,7 +257,7 @@ prt_in,26,73,3	script	恶魔附魔大师#prq	1_M_SMITH,{
 			mes "你的钱不够重置附魔!!";
 			close;
 		}
-		if (.@equip_card[3] < 4700) { // Armor Enchant System
+		if (callfunc("F_IsCharm",.@equip_card[3]) == false) {
 			mes "这把武器没有附魔过!";
 			close;
 		}

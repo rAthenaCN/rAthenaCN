@@ -73,6 +73,7 @@
 //----------------------------------------------------------------------------
 // GVG
 //----------------------------------------------------------------------------
+605,4		// Anodyne
 12218,4		// Assumptio_5_Scroll
 14529,4		// Greed_Scroll
 14590,4		// Pty_Assumptio_Scroll
@@ -125,6 +126,7 @@
 13416,16	// Krieger_Onehand_Sword1
 13417,16	// Krieger_Onehand_Sword2
 13418,16	// Krieger_Onehand_Sword3
+28918,16	// Shield_of_Chaos
 
 // Vellum Gear
 1293,16		// Velum_Jamadhar

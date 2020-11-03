@@ -284,7 +284,7 @@ prontera,248,212,3	script	看似忙碌的 少年#prt	4_M_KID1,3,3,{
 				else {
 					mes "阿姨!";
 				}
-				emotion e_gasp;
+				emotion ET_SURPRISE;
 			}
 			else {
 				mes "[看似忙碌的 少年]";
@@ -304,23 +304,23 @@ prontera,248,212,3	script	看似忙碌的 少年#prt	4_M_KID1,3,3,{
 			mes "^3355FF-你把堆叠在少年旁边的书用脚踢开!-^000000";
 			next;
 			specialeffect EF_HITDARK;
-			emotion e_omg;
+			emotion ET_HUK;
 			mes "^3355FF- ! ! ! 砰 ! ! ! -^000000";
 			next;
-			emotion e_omg;
+			emotion ET_HUK;
 			mes "[看似忙碌的 少年]";
 			mes "妈呀! 你这是干什么啦!!我好不容易叠好的!";
 			next;
 			mes "["+strcharinfo(0)+"]";
 			mes "弟弟没关系吗?小心, 没有受伤吗?来, ";
 			mes "我已把掉落的书 都捡好了, 下次要小心一点喔~";
-			emotion e_lv,1;
+			emotion ET_THROB,1;
 			next;
 			mes "[看似忙碌的 少年]";
 			mes "...";
 			mes "......";
 			mes ".........";
-			emotion e_dots;
+			emotion ET_THINK;
 			next;
 			mes "[看似忙碌的 少年]";
 			mes "噗.....啊哈哈哈哈哈哈哈!!";
@@ -336,11 +336,11 @@ prontera,248,212,3	script	看似忙碌的 少年#prt	4_M_KID1,3,3,{
 			next;
 			mes "[看似忙碌的 少年]";
 			mes "其实我, 只要一搭上飞空艇就会严重晕机....";
-			emotion e_dots;
+			emotion ET_THINK;
 			next;
 			mes "[看似忙碌的 少年]";
 			mes "呜, 应该要事先确认送货的地址, 实在很狼狈!!所以我想…对你也许很不好意思, 但可以替我把这些书送过去吗?";
-			emotion e_sob;
+			emotion ET_CRY;
 			next;
 			mes "[看似忙碌的 少年]";
 			mes "一向标榜着以信用第一, 迅速送达为座右铭的我, 已经耽误太久时间了, 我只要一想到委托人正等着这些书的话...呜呜.......";
@@ -348,19 +348,19 @@ prontera,248,212,3	script	看似忙碌的 少年#prt	4_M_KID1,3,3,{
 			callsub S_GetBooks;
 			mes "[看似忙碌的 少年]";
 			mes "拜托你帮帮我啦!";
-			emotion e_sob;
+			emotion ET_CRY;
 			set prt_curse,2;
 			close;
 		}
 		else if (prt_curse == 2) {
 			mes "[看似忙碌的 少年]";
 			mes "啊, 你好吗, 果然.. 因为我太害怕了, 所以不敢踏进朱诺一步, 只要一想起飞空艇肚子就...呕呕, ";
-			emotion e_dots;
+			emotion ET_THINK;
 			next;
 			callsub S_GetBooks;
 			mes "[看似忙碌的 少年]";
 			mes "";
-			emotion e_sob;
+			emotion ET_CRY;
 			close;
 		}
 		else if (prt_curse == 3) {
@@ -385,7 +385,7 @@ OnTouch:
 			next;
 			mes "[看似忙碌的 少年]";
 			mes "唉呀呀呀-你走路看哪里啊!";
-			emotion e_ag;
+			emotion ET_ANGER;
 			next;
 			mes "["+strcharinfo(0)+"]";
 			mes "啊, 很抱歉, 你没受伤吗?";
@@ -412,11 +412,11 @@ OnTouch:
 			next;
 			mes "[看似忙碌的 少年]";
 			mes "这些书也是受到委托后, 向普隆德拉图书馆借书的, 现在要把这些书送到朱诺去...";
-			emotion e_dots;
+			emotion ET_THINK;
 			next;
 			mes "[看似忙碌的 少年]";
 			mes "其实我, 只要一搭上飞空艇就会严重晕机....";
-			emotion e_sob;
+			emotion ET_CRY;
 			next;
 			mes "[看似忙碌的 少年]";
 			mes "呜, 应该要事先确认送货的地址, 实在很狼狈!!所以我想…对你也许很不好意思, 但可以替我把这些书送过去吗?";
@@ -427,7 +427,7 @@ OnTouch:
 			next;
 			mes "[看似忙碌的 少年]";
 			mes "拜托你帮帮我啦!";
-			emotion e_sob;
+			emotion ET_CRY;
 			set prt_curse,2;
 			close;
 		}
@@ -497,7 +497,7 @@ yuno,311,195,3	script	历史学家#prt01	4_M_SAGE_A,{
 		next;
 		mes "[历史学家]";
 		mes "咳呜呜呜呜呜呜呜呜!!!";
-		emotion e_ag;
+		emotion ET_ANGER;
 		next;
 		select("请问是什么事情呢?");
 		mes "[历史学家]";
@@ -517,7 +517,7 @@ yuno,311,195,3	script	历史学家#prt01	4_M_SAGE_A,{
 		}
 		else {
 			select("我把资料都带来了");
-			emotion e_what;
+			emotion ET_QUESTION;
 			mes "[历史学家]";
 			mes "哦? 是吗? 你人是到了, ";
 			mes "请问你书在哪里呢?";
@@ -610,7 +610,7 @@ yuno,311,195,3	script	历史学家#prt01	4_M_SAGE_A,{
 		mes "[历史学家]";
 		mes "如何? 你不觉得有趣吗?";
 		next;
-		emotion e_swt2;
+		emotion ET_PROFUSELY_SWEAT;
 		mes "[历史学家]";
 		mes "- 卡罗莫夫似乎想观察你的反应, 再三地端相你的表情 -";
 		next;
@@ -705,7 +705,7 @@ morocc_in,45,126,3	script	历史学家#prt02	4_F_GON,{
 		}
 		mes "[历史学家 罗妲普莉燕]";
 		mes "这个国家到底为什么如此炎热呢!!像白玉般白皙的我皮肤, 却渐渐变得粗糙不堪啊?";
-		emotion e_sob;
+		emotion ET_CRY;
 		next;
 		mes "[历史学家 罗妲普莉燕]";
 		mes "不过任意进入房间无礼的你又是谁呢?";
@@ -866,11 +866,11 @@ morocc_in,45,126,3	script	历史学家#prt02	4_F_GON,{
 		next;
 		if (select("询问有关凯渥宝乐格家的诅咒:不问她") == 1) {
 			mes "-你把至今所经历的事情向她说明-";
-			emotion e_ic;
+			emotion ET_AHA;
 			next;
 			mes "[历史学家 罗妲普莉燕]";
 			mes ".....................!";
-			emotion e_gasp;
+			emotion ET_SURPRISE;
 			next;
 			mes "[历史学家 罗妲普莉燕]";
 			mes "你竟然告诉我如此重要的情报..非常感谢你";
@@ -947,14 +947,14 @@ morocc_in,45,126,3	script	历史学家#prt02	4_F_GON,{
 		close;
 	}
 	else if (prt_curse == 56) {
-		emotion e_an;
+		emotion ET_FRET;
 		mes "[历史学家 罗妲普莉燕]";
 		mes "我难得去找了卡罗莫夫先生, 想说捉弄他一下, ";
 		mes "我却反被戏称为 '罗达蛙'呢!!!啊呜~ 真气人!!!";
 		close;
 	}
 	else if (prt_curse == 60) {
-		emotion e_an;
+		emotion ET_FRET;
 		mes "[历史学家 罗妲普莉燕]";
 		mes "我难得去找了卡罗莫夫先生, 想说捉弄他一下, ";
 		mes "我却反被戏称为 '罗达蛙'呢!!!啊呜~ 真气人!!!";
@@ -1466,14 +1466,14 @@ mjolnir_01,316,268,3	script	表情累垮的 女性	4_F_CAPEGIRL,{
 		next;
 		mes "[宝妮 茵培莉亚]";
 		mes "有关诅咒...应该是有提到我吧";
-		emotion e_dots;
+		emotion ET_THINK;
 		next;
 		mes "[宝妮 茵培莉亚]";
 		mes "-你默默地点了头-";
 		next;
 		mes "[宝妮 茵培莉亚]";
 		mes "自从驱魔仪式失败后, 王子就马上失去意识.. 结果过世了";
-		emotion e_gasp,1;
+		emotion ET_SURPRISE,1;
 		next;
 		mes "[宝妮 茵培莉亚]";
 		mes "虽然我罪该万死, 但受到祖先和奥丁神的同情后, 得以死里逃生继续这样活下去";
@@ -1501,7 +1501,7 @@ mjolnir_01,316,268,3	script	表情累垮的 女性	4_F_CAPEGIRL,{
 		next;
 		mes "[宝妮 茵培莉亚]";
 		mes "不过当驱魔仪式失败引起一阵骚动后, 听说有一个丫环整理祭坛时发现了因反作用而破碎的红色魔力矿石的碎片";
-		emotion e_gasp,1;
+		emotion ET_SURPRISE,1;
 		next;
 		mes "[宝妮 茵培莉亚]";
 		mes "我是想再深入了解, 只是那是我已经被开除之后的事...";
@@ -1676,7 +1676,7 @@ prt_church,185,106,3	script	 祭司 班波	1_M_PASTOR,{
 		next;
 		mes "["+strcharinfo(0)+"]";
 		mes "................!!!!!!";
-		emotion e_omg,1;
+		emotion ET_HUK,1;
 		next;
 		mes "["+strcharinfo(0)+"]";
 		mes "那表示说至今有许多王子, 受到诅咒而死亡了吗?";
@@ -1729,7 +1729,7 @@ prt_church,185,106,3	script	 祭司 班波	1_M_PASTOR,{
 		next;
 		mes "[祭司 班波]";
 		mes "谈话有些过长了, 我真正想说的是从现在开始";
-		emotion e_dots;
+		emotion ET_THINK;
 		set prt_curse,15;
 		close;
 	}
@@ -1739,7 +1739,7 @@ prt_church,185,106,3	script	 祭司 班波	1_M_PASTOR,{
 		next;
 		mes "[祭司 班波]";
 		mes "就好像是被巨蛇强烈的捆住身体一样, 出现缠过身体的蛇鳞纹路就是证据";
-		emotion e_gasp,1;
+		emotion ET_SURPRISE,1;
 		next;
 		mes "["+strcharinfo(0)+"]";
 		mes "蛇鳞!和以建国神话为基础的传统童谣的内容非常吻合!";
@@ -2288,7 +2288,7 @@ prt_church,21,111,5	script	#prince2	4_M_LIEMAN,{
 		mes "["+strcharinfo(0)+"]";
 		mes "第二位王子?";
 		mes "我这样一看原来这里有3具遗体, 怎么回事呢? 因诅咒而死的不是第一位和第二位王子不是吗? 难道还有其它牺牲者吗?";
-		emotion e_omg,1;
+		emotion ET_HUK,1;
 		next;
 		mes "[祭司 班波]";
 		mes "我不是说的很清楚嘛, 一直以来都只有第一位王子死亡";
@@ -2298,7 +2298,7 @@ prt_church,21,111,5	script	#prince2	4_M_LIEMAN,{
 		next;
 		mes "[祭司 班波]";
 		mes "只是, 经过这次的驱魔仪式之后, 结果不幸的酿成三位王子的死亡";
-		emotion e_omg,1;
+		emotion ET_HUK,1;
 		next;
 		mes "[祭司 班波]";
 		mes "因此原因, 高层之间流传着奥丁神遗弃了卢恩--米德加兹王国, 这种不安的气息迅速地蔓延开来";

@@ -196,7 +196,7 @@ airplane,100,69,3	script	机组员#ein-1	852,{
 }
 
 airplane,64,94,1	script	汶巴拉孩童#ein_p	787,{
-	emotion e_swt2;
+	emotion ET_PROFUSELY_SWEAT;
 	mes "[孩童]";
 	if (event_umbala >= 3) {
 		mes "哇哦,麻麻!";
@@ -214,7 +214,7 @@ airplane,64,94,1	script	汶巴拉孩童#ein_p	787,{
 }
 
 airplane,66,93,3	script	汶巴拉女子#ein_p	783,{
-	emotion e_dots;
+	emotion ET_THINK;
 	mes "[女士]";
 	if (event_umbala >= 3) {
 		mes "嘘,嘘...";
@@ -237,7 +237,7 @@ airplane,71,91,7	script	汶巴拉男子#ein_p	789,{
 		mes "看你的表情我就知道你懂我在说什么了";
 		mes "^333333*呼呼...!*^000000";
 		next;
-		emotion e_pif;
+		emotion ET_HNG;
 		mes "[科米廉姆]";
 		mes "我在为飞空艇事业做一番贡献呢.";
 		mes "帮助机组员在汶巴拉做训练以克服他们的恐高症.";
@@ -257,7 +257,7 @@ airplane,71,91,7	script	汶巴拉男子#ein_p	789,{
 		mes "...";
 		mes "......";
 		next;
-		emotion e_pif;
+		emotion ET_HNG;
 		mes "[科米廉姆]";
 		mes "沙巴 木欧 巴佳马";
 		mes "飞艇 库拉哈 钩钩纳";
@@ -349,7 +349,7 @@ airplane,221,158,2	script	飞行员#airplane	852,{
 		mes "[飞行员]";
 		mes "但是!醉酒驾机是不可以的.";
 		mes "但是!那只会让我更加想喝酒!";
-		emotion e_sob;
+		emotion ET_CRY;
 		next;
 		select("请问你认识一位名叫西雅提的乘客吗?");
 		mes "[飞行员]";
@@ -363,7 +363,7 @@ airplane,221,158,2	script	飞行员#airplane	852,{
 		mes "船长是头驯鹿.";
 		mes "^FFFFFF ^000000 我只能看看那些装运工来着.";
 		next;
-		emotion e_omg;
+		emotion ET_HUK;
 		mes "[飞行员]";
 		mes "哇!?那是谁?";
 		next;
@@ -382,7 +382,7 @@ airplane,221,158,2	script	飞行员#airplane	852,{
 		mes "我还是记不大清楚上次放假或者有天休息是什么时候的事了.";
 		mes "烈酒几瓶,薯条几包,电视看看,";
 		mes "这就是我想像的完美休息方式.";
-		emotion e_sob;
+		emotion ET_CRY;
 		close;
 	case 2:
 		mes "[飞行员]";
@@ -408,7 +408,7 @@ airplane,221,158,2	script	飞行员#airplane	852,{
 		mes "你知道在天上这样子飞是最新科技产物的.";
 		mes "他们匆匆忙忙赶出来这个飞艇.";
 		next;
-		emotion e_omg;
+		emotion ET_HUK;
 		mes "[飞行员]";
 		mes "但他们还是真的很用心在做的,真的提前思考了很多东西.";
 		mes "他们在飞空艇还在研发的时候,就开始训练我们了.";
@@ -884,7 +884,7 @@ airplane_01,221,158,2	script	飞行员#airplane_01	852,{
 		mes "我们的船长 '是' 一头麋鹿啊..";
 		mes "我连装运工什么样子都很好奇呢.";
 		next;
-		emotion e_omg;
+		emotion ET_HUK;
 		mes "[飞行员]";
 		mes "哦...! 啊哈哈啊哈哈! 那边的!";
 		mes "你的旅-旅-旅途还好吧?!";
@@ -901,7 +901,7 @@ airplane_01,83,61,2	script	戴安妮#01airplane_01	72,2,2,{
 	close;
 
 OnTouch:
-	emotion e_sob;
+	emotion ET_CRY;
 	end;
 }
 
