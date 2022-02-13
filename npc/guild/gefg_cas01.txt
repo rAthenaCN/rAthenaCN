@@ -1,19 +1,11 @@
-//============================================================
-//= rAthenaCN [公会战GVG]汉化脚本 [ www.rAthenaCN.com ]
-//============================================================
-//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
-
 //===== rAthena Script =======================================
-//= War of Emperium (Geffen)
+//= War of Emperium (Geffen) - Repherion
 //===== By: ==================================================
 //= L0ne_W0lf
 //===== Current Version: =====================================
 //= 1.2
 //===== Compatible With: =====================================
-//= rAthena SVN
+//= rAthena Project
 //===== Description: =========================================
 //= NPCs that relate to Geffen Guild Castle 1
 //===== Additional Comments: =================================
@@ -24,30 +16,30 @@
 
 // Guild Flag (Outside Castle)
 //============================================================
--	script	雷普立温#1::OutsideFlagsG1	722,{
+-	script	Repherion#1::OutsideFlagsG1	722,{
 
 	set .@GID, GetCastleData("gefg_cas01",1);
 
 	if (.@GID == 0) {
-		mes "[ 神圣卢恩·米德加兹王国法令 ]";
+		mes "[ Edict of the Divine Rune-Midgarts Kingdom ]";
 		mes " ";
-		mes "1. 遵循神圣卢恩·米德加兹王国法令, ";
-		mes "我们正式声明";
-		mes "此城堡没有正式拥有者.";
+		mes "1. Follow the ordinance of The Divine Rune-Midgarts Kingdom, ";
+		mes "We declare that";
+		mes "there is no formal master of this castle.";
 		mes " ";
-		mes "2. 经过所有试炼,";
-		mes "并且击碎华丽金属的勇士.";
-		mes "将会得到国王殿下的诏书";
-		mes "被授予该城堡拥有权.";
-		mes "并一同守护卢恩·米德加兹王国!";
+		mes "2. To the one who can ";
+		mes "overcome all trials";
+		mes "and destroy the Emperium,";
+		mes "the king will endow the one with";
+		mes "ownership of this castle.";
 		close;
 	}
 	if (getcharid(2) == .@GID) {
-		mes "[ 回声 ]";
-		mes "勇士们...";
-		mes "想要回到你们的荣耀之地吗?";
+		mes "[ Echoing Voice ]";
+		mes "Brave ones...";
+		mes "Do you wish to return to your honorable place?";
 		next;
-		if(select("返回公会城堡.:取消.") == 1) {
+		if(select("Return to the guild castle.:Quit.") == 1) {
 			close2;
 			if (getcharid(2) == GetCastleData("gefg_cas01",1)) {
 				warp "gefg_cas01",197,36;
@@ -57,16 +49,16 @@
 		}
 		close;
 	}
-	mes "[ 神圣卢恩·米德加兹王国法令 ]";
+	mes "[ Edict of the Divine Rune-Midgarts Kingdom ]";
 	mes " ";
-	mes "1. 遵循神圣卢恩·米德加兹王国法令,";
-	mes "我们认可此处为.";
-	mes " ^ff0000"+GetGuildName(.@GID)+"^000000公会的私人领地.";
+	mes "1. Follow the ordinance of The Divine Rune-Midgarts Kingdom, ";
+	mes "we approve that this place is in";
+	mes "the private prossession of ^ff0000"+GetGuildName(.@GID)+"^000000 Guild.";
 	mes " ";
-	mes "2. 公会 ^ff0000"+GetGuildName(.@GID)+"^000000 的领袖为:";
+	mes "2. The guild Master of ^ff0000"+GetGuildName(.@GID)+"^000000 Guild is";
 	mes "^ff0000"+GetGuildMaster(.@GID)+"^000000";
-	mes "如果任何人对此有异议.";
-	mes "请用手中的武器来证明自己的勇气和荣耀!";
+	mes "If there is anyone who objects to this,";
+	mes "prove your strength and honor with a steel blade in your hand.";
 	close;
 
 OnRecvCastleG01:
@@ -74,14 +66,14 @@ OnRecvCastleG01:
 	end;
 }
 
-gef_fild13,148,51,5	duplicate(OutsideFlagsG1)	雷普立温#1-2	722
-gef_fild13,155,54,5	duplicate(OutsideFlagsG1)	雷普立温#2	722
-gef_fild13,212,79,6	duplicate(OutsideFlagsG1)	雷普立温#3	722
-gef_fild13,211,71,6	duplicate(OutsideFlagsG1)	雷普立温#4	722
+gef_fild13,148,51,5	duplicate(OutsideFlagsG1)	Repherion#1-2	722
+gef_fild13,155,54,5	duplicate(OutsideFlagsG1)	Repherion#2	722
+gef_fild13,212,79,6	duplicate(OutsideFlagsG1)	Repherion#3	722
+gef_fild13,211,71,6	duplicate(OutsideFlagsG1)	Repherion#4	722
 
 // Guild Flag (Inside Castle)
 //============================================================
--	script	雷普立温#5::InsideFlagsG1	722,{
+-	script	Repherion#5::InsideFlagsG1	722,{
 	end;
 
 OnRecvCastleG01:
@@ -89,20 +81,20 @@ OnRecvCastleG01:
 	end;
 }
 
-gefg_cas01,28,157,4	duplicate(InsideFlagsG1)	雷普立温#5-2	722
-gefg_cas01,22,156,5	duplicate(InsideFlagsG1)	雷普立温#6	722
-gefg_cas01,68,185,3	duplicate(InsideFlagsG1)	雷普立温#7	722
-gefg_cas01,17,171,5	duplicate(InsideFlagsG1)	雷普立温#8	722
-gefg_cas01,59,16,4	duplicate(InsideFlagsG1)	雷普立温#9	722
-gefg_cas01,64,16,4	duplicate(InsideFlagsG1)	雷普立温#10	722
+gefg_cas01,28,157,4	duplicate(InsideFlagsG1)	Repherion#5-2	722
+gefg_cas01,22,156,5	duplicate(InsideFlagsG1)	Repherion#6	722
+gefg_cas01,68,185,3	duplicate(InsideFlagsG1)	Repherion#7	722
+gefg_cas01,17,171,5	duplicate(InsideFlagsG1)	Repherion#8	722
+gefg_cas01,59,16,4	duplicate(InsideFlagsG1)	Repherion#9	722
+gefg_cas01,64,16,4	duplicate(InsideFlagsG1)	Repherion#10	722
 
 // Guild Flag (Town)
 //============================================================
-geffen,109,123,2	duplicate(InsideFlagsG1)	雷普立温#11	722
+geffen,109,123,2	duplicate(InsideFlagsG1)	Repherion#11	722
 
 // Kafra Employee
 //============================================================
-gefg_cas01,83,47,3	duplicate(guildkafra)	卡普拉 职员#gefg_cas01	117
+gefg_cas01,83,47,3	duplicate(guildkafra)	Kafra Staff#gefg_cas01	117
 
 // Steward
 //============================================================
@@ -111,11 +103,10 @@ gefg_cas01,40,48,5	duplicate(cm)	Gnahcher#gefg_cas01	55
 // Treasure Room Exit
 //============================================================
 gefg_cas01,152,117,0	script	#lever_G01	111,{
-
 	mes " ";
-	mes "这里有一个小小的控制杆, 去拉一下吗?";
+	mes "There's a small lever. Will you pull it?";
 	next;
-	if(select("上前拉杆.:算了.") == 1) {
+	if(select("Pull.:Do not.") == 1) {
 		close2;
 		warp "gefg_cas01",40,49;
 		end;
@@ -129,7 +120,7 @@ gefg_cas01,78,84,0	duplicate(gdlever)	#gefg_cas01	111
 
 // Guild Treasure Spawns
 //============================================================
-gefg_cas01,154,112,0	duplicate(Gld_Trea_Spawn)	宝箱#gefg_cas01	-1
+gefg_cas01,154,112,0	duplicate(Gld_Trea_Spawn)	Treasure#gefg_cas01	-1
 
 // AGIT Manager
 //============================================================
@@ -137,4 +128,4 @@ gefg_cas01,198,182,0	duplicate(Gld_Agit_Manager)	Agit#gefg_cas01	-1
 
 // Guardians
 //============================================================
-gefg_cas01,40,48,5	duplicate(Gld_Guard_Template)	监护人#gefg_cas01	-1
+gefg_cas01,40,48,5	duplicate(Gld_Guard_Template)	Guardian#gefg_cas01	-1

@@ -1,11 +1,3 @@
-//============================================================
-//= rAthenaCN [MvP排行榜]汉化脚本 [ www.rAthenaCN.com ]
-//============================================================
-//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
-
 //===== rAthena Script =======================================
 //= MVP Ladder Game
 //===== By: ==================================================
@@ -20,60 +12,60 @@
 //= 1.0 First version, edited. [Euphy]
 //============================================================
 
-prontera,164,171,3	script	MvP	56,{
-	mes "[MvP]";
-	mes "想不想试试?";
+prontera,164,171,3	script	MvP Ladder Warper	56,{
+	mes "[MvP Ladder Warper]";
+	mes "Say... do you want to play the MvP Ladder game?";
 	next;
-	switch(select("别废话,走起!:信息查询:最高纪录:不敢去...")) {
+	switch(select("Yes, let's get it on!:Information.:Show me the best record.:No.")) {
 	case 1:
 		break;
 	case 2:
-		mes "[MvP]";
-		mes "此游戏为MvP排行榜";
+		mes "[MvP Ladder Warper]";
+		mes "In this game, your party has to kill every single MvP monster in ascending order, from the weakest to strongest.";
 		if ( .finish_item_amount )
-			mes "如果获胜，队伍将获得: "+ callfunc("F_InsertPlural", .finish_item_amount, getitemname( .finish_item_id )) +".";
+			mes "If your party can finish the MVP ladder game, each member will earn "+ callfunc("F_InsertPlural", .finish_item_amount, getitemname( .finish_item_id )) +".";
 		if ( .register_cost )
-			mes "但是需要支付 "+ callfunc( "F_InsertComma", .register_cost ) +" Zeny.";
+			mes "But the entrance fee is "+ callfunc( "F_InsertComma", .register_cost ) +" zeny.";
 		next;
-		mes "[MvP]";
-		mes "还需要等待 "+ .timeout +" 分钟, 或者你们被团灭了.";
-		mes "祝好运";
+		mes "[MvP Ladder Warper]";
+		mes "You lose the game if you can't finish in "+ .timeout +" minutes, or if your entire party is killed.";
+		mes "Good luck!";
 		close;
 	case 3:
-		mes "[MvP]";
+		mes "[MvP Ladder Warper]";
 		if ( !$mvpladdderparty_time ) {
-			mes "有队伍正在进行";
+			mes "Nobody has finished this game yet.";
 			close;
 		}
-		mes "最佳纪录";
-		mes "[ "+( $mvpladdderparty_time / 60 )+" 分 "+( $mvpladdderparty_time % 60 )+" 秒]";
-		mes "队伍: ^FF0000"+ $mvpladdderparty_name$ +"^000000.";
+		mes "The best record is";
+		mes "[ "+( $mvpladdderparty_time / 60 )+" min "+( $mvpladdderparty_time % 60 )+" sec ]";
+		mes "By the party ^FF0000"+ $mvpladdderparty_name$ +"^000000.";
 		.@size = getarraysize( $mvpladderparty_member$ );
 		for ( .@i = 0; .@i < .@size; .@i++ )
 			mes "^000000"+ ( .@i +1 ) +". ^0000FF"+ $mvpladderparty_member$[.@i];
 		if ( getgmlevel() < .gmlvlreset ) close;
 		next;
-		if ( select( "关闭", "重置" ) == 1 ) close;
-		if ( select( "知道了", "我想刷新" ) == 1 ) close;
+		if ( select( "Close.", "Reset the record." ) == 1 ) close;
+		if ( select( "Never mind.", "I really want to reset it." ) == 1 ) close;
 		$mvpladdderparty_time = 0;
 		$mvpladdderparty_name$ = "";
 		deletearray $mvpladderparty_member$[.@i];
-		mes "[MvP]";
-		mes "记录已经被重置";
+		mes "[MvP Ladder Warper]";
+		mes "Record reset successfully.";
 		close;
 	case 4:
-		mes "[MvP]";
-		mes "等你强一点了再来";
+		mes "[MvP Ladder Warper]";
+		mes "When you are strong enough to complete the game, please come back.";
 		close;
 	}
 	if ( !getcharid(1) ) {
-		mes "[MvP]";
-		mes "必须有个队伍才可参加";
+		mes "[MvP Ladder Warper]";
+		mes "You have to form a party to play.";
 		close;
 	}
-	if ( getpartyleader( getcharid(1), 2 ) != getcharid(0) ) {
-		mes "[MvP]";
-		mes "只有队长可报名";
+	if ( is_party_leader() == false ) {
+		mes "[MvP Ladder Warper]";
+		mes "Only the party leader can register.";
 		close;
 	}
 	.@origin = getcharid(3);
@@ -88,34 +80,35 @@ prontera,164,171,3	script	MvP	56,{
 	}
 	attachrid .@origin;
 	if ( $@partymembercount != .register_min ) {
-		mes "[MvP]";
-		mes "至少 "+ .register_min +" 名队员";
+		mes "[MvP Ladder Warper]";
+		mes "You have to form a party with exactly "+ .register_min +" members to play.";
 		close;
 	}
 	else if ( .@online != .register_min )  {
-		mes "[MvP]";
-		mes "至少 "+ .register_min +" 名队员在线 '"+ strnpcinfo(4) +"'.";
+		mes "[MvP Ladder Warper]";
+		mes "Your party must have "+ .register_min +" members online on map '"+ strnpcinfo(4) +"'.";
 		close;
 	}
 	else if ( .register_cost && Zeny < .register_cost ) {
-		mes "[MvP]";
-		mes "钱不够";
+		mes "[MvP Ladder Warper]";
+		mes "You don't have enough zeny. Please come back when you do.";
 		close;
 	}
 	else if ( .party_id ) {
-		mes "[MvP]";
-		mes "请等待其他队伍完成";
+		mes "[MvP Ladder Warper]";
+		mes "I'm sorry, but a party is currently playing the game. Please standby until the party is finished.";
+		mes "Thank you.";
 		close;
 	}
 	Zeny -= .register_cost;
-	announce "队伍 ["+ strcharinfo(1) +"] 开启了MvP挑战，不同于道场，此挑战超乎你想象的难度", bc_all;
+	announce "The party ["+ strcharinfo(1) +"] has started the MvP ladder game.", bc_all;
 	set .party_id, getcharid(1);
 	set .@time_enter, gettimetick(2);
 	for ( .@i = 0; .@i < $@partymembercount; .@i++ ) {
 		if ( isloggedin( $@partymemberaid[.@i], $@partymembercid[.@i] ) ) {
 			attachrid $@partymemberaid[.@i];
 			if ( strcharinfo(3) == strnpcinfo(4) ) {
-				announce "还剩 "+ .timeout +" 分钟 "+ .totalround +" 局数", bc_self;
+				announce "You have "+ .timeout +" minutes to complete "+ .totalround +" rounds.", bc_self;
 				.@name$[.@c] = strcharinfo(0);
 				.@c++;
 			}
@@ -128,7 +121,7 @@ prontera,164,171,3	script	MvP	56,{
 	if ( .round == .totalround +1 ) {
 		getpartymember .party_id, 1;
 		getpartymember .party_id, 2;
-		announce "恭喜队伍 ["+ strcharinfo(1) +"] 通关了MvP挑战，他们拥有着惊人的能力!!!", bc_all;
+		mapannounce .eventmap$, "Congratulations... You were able to defeat all the MVPs!", bc_map;
 		for ( .@i = 0; .@i < $@partymembercount; .@i++ ) {
 			if ( isloggedin( $@partymemberaid[.@i], $@partymembercid[.@i] ) ) {
 				attachrid $@partymemberaid[.@i];
@@ -138,7 +131,7 @@ prontera,164,171,3	script	MvP	56,{
 		}
 		set .@timeused, gettimetick(2) - .@time_enter;
 		if ( .bonus_item_amount && .@timeused < .bonus_time * 60 ) {
-			mapannounce .eventmap$, "获取奖励 剩余: "+ .bonus_time +" 秒 时间", bc_map;
+			mapannounce .eventmap$, "You are rewarded a bonus item for completing the ladder within "+ .bonus_time +" minutes.", bc_map;
 			for ( .@i = 0; .@i < $@partymembercount; .@i++ ) {
 				if ( isloggedin( $@partymemberaid[.@i], $@partymembercid[.@i] ) ) {
 					attachrid $@partymemberaid[.@i];
@@ -149,24 +142,26 @@ prontera,164,171,3	script	MvP	56,{
 		}
 
 		if ( !$mvpladdderparty_time || .@timeused < $mvpladdderparty_time ) {
-			mapannounce .eventmap$, "你们打破了记录！ [ "+( .@timeused / 60 )+" 分 "+( .@timeused % 60 )+" 秒 ]", bc_map;
+			mapannounce .eventmap$, "And you broke the record! [ "+( .@timeused / 60 )+" min "+( .@timeused % 60 )+" sec ]", bc_map;
 			set $mvpladdderparty_time, .@timeused;
 			set $mvpladdderparty_name$, getpartyname( .party_id );
 			copyarray $mvpladderparty_member$, .@name$, .register_min;
 		}
 		else
-			mapannounce .eventmap$, "使用了 [ "+( .@timeused / 60 )+" 分 "+( .@timeused % 60 )+" 秒 ]", bc_map;
+			mapannounce .eventmap$, "Time used [ "+( .@timeused / 60 )+" min "+( .@timeused % 60 )+" sec ]", bc_map;
 		sleep 10000;
-		announce "恭喜队伍 ["+ strcharinfo(1) +"] 通关了MvP挑战，他们拥有着惊人的能力!!!", bc_all;
+		announce "The party ["+ getpartyname( .party_id ) +"] has finished the MvP ladder game!", bc_all;
 	}
 	else
-		announce "队伍 ["+ strcharinfo(1) +"] 通关失败了，不过没关系，再接再厉", bc_all;
+		announce "The party ["+ getpartyname( .party_id ) +"] has failed to finish the MvP ladder game.", bc_all;
 	mapwarp .eventmap$, .map$, .x, .y;
 	killmonsterall .eventmap$;
 	.party_id = .round = 0;
 	end;
 
 OnMvpDead:
+	getpartymember .party_id, 1;
+	getpartymember .party_id, 2;
 	.round++;
 	if ( .round >= 2 && .round != .totalround +1 && .round_item_amount ) {
 		for ( .@i = 0; .@i < $@partymembercount; .@i++ ) {
@@ -182,14 +177,14 @@ OnMvpDead:
 		end;
 	}
 	else if ( .round == .totalround )
-		mapannounce .eventmap$, "还剩 "+ .delay +" 秒开始...", bc_map;
+		mapannounce .eventmap$, "The final Round will begin in "+ .delay +" seconds...", bc_map;
 	else
-		mapannounce .eventmap$, "第 "+ .round +" 关还剩 "+ .delay +" 秒开始", bc_map;
+		mapannounce .eventmap$, "Starting round "+ .round +" in "+ .delay +" seconds...", bc_map;
 	sleep .delay * 1000;
 	if ( .mvpid[.round] == 1646 )  // pick random Bio3 MVP
 		.mvpid[.round] = rand(1646,1651);
 	monster .eventmap$,0,0, "--ja--", .mvpid[.round], 1, strnpcinfo(0)+"::OnMvpDead";
-	mapannounce .eventmap$, getmonsterinfo( .mvpid[.round], MOB_NAME ) +" 复活了", bc_map|bc_blue;
+	mapannounce .eventmap$, getmonsterinfo( .mvpid[.round], MOB_NAME ) +" has spawned!", bc_map|bc_blue;
 	end;
 
 OnPCLogoutEvent:
@@ -212,7 +207,7 @@ OnPCDieEvent:
 	if ( .@less_one )
 		.@alive--;
 	if ( !.@alive ) {
-		mapannounce .eventmap$, "队伍被淘汰", bc_map;
+		mapannounce .eventmap$, "Party wiped!", bc_map;
 		sleep 10000;
 		awake strnpcinfo(0);
 	}
@@ -224,13 +219,13 @@ OnInit:
 	// Time limit (in minutes)
 	// When time runs out, all players inside the room will be kicked out.
 	// Do NOT set this to zero!
-	set .timeout, 30;
+	set .timeout, 60;
 
 	// entrance fee (in Zeny)
-	set .register_cost, 5000000;
+	set .register_cost, 100000;
 
 	// exact amount of party members needed to start the game
-	set .register_min, 1;
+	set .register_min, 2;
 
 	// id of each mvp. you can add more
 	setarray .mvpid[1],
@@ -275,21 +270,20 @@ OnInit:
 		1832;//	Ifrit				99
 
 	// number of rounds (default: 39)
-	//set .totalround, getarraysize(.mvpid) -1;
-	set .totalround, 2;
+	set .totalround, getarraysize(.mvpid) -1;
 
 	// item reward for completing each round
-	set .round_item_id, 560;
-	set .round_item_amount, 200;
+	set .round_item_id, 512;
+	set .round_item_amount, 1;
 
 	// item reward for completing the entire ladder
-	set .finish_item_id, 560;
-	set .finish_item_amount, 300;
+	set .finish_item_id, 501;
+	set .finish_item_amount, 10;
 
 	// bonus reward if ladder completed within a certain time (in minutes)
-	set .bonus_time, 10; // if completed within 45 minutes, this reward is given
-	set .bonus_item_id, 560;
-	set .bonus_item_amount, 100;
+	set .bonus_time, 45; // if completed within 45 minutes, this reward is given
+	set .bonus_item_id, 504;
+	set .bonus_item_amount, 10;
 
 	// time delay between rounds, in seconds (default: 3)
 	set .delay, 5;
@@ -307,15 +301,16 @@ OnInit:
 		mf_nosave,
 		mf_nomemo,
 		mf_noteleport,
-		mf_nopenalty, // disable exp loss
+//		mf_nopenalty, // disable exp loss
 		mf_noreturn,
-		mf_nobranch,
-		mf_nomobloot, // disable monster drop loots,
-		mf_nomvploot, // 2 of these
+//		mf_nobranch,
+//		mf_nomobloot, // disable monster drop loots,
+//		mf_nomvploot, // 2 of these
 		mf_partylock;
 
 //	Config Ends --------------------------------------------------------------
 
+	mapannounce .eventmap$, "An administrator has refreshed the server. Please re-register. We apologize for the inconvenience.", bc_map;
 	getmapxy .map$, .x, .y, BL_NPC;
 	mapwarp .eventmap$, .map$, .x, .y;
 	killmonsterall .eventmap$;

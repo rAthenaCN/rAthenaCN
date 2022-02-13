@@ -1,28 +1,13 @@
-//============================================================
-//= rAthenaCN [城镇人员]汉化脚本 [ www.rAthenaCN.com ]
-//============================================================
-//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
-
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Prontera Town
-//===== By: ================================================== 
-//= kobra_k88
-//===== Current Version: ===================================== 
-//= 2.1
-//===== Compatible With: ===================================== 
-//= rAthena SVN
-//===== Description: ========================================= 
-//= [Official Conversion]
+//===== Description: =========================================
 //= NPCs in Prontera
-//===== Additional Comments: ================================= 
-//= Fully working
-//= +AntiNovice exploit fix [Lupus] 1.2 added baby novice check
-//= Spellchecked [massdriller]
+//===== Changelogs: ==========================================
+//= 1.0 Initial release [kobra_k88]
+//= 1.2 added baby novice check [Lupus]
+//= 1.3 Spellchecked [massdriller]
 //= 1.4 Optimized. Novices > 20 BaseJob can go to Culvert, too [Lupus]
-//= 1.5a Added a Jawaii related npc [MasterOfMuppets]
+//= 1.5 Added a Jawaii related npc [MasterOfMuppets]
 //= 1.6 Replaced sewer_prt with (MISC_QUEST & 8) [Lupus]
 //= 1.7 Removed Duplicates [Silent]
 //= 1.8 Moved Culvert to quests/quests_prontera.txt
@@ -33,708 +18,689 @@
 
 // Prontera
 //============================================================
-prontera,162,332,0	script	警备兵#pront::prtguard	105,{
-	mes "[普隆德拉 警备兵]";
-	mes "欢迎到普隆德拉.";
+-	script	Guard#pront::prtguard	105,{
+	mes "[Prontera Guard]";
+	mes "Welcome to Prontera.";
+	close;
+}
+prontera,223,99,1	duplicate(prtguard)	Guard#2pront	105
+prontera,229,104,5	duplicate(prtguard)	Guard#3pront	105
+prontera,47,339,5	duplicate(prtguard)	Guard#4pront	105
+
+prontera,101,288,3	script	Shuger#pront	98,{
+	mes "[Shuger]";
+	mes "Outside the safety of the city, there is a pink beast known as ^000077Poring^000000.";
+	next;
+	mes "[Shuger]";
+	mes "Though it's cute in appearance and does not actively harm people, Poring is known to absorb items that are on the ground into its own body.";
+	next;
+	mes "[Shuger]";
+	mes "So if there's something on the ground that you want to pick up, be careful lest it be consumed by a Poring. Then again... Porings are pretty weak...";
+	next;
+	mes "[Shuger]";
+	mes "The green colored ^000077Poporing^000000 is tougher than Poring. Newbies generally make the mistake of attacking it without being aware of its power... So be careful!";
 	close;
 }
 
-prontera,223,99,1	duplicate(prtguard)	警备兵#2pront	105
-prontera,229,104,5	duplicate(prtguard)	警备兵#3pront	105
-prontera,47,339,5	duplicate(prtguard)	警备兵#4pront	105
-
-prontera,101,288,3	script	夏格#pront	98,{
-	mes "[夏格]";
-	mes "城外的原野有一种粉红色的魔物叫做 '^FF8888波利^000000'.";
+prontera,54,240,6	script	Tono#pront	97,{
+	mes "[Tono]";
+	mes "Did you know?";
 	next;
-	mes "[夏格]";
-	mes "虽然他们长得很可爱而且不会攻击人类，但是他们会偷取战利品的行为是众所皆知的。";
+	mes "[Tono]";
+	mes "The larva of Creamy is Fabre. So, those green little wormy things are actually the babies of those pinkish, purply butterfly things you see around.";
 	next;
-	mes "[夏格]";
-	mes "他们只要看到地上有东西就会捡, 小心自己掉落的物品不要被波利捡走，否则有可能会被消化掉~ 不过他们非常弱..";
+	mes "[Tono]";
+	mes "But before Fabres can become Creamys, they go into a pupa stage. When that happens, they turn into these dark purple cocoons we call Pupa. Simple, huh?";
 	next;
-	mes "[夏格]";
-	mes "除了粉红色的波利以外，还有绿色的叫做 ^008800波波利^000000. 他们跟粉红色的波利长得很像但是比较强壮.";
-	mes "初学者常常会把波波利误认为和波利一样弱小的魔物，结果惨遭灭杀!";
+	mes "[Tono]";
+	mes "There's another monster that goes through a really big change... Pickys.";
+	next;
+	mes "[Tono]";
+	mes "Pickys are so cute when they're young, but when they grow up, they turn into those big, gawky looking Peco Pecos. Talk about awkward puberty.";
 	close;
 }
 
-prontera,54,240,6	script	图诺#pront	97,{
-	mes "[图诺]";
-	mes "你知道吗?";
+prontera,106,116,6	script	Merideth#pront	91,{
+	mes "[Merideth]";
+	mes "The weather was nice on my day off so my family and I went for a picnic. We chose to go to a slightly secluded area where I saw something really interesting...";
 	next;
-	mes "[图诺]";
-	mes "克瑞米的幼虫是绿棉虫。在地上随处可见的那些绿色小虫子，其实是那些粉红色的蝴蝶的小宝宝。";
+	mes "[Merideth]";
+	mes "It was a large group of Giant Hornets! What was even weirder was that they were all controlled by this one Queen Bee, following her every command.";
 	next;
-	mes "[图诺]";
-	mes "不过在绿棉虫进化到克瑞米之前，它们会进入成蛹阶段。当发生这种情况的时候，绿棉虫会变成那些暗紫色蚕蛹，一般我们称之为——虫蛹。很简单，对吧？";
-	next;
-	mes "[图诺]";
-	mes "还有另外一个魔物，它的变化我觉得更为巨大...这个魔物就是——小鸡。";
-	next;
-	mes "[图诺]";
-	mes "小鸡在幼年期特别特别可爱，萌呆众生。不过当它长大之后，会变成一只巨大的，看起来笨笨的大嘴鸟。总觉得充满喜感，不是么？^-^";
+	mes "[Merideth]";
+	mes "They might just be bugs, but I think they've got the right idea. Men really ought to take commands from us women... We do things right!";
 	close;
 }
 
-prontera,106,116,6	script	梅丽德丝#pront	91,{
-	mes "[梅丽德丝]";
-	mes "因为休假时天气很好，所以和家人出来郊游。在寻找一些悠闲的地方时，在森林里发现了非常有趣的事——";
-	mes "看见了非常大量的蜂群！";
+prontera,160,133,2	script	YuPi#pront	102,{
+	mes "[YuPi]";
+	mes "Although many monsters may look the same, be careful! There are variations among monsters that have the same basic form.";
 	next;
-	mes "[梅丽德丝]";
-	mes "从出生以来没有看过那么多的蜂群，但是比那更惊讶的是，我看到对蜂群发号施令的蜂后！";
+	mes "[YuPi]";
+	mes "One monster, that looks just like a peaceful and weak one that you've already encountered, may actually be wild and ferocious!";
 	next;
-	mes "[梅丽德丝]";
-	mes "不过峰后操纵的仅仅是些昆虫，我时常在想，如果我可以像她那样地操纵这世上的男人那该有多好...";
+	mes "[YuPi]";
+	mes "You can tell these kinds of monsters apart by their body color. Wilder and more powerful monsters have more dangerous looking colors.";
 	close;
 }
 
-prontera,160,144,2	script	佑比#pront	102,{
-	mes "[佑比]";
-	mes "有很多样子看起来差不多，但是颜色略微有所不同的魔物。碰到这类型的魔物一定要小心，不要被他们的外表蒙蔽！";
+prontera,149,202,2	script	YuNa#pront	700,{
+	mes "[YuNa]";
+	mes "Behold...";
+	mes "Mighty Odin!";
+	mes "God of wisdom!";
+	mes "God of war!";
 	next;
-	mes "[佑比]";
-	mes "同一个外形的魔物也可能会变身为更凶暴猛烈的模样，要是随便任意的触碰到那种家伙的话，那麻烦可就大咯。";
+	mes "[YuNa]";
+	mes "Here, in Rune-Midgarts, we serve Odin, the fearsome god who sacrificed one of his eyes in order to acquire wisdom.";
 	next;
-	mes "[佑比]";
-	mes "你可以用它们身体所发出的光芒来判断，力量越是强大的家伙，身上就越是透漏着危险的光芒。";
+	mes "[YuNa]";
+	mes "The statue you see behind of me is a sculpture of mighty Odin. But, it's a shame because it's such a bad likeness.";
+	next;
+	mes "[YuNa]";
+	mes "I mean, this statue is totally different from our image of Odin. I guess the sculptor took too many artistic liberties.";
+	next;
+	mes "[YuNa]";
+	mes "I bet the first time you saw this statue, you thought, '^3355FFOh, what a nice muscle man on a horse^000000.'";
+	next;
+	mes "[YuNA]";
+	mes "But this statue is obviously not muscular enough, not godly enough to fairly represent a god! Maybe if he had a halo?";
 	close;
 }
 
-prontera,149,202,2	script	佑罗#pront	700,{
-	mes "[佑罗]";
-	mes "奥丁是我们所侍奉的神。他被称之为战争之神，也叫做子息之神。";
-	next;
-	mes "[佑罗]";
-	mes "为了子女，他甚至可以牺牲掉自己的一只眼睛。听说那边那座喷水池里的铜像就是仿照他的模样雕塑出来的铜像。";
-	next;
-	mes "[佑罗]";
-	mes "但是也真是的..不知道雕塑家是谁..居然把他雕塑成那个怪模样。那和我们心中的奥丁神的形象完全不符..真不知道那个雕塑家心里在想些什么~~";
-	next;
-	mes "[佑罗]";
-	mes "你看，头上没戴着宽大的青色帽子，也没骑着神马。一点都不像是奥丁神嘛。";
-	close;
-}
-
-prontera,216,70,2	script	斯特拉依普#pront	48,{
+prontera,216,70,2	script	Strife#pront	48,{
 	if (Class == Job_Novice) {
 		if (event_prt_nov_dreamtalk == 0) {
-			mes "[斯特拉依普]";
-			mes "哇!";
-			mes "好威风...";
-			mes "我应该能成为";
-			mes "很棒的骑士!";
+			mes "[Strife]";
+			mes "Whew!";
+			mes "Man oh man...";
+			mes "I'm gonna be such";
+			mes "an awesome Knight!";
 			next;
-			mes "[斯特拉依普]";
-			mes "我明白, 我明白...";
-			mes "首先, 我必须成为剑士. 如果我继续练习, 我就能成为一名剑士. 在那之后...";
+			mes "[Strife]";
+			mes "I know, I know...";
+			mes "First, I gotta be a Swordie. But if I keep practicing, I can become an awesome Swordie. And then after that...";
 			next;
-			mes "[斯特拉依普]";
-			mes "我将会是，";
-			mes "最棒的骑士，!";
-			mes "这是... 我最大的梦想.";
+			mes "[Strife]";
+			mes "I'll be the most";
+			mes "awesomest Knight around!";
+			mes "It's... It's my most precious dream.";
 			next;
-			mes "[斯特拉依普]";
-			mes "突破!";
+			mes "[Strife]";
+			mes "MAGNUM BREAK!";
 			next;
-			if (select("我想变很强!:恩... 你是最好的.") == 1) {
+			if (select("I wanna be strong too!:Um... Do you best.") == 1) {
 				set event_prt_nov_dreamtalk,1;
-				mes "[斯特拉依普]";
-				mes "哇...!";
-				mes "好棒!";
-				mes "我们有着，";
-				mes "相同的梦想．!";
+				mes "[Strife]";
+				mes "Wow...!";
+				mes "That's so awesome!";
+				mes "We both share the";
+				mes "same dream!";
 				next;
-				mes "[斯特拉依普]";
-				mes "想成为剑士的话，你得要到普隆德拉的卫星都市依斯鲁得去通过测试才行。虽然不久前很可惜的测试失败了，但是！我现在不会再重蹈覆辙！";
+				mes "[Strife]";
+				mes "Hey, if you wanna become a Swordie, you gotta go to Izlude. There, you can go ahead and take the Swordman job test. The first time, I, um, failed miserably. But I won't fail again!";
 				next;
-				mes "[斯特拉依普]";
-				mes "修练！修练！努力的修练！你要加油！等到我们都变强了再见吧！";
+				mes "[Strife]";
+				mes "Training! Training! Gotta keep training! You need to be strong too! Once we both get stronger, we'll meet again!";
 				close;
 			}
-			mes "[斯特拉依普]";
-			mes "嘿嘿! 我肯定是! '最响亮的, 勇敢骑士.' 听起来很酷, 不是吗?";
+			mes "[Strife]";
+			mes "Heh heh! I will for sure! 'Strife, the courageous Knight.' It sounds cool, doesn't it?";
 			close;
 		}
 		else {
-			mes "[斯特拉依普]";
-			mes "打击...!";
-			mes "打击 打击 打击!";
+			mes "[Strife]";
+			mes "Fight...!";
+			mes "Fight Fight FIGHT!";
 			close;
 		}
 	}
 	else if (Class != Job_Novice) {
 		if (event_prt_nov_dreamtalk == 1) {
-			mes "[斯特拉依普]";
-			mes "阿...!";
-			mes "你看起来不太一样了. *喘息* 你变得好... ^993333强^000000. 哇, 好酷喔!";
+			mes "[Strife]";
+			mes "Hey...!";
+			mes "You look different now. *Gasp* You've gotten... ^993333stronger^000000. Wow, that's so coooool!";
 			next;
-			mes "[斯特拉依普]";
-			mes "我很嫉妒!";
-			mes "我想，";
-			mes "我也要更努，";
-			mes "的锻炼了!";
+			mes "[Strife]";
+			mes "I'm so jealous!";
+			mes "I guess that means";
+			mes "that now, I gotta";
+			mes "train even harder!";
 			next;
 			set event_prt_nov_dreamtalk,2;
 			getitem 2501,1; //Hood
-			mes "[斯特拉依普]";
-			mes "所以嘛..我才要你奋发向上的啊.. 看来，我也应该要更努力才是了喔！这就是收获啊！";
+			mes "[Strife]";
+			mes "This is, well, for you to help you get even stronger. I guess I want to thank you for being such a good example.";
 			close;
 		}
 		else if (event_prt_nov_dreamtalk == 2) {
-			mes "[斯特拉依普]";
-			mes "战斗! 战斗!";
+			mes "[Strife]";
+			mes "Fight! Fight!";
 			close;
 		}
-		mes "[斯特拉依普]";
-		mes "哇!";
-		mes "好威风...";
-		mes "我应该能成为";
-		mes "很棒的骑士!";
+		mes "[Strife]";
+		mes "Whew!";
+		mes "Man oh man...";
+		mes "I'm gonna be such";
+		mes "an awesome Knight!";
 		next;
-		mes "[斯特拉依普]";
-		mes "知道了，知道了...";
-		mes "想要成为骑士的话得要先成为剑士。然后再继续修练啊...";
+		mes "[Strife]";
+		mes "I know, I know...";
+		mes "First, I gotta be a Swordie. But if I keep practicing, I can become an awesome Swordie. And then after that...";
 		next;
-		mes "[斯特拉依普]";
-		mes "不知怎么的";
-		mes "只要看到骑士我就觉得全身热血沸腾情绪高涨!";
-		mes "这是... 这是我最珍贵的梦想.";
+		mes "[Strife]";
+		mes "I'll be the most";
+		mes "awesomest Knight around!";
+		mes "It's... It's my most precious dream.";
 		next;
-		if (select("尽你最大的努力.:放弃吧, 孩子.") == 1) {
-			mes "[斯特拉依普]";
-			mes "当然啰！以后如果我变得跟你一样强，到各处去冒险，在路上跟你碰面的话，你可别装做不认识我喔!";
+		if (select("Do your best.:Quit it, kid.") == 1) {
+			mes "[Strife]";
+			mes "Yes, yes of course! Someday, I'll even be as strong as you! When that day comes, I hope that we can train together!";
 			close;
 		}
-		mes "[斯特拉依普]";
+		mes "[Strife]";
 		mes "Wha--?";
-		mes "哈！哈！等着看吧！我以后一定会变的比你还强的!";
+		mes "Fine! But I'm gonna keep on training, and we'll see who gets the last laugh!";
 		close;
 	}
 }
 
-prontera,79,149,3	script	丹尼尔#pront	90,{
-	mes "[乡村女孩 丹尼尔]";
+prontera,78,150,3	script	Dairenne#pront	90,{
+	mes "[Towngirl Dairenne]";
 	mes "Ahh...";
-	mes "这里的街道可真是拥挤，. *咳、咳、咳* 噢！沙土、灰尘，这么脏，我觉得现在的首都并不是什么都好. 有什么需要我帮忙的?";
+	mes "The streets are too crowded these days. *Cough Cough* Look at all this dust, not everything about living in the capital city is good. Anyway, may I help you?";
 	next;
-	if (select("交谈:取消") == 1) {
-		mes "[乡村女孩 丹尼尔]";
-		mes "我不知道你是不是喜欢参加宴会和洋装少女的东西，霍霍霍……昨天，我们当中最有趣的话题就是如果给那件漂亮的洋装染上各种鲜艳的色彩。.";
+	if (select("Talk:Cancel") == 1) {
+		mes "[Towngirl Dairenne]";
+		mes "I wonder if you are interested in parties or dresses. Hehehe. These days, the hot topic is definitely the colorful, extravagant, magnificent dresses you can wear.";
 		next;
-		mes "[乡村女孩 丹尼尔]";
-		mes "你必须使用梦罗克出产的染料，才能够和那些让人眼花缭乱的衣服相比，不过那要花费你很多的钱。.";
+		mes "[Towngirl Dairenne]";
+		mes "To get such dazzling colors, I heard you have to use a dye that you can only get in Morocc. But I also heard that the price is beyond imagination.";
 		next;
-		mes "[乡村女孩 丹尼尔]";
-		mes "啊……我希望那件漂亮的洋装可以陪我渡过人生的最浪漫的一次...";
+		mes "[Towngirl Dairenne]";
+		mes "Aahhhh~ I wish I could wear such a dress. Even if it's just once...";
 		close;
 	}
-	mes "[乡村女孩 丹尼尔]";
-	mes "你真是一个奇怪的家伙.";
+	mes "[Towngirl Dairenne]";
+	mes "Eh~? Why talk to me in the first place? What a strange person.";
 	close;
 }
 
 // inside Prontera
 //============================================================
 /*
-//This NPC has been disabled officiall.
-prt_in,178,92,0	script	图书馆管理员#pront	57,{
-	mes "[管理员 奇司]";
-	mes "我们图书馆的资料是依照在卢恩 米德加尔特王国各个密穴里的魔物来分类的, ";
-	mes "让你可以一目了然，轻松的获得你所想要的资料.";
+//This NPC has been disabled officially.
+prt_in,178,92,0	script	Curator of Library#pront	57,{
+	mes "[Curator Guiss]";
+	mes "Here, in the Western branch of the Prontera Library, ";
+	mes "we keep records of monsters found in various dungeons scattered around the Rune-Midgarts Kingdom.";
 	next;
-	mes "[管理员 奇司]";
-	mes "你会发现这些怪物百科全书有多么方便,";
-	mes "这同时也是冒险家们必读的书籍，建议你看一看再离开.";
+	mes "[Curator Guiss]";
+	mes "You'll find that these Monster Encyclopedias are of great convenience,";
+	mes "as creatures are organized by the dungeon in which they reside.";
 	next;
-	mes "[管理员 奇司]";
-	mes "我必须说, 作为你的冒险参考是很有用的. 与怪物战斗时, 你能快速的做出最适当的反击.";
-	mes "旁边那间图书馆则是以魔物属性作为分类的依据，如果有需要你可以到那里去看看.";
+	mes "[Curator Guiss]";
+	mes "I must say, this is a most useful reference for you adventurers. When dealing with beasts, it's good to be informed and understand what you're up against.";
+	mes "If you would like to peruse monster records organized by their properties, please visit the Eastern branch of our library.";
 	close;
 }
 */
 
-prt_in,175,50,0	script	工读生#pront	71,{
-	mes "[工读生 艾伦]";
-	mes "欢迎光临，这座图书馆里的资料是依照魔物属性作为分类的依据，你可以在这里阅读相关的书籍。另外，这里也有部分商人与制铁匠技能说明的相关书籍.";
-	mes "啊！旁边那间图书馆里也有很多值得一看的好书籍，你可以去参观一下．";
+prt_in,175,50,0	script	Library Girl#pront	71,{
+	mes "[Library Girl Ellen]";
+	mes "Here in the Eastern branch of the Prontera Library, we provide Monster Encyclopedias in which creatures are organized by their properties. We also have books on Merchant and Blacksmith skills.";
+	mes "Ooh~! The other branch of our library also has many interesting things to read! So if you get a chance, you just might want to visit.";
 	close;
 }
 
-prt_in,47,141,0	script	大叔#pront	56,{
-	mes "[大叔]";
-	mes "地下水道很久没有人在此出入。最近有听说这样的话：这里已经成为 ^000077盗虫^000000的天堂了!";
+prt_in,47,141,0	script	An Old Man#pront	56,{
+	mes "[Old Man]";
+	mes "The Prontera Culvert sewers have been left unattended for a long time. Now that place is infested with ^000077Thief Bugs^000000!";
 	next;
-	mes "[大叔]";
-	mes "无论如何这家伙的盗虫是无法食用，并且繁殖力非常快速... 即使世界灭亡也会像蟑螂般存活的！！";
+	mes "[Old Man]";
+	mes "These Thief Bugs seem to quickly grab items dropped on the ground, and then run away with them... They're even more annoying than cockroaches!!";
 	close;
 }
 
-prt_in,26,31,0	script	大叔#2pront	54,{
-	mes "[大叔]";
-	mes "虽然你不知道该不该相信我的话, 但是我在 ^000077下水道^000000中看过非常惊人的事情...";
+prt_in,26,31,0	script	An Old Man#2pront	54,{
+	mes "[Old Man]";
+	mes "I dunno if you'll believe me, but I saw the weirdest thing down in the ^000077Culvert Sewers^000000...";
 	next;
-	mes "[大叔]";
-	mes "我是第3代负责修理普隆德拉的地下水道，透过祖先流传下来的知识中，在地下水道里没有我不知道的地方.";
+	mes "[Old Man]";
+	mes "I've been training in the 3rd level for so long that there isn't anything that I don't know about in that area. But when I finally went to the 4th level...";
 	next;
-	mes "[大叔]";
-	mes "应该是在4楼吧!那时我好像在黑暗当中看见闪亮发光的....";
+	mes "[Old Man]";
+	mes "There, I saw a shimmering light. I was completely captivated and went to approach it. It must have been some sort of beautiful fairy...";
 	next;
-	mes "[大叔]";
-	mes "当时，";
-	mes "我一靠近时,";
-	mes "我看到了";
-	mes "^000077盗虫^000000!";
+	mes "[Old Man]";
+	mes "But when I got";
+	mes "close enough,";
+	mes "I saw it was";
+	mes "a ^000077Thief Bug^000000!";
 	next;
-	mes "[大叔]";
-	mes "发光的盗虫吗!!世界上不也发出那样光的盗虫会发出那样圣洁的色泽!!或许...在世界的某处有无言歌呢...";
+	mes "[Old Man]";
+	mes "I've never seen a Thief Bug shining with light before! Man, just when you think you've seen it all...";
 	close;
 }
 
-prt_in,180,20,2	script	柏坦得#pront	61,{
-	mes "[柏坦得]";
-	mes "哎...普龙德拉的人越来越多了,";
-	mes "生意真是越来越难做了. 如果生意好一点就好了...";
-	mes "最近食材越来越难找了说.";
+prt_in,180,20,2	script	Bartender#pront	61,{
+	mes "[Bartender]";
+	mes "Sigh...as more and more people coming into Prontera,";
+	mes "better and better my business has become nowadays. But...";
+	mes "Well, I am having a hard time to keep a good stock of food ingredients.";
 	next;
-	mes "[柏坦得]";
-	mes "你四处行走应该也感觉到村庄周边多了许多凶暴的动物吧，它们已经影响我的供应商供应货品的时间.";
-	mes "一般普通的材料根本就无法做出我们特级选单上的食物来。!";
+	mes "[Bartender]";
+	mes "As you see, the numbers of the monsters outside of town has been greatly increased and they have caused trouble to my suppliers to deliver the goods at a right time.";
+	mes "I cannot make my ultra nice menus with common ingredients because they are super special!";
 	next;
-	mes "[柏坦得]";
-	mes "所以我不停的与超级猎人接触以获得新鲜食材.";
-	mes "但是最近食材比较少.";
+	mes "[Bartender]";
+	mes "So I have been contacting super heavy champion hunters for fresh and special ingredients.";
+	mes "But the demand has exceeded the supply in these days.";
 	next;
-	mes "[柏坦得]";
-	mes "我不能少了我的特极菜色 '蚂蚁上树' 与 '蝗虫香烟'...*叹气*";
-	next;
-	set .@drink,1;
-	while(.@drink) {
-		switch(select("'蚂蚁上树'?:'蝗虫香烟'?:取消.")) {
+	mes "[Bartender]";
+	mes "I can't keep my business busy without my special menu 'Crunch Crunch Sour' and 'Savory Yum Yum'...*Sigh*";
+	while(1) {
+		next;
+		switch(select("'Crunch Crunch Sour'?:'Savory Yum Yum'?:Cancel.")) {
 		case 1:
-			mes "[柏坦得]";
-			mes "那是用沙漠之都梦罗克蚂蚁洞窟中的特级蚂蚁做成的食物.";
-			mes "但是现在那里的蚂蚁数量暴增，变得更加凶猛，大家也不愿意再去撷取.";
+			mes "[Bartender]";
+			mes "The basic ingredients of my Crunch Crunch Sour are the ants roaming inside the Ant Hell in the desert.";
+			mes "Rumor has it that the numbers of the ants have been greatly increased and they have become more violent, so that no one wants to get in the place.";
 			next;
-			mes "[柏坦得]";
-			mes "*一声叹息*...我很担心生意会越来越差.";
-			next;
-			break;
+			mes "[Bartender]";
+			mes "*Sigh*...I am afraid that my business days are numbered now.";
+			continue;
 		case 2:
-			mes "[柏坦得]";
-			mes "我们店里选单上人气最畅销的菜-西方树林中蝗虫所吸食的香烟，香味十足.";
-			mes "但是现在蝗虫肆虐为患，蜜蜂又经常出现穿梭, 没有人愿意去那里猎捕了.";
+			mes "[Bartender]";
+			mes "Savory Yum Yum's basic ingredients are the grasshoppers romping in a place over the west forest. Yeah, it is the best selling menu ever.";
+			mes "Rumor has it that they have become very violent and Bees have built their habitat in the place, so that no one wants to get in there.";
 			next;
-			mes "[柏坦得]";
-			mes "*叹气*...在过不久店里也会渐渐不受欢迎了.";
-			next;
-			break;
+			mes "[Bartender]";
+			mes "*Sigh*...I am afraid that my business days are numbered now.";
+			continue;
 		case 3:
-			mes "[柏坦得]";
-			mes "请保重~.";
-			close2;
-			set .@drink,0;
-			break;
+			mes "[Bartender]";
+			mes "Take care of yourself~.";
+			close;
 		}
-
 	}
 	end;
 
 }
 
-prt_in,173,22,2	script	修毕特#pront	85,{
-	mes "[修毕特]";
-	mes "快来喔快来喔~快来这里喝一杯，还有生动有趣的故事可以听喔!";
-	mes "我常到普隆德拉附近的地方周游，可以说是阅历丰富。其中有的是魔物肆虐的地方，也有的是风景十分美丽的地方.";
+prt_in,173,24,2	script	Shevild#pront	85,{
+	mes "[Shevild]";
+	mes "Hey, come on over and let's drink! I have lots of interesting stories to tell!";
+	mes "I know lots of things about Prontera. I have seen many fine views and I also have explored some monster lairs around this city.";
 	next;
-	if (select("你怎么会到那种地方去呢?:取消") == 1) {
-		mes "[修毕特]";
-		mes "我啊，可以称的上是无所不能的人呢~";
-		mes "因为啊~我出外去打猎的时候常常会帮人家带一些武器或是物品的.";
-		mes "可以说是阅历丰富。其中有的是魔物肆虐的地方，也有的是风景十分美丽的地方,";
+	if (select("How could you enter monster lairs?:Cancel") == 1) {
+		mes "[Shevild]";
+		mes "I may appear to be a drunken man but I am more than meets the eye.";
+		mes "Well, I happened to enter the places for carrying weapons for hunters or for delivering stuffs and whatsoever.";
+		mes "You might think of me as a mere delivery guy,";
 		next;
-		mes "[修毕特]";
-		mes "但是我对自己相当有自信，最近出现了许多凶暴残忍的魔物你知道吧?";
-		mes "面对它们，我可是连眼睛都不眨一下的，交付给我的事情我从来没有失败过.";
+		mes "[Shevild]";
+		mes "But I am very proud of my job. You know how tough the world has become?";
+		mes "No matter how hard a work is, I am not afraid of doing that.";
 		next;
-		mes "[修毕特]";
-		mes "也因为这样，所以我才走遍了各个地方甚至到过许多别人所没去过的奇异地方...";
-		mes "所以我才会那么热衷我的事业.";
-		mes "嗯...我...又想起那奇异的洞窟和危险的树林了!";
+		mes "[Shevild]";
+		mes "Anyways, that is how I have explored some strange places like monster lairs...";
+		mes "That is also a reason why I keep my job.";
+		mes "Ah, I just recall being inside the maze and the spooky forest!";
 		next;
-		switch(select("奇异的洞窟?:危险的树林?:不要继续听故事")) {
+		switch(select("The Maze?:The Spooky Forest?:Cancel")) {
 		case 1:
-			mes "[修毕特]";
-			mes "嗯..说到这..我不久前曾经和一群猎人到普隆德拉北边某个奇异的洞窟去.";
+			mes "[Shevild]";
+			mes "Yes. Few days ago, I have entered a mysterious maze following a group of hunters at the north of Prontera.";
 			next;
-			mes "[修毕特]";
-			mes "虽然那里常有许多凶暴的魔物出没，但是那里同时也藏着许多珍奇异宝.";
-			mes "我是跟着技艺高超的猎人一块去的，但是一进到里头还是迷了路.";
+			mes "[Shevild]";
+			mes "They said that they could get lots and lots of rare items from the maze even if the maze was filled with awfully strong monsters.";
+			mes "So we went there but as soon as we entered, we were just stuck inside the maze, you know.";
 			next;
-			mes "[修毕特]";
-			mes "不管我们再怎么走，好像都停留在原地的，根本无法继续向前进.";
-			mes "结果两手空空无功而返，我想有机会的话，我一定要再去挑战一次.";
+			mes "[Shevild]";
+			mes "We were just circling around and then we decided to leave the place. That was one hell of the maze.";
+			mes "But I made up my mind that I would successfully explore the maze one day.";
 			next;
-			if (select("H那个地方要怎么去呢?:不要继续听故事") == 1) {
-				mes "[修毕特]";
-				mes "什么？我看你连普隆德拉外城都没去过吧?";
-				mes "从北边出城墙一直走会有一座森林，那个地方就在森林的西北方.";
+			if (select("How can I get there?:Cancel") == 1) {
+				mes "[Shevild]";
+				mes "Err? Haven't you still toured the outside of Prontera?";
+				mes "The maze can be found inside a forest at the north of Prontera. Go check the north west side of the forest.";
 				close;
 			}
-			mes "[修毕特]";
-			mes "好吧..你要去的话得要记得处处留意小心喔~";
+			mes "[Shevild]";
+			mes "Yeap, be careful when you adventure alone~";
 			close;
 
 		case 2:
-			mes "[修毕特]";
-			mes "沿着普隆德拉东北方一直走你会看到一座迷人的古代遗迹，这是住在那里的神父告诉我的t.";
-			mes "神父说在进入遗迹之前许有多猴子与青蛙作用中.";
+			mes "[Shevild]";
+			mes "When you go outside of Prontera heading to north east, you will arrive at the peaceful ruins. I have been there a while ago, to deliver something to a priest.";
+			mes "I had to pass a forest on the way to the ruins, and the forest was filled with monkeys and raccoons.";
 			next;
-			mes "[修毕特]";
-			mes "了那里真的要处处小心才行，要是不小心踩到地面上某个机关，可能会使你掉落到陷阱里，猴子们就会蹦蹦~ 的跳出来，把你抓走.";
+			mes "[Shevild]";
+			mes "Be forewarned that the forest is not a place to go on a picnic. If you drop something on the ground, the monkeys come out from nowhere and take away all of your possessions.";
 			next;
-			if (select("那个地方要怎么去呢?:不要继续听") == 1) {
-				mes "[修毕特]";
-				mes "路走起来有点复杂，总之你朝北方出去，然后继续往东边一直走的话，就可以看见了.";
-				mes "喔, 前往的途中要千万小心有些像植物的奇怪东西会攻击路人.";
+			if (select("How can I get there?:Cancel") == 1) {
+				mes "[Shevild]";
+				mes "There is no road directly leads to the ruins. But if you go north and keep heading to east, you will get there.";
+				mes "Oh, be careful on your way to the ruins because there are some weird plant things that assault passersby for no reason.";
 				close;
 			}
-			mes "[修毕特]";
-			mes "好吧..你要去的话得要记得处处留意小心喔~";
+			mes "[Shevild]";
+			mes "Yeap, be careful when you adventure alone~";
 			close;
 
 		case 3:
-			mes "[修毕特]";
-			mes "好吧..你要去的话得要记得处处留意小心喔~";
+			mes "[Shevild]";
+			mes "Yeap, be careful when you adventure alone~";
 			close;
 		}
 	}
-	mes "[修毕特]";
-	mes "欢迎你随时回来~";
+	mes "[Shevild]";
+	mes "Come back any time~";
 	close;
 }
 
-prt_in,177,20,2	script	谭修#pront	97,{
+prt_in,177,20,2	script	TenSue#pront	97,{
 	switch(rand(3)) {
 	case 1:
-		mes "[谭修]";
-		mes "什么...?";
-		mes "你已经厌倦在地牢击杀魔物了? 拜托...";
+		mes "[TenSue]";
+		mes "What...?";
+		mes "Sick and tired of killing monsters on fields and in dungeons already? Come on...";
 		next;
-		mes "[谭修]";
-		mes "哈哈哈, 看来你对自己的实力非常有信心, 对吧? 嗯... 你怎么不去加入公会, 我的意思是有很多勇者的公会.";
+		mes "[TenSue]";
+		mes "Hahaha, it seems you're pretty confident of your strength, huh? Hmm... Why don't you go join a guild? I mean, all the tough guys are going it.";
 		next;
-		mes "[谭修]";
-		mes "我并不知道关于任何一个公会. 你必须在附近打听, 你懂的.";
+		mes "[TenSue]";
+		mes "Personally though, I don't know any guilds, so you'll have to ask around. Make some contacts, connections, you know, networking.";
 		next;
-		mes "[谭修]";
-		mes "如果你不喜欢听命于人, 为何你不成立属于自己的公会?";
+		mes "[TenSue]";
+		mes "I don't even know if you don't like taking orders, but if that's the case, why don't you make your own guild?";
 		close;
 
 	case 2:
-		mes "[谭修]";
-		mes "有天我独自前往艾尔帕兰, 经过一些弯曲的道路. 路上那些怪物非常危险!";
+		mes "[TenSue]";
+		mes "One time I walked all the way to Al de Baran, instead of taking a warp. It was pretty dangerous with all those monsters!";
 		next;
-		mes "[谭修]";
-		mes "那些怪物跟随着并试图杀了我, 即使我没有什么东西能给它们! 这是不是很疯狂.";
+		mes "[TenSue]";
+		mes "I almost died! Some of those monsters just kept following me and trying to kill me, even though I did nothing to them! It was pretty crazy.";
 		next;
-		mes "[谭修]";
-		mes "虽然如此, 我仍然觉得是值得的. 沿途有许多非常壮丽优美的风景.";
+		mes "[TenSue]";
+		mes "Well, still, I feel that taking the scenic route was worth it. There were some pretty magnificent sights on the way.";
 		next;
-		mes "[谭修]";
-		mes "艾尔帕兰城市非常灿烂美丽,有着优雅的建筑和浪漫的运河.";
+		mes "[TenSue]";
+		mes "Even the city of Al de Baran is a splendid vision to the eyes, with its elegant architecture and romantic canal.";
 		next;
-		mes "[谭修]";
-		mes "卡普拉总部也设立在艾尔帕兰. 你真该去看看.";
+		mes "[TenSue]";
+		mes "The headquarters of Kafra Corporation is also located in Al de Baran. You should really stop by and check it out for yourself.";
 		close;
 	Default:
-		mes "[谭修]";
-		mes "统治着";
-		mes "卢恩-米德加王国的国王，";
-		mes "有着善良和仁慈的性格，";
-		mes "是第III世的国王.";
+		mes "[TenSue]";
+		mes "The kingdom of";
+		mes "Rune-Midgarts is ruled";
+		mes "by kind and benevolent";
+		mes "King Tristram III.";
 		next;
-		mes "[谭修]";
-		mes "我们将卢恩-米德加王国繁荣归功于他. 他总能说服人民欢迎外人进入普隆德拉, 以及建立对外贸易, 就像天津町和昆仑一样.";
+		mes "[TenSue]";
+		mes "We really owe the prosperity of Rune-Midgarts to him. He was able to convince the people to welcome outsiders into Prontera, as well as establish trade to foreign lands, like Amatsu and Kunlun.";
 		next;
-		mes "[谭修]";
-		mes "但有的时候...";
-		mes "很难想像他会是这样一个有能力的领导者.";
+		mes "[TenSue]";
+		mes "But sometimes...";
+		mes "It can be hard to believe he's such a brilliant and capable leader.";
 		next;
-		mes "[谭修]";
-		mes "毕竟, 在他的婚礼上那是我唯一见过他的一次. 即使没有婚礼, 他依然在普龙德拉教堂周围游荡!";
+		mes "[TenSue]";
+		mes "After all, the only time I see him is when he's conducting weddings. Even if a wedding isn't going on, he's still kind of loitering around the Prontera church!";
 		next;
-		mes "[谭修]";
-		mes "我想...";
-		mes "当你偶然成为统治着整个王国的一国之尊时，还是会想暂时抛开这些压力享受平凡的生活.";
+		mes "[TenSue]";
+		mes "But...";
+		mes "I guess you can get away with a lot of things when you happen to be lord and ruler of an entire nation.";
 		close;
 	}
 }
 
-prt_in,176,18,2	script	马宾#pront	80,{
-	mes "[马宾]";
-	mes "不管你是结交异性, 或与怪物战斗, 我得说, 这都跟 ^333399技能^000000有息息相关.";
+prt_in,177,18,2	script	Marvin#pront	80,{
+	mes "[Marvin]";
+	mes "Whether it's schmoozing with a member of the opposite sex, or battling monsters, I gotta say, it's all about ^333399skills^000000.";
 	next;
-	mes "[马宾]";
-	if (sex)
-		mes "透漏太多能吸引到异性的话题了,我不能再帮你了，但我能多告诉你一些在战斗中能帮上忙的技能.";
+	mes "[Marvin]";
+	if (Sex == SEX_MALE)
+		mes "I can't help you much when it comes to the subject of talking to attractive women such as myself, but I can tell you a little more about skills that help in battle.";
 	else
-		mes "我真的不能再说更多关于如何吸引到可爱人的话题, 但能让你知道能协助于战斗中应用的技能.";
+		mes "I don't really have any advice for skills when it comes to talking to a cute guy, but I can let you in on what I know about skills that help in battle.";
 	next;
-	mes "[马宾]";
-	mes "对于大多数技能, 可以修炼到等级 10级. 自己需要计算拿捏修练的技能点数与技能?!";
+	mes "[Marvin]";
+	mes "For most skills, the maximum level is level 10. It's easy to stress yourself out, since it takes so many points to completely master a skill. What skills should you choose?!";
 	next;
-	mes "[马宾]";
-	mes "如果你花太多技能点去修炼一种技能, 可能就无法学习其他技能. 你能修炼到的技能点数是有限制的.";
+	mes "[Marvin]";
+	mes "After all, if you spend too many skill points on one skill, you might not be able to learn another. That's right, there's a limit to the number of total skill points you can earn.";
 	next;
-	mes "[马宾]";
-	mes "但是你知道吗? 并不是所有的技能只要修练到等级10就到了顶了. 有的技能修练到等级5就成为顶级，甚至有的只要修练到等级2或1就可以到达顶级了.";
+	mes "[Marvin]";
+	mes "But you know what? Not every skill is mastered at level 10. You can master some skills at only level 5. And even better, some skills are already mastered at level 1 or 2.";
 	next;
-	mes "[马宾]";
-	mes "收集好完整情报, 这样你就可以掌握所有的技能. 不要盲目的修练一堆技能. 记得去聪明使用你的技能点.";
+	mes "[Marvin]";
+	mes "So relax and plan ahead, so you can master all the skills that you really want to master the most. Also, don't just put skill points into anything. Remember to use your skill points wisely.";
 	close;
 }
 
-prt_in,284,168,3	script	吉内丁拉费尔#pront	55,{
-	mes "[裁缝 吉内丁拉费尔]";
+prt_in,284,168,3	script	Ginedin Rephere#pront	55,{
+	mes "[Tailor Ginedin Rephere]";
 	mes "11...";
 	mes "12...";
-	mes "嗯，不错。我想我可以在晚餐前结束.";
+	mes "Mmm, good. I think I'll be able to finish before tonight's party.";
 	next;
-	mes "[裁缝 吉内丁拉费尔]";
-	mes "噢! 我没注意到有客人在. 需要什么服务吗?";
+	mes "[Tailor Ginedin Rephere]";
+	mes "Oh! I didn't realize I had a guest. How may I help you?";
 	next;
-	switch(select("交谈:服装染料:没事")) {
+	switch(select("Talk:Dye Clothing:Cancel")) {
 	case 1:
-		mes "[裁缝 吉内丁拉费尔]";
-		mes "虽然生活有改善了, 但是收到这些订单? *哇!* 最近的年轻姑娘似乎都很富裕, 对于我的缝纫服务不再觉得是种奢侈.";
+		mes "[Tailor Ginedin Rephere]";
+		mes "Life may have gotten a little better, but receiving all these orders? *Whew!* Young ladies these days must be very well off, so my services may no longer be a luxury.";
 		next;
-		mes "[裁缝 吉内丁拉费尔]";
-		mes "很好, 这些人应该喜欢进一步的追求美丽与时尚. 当然, 这只是我个人的看法.";
+		mes "[Tailor Ginedin Rephere]";
+		mes "Well, people like them probably further the pursuit of beauty and fashion. But, of course, that's only my opinion.";
 		next;
-		mes "[裁缝 吉内丁拉费尔]";
-		mes "我相信, 衣服是展现人类风格、个性和美感的, 途径之一.";
+		mes "[Tailor Ginedin Rephere]";
+		mes "I believe for us humans, clothes are one of the few ways to show our personality, style, and beauty.";
 		next;
-		mes "[裁缝 吉内丁拉费尔]";
-		mes "考量到这点, 我的职业是非常有用的. 这一切都很值得. 粗纤维和粗皮革充满能量色彩与生命...";
+		mes "[Tailor Ginedin Rephere]";
+		mes "Considering this, I personally think my job is very helpful and rather fancy. This in itself makes it all worthwhile. Coarse fabric and rough leather burst with energy and life when colored...";
 		next;
-		mes "[裁缝 吉内丁拉费尔]";
-		mes "这过程是非常困难与繁琐的, 但制作出来的衣服是充满幸福与喜悦的，也慰劳了过程中付出的辛劳.";
+		mes "[Tailor Ginedin Rephere]";
+		mes "It is a very hard and tedious process, but the happiness and delight you feel when your clothes are done makes up for all the hard work.";
 		close;
 	case 2:
-		mes "[裁缝 吉内丁拉费尔]";
-		mes "阿...!";
-		mes "你拿来的染料，";
-		mes "要染你的衣服.";
+		mes "[Tailor Ginedin Rephere]";
+		mes "Ah...!";
+		mes "You came to dye";
+		mes "your clothes as well.";
 		next;
-		mes "[裁缝 吉内丁拉费尔]";
-		mes "但是... 很抱歉.";
-		mes "我没有足够的时间来帮你衣服染色. 我还有一堆订单需要处理.";
+		mes "[Tailor Ginedin Rephere]";
+		mes "But... I'm so sorry.";
+		mes "I don't have enough time to dye your clothes right now. I have so many orders that are still waiting to be done.";
 		next;
-		mes "[裁缝 吉内丁拉费尔]";
-		mes "很抱歉给您带来不便, 能否下次在来?";
+		mes "[Tailor Ginedin Rephere]";
+		mes "I'm sorry for the inconvenience, but could you come back again next time?";
 		close;
 	case 3:
-		mes "[裁缝 吉内丁拉费尔]";
-		mes "欢迎随时过来. 很抱歉, 没能为您服务到.";
+		mes "[Tailor Ginedin Rephere]";
+		mes "Feel free to take your time and relax here. I apologize that I have nothing to serve you, though.";
 		close;
 	}
 }
 
 // Prontera Church
 //============================================================
-prt_church,103,76,0	script	卡内#pront	67,{
-	mes "[卡内]";
-	mes "你好~";
-	mes "你有兴趣学习如何去帮助周围的人吗?";
+prt_church,103,76,0	script	Garnet#pront	67,{
+	mes "[Garnet]";
+	mes "Hello there~";
+	mes "Are you interested in learning more about helping and supporting other people?";
 	next;
-	mes "[卡内]";
-	mes "教堂的牧师可以使人恢复精气神，在某些情况下还能治愈他们, 甚至激发冒险家浅在的战斗力.";
+	mes "[Garnet]";
+	mes "The Acolytes and Priests trained in this church can heal people, cure them of certain conditions, and even awaken the battle potential of other adventurers.";
 	next;
-	mes "[卡内]";
-	mes "有什么问题不妨问我吧！虽然我每天板着一张脸，但是跟我讨论问题总强过看我的臭脸吧.";
-	next;
-	set .@SkillChat,1;
-	while(.@SkillChat) {
-		switch(select("关于治愈术:关于治疗术:关于加速术:关于天使之障壁:关于天使之赐福:关于传送之阵:结束对话")) {
+	mes "[Garnet]";
+	mes "Go and ahead and ask if you have any questions about skills for Acolytes and Priests.";
+	while(1) {
+		next;
+		switch(select("About Heal:About Cure:About Increase AGI:About Angelus:About Blessing:About Warp Portal:End Conversation")) {
 		case 1:
-			mes "[卡内]";
-			mes "^6666CC治愈术^000000可以恢复自己的 HP. 也能在战斗中帮助你的朋友，这是重要方式之一.";
+			mes "[Garnet]";
+			mes "You can recover your own HP with the ^6666CCHeal^000000 skill. Healing is one of the most important ways you can help your friends in battle.";
 			next;
-			mes "[卡内]";
-			mes "尽管通常都用来医治别人, 其实也能使用 ^6666CC治愈术^000000 技能对不死系怪物造成伤害.";
+			mes "[Garnet]";
+			mes "Even though our powers are usually used to heal others, you can actually use the ^6666CCHeal^000000 skill to hurt Undead monsters.";
 			next;
-			mes "[卡内]";
-			mes "使用的时候只要按一下 ^6666CCShift^000000 键对怪物使用就可以了. 能对怪物造成一定伤害.";
+			mes "[Garnet]";
+			mes "Just remember to hold down the ^6666CCShift^000000 key when you use Cure or Heal on Undead monsters. Just be sure to hurt the monsters though, and don't use it to help monsters.";
 			next;
-			mes "[卡内]";
-			mes "身为服事如果学会了 ^6666CC治愈术^000000 , 当你成为牧师可以在学到 ^6666CC光耀之堂^000000 .";
+			mes "[Garnet]";
+			mes "Later, if you've learned ^6666CCHeal^000000 as an Acolyte, you can learn ^6666CCSanctuary^000000 if you become a Priest.";
 			next;
-			mes "[卡内]";
-			mes "牧师使用 ^6666CC光耀之堂^000000 能在指定范围恢复自己与朋友们的 HP.";
-			next;
-			break;
+			mes "[Garnet]";
+			mes "Priests use ^6666CCSantuary^000000 to create an area which will restore the HP of you and your friends if you rest within the Sanctuary's area.";
+			continue;
 		case 2:
-			mes "[卡内]";
-			mes "身为服事一旦达到 ^6666CC２级 治愈术^000000, 你能在修炼到 ^6666CC治疗术^000000, 用于治疗异常状态.";
+			mes "[Garnet]";
+			mes "Once you reach ^6666CCLevel 2 Heal^000000 as an Acolyte, you can learn ^6666CCCure^000000, which can be used to treat abnormal statuses.";
 			next;
-			mes "[卡内]";
-			mes "这技能是生命的救星, 可以治愈异常状态. 记住你需要修炼 ^6666CC２级 治愈术^000000 才能学到治疗术.";
-			next;
-			break;
+			mes "[Garnet]";
+			mes "This skill can be such a life saver, since almost every abnormal status can be cured with the Cure skill. Just remember that you need ^6666CCLevel 2 Heal^000000 before you can learn Cure.";
+			continue;
 		case 3:
-			mes "[卡内]";
-			mes "^6666CC加速术^000000 是一项可以让移动速度加快的技能，移动速度加快攻击速度也会加快，另外，闪避敌人攻击的速度自然也就跟着加快．";
+			mes "[Garnet]";
+			mes "Now, the ^6666CCIncrease AGI^000000 skill can be used on you or your friends. For a while your AGI stat is increased, making you attack faster and dodge monster attacks more easily.";
 			next;
-			mes "[卡内]";
-			mes "如果你是服事想要学到 ^6666CC加速术^000000, 你必须修炼到 ^6666CC３级 治愈术^000000 才能学到.";
-			next;
-			break;
+			mes "[Garnet]";
+			mes "If you're an Acolyte that wants to learn ^6666CCIncrease AGI^000000, you need to learn ^6666CCLevel 3 Heal^000000 first.";
+			continue;
 		case 4:
-			mes "[卡内]";
-			mes "你能使用 ^6666CC天使之障壁^000000 增加自己以及其他队员的防御, 请记住 ^6666CC天使之障壁^000000 只能使用在队员身上.";
+			mes "[Garnet]";
+			mes "You can use ^6666CCAngelus^000000 to increase your Defense, as well as the Defense of other party members. Remember though, you can only use ^6666CCAngelus^000000 on other people if they are in your party.";
 			next;
-			mes "[卡内]";
-			mes "学到天使之障壁之前, 你需要修炼到 ^6666CC3级 天使之护^000000.";
+			mes "[Garnet]";
+			mes "Before you can learn Angelus, you will need to have ^6666CCLevel 3 Divine Protection^000000.";
 			next;
-			mes "[卡内]";
-			mes "此外, 修炼天使之障壁, 你还能学习到 ^6666CC罢邪之阵^000000. 这技能能帮助你躲避攻击.";
-			next;
-			break;
+			mes "[Garnet]";
+			mes "Also, if you keep learning Angelus, you'll eventually be able to learn ^6666CCKyrie Eleison^000000. That skill helps you evade initial attacks automatically.";
+			continue;
 		case 5:
-			mes "[卡内]";
-			mes "^6666CC天使之赐福^000000 是可以暂时提高STR,DEX,INT点数的技能. 还可以给同伴强大的力量!";
+			mes "[Garnet]";
+			mes "^6666CCBlessing^000000 temporarily increases STR, DEX and INT. This skill will give you and your friends a great advantage in battle!";
 			next;
-			mes "[卡内]";
-			mes "想使用天使之赐福这种技能, 你必须学会 ^6666CC5级 天使之护^000000.";
-			next;
-			break;
+			mes "[Garnet]";
+			mes "Before you can learn Blessing, you must first learn ^6666CCLevel 5 Divine Protection^000000.";
+			continue;
 		case 6:
-			mes "[卡内]";
-			mes "^6666CC传送之阵^000000 是个相当复杂的技能, 修炼他之前你需要知道其他的技能.";
+			mes "[Garnet]";
+			mes "^6666CCWarp Portal^000000 is a pretty complex skill, and you need to know some other skills before you can learn it.";
 			next;
-			mes "[卡内]";
-			mes "首先，你需要学习 ^6666CC光猎^000000 它能让你看见隐藏的对象. 然后再学习 ^6666CC瞬间移动^000000 技能.";
+			mes "[Garnet]";
+			mes "First, you need to learn ^6666CCRuwach^000000 which lets you see invisible monsters. After Ruwach, you will need to learn the ^6666CCTeleport^000000 skill.";
 			next;
-			mes "[卡内]";
-			mes "等到可以使用^6666CC传送之阵^000000, 依照修练程度的高低，决定记忆移动地点多寡.";
+			mes "[Garnet]";
+			mes "Once you learn ^6666CCWarp Portal^000000, the level of the Warp Portal skill will determine how many warp destinations, or Warp Points, you can memorize.";
 			next;
-			mes "[卡内]";
-			mes "如果你掌握了传送之阵技能, 最多可以记忆四个移动地点. 不过要切记，到了某地点一定得要请卡普拉职员为你储存。";
+			mes "[Garnet]";
+			mes "If you master the Warp Portal skill, you can have a maximum of 4 different Warp Points. But at least one Warp Point is designated as the Save Point that you've made with a Kafra Employee.";
 			next;
-			mes "[卡内]";
-			mes "嗯, 这有点麻烦, 如果你想记忆移动地点, 你必须在现场. 然后输入 ^6666CC/memo^000000 记忆地点.";
+			mes "[Garnet]";
+			mes "Well, it's a bit of hassle, but if you want to make a certain place one of your Warp Points, you need to be physically there first. Then, type in ^6666CC/memo^000000 into the command prompt.";
 			next;
-			mes "[卡内]";
-			mes "在密穴中是无法记忆地点的, 还有使用时会消耗 1 颗^6666CC蓝色魔力矿石^000000 为催化剂.";
-			next;
-			break;
+			mes "[Garnet]";
+			mes "Just so you know, you can't save a Warp Point inside of a dungeon. Oh, and don't forget, each time you make a Warp Portal, you must use 1 ^6666CCBlue Gemstone^000000 as a Catalyst.";
+			continue;
 		case 7:
 			mes "["+ strcharinfo(0) +"]";
-			mes "好吧,";
-			mes "我听够了.";
-			close2;
-			set .@SkilLChat,0;
-			break;
+			mes "Alright, I've";
+			mes "heard enough.";
+			close;
 		}
 	}
 	end;
 }
 
-prt_church,103,71,0	script	汉森#pront	120,{
-	mes "[汉森]";
-	mes "我们的牧师与服事努力的帮助人们减轻痛苦...";
+prt_church,103,71,0	script	Henson#pront	120,{
+	mes "[Henson]";
+	mes "We Priests and Acolytes are not only limited to easing the suffering of our fellow man...";
 	next;
-	mes "[汉森]";
-	mes "我们也惩罚与抑制邪恶势力迅速的扩展，特别是能净化不死的生命 .";
+	mes "[Henson]";
+	mes "We also mete swift and merciless punishment to the forces of evil. Well, purifying any poor souls that may have been turned into the Undead is also another duty.";
 	next;
-	mes "[汉森]";
-	mes "你想了解关于?";
-	next;
-	set .@SkillChat,1;
-	while(.@Skillchat) {
-		switch(select("关于天使之护:关于天使之击:关于缓速术:关于天使之光 :关于光之障壁:关于光猎:关于瞬间移动:结束对话.")) {
+	mes "[Henson]";
+	mes "Did you have any questions about Acolyte and Priest skills?";
+	while(1) {
+		next;
+		switch(select("About Divine Protection:About Demon Bane:About Decrease AGI:About Signum Crusis :About Pneuma:About Ruwach:About Teleport:End conversation.")) {
 		case 1:
-			mes "[汉森]";
-			mes "想要增加对于不死魔物的防御力的话，应该要修练 ^6666CC天使之护^000000.";
+			mes "[Henson]";
+			mes "If you want to permanently improve your Defense against the Undead, learn ^6666CCDivine Protection^000000.";
 			next;
-			mes "[汉森]";
-			mes "当学到的技能到达一定等级也将让你能学到其他技能, 像是 ^6666CC天使之障壁^000000 和 ^6666CC天使之赐福^000000.";
+			mes "[Henson]";
+			mes "Learning Divine Protection to certain levels will also allow you to learn other skills, like ^6666CCAngelus^000000 and ^6666CCBlessing^000000, which Garnet can explain.";
 			next;
-			mes "[汉森]";
-			mes "当你学习到 ^6666CC3级 天使之护^000000, 就能接着学到 ^6666CC天使之击^000000 技能.";
+			mes "[Henson]";
+			mes "When you learn ^6666CCLevel 3 Divine Protection^000000, you will then be able to learn the ^6666CCDemon Bane^000000 skill.";
 			next;
-			mes "[汉森]";
-			mes "^6666CC天使之击^000000, 永久增加你对恶魔种族、不死属性的伤害.";
-			next;
-			break;
+			mes "[Henson]";
+			mes "With ^6666CCDemon Bane^000000, the damage of your attacks against the Undead will be increased. Permanently.";
+			continue;
 		case 2:
-			mes "[汉森]";
-			mes "^6666CC天使之击^000000 永久增加你对恶魔种族、不死属性的伤害.";
+			mes "[Henson]";
+			mes "^6666CCDemon Bane^000000 increases the damage you will inflict upon the Undead. Permanently.";
 			next;
-			mes "[汉森]";
-			mes "首先, 你要先学习 ^6666CC3级 天使之护^000000 是学习天使之击的前置技能.";
+			mes "[Henson]";
+			mes "First, you'll need to learn ^6666CCLevel 3 Divine Protection^000000 to be able to learn Demon Bane, so keep that in mind.";
 			next;
-			mes "[汉森]";
-			mes "当你学习到 ^6666CC3级 天使之击^000000, 就能接着学到 ^6666CC天使之光^000000, 降低魔物的防御力.";
-			next;
-			break;
+			mes "[Henson]";
+			mes "When you learn ^6666CCLevel 3 Demon Bane^000000, you will be able to learn ^6666CCSignum Crusis^000000, which lowers the Defense of Undead monsters, as well as monsters with the Dark property.";
+			continue;
 		case 3:
-			mes "[汉森]";
-			mes "运用 ^6666CC缓速术^000000 能使敌人移动的速度变慢, 降低攻击速度与回避速度, 从而逃开怪物的攻击.";
+			mes "[Henson]";
+			mes "Using ^6666CCDecrease AGI^000000 on monsters will slow their movement, attack speed, and the rate at which they can evade your own attacks. That way, you can maim them properly.";
 			next;
-			mes "[汉森]";
-			mes "记住, 你必须先学会 ^6666CC1级 加速术^000000 才能学会使用这项技能.";
-			next;
-			break;
+			mes "[Henson]";
+			mes "Remember, you must first learn ^6666CCLevel 2 Increase AGI^000000 if you want to be able to learn the Decrease AGI skill.";
+			continue;
 		case 4:
-			mes "[汉森]";
-			mes "^6666CC天使之光^000000 能减少恶魔种族、不死属性魔物的防御力. 是相当强大的.";
+			mes "[Henson]";
+			mes "The ^6666CCSignum Crusis^000000 skill lowers the Defense of monsters with the Undead or Dark properties. It has a wide range and can be quite powerful.";
 			next;
-			mes "[汉森]";
-			mes "然而, 这技能不易使用, 使用的成功率不算高. 但是, 也别绝望还是有成功的时候.";
+			mes "[Henson]";
+			mes "However, it's a very difficult skill to use, and it has a relatively low success rate. But, do not despair if this skill is not successful all the time.";
 			next;
-			mes "[汉森]";
-			mes "当施放成功时, 能带给你一个战斗上的优势. 记住了, 你需要修炼到 ^6666CC3级　天使之击^000000 才能学到这技能.";
-			next;
-			break;
+			mes "[Henson]";
+			mes "When it does work, it will give you a great battle advantage. Remember, you will ^6666CCLevel 3 Demon Bane^000000 to acquire this skill.";
+			continue;
 		case 5:
-			mes "[汉森]";
-			mes "^6666CC光之障壁^000000 能生成一个防护罩, 能阻挡怪物远距离的攻击.";
+			mes "[Henson]";
+			mes "The ^6666CCPneuma^000000 allows you to generate a barrier that will block all long-range attacks in a certain range, creating a zone that will protect you from monsters that attack from a distance.";
 			next;
-			mes "[汉森]";
-			mes "你必须修炼到 ^6666CC传送之阵^000000 技能，才能学习到^6666CC光之障壁^000000.";
-			next;
-			break;
+			mes "[Henson]";
+			mes "In order to become ready to learn Pneuma, you must first completely master the ^6666CCWarp Portal^000000 skill.";
+			continue;
 		case 6:
-			mes "[汉森]";
-			mes "没有任何东西能闪避神圣的眼睛! ^6666CC光猎^000000 能让你发现隐藏的魔物, 以及其他隐藏的冒险者.";
+			mes "[Henson]";
+			mes "Nothing can escape the eyes of the Holy! ^6666CCRuwach^000000 allows you to see monsters, as well as other adventurers, that are hidden or invisible.";
 			next;
-			mes "[汉森]";
-			mes "一旦学会光猎, 你就能学到 ^6666CC瞬间移动^000000 技能.";
-			next;
-			break;
+			mes "[Henson]";
+			mes "Once you learn Ruwach, you will be able to learn the ^6666CCTeleport^000000 skill.";
+			continue;
 		case 7:
-			mes "[汉森]";
-			mes "首先, 你必须先学会 ^6666CC光猎^000000 技能，这是为了学习瞬间移动.";
+			mes "[Henson]";
+			mes "First, you must learn the ^6666CCRuwach^000000 skill in order to learn how to Teleport.";
 			next;
-			mes "[汉森]";
-			mes "^6666CC瞬间移动^000000 能随机移动到所在地的任一地点. 瞬间敌动能快速逃离, 但是... 很多状况是不可预知的.";
+			mes "[Henson]";
+			mes "The ^6666CCTeleport^000000 skill teleports you to a random location in the field or city which you are currently in. Teleport will prove useful for quick escapes, but where you may end up is... unpredictable.";
 			next;
-			mes "[汉森]";
-			mes "一旦掌握瞬间移动技能, 你可以传送到你的储存地点. 我无法得知这是如何运作, 但很不可思议.";
+			mes "[Henson]";
+			mes "Once the Teleport skill is mastered, you can Teleport to the latest Save Point that you have made with a Kafra Employee. I do not know why it is that way, but the Lord works in mysterious ways.";
 			next;
-			mes "[汉森]";
-			mes "掌握了瞬间移动技能, 你也能学习到 ^6666CC传送之阵^000000 技能.";
-			next;
-			break;
+			mes "[Henson]";
+			mes "When Teleport is mastered, you can also learn the ^6666CCWarp Portal^000000 skill. Ask Garnet if you wish to know more about Warp Portal.";
+			continue;
 		case 8:
-			mes "[汉森]";
-			mes "如果对技能还有疑问, 欢迎你随时来找我.";
-			close2;
-			set .@SkilLChat,0;
-			break;
+			mes "[Henson]";
+			mes "If you wish to understand more about an Acolyte or Priest skill, you are welcome to visit me at any time.";
+			close;
 		}
 	}
 	end;
@@ -742,23 +708,23 @@ prt_church,103,71,0	script	汉森#pront	120,{
 
 // Hidden Temple
 //============================================================
-prt_maze02,100,69,0	script	士兵#pront	105,{
-	mes "[士兵]";
-	mes "阿!";
-	mes "你！";
-	mes "在这里干嘛?!";
+prt_maze02,100,69,0	script	Soldier#pront	105,{
+	mes "[Soldier]";
+	mes "H-hey!";
+	mes "What are";
+	mes "you doing here?!";
 	next;
-	mes "[士兵]";
-	mes "你不知道有恶魔在这里的森林中吗？";
-	mes "如果你进去了我无法保证你的安全!";
+	mes "[Soldier]";
+	mes "Don't you know there's a Demon living in this forest?! I can't guarantee your safety";
+	mes "if you go in!";
 	close;
 }
 
-prt_maze02,110,69,0	script	士兵#2pront	105,{
-	mes "[士兵]";
-	mes "*叹气...* 最后一个进入这里的人没有平安回来. 不听我的劝戒愚蠢的去采集草药...";
+prt_maze02,110,69,0	script	Soldier#2pront	105,{
+	mes "[Soldier]";
+	mes "*Sigh...* The last guy that entered this place haven't come back at all. He didn't listen to me and went in to gather Herbs or something dumb like that...";
 	next;
-	mes "[士兵]";
-	mes "多么愚蠢的人. 为何有人只是为了一些草药而葬送自己美好的人生?";
+	mes "[Soldier]";
+	mes "Whaaaat a stupid guy. Why would anyone want to throw his life away just to collect some silly Herbs?";
 	close;
 }

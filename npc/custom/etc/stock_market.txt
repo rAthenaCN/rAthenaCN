@@ -1,26 +1,20 @@
-//============================================================
-//= rAthenaCN [股票市场]汉化脚本 [ www.rAthenaCN.com ]
-//============================================================
-//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
-
-//===== HerculesScript ======================================
-//= Stock MarketGame
-//===== By:==================================================
+//===== rAthena Script =======================================
+//= Stock Market Game
+//===== By: ==================================================
 //= acky
-//===== CurrentVersion: =====================================
+//===== Current Version: =====================================
 //= 1.3.1
-//=====Description: =========================================
-//= NPC for astock market game.
-//===== AdditionalComments: =================================
-//= GM Mustactivate the NPC before use.
-//= Fixed MAJORexploit. - players could buy for free
-//= Low priceslikely to rise, High prices likely to drop
-//= Small fix byGaleon
-//= Lupus: Thisscript lets players make 40,000,000z a day
-//=	  so use it on your own risk
+//===== Compatible With: =====================================
+//= rAthena Project
+//===== Description: =========================================
+//= NPC for a stock market game.
+//===== Additional Comments: =================================
+//= GM Must activate the NPC before use.
+//= Fixed MAJOR exploit. - players could buy for free
+//= Low prices likely to rise, High prices likely to drop
+//= Small fix by Galeon
+//= Lupus: This script lets players make 40,000,000z a day
+//=        so use it on your own risk
 //============================================================
 
 -	script	sharenames	-1,{
@@ -46,7 +40,7 @@ OnInit:
 	set $S_BuyMax,1000000;
 	end;
 
-// Average Price(Your start prices) //
+	// Average Price (Your start prices) //
 	set $S_Avg,100;
 
 	// Set times of fluctuation //
@@ -178,19 +172,19 @@ S_Fluc:
 	end;
 }
 
-prontera,140,181,5	script	股票市场::stockmarket	4_M_MANAGER,{
-	// Ensures no trading when default priceshave not been set //
-	set@stotal,$S1+$S2+$S3+$S4+$S5+$S6+$S7+$S8+$S9+$S10;
+prontera,140,181,5	script	Stock Market::stockmarket	109,{
+	// Ensures no trading when default prices have not been set //
+	set @stotal,$S1+$S2+$S3+$S4+$S5+$S6+$S7+$S8+$S9+$S10;
 	if (@stotal > 0) goto S_Start;
-	mes "[股票市场]";
-	mes "市场目前是关闭的. ";
+	mes "[Stock Market]";
+	mes "Trading is currently closed.";
 	if (getgmlevel() > 90) goto GM_Open;
 	close;
 
 	// Begining of interface //
 S_Start:
-	mes "[股票市场]";
-	mes "最后一次波动:" + $S_LastUpd$;
+	mes "[Stock Market]";
+	mes "Last fluctuation: " + $S_LastUpd$;
 
 	// Loss/Gain in price //
 	set @S1Update,$S1-$S1B;
@@ -205,13 +199,13 @@ S_Start:
 	set @S10Update,$S10-$S10B;
 
 	// Makes Loss/Gain Red/Green //
-	if (@S1Update < 0) set@S1Update$,"^FF0000"+@S1Update+"^000000";
-	if (@S1Update > 0) set@S1Update$,"^00FF00+"+@S1Update+"^000000";
-	if (@S1Update == 0) set@S1Update$,@S1Update;
+	if (@S1Update < 0) set @S1Update$,"^FF0000"+@S1Update+"^000000";
+	if (@S1Update > 0) set @S1Update$,"^00FF00+"+@S1Update+"^000000";
+	if (@S1Update == 0) set @S1Update$,@S1Update;
 
-	if (@S2Update < 0) set@S2Update$,"^FF0000"+@S2Update+"^000000";
-	if (@S2Update > 0) set@S2Update$,"^00FF00+"+@S2Update+"^000000";
-	if (@S2Update == 0) set@S2Update$,@S2Update;
+	if (@S2Update < 0) set @S2Update$,"^FF0000"+@S2Update+"^000000";
+	if (@S2Update > 0) set @S2Update$,"^00FF00+"+@S2Update+"^000000";
+	if (@S2Update == 0) set @S2Update$,@S2Update;
 
 	if (@S3Update < 0) set @S3Update$,"^FF0000"+@S3Update+"^000000";
 	if (@S3Update > 0) set @S3Update$,"^00FF00+"+@S3Update+"^000000";
@@ -246,57 +240,57 @@ S_Start:
 	if (@S10Update == 0) set @S10Update$,@S10Update;
 
 	// Displays shares & prices //
-	mes "^21698F"+$S1N$+"^000000" + " "+ $S1 + "z (" + @S1Update$ + ")";
-	mes "^21698F"+$S2N$+"^000000" + " "+ $S2 + "z (" + @S2Update$ + ")";
-	mes "^21698F"+$S3N$+"^000000" + " "+ $S3 + "z (" + @S3Update$ + ")";
-	mes "^21698F"+$S4N$+"^000000" + " "+ $S4 + "z (" + @S4Update$ + ")";
-	mes "^21698F"+$S5N$+"^000000" + " "+ $S5 + "z (" + @S5Update$ + ")";
-	mes "^21698F"+$S6N$+"^000000" + " "+ $S6 + "z (" + @S6Update$ + ")";
-	mes "^21698F"+$S7N$+"^000000" + " "+ $S7 + "z (" + @S7Update$ + ")";
-	mes "^21698F"+$S8N$+"^000000" + " "+ $S8 + "z (" + @S8Update$ + ")";
-	mes "^21698F"+$S9N$+"^000000" + " "+ $S9 + "z (" + @S9Update$ + ")";
-	mes "^21698F"+$S10N$+"^000000" + " "+ $S10 + "z (" + @S10Update$ + ")";
+	mes "^21698F"+$S1N$+"^000000" + " " + $S1 + "z (" + @S1Update$ + ")";
+	mes "^21698F"+$S2N$+"^000000" + " " + $S2 + "z (" + @S2Update$ + ")";
+	mes "^21698F"+$S3N$+"^000000" + " " + $S3 + "z (" + @S3Update$ + ")";
+	mes "^21698F"+$S4N$+"^000000" + " " + $S4 + "z (" + @S4Update$ + ")";
+	mes "^21698F"+$S5N$+"^000000" + " " + $S5 + "z (" + @S5Update$ + ")";
+	mes "^21698F"+$S6N$+"^000000" + " " + $S6 + "z (" + @S6Update$ + ")";
+	mes "^21698F"+$S7N$+"^000000" + " " + $S7 + "z (" + @S7Update$ + ")";
+	mes "^21698F"+$S8N$+"^000000" + " " + $S8 + "z (" + @S8Update$ + ")";
+	mes "^21698F"+$S9N$+"^000000" + " " + $S9 + "z (" + @S9Update$ + ")";
+	mes "^21698F"+$S10N$+"^000000" + " " + $S10 + "z (" + @S10Update$ + ")";
 	next;
 
 	// GM Menu link //
 	if (getgmlevel() > 90) goto GM_subMenu;
-	menu "- 资产组合",S_Port,"- 购买股票",S_Buy,"- 出售股票",S_Sell,"- 取消",S_Quit;
+	menu "Portfolio",S_Port,"Buy Shares",S_Buy,"Sell Shares",S_Sell,"Cancel",S_Quit;
 
 GM_subMenu:
-	menu "- 资产组合",S_Port,"- 购买股票",S_Buy,"- 出售股票",S_Sell,"- GM Menu",GM_Menu,"- 取消",S_Quit;
+	menu "Portfolio",S_Port,"Buy Shares",S_Buy,"Sell Shares",S_Sell,"GM Menu",GM_Menu,"Cancel",S_Quit;
 
 	// Selling Shares //
 S_Sell:
-	mes "[股票市场]";
-	mes "输入您要出售的股票名称. ";
-	mes "需要支付交易费用^FF0000" + $S_Trans + "z^000000 . ";
-	if (#S1 > 0) mes"^0000FF"+$S1N$+"^FF0000" + " x " + #S1 + "[" + $S1 + "z]";
-	if (#S2 > 0) mes"^0000FF"+$S2N$+"^FF0000" + " x " + #S2 + "[" + $S2 + "z]";
-	if (#S3 > 0) mes"^0000FF"+$S3N$+"^FF0000" + " x " + #S3 + "[" + $S3 + "z]";
-	if (#S4 > 0) mes"^0000FF"+$S4N$+"^FF0000" + " x " + #S4 + "[" + $S4 + "z]";
-	if (#S5 > 0) mes"^0000FF"+$S5N$+"^FF0000" + " x " + #S5 + "[" + $S5 + "z]";
-	if (#S6 > 0) mes "^0000FF"+$S6N$+"^FF0000"+ " x " + #S6 + " [" + $S6 + "z]";
-	if (#S7 > 0) mes"^0000FF"+$S7N$+"^FF0000" + " x " + #S7 + "[" + $S7 + "z]";
-	if (#S8 > 0) mes"^0000FF"+$S8N$+"^FF0000" + " x " + #S8 + "[" + $S8 + "z]";
-	if (#S9 > 0) mes"^0000FF"+$S9N$+"^FF0000" + " x " + #S9 + "[" + $S9 + "z]";
-	if (#S10 > 0) mes"^0000FF"+$S10N$+"^FF0000" + " x " + #S10 +" [" + $S10 + "z]";
+	mes "[Stock Market]";
+	mes "Enter the name of the share you wish to sell.";
+	mes "Transaction fee of ^FF0000" + $S_Trans + "z^000000 will apply.";
+	if (#S1 > 0) mes "^0000FF"+$S1N$+"^FF0000" + " x " + #S1 + " [" + $S1 + "z]";
+	if (#S2 > 0) mes "^0000FF"+$S2N$+"^FF0000" + " x " + #S2 + " [" + $S2 + "z]";
+	if (#S3 > 0) mes "^0000FF"+$S3N$+"^FF0000" + " x " + #S3 + " [" + $S3 + "z]";
+	if (#S4 > 0) mes "^0000FF"+$S4N$+"^FF0000" + " x " + #S4 + " [" + $S4 + "z]";
+	if (#S5 > 0) mes "^0000FF"+$S5N$+"^FF0000" + " x " + #S5 + " [" + $S5 + "z]";
+	if (#S6 > 0) mes "^0000FF"+$S6N$+"^FF0000" + " x " + #S6 + " [" + $S6 + "z]";
+	if (#S7 > 0) mes "^0000FF"+$S7N$+"^FF0000" + " x " + #S7 + " [" + $S7 + "z]";
+	if (#S8 > 0) mes "^0000FF"+$S8N$+"^FF0000" + " x " + #S8 + " [" + $S8 + "z]";
+	if (#S9 > 0) mes "^0000FF"+$S9N$+"^FF0000" + " x " + #S9 + " [" + $S9 + "z]";
+	if (#S10 > 0) mes "^0000FF"+$S10N$+"^FF0000" + " x " + #S10 + " [" + $S10 + "z]";
 	set @sellname$,"0";
 	input @sellname$;
 	set @sellamount,0;
 	input @sellamount;
 	if (@sellamount < 1) goto S_SellInv;
 	if (Zeny < $S_Trans) goto S_NoZeny;
-	set Zeny, Zeny - $S_Trans;
+	set Zeny, Zeny-$S_Trans;
 
 SELLS1:
 	if (@sellname$ != $S1N$) goto SELLS2;
 	if (@sellamount > #S1) goto S_SellTooHigh;
 	set @price,@sellamount*$S1;
 	set #S1,#S1-@sellamount;
-	set Zeny, Zeny + @price;
+	set Zeny, Zeny+@price;
 	next;
-	mes "出售 " + @sellamount + " " + $S1N$ + " 股.";
-	mes "获得^0000FF"+@price+"z^000000.";
+	mes "Sold " + @sellamount + " " + $S1N$ + " shares.";
+	mes "Earned ^0000FF"+@price+"z^000000.";
 	next;
 	goto S_Start;
 
@@ -305,10 +299,10 @@ SELLS2:
 	if (@sellamount > #S2) goto S_SellTooHigh;
 	set @price,@sellamount*$S2;
 	set #S2,#S2-@sellamount;
-	set Zeny,Zeny+@price;
+	set Zeny, Zeny+@price;
 	next;
-	mes "出售 " +@sellamount + " " + $S2N$ + " 股.";
-	mes "获得^0000FF"+@price+"z^000000.";
+	mes "Sold " + @sellamount + " " + $S2N$ + " shares.";
+	mes "Earned ^0000FF"+@price+"z^000000.";
 	next;
 	goto S_Start;
 
@@ -317,10 +311,10 @@ SELLS3:
 	if (@sellamount > #S3) goto S_SellTooHigh;
 	set @price,@sellamount*$S3;
 	set #S3,#S3-@sellamount;
-	set Zeny, Zeny + @price;
+	set Zeny, Zeny+@price;
 	next;
-	mes "出售 " +@sellamount + " " + $S3N$ + " 股.";
-	mes "获得^0000FF"+@price+"z^000000.";
+	mes "Sold " + @sellamount + " " + $S3N$ + " shares.";
+	mes "Earned ^0000FF"+@price+"z^000000.";
 	next;
 	goto S_Start;
 
@@ -329,10 +323,10 @@ SELLS4:
 	if (@sellamount > #S4) goto S_SellTooHigh;
 	set @price,@sellamount*$S4;
 	set #S4,#S4-@sellamount;
-	set Zeny, Zeny + @price;
+	set Zeny, Zeny+@price;
 	next;
-	mes "出售 " +@sellamount + " " + $S4N$ + " 股.";
-	mes "获得^0000FF"+@price+"z^000000.";
+	mes "Sold " + @sellamount + " " + $S4N$ + " shares.";
+	mes "Earned ^0000FF"+@price+"z^000000.";
 	next;
 	goto S_Start;
 
@@ -341,10 +335,10 @@ SELLS5:
 	if (@sellamount > #S5) goto S_SellTooHigh;
 	set @price,@sellamount*$S5;
 	set #S5,#S5-@sellamount;
-	set Zeny, Zeny + @price;
+	set Zeny, Zeny+@price;
 	next;
-	mes "出售 " + @sellamount + " " + $S5N$ + " 股.";
-	mes "获得^0000FF"+@price+"z^000000.";
+	mes "Sold " + @sellamount + " " + $S5N$ + " shares.";
+	mes "Earned ^0000FF"+@price+"z^000000.";
 	next;
 	goto S_Start;
 
@@ -353,10 +347,10 @@ SELLS6:
 	if (@sellamount > #S6) goto S_SellTooHigh;
 	set @price,@sellamount*$S6;
 	set #S6,#S6-@sellamount;
-	set Zeny, Zeny + @price;
+	set Zeny, Zeny+@price;
 	next;
-	mes "出售 " + @sellamount + " " + $S6N$ + " 股.";
-	mes "获得^0000FF"+@price+"z^000000.";
+	mes "Sold " + @sellamount + " " + $S6N$ + " shares.";
+	mes "Earned ^0000FF"+@price+"z^000000.";
 	next;
 	goto S_Start;
 
@@ -365,10 +359,10 @@ SELLS7:
 	if (@sellamount > #S7) goto S_SellTooHigh;
 	set @price,@sellamount*$S7;
 	set #S7,#S7-@sellamount;
-	set Zeny, Zeny + @price;
+	set Zeny, Zeny+@price;
 	next;
-	mes "出售 " + @sellamount + " " + $S7N$ + " 股.";
-	mes "获得^0000FF"+@price+"z^000000.";
+	mes "Sold " + @sellamount + " " + $S7N$ + " shares.";
+	mes "Earned ^0000FF"+@price+"z^000000.";
 	next;
 	goto S_Start;
 
@@ -377,10 +371,10 @@ SELLS8:
 	if (@sellamount > #S8) goto S_SellTooHigh;
 	set @price,@sellamount*$S8;
 	set #S8,#S8-@sellamount;
-	set Zeny, Zeny + @price;
+	set Zeny, Zeny+@price;
 	next;
-	mes "出售 " + @sellamount + " " + $S8N$ + " 股.";
-	mes "获得^0000FF"+@price+"z^000000.";
+	mes "Sold " + @sellamount + " " + $S8N$ + " shares.";
+	mes "Earned ^0000FF"+@price+"z^000000.";
 	next;
 	goto S_Start;
 
@@ -389,10 +383,10 @@ SELLS9:
 	if (@sellamount > #S9) goto S_SellTooHigh;
 	set @price,@sellamount*$S9;
 	set #S9,#S9-@sellamount;
-	set Zeny, Zeny + @price;
+	set Zeny, Zeny+@price;
 	next;
-	mes "出售" + @sellamount + " " + $S9N$ + " 股.";
-	mes "获得^0000FF"+@price+"z^000000.";
+	mes "Sold " + @sellamount + " " + $S9N$ + " shares.";
+	mes "Earned ^0000FF"+@price+"z^000000.";
 	next;
 	goto S_Start;
 
@@ -401,32 +395,32 @@ SELLS10:
 	if (@sellamount > #S10) goto S_SellTooHigh;
 	set @price,@sellamount*$S10;
 	set #S10,#S10-@sellamount;
-	set Zeny, Zeny + @price;
+	set Zeny, Zeny+@price;
 	next;
-	mes "出售 " + @sellamount + " " + $S10N$ + " 股.";
-	mes "获得^0000FF"+@price+"z^000000.";
+	mes "Sold " + @sellamount + " " + $S10N$ + " shares.";
+	mes "Earned ^0000FF"+@price+"z^000000.";
 	next;
 	goto S_Start;
 
 SELLS11:
-	mes "^FF0000无效的名字.^000000";
+	mes "^FF0000Invalid Share Name.^000000";
 	next;
 	goto S_Start;
 
 S_SellTooHigh:
-	mes "^FF0000您没有那么多股. ^000000";
+	mes "^FF0000You don't have that many shares.^000000";
 	next;
 	goto S_Start;
 
 S_SellInv:
-	mes "^FF0000无效的整数. ^000000";
+	mes "^FF0000Invalid integer.^000000";
 	next;
 	goto S_Start;
 
 	// Buying Shares //
 S_Buy:
-	mes "[股票市场]";
-	mes "可供交易的股票数量:";
+	mes "[Stock Market]";
+	mes "Available shares:";
 	mes $S1N$;
 	mes $S2N$;
 	mes $S3N$;
@@ -438,10 +432,10 @@ S_Buy:
 	mes $S9N$;
 	mes $S10N$;
 	next;
-	menu"- 继续",-,"- 取消",S_Start;
+	menu "Continue",-,"Cancel",S_Start;
 	
-	mes "输入股份公司的名字";
-	mes "需要支付的交易费用^FF0000" + $S_Trans + "z^000000 . ";
+	mes "Enter the name of the share company";
+	mes "Transaction fee of ^FF0000" + $S_Trans + "z^000000 will apply.";
 	set @buyname$,"0";
 	input @buyname$;
 
@@ -451,7 +445,7 @@ S_Buy:
 	if (@buyamount < $S_BuyMin) goto S_TooLow;
 	if (@buyamount > $S_BuyMax) goto S_TooHigh;
 	if (Zeny < $S_Trans) goto S_NoZeny;
-	set Zeny,Zeny-$S_Trans;
+	set Zeny, Zeny-$S_Trans;
 
 	// Purchases the shares //
 
@@ -461,9 +455,9 @@ PURS1:
 	if (Zeny < @price) goto S_NoZeny;
 	set #S1,#S1+@buyamount;
 	set @price,@buyamount*$S1;
-	set Zeny, Zeny - @price;
-	mes "买到 " + @buyamount + " " + $S1N$ + "股";
-	mes "花费^0000FF"+@price+"z^000000.";
+	set Zeny, Zeny-@price;
+	mes "Bought " + @buyamount + " " + $S1N$ + " shares.";
+	mes "Lost ^0000FF"+@price+"z^000000.";
 	next;
 	goto S_Start;
 
@@ -472,9 +466,9 @@ PURS2:
 	set @price,@buyamount*$S2;
 	if (Zeny < @price) goto S_NoZeny;
 	set #S2,#S2+@buyamount;
-	set Zeny, Zeny - @price;
-	mes "买到" + @buyamount + " " + $S2N$ + "股";
-	mes "花费^0000FF"+@price+"z^000000.";
+	set Zeny, Zeny-@price;
+	mes "Bought " + @buyamount + " " + $S2N$ + " shares.";
+	mes "Lost ^0000FF"+@price+"z^000000.";
 	next;
 	goto S_Start;
 
@@ -483,9 +477,9 @@ PURS3:
 	set @price,@buyamount*$S3;
 	if (Zeny < @price) goto S_NoZeny;
 	set #S3,#S3+@buyamount;
-	set Zeny, Zeny - @price;
-	mes "买到 " + @buyamount + " " + $S3N$ + " 股. ";
-	mes "花费^0000FF"+@price+"z^000000.";
+	set Zeny, Zeny-@price;
+	mes "Bought " + @buyamount + " " + $S3N$ + " shares.";
+	mes "Lost ^0000FF"+@price+"z^000000.";
 	next;
 	goto S_Start;
 
@@ -494,9 +488,9 @@ PURS4:
 	set @price,@buyamount*$S4;
 	if (Zeny < @price) goto S_NoZeny;
 	set #S4,#S4+@buyamount;
-	set Zeny, Zeny - @price;
-	mes "买到 " + @buyamount + " " + $S4N$ + " 股. ";
-	mes "花费^0000FF"+@price+"z^000000.";
+	set Zeny, Zeny-@price;
+	mes "Bought " + @buyamount + " " + $S4N$ + " shares.";
+	mes "Lost ^0000FF"+@price+"z^000000.";
 	next;
 	goto S_Start;
 
@@ -505,9 +499,9 @@ PURS5:
 	set @price,@buyamount*$S5;
 	if (Zeny < @price) goto S_NoZeny;
 	set #S5,#S5+@buyamount;
-	set Zeny, Zeny - @price;
-	mes "买到" + @buyamount + " " + $S5N$ + "股";
-	mes "花费^0000FF"+@price+"z^000000.";
+	set Zeny, Zeny-@price;
+	mes "Bought " + @buyamount + " " + $S5N$ + " shares.";
+	mes "Lost ^0000FF"+@price+"z^000000.";
 	next;
 	goto S_Start;
 
@@ -516,9 +510,9 @@ PURS6:
 	set @price,@buyamount*$S6;
 	if (Zeny < @price) goto S_NoZeny;
 	set #S6,#S6+@buyamount;
-	set Zeny, Zeny - @price;
-	mes "买到" + @buyamount + " " + $S6N$ + " 股. ";
-	mes "花费^0000FF"+@price+"z^000000.";
+	set Zeny, Zeny-@price;
+	mes "Bought " + @buyamount + " " + $S6N$ + " shares.";
+	mes "Lost ^0000FF"+@price+"z^000000.";
 	next;
 	goto S_Start;
 
@@ -527,9 +521,9 @@ PURS7:
 	set @price,@buyamount*$S7;
 	if (Zeny < @price) goto S_NoZeny;
 	set #S7,#S7+@buyamount;
-	set Zeny, Zeny - @price;
-	mes "买到 " + @buyamount + " " + $S7N$ + "股. ";
-	mes "花费^0000FF"+@price+"z^000000.";
+	set Zeny, Zeny-@price;
+	mes "Bought " + @buyamount + " " + $S7N$ + " shares.";
+	mes "Lost ^0000FF"+@price+"z^000000.";
 	next;
 	goto S_Start;
 
@@ -538,9 +532,9 @@ PURS8:
 	set @price,@buyamount*$S8;
 	if (Zeny < @price) goto S_NoZeny;
 	set #S8,#S8+@buyamount;
-	set Zeny, Zeny - @price;
-	mes "买到" + @buyamount + " " + $S8N$ + " 股. ";
-	mes "花费^0000FF"+@price+"z^000000.";
+	set Zeny, Zeny-@price;
+	mes "Bought " + @buyamount + " " + $S8N$ + " shares.";
+	mes "Lost ^0000FF"+@price+"z^000000.";
 	next;
 	goto S_Start;
 
@@ -549,9 +543,9 @@ PURS9:
 	set @price,@buyamount*$S9;
 	if (Zeny < @price) goto S_NoZeny;
 	set #S9,#S9+@buyamount;
-	set Zeny, Zeny - @price;
-	mes "买到 " + @buyamount + " " + $S9N$ + " 股. ";
-	mes "花费^0000FF"+@price+"z^000000.";
+	set Zeny, Zeny-@price;
+	mes "Bought " + @buyamount + " " + $S9N$ + " shares.";
+	mes "Lost ^0000FF"+@price+"z^000000.";
 	next;
 	goto S_Start;
 
@@ -560,9 +554,9 @@ PURS10:
 	set @price,@buyamount*$S10;
 	if (Zeny < @price) goto S_NoZeny;
 	set #S10,#S10+@buyamount;
-	set Zeny, Zeny - @price;
-	mes "买到 " +@buyamount + " " + $S10N$ + " 股. ";
-	mes "花费^0000FF"+@price+"z^000000.";
+	set Zeny, Zeny-@price;
+	mes "Bought " + @buyamount + " " + $S10N$ + " shares.";
+	mes "Lost ^0000FF"+@price+"z^000000.";
 	next;
 	goto S_Start;
 
@@ -571,40 +565,40 @@ PURS11:
 
 	// Number too low //
 S_TooLow:
-	mes "^FF0000最少" + $S_BuyMin + " 一次能被购买的最小股数. ^000000";
+	mes "^FF0000Minimum of " + $S_BuyMin + " shares can be bought at a time.^000000";
 	next;
 	goto S_Start;
 
 	// Number too high //
 S_TooHigh:
-	mes "^FF0000最大" + $S_BuyMax + "一次能被购买的最大股数. ^000000";
+	mes "^FF0000Maximum number of " + $S_BuyMax + " shares can be bought at a time.^000000";
 	next;
 	goto S_Start;
 
 S_NoZeny:
-	mes "^FF0000您的钱不够. ^000000";
+	mes "^FF0000You do not have enough zeny.^000000";
 	next;
 	goto S_Start;
 
 	// Sends user to start if name invalid //
 S_InvName:
-	mes "^FF0000无效的股票名字. ^000000";
+	mes "^FF0000Invalid share name.^000000";
 	next;
 	goto S_Start;
 
 	// Displays your total amount //
 S_Port:
-	mes "[股票市场]";
+	mes "[Stock Market]";
 
 ACCS1:
 	if (#S1 < 1) goto ACCS2;
 	set @S1,#S1*$S1;
-	mes $S1N$ + ": " + #S1 + "x " + $S1 + "z = " + @S1 + "z";
+	mes $S1N$ + ": " + #S1 + " x " + $S1 + "z = " + @S1 + "z";
 
 ACCS2:
 	if (#S2 < 1) goto ACCS3;
 	set @S2,#S2*$S2;
-	mes $S2N$ + ": " + #S2 + "x " + $S2 + "z = " + @S2 + "z";
+	mes $S2N$ + ": " + #S2 + " x " + $S2 + "z = " + @S2 + "z";
 
 ACCS3:
 	if (#S3 < 1) goto ACCS4;
@@ -649,16 +643,16 @@ ACCS10:
 	// Total //
 ACCS11:
 	set @total,@S1 + @S2 + @S3 + @S4 + @S5 + @S6 + @S7 + @S8 + @S9 + @S10;
-	mes "总值: "+@total+"z";
+	mes "Total value: "+@total+"z";
 	next;
 	goto S_Start;
 
 
 	// GM MENU //
 GM_Menu:
-	mes "[股票市场]";
-	mes "主人，您要干点什么呢?";
-	menu "- 市场波动",S_Fluc,"- 重置价格",GM_Open,"- 离开",S_Start;
+	mes "[Stock Market]";
+	mes "Master, do you require anything?";
+	menu "Fluctuate Market",S_Fluc,"Reset Prices",GM_Open,"Nothing",S_Start;
 
 S_Fluc:
 	set $fluc,rand (-6,6);
@@ -751,20 +745,20 @@ S_Fluc:
 	if ($S10 > 175) set $S10,$S10-3;
 	if ($S10 < 1) set $S10,1;
 
-	set $S_LastUpd$,"GMFluctuation";
-	mes "股市波动. ";
+	set $S_LastUpd$,"GM Fluctuation";
+	mes "Market fluctuated.";
 	close;
 
 GM_Open:
-	menu "- 设置价格...",GM_Set,"- 取消",-;
-	mes "再见. ";
+	menu "Set prices to...",GM_Set,"Cancel",-;
+	mes "Farewell.";
 	close;
 
 GM_Set:
-	mes "您确定要重启么?";
-	mes "^FF0000统一所有股票价格. ^000000";
+	mes "Are you sure you want to reset?";
+	mes "^FF0000All share values will become the same.^000000";
 	next;
-	menu"- 是",-,"- 否",GM_Menu;
+	menu "Yes",-,"No",GM_Menu;
 	set @gmset,0;
 	input @gmset;
 	set $S1,@gmset;
@@ -787,11 +781,11 @@ GM_Set:
 	set $S8B,@gmset;
 	set $S9B,@gmset;
 	set $S10B,@gmset;
-	mes "所有价格调整为" + @gmset + "z.";
+	mes "All prices changed to " + @gmset + "z.";
 	close;
 
 S_Quit:
-	mes "[股票市场]";
-	mes "再见. ";
+	mes "[Stock Market]";
+	mes "Goodbye.";
 	close;
 }

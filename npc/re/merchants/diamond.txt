@@ -1,17 +1,11 @@
-//============================================================
-//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
-//============================================================
-//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
-
-//===== Hercules Script ======================================
+//===== rAthena Script =======================================
 //= Rare Diamond Merchant
 //===== By: ==================================================
 //= Z3R0
 //===== Current Version: =====================================
 //= 1.5
+//===== Compatible With: =====================================
+//= rAthena Project
 //===== Description: =========================================
 //= [Official Conversion]
 //= Exchanges 17 Carat Diamond
@@ -24,227 +18,229 @@
 //= 1.5 Added This Version History (#15429)
 //============================================================
 
--	script	RareDiamondMerchant	1_M_MERCHANT,{
+// Main NPC :: diamond
+//============================================================
+-	script	RareDiamondMerchant	58,{
 
-	set .@npc$, "[稀有钻石商人]";
+	set .@npc$, "[Rare Diamond Merchant]";
 
 	mes .@npc$;
-	mes "先生们女士们! ! !";
-	mes "你们虽然听说过, 但你们从来没有一次用自己的眼睛亲眼见过.";
-	mes "世界上最稀有的钻石!";
-	mes "^FF82FF'17克拉钻石'^000000 目前在低价出售!!";
-	mes "如果对这珍贵的钻石感兴趣, 您可以继续听听!";
+	mes "Ladies and Gentlemen! ! !";
+	mes "You've heard rumors but you've never once seen with your own eyes";
+	mes "the world's rarest diamond!";
+	mes "The ^FF82FF'17 Carat Diamond'^000000 is currently on sale for a cheap price!!";
+	mes "If valuable diamonds interest you then listen up!";
 	next;
 	
 	mes .@npc$;
-	mes "你可以把它作为礼物送给你的爱人.";
-	mes "收到 ^FF82FF'17克拉钻石'^000000 的人一定会爱死它的";
-	mes "当然也会爱死你.";
+	mes "You can give the diamond as a gift to your lover.";
+	mes "The receiver of the ^FF82FF'17 Carat Diamond'^000000 will cherish it";
+	mes "and treasure you in their heart.";
 	emotion ET_BLABLA;
 	next;
 	
 	mes .@npc$;
-	mes "什么? 你没有心上人?";
-	mes "那你可以自己佩戴着它.";
-	mes "^FF82FF'17克拉钻石'^000000 上那迷人的光环很可能";
-	mes "将爱情带入你的生活.";
+	mes "What? You don't have a lover?";
+	mes "You can still just hang on to it for yourself.";
+	mes "The enchanting aura of the ^FF82FF'17 Carat Diamond'^000000 is likely";
+	mes "to bring love into your life.";
 	next;
 	
 	mes .@npc$;
-	mes "迷人的菱形被称为钻石...";
-	mes "就是 ^FF82FF'17克拉钻石'^000000!";
+	mes "Known as the captivating diamond of diamonds...";
+	mes "It is the ^FF82FF'17 Carat Diamond'^000000!";
 	next;
 
-	set .@menu$, "^FF82FF'17克拉钻石'^000000?";
+	set .@menu$, "^FF82FF'17 Carat Diamond'^000000?";
 	if (countitem(6024))
-		set .@menu$, .@menu$ + ":用Zeny交易17克拉钻石...";
+		set .@menu$, .@menu$ + ":Exchange my 17 Carat Diamond for zeny...";
 
 	switch(select(.@menu$)) {
 	case 1:
 		mes .@npc$;
-		mes "是的!";
-		mes "呵呵, 你现在看到的 ^FF82FF'17克拉钻石'^000000";
-		mes "是最高质量的 17克拉钻石.";
-		mes "如同豌豆般大小, 比任何一颗你";
-		mes "能够从梦罗克挖到的更完美!";
+		mes "Yes!";
+		mes "Hehe, the ^FF82FF'17 Carat Diamond'^000000 you see right now";
+		mes "is one of the highest quality 17 carat diamonds.";
+		mes "Comparing it to any pea-sized, colorless rock you may have";
+		mes "dug up from Morocc is unspeakable!";
 		emotion ET_HUK;
 		next;
 		
 		mes .@npc$;
-		mes "有些人造谣说这在克魔岛的";
-		mes "Kachua 很常见!";
+		mes "Some claim that this is the very same diamond";
+		mes "that was seen by Kachua in Comodo!";
 		next;
 		
-		if (select("- 结束对话:- 需要多少钱?") == 1) {
+		if (select("End Conversation:How much is it?") == 1) {
 			mes .@npc$;
-			mes "它是这么价廉物美!";
-			mes "如果你什么时候感兴趣了, 请随时和我联系!";
+			mes "It's rather inexpensive!";
+			mes "If you're interested, talk to me any time!";
 			close;
 		}
 		
 		mes .@npc$;
-		mes "当然! 最重要的就是价格因素!";
-		mes "正如我之前所说, 这 ^FF82FF'17克拉钻石'^000000";
-		mes "连续多年被评为钻石之首.";
-		mes "在世界上不会有太多.";
+		mes "Of course! The most important thing is price!";
+		mes "As I've said earlier, the ^FF82FF'17 Carat Diamond'^000000 has been";
+		mes "appraised as a 17 carat diamond.";
+		mes "There aren't many like it in the world.";
 		next;
 		
 		mes .@npc$;
-		mes "它的价格是5,000,000Zeny!";
-		mes "还有10,000?服务费.";
-		mes "与钻石的品量相比";
-		mes "这微不足道.";
+		mes "The price is a mere 500 million zeny!";
+		mes "There is also a 1,000,000z service fee.";
+		mes "Compared to the quality of the diamond";
+		mes "this is a small price to pay.";
 		next;
 		
-		if (select("- ^828282这也太贵了.^000000:- 我要了.") == 1) {
+		if (select("^828282It's too expensive.^000000:I'll buy it.") == 1) {
 			mes .@npc$;
-			mes "你竟然认为这颗";
-			mes "^FF82FF'17克拉钻石'^000000 太贵, ";
-			mes "我无语, 你走吧.";
+			mes "To say that a diamond such as the";
+			mes "^FF82FF'17 Carat Diamond'^000000 is too expensive, ";
+			mes "you leave me speechless.";
 			close;
 		}
 		
 		mes .@npc$;
-		mes "喔喔! 自我看到你的那一刻起, 我就知道你是会";
-		mes "成为这颗钻石的主人.";
-		mes "我很高兴我猜对了!";
-		mes "我相信这款钻石非你莫属.";
-		mes "最后需要你来完成本合同.";
+		mes "OOOH! I knew from the moment I saw you that you were the rightful";
+		mes "owner of this wonderful diamond.";
+		mes "I'm glad I wasn't wrong!";
+		mes "I believe this diamond will suit you quite well.";
+		mes "All I need from you is to complete this contract.";
 		next;
 		
 		while(1) {
-			if (select("- ^B9062F我会签合同.^000000:- ^828282抱歉, 我改主意了.^000000") == 2) {
+			if (select("^B9062FI will sign the contract.^000000:^828282Nevermind, I changed my mind.^000000") == 2) {
 				mes .@npc$;
-				mes "我明白了, 太糟糕了..";
+				mes "I see, that's too bad..";
 				close;
 			}
 			
 			mes .@npc$;
-			mes "您的名字?";
+			mes "What is your name?";
 			next;
 			
 			mes "[" + strcharinfo(0) + "]";
-			mes "我的名字是 " + strcharinfo(0) + ".";
+			mes "My name is " + strcharinfo(0) + ".";
 			next;
 
 			mes .@npc$;
-			mes "好的, 呢么请在这里签字.";
+			mes "Alright then, please sign here.";
 			next;
 			
 			input .@charname$;
 			if (.@charname$ == strcharinfo(0)) {
 				mes .@npc$;
-				mes "Okay, 好了.";
-				mes "现在所剩下的是付款.";
+				mes "Okay, good.";
+				mes "All that is left now is payment.";
 				next;
 				
-				if (Zeny >= 5010000) {
+				if (Zeny >= 501000000) {
 					mes .@npc$;
 					mes ". . . . . .";
 					next;
 					
 					mes .@npc$;
-					mes "合计的钻石价格和服务费..";
-					mes "5,010,000 Zeny.";
-					mes "已确认金额.";
+					mes "Calculating the price and service fee..";
+					mes "501,000,000 zeny.";
+					mes "Amount has been confirmed.";
 					emotion ET_BLABLA;
-					set Zeny, Zeny - 5010000;
+					set Zeny, Zeny - 501000000;
 					getitem 6024, 1;
 					next;
 
 					mes .@npc$;
-					mes "您可以随时将钻石变现.";
-					mes "当然, 需要 10,000z 的手续费.";
-					mes "感谢您的惠顾.";
+					mes "You may exchange the diamond back for zeny at any time.";
+					mes "However, there will be a 1,000,000z service fee.";
+					mes "Thank you for your business.";
 					emotion ET_THANKS;
 					close;
 				}
 				else {
 					mes .@npc$;
-					mes "唔?";
-					mes "我很抱歉, 但你没有足够的资金.";
-					mes "包括服务费, 需要5,010,000 z.";
-					mes "请检查您的金币余额, 然后再试一次.";
+					mes "Hm?";
+					mes "I'm sorry, but you don't have sufficient funds.";
+					mes "Including the service fee, a total of 501,000,000z is required.";
+					mes "Please check your zeny balance and try again.";
 					emotion ET_SCRATCH;
 					close;
 				}
 			}
 			else {
 				mes .@npc$;
-				mes "这真的是你的签名?";
-				mes "将再次签名确认?";
+				mes "Is this really your signature?";
+				mes "Will sign again to confirm?";
 				next;
 			}
 		}
 	case 2:
 		mes .@npc$;
-		mes "啊哈. 您想将您的 ^FF82FF'17克拉钻石'^000000 换成 Zeny?";
+		mes "AAH. You would like to exchange your ^FF82FF'17 Carat Diamond'^000000 for zeny?";
 		emotion ET_SURPRISE;
 		next;
-		if (select("- 是:- 否") == 2) {
+		if (select("Yes:No") == 2) {
 			mes .@npc$;
-			mes "那, 您想干嘛?..";
+			mes "Then, what is it you desire?..";
 			mes ". . . . . ....";
 			emotion ET_THINK;
 			close;
 		}
 
 		mes .@npc$;
-		mes "我明白了. 当我收到您的签名, ";
-		mes "你必须提供你的 ^FF82FF'17克拉钻石'^000000.";
-		mes "也不要忘记有10,000?服务费!";
+		mes "I see. After I receive your signature, ";
+		mes "You must offer your ^FF82FF'17 Carat Diamond'^000000.";
+		mes "Also don't forget there is a 1,000,000z service fee!";
 		next;
 		
 		mes .@npc$;
-		mes "您的名字是?";
+		mes "What is your name?";
 		next;
 		
 		mes "[" + strcharinfo(0) + "]";
-		mes "我的名字是 " + strcharinfo(0) + ".";
+		mes "My name is " + strcharinfo(0) + ".";
 		next;
 		
 		mes .@npc$;
-		mes "那么好吧, 请在这里签字.";
+		mes "Alright then, please sign here.";
 		next;
 		
 		while (1) {
-			if (select("- 签字:- 不签") == 2) {
+			if (select("Sign:Don't Sign") == 2) {
 				mes .@npc$;
-				mes "交易可不能没有你的签名.";
+				mes "The trade cannot be completed without your signature.";
 				close;
 			}
 			
 			input .@charname$;
 			if (.@charname$ == strcharinfo(0)) {
 				mes .@npc$;
-				mes "你的签名已经完成.";
-				mes "现在将拿走您的 ^FF82FF'17克拉钻石'^000000..";
-				mes "之后您将收到 ^0000FF4,990,000z^000000.";
+				mes "Your signature has been received.";
+				mes "I will now take your ^FF82FF'17 Carat Diamond'^000000..";
+				mes "You will receive ^0000FF499,000,000z^000000 afterwards.";
 				next;
 				
 				mes .@npc$;
-				mes "感谢您的惠顾.";
-				mes "如果您还需要 ^FF82FF'17克拉钻石'^000000,";
-				mes "请随时带着5,000,000z来取.";
+				mes "Thank you for your business.";
+				mes "Whenever you need a ^FF82FF'17 Carat Diamond'^000000,";
+				mes "come back anytime with 500 million zeny.";
 				emotion ET_THANKS;
 				delitem 6024, 1;
-				set Zeny, Zeny + 4990000;
+				set Zeny, Zeny + 499000000;
 				close;
 			}
 			else {
 				mes .@npc$;
-				mes "这真的是你的签名?";
-				mes "将再次签名确认?";
+				mes "Is this really your signature?";
+				mes "Will sign again to confirm?";
 				next;
 			}
 		}
 	}
 }
 
-prontera,165,91,6	duplicate(RareDiamondMerchant)	稀有钻石商人#1	1_M_MERCHANT
-geffen,106,63,6	duplicate(RareDiamondMerchant)	稀有钻石商人#2	1_M_MERCHANT
-morocc,146,100,6	duplicate(RareDiamondMerchant)	稀有钻石商人#3	1_M_MERCHANT
-alberta,129,60,6	duplicate(RareDiamondMerchant)	稀有钻石商人#4	1_M_MERCHANT
-lighthalzen,163,65,6	duplicate(RareDiamondMerchant)	稀有钻石商人#5	1_M_MERCHANT
-rachel,106,142,6	duplicate(RareDiamondMerchant)	稀有钻石商人#6	1_M_MERCHANT
-payon,180,130,6	duplicate(RareDiamondMerchant)	稀有钻石商人#7	1_M_MERCHANT
+prontera,165,89,6	duplicate(RareDiamondMerchant)	Rare Diamond Merchant#1	58
+geffen,106,63,6	duplicate(RareDiamondMerchant)	Rare Diamond Merchant#2	58
+morocc,146,100,6	duplicate(RareDiamondMerchant)	Rare Diamond Merchant#3	58
+alberta,129,60,6	duplicate(RareDiamondMerchant)	Rare Diamond Merchant#4	58
+lighthalzen,163,65,6	duplicate(RareDiamondMerchant)	Rare Diamond Merchant#5	58
+rachel,106,142,6	duplicate(RareDiamondMerchant)	Rare Diamond Merchant#6	58
+payon,180,130,6	duplicate(RareDiamondMerchant)	Rare Diamond Merchant#7	58

@@ -1,12 +1,4 @@
-//============================================================
-//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
-//============================================================
-//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
-
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= NPCs related to Glastheim (Nightmare)
 //===== By: ==================================================
 //= Ridley8819
@@ -19,31 +11,31 @@
 //= 1.1 Dialogue cleanup [Aleos]
 //============================================================
 
-glast_01,195,273,4	script	华金的追随者#n_gh	123,{
-	mes "[华金的追随者]";
-	mes "我有一个很好奇的问题.";
+glast_01,195,273,3	script	Hugin's follower#1	2_F_MAGICMASTER,{
+	mes "[Hugin's Follower]";
+	mes "I can't move between time and dimensions like master Hugin but I can pretend to.";
 	next;
-	mes "[华金的追随者]";
-	mes "是什么导致古城充满了如此强大的黑暗力量呢?";
+	mes "[Hugin's Follower]";
+	mes "What's causing this Glast Heim to be imbued with such a powerful dark force?";
 	next;
-	if( select( "我并不关心:这很有趣, 请告诉我更多" ) == 2 ){
-		mes "[华金的追随者]";
-		mes "感谢华金, 让我发现了这个古城, 它被一个强大的黑暗力量笼罩着.";
+	if( select( "I don't care:That is interesting, please tell me more" ) == 2 ){
+		mes "[Hugin's Follower]";
+		mes "Thanks to Hugin, I found the way to access this Old Glast Heim, which is imbued by such powerful dark forces.";
 		next;
-		mes "[华金的追随者]";
-		mes "你说什么? 你想去那里探险吗?";
+		mes "[Hugin's Follower]";
+		mes "What do you say? Do you want to explore there?";
 		next;
-		if( select( "我没兴趣探险:我已经准备好去探险!" ) == 2 ){
-			mes "[华金的追随者]";
-			mes "当然, 这并不是一项免费服务! 我需要有一些报酬. 呵呵...";
+		if( select( "No exploration for me:I really want to explore!" ) == 2 ){
+			mes "[Hugin's Follower]";
+			mes "Sure, but this is not a free service! I have to get something in return. Hoho...";
 			next;
-			mes "[华金的追随者]";
-			mes "我可以把你送到2个地方. 你想让我送你去哪个地方呢?";
+			mes "[Hugin's Follower]";
+			mes "I can send you to two places. Which place would you like me to send you?";
 			next;
-			switch( select( "取消:修道院墓地 (Lv100~130) - 5000z:走廊第二层 (Lv140+) - 10000z" ) ){
+			switch( select( "Cancel:Monastery Cemetery (Lv100~130) - 5000z:2nd floor Corridor (Over Lv140) - 10000z" ) ){
 				case 1:
-					mes "[华金的追随者]";
-					mes "好吧, 当你改变主意的时候再回来. 我想你会有很多话要和我说...";
+					mes "[Hugin's Follower]";
+					mes "Alright, please come back whenever you change your mind. I think you will have lots to talk with me about...";
 					close;
 				case 2:
 					.@map$ = "gl_chyard_";
@@ -59,8 +51,8 @@ glast_01,195,273,4	script	华金的追随者#n_gh	123,{
 					break;
 			}
 			if( Zeny < .@zeny ){
-				mes "[华金的追随者]";
-				mes "什么? 你以为这是免费服务吗?";
+				mes "[Hugin's Follower]";
+				mes "What? Did you expect this service for free?";
 				close;
 			}
 			Zeny -= .@zeny;
@@ -68,23 +60,23 @@ glast_01,195,273,4	script	华金的追随者#n_gh	123,{
 			end;
 		}
 	}
-	mes "[华金的追随者]";
-	mes "好吧, 如果你对它不感兴趣, 没关系.";
+	mes "[Hugin's Follower]";
+	mes "Well, if you are not interested in it, never mind.";
 	close;
 }
 
-gl_chyard_,148,149,4	script	华金的追随者#n_gh1	123,{
-	mes "[华金的追随者]";
-	mes "你想回去吗?";
-	mes "好吧, 让我们离开这里.";
+gl_chyard_,148,149,4	script	Hugin's Follower#n_gh1	123,{
+	mes "[Hugin's Follower]";
+	mes "You want to return?";
+	mes "Ok, let's get out of here.";
 	next;
-	if( select( "我不想和你说话:请带我离开这里" ) == 1 ){
-		mes "[华金的追随者]";
-		mes "好吧, 如果你想要离开再来告诉我.";
+	if( select( "I didn't mean to talk to you:Please get me out of here" ) == 1 ){
+		mes "[Hugin's Follower]";
+		mes "Alright, just tell me whenever you want to leave.";
 		close;
 	}
 	warp "glast_01", 210, 269;
 	end;
 }
 
-gl_cas02_,104,36,4	duplicate(华金的追随者#n_gh1)	华金的追随者#n_gh2	123
+gl_cas02_,104,36,4	duplicate(Hugin's Follower#n_gh1)	Hugin's Follower#n_gh2	123

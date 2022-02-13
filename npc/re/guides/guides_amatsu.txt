@@ -1,77 +1,73 @@
-//============================================================
-//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
-//============================================================
-//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
-
 //===== rAthena Script ======================================= 
 //= Amatsu Guide
 //===== By: ================================================== 
 //= L0ne_W0lf
 //===== Current Version: ===================================== 
-//= 1.1
+//= 1.2
 //===== Compatible With: ===================================== 
-//= rAthena SVN
+//= rAthena Project
 //===== Description: ========================================= 
 //= [Official Conversion]
 //= Guide for the city of Amatsu.
 //===== Additional Comments: ================================= 
 //= 1.0 First version, Renewal guide.
 //= 1.1 Optimized. [Euphy]
-//============================================================
+//= 1.2 Navigation system update. [Euphy]
+//============================================================ 
 
-amatsu,202,91,3	script	天津导游#amatsu	758,{
-	mes "[樱花妹]";
-	mes "欢迎光临 ^8B4513天津^000000,";
-	mes "在这寂静的城市,";
-	mes "百花盛开着美丽的樱花";
+amatsu,202,91,3	script	Amatsu Guide#amatsu	758,{
+	mes "[Amachang]";
+	mes "Welcome to ^8B4513Amatsu^000000,";
+	mes "the town of kind towners";
+	mes "and beautiful cherry blossoms.";
 	next;
-	mes "[樱花妹]";
-	mes "我是樱花妹,";
-	mes "第13届天津小姐";
-	mes "现在为各位指引路径,";
-	mes "欢迎来问我喔!";
+	mes "[Amachang]";
+	mes "I'm Amachang,";
+	mes "the 13th Miss Amatsu.";
+	mes "I will guide you about town";
+	mes "as Miss Amatsu.";
+	mes "Please tell me";
+	mes "if you want to know something.";
+	F_Navi("[Amachang]");
 	while (1) {
 		next;
-		switch(select("[ 卡普拉职员 ]:[ 酒店 ]:[ 武器店 ]:[ 道具店 ]:[ 天津城 ]:[ 料理材料商 ]:[ 忍者转职所 ]:[ 商船船长 ]:删除小地图的标记:结束对话")) {
+		switch(select("[ Kafra Employee ]:[ Bar ]:[ Weapon Dealer ]:[ Tool Dealer ]:[ Amatsu Palace ]:[ Chef Assistant ]:[ Ninja Guild Building ]:[ Sea Captain ]:Remove Marks from Mini-Map:Cancel")) {
 		case 1:
-			callsub L_Mark,"^0000FF卡普拉职员";
+			callsub L_Mark, "^0000FFKafra Employee^000000";
 			viewpoint 1,102,149,0,0x0A82FF;
 			break;
 		case 2:
-			callsub L_Mark,"^006400酒店";
+			callsub L_Mark, F_Navi("Bar","amatsu,215,116","^006400");
 			viewpoint 1,215,116,1,0xAAFF00;
 			break;
 		case 3:
-			callsub L_Mark,"^008080武器店";
+			callsub L_Mark, F_Navi("Weapon Dealer","amatsu,129,117","^008080");
 			viewpoint 1,129,117,2,0x008080;
 			break;
 		case 4:
-			callsub L_Mark,"^FF1493道具店";
+			callsub L_Mark, F_Navi("Tool Dealer","amatsu,97,117","^FF1493");
 			viewpoint 1,97,117,3,0xFF1493;
 			break;
 		case 5:
-			callsub L_Mark,"^8B4513天津城";
+			callsub L_Mark, F_Navi("Amatsu Palace","amatsu,87,235","^8B4513");
 			viewpoint 1,87,235,4,0x8B4513;
 			break;
 		case 6:
-			callsub L_Mark,"^8A2BE2料理材料商";
+			callsub L_Mark, F_Navi("Chef Assistant","amatsu,206,150","^8A2BE2");
 			viewpoint 1,206,150,5,0x8A2BE2;
 			break;
 		case 7:
-			callsub L_Mark,"^4B0082忍者转职所";
+			callsub L_Mark, F_Navi("Ninja Guild Building","amatsu,148,137","^4B0082");
 			viewpoint 1,148,137,6,0x4B0082;
 			break;
 		case 8:
-			callsub L_Mark,"^00BFFF商船船长";
+			callsub L_Mark, F_Navi("Sea Captain","amatsu,195,79","^00BFFF");
 			viewpoint 1,195,79,7,0x00BFFF;
 			break;
 		case 9:
-			mes "[樱花妹]";
-			mes "标记已删除,";
-			mes "还需要其它服务吗?";
+			mes "[Amachang]";
+			mes "I'll remove all marks from your mini-map.";
+			mes "Is there anything else I can do for you?";
 			viewpoint 2,1,1,0,0xFFFFFF;
 			viewpoint 2,1,1,1,0xFFFFFF;
 			viewpoint 2,1,1,2,0xFFFFFF;
@@ -82,16 +78,16 @@ amatsu,202,91,3	script	天津导游#amatsu	758,{
 			viewpoint 2,1,1,7,0xFFFFFF;
 			break;
 		case 10:
-			mes "[樱花妹]";
-			mes "祝你旅途愉快!";
+			mes "[Amachang]";
+			mes "Enjoy your trip~!!";
 			close;
 		}
 	}
 	end;
 L_Mark:
-	mes "[樱花妹]";
-	mes "让我在你的小地图上标记一下";
-	mes getarg(0)+"^000000的位置.";
-	mes "你还需要确认其他建筑物的位置吗?";
+	mes "[Amachang]";
+	mes "The "+getarg(0)+" is";
+	mes "marked on your mini-map.";
+	mes "Is there anything else I can do for you?";
 	return;
 }

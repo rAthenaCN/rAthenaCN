@@ -1,11 +1,3 @@
-//============================================================
-//= rAthenaCN [公会战GVG]汉化脚本 [ www.rAthenaCN.com ]
-//============================================================
-//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
-
 //===== rAthena Script =======================================
 //= War of Emperium - Auto-Start
 //===== By: ==================================================
@@ -14,7 +6,7 @@
 //===== Current Version: =====================================
 //= 2.0
 //===== Compatible With: =====================================
-//= rAthena SVN; RO Episode 4+
+//= rAthena Project; RO Episode 4+
 //===== Description: =========================================
 //= Auto-start for War of Emperium FE.
 //= For instructions, see doc/woe_time_explanation.txt.
@@ -41,16 +33,16 @@
 -	script	Agit_Event	-1,{
 	end;
 
-OnClock2100:	//start time for Tues(2), Thurs(4)
-OnClock2300:	//end time for Tues(2), Thurs(4)
-OnClock1600:	//start time for Sat(6)
-OnClock1800:	//end time for Sat(6)
+OnClock2100:	//start time for Tuesday and Thursday
+OnClock2300:	//end time for Tuesday and Thursday
+OnClock1600:	//start time for Saturday
+OnClock1800:	//end time for Saturday
 
 OnAgitInit:
-	// 开始时间检查
-	if((gettime(4)==2) && (gettime(3)>=21 && gettime(3)<23) ||
-	   (gettime(4)==4) && (gettime(3)>=21 && gettime(3)<23) ||
-	   (gettime(4)==6) && (gettime(3)>=16 && gettime(3)<18)) {
+	// starting time checks
+	if((gettime(DT_DAYOFWEEK)==TUESDAY) && (gettime(DT_HOUR)>=21 && gettime(DT_HOUR)<23) ||
+	   (gettime(DT_DAYOFWEEK)==THURSDAY) && (gettime(DT_HOUR)>=21 && gettime(DT_HOUR)<23) ||
+	   (gettime(DT_DAYOFWEEK)==SATURDAY) && (gettime(DT_HOUR)>=16 && gettime(DT_HOUR)<18)) {
 		if (!agitcheck()) {
 			AgitStart;
 			callsub S_DisplayOwners;
@@ -58,10 +50,10 @@ OnAgitInit:
 		end;
 	}
 
-	// 结束时间检查
-	if ((gettime(4)==2) && (gettime(3)==23) ||
-	    (gettime(4)==4) && (gettime(3)==23) ||
-	    (gettime(4)==6) && (gettime(3)==18)) { 
+	// end time checks
+	if ((gettime(DT_DAYOFWEEK)==TUESDAY) && (gettime(DT_HOUR)==23) ||
+	    (gettime(DT_DAYOFWEEK)==THURSDAY) && (gettime(DT_HOUR)==23) ||
+	    (gettime(DT_DAYOFWEEK)==SATURDAY) && (gettime(DT_HOUR)==18)) { 
 		if (agitcheck()) {
 			AgitEnd;
 			callsub S_DisplayOwners;
@@ -77,10 +69,10 @@ S_DisplayOwners:
 	setarray .@maps$[15],"prtg_cas01","prtg_cas02","prtg_cas03","prtg_cas04","prtg_cas05";
 	for( set .@i, 0; .@i <= 19; set .@i, .@i+1 ) {
 		if (GetCastleData(.@maps$[.@i],1)) {
-			Announce "公会城堡 [" + GetCastleName(.@maps$[.@i]) + "] 被 [" + GetGuildName(GetCastleData(.@maps$[.@i],1)) + "] 公会占领.",bc_all|bc_woe;
+			Announce "The [" + GetCastleName(.@maps$[.@i]) + "] castle has been conquered by the [" + GetGuildName(GetCastleData(.@maps$[.@i],1)) + "] guild.",bc_all|bc_woe;
 		}
 		else {
-			Announce "公会城堡 [" + GetCastleName(.@maps$[.@i]) + "] 无人占领.",bc_all|bc_woe;
+			Announce "The [" + GetCastleName(.@maps$[.@i]) + "] castle is currently unoccupied.",bc_all|bc_woe;
 		}
 	}
 	end;

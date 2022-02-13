@@ -1,22 +1,14 @@
-//============================================================
-//= rAthenaCN [城镇人员]汉化脚本 [ www.rAthenaCN.com ]
-//============================================================
-//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
-
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Einbech Town
-//===== By: ================================================== 
+//===== By: ==================================================
 //= Muad_Dib
-//===== Current Version: ===================================== 
-//= 1.6
-//===== Compatible With: ===================================== 
-//= rAthena Revision 3000+
-//===== Description: ========================================= 
-//=
-//===== Additional Comments: ================================= 
+//===== Current Version: =====================================
+//= 1.5
+//===== Compatible With: =====================================
+//= rAthena Project
+//===== Description: =========================================
+//= Einbech Town Script
+//===== Additional Comments: =================================
 //= 0.1  Started writing Einbech npc's. [Muad_Dib]
 //= 0.1a Conversion to eA format [MasterOfMuppets]
 //= 0.1b Added missing tabs. [Mass Zero] 0.1c more missing tabs [Lupus]
@@ -34,1088 +26,1000 @@
 //= 1.6 Replaced occurances of PcName. [L0ne_W0lf]
 //============================================================
 
-einbech,172,113,4	script	聂牧克#ein	855,{
-	mes "[聂牧克]";
-	mes "你是陌生人啊,";
-	mes "...请问你一下,";
-	mes "你对这里的感觉如何呢?";
+einbech,172,113,4	script	Nemuk#ein	855,{
+	mes "[Nemuk]";
+	mes "You seem to be an";
+	mes "outsider, so let me";
+	mes "ask you something.";
+	mes "What do you think ";
+	mes "of Einbech?";
 	next;
-	switch(select("还好啦:老实说看起来有点满累的啊.")) {
+	switch(select("It's fine.:It looks tough to live here.")) {
 	case 1:
-		mes "[聂牧克]";
-		mes "...嗯,";
-		mes "我是不知道你看哪里";
-		mes "才说出这样的感觉来,";
-		mes "现在地模样,";
-		mes "却能让你感觉到这样";
-		mes "真是不简单啊";
+		mes "[Nemuk]";
+		mes "Huh...?";
+		mes "I'm not sure what";
+		mes "you've seen, but I'm";
+		mes "surprised to hear you";
+		mes "say something like that.";
 		next;
-		mes "[聂牧克]";
-		mes "我也试着计划";
-		mes "要远离这里...";
-		mes "...这样下定决心";
-		mes "也已经超过10年了,";
-		mes "可是我终究离不开呀";
+		mes "[Nemuk]";
+		mes "It's been ten years since";
+		mes "I've started to think about";
+		mes "moving out. However, I'm still";
+		mes "debating it. Now, if I were rich, I'd leave in no time, but it's hard getting the money to move out.";
 		next;
-		mes "[聂牧克]";
-		mes "你说为什么啊?";
-		mes "就是因为没有钱呀,";
-		mes "假如有钱的话早就离开了,";
-		mes "我连离开的本钱也没有,";
-		mes "所以才会一直赖在这里的";
-		next;
-		mes "[聂牧克]";
-		mes "我年轻时若做一个旅行家该多好,";
-		mes "这样还能留下美好的回忆";
-		mes "你也趁年轻时,";
-		mes "多创造些美好的回忆吧,";
+		mes "[Nemuk]";
+		mes "^333333*Sigh...*^000000";
+		mes "Maybe if I had been";
+		mes "an adventurer when I was";
+		mes "younger, I wouldn't have";
+		mes "these problems today...";
 		close;
 	case 2:
-		mes "[聂牧克]";
-		mes "...你也觉得是这样啊...";
-		mes "不好意思,我用自以为是的";
-		mes "语气来问你,真抱歉";
+		mes "[Nemuk]";
+		mes "I thought so.";
+		mes "Well, I apologize if";
+		mes "I put you on the spot.";
 		next;
-		mes "[聂牧克]";
-		mes "是的变成这样,";
-		mes "并不是一天造成的,";
-		mes "尽管日复一日,年复一年,";
-		mes "无论再过多少岁月还是一样的,";
-		mes "再怎么挣扎努力,";
-		mes "...也不会有变化的";
+		mes "[Nemuk]";
+		mes "Everyone here has been";
+		mes "having a tough time just";
+		mes "living day to day for as long";
+		mes "as I can remember. It's like";
+		mes "things never seem to get any";
+		mes "better, no matter what we do.";
 		next;
-		mes "[聂牧克]";
-		mes "即使想要离开,";
-		mes "也不过是想一想罢了,";
-		mes "只是身体却是裹足不前,";
-		mes "唯有心情伴随着";
-		mes "彩云远离家园似的...";
-		next;
-		mes "[聂牧克]";
-		mes "...唉哟";
-		mes "都是为了钱的缘故啊,钱啊...";
+		mes "[Nemuk]";
+		mes "I really want to leave,";
+		mes "but it's just an empty";
+		mes "wish. My body is trapped";
+		mes "here while my heart longs";
+		mes "for a much better life. ^333333*Sigh*^000000";
+		mes "Is it hopeless? What can I do?";
 		close;
 	}
 }
 
-einbech,197,139,4	script	青年#air2	855,{
-	mes "[海音兹]";
-	mes "噢呜,原来你是优雅的";
-	mes "旅客啊,";
-	mes "你到敝村";
-	mes "有什么事情吗?";
+einbech,197,139,4	script	Young Man#air2	855,{
+	mes "[Heinz]";
+	mes "Wow...";
+	mes "An adventurer from";
+	mes "Rune-Midgarts, eh?";
+	mes "What brings you here?";
 	next;
-	mes "[海音兹]";
-	mes "您到完全没~看头的";
-	mes "敝村来,";
-	mes "难道是来看矿山的吗?";
-	mes "或是梦想一夕致富呢?";
-	mes "或者贪图万贯家财吗?";
-	mes "还是另有如意算盘呢?";
+	mes "[Heinz]";
+	mes "Einbech doesn't offer much";
+	mes "in terms of sight-seeing, but";
+	mes "have you come to see the mine?";
+	mes "Right now, it's swarming with";
+	mes "monsters and we can't dig any";
+	mes "ores because it's so dangerous.";
 	next;
-	mes "[海音兹]";
-	mes "噢呜,不可能啦,";
-	mes "如今矿山里有众多的魔物在";
-	mes "神出鬼没~";
-	mes "到处乱窜~";
-	mes "非常恐怖~";
-	mes "现在采矿稍微受到阻~碍了";
+	mes "[Heinz]";
+	mes "Now, if some adventurers were";
+	mes "generous enough to hunt down";
+	mes "those evil creatures, we'd be able to mine again and they could earn some extra zeny. It's like killing two birds with one stone. Hahaha!";
 	next;
-	mes "[海音兹]";
-	mes "我们希望旅客增加了之后";
-	mes "能帮忙解决魔物,";
-	mes "这样我们就能方便采矿,";
-	mes "旅客们也能多赚点钱,";
-	mes "这叫哥俩好,肥水不落外人田,";
-	mes "就像打小鸡捡蛋似的,偷完窝里的东西再放火";
+	mes "[Heinz]";
+	mes "Oh wait... I'm sorry.";
+	mes "I don't know what's wrong";
+	mes "with me, asking complete";
+	mes "strangers to do favors for";
+	mes "me. It's completely rude!";
+	mes "I mean, who would do that?";
 	next;
-	mes "[海音兹]";
-	mes "..唉哟,不是啊,";
-	mes "我怎么老是说这种话,";
-	mes "不管怎么,就拜托您了~";
-	mes "您说为什么啊?唉哟,别开玩笑啦,";
-	mes "我强了半天,你还装听不懂";
-	next;
-	mes "[海音兹]";
-	mes "就是请您帮忙把出没于~";
-	mes "矿山的魔物给抓起来呀,";
-	mes "就如刚才我所说的,";
-	mes "这叫哥俩好,肥水不落外人田,";
-	mes "您明白了吗?";
+	mes "[Heinz]";
+	mes "But... I'm beyond caring";
+	mes "about my pride. For the sake";
+	mes "of all that is good and holy, I'm begging you, please kill those foul and evil creatures. Please~!";
 	close;
 }
 
-einbech,128,238,5	script	莫根#ein	848,{
-	mes "[莫根]";
-	mes "最近被频繁发生的矿坑意外事故,";
-	mes "村民们也都受到了不少伤害,";
-	mes "在村民大会中也有人提到,";
-	mes "这都是因为矿坑挖的太深,";
-	mes "所以才触怒了";
-	mes "不该惹恼的某种东西";
+einbech,128,238,5	script	Mogan#ein	848,{
+	mes "[Mogan]";
+	mes "Recently, there were a few";
+	mes "cave-ins where many miners";
+	mes "were injured. It was discussed";
+	mes "in the Town Council and in my";
+	mes "opinion, I think the miners dug";
+	mes "too deep and disturbed... ^FF0000it^000000.";
 	next;
-	mes "[莫根]";
-	mes "就是温古力安特....";
-	mes "自古以来沉睡在";
-	mes "矿山深处的洞穴的主人...";
-	mes "如今他已经醒过来了,";
-	mes "以后还不知道还会有多少人";
-	mes "要受到伤害...真是令人忧心啊";
+	mes "[Mogan]";
+	mes "Yes, they awoke Ungoliant,";
+	mes "the master of the caves that";
+	mes "has existed since ancient time.";
+	mes "I don't know how many more will";
+	mes "be victimized by Ungoliant in the";
+	mes "future. There's no telling...";
 	next;
-	mes "[莫根]";
-	mes "旅行家,如果你也计划进入";
-	mes "矿山的话,记得要特别小心哟,";
-	mes "它只要听到脚步声就会锁定";
-	mes "是绝对不会放过的,";
-	mes "请你铭记在心里...";
+	mes "[Mogan]";
+	mes "Adventurer, be careful";
+	mes "if you travel inside the";
+	mes "mines, lest your footsteps";
+	mes "disturb Ungoliant's slumber.";
 	close;
 }
 
-einbech,129,234,5	script	韩德#ein	848,{
-	mes "[韩德]";
-	mes "那些住在艾音布罗克的家伙们,";
-	mes "能够建立庞大的都市以及过着豪华的生活,";
-	mes "这都归功于向我们村落购得";
-	mes "价廉的能源之故,他们竟然";
-	mes "对我们不懂得感恩!!!";
+einbech,129,234,5	script	Hander#ein	848,{
+	mes "[Hander]";
+	mes "Those Einbroch bastards!";
+	mes "Living off the resources we";
+	mes "dig up while we keep working";
+	mes "for them like suckers! Damn!";
 	next;
-	mes "[韩德]";
-	mes "真是的!!";
-	mes "我们每天冒着生命危险,";
-	mes "像机器一样整天辛苦的工作,";
-	mes "还要忍受家人病死之苦!";
+	mes "[Hander]";
+	mes "Everyday, we risk our";
+	mes "freakin' lives just so we";
+	mes "can make a living! Why don't";
+	mes "the elders do something about";
+	mes "this, like raise our ore prices?";
 	next;
-	mes "[韩德]";
-	mes "比任何人都知道我们";
-	mes "工作劳累的村落元老们,";
-	mes "把我们辛苦采出来的矿物";
-	mes "竟然像笨蛋一样,";
-	mes "每天以廉价卖给他们!!!";
-	next;
-	mes "韩德";
-	mes "真是~!!真是!真是~!!!";
-	mes "这次也是为了配合";
-	mes "不合理的进度赶工,";
-	mes "有一位萨比塔先生的夫人";
-	mes "遭受矿山魔物的攻击而受伤!";
-	mes "目前仍和死神搏斗当中!";
-	next;
-	mes "[韩德]";
-	mes "即使如此由于大家";
-	mes "普遍地经济状况都不佳,";
-	mes "所以连去医院的钱都没有,";
-	mes "甚至吃三餐都难以为继呢...哇哇..";
+	mes "[Hander]";
+	mes "The work schedule's";
+	mes "unreasonable, Cavitar's";
+	mes "wife was attacked by a mine";
+	mes "creature, the hospital's too";
+	mes "far away and we don't have";
+	mes "any food to eat! Why...?!";
 	close;
 }
 
-einbech,105,218,5	script	谷森睦#ein	848,{
-	mes "[谷森睦]";
-	mes "告诉你,虽然我在这村落里";
-	mes "生活的很久了,但从来没有";
-	mes "像现在日子过的这么难过...";
-	mes "用这些不足的人力,";
-	mes "要做些更危险性的工作";
+einbech,105,218,5	script	Gushenmu#ein	848,{
+	mes "[Gushenmu]";
+	mes "I've lived here a long time";
+	mes "and, believe it or not, things";
+	mes "weren't as tough in the past";
+	mes "as they are right now.";
 	next;
-	mes "[谷森睦]";
-	mes "再加上对面的都市";
-	mes "说要生产某种东西";
-	mes "自从启动工厂后所排出的烟雾,";
-	mes "把村落搞得整天暗无天日";
+	mes "[Gushenmu]";
+	mes "For lots of different reasons,";
+	mes "the work is more dangerous";
+	mes "and we're running real low on";
+	mes "manpower. And the factories in";
+	mes "Einbroch make so much smog,";
+	mes "we can't even see sunlight here.";
 	next;
-	mes "[谷森睦]";
-	mes "从此之后不知何故,";
-	mes "就时常有人受伤,更发生";
-	mes "有人出门后就一去不回的事情,";
-	mes "因此我也不得不停止了,";
-	mes "每个周末在村外";
-	mes "作的晨跑活动了";
+	mes "[Gushenmu]";
+	mes "The sad reality of mining";
+	mes "life right now is that we";
+	mes "wake up, go to work, and at";
+	mes "the end of the day, some of us";
+	mes "are injured while a few others never come to work the next day.";
 	next;
-	mes "[谷森睦]";
-	mes "我必须要靠周末活动来";
-	mes "增强!!我的敏锐度,";
-	mes "自从对面的村落不知从何时";
-	mes "规模变大之后,";
-	mes "村外就出现了许多未曾见过的,";
-	mes "一群魔物们的谣言了";
-	next;
-	mes "[谷森睦]";
-	mes "最近日子实在难熬";
-	mes "真难熬啊...";
+	mes "[Gushenmu]";
+	mes "And as Einbech and Einbroch";
+	mes "have grown, I hear more and";
+	mes "more rumors that unfamiliar";
+	mes "monsters are beginning to";
+	mes "swarm outside of town. This";
+	mes "is really Einbech's worst time...";
 	close;
 }
 
-einbech,39,215,5	script	火车站 工作人员#ein3	852,{
-	mes "[工作人员]";
-	mes "你好吗，";
-	mes "本火车是来回艾音布罗克和艾音贝赫之间";
-	mes "的列车，费用是200金币，";
-	mes "请问你要搭乘吗？";
+einbech,39,215,5	script	Train Station Staff#ein3	852,{
+	mes "[Staff]";
+	mes "Welcome to";
+	mes "the Train Station.";
+	mes "The fare to take the";
+	mes "train to Einbroch is";
+	mes "200 zeny. Would";
+	mes "you like to ride?";
 	next;
-	switch(select("我要搭乘:我不要搭乘.")) {
+	switch(select("Yes.:No.")) {
 	case 1:
 		if (Zeny > 199) {
-		mes "[火车站 工作人员]";
-		mes "感谢你的搭乘，";
-		mes "祝您旅途愉快";
+			mes "[Staff]";
+			mes "Thank you and";
+			mes "we hope you enjoy";
+			mes "the ride. All aboard!";
 			close2;
-			set zeny,zeny-200;
+			set Zeny, Zeny-200;
 			warp "einbroch",226,276;
 			end;
 		}
 		else {
-			mes "[火车站 工作人员]";
-			mes "你的金钱不足啊";
+			mes "[Staff]";
+			mes "I'm sorry,";
+			mes "but you don't";
+			mes "have enough zeny";
+			mes "to pay the train fare.";
 			close;
 		}
 	case 2:
-	mes "[工作人员]";
-	mes "祝你有一个愉快的时间";
+		mes "[Staff]";
+		mes "Please enjoy";
+		mes "your stay here";
+		mes "in Einbech.";
 		close;
 	}
 }
 
-einbech,157,215,3	script	车站服务人员#ei	852,{
-	mes "[车站的相关人员]";
-	mes "这里搬运矿物等";
-	mes "货物专用车辆。";
-	mes "外人禁止进入。";
-	mes "如果去艾音布罗克，从这里往";
-	mes "11 点方向座火车。";
+einbech,157,215,3	script	Train Station Manager#ei	852,{
+	mes "[Train Station Manager]";
+	mes "This train station";
+	mes "is strictly for trains";
+	mes "running from Einbech";
+	mes "to Einbroch. Please speak";
+	mes "to the staff in the 11 'o clock direction if you'd like to board.";
 	close;
 }
 
-einbech,151,168,3	script	特拉芙#ein	855,{
-	mes "[特拉芙]";
-	mes "啊...累死啦,我也没钱,";
-	mes "不知道我要在这里劳动到";
-	mes "什么时候呢,";
-	mes "这里和隔壁村落的生活条件";
-	mes "简直是天壤之别嘛";
+einbech,151,168,3	script	Tollaf#ein	855,{
+	mes "[Tollaf]";
+	mes "Ah...!";
+	mes "This is killing me!";
+	mes "I don't have the money";
+	mes "to move, but I don't wanna";
+	mes "live in this town anymore!";
 	next;
-	mes "[特拉芙]";
-	mes "然而空气也没有多好...";
-	mes "也许在秀发兹发德中,";
-	mes "生活条件最差的村落,";
-	mes "应该就是艾音贝赫了";
+	mes "[Tollaf]";
+	mes "People everywhere else";
+	mes "live so much better than we";
+	mes "do, especially those snobs in";
+	mes "Einbroch! Einbech must be the";
+	mes "worst town Schwarzwald Republic. No, it's the worst in the world!";
 	close;
 }
 
-einbech,93,139,5	script	雷斯特#ein	847,{
-	mes "[雷斯特]";
-	mes "到底怎么她村落";
-	mes "一点发展性也没有!只有";
-	mes "隔壁村落才有显著的发展!";
-	mes "平均看起来这里的村落";
-	mes "反而更老了一点，";
-	mes "真是的!嘀嘀咕咕!";
+einbech,93,139,5	script	Raust#ein	847,{
+	mes "[Raust]";
+	mes "I don't get it!";
+	mes "Einbroch gets bigger";
+	mes "and fancier and our";
+	mes "town gets dirtier and";
+	mes "nastier. What the hell?!";
 	next;
-	mes "[雷斯特]";
-	mes "感觉上好像这里的";
-	mes "空气更糟!";
-	mes "工作量好像";
-	mes "又更多!生活空间";
-	mes "也更狭窄!";
-	mes "嘀嘀咕咕";
+	mes "[Raust]";
+	mes "Not only do the people";
+	mes "here look more ragged, we're";
+	mes "more tired and older looking";
+	mes "even! It's dirty, it's crowded,";
+	mes "everything in this city is total crap! What, you want a list?!";
 	next;
-	mes "[雷斯特]";
-	mes "好像男女比率";
-	mes "也不一样!更看不到";
-	mes "漂亮的老太婆!";
-	mes "虽然吃一样的饭， ";
-	mes "好像又不可口的样子!";
+	mes "[Raust]";
+	mes "The food, literally, is";
+	mes "garbage! The jobs here have";
+	mes "to be violations of human rights. There's barely any women here and the ones we do have are all stank anyway! Are you convinced yet?!";
 	next;
-	mes "[雷斯特]";
-	mes "凡举蓝天变色、我的衰老";
-	mes "天气变冷，这些都是因为";
-	mes "隔壁村落^FF0000艾音布罗克^000000的缘故，";
-	mes "唉呀! 哼! 吱吱吱! 咳咳 吐!";
-	mes "嘀嘀咕咕嘀嘀咕咕嘀咕!";
+	mes "[Raust]";
+	mes "Why is everything";
+	mes "that's good over in";
+	mes "Einbroch?! I hate this!";
+	mes "^333333*Grumble*^000000";
 	close;
 }
 
-einbech,149,154,3	script	慕尼雅#ein	850,{
-	mes "[慕尼雅]";
-	mes "身为女性生活在这里";
-	mes "真是件残忍的事情啊,";
-	mes "在这里的确很辛苦,";
-	mes "搞得我皮肤便粗糙,";
-	mes "又长肌肉...天啊...";
+einbech,149,154,3	script	Mjunia#ein	850,{
+	mes "[Mjunia]";
+	mes "It's hard being a woman";
+	mes "in this town. By being born";
+	mes "here, it's like fate just decided to be especially cruel to me.";
 	next;
-	mes "[慕尼雅]";
-	mes "我要赶快嫁给一位,";
-	mes "艾音布罗克的好男人,";
-	mes "然后离开这里,";
-	mes "否则我就不要结婚";
-	mes "独自过一辈子算了,唉唷!";
+	mes "[Mjunia]";
+	mes "My skin and hands are";
+	mes "rough from all the work";
+	mes "I have to do. But worst of";
+	mes "all... I... I... I've developed";
+	mes "bigger muscles than most";
+	mes "guys! Waaaaaah~!";
 	next;
-	mes "[慕尼雅]";
-	mes "你瞧一下这些肌肉,";
-	mes "你有何感想呢?";
+	mes "[Mjunia]";
+	mes "I wish I could find";
+	mes "a nice guy from Einbroch";
+	mes "and get married so I can";
+	mes "get away from this town.";
+	mes "But it doesn't look like";
+	mes "that will happen...";
 	next;
-	mes "[慕尼雅]";
-	mes "已经变得不像是女人的身材了...";
-	mes "都是生活态劳顿的关系,";
-	mes "连身为女性的我,也要";
-	mes "卖力工作到长肌肉";
-	close;
-}
-
-einbech,130,253,1	script	伊克利#ein	848,{
-	mes "[伊克利]";
-	mes "哈啊嚓~!哈啊嚓~!抛锄!";
-	mes "我是不太敢到矿山里面,";
-	mes "但不工作就得饿肚子!";
-	mes "我也不得已只好在矿山入口前面采矿呢!";
+	mes "[Mjunia]";
+	mes "And I'd never marry";
+	mes "anyone from Einbech!";
+	mes "I'd rather die cold and";
+	mes "alone than cold and married";
+	mes "to some Einbech hooligan.";
 	next;
-	mes "[伊克利]";
-	mes "虽然采到的矿石";
-	mes "数量不多,不过..万一";
-	mes "进去之后遭到不测,";
-	mes "就算是我的损失了...唉哟";
+	mes "[Mjunia]";
+	mes "Look at these";
+	mes "muscles. What do";
+	mes "you think? Am I pretty?";
+	mes "^333333*Sniff*^000000 I gave up trying";
+	mes "to be feminine years ago.";
+	mes "I have to work so hard...";
+	close;
+}
+
+einbech,130,253,1	script	Ekuri#ein	848,{
+	mes "[Ekuri]";
+	mes "Yo-heave-ho!";
+	mes "Yo-heave-ho~!";
 	next;
-	mes "[伊克利]";
-	mes "你明白了吗,那就别妨碍我干活,";
-	mes "请你继续走你的路吧,";
-	mes "嘿~咻~!嘿~咻~!锵锵!";
-	mes "我要~全部采光光!";
+	mes "[Ekuri]";
+	mes "What am I doing here?";
+	mes "Heck, I'm scared to death";
+	mes "of entering the mine! But";
+	mes "I can make a living here at";
+	mes "the entrance by gathering";
+	mes "scrap metal! Smart, huh?";
+	next;
+	mes "[Ekuri]";
+	mes "Sometimes, I get lucky";
+	mes "and score an entire ore!";
+	mes "Sure, I'm a coward, but";
+	mes "at least I'm alive. Well,";
+	mes "for the time being.";
+	next;
+	mes "[Ekuri]";
+	mes "Now you know what";
+	mes "I'm doing here. So why";
+	mes "don't you leave me to";
+	mes "my work? Heave-ho!";
+	mes "Ores, come to me!";
 	close;
 }
 
-einbech,135,250,5	script	标示牌#einbech11	858,{
+einbech,135,250,5	script	Bulletin Board#einbech11	858,{
 	mes " ";
-	mes " 矿山地下城入口";
-	mes " ";
-	close;
-}
-
-einbech,90,214,5	script	标示牌#einbech22	858,{
-	mes " ";
-	mes " 火车站 ";
-	mes " ";
-	close;
-}
-
-einbech,158,189,4	script	标示牌#einbech33	858,{
-	mes " ";
-	mes " 火车货运站 ";
-	mes " ";
-	close;
-}
-
-einbech,180,136,5	script	标示牌#einbech44	858,{
-	mes " ";
-	mes " 工具间 ";
+	mes " Mine Dungeon Entrance ";
 	mes " ";
 	close;
 }
 
-einbech,133,114,5	script	标示牌#einbech55	858,{
+einbech,90,214,5	script	Bulletin Board#einbech22	858,{
 	mes " ";
-	mes " 酒馆 ";
+	mes " Train Station ";
 	mes " ";
 	close;
 }
 
-einbech,77,105,5	script	标示牌#einbech01	858,{
+einbech,158,189,4	script	Bulletin Board#einbech33	858,{
+	mes " ";
+	mes " Freight Train Station ";
+	mes " ";
+	close;
+}
+
+einbech,180,136,5	script	Bulletin Board#einbech44	858,{
+	mes " ";
+	mes " Tool Shop ";
+	mes " ";
+	close;
+}
+
+einbech,133,114,5	script	Bulletin Board#einbech55	858,{
+	mes " ";
+	mes " Tavern ";
+	mes " ";
+	close;
+}
+
+einbech,77,105,5	script	Bulletin Board#einbech01	858,{
 	mes "Welcome to 'Einbech'.";
 	next;
-	mes "东 - 小酒馆，工具间";
-	mes "北 - 火车站, 矿山地牢";
+	mes "East - Tavern, Tool Shop";
+	mes "North - Train Station, Mine Dungeon";
 	close;
 }
 
-einbech,181,127,5	script	标示牌#einbech03	858,{
-	mes "西北 - 火车站";
-	mes "南 - 小酒馆";
-	mes "北 - 工具间，矿山地牢";
+einbech,181,127,5	script	Bulletin Board#einbech03	858,{
+	mes "Northwest - Train Station";
+	mes "South - Tavern";
+	mes "North - Tool Shop, Mine Dungeon";
 	close;
 }
 
-ein_in01,279,92,3	script	酒店 小姐#ein	854,{
-	mes "[酒店 小姐]";
-	mes "这里青年们的个性都太粗鲁了,";
-	mes "即粗俗,单纯又无知!!";
-	mes "以为靠蛮力就可以了?";
+ein_in01,279,92,3	script	Tavern Lady#ein	854,{
+	mes "[Tavern Lady]";
+	mes "Most Einbech men are";
+	mes "crude and primitive male";
+	mes "chauvinists! They disgust me!";
 	next;
-	mes "[酒店 小姐]";
-	mes "现在地女孩更需要温~柔的";
-	mes "男人呢,唉哟,真是的!";
-	mes "男人们必须有这种自觉才行呀,";
-	mes "这样长久下去就永远娶不到老婆了,哼!";
+	mes "[Tavern Lady]";
+	mes "I mean, there's nothing";
+	mes "good about them! They're";
+	mes "wild, violent, simple minded";
+	mes "and ignorant. They settle all";
+	mes "their arguments with brawn";
+	mes "and they're so... close minded!";
+	next;
+	mes "[Tavern Lady]";
+	mes "How can they not know";
+	mes "that women want gentle,";
+	mes "sensitive men with whom";
+	mes "they can share their feelings";
+	mes "and drink chamomile tea over";
+	mes "freshly knit doilies?";
 	close;
 }
-	
-ein_in01,277,95,7	script	村落 青年#air#einbech	855,{
-	mes "[村落 青年]";
-	mes "老板娘,你长得蛮可爱的嘛?";
-	mes "我看这里客人也不多你也蛮闲的,要不要跟我去约会一下啊?";
+
+ein_in01,277,95,7	script	Ryan Danger#air#einbech	855,{
+	mes "[R.D. Kim]";
+	mes "Oooh...";
 	next;
-	mes "[村落 青年]";
-	mes "请你马上换掉,那不搭配的衣服!";
-	mes "哥哥来帮你买你所有的想要的东西";
+	mes "[R.D. Kim]";
+	mes "Oooh...";
+	mes "Momma.";
 	next;
-	mes "[村落 青年]";
-	mes "嗯?你说什么?不要?你别装蒜啦..哼,";
-	mes "若改变主意的话,请随时联络我啊~";
+	mes "[R.D. Kim]";
+	mes "Oooh...";
+	mes "Momma.";
+	mes "You are so...";
+	next;
+	mes "[R.D. Kim]";
+	mes "Oooh...";
+	mes "Momma.";
+	mes "You are so...";
+	mes "^FF0000Hot^000000!";
+	next;
+	mes "[R.D. Kim]";
+	mes "Why don't you take off";
+	mes "those heavy, uncomfortable";
+	mes "clothes? I'll buy you whatever";
+	mes "you want, it's on me! C'mon~";
+	next;
+	mes "["+strcharinfo(0)+"]";
+	mes "N-no...!";
+	mes "I-I-I-I...";
+	mes "^666666(This is the";
+	mes "shadiest guy";
+	mes "I've ever seen!)^000000";
+	next;
+	mes "[R.D. Kim]";
+	mes "Hm? No...?";
+	mes "Absolutely no?";
+	mes "Are you sure?";
+	mes "Alright, alright.";
+	mes "I'm sorry, I apologize.";
+	mes "I was totally out of line.";
+	next;
+	mes "[R.D. Kim]";
+	mes "...";
+	mes "Or am I?";
+	mes "Bwahahahaha!";
+	next;
+	mes "["+strcharinfo(0)+"]";
+	mes "(Th-this guy";
+	mes "must be drunk out";
+	mes "of his freakin' mind!)";
 	close;
 }
-	
-ein_in01,281,85,3	script	酒醉的 男人#einbech	849,{
-	mes "[酒醉的 男人]";
-	mes "...打嗝... 打嗝...";
-	mes "呜哦哦哦哦嗯.....";
+
+ein_in01,281,85,3	script	Drunken Man#einbech	849,{
+	mes "[Drunken Man]";
+	mes "...^333333*Hiccup*^000000...";
+	mes "^333333*Hiccup*^000000...";
+	mes "^333333*Yawn*^000000.....";
 	mes ".................";
-	mes "..打嗝....打嗝..";
+	mes "..^333333*Hiccup*^000000.....";
+	mes "^333333*Hiccup*^000000..";
 	close;
 }
 
-einbech,46,107,6	script	莎娜#ein::EinMonsters	846,{
-	mes "[莎娜]";
-	mes "我跟你说好奇怪喔，";
-	mes "从前大家都知道的事情";
-	mes "为何现在都纷纷否认呢?";
+einbech,46,107,6	script	Shena#ein::EinMonsters	846,{
+	mes "[Shena]";
+	mes "I think it's weird!";
+	mes "How do you youngsters";
+	mes "not learn all of this?";
 	next;
-	mes "[卢达]";
-	mes "其实，也只有大人们知道吧，";
-	mes "最近大家都忙着赚钱糊口，";
-	mes "哪来的闲功夫";
-	mes "听这些事情呢";
+	mes "[Luda]";
+	mes "Well, I'm sure the";
+	mes "generation gap has";
+	mes "something to do with it,";
+	mes "but I'm surprised that elder";
+	mes "people would know so much~";
 	next;
-	switch(select("请问你们在说什么啊?:直接跳过去了")) {
+	switch(select("What are you guys talking about?:Pass on by")) {
 	case 1:
-		mes "[莎娜]";
-		mes "那么我们今天";
-		mes "要聊什么话题呢...";
+		mes "[Shena]";
+		mes "Oh? Well, well!";
+		mes "Aren't you the most";
+		mes "adorable little girl?";
+		mes "Hello, dearie~";
 		next;
-		if (Sex) {
-			select("嗯? 这位小姐我没见过啊？");
-			mes "[莎娜]";
-			mes "我是男生啦……",-;
+		if (Sex == SEX_MALE) {
+			select("Excuse me, but I'm actually a guy.");
+			mes "[Shena]";
+			mes "Oh, oh are you now?";
+			mes "Perhaps my eyes are";
+			mes "getting bad in my old";
+			mes "age. Getting harder to";
+			mes "tell the difference nowadays...";
 			next;
 		}
-	mes "[莎娜]";
-	mes "是吗?";
-	mes "都怪我最近视力不好..";
-	mes "哼哼哼";
+		mes "[Shena]";
+		mes "Anyway, me and Luda";
+		mes "were just having a little";
+		mes "chat about all the monsters";
+		mes "near Einbroch. Apparently,";
+		mes "you youngsters don't know as";
+		mes "much about them as you should.";
 		next;
-	mes "[莎娜]";
-	mes "随便啦!";
-	mes "大人问你什么";
-	mes "你就应该回答";
-	mes "现在的年轻人，";
-	mes "真是废话太多了";
+		mes "[Shena]";
+		mes "If adventuring is your";
+		mes "business, you should";
+		mes "know what you're up against.";
+		mes "Did you have any questions";
+		mes "about the monsters around";
+		mes "here, young lady?";
 		next;
-		if (Sex) {
-			select("我告诉你，我是一个纨?子弟...!");
-	mes "[莎娜]";
-	mes "大人们说话";
-	mes "只会插嘴，";
-	mes "难得我这老太婆";
-	mes "有兴致想讲一些";
-	mes "自古流传下来";
-	mes "有关魔物的故事呢...";
-	next;
-	mes "[莎娜]";
-	mes "好吧，你反省了的话，";
-	mes "来听一下我说的故事吧";
-	next;
+		if (Sex == SEX_MALE) {
+			select("I told you, I'm a dude...!");
+			mes "[Shena]";
+			mes "Hmm. ''Dude.'' I think";
+			mes "I've heard that before.";
+			mes "Ho ho~ You'll have to ";
+			mes "forgive this old biddy. ";
+			mes "I don't quite have a grasp";
+			mes "on all the words you kids use.";
+			next;
+			mes "[Shena]";
+			mes "So dearie,";
+			mes "which monster";
+			mes "would you like";
+			mes "to hear about?";
+			next;
 		}
 		while(1) {
-			switch(select("有关金属波利的事情:有关矿石魔的事情:有关矿工魔的事:有关废铁暖炉的事情:取消")) {
+			switch(select("Metalling:Mineral:Pit Man:Old Stove:Quit")) {
 			case 1:
-	mes "[莎娜]";
-	mes "从前，在人类尚未出现之前";
-	mes "奥丁所创造的巨人，";
-	mes "从基迦特斯开始，";
-	mes "就有金属波利的故事了";
+				mes "[Shena]";
+				mes "Well, the Metallings";
+				mes "were created during";
+				mes "the time when the gods";
+				mes "ruled over this world.";
 				next;
-	mes "[莎娜]";
-	mes "请问你喔，";
-	mes "像波利和土波利这种软体生物，";
-	mes "是由奥丁神的口水中创造出来的，";
-	mes "这样的传说";
-	mes "你有听过吗...";
-	next;
-	mes "[莎娜]";
-	mes "金属波利是唯一和奥丁神";
-	mes "没有直接关系的软体生物，";
-	mes "它们是从基迦特斯的尸体中";
-	mes "渗透出来的";
-	next;
-	mes "[莎娜]";
-	mes "虽然基迦特斯是有生命的物体，";
-	mes "但却是由机械打造而成的，";
-	mes "所以，我也不是很情楚";
-	mes "不过他的死亡，";
-	mes "和人类是不同的";
-	next;
-	mes "[莎娜]";
-	mes "当人类死亡时所流的血";
-	mes "只会干硬的凝固起来，";
-	mes "但基迦特斯死亡时所流的血，";
-	mes "却和一起掉下来的零件混合起来，";
-	mes "就变成金属波利了!";
-	next;
-	mes "[莎娜]";
-	mes "仔细看的话，";
-	mes "长在金属波利身体顶端的";
-	mes "血管会摇摇晃晃地，";
-	mes "和松垮垮不停地";
-	mes "摆动着";
-	next;
-	mes "[莎娜]";
-	mes "捡食掉在地上东西的习性";
-	mes "则和一般的波利";
-	mes "是完全相同的，";
-	mes "这都怪长相太丑陋了...";
-	next;
-	mes "[莎娜]";
-	mes "它有时候会掉落，";
-	mes "巨大杰勒比结晶、";
-	mes "铁矿石或铁为主";
+				mes "[Shena]";
+				mes "I'm not sure if you knew";
+				mes "this or not, but according";
+				mes "to myth, Porings and Drops";
+				mes "were created from Odin's";
+				mes "saliva. You might not want";
+				mes "to know about Poporing...";
+				next;
+				mes "[Shena]";
+				mes "Metallings, on the";
+				mes "other hand, were made";
+				mes "from the blood of living";
+				mes "machines that I believe";
+				mes "were called ''Gigantes.''";
+				next;
+				mes "[Shena]";
+				mes "Metalling is still like";
+				mes "those other hopping";
+				mes "blobs of gelatin in that";
+				mes "they'll swallow whatever";
+				mes "might be lying on the ground.";
+				next;
+				mes "[Shena]";
+				mes "If you defeat a Metalling,";
+				mes "it could drop Large Jellopy,";
+				mes "Iron Ore or even Iron. That";
+				mes "might be good to know, right?";
+				next;
+				mes "[Shena]";
+				mes "Is there";
+				mes "anything else";
+				mes "you'd like to";
+				mes "ask, dearie?";
 				next;
 				break;
 			case 2:
-	mes "[莎娜]";
-	mes "你有听过本来像钟乳石";
-	mes "或水晶等，几百年、几千年";
-	mes "期间，都是生长在洞穴里的";
-	mes "这种说法吗?";
-	next;
-	mes "[莎娜]";
-	mes "钟乳石是由石灰石形成的";
-	mes "洞穴，被水溶化之后，";
-	mes "溶化的水像冰柱一样滴下来，";
-	mes "干涸后而形成的";
-	next;
-	mes "[莎娜]";
-	mes "不过钟乳石只占洞穴的";
-	mes "一部分，反观水晶";
-	mes "甚至会在石头里面生长，";
-	mes "还会很离谱的长在别的石头上面生长呢";
-	next;
-	mes "[莎娜]";
-	mes "反正，唯有在充满着诡异";
-	mes "气息的那个洞穴里，";
-	mes "经历漫长岁月的水晶，";
-	mes "如果没有孕育出岁月的";
-	mes "灵魂的话，反而会更奇怪呢";
-	next;
-	mes "[莎娜]";
-	mes "我想应该是受到之前";
-	mes "所发现的'某种东西'的";
-	mes "影响吧...";
-	mes "我不太清楚详细的情形";
-	mes "战???、气??????。";
-	next;
-	mes "[莎娜]";
-	mes "因为我活的够久，";
-	mes "观察了许多来来往往的";
-	mes "人的一举一动，";
-	mes "所以我领悟到更易攻击";
-	mes "和高命中率的方法，";
-	mes "交战时要特别注意罗";
-	next;
-	mes "[莎娜]";
-	mes "^3333FF水晶碎片^000000或 ^3333FF黄宝石^000000，";
-	mes "^3333FF强化武器金属-级数二^000000为主要掉落物";
-	mes "如果走运的话，";
-	mes "还会掉落贵重的宝石呢，";
-	mes "因我没看过，所以不知为何物";
+				mes "[Shena]";
+				mes "Did you know that";
+				mes "stalactites and cave";
+				mes "crystals grow for thousands";
+				mes "and thousands of years?";
+				next;
+				mes "[Shena]";
+				mes "Now, if something's been";
+				mes "growing for thousands of";
+				mes "years, it would make sense";
+				mes "if it were actually alive. Now,";
+				mes "Mineral monsters are actually living stalactites.";
+				next;
+				mes "[Shena]";
+				mes "It's rumored that they";
+				mes "are grown in a dark cave";
+				mes "in which something inside";
+				mes "has some sort of malicious";
+				mes "influence over them.";
+				next;
+				mes "[Shena]";
+				mes "Minerals can defend themselves,";
+				mes "but they might drop Crystal Piece, Topaz or Emvertacon if you defeat one. There's also a slim chance that they may drop a rare jewel, but I'm not quite sure.";
+				next;
+				mes "[Shena]";
+				mes "Are there any";
+				mes "other monsters";
+				mes "around here that";
+				mes "you'd want to learn";
+				mes "more about?";
 				next;
 				break;
 			case 3:
-	mes "[莎娜]";
-	mes "矿工魔是指把废弃的矿车，";
-	mes "随意带出去使用的";
-	mes "幽灵和矿车之";
-	mes "参嘿";
-	next;
-	mes "[莎娜]";
-	mes "那些绝对不能修理的矿车，";
-	mes "当然因废弃很久而";
-	mes "被业所依附，";
-	mes "隐约地孕育出魂魄了";
-	mes "其实，其它东西也一样 ，";
-	mes "只要使用很久的话，就会变得一样了";
-	next;
-	mes "[莎娜]";
-	mes "不过听说像那些因意外事故、";
-	mes "退休、死亡或因年迈辞职等的";
-	mes "这些矿工们的灵魂，";
-	mes "会被矿车召唤过去，";
-	mes "事实上矿车和矿工们都回去";
-	mes "自己的生活地盘去了吧";
-	next;
-	mes "[莎娜]";
-	mes "我是这样想的喔，";
-	mes "成佛后遗弃的话，";
-	mes "就是罪过了，像^3333FF老旧的十字镐^000000，^3333FF手提灯^000000，^3333FF铁^000000，^3333FF钢铁^000000，";
-	mes "^3333FF煤矿^000000，^3333FF老旧的铁板^000000， ^3333FF怀中电灯^000000一样，";
-	mes "他们把每天要看要使用的东西";
-	mes "因难以忘怀而再去采了吧..";
+				mes "[Shena]";
+				mes "Pit Men are the ghosts";
+				mes "of dead miners that haunt";
+				mes "old and rusted mine cars.";
+				mes "For some reason, they can't";
+				mes "leave this world so they just";
+				mes "wander around the mines.";
+				next;
+				mes "[Shena]";
+				mes "If you can defeat";
+				mes "them, they'll drop";
+				mes "Old Pick, Lantern, Iron,";
+				mes "Steel, Coal, Flashlight";
+				mes "and Old Iron Plate.";
+				next;
+				mes "[Shena]";
+				mes "Did you want";
+				mes "to ask me about";
+				mes "any other of the";
+				mes "local monsters?";
 				next;
 				break;
 			case 4:
-	mes "[莎娜]";
-	mes "一看就知道了，";
-	mes "变成废铁的暖炉";
+				mes "[Shena]";
+				mes "It's just an evil,";
+				mes "man-eating stove.";
 				next;
-				switch(select("...只有这样吗?:喔喔，真是了不起喔!")) {
+				switch(select("...That's it?:H-horrifying!")) {
 				case 1:
-	mes "[莎娜]";
-	mes "对啊，只有这样啊，";
-	mes "还会有什么呢?";
-	mes "慢慢地有更新颖、性能又好的";
-	mes "新潮暖炉相继问世，";
-	mes "过时又破旧的暖炉";
-	mes "当然都会被丢弃了";
-	next;
-	mes "[莎娜]";
-	mes "其实废铁应该回收";
-	mes "再利用才对的，";
-	mes "虽然这里拥有矿脉";
-	mes "但是人们对于矿石，";
-	mes "连最基本的节约想法都没有";
-	next;
-	mes "[莎娜]";
-	mes "资源也终有耗尽的一天，";
-	mes "为了尽量延长它的时效，";
-	mes "就得拿出努力于";
-	mes "资源回收";
-	next;
-	mes "[莎娜]";
-	mes "当打败因有魂魄";
-	mes "而变成的废铁暖炉时，";
-	mes "就会掉落碎片，";
-	mes "用另外一种角度去思考，";
-	mes "也可视为资源回收";
+					mes "[Shena]";
+					mes "Now, you know the importance";
+					mes "of recycling and preserving our";
+					mes "natural resources, right? Now,";
+					mes "it would do my heart good if you were to recycle the scrap iron";
+					mes "from those Old Stove monsters.";
+					next;
+					mes "[Shena]";
+					mes "Old Stoves will usually";
+					mes "drop Battered Pot, Burnt Tree,";
+					mes "Iron, Iron Ore and Old Iron Plate. But once in a while they might drop interesting items like Rusty Iron or even Dead Branch.";
 					next;
 					break;
 				case 2:
-	mes "[莎娜]";
-	mes "当然了不起罗!";
-	mes "虽然算是最近不常";
-	mes "使用的旧型型号，";
-	mes "但总比现在随便制造的";
-	mes "东西品质来的好呢!";
-	next;
-	mes "[莎娜]";
-	mes "所以有可能，一个没有生命的";
-	mes "不过是几块铁的暖炉，";
-	mes "为了自尊心出一口气";
-	mes "而变成魔物了吧";
-	mes "不是吗，小姐";
-	next;
-	mes "像^3333FF变形水壶^000000或 ^3333FF燃烧一半的木材^000000，^3333FF铁^000000，";
-	mes "^3333FF铁矿石^000000，^3333FF老旧的铁板^000000等也会掉落，";
-	mes "听说视情况 ^3333FF锈铁^000000或";
-	mes "^3333FF枯树枝^000000等也会掉落呢";
-	next;
-	mes "[莎娜]";
-	mes "当打败因有魂魄";
-	mes "而变成的废铁暖炉时，";
-	mes "就会掉落碎片，";
-	mes "用另外一种角度去思考，";
-	mes "也可视为资源回收";
+					mes "[Shena]";
+					mes "Yes. God's creation,";
+					mes "that creature is cruel";
+					mes "and merciless, perhaps";
+					mes "a symbol of purest evil";
+					mes "if I ever saw one.";
+					next;
+					mes "[Shena]";
+					mes "Unlike newer appliances,";
+					mes "Old Stoves were hand made by";
+					mes "master craftsmen that, I guess,";
+					mes "developed their own souls. They";
+					mes "used to be benevolent machines, content to provide loving warmth.";
+					next;
+					mes "[Shena]";
+					mes "For years they would serve";
+					mes "their owners with loyalty. But";
+					mes "as technology advanced and";
+					mes "they became obsolete, they were";
+					mes "discarded like pieces of trash. This twisted their hearts to ^FF0000evil^000000.";
+					next;
+					mes "[Shena]";
+					mes "Old Stoves will usually";
+					mes "drop Battered Pot, Burnt Tree,";
+					mes "Iron, Iron Ore and Old Iron Plate. But once in a while they might drop interesting items like Rusty Iron or even Dead Branch.";
 					next;
 					break;
 				}
-				mes "[莎娜]";
-				mes "那么";
-				mes "还有什么";
-				mes "想与大家分享";
-				mes "的吗?";
+				mes "[Shena]";
+				mes "So, is there";
+				mes "anything else";
+				mes "you'd like me to";
+				mes "share with you?";
 				next;
 				break;
 			case 5:
-				mes "[莎娜]";
-				mes "好吧.";
-				mes "年轻的女士";
-				mes "祝你有个美好的一天.";
+				mes "[Shena]";
+				mes "Alright then.";
+				mes "Have a good";
+				mes "day, young lady.";
 				next;
-				mes "[卢达]";
-				mes "关于我母亲";
-				mes "我很抱歉";
-				mes "我想她可能过于友好.";
-				mes "如果你感到无聊";
-				mes "能随时来探访";
-				mes "在你旅行中探险是安全的~";
+				mes "[Luda]";
+				mes "I'm sorry about my";
+				mes "mother! She can be";
+				mes "overly friendly, I suppose.";
+				mes "But if you're bored, please";
+				mes "feel free to visit. Be safe";
+				mes "on your travels, adventurer~";
 				close;
 			}
 		}
 	case 2:
-		mes "[莎娜]";
+		mes "[Shena]";
 		mes "Luda...";
 		mes "You don't live";
 		mes "to be as old as";
 		mes "I am and not learn";
 		mes "a little something";
-		mes "a little something~";
+		mes "about this world of ours~";
 		close;
 	}
 }
-	
-einbech,48,107,4	duplicate(EinMonsters)	卢达#ein	850,{
 
-einbech,148,242,5	script	勇#ein	855,{
-	mes "[勇]";
-	mes "我是穿梭于艾音布罗克和";
-	mes "艾音贝赫之间，并在此地住了";
-	mes "很长一段时间而甚感自豪的人";
-	mes "我叫 [勇]的人士也";
+einbech,48,107,4	duplicate(EinMonsters)	Luda#ein	850,{
+
+einbech,148,242,5	script	Jung#ein	855,{
+	mes "[Jung]";
+	mes "I'm one of the few";
+	mes "people who's lived";
+	mes "in both Einbech and";
+	mes "Einbroch for a long time.";
+	mes "So I guess I'm one of the";
+	mes "best guides of this area.";
 	next;
-	mes "[勇]";
-	mes "如果你有打算去矿坑";
-	mes "洞穴的话，最好是";
-	mes "跟我听取情报喔";
-	mes "请问你要听吗?";
+	mes "[Jung]";
+	mes "Say, if you're thinking of";
+	mes "entering the Mine Dungeon,";
+	mes "I can tell you all I know about";
+	mes "the monsters in that place so";
+	mes "that you'll be better prepared.";
 	next;
-	switch(select("好，我要听?:我看算了.")) {
+	switch(select("Sure, why not?:No, thanks.")) {
 	case 1:
-	mes "[勇]";
-	mes "嗯，是吗?";
-	mes "我能告诉你的事情是";
-	mes "有关矿坑洞穴里的";
-	mes "一群魔物们";
-	mes "的故事呢";
+		mes "[Jung]";
+		mes "Let's see. Ah, the monsters that are unique to the Mine Dungeon";
+		mes "are Noxious, Venomous, Pollcellio and Obsidian. Which one do you";
+		mes "want to know more about?";
 		next;
-	mes "[勇]";
-	mes "首先魔物也有分";
-	mes "很多种类，";
-	mes "请你选一下你想听的吧";
-			next;
-		switch(select("废弃魔、毒液魔:三叶铁甲虫:黑曜石")) {
+		switch(select("Noxious and Venomous:Pollcellio:Obsidian")) {
 		case 1:
-		mes "[勇]";
-		mes "嗯~废气魔和毒液魔啊...";
-		mes "我是知道那些魔物啦，";
-		mes "怎么说呢，不容易解释，";
-		mes "我也不是很清楚";
-		mes "那些魔物是怎样出现的，";
-		mes "了解几乎有限啊...";
-		next;
-		mes "[勇]";
-		mes "唯一能确定的是，";
-		mes "它们出现的时机是在";
-		mes "艾音布罗克正要";
-		mes "如火如茶的发展的时刻呢...";
-		next;
-		mes "[勇]";
-		mes "它们是一种不知来历，";
-		mes "让人毛骨悚然又危险的魔物，";
-		mes "听当地人说，";
-		mes "它们并不是很久以前";
-		mes "就出现在这里的魔物呢";
-		next;
-		mes "[勇]";
-		mes "要怎么说呢...";
-		mes "与其说是自然产生， ";
-		mes "倒不如说是人工产生的感觉吧?...";
-		next;
-		mes "[勇]";
-		mes "如果望着那些魔物的眼睛的话，";
-		mes "会感受到它们攻击敌人时，";
-		mes "却也渴望敌人来攻击他们的";
-		mes "一种悲情的眼神";
-		next;
-		mes "[勇]";
-		mes "狩猎废气魔和毒液魔";
-		mes "的时候， ^FF0000苹果^000000、^FF0000粉尘";
-		mes "菌丝^000000，^FF0000毒粉^000000，^FF0000有毒瓦斯^000000";
-		mes "^FF0000霉菌粉末^000000，^FF0000曼特疗伤药^000000 等";
-		mes "可以获得这些";
-		next;
-		mes "[勇]";
-		mes "废气魔和毒液魔";
-		mes "算是中型的无形魔物，";
-		mes "各隶属于念属性和毒属性的魔物，";
-		mes "请你要特别小心，";
-		mes "它们会像空气一样靠过来，";
-		mes "带给你灾难的...";
+			mes "[Jung]";
+			mes "You know, no one seems";
+			mes "to know where Noxious and";
+			mes "Venomous have come from.";
+			mes "It's like they appeared out of";
+			mes "nowhere when Einbroch";
+			mes "started to industrialize.";
+			next;
+			mes "[Jung]";
+			mes "Now that I think about it,";
+			mes "I don't think they're naturally created monsters. They have";
+			mes "this fixed look of despair and";
+			mes "suffering and tend to act like they want their enemies to kill them.";
+			next;
+			mes "[Jung]";
+			mes "Still, you'd better be careful!";
+			mes "careful! Noxious and Venomous";
+			mes "are stealthy monsters that can";
+			mes "glide quietly through the air";
+			mes "and attack you before";
+			mes "you even notice...";
+			next;
+			mes "[Jung]";
+			mes "You should know that";
+			mes "Noxious is Ghost property";
+			mes "and Venomous is Poison.";
+			mes "Both are medium sized,";
+			mes "formless monsters.";
+			next;
+			mes "[Jung]";
+			mes "Both of them drop Apple,";
+			mes "Dust Pollutant, Toxic Gas,";
+			mes "Poisonous Powder, Bacillus,";
+			mes "Mold Powder and Anodyne.";
+			next;
+			mes "[Jung]";
+			mes "That's all for now.";
+			mes "Feel free to ask me";
+			mes "if you have any questions";
+			mes "about monsters in the Mine";
+			mes "Dungeon. Be safe, adventurer.";
 			close;
 		case 2:
-		mes "[勇]";
-		mes "嗯...三叶铁甲虫嘛...";
-		mes "三叶铁甲虫是靠洞穴里";
-		mes "钟乳石所滴下的水来";
-		mes "生存的昆虫...";
-		next;
-		mes "[勇]";
-		mes "温古力安特则具有不同的意义，";
-		mes "它是主要栖息在像煤矿一带";
-		mes "环境较好的地方之魔物呢";
-		next;
-		mes "[勇]";
-		mes "要怎么说呢，主要栖息在";
-		mes "人类几乎不能接触的地方，";
-		mes "所以在矿工们";
-		mes "流传的消息中，";
-		next;
-		mes "[勇]";
-		mes "在三叶铁甲虫居住的洞穴里，";
-		mes "单凭汤匙挖矿，";
-		mes "也能挖出优良矿物的这种传闻，";
-		mes "足见是一种评价很好的";
-		mes "魔物呢";
-		next;
-		mes "[勇]";
-		mes "三叶铁甲虫算是小型昆虫形的";
-		mes "地属性魔物，狩猎时";
-		mes "^FF0000朱毕雷^000000，^FF0000昆虫触角^000000";
-		mes "^FF0000单细胞^000000，^FF0000青苔^000000";
-		mes "^FF0000萤光色的液体^000000，等可以获得这些";
+			mes "[Jung]";
+			mes "Pollcellio is an insect that";
+			mes "lives in caves and drinks water";
+			mes "dripped from stalactites. It's";
+			mes "different from Ungoliant since";
+			mes "it likes to be near different";
+			mes "kinds of minerals and ores.";
+			next;
+			mes "[Jung]";
+			mes "Pollcellio drops Jubilee,";
+			mes "Insect Antenna, Single Cell,";
+			mes "Moss of Morning Dew, Neon";
+			mes "Liquid and a few other things";
+			mes "I can't quite remember.";
+			next;
+			mes "[Jung]";
+			mes "Lastly, Pollcellio is an";
+			mes "Earth property monster.";
+			mes "That's all I know about it.";
+			mes "But if you want to know more";
+			mes "about some other monster in the";
+			mes "Mine Dungeon, feel free to ask.";
 			close;
 		case 3:
-		mes "[勇]";
-		mes "黑曜石被称之为会呼吸的";
-		mes "石头，顾名思义的";
-		mes "就是活生生的矿物";
-		next;
-		mes "[勇]";
-		mes "当古人们使用从大地中";
-		mes "所出土的煤矿或宝石等，";
-		mes "这种具有神秘力量的矿物时，";
-		mes "坚信矿物内同时存在着";
-		mes "巨大的能量和灵魂呢";
-		next;
-		mes "[勇]";
-		mes "这就是有关黑曜石";
-		mes "所衍生的故事呢";
-		next;
-		mes "[勇]";
-		mes "矿山的灵气被看起来";
-		mes "只有几磅的矿物所支配着";
-		mes "黑曜石，又能挥发出巨大的";
-		mes "力量和有如生命力的能量";
-		next;
-		mes "放进能量发生器或镕炉时，";
-		mes "就能照亮黑漆漆的夜晚，";
-		mes "它强大的力量甚至从几十里以外的地方";
-		mes "都能看到明亮的光线和能量呢";
-		next;
-		mes "[勇]";
-		mes "不过要狩猎黑曜石的话，";
-		mes "需要有相当强的实力呢";
-		mes "请你要小心";
-		next;
-		mes "[勇]";
-		mes "黑曜石是属于小型的无形";
-		mes "魔物，当狩猎成功时";
-		mes " ^FF00001克拉钻石^000000，^FF0000黑色水晶碎片^000000";
-		mes "^FF0000煤矿^000000，^FF0000铝^000000，^FF0000钢铁^000000";
-		mes "^FF0000铁^000000等可以获得这些";
-		next;
-		mes "[勇]";
-		mes "因为不可能活捉到它，所以";
-		mes "很可惜只能看到古时候记载的";
-		mes "文献，却不能亲眼目睹";
-		mes "黑曜石的力量呢...";
+			mes "[Jung]";
+			mes "Do you know about the";
+			mes "belief that underground";
+			mes "minerals that contain huge";
+			mes "amounts of energy actually";
+			mes "have souls? Obsidian is";
+			mes "one of these living rocks.";
+			next;
+			mes "[Jung]";
+			mes "Supposedly, just a piece of an Obsidian in a Jung Processor has enough energy to light up the night sky. Unfortunately, it's impossible to capture one alive and hunting them isn't so easy.";
+			next;
+			mes "[Jung]";
+			mes "Obsidian is a small,";
+			mes "shapeless monster that";
+			mes "drops Clear Jewel, Piece of";
+			mes "Black Crystal, Coal, Elunium,";
+			mes "Iron and Steel.";
+			next;
+			mes "[Jung]";
+			mes "That's all for Obsidian.";
+			mes "If you have any questions";
+			mes "about other monsters living";
+			mes "in the Mine Dungeon, feel";
+			mes "free to ask me.";
 			close;
 		}
 	case 2:
-		mes "[勇]";
-		mes "嗯? 是吗?..";
-		mes "如果你是初次到这里的旅行者的话，";
-		mes "劝你最好是听一下喔...";
-		mes "我知道了，";
-		mes "祝你往后的旅途愉快";
+		mes "[Jung]";
+		mes "I understand if you're";
+		mes "kind of in a hurry. Still,";
+		mes "if you're pretty new around";
+		mes "here, you should learn as";
+		mes "much as you can before";
+		mes "entering any dungeons.";
+		next;
+		mes "[Jung]";
+		mes "Alright then,";
+		mes "be safe on your";
+		mes "adventures, alright?";
 		close;
 	}
 }
 
-einbech,148,246,5	script	泰丝#ein	851,{
-	mes "[泰丝]";
-	mes "啊~好无聊喔...";
-	mes "嗯? 看你的举止应该是旅行者吧，";
-	mes "如果你想在煤矿洞穴或这附近";
-	mes "打猎或旅行的话，";
-	mes "最好是听听我的";
-	mes "讲解喔，如何啊?";
+einbech,148,246,5	script	Franz#ein	851,{
+	mes "[Franz]";
+	mes "So bored...";
+	mes "Starving for...";
+	mes "Conversation.";
+	mes "S-somebody...";
 	next;
-	switch(select("我想听一下:不了,谢谢.")) {
+	mes "[Franz]";
+	mes "Hey, a traveller!";
+	mes "Are you planning to explore";
+	mes "the Mine Dungeon or the fields";
+	mes "around here? Let's chat for a bit and maybe you'll learn something.";
+	next;
+	switch(select("Okay, fine.:No, thanks.")) {
 	case 1:
-	mes "[泰丝]";
-	mes "嗯~ 这是明智的选择，";
-	mes "我会告诉你有关寄住在";
-	mes "矿坑洞穴里魔物的事情";
-	mes "和成为最近村落附近";
-	mes "焦点的事件吧...";
+		mes "[Franz]";
+		mes "Ooh, have you heard";
+		mes "about the creature in the";
+		mes "Mine Dungeon or what's";
+		mes "happened in town recently?";
+		mes "Which would you like to";
+		mes "know more about?";
 		next;
-		switch(select("我要听有关矿山魔物的故事:我要听有关村落附近的事故")) {
+		switch(select("Creature of Mine Dungeon:Town Incident")) {
 		case 1:
-		mes "[泰丝]";
-		mes "矿山魔物...";
-		mes "......嗯...它的名字..";
-		mes "温古力安特..被称为洞穴的主人，";
-		mes "叫做温古力安特的";
-		mes "一种魔物...";
-		next;
-		mes "[泰丝]";
-		mes "本来是住在很深的地底下，";
-		mes "和以孕育力量的矿物";
-		mes "附近筑巢而居的";
-		mes "魔物...";
-		next;
-		mes "[泰丝]";
-		mes "在艾音贝赫的煤矿，";
-		mes "也有温古力安特出没的";
-		mes "传闻自古以来";
-		mes "流传着";
-		next;
-		mes "[泰丝]";
-		mes "不过那件传闻成真的";
-		mes "演变，却不是";
-		mes "很久以前的事，";
-		mes "只是在几十年前发生的";
-		mes "矿坑坍塌事件之后的事吧";
-		next;
-		mes "[泰丝]";
-		mes "自从温古力安特出现在";
-		mes "矿山的次数频繁之后，";
-		mes "矿坑坍塌的意外事故";
-		mes "也开始跟着增加了";
-		next;
-		mes "[泰丝]";
-		mes "温古力安特也出现在";
-		mes "古代的传说之中，当";
-		mes "巨人族悄悄地跑到人类";
-		mes "所开采煤矿的矿山上偷窃时";
-		mes "由于它们的脚步声太大";
-		next;
-		mes "[泰丝]";
-		mes "沉睡中的温古力安特";
-		mes "听到那声音后醒来，";
-		mes "然后把巨人族全部切成两半了呢，";
-		mes "矿工们早上到煤矿上班时，";
-		mes "看到巨人族尸横遍野的景况，";
-		mes "矿工们个个都大惊失色了";
-		next;
-		mes "[泰丝]";
-		mes "听说从此之后温古力安特";
-		mes "被称为洞穴的主人，?";
-		mes "煤矿之土地神呢，";
-		mes "温古力安特是属于大型的";
-		mes "昆虫形魔物， 根据狩猎";
-		mes "成功的旅行者之说法...";
-		next;
-		mes "[泰丝]";
-		mes "^FF0000蚂蚁下巴^000000和 ^FF0000彩色昆虫外壳^000000，";
-		mes "^FF0000坚硬外皮^000000，^FF0000昆虫的长腿^000000，^FF0000萤光色的液体^000000，";
-		mes "^FF0000青绿宝石^000000等可以获得这些，";
-		mes "就像我说过是一群难缠的魔物，";
-		mes "所以要进入矿坑洞穴时，";
-		mes "请你特别小心";
+			mes "[Franz]";
+			mes "The creature I'm talking about is Ungoliant, which also called the Master of the Caves around here.";
+			mes "It's said to live deep in the caves where it guards peculiar ores and minerals with strange powers.";
+			next;
+			mes "[Franz]";
+			mes "At first I thought it was";
+			mes "just an old fairy tale, but it";
+			mes "actually started appearing";
+			mes "again about ten years ago";
+			mes "when the tunnel cave-ins";
+			mes "started to happen.";
+			next;
+			mes "[Franz]";
+			mes "As sightings of Ungoliant";
+			mes "increased, more and more";
+			mes "tunnel cave-ins occurred.";
+			mes "I guess the miners have";
+			mes "inadvertently intruded";
+			mes "into its territory.";
+			next;
+			mes "[Franz]";
+			mes "According to legend,";
+			mes "ancient giants snuck into";
+			mes "a mine to steal coal from";
+			mes "humans. But they made too";
+			mes "much noise while they were";
+			mes "digging and awoke Ungoliant.";
+			next;
+			mes "[Franz]";
+			mes "When the miners went to work";
+			mes "the next morning, they found the bloodied bodies of those giants.";
+			mes "After that, people have feared";
+			mes "the threat that Ungoliant poses";
+			mes "to anyone entering the mines.";
+			next;
+			mes "[Franz]";
+			mes "Now, an adventurer that";
+			mes "managed to kill an Ungoliant";
+			mes "has told me that it drops Ant's";
+			mes "Jaw, Colorful Shell, Very Hard";
+			mes "Shell, Long Leg, Neon Liquid";
+			mes "and Zilcon.";
 			close;
 		case 2:
-		mes "[泰丝]";
-		mes "玩偶熊是和魔物有关的";
-		mes "故事，最近被那玩偶魔物";
-		mes "搞的天翻地覆，造成严重的";
-		mes "问题呢，我来告诉你缘由，";
-		mes "不久前在艾音布罗克外围的";
-		mes "空地上，发生大量的玩偶熊";
-		mes "被废弃处里之事件";
-		next;
-		mes "[泰丝]";
-		mes "我本来听说";
-		mes "玩偶熊是卖给小孩";
-		mes "会动的玩具呢";
-		next;
-		mes "[泰丝]";
-		mes "我的朋友商人中，";
-		mes "有一位是卖玩偶熊的，";
-		mes "据他说去批货时，由于";
-		mes "价格便宜又蛮有份量的，";
-		mes "所以很畅销呢";
-		next;
-		mes "[泰丝]";
-		mes "不过每位买回去的";
-		mes "家庭，都会遭受很严重的";
-		mes "事故，或者家人被杀的";
-		mes "情事发生";
-		next;
-		mes "[泰丝]";
-		mes "之后甚至发生";
-		mes "那玩偶熊活了过来";
-		mes "可以自己活动呢";
-		next;
-		mes "[泰丝]";
-		mes "由于此商品太畅销，";
-		mes "直到此传闻被传开，";
-		mes "并没有花太长的";
-		mes "时间";
-		next;
-		mes "[泰丝]";
-		mes "不过之后又有奇怪的传闻坊间";
-		mes "流传着，当有人发表那些事件";
-		mes "发生的时间点全都一样的";
-		mes "调查报告后，大家议论纷纷";
-		mes "怀疑有人制造此玩偶熊";
-		mes "的动机，是不是有另作";
-		mes "其它用途的企图";
-		next;
-		mes "[泰丝]";
-		mes "很奇妙的是听取买过这些";
-		mes "玩偶熊的商人们的证词后，";
-		mes "大家异口同声的说，";
-		mes "原来都是向同一个人";
-		mes "买的，而且看起来他";
-		mes "不像是艾音布罗克的人";
-		next;
-		mes "[泰丝]";
-		mes "不管如何，因此问题之故， ";
-		mes "凡是有玩偶熊流入的村落，";
-		mes "就派驻了军队进行?";
-		mes "动作呢";
-		next;
-		mes "[泰丝]";
-		mes "然后针对引起严重问题的玩具";
-		mes "进行大规模的回收";
-		mes "除了发生零星的事件外";
-		mes "没有发生太大的问题，";
-		mes "算是蛮顺利的完成了";
-		next;
-		mes "[泰丝]";
-		mes "不过在军队回报";
-		mes "却爆发了问题，当军队想在村落";
-		mes "外围的空地把那些集中起来准备";
-		mes "废弃的同时，突然间那些玩偶熊";
-		mes "又开始动起来造成暴动后，";
-		mes "就往四面八方逃窜了";
-		next;
-		mes "[泰丝]";
-		mes "自此事件发生后，这些";
-		mes "玩具是被某人操纵，";
-		mes "且不是以玩具用途而制造";
-		mes "的疑问，终于真相大白了";
-		next;
-		mes "[泰丝]";
-		mes "活生生的变成攻击型的";
-		mes "玩偶熊们，由于四处流窜";
-		mes "不知去向的缘故，所以";
-		mes "就把它们列为魔物了";
-		next;
-		mes "[泰丝]";
-		mes "根据捕捉此魔物玩偶熊的";
-		mes "旅行者说，这家伙是属于";
-		mes "无形魔物中的小型，狩猎时";
-		mes "会从身上 ^FF0000蜂蜜^000000，^FF0000姜饼^000000，以及";
-		mes "^FF0000生锈的螺丝^000000，^FF0000神之金属锤子^000000等";
-		next;
-		mes "[泰丝]";
-		mes "我听到的事情就是这些了，";
-		mes "旅途中请你要多小心喔...";
-		mes "比起长相它那穷凶极恶的行为，";
-		mes "实在是玩偶熊不可貌相呢~";
+			mes "[Franz]";
+			mes "In Einbroch, there was";
+			mes "a short lived teddy bear";
+			mes "fad. However, a series of";
+			mes "mysterious accidents and";
+			mes "murders where entire families";
+			mes "were killed also occurred.";
+			next;
+			mes "[Franz]";
+			mes "It turns out that every family";
+			mes "that had been murdered had";
+			mes "bought one of these teddy bears. There were even rumors that these teddy bears were coming to life.";
+			next;
+			mes "[Franz]";
+			mes "After an investigation, the";
+			mes "authorities learned that all the merchants who sold these bears";
+			mes "had purchased them from the";
+			mes "same wholesaler, an outsider";
+			mes "no one knew anything about.";
+			next;
+			mes "[Franz]";
+			mes "Since the teddy bears were";
+			mes "clearly not made to be mere,";
+			mes "harmless toys, troops were";
+			mes "sent to secure all the teddy";
+			mes "bears and dispose of them";
+			mes "outside of town.";
+			next;
+			mes "[Franz]";
+			mes "But as soon as the teddy";
+			mes "bears were set outside of";
+			mes "town, they sprang to life and";
+			mes "started rioting! This is clear";
+			mes "proof that these bears are";
+			mes "controlled by some evil force. ";
+			next;
+			mes "[Franz]";
+			mes "Now those aggressive teddy";
+			mes "bears are scattered all over";
+			mes "the place and the government";
+			mes "has classified them as monsters. Kill with extreme prejudice!";
+			next;
+			mes "[Franz]";
+			mes "According to adventurers";
+			mes "who have caught these bears,";
+			mes "they're small, neutral monsters";
+			mes "which drop Honey, Screw, Well-baked Cookie and Oridecon Hammer.";
+			next;
+			mes "[Franz]";
+			mes "That's all I know";
+			mes "about it. Watch out";
+			mes "for those bears if you";
+			mes "go exploring, okay? They";
+			mes "may be cute, but they're";
+			mes "known to be extremely vicious!";
 			close;
 		}
 	case 2:
-		mes "[泰丝]";
-		mes "嗯? 是吗?若你不听我的话，";
-		mes "到处徘徊发生意外的话，";
-		mes "我可不管喔~";
-		mes "你到时候别哭着后悔呢~";
+		mes "[Franz]";
+		mes "Oh, okay.";
+		mes "You're busy and you have";
+		mes "things to do, I understand.";
+		mes "You probably have to head";
+		mes "off somewhere right away.";
+		mes "Right. Got it.";
+		next;
+		mes "[Franz]";
+		mes "I...";
+		mes "I've got stuff";
+		mes "I should be working";
+		mes "on. Yes. So very busy.";
 		close;
 	}
 }

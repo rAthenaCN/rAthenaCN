@@ -1,11 +1,3 @@
-//============================================================
-//= rAthenaCN [城镇人员]汉化脚本 [ www.rAthenaCN.com ]
-//============================================================
-//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
-
 //===== rAthena Script =======================================
 //= Hugel City
 //===== By: ==================================================
@@ -14,7 +6,7 @@
 //===== Current Version: =====================================
 //= 1.7
 //===== Compatible With: =====================================
-//= rAthena SVN
+//= rAthena Project
 //===== Description: =========================================
 //= NPC's for the City of Hugel.
 //===== Additional Comments: =================================
@@ -39,141 +31,175 @@
 
 // Hugel
 //============================================================
-hugel,189,143,5	script	纯朴的青年	898,{
-	mes "[纯朴的青年]";
-	mes "噢! 那个庞大的空气袋子，";
-	mes "就是可以升空的东西吗?";
-	mes "我也试试把肚里注满空气后，";
-	mes "在空中飘摇看看吧?";
+hugel,189,143,5	script	Young Man	898,{
+	mes "[Young Man]";
+	mes "Huh. So that giant";
+	mes "air pouch can make";
+	mes "people float in midair?";
+	mes "Would filling my tummy";
+	mes "with air work the same way?";
 	close;
 }
 
-hugel,126,151,3	script	艾蜜莉	90,{
-	mes "[艾蜜莉]";
-	mes "虽说这里是乡下，";
-	mes "却是个很平和的地方，";
-	mes "左邻右舍都很好相处。";
+hugel,126,151,3	script	Emily	90,{
+	mes "[Emily]";
+	mes "I feel so blessed to";
+	mes "live in this quant, little";
+	mes "town. It's so beautiful, and";
+	mes "everyone here is so nice~";
 	next;
-	mes "[艾蜜莉]";
-	mes "可是我姐姐一天到晚";
-	mes "只想离开这里，";
-	mes "她说愈往愈觉得";
-	mes "恐惧和害怕，好奇怪喔？";
-	close;
-}
- 
-hugel,86,165,5	script	卡伊普勒斯	896,{
-	mes "[卡伊普勒斯]";
-	mes "哦, 好想要那个红红的瓶子!";
-	mes "真想要麻麻给我买一个喇.";
-	mes "看上去又很贵啦~";
+	mes "[Emily]";
+	mes "For some reason, my older";
+	mes "sister wants to move out of";
+	mes "Hugel as soon as she can. She";
+	mes "Says that she's getting crept";
+	mes "out by the people that live here.";
+	mes "Don't you think that sounds weird?";
 	close;
 }
 
-hugel,71,197,3	script	丽莎	90,{
-	mes "[丽莎]";
-	mes "毁葛村落这地方实在太小，";
-	mes "每天有谁发生了什么事情，";
-	mes "很快就会传开来";
-	next;
-	mes "[丽莎]";
-	mes "我好讨厌这种乡下村落，";
-	mes "很想早日搬至大村落生活。";
+hugel,86,165,5	script	Kayplas	896,{
+	mes "[Kayplas]";
+	mes "Ooh, I really want to";
+	mes "have that red bottle.";
+	mes "I should ask my mom";
+	mes "to buy me one. It doesn't";
+	mes "look too expensive, does it?";
 	close;
 }
 
-hugel,169,112,5	script	老尼基	892,{
-	mes "[老尼基]";
-	mes "你不是这里的人啊.";
-	mes "那么, 你是一名冒险者吧?";
-	mes "知道我是怎么看出来的吗?";
+hugel,71,197,3	script	Lisa	90,{
+	mes "[Lisa]";
+	mes "Hugel is a pretty";
+	mes "small, homely village.";
+	mes "Everyone knows everyone,";
+	mes "everybody knows what";
+	mes "everybody else is doing.";
+	mes "It's so suffocating!";
 	next;
-	mes "[老尼基]";
-	mes "因为在这儿居住的每个人";
-	mes "久而久之长得都一样了呢.";
-	mes "你看上去很年轻, 不和我们这些人一样老,";
-	mes "呵呵, 过的愉快, 冒险者~";
+	mes "[Lisa]";
+	mes "There's no privacy in";
+	mes "small towns. Someday,";
+	mes "I wanna go out and";
+	mes "live in the big city~";
 	close;
 }
 
-hugel,175,115,5	script	马里亚斯 	897,{
-	mes "[马里亚斯]";
-	mes "我是个老头, 是的,";
-	mes "但是对付你这种傲慢自大的家伙,";
-	mes "老头子我的鞭子什么时候都有空!";
-	mes "你知道毁葛的人均寿命会比较长, 知道为什么吗?";
+hugel,169,112,5	script	Old Nikki	892,{
+	mes "[Old Nikki]";
+	mes "You must not be from";
+	mes "around here. Ah, you're";
+	mes "an adventurer, right? Do";
+	mes "you know how I could tell?";
 	next;
-	mes "[马里亚斯]";
-	mes "因为这镇子里的笨家伙们都不喜欢躺下, 升天!";
-	mes "来吧! 让你看看我有多结识!";
-	mes "小家伙, 我们来角力吧~";
+	mes "[Old Nikki]";
+	mes "It's because everyone";
+	mes "who's lived here starts";
+	mes "to look alike after a while.";
+	mes "And you certainly don't look";
+	mes "as old as us. Well, have";
+	mes "a nice day, adventurer~";
+	close;
+}
+
+hugel,175,115,5	script	Marius	897,{
+	mes "[Marius]";
+	mes "Yes, I'm an old man, but";
+	mes "I can lick a whippersnapper";
+	mes "like you any day of the week!";
+	mes "You know, Hugel's got a longer";
+	mes "life expectancy than all the other towns. You wanna know why?";
+	next;
+	mes "[Marius]";
+	mes "It's because the old";
+	mes "coots in this town refuse";
+	mes "to just lay down and die!";
+	mes "Now, c'mon! Lemme show";
+	mes "you how strong I am! Let's";
+	mes "wrestle or something, kid~";
 	close;
 }
 
 // Inside Hugel
 //============================================================
-hu_in01,111,386,4	script	克里斯	86,{
-	mes "[克里斯]";
-	mes "老实说在本村落里，";
-	mes "与其说用武器来杀敌，";
-	mes "倒不如买来狩猎或采集时，";
-	mes "以做为自卫的情形";
-	mes "反而比较常见";
+hu_in01,111,386,4	script	Chris	86,{
+	mes "[Chris]";
+	mes "You know, the people don't";
+	mes "fight harmful monsters, they";
+	mes "just protect themselves by";
+	mes "equipping armor. That's";
+	mes "just the way they are.";
 	next;
-	mes "[克里斯]";
-	mes "如果你想购买更高档的盔甲，";
-	mes "那么我建议你去一些大城市。";
+	mes "[Chris]";
+	mes "If you want to buy";
+	mes "some nicer armors,";
+	mes "then I suggest buying";
+	mes "some in a bigger city.";
 	close;
 }
 
-hu_in01,23,311,4	script	派对用品商人	898,{
-	mes "[派对用品商人]";
-	mes "欢迎光临!";
-	mes "请问要不要跟朋友们一起玩漂亮的鞭炮游";
-	mes "戏呢?";
-	mes "鞭炮5个一捆，卖给你的话只收500金币哟";
+hu_in01,23,311,4	script	Party Supplies Shop	898,{
+	mes "[Shopkeeper]";
+	mes "Welcome to the party supplies";
+	mes "shop!";
+	mes "Why don't you enjoy some";
+	mes "spectacular fireworks with your";
+	mes "friends?";
+	mes "We can provide you with 5 of them";
+	mes "at 500 zeny.";
 	next;
-	switch (select("购买:不购买")) {
+	switch (select("Buy:Cancel")) {
 		case 1:
-			if (Zeny < 500) { 
-				mes "[派对用品商人]";
-				mes "客人~ 好像你的金币不够啊";
+			if (Zeny < 500) {
+				mes "[Shopkeeper]";
+				mes "I am sorry, but you don't have";
+				mes "enough money~";
 				close;
 			}
 			set Zeny,Zeny-500;
 			getitem 12018,5;	// Fire_Cracker
-			mes "[派对用品商人]";
-			mes "真的谢谢你!";
-			mes "祝你有一些美好的回忆";
+			mes "[Shopkeeper]";
+			mes "Here you go!";
+			mes "Have fun with them!";
 			close;
 		case 2:
-			mes "[派对用品商人]";
-			mes "在宁静的夜晚飞翔着鞭炮的情景...嘻!";
+			mes "[Shopkeeper]";
+			mes "Thank you, please come again.";
 			close;
 	}
 }
 
-hu_in01,18,94,0	script	兼职工作人员#1	49,{
-	mes "[露达]";
-	mes "欢迎来到神殿探险部.";
-	mes "我叫露达, 是一名兼职助理.";
-	mes "我是负责办公室卫生工作的, 但是你看啊, 好乱的!";
+hu_in01,18,94,0	script	A Part-Timer#1	49,{
+	mes "[Luda]";
+	mes "Welcome to the";
+	mes "Shrine Expedition Office.";
+	mes "I'm Luda, a part-time";
+	mes "assistant. My job is to";
+	mes "keep this office neat and";
+	mes "clean, but look at this place!";
 	next;
-	mes "[露达]";
-	mes "但是我觉得自己其实还是可以搞定这个难题的~";
-	mes "这是修法兹共和国远征团和其他来自卢恩米德加兹王国的远征团的办公处~";
+	mes "[Luda]";
+	mes "Still, I think I can";
+	mes "handle this difficult task~";
+	mes "This room is the office for";
+	mes "the Schwarzwald Republic team,";
+	mes "and the other is for the Rune-";
+	mes "Midgarts Kingdom team.";
 	next;
-	mes "[露达]";
-	mes "两个办公室都是我扫的,";
-	mes "他们弄得我好忙哦.";
-	mes "对了, 试试看加入他们的远征团吧?";
-	mes "当然不会有什么实质性的报酬喇, 但是,";
-	mes "真的很好玩喇~";
+	mes "[Luda]";
+	mes "I have to clean both rooms,";
+	mes "so they keep me pretty busy.";
+	mes "Why don't you volunteer for";
+	mes "their expedition? I know they";
+	mes "can't really pay you, but it's";
+	mes "a great chance to explore~";
 	close;
 }
 
-hu_in01,26,77,4	script	兼职工作人员#2	50,{
-	mes "^3355FF这个兼职工作人员全神贯注的";
-	mes "沉浸在他整理档案书籍的工作中.^000000";
+hu_in01,26,77,4	script	A Part-Timer#2	50,{
+	mes "^3355FFThis part-timer is";
+	mes "completely engrossed";
+	mes "in his task of organizing";
+	mes "files and books.^000000";
 	close;
 }

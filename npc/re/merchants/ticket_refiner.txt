@@ -1,11 +1,3 @@
-//============================================================
-//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
-//============================================================
-//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
-
 //===== rAthena Script ======================================= 
 //= Ticket Refiner
 //===== By: ==================================================
@@ -26,93 +18,108 @@
 
 // Main NPC :: safety_Ref_NPC
 //============================================================
-prontera,195,173,6	script	精炼研究家	851,{
+prontera,184,177,6	script	Refine Master	851,{
 	disable_items;
 	if (countitem(6238) || countitem(6228) || countitem(6229) || countitem(6230) || countitem(6231) || countitem(6456))
 		set .@bWeaponUp,1;
 	if (countitem(6239) || countitem(6232) || countitem(6233) || countitem(6234) || countitem(6235) || countitem(6457))
 		set .@bArmorUp,1;
 	if (!.@bWeaponUp && !.@bArmorUp) {
-		mes "[精炼研究家]";
-		mes "你好!";
-		mes "有什么事情?";
-		mes "我是专家.";
-		mes "在物品精炼领域,";
-		mes "但我已经退休了.";
+		mes "[Refine Master]";
+		mes "Hello!";
+		mes "What's up?";
+		mes "I'm a specialist";
+		mes "for refining items,";
+		mes "but I don't work anymore.";
 		next;
-		switch(select("- 那我走了.:- 嗯......这让我好奇.")) {
+		switch(select("I'll go on my way.:Hmm... this makes me curious.")) {
 		case 1:
-			mes "[精炼研究家]";
-			mes "保重, 探险家.";
+			mes "[Refine Master]";
+			mes "Take care, adventurer.";
 			close;
 		case 2:
-			mes "[精炼研究家]";
-			mes "事实上, 我有时冒险家与提供完善服务 ^006400精炼能力提升券的服务^000000...";
-			mes "再见~!";
+			mes "[Refine Master]";
+			mes "Actually, I sometimes provide refine services for adventurers with a ^006400Refine Ticket^000000...";
+			mes "Bye bye~!";
 			close;
 		}
 	}
 	emotion ET_SURPRISE;
-	mes "[精炼研究家]";
-	mes "你好!";
-	mes "你可以将你的物品精炼到 ^006400与精炼能力提升券相同的级别^000000.";
-	mes "您不必担心! 装备不会有精炼失败的可能.";
+	mes "[Refine Master]";
+	mes "Greetings!";
+	mes "I can refine an item up to the ^006400same level as your ticket^000000.";
+	mes "You don't have to worry! There's no chance of breaking your item.";
 	next;
-	if(select("- 我马上回来.:- 用券来精炼装备.") == 1) {
-		mes "[精炼研究家]";
-		mes "好的.";
-		mes "等你回来.";
+	if(select("I'll come back later.:Refine item with ticket.") == 1) {
+		mes "[Refine Master]";
+		mes "Okay.";
+		mes "You can come again later.";
 		close;
 	}
-	mes "[精炼研究家]";
-	mes "你想精炼什么装备?";
+	mes "[Refine Master]";
+	mes "Which equipment would you like to refine?";
 	next;
 	setarray .@position$[1],"Head upper","Armor","Left hand","Right hand","Robe","Shoes","Accessory 1","Accessory 2","Head middle","Head lower";
 	setarray .@indices[1], EQI_HEAD_TOP, EQI_ARMOR, EQI_HAND_L, EQI_HAND_R, EQI_GARMENT, EQI_SHOES, EQI_ACC_L, EQI_ACC_R, EQI_HEAD_MID, EQI_HEAD_LOW;
 	for(set .@i,1; .@i<=10; set .@i,.@i+1)
-		set .@menu$, .@menu$+((getequipisequiped(.@indices[.@i]))?getequipname(.@indices[.@i]):.@position$[.@i]+" - [未装备]")+":";
+		set .@menu$, .@menu$+((getequipisequiped(.@indices[.@i]))?getequipname(.@indices[.@i]):.@position$[.@i]+"- [Empty]")+":";
 	set .@part, .@indices[ select(.@menu$) ];
 	if (!getequipisequiped(.@part)) {
-		mes "[精炼研究家]";
-		mes "你必须装备要精炼的装备.";
+		mes "[Refine Master]";
+		mes "You have to equip the item you want to refine.";
 		close;
 	}
 	if (!getequipisenableref(.@part)) {
 		emotion ET_OTL;
-		mes "[精炼研究家]";
-		mes "噢, 我很抱歉.";
-		mes "这个物品无法被精炼.";
+		mes "[Refine Master]";
+		mes "Oh, I'm sorry.";
+		mes "This item is impossible to refine.";
 		close;
 	}
 	.@refineitemid = getequipid(.@part); // save id of the item
 	.@refinerycnt = getequiprefinerycnt(.@part); //save refinery count
-	switch(getequipweaponlv(.@part)) {
-	default:
-	case 0:
-		setarray .@tickets[0],6457,6235,6234,6233,6232,6239;
-		setarray .@levels[0],5,6,7,8,9,11;
-		set .@type$,"Armor";
-		set .@check,.@bArmorUp;
-		break;
-	case 1:
-	case 2:
-	case 3:
-	case 4:
-		setarray .@tickets[0],6456,6231,6230,6229,6228,6238;
-		setarray .@levels[0],5,6,7,8,9,11;
-		set .@type$,"Weapon";
-		set .@check,.@bWeaponUp;
-		break;
+	setarray .@card[0], getequipcardid(.@part,0), getequipcardid(.@part,1), getequipcardid(.@part,2), getequipcardid(.@part,3);
+	.@itemtype = getiteminfo( .@refineitemid, ITEMINFO_TYPE );
+	if( .@itemtype == IT_WEAPON ){
+		switch( getequipweaponlv( .@part ) ){
+			case 1:
+			case 2:
+			case 3:
+			case 4:
+				setarray .@tickets[0],6456,6231,6230,6229,6228,6238;
+				setarray .@levels[0],5,6,7,8,9,11;
+				set .@type$,"Weapon";
+				set .@check,.@bWeaponUp;
+				break;
+			default:
+				// TODO:
+				close;
+		}
+	}else if( .@itemtype == IT_ARMOR ){
+		switch( getequiparmorlv( .@part ) ){
+			case 1:
+				setarray .@tickets[0],6457,6235,6234,6233,6232,6239;
+				setarray .@levels[0],5,6,7,8,9,11;
+				set .@type$,"Armor";
+				set .@check,.@bArmorUp;
+				break;
+			default:
+				// TODO:
+				close;
+		}
+	}else{
+		// TODO:
+		close;
 	}
 	if (!.@check) {
 		emotion ET_THINK;
-		mes "[精炼研究家]";
-		mes "如果你想要精炼这个 ^006400"+.@type$+"^000000, 请带上 ^006400"+.@type$+"精炼能力提升券^000000.";
-		mes "再见!";
+		mes "[Refine Master]";
+		mes "If you want to refine this ^006400"+.@type$+"^000000, please come along with ^006400"+.@type$+" Refine Ticket^000000.";
+		mes "See you later!";
 		close;
 	}
-	mes "[精炼研究家]";
-	mes "请选择你想精炼 ^006400"+.@type$+"^000000 所使用的精炼能力提升券.";
+	mes "[Refine Master]";
+	mes "Please choose which ^006400"+.@type$+" Refine Ticket^000000 you want to use.";
 	next;
 	set .@menu$,"";
 	for(set .@i,0; .@i<getarraysize(.@tickets); set .@i,.@i+1)
@@ -122,43 +129,43 @@ prontera,195,173,6	script	精炼研究家	851,{
 	set .@ticket_id, .@tickets[.@select];
 	if (countitem(.@ticket_id) == 0) {
 		emotion ET_QUESTION;
-		mes "[精炼研究家]";
-		mes getitemname(.@ticket_id)+" 不再你身上, 你是不是把它放仓库了?";
-		mes "请检查一下.";
-		mes "再见!";
+		mes "[Refine Master]";
+		mes getitemname(.@ticket_id)+" is not in your inventory. Did you put it in your storage?";
+		mes "Please check again.";
+		mes "See you later!";
 		close;
 	}
 	if (getequiprefinerycnt(.@part) >= .@ticket_lv) {
 		emotion ET_PROFUSELY_SWEAT;
-		mes "[精炼研究家]";
-		mes "^8B4513这个道具已经精炼到极致了.^000000";
-		mes "请拿一件不到你精炼能力提升券级别的装备来.";
+		mes "[Refine Master]";
+		mes "^8B4513This item is already refined as much as your deed.^000000";
+		mes "Please come along with an item refined less than your ticket.";
 		close;
 	}
-	mes "[精炼研究家]";
-	mes "我将精炼 ^006400"+getequipname(.@part)+"^8B4513 至 +"+.@ticket_lv+" 级别^000000 消耗 ^006400"+getitemname(.@ticket_id)+"^000000.";
-	mes "我继续?";
+	mes "[Refine Master]";
+	mes "I'm going to refine ^006400"+getequipname(.@part)+"^8B4513 up to the +"+.@ticket_lv+" level^000000 with ^006400"+getitemname(.@ticket_id)+"^000000.";
+	mes "May I proceed?";
 	next;
-	if(select("- 否.:- 是.") == 1) {
+	if(select("No.:Yes.") == 1) {
 		emotion ET_THINK;
-		mes "[精炼研究家]";
-		mes "噢, 你改变主意了.";
-		mes "好吧.";
-		mes "你需要的时候再来吧.";
+		mes "[Refine Master]";
+		mes "Oh, you changed your mind.";
+		mes "Ok.";
+		mes "You can come back later.";
 		close;
 	}
-	mes "[精炼研究家]";
-	mes "很好.";
-	mes "如你所愿!";
-	mes "我有我自己特殊的方式来精炼...";
-	mes ".......咔嘭!";
+	mes "[Refine Master]";
+	mes "Great.";
+	mes "As you wish!";
+	mes "I have my own special way to refine...";
+	mes ".......ka boom!";
 	specialeffect EF_SUI_EXPLOSION;
 	if (countitem(.@ticket_id)) {
 		delitem .@ticket_id,1;
 
 		// anti-hack
 		if (callfunc("F_IsEquipIDHack", .@part, .@refineitemid) ||
-			callfunc("F_IsEquipRefineHack", .@part, .@refinerycnt)) {
+			callfunc("F_IsEquipRefineHack", .@part, .@refinerycnt) || callfunc("F_IsEquipCardHack", .@part, .@card[0], .@card[1], .@card[2], .@card[3])) {
 			mes "[Refine Master]";
 			emotion ET_FRET;
 			mes "Wait a second...";
@@ -168,18 +175,18 @@ prontera,195,173,6	script	精炼研究家	851,{
 		}
 	} else {
 		next;
-		mes "错误!";
-		mes "请报给GM.";
+		mes "Error!";
+		mes "Please report this.";
 		close;
 	}
 	successrefitem .@part, .@ticket_lv - getequiprefinerycnt(.@part);
 	next;
 	emotion ET_DELIGHT;
-	mes "[精炼研究家]";
-	mes "好了, 就是它了~";
-	mes "很好, ^0000FF"+strcharinfo(0)+"^000000!";
-	mes "恭喜你那闪耀的 "+.@type$+".";
-	mes "你看起来棒极了!";
-	mes "再见~!";
+	mes "[Refine Master]";
+	mes "Alright, here it is~";
+	mes "Well, ^0000FF"+strcharinfo(0)+"^000000!";
+	mes "Congratulations on your shining "+.@type$+".";
+	mes "You look GREAT!";
+	mes "Farewell~!";
 	close;
 }

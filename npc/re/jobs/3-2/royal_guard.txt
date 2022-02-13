@@ -14,9 +14,11 @@
 //= 1.1 Updated script. [Euphy]
 //= 1.2 Added GM management function. [Euphy]
 //= 1.3 Added VIP features. [Euphy]
+//= 2.0 Prontera castle map changed in ep16.1 [Capuche]
 //============================================================
 
-prt_castle,48,161,3	script	Middle-aged Gentleman#rg	57,{
+// prt_castle,48,161,3	script	Middle-aged Gentleman#rg	57,{
+prt_cas,172,275,5	script	Middle-aged Gentleman#rg	1_M_LIBRARYMASTER,{
 	if (checkweight(1201,1) == 0 || MaxWeight - Weight < 1000) {
 		mes "- Your pack is too heavy. -";
 		mes "- Lighten your body first -";
@@ -453,7 +455,7 @@ gl_church,173,88,0	script	Delicate trace#01	844,{
 			getitem 7049,1; //Stone
 		else {
 			mes "While investigating, the topography breaks. It would be better to dig other places for a while.";
-			disablenpc strnpcinfo(0);
+			disablenpc();
 			initnpctimer;
 			close;
 		}
@@ -461,7 +463,7 @@ gl_church,173,88,0	script	Delicate trace#01	844,{
 	mes "There is a trace that someone has already dug here.";
 	close;
 OnTimer60000:
-	enablenpc strnpcinfo(0);
+	enablenpc();
 	stopnpctimer;
 OnTimer1000:
 OnTimer20000:
@@ -486,7 +488,7 @@ gl_church,105,115,0	duplicate(Delicate trace#01)	Delicate trace#11	844
 
 gl_church,158,100,0	script	#Clue of traces	111,4,4,{
 	end;
-OnTouch:
+OnTouch_:
 	if (job_royal == 4 && countitem(6274) == 0) {
 		specialeffect2 EF_FREEZE;
 		mes "I can feel strong power around here. It would be better to explore around here.";

@@ -1,12 +1,4 @@
-//============================================================
-//= rAthenaCN [伪装游戏]汉化脚本 [ www.rAthenaCN.com ]
-//============================================================
-//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
-
-//===== Hercules Script ======================================
+//===== rAthena Script =======================================
 //= Disguise Event
 //===== By: ==================================================
 //= GmOcean
@@ -23,112 +15,112 @@
 //= 5.1 Cleaned and standardized, mostly. [Euphy]
 //============================================================
 
-prontera,160,155,4	script	伪装游戏	795,{
+prontera,160,155,4	script	Disguise Event	795,{
 
 	// Currently set to run every two hours.
 	// To change times, edit the OnClock labels below.
 
 	set .@GMLevel,60;	// GM level required to access NPC.
-	set .@n$,"[^0000FF伪装NPC^000000]";
+	set .@n$,"[^0000FFDisguise NPC^000000]";
 
 	if (getgmlevel()>=.@GMLevel) {
 		mes .@n$;
-		mes "选择一个选项.";
+		mes "Select an option.";
 		next;
-		switch(select("- 选择开/关:- 事件设置")) {
+		switch(select("Turn ON/OFF Event:Event Settings")) {
 		case 1:
 			mes .@n$;
 			if (.EventON) {
-				mes "当前事件: [^0000FFON^000000]";
-				mes "需要关闭吗?";
+				mes "The Event is currently: [^0000FFON^000000]";
+				mes "Would you like to turn it OFF?";
 			} else {
-				mes "当前事件: [^FF0000OFF^000000]";
-				mes "需要打开吗?";
+				mes "The Event is currently: [^FF0000OFF^000000]";
+				mes "Would you like to turn it ON?";
 			}
-			if(select("- 是:- 否")==2) close;
+			if(select("Yes:No")==2) close;
 			if (.EventON) {
 				set .EventON,0; set .Timer,0;
 				setnpctimer 0; stopnpctimer;
-				announce "GM决定关闭伪装活动,将不会获得进一步的奖励",bc_map | bc_blue;
+				announce "A GM has decided to turn the Disguise Event off. As a result no further prizes will be given.",bc_map | bc_blue;
 				deletepset 1;
-				setnpcdisplay "伪装活动", 4_M_NFDEADMAN;
+				setnpcdisplay "Disguise Event",795;
 				close;
 			}
 			set .EventON,1; set .Timer,1; setnpctimer 0; initnpctimer;
 			set .ResetCounter,.ResetCounter+1;
-			announce "伪装活动在三分钟后开始",bc_all | bc_blue;
-			announce "事件在普隆德拉发生",bc_all | bc_blue;
+			announce "The Disguise Event will begin in 3 minutes.",bc_all | bc_blue;
+			announce "The Event is being held in Prontera.",bc_all | bc_blue;
 			close;
 		case 2:
 			mes .@n$;
-			mes "选择一个修改设置.";
+			mes "Pick a setting to modify.";
 			next;
-			switch(select("- 怪物显示:- 回合数:- 奖励设置")) {
+			switch(select("Monster Display:Number of Rounds:Prize Settings")) {
 			case 1:
-				setarray .@r$[0],"- 作为怪物伪装.","- 仅作为MVPs伪装";
+				setarray .@r$[0],"Disguise as all monsters.","Disguise as MVPs only.";
 				mes .@n$;
-				mes "选择一个伪装规则.";
+				mes "Choose a disguise rule.";
 				next;
 				set .Rule, select(implode(.@r$,":"));
 				mes .@n$;
-				mes "伪装规则已设置:";
+				mes "The Disguise Rule has been set:";
 				mes "  > ^0055FF"+.@r$[.Rule-1]+"^000000";
 				close;
 			case 2:
 				mes .@n$;
-				mes "请选一个活动持续的回合数.";
-				mes "当前数值: [^0000FF"+.Rounds+"^000000]";
+				mes "Input the number of rounds you want the event to last.";
+				mes "Current number: [^0000FF"+.Rounds+"^000000]";
 				next;
 				input .@Rounds;
 				set .Rounds,.@Rounds;
 				mes .@n$;
-				mes "回合数被修改为: "+.Rounds+".";
+				mes "The number of rounds has been changed to "+.Rounds+".";
 				close;
 			case 3:
 				mes .@n$;
-				mes "录入每回合得到奖励的物品ID.";
-				mes "当前项目: [^0000FF"+getitemname(.Prize)+"^000000] (ID #"+.Prize+")";
+				mes "Input the Item ID of the prize given each round.";
+				mes "Current item: [^0000FF"+getitemname(.Prize)+"^000000] (ID #"+.Prize+")";
 				next;
 				input .@Prize;
 				mes .@n$;
 				if (getitemname(.@Prize)=="" || getitemname(.@Prize)=="null") {
-					mes "物品不存在,请重试.";
+					mes "That item does not exist. Please try again.";
 					close;
 				}
 				set .Prize,.@Prize;
-				mes "录入获取物品总数.";
+				mes "Input the amount to be given.";
 				next;
 				input .@amount;
 				mes .@n$;
 				if (.@amount<=0 || .@amount>=10000) {
-					mes "总数非法. 使用默认值 1.";
+					mes "That amount is invalid. Using default amount of 1.";
 					set .@amount,1;
 					next;
 					mes .@n$;
 				}
 				set .PrizeAmt,.@amount;
-				mes "奖励成功更新.";
-				mes "奖励: "+.PrizeAmt+"x [^0000FF"+getitemname(.Prize)+"^000000]";
+				mes "The Prize has been changed successfully.";
+				mes "Prize: "+.PrizeAmt+"x [^0000FF"+getitemname(.Prize)+"^000000]";
 				close;
 			}
 		}
 	}
 	if (.EventON) end;
 	mes .@n$;
-	mes "欢迎.";
-	mes "我有什么能帮助你的吗?";
-	if(select("- 信息:- 没有, 仅仅路过.")==2) close;
+	mes "Welcome.";
+	mes "How may I be of assistance?";
+	if(select("Information:Nothing, just passing through.")==2) close;
 	next;
 	mes .@n$;
-	mes "这个事件相当简单.";
-	mes "活动开始, 我将";
-	mes "作为一个怪物随机伪装.";
-	mes "你必须";
-	mes "大声叫出那怪物的名称.";
+	mes "This event is quite simple.";
+	mes "At the start of the event, I will";
+	mes "disguise myself as a random";
+	mes "monster. You have to shout";
+	mes "that monster's name out loud.";
 	next;
-	mes "如果你正确, 你将收到";
-	mes "一个奖励. 不正确的话继续尝试!";
-	mes "以上就是这个活动的介绍.";
+	mes "If you are correct, you will receive";
+	mes "a prize. If not, keep trying!";
+	mes "That's all that there is to this event.";
 	close;
 
 OnInit:
@@ -171,8 +163,8 @@ OnClock2200:
 	set .EventON,1;
 	set .Timer,1;
 	set .Wait,1;
-	announce "伪装活动将在三分钟后开始.",bc_all | bc_blue;
-	announce "事件在普隆德拉发生.",bc_all | bc_blue;
+	announce "The Disguise Event will begin in 3 minutes.",bc_all | bc_blue;
+	announce "The Event is being held in Prontera.",bc_all | bc_blue;
 	setnpctimer 0;
 	initnpctimer;
 	end;
@@ -184,8 +176,8 @@ OnTimer10000:
 OnTimer30000:
 	if (.Timer) end;
 	set .Change,0;
-	setnpcdisplay "伪装活动", 4_M_NFDEADMAN;
-	npctalk "你花费了太长的时间，请等待10秒钟等待我隐藏.";
+	setnpcdisplay "Disguise Event",795;
+	npctalk "Disguise Event : You took too long to guess what I was. Please wait 10 seconds while I disguise again.";
 	specialeffect EF_DETECT2;
 	set $MonsterName$,"";
 	deletepset 1;
@@ -195,18 +187,18 @@ OnTimer30000:
 	end;
 OnTimer60000:
 	if (.Timer!=1) end;
-	announce "伪装活动将在二分钟后开始.",bc_all | bc_blue;
-	announce "事件在普隆德拉发生.",bc_all | bc_blue;
+	announce "The Disguise Event will begin in 2 minutes.",bc_all | bc_blue;
+	announce "The Event is being held in Prontera.",bc_all | bc_blue;
 	end;
 OnTimer120000:
 	if (.Timer!=1) end;
-	announce "伪装活动将在二分钟后开始",bc_all | bc_blue;
-	announce "事件在普隆德拉发生.",bc_all | bc_blue;
+	announce "The Disguise Event will begin 1 minute.",bc_all | bc_blue;
+	announce "The Event is being held in Prontera.",bc_all | bc_blue;
 	end;
 OnTimer180000:
 	if (.Timer!=1) end;
-	announce "伪装活动开始!",bc_all | bc_blue;
-	announce "事件在普隆德拉发生.",bc_all | bc_blue;
+	announce "The Disguise Event has begun!",bc_all | bc_blue;
+	announce "The Event is being held in Prontera.",bc_all | bc_blue;
 	set .Timer,0; stopnpctimer;
 	setnpctimer 0; initnpctimer;
 iDisguise:
@@ -224,16 +216,16 @@ iDisguise:
 		set $MonsterName$,getmonsterinfo(.MVP[.Monster],0);
 	}
 	deletepset 1;
-	defpattern 1,"([^:]+):.\\s*"+$MonsterName$+".*", "不正确";
+	defpattern 1,"([^:]+):.\\s*"+$MonsterName$+".*", "iCorrect";
 	activatepset 1;
-	if (.Rule==1) setnpcdisplay "伪装活动",.Monster;
-	if (.Rule==2) setnpcdisplay "伪装活动",.MVP[.Monster];
+	if (.Rule==1) setnpcdisplay "Disguise Event",.Monster;
+	if (.Rule==2) setnpcdisplay "Disguise Event",.MVP[.Monster];
 	set .Change,1;
 	setnpctimer 0;
 	end;
 iCorrect:
 	if (.Winner) {
-		dispbottom "有人赢得了这一回合.";
+		dispbottom "Someone has already won this round.";
 		end;
 	}
 	set .Winner,1;
@@ -241,15 +233,15 @@ iCorrect:
 	deletepset 1;
 	activatepset 1;
 	getitem .Prize,.PrizeAmt;
-	announce strcharinfo(0)+" 正确! 我隐藏为: "+$MonsterName$+"",bc_map | bc_blue;
+	announce strcharinfo(0)+" is correct! I was disguised as: "+$MonsterName$+"",bc_map | bc_blue;
 	if (.RoundCount>=.Rounds) {
-		setnpcdisplay "伪装活动", 4_M_NFDEADMAN;
+		setnpcdisplay "Disguise Event",795;
 		set .RoundCount,0; set .Change,0; set .EventON,0;
 		setnpctimer 0; stopnpctimer;
-		npctalk "谢谢. 这是最后一回合伪装活动. 请稍后再次尝试.";
+		npctalk "Disguise Event : Thank you all for playing. That was the last round of the Disguise Event. Come play again later.";
 		end;
 	}
-	setnpcdisplay "伪装活动", 4_M_NFDEADMAN;
+	setnpcdisplay "Disguise Event",795;
 	set .Change,0;
 	setnpctimer 0;
 	end;

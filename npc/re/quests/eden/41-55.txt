@@ -1,75 +1,69 @@
-//============================================================
-//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
-//============================================================
-//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
-
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Eden Group Quests - Mission [41 - 55]
 //===== By: ==================================================
 //= L0ne_W0lf
 //===== Current Version: =====================================
-//= 1.2
+//= 1.4
 //===== Compatible With: =====================================
-//= rAthena SVN
+//= rAthena Project
 //===== Description: =========================================
 //= Repetable Quests for Players between Baselevel 41 - 55.
 //===== Additional Comments: =================================
 //= 1.0 First Version.
 //= 1.1 Some little optimization here and there. [Masao]
 //= 1.2 Optimized. [Euphy]
+//= 1.3 Added support to Para_Team_Mark_ in Eden Group. [Ragno]
+//= 1.4 Added use of F_HasEdenGroupMark function. [Ragno]
 //============================================================
 
-moc_para01,40,38,3	script	任务 [41 - 55]	857,{
-	if (countitem(6219) < 1) {
-		mes "你还不是伊甸园的成员，所以不能接受布告栏上的任务。";
+moc_para01,40,38,3	script	Mission [41 - 55]	857,{
+	if (!callfunc("F_HasEdenGroupMark")) {
+		mes "You are not an Eden group member. You are not qualified to access the bulletin board.";
 		close;
 	}
 	if (checkweight(1201,1) == 0 || (MaxWeight - Weight) < 1000) {
-		mes "^008800等一下!!";
-		mes "你带了太多的东西，已经超负重啦！快去减负后再来吧。^000000";
+		mes "^008800Wait a sec!!";
+		mes "You cannot receive any more items because you're carrying too many items. Please try again after you lighten up.^000000";
 		close;
 	}
 	if (checkquest(12088) == -1) {
 		if (BaseLevel < 41 || BaseLevel > 55) {
-			mes "[Lv.41~55的冒险者. 任务布告栏]";
+			mes "Mission bulletin board for Lv41~55 adventurers.";
 			close;
 		}
-		mes "[任务看板]";
-		mes "任务布告栏";
+		mes "[Mission Board]";
+		mes "Mission bulletin board.";
 		next;
-		if(select("- 查看任务:- 取消") == 2) {
-			mes "^000077好，那下次再来查看任务吧。^000000.";
+		if(select("Check the Missions.:Cancel.") == 2) {
+			mes "^000077Ok. Let's check the missions next time.^000000.";
 			close;
 		}
-		switch(select("狩猎达拉蛙:狩猎玩具士兵:狩猎库克雷:狩猎兽人婴儿:狩猎兽人战士:狩猎螃蟹:狩猎邪骸食人鱼:狩猎乌贼:狩猎卡那多斯:狩猎麦斯特:狩猎贝壳魔灵:狩猎气泡虫:狩猎剑鱼:狩猎邪骸兽人:狩猎兹诺克:狩猎木乃伊")) {
-			case 1: callsub L_Quest,12072,"你见过一种红色青蛙么？它叫达拉蛙，是一种稀有的生物，我们想找出它们的栖息场所。所以，请狩猎20只达拉蛙回来。";
-			case 2: callsub L_Quest,12073,"我听说一些玩具会攻击人类，这太可笑了！让它们见识一下我们的厉害！请狩猎30只玩具士兵回来。";
-			case 3: callsub L_Quest,12074,"有人在海边被抢劫了，这可能是一种名叫库克雷的生物干得。所以，请去狩猎30只库克雷。";
-			case 4: callsub L_Quest,12075,"最近兽人婴儿越来越暴力猖獗了。请去狩猎15只兽人婴儿。";
-			case 5: callsub L_Quest,12076,"兽人战士侵犯我们的次数越来越多了。请去狩猎20个兽人战士。";
-			case 6: callsub L_Quest,12077,"你见过那些带着厚壳的螃蟹么？请狩猎15只螃蟹回来。";
-			case 7: callsub L_Quest,12078,"死鱼在海边的数量越来越多了，情况很糟糕。请去狩猎30只邪骸食人鱼。";
-			case 8: callsub L_Quest,12079,"你能去狩猎乌贼么？我需要15只乌贼来继续我的研究。请帮助我！";
-			case 9: callsub L_Quest,12080,"有一只白痴卡那多斯咬伤了迈亚的脚。迈亚很不爽，所以我们需要狩猎20只卡那多斯来让他高兴一下。";
-			case 10: callsub L_Quest,12081,"人们被一种叫麦斯特的怪物吓坏了！他们看起来像鬼一样。请去狩猎15只麦斯特。";
-			case 11: callsub L_Quest,12082,"不要问为什么，请去狩猎30只贝壳魔灵回来。这是一个秘密任务！";
-			case 12: callsub L_Quest,12083,"气泡虫？你知道什么是气泡虫么？我需要你去为我狩猎15只气泡虫回来。";
-			case 13: callsub L_Quest,12084,"迈亚想吃一顿美味的鱼餐，剑鱼是一种不错的选择。请去狩猎20只剑鱼回来。";
-			case 14: callsub L_Quest,12085,"死去的兽人又复活了，这让我们很头疼。你能帮助我们去狩猎这些邪骸兽人么？15只就可以了。";
-			case 15: callsub L_Quest,12086,"一种名叫兹诺克的奇怪生物总是攻击我们。请去狩猎30只兹诺克回来。";
-			case 16: callsub L_Quest,12087,"准备好了么？这是一个凶残的任务。狩猎15只木乃伊！我尝试了一次但是没有成功，它们太可怕了！";
+		switch(select("Thara Frog Hunting:Cruiser Hunting:Kukre Hunting:Orc Baby Hunting:Orc Warrior Hunting:Vadon Hunting:Megalodon Hunting:Marse Hunting:Cornutus Hunting:Myst Hunting:Shellfish Hunting:Marine Sphere Hunting")) {
+			case 1: callsub L_Quest,12072,"Have you seen a red frog? It is called Thara Frog and it's very rare. We are trying to verify where it inhabits. So please hunt 20 Thara Frogs.";
+			case 2: callsub L_Quest,12073,"I heard of some toys attacking people. It is ridiculous! Let's show them our power! We have to hunt 15 Cruisers!";
+			case 3: callsub L_Quest,12074,"Someone got robbed near the beach! The possible suspect is a criminal monster called Kukre. Please hunt 30 Kukre.";
+			case 4: callsub L_Quest,12075,"Orc Babies are getting more violent these days. Please hunt 15 Orc Babies.";
+			case 5: callsub L_Quest,12076,"Orc Warriors are increasing their aggression. Please hunt 20 Orc Warriors.";
+			case 6: callsub L_Quest,12077,"Have you seen crabs with thick shells? They are Vadons. Please hunt 15 Vadons.";
+			case 7: callsub L_Quest,12078,"Dead fish are all around the beach and it is getting worse. Please hunt 30 Megalodon.";
+			case 8: callsub L_Quest,12079,"Can you hunt Marse? I need 15 Marse for my study. Please help me.";
+			case 9: callsub L_Quest,12080,"An idiot Cornutus bit the Mayor's foot. The Mayor is upset so we need to hunt 20 Cornutus to make him happy!";
+			case 10: callsub L_Quest,12081,"People are freaking out because of Myst. It looks like a ghost so, it scares people. Please hunt 15 Myst.";
+			case 11: callsub L_Quest,12082,"Don't ask why, but please hunt 30 Shellfish. It is a secret mission!";
+			case 12: callsub L_Quest,12083,"Marine Sphere? Do you know what a Marine Sphere is? I got a mission for you to hunt 15 Marine Sphere, so please do so.";
+			case 13: callsub L_Quest,12084,"The mayor wants to eat a delicious fish dish. Phen will be the perfect ingredient for it. Please hunt 20 Phen!";
+			case 14: callsub L_Quest,12085,"Dead Orc monsters got back to our town and they've revived as Orc Skeletons. We are in chaos! Please hunt 15 Orc Skeleton.";
+			case 15: callsub L_Quest,12086,"Some weird monsters called Zenorc are attacking us. Please hunt 30 Zenorc.";
+			case 16: callsub L_Quest,12087,"Be prepared! It is a cruel mission! Hunt 15 Mummies!! I tried once, but I couldn't succeed. It is too scary!";
 		}
 		end;
 	}
 	setarray .@Exp[0],9600,7200,15750,7875,11100,8550,17100,9000,12300,9900,20250,10350,13800,11025,22500,11250;
 	for(set .@i,0; .@i<16; set .@i,.@i+1)
 		if (checkquest(12072+.@i,HUNTING) == 2) {
-			mes "[任务看板]";
-			mes "你已经完成任务拉！";
-			mes "这是给你的奖励！";
+			mes "[Mission Board]";
+			mes "You have completed the mission.";
+			mes "Here is your reward.";
 			erasequest 12088;
 			erasequest 12072+.@i;
 			specialeffect2 EF_STEAL;
@@ -77,19 +71,19 @@ moc_para01,40,38,3	script	任务 [41 - 55]	857,{
 			close;
 		}
 	if ((checkquest(12072,HUNTING) == 0) && (checkquest(12073,HUNTING) == 0) && (checkquest(12074,HUNTING) == 0) && (checkquest(12075,HUNTING) == 0) && (checkquest(12076,HUNTING) == 0) && (checkquest(12077,HUNTING) == 0) && (checkquest(12078,HUNTING) == 0) && (checkquest(12079,HUNTING) == 0) && (checkquest(12080,HUNTING) == 0) && (checkquest(12081,HUNTING) == 0) && (checkquest(12082,HUNTING) == 0) && (checkquest(12083,HUNTING) == 0) && (checkquest(12084,HUNTING) == 0) && (checkquest(12085,HUNTING) == 0) && (checkquest(12086,HUNTING) == 0) && (checkquest(12087,HUNTING) == 0)) {
-		mes "你可以先在查看任务布告栏了。";
+		mes "You may now view the bulletin board.";
 		erasequest 12088;
 		close;
 	}
-	mes "现在没什么特别的事可以干。";
+	mes "There is nothing special to do.";
 	close;
 L_Quest:
-	mes "[任务看板]";
+	mes "[Mission Board Memo]";
 	mes getarg(1);
 	next;
-	if(select("接受任务:取消") == 1) {
-		mes "[任务看板]";
-		mes "你已经接受了任务。想知道具体细节，请按'alt + u'打开任务窗口进行查看。";
+	if(select("Accept the mission.:Cancel.") == 1) {
+		mes "[Mission Board]";
+		mes "You have accepted the mission. For more details, please press 'alt + u' keys, you can get information from the Quest Window.";
 		setquest 12088;
 		setquest getarg(0);
 	}

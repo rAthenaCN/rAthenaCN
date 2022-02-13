@@ -1,109 +1,111 @@
-//===== Hercules Script ======================================
+//===== rAthena Script ======================================= 
 //= Mr. Smile Quest
-//===== By: ==================================================
+//===== By: ================================================== 
 //= kobra_k88, Akaru
-//===== Current Version: =====================================
+//===== Current Version: ===================================== 
 //= 1.4a
-//===== Description: =========================================
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
 //= [Official Conversion]
 //= Trade Clover, Fluff and Jellopy for a Mr. Smile mask.
-//===== Additional Comments: =================================
+//===== Additional Comments: ================================= 
 //= 1.4 Rescripted to Aegis 10.3 standards. [L0ne_W0lf]
 //= 1.4a Fixed a little Typo error in duplicates. (bugreport:749) [Samuray22]
-//============================================================
+//============================================================ 
 
--	script	微笑小姐::SmileHelper	4_F_03,{
-	mes "[微笑小姐]";
+-	script	Smile Assistance::SmileHelper	92,{
+	mes "[Smile Girl]";
 	mes "Hi ~ Hi ~";
-	mes "我是微笑小姐.";
-	mes "请问需要帮忙吗?";
+	mes "This is Smile Assistance.";
+	mes "How may I help you ?";
 	next;
-	switch(select("- ^3355FF微笑先生^000000 ?:- 制作 ^3355FF笑脸面具^000000 :- 离开")) {
+	switch(select("^3355FFMr. Smile^000000 ?:Construct ^3355FFMr. Smile^000000 :Quit")) {
 	case 1:
-		mes "[微笑小姐]";
-		mes "我们持有 ^5577FF国王陛下特里斯坦三世^000000 的命令,";
-		mes "有意促进卢恩.米德加兹王国全国的";
-		mes "人们沉浸在更愉快的气氛中!";
-		mes "我是 ^3355FF' 微笑小姐 '^000000,";
-		mes ".. 隶属于殿下领导,来负责这次 ";
-		mes "^3355FF让卢恩.米德加兹王国充满微笑~^000000的活动.";
+		mes "[Smile Girl]";
+		mes "National Event held by the command of ^5577FFHis majesty Tristram the 3rd^000000,";
+		mes "that intends to encourage the nation of the Rune-Midgarts Kingdom";
+		mes " to play in more enjoyable atmosphere!";
+		mes "I am ^3355FF' Smile Assistance '^000000,";
+		mes ".. who leads the national event under the name of ";
+		mes "^3355FFSmile throughout the Rune-Midgarts Kingdom~^000000";
 		next;
-		mes "[微笑小姐]";
-		mes "其实只需要一些简单的东西,";
-		mes "我就能够给你";
-		mes "^3355FF' 微笑面具 '^000000.";
-		mes "你需要准备下述东西.";
+		mes "[Smile Girl]";
+		mes "With simple and easy-to-get items,";
+		mes "I can provide you";
+		mes "^3355FF' Mr. Smile '^000000.";
+		mes "The requirements are followings.";
 		next;
-		mes "[微笑小姐]";
-		mes "^3355FF10 杰勒比结晶^000000";
-		mes "^3355FF10 毛^000000";
-		mes "^3355FF10 三叶幸运草^000000";
+		mes "[Smile Girl]";
+		mes "^3355FF10 Jellopy^000000";
+		mes "^3355FF10 Fluff^000000";
+		mes "^3355FF10 Clover^000000";
 		next;
-		mes "[微笑小姐]";
-		mes "尊敬的冒险家";
-		mes "为了完成这件神圣的任务,";
-		mes "请您务必参与进来.";
-		mes "卢恩.米德加兹王国万岁!";
+		mes "[Smile Girl]";
+		mes "With this event";
+		mes "Everybody will be happy and smile,";
+		mes "getting together with other people,";
+		mes "And will try to make Ragnarok the most enjoyable game in the world.";
 		close;
 	case 2:
 		if (countitem(909) > 9 && countitem(914) > 9 && countitem(705) > 9) {
-			mes "[微笑小姐]";
-			mes "哈!";
-			mes "这就是我要的东西.";
+			mes "[Smile Girl]";
+			mes "Congratulations !";
+			mes "Now please take this Mr.Smile.";
 			next;
 			delitem 909,10; //Jellopy
 			delitem 914,10; //Fluff
 			delitem 705,10; //Clover
 			getitem 2278,1; //Mr_Smile
-			mes "[微笑小姐]";
-			mes "威严的特里斯坦三世";
-			mes "承诺让他的子民在仙境世界中生活的更美好更有乐趣.";
+			mes "[Smile Girl]";
+			mes "His majesty,Tristram the 3rd";
+			mes "has promised to try his best to make Ragnarok better and more enjoyable.";
 			next;
-			mes "上面提到这一事实";
-			mes "由米德加兹公共信息局";
-			mes "对整个卢恩.米德加兹王国进行宣传与通告.";
+			mes "The fact mentioned above";
+			mes "was announced by";
+			mes "the Public Information Bureau of the Rune-Midgarts Kingom.";
 			close;
 		}
 		else {
-			mes "[微笑小姐]";
-			mes "尊敬的冒险家.";
-			mes "您是否找到了我需要的东西?";
-			mes "如果在您身上.请拿给我制作吧.";
-			mes "^3355FF10 杰勒比结晶^000000";
-			mes "^3355FF10 毛^000000";
-			mes "^3355FF10 三叶幸运草^000000";
-			mes "请检查是否达到上述要求.";
+			mes "[Smile Girl]";
+			mes "Oh - unfortunately";
+			mes "You have not brought";
+			mes "enough items for Mr. Smile.";
+			mes "^3355FF10 Jellopy^000000";
+			mes "^3355FF10 Fluff^000000";
+			mes "^3355FF10 Clover^000000";
+			mes "Please check the requirements above.";
 			close;
 		}
 	case 3:
-		mes "[微笑小姐]";
-		mes "......";
-		mes "完蛋了 ..";
-		mes "难道真的没有人";
-		mes "愿意帮忙吗";
-		mes "能不能在考虑一下.";
+		mes "[Smile Girl]";
+		mes "Thank you for visiting us.";
+		mes "We ..";
+		mes "The Rune-Midgarts Kingdom";
+		mes "always try to make Ragnarok";
+		mes "better and more enjoyable game.";
 		next;
-		mes "[微笑小姐]";
-		mes "我们真诚地请求";
-		mes "您的帮助.";
-		mes "如果您改变主意";
-		mes "请随时来找我.";
+		mes "[Smile Girl]";
+		mes "We sincerely ask you";
+		mes "to cooperate.";
+		mes "The fact mentioned above";
+		mes "was announced by the Public Information Bureau of the Rune-Midgarts Kingom.";
 		close;
 	}
 }
 
 // Additional Smile Assistance staff
-alberta,113,53,4	duplicate(SmileHelper)	微笑小姐#alb	4_F_03
-aldebaran,136,135,4	duplicate(SmileHelper)	微笑小姐#alde	4_F_03
-geffen,119,107,4	duplicate(SmileHelper)	微笑小姐#gef	4_F_03
-moc_ruins,59,154,3	duplicate(SmileHelper)	微笑小姐#moc	4_F_03
-payon,186,104,5	duplicate(SmileHelper)	微笑小姐#pay	4_F_03
-prontera,157,187,4	duplicate(SmileHelper)	微笑小姐#prt	4_F_03
+alberta,113,53,4	duplicate(SmileHelper)	Smile Assistance#alb	92
+aldebaran,136,135,4	duplicate(SmileHelper)	Smile Assistance#alde	92
+geffen,119,107,4	duplicate(SmileHelper)	Smile Assistance#gef	92
+moc_ruins,59,154,3	duplicate(SmileHelper)	Smile Assistance#moc	92
+payon,186,104,5	duplicate(SmileHelper)	Smile Assistance#pay	92
+prontera,157,187,4	duplicate(SmileHelper)	Smile Assistance#prt	92
 
-//============================================================
+//============================================================ 
 // Old changelog
-//============================================================
+//============================================================ 
 //= Fully working. 1.1 Optimized
 //= 1.2 updated Payon coords [Lupus]
 //= 1.3 fixed exploit [Lupus]
-//============================================================
+//============================================================ 

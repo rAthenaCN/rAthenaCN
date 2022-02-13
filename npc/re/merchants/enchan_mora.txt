@@ -1,11 +1,3 @@
-//============================================================
-//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
-//============================================================
-//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
-
 //===== rAthena Script ======================================= 
 //= Mora Enchants
 //===== By: ================================================== 
@@ -27,68 +19,68 @@
 
 // Arch Bishop Enchants :: coin_arc
 //============================================================
-mora,88,89,5	script	秘密的守护者#pa082	495,{
+mora,88,89,5	script	Keeper of Secrets#pa082	495,{
 	if (checkweight(1201,1) == 0) {
-		mes "你携带的物品种类过多, 请清理自己的背包后再来.";
+		mes "You have too many kinds of things with you to do that. Throw out some of them and try again.";
 		close;
 	}
 	if (MaxWeight - Weight < 1000) {
-		mes "你携带的物品过重, 你现在的负重不够, 请清理自己的背包后再来.";
+		mes "You are carrying too much weight to do that. Reduce the weight and try again.";
 		close;
 	}
 	disable_items;
 	if (countitem(6380) < 10) {
-		mes "[技巧]";
-		mes "大主教的遗迹装备功能主要都是为了防御和支援!";
+		mes "[Artifice]";
+		mes "Relics for Archbishops are meant for defense and support!";
 		next;
-		mes "[技巧]";
-		mes "就像其他监护人, 他们可能会以莫拉硬币为货币出售他们的文物, 所以收集莫拉硬币!";
+		mes "[Artifice]";
+		mes "Like the other Guardians, they may trade coins for their relics, so collect Mora Coins!";
 		next;
-		mes "[技巧]";
-		mes "如果你收集超过10个莫拉硬币, 可以到我这里来交易!";
+		mes "[Artifice]";
+		mes "If you collect more than 10 coins then come to me to trade!";
 		close;
 	}
-	mes "[技巧]";
-	mes "光明! 你看起来好像已经准备好, 来获取我们的遗物了.";
+	mes "[Artifice]";
+	mes "By the light! You look like you are ready to gain access to our relics.";
 	next;
-	mes "[技巧]";
-	mes "戒指, 鞋, 披肩, 长袍, 盾, 武器.";
-	mes "选择上述6样装备之一.";
+	mes "[Artifice]";
+	mes "Ring, Shoes, Shawl, Robe, Shield, or Weapon.";
+	mes "Select one of the six kinds of relics to receive.";
 	next;
-	mes "[技巧]";
-	mes "依据天气情况和我的心情, 我会随机给你的装备2个类型.";
+	mes "[Artifice]";
+	mes "I'll randomly give you one of 2 types of the equipment, depending upon the weather and my mood.";
 	next;
-	mes "[技巧]";
-	mes "做为交换, 我需要10个莫拉硬币!";
+	mes "[Artifice]";
+	mes "All I need is 10 Mora Coins of yours to grant you a relic!";
 	next;
-	switch(select("- 我认为我还没准备好.:- 我已经准备好了用莫拉银币来交换了.:- 交换我们的戒指.")) {
+	switch(select("I don't think I'm ready.:I'm ready to exchange my Mora Coins.:Exchange my Ring.")) {
 	case 1:
-		mes "[技巧]";
-		mes "再见!";
+		mes "[Artifice]";
+		mes "See you next time!";
 		close;
 	case 2:
-		mes "[技巧]";
+		mes "[Artifice]";
 		// What does this even mean? (custom dialogue below)
 		//mes "You influence what part are you?";
-		mes "你想要什么样的遗物?";
+		mes "What kind of relic do you want?";
 		next;
-		switch(select("- 我还没准备好.:- 指环:- 鞋子:- 披肩:- 长袍:- 盾:- 武器")) {
+		switch(select("I'm not ready.:Ring:Shoes:Shawl:Robe:Shield:Weapon")) {
 		case 1:
-			mes "[技巧]";
-			mes "带着光明去吧.";
+			mes "[Artifice]";
+			mes "Go with the light.";
 			close;
 		case 2:
 			if (countitem(2864) || countitem(2865) || countitem(2866)) {
-				mes "[技巧]";
-				mes "您所拥有的指环, 足以以让你访问我们的遗迹.!";
+				mes "[Artifice]";
+				mes "You are already allowed access to our relics by your possession of a Ring!";
 				close;
 			}
-			if (Class == Job_Arch_Bishop || Class == Job_Arch_Bishop_T || Class == JOB_BABY_ARCH_BISHOP) {
+			if (Class == Job_Arch_Bishop || Class == Job_Arch_Bishop_T || Class == Job_Baby_Arch_Bishop) {
 				setarray .@items[0],2864,2865,2866; //Light_Of_Cure,Seal_Of_Cathedral,Ring_Of_Archbishop
 				break;
 			} else {
-				mes "[技巧]";
-				mes "我们宁愿是只与大主教打交道.";
+				mes "[Artifice]";
+				mes "We prefer to only deal with Arch-Bishops.";
 				close;
 			}
 		case 3:
@@ -110,83 +102,83 @@ mora,88,89,5	script	秘密的守护者#pa082	495,{
 		set .@item, .@items[rand(getarraysize(.@items))];
 		delitem 6380,10; //Mora_Coin
 		getitem .@item,1;
-		mes "[技巧]";
-		mes "您已经获得 ^aa00aa"+getitemname(.@item)+"^000000. 愿圣光的祝福与你同在.";
+		mes "[Artifice]";
+		mes "You have obtained ^aa00aa"+getitemname(.@item)+"^000000. May the Blessing of the Light be with you.";
 		close;
 	case 3:
-		if (Class == Job_Arch_Bishop || Class == Job_Arch_Bishop_T || Class == JOB_BABY_ARCH_BISHOP) {
-			mes "[技巧]";
-			mes "我们可以用硬币交换那些失控的戒指.";
+		if (Class == Job_Arch_Bishop || Class == Job_Arch_Bishop_T || Class == Job_Baby_Arch_Bishop) {
+			mes "[Artifice]";
+			mes "We exchange rings into coins for those who cannot control the ring.";
 			next;
-			mes "[技巧]";
-			mes "你看上去依然对指环有控制力, 所以我们无法进行交换.";
+			mes "[Artifice]";
+			mes "It seems that you have power to control the ring so I cannot exchange it into coins.";
 			close;
 		}
 		     if (countitem(2864)) set .@item,2864; //Light_Of_Cure
 		else if (countitem(2865)) set .@item,2865; //Seal_Of_Cathedral
 		else if (countitem(2866)) set .@item,2866; //Ring_Of_Archbishop
 		else {
-			mes "[技巧]";
-			mes "你想改变什么?";
+			mes "[Artifice]";
+			mes "Did you change something?";
 			close;
 		}
-		mes "[技巧]";
-		mes "你有1个 "+getitemname(.@item)+". 你确定想把它换成10个莫拉币吗?";
+		mes "[Artifice]";
+		mes "You have a "+getitemname(.@item)+". Do you really want to trade it for 10 Mora Coins?";
 		next;
-		switch(select("- 我没准备好:- 交换我的 "+getitemname(.@item))) {
+		switch(select("I'm not ready:Exchange my "+getitemname(.@item))) {
 		case 1:
-			mes "[技巧]";
-			mes "如果你改变了主意, 请选择重复来停止.";
+			mes "[Artifice]";
+			mes "If you change your mind, please stop by again.";
 			close;
 		case 2:
 			delitem .@item,1;
 			getitem 6380,10; //Mora_Coin
-			mes "[技巧]";
-			mes "我认为这是交易.";
+			mes "[Artifice]";
+			mes "I think that was an even trade.";
 			close;
 		}
 	}
 }
 
-mora,96,74,5	script	遗迹大师#pa0829	495,{
+mora,96,74,5	script	Master of Relics#pa0829	495,{
 	if (checkweight(1201,1) == 0) {
-		mes "你携带的物品种类过多, 请清理自己的背包后再来.";
+		mes "You have too many kinds of things with you to do that. Throw out some of them and try again.";
 		close;
 	}
 	if (MaxWeight - Weight < 1000) {
-		mes "你携带的物品过重, 你现在的负重不够, 请清理自己的背包后再来.";
+		mes "You are carrying too much weight to do that. Reduce the weight and try again.";
 		close;
 	}
 	disable_items;
-	mes "[遗迹大师]";
-	mes "我为大主教附魔遗迹装备, 这将花费2个莫拉币, 同时需要遗迹装备允许我去附魔它.";
+	mes "[Relice]";
+	mes "I enhance Relics that holy Arch-Bishops use, it will take 2 Mora Coins and the relic to allow me to attempt to enhance it.";
 	next;
-	switch(select("- 了解更多详情请:- 请附魔我的遗物装备..")) {
+	switch(select("More details please.:Please Enhance my Relic.")) {
 	case 1:
-		mes "[遗迹大师]";
-		mes "让我简单介绍一下, 用2个莫拉币和遗迹装备, 我可以在遗迹装备上为你附魔.";
+		mes "[Relice]";
+		mes "Let me briefly explain, for 2 Mora Coins and the relic I can give you a single Enchantment on that relic.";
 		next;
-		mes "[遗迹大师]";
-		mes "即使这个遗迹装备已经附魔, 我们将重新进行附魔, 不核对他的状态..";
+		mes "[Relice]";
+		mes "Even though this relic was already enchanted, we will re-enchant it without checking its status.";
 		next;
-		mes "[遗迹大师]";
-		mes "你有一个已经附魔过的遗迹装备, 请将它安全的保存好后再来..";
+		mes "[Relice]";
+		mes "So it you have already enchanted relic, please put it some place safe and come back.";
 		next;
-		mes "[遗迹大师]";
-		mes "啊, 还有一件事! 我有可能会失败, 如果这样的话你将永远失去这个遗迹装备..";
+		mes "[Relice]";
+		mes "Ah, one more thing! It is possible I can fail though and if that happens the relic is lost forever.";
 		close;
 	case 2:
-		mes "[遗迹大师]";
-		mes "好吧, 如果技能运用合理的话, 即使失败你将会得到一个新的遗迹装备.";
+		mes "[Relice]";
+		mes "Ok, you can get a new Relic from Artifice if it fails.";
 		next;
-		mes "[遗迹大师]";
-		mes "如果你有1个 幸运的仪式, 你现在就可以召唤了!";
+		mes "[Relice]";
+		mes "If you have a ritual for luck, you should use it now!";
 		next;
-		set .@select, select("- 请稍微等等!:- 治愈之光:- 大教堂圣印:- 大主教戒指:- 慈爱之靴:- 审判之靴:- 慈爱披肩:- 审判披肩:- 慈爱法袍:- 审判长袍:- 誓约之书第1卷:- 慈爱之锤:- 审判之锤");
+		set .@select, select("Wait a minute!:Light of Cure:Seal of Cathedral:Ring of Archbishop:Shoes of Affection:Shoes of Judgement:Shawl of Affection:Shawl of Judgement:Robe of Affection:Robe of Judgement:Bible of Promise 1st Vol:Wand of Affection:Mace of Judgement");
 		switch(.@select) {
 		case 1:
-			mes "[遗迹大师]";
-			mes "当然. 带着光明去吧.";
+			mes "[Relice]";
+			mes "Certainly. Go with the Light.";
 			close;
 		case 2:
 		case 3:
@@ -218,8 +210,8 @@ mora,96,74,5	script	遗迹大师#pa0829	495,{
 			break;
 		}
 		if (countitem(6380) < 2 || countitem(.@item) == 0) {
-			mes "[遗迹大师]";
-			mes "需要2个莫拉硬币, 我可以在各方面强化你的遗迹套装!";
+			mes "[Relice]";
+			mes "For 2 Mora Coins I can strengthen the relic you have in many ways!";
 			close;
 		}
 		specialeffect2 EF_REPAIRWEAPON;
@@ -239,8 +231,8 @@ mora,96,74,5	script	遗迹大师#pa0829	495,{
 			}
 			else if (.@i <= 1040) setarray .@enchants[2],.@sp,.@sp; //[sp] [sp]
 			else if (.@i <= 1487) {
-				mes "[遗迹大师]";
-				mes "有时候事情的发展可能不能如你所愿. 希望下次会变的更好. 再见.";
+				mes "[Relice]";
+				mes "Sometimes things just don't work out the way you want. I hope next time things go better for you. Until then, good bye.";
 				close;
 			}
 			break;
@@ -266,8 +258,8 @@ mora,96,74,5	script	遗迹大师#pa0829	495,{
 			else if (.@i <= 1038) setarray .@enchants[1],4722,4767,4767; //Dexterity3 Atk3 Atk3
 			else if (.@i <= 1040) setarray .@enchants[1],4767,4767,4767; //Atk3 Atk3 Atk3
 			else if (.@i <= 1487) {
-				mes "[遗迹大师]";
-				mes "有时候事情的发展可能不能如你所愿. 希望下次会变的更好. 再见.";
+				mes "[Relice]";
+				mes "Sometimes things just don't work out the way you want. I hope next time things go better for you. Until then, good bye.";
 				close;
 			}
 			break;
@@ -289,8 +281,8 @@ mora,96,74,5	script	遗迹大师#pa0829	495,{
 			else if (.@i <= 1994) setarray .@enchants[2],4714,4723; //Inteligence5 Dexterity4
 			else if (.@i <= 1996) setarray .@enchants[2],4723,4723; //Dexterity4 Dexterity4
 			else if (.@i <= 2852) {
-				mes "[遗迹大师]";
-				mes "有时候事情的发展可能不能如你所愿. 希望下次会变的更好. 再见.";
+				mes "[Relice]";
+				mes "Sometimes things just don't work out the way you want. I hope next time things go better for you. Until then, good bye.";
 				close;
 			}
 			break;
@@ -312,66 +304,66 @@ mora,96,74,5	script	遗迹大师#pa0829	495,{
 			else if (.@i <= 1994) setarray .@enchants[2],4704,4723; //Strength5 Dexterity4
 			else if (.@i <= 1996) setarray .@enchants[2],4723,4723; //Dexterity4 Dexterity4
 			else if (.@i <= 2852) {
-				mes "[遗迹大师]";
-				mes "有时候事情的发展可能不能如你所愿. 希望下次会变的更好. 再见.";
+				mes "[Relice]";
+				mes "Sometimes things just don't work out the way you want. I hope next time things go better for you. Until then, good bye.";
 				close;
 			}
 			break;
 		}
 		getitem2 .@item,1,1,0,0,0,.@enchants[1],.@enchants[2],.@enchants[3];
-		mes "[遗迹大师]";
-		mes "附魔过程很顺利, 你非常幸运!";
+		mes "[Relice]";
+		mes "The strengthening went well, lucky you!";
 		close;
 	}
 }
 
 // Warlock Enchants :: coin_warrock
 //============================================================
-mora,104,76,4	script	遗迹守护#p	495,{
+mora,104,76,4	script	Guardian of Artifacts#p	495,{
 	if (checkweight(1201,1) == 0) {
-		mes "你携带的物品种类过多, 请清理自己的背包后再来.";
+		mes "You have too many kinds of things with you to do that. Throw out some of them and try again.";
 		close;
 	}
 	if (MaxWeight - Weight < 1000) {
-		mes "你携带的物品过重, 你现在的负重不够, 请清理自己的背包后再来.";
+		mes "You are carrying too much weight to do that. Reduce the weight and try again.";
 		close;
 	}
 	if (countitem(6380) < 10) {
-		mes "[遗迹守护]";
-		mes "我的职责是守护大法师们的遗迹装备.";
+		mes "[Guardian of Artifacts]";
+		mes "My job is to guard the Warlock's ancient artifacts.";
 		next;
-		mes "[遗迹守护]";
-		mes "好吧, 这其实不是什么大不了的事情. 我所给的遗迹装备肯定值这些莫拉硬币.";
+		mes "[Guardian of Artifacts]";
+		mes "Well, it's not a big deal actually. I give out artifacts to those who deserve them for the price of a few Mora Coins.";
 		next;
-		mes "[遗迹守护]";
-		mes "等你什么时候有10个莫拉币的时候, 再来和我交易吧.";
+		mes "[Guardian of Artifacts]";
+		mes "You can trade with me when you have 10 or more Coins. See you later.";
 		close;
 	}
-	mes "[遗迹守护]";
-	mes "噢~ 看上去你已经装备好了大法师的遗迹装备了.";
+	mes "[Guardian of Artifacts]";
+	mes "Wow~ I see you're ready for the Warlock's Ancient Artifacts.";
 	next;
-	mes "[遗迹守护]";
-	mes "你可以选择下述4种装备类别:";
-	mes "法杖, 装饰品, 鞋子, 法袍.";
+	mes "[Guardian of Artifacts]";
+	mes "You can choose from four types of items:";
+	mes "staffs, orbs, shoes, and robes.";
 	next;
-	mes "[遗迹守护]";
-	mes "对于每种类型有四种可供选择, 但是每天可选择的类型不同, 取决于我的心情.";
+	mes "[Guardian of Artifacts]";
+	mes "There are four options available for each type, but the item available will change day to day, depending on my mood.";
 	next;
-	mes "[遗迹守护]";
-	mes "你想用莫拉币购买遗迹装备吗?";
+	mes "[Guardian of Artifacts]";
+	mes "Do you want to buy an artifact with your Mora Coins?";
 	next;
-	if(select("- 可能要晚点... 我还有事情要做.:- 是的, 我要.") == 1) {
-		mes "[遗迹守护]";
-		mes "好的, 一会见.";
+	if(select("Maybe later... I have things to do.:Yes, I do.") == 1) {
+		mes "[Guardian of Artifacts]";
+		mes "Okay, see you later then.";
 		close;
 	}
-	mes "[遗迹守护]";
-	mes "你需要购买什么类型的装备?";
+	mes "[Guardian of Artifacts]";
+	mes "What type of item do you want to buy?";
 	next;
-	switch(select("- 离开:- 鞋子:- 装饰品:- 衣服:- 法杖")) {
+	switch(select("Quit:Shoes:Orbs:Robes:Staves")) {
 	case 1:
-		mes "[遗迹守护]";
-		mes "好的, 再见.";
+		mes "[Guardian of Artifacts]";
+		mes "Okay, see you later then.";
 		close;
  	case 2:
 		setarray .@items[0],2467,2468,2469,2470; //Golden_Rod_Shoes,Aqua_Shoes,Crimson_Shoes,Forest_Shoes
@@ -388,53 +380,53 @@ mora,104,76,4	script	遗迹守护#p	495,{
 		break;
 	}
 	if (countitem(6380) < 10) {
-		mes "[遗迹守护]";
-		mes "等你筹集足够的莫拉币再来找我吧?";
+		mes "[Guardian of Artifacts]";
+		mes "Would you please come back when you have enough Coins?";
 		close;
 	}
 	set .@item, .@items[rand(getarraysize(.@items))];
 	delitem 6380,10; //Mora_Coin
 	getitem .@item,1;
-	mes "[遗迹守护]";
-	mes "我有 ^aa00aa"+getitemname(.@item)+"^000000 今天可出售. 我希望 "+((.@plural)?"它们":"它")+" 会派上用场...";
+	mes "[Guardian of Artifacts]";
+	mes "I have ^aa00aa"+getitemname(.@item)+"^000000 available today. I hope "+((.@plural)?"they":"it")+" will come in handy...";
 	close;
 }
 
-mora,99,93,5	script	遗迹工匠#pa0829	495,{
+mora,99,93,5	script	Artifact Crafter#pa0829	495,{
 	if (checkweight(1201,1) == 0) {
-		mes "你携带的物品种类过多, 请清理自己的背包后再来.";
+		mes "You have too many kinds of things with you to do that. Throw out some of them and try again.";
 		close;
 	}
 	if (MaxWeight - Weight < 1000) {
-		mes "你携带的物品过重, 你现在的负重不够, 请清理自己的背包后再来.";
+		mes "You are carrying too much weight to do that. Reduce the weight and try again.";
 		close;
 	}
 	disable_items;
-	mes "[遗迹工匠]";
-	mes "我的工作就是给遗迹装备注入新的力量. 如果你有足够的硬币, 你就可以将一些物品增强.";
+	mes "[Artifact Crafter]";
+	mes "My job is to imbue artifacts with new power. If you have enough Coins, you can have one of the following items reinforced.";
 	next;
-	if(select("- 告诉我更多的信息.:- 我想强化我的物品.") == 1) {
-		mes "[遗迹工匠]";
-		mes "让我解释一下. 一次附魔需要花费2个莫拉硬币.";
+	if(select("Tell me more.:I want to have my item reinforced.") == 1) {
+		mes "[Artifact Crafter]";
+		mes "Let me explain. One reinforcement costs you two Coins.";
 		next;
 		set .@info_only,1;
 	}
-	mes "[遗迹工匠]";
-	mes "无论现有的装备是否附魔我都会进行加工.";
+	mes "[Artifact Crafter]";
+	mes "And, I'll work on the item whether it's been already reinforced or not.";
 	next;
-	mes "[遗迹工匠]";
-	mes "所有如果你有1个自己非常中意的遗迹装备, 就先把它存放好再来找我.";
+	mes "[Artifact Crafter]";
+	mes "So if you have an artifact reinforced to your liking, put it in a safe place and come back.";
 	next;
-	mes "[遗迹工匠]";
-	mes "还有一件事, 如果附魔失败遗迹装备可能损毁. 请牢记这一点.";
+	mes "[Artifact Crafter]";
+	mes "And another thing, the artifact will be destroyed if the reinforcement fails. Please keep that in mind.";
 	if (.@info_only)
 		close;
 	next;
-	set .@select, select("- 下一次吧.:- 黄金领主之杖:- 流水之杖:- 赤红之杖:- 森林之杖:- 黄金领主之靴:- 流水之靴:- 赤红之靴:- 森林之靴:- 黄金领主之珠:- 流水之珠:- 赤红之珠:- 森林之珠:- 黄金领主之袍:- 流水之袍:- 赤红之袍:- 森林之袍");
+	set .@select, select("Maybe next time.:Golden Rod Staff:Aqua Staff:Crimson Staff:Forest Staff:Golden Rod Shoes:Aqua Shoes:Crimson Shoes:Forest Shoes:Golden Rod Orb:Aqua Orb:Crimson Orb:Forest Orb:Golden Rod Robe:Aqua Robe:Crimson Robe:Forest Robe");
 	switch(.@select) {
 	case 1:
-		mes "[遗迹工匠]";
-		mes "如您所愿.";
+		mes "[Artifact Crafter]";
+		mes "As you wish.";
 		close;
 	case 2:
 	case 3:
@@ -467,8 +459,8 @@ mora,99,93,5	script	遗迹工匠#pa0829	495,{
 	}
 	set .@item, .@items[(.@select-2)%4];
 	if (countitem(6380) < 2 || countitem(.@item) == 0) {
-		mes "[遗迹工匠]";
-		mes "你必须为了对一件遗迹装备附魔而支付2个莫拉硬币.";
+		mes "[Artifact Crafter]";
+		mes "You have to have 2 Mora Coins and an item to be reinforced before I can do my work.";
 		close;
 	}
 	specialeffect2 EF_REPAIRWEAPON;
@@ -491,8 +483,8 @@ mora,99,93,5	script	遗迹工匠#pa0829	495,{
 		else if (.@i <= 1990) setarray .@enchants[2],4761,4761; //Matk2 Matk2
 		else if (.@i <= 1992) setarray .@enchants[2],4761,4713; //Matk2 Inteligence4
 		else if (.@i <= 2847) {
-			mes "[遗迹工匠]";
-			mes "噢不...他损坏了...好吧, 悲剧发生了. 希望下次能有好运.";
+			mes "[Artifact Crafter]";
+			mes "Oh no... it broke... Well, it happens. Better luck next time.";
 			close;
 		}
 		break;
@@ -518,121 +510,121 @@ mora,99,93,5	script	遗迹工匠#pa0829	495,{
 		else if (.@i <= 1998) setarray .@enchants[1],4722,4761,4761; //Dexterity3 Matk2 Matk2
 		else if (.@i <= 2000) setarray .@enchants[1],4722,4761,4713; //Dexterity3 Matk2 Inteligence4
 		else if (.@i <= 2858) {
-			mes "[遗迹工匠]";
-			mes "噢不...他损坏了...好吧, 悲剧发生了. 希望下次能有好运.";
+			mes "[Artifact Crafter]";
+			mes "Oh no... it broke... Well, it happens. Better luck next time.";
 			close;
 		}
 		break;
 	}
 	getitem2 .@item,1,1,0,0,0,.@enchants[1],.@enchants[2],.@enchants[3];
-	mes "[遗迹工匠]";
-	mes "看上去我的努力成功了.";
+	mes "[Artifact Crafter]";
+	mes "Looks like my effort was successful.";
 	close;
 }
 
 // Rune Knight, Guillotine Cross, & Ranger Enchants :: new_artifact
 //============================================================
-mora,152,97,5	script	权利监护者#pa082	515,{
+mora,152,97,5	script	Guardian of Power#pa082	515,{
 	if (checkweight(1201,1) == 0) {
-		mes "你必须减少你所携带的物品种类, 然后再继续.";
+		mes "Reduce the amount of items that you have in your inventory before continuing.";
 		close;
 	}
 	if (MaxWeight - Weight < 1000) {
-		mes "你的负重不够了, 请清理.";
+		mes "You are carrying too much in your inventory.";
 		close;
 	}
 	if (countitem(6380) < 10) {
-		mes "[权利监护者]";
-		mes "我给符文骑士, 十字切割者, 和游侠 来完成他们的遗迹装备附魔任务.";
+		mes "[Guardian of Power]";
+		mes "I give Rune Knights, Guillotine Crosses, and Rangers ancient artifacts to help them carry out their missions.";
 		next;
-		mes "[权利监护者]";
-		mes "你可以通过使用莫拉硬币在我这里换取遗迹装备.";
+		mes "[Guardian of Power]";
+		mes "There are guardians that give Mora Village coins which you can use to exchange for these artifacts.";
 		next;
-		mes "[权利监护者]";
-		mes "如果你有10个以上的莫拉硬币, 你就可以和我兑换遗迹装备.";
+		mes "[Guardian of Power]";
+		mes "If you collect 10 or more Mora coins, then I can trade them for the artifacts.";
 		close;
 	}
-	mes "[权利监护者]";
-	mes "我想你已经准备好兑换遗迹装备了.";
+	mes "[Guardian of Power]";
+	mes "I think that you're ready to receive the ancient artifacts.";
 	next;
-	mes "[权利监护者]";
-	mes "根据你的职业分类, 这里有不同的遗迹装备.";
+	mes "[Guardian of Power]";
+	mes "Based on what class you specify, there are various artifacts available.";
 	next;
-	mes "[权利监护者]";
-	mes "^ff0000仔细选择, 这些遗迹装备来之不易^000000. 你想兑换哪个职业的装备?";
+	mes "[Guardian of Power]";
+	mes "^ff0000Choose carefully because these artifacts aren't easy to come by^000000. So what class do you want it for?";
 	next;
-	setarray .@jobs$[0],"符文骑士","十字切割着","游侠";
-	set .@job, select("- 取消:- 符文骑士:- 十字切割着:- 游侠")-2;
+	setarray .@jobs$[0],"Rune Knight","Guillotine Cross","Ranger";
+	set .@job, select("Cancel:Rune Knight:Guillotine Cross:Ranger")-2;
 	if (.@job == -1) {
-		mes "[权利监护者]";
-		mes "稍后再联系我.";
+		mes "[Guardian of Power]";
+		mes "Talk to me later then.";
 		close;
 	}
-	mes "[权利监护者]";
+	mes "[Guardian of Power]";
 	mes .@jobs$[.@job]+"?";
-	mes "你想要附魔哪个职业的装备?"; 
+	mes "Which artifact do you want?";
 	next;
 	switch(.@job) {
 	case 0: // Rune Knight
-		setarray .@items[0],2475,2476,2574,2575,15036,15037,2883,2884;
-		set .@i, select("- 取消:- 乌鲁兹符文护胫:- 珀斯符文护胫:- 乌鲁兹符文斗篷:- 珀斯符文斗篷:- 乌鲁兹符文铠甲:- 珀斯符文铠甲:- 乌鲁兹符文印记:- 珀斯符文印记")-2;
+		setarray .@items[0],2475,2476,2574,2575;
+		set .@i, select("Cancel:Ur's Greaves (Shoes):Peuz's Greaves (Shoes):Ur's Manteau (Garment):Peuz's Manteau (Garment)")-2;
 		break;
 	case 1: // Guillotine Cross
-		setarray .@items[0],2477,2478,2577,2578,15038,15039,2886,2887;
-		set .@i, select("- 取消:- 萨巴斯的靴子:- 奈博的靴子:- 萨巴斯的披风:- 奈博的披肩:- 萨巴斯的外袍:- 奈博的外袍:- 萨巴斯的指环:- 奈博的指环")-2;
+		setarray .@items[0],2477,2478,2577,2578;
+		set .@i, select("Cancel:Sapha Shoes (Shoes):Nab Shoes (Shoes):Sapha Hood (Garment):Nab Hood (Garment)")-2;
 		break;
 	case 2: // Ranger
-		setarray .@items[0],2479,2480,2580,2581,15042,15043,2890,2891;
-		set .@i, select("- 取消:- 白翼之靴:- 黑翼之靴:- 白翼斗篷:- 黑翼斗篷:- 白翼之衣:- 黑翼之衣:- 白翼胸针:- 黑翼胸针")-2;
+		setarray .@items[0],2479,2480,2580,2581;
+		set .@i, select("Cancel:White Wing Boots (Shoes):Black Wing Boots (Shoes):White Wing Manteau (Garment):Black Wing Manteau (Garment)")-2;
 		break;
 	}
 	if (.@i == -1) {
-		mes "[权利监护者]";
-		mes "稍后再联系我.";
+		mes "[Guardian of Power]";
+		mes "Talk to me later then.";
 		close;
 	}
 	if (countitem(6380) < 10) {
-		mes "[权利监护者]";
-		mes "难道我没有告诉过你交换遗迹装备的莫拉币数量?";
+		mes "[Guardian of Power]";
+		mes "Didn't I tell you to bring the correct amount of Mora Coins?";
 		close;
 	}
 	delitem 6380,10; //Mora_Coin
 	getitem .@items[.@i],1;
-	mes "[权利监护者]";
-	mes "感谢你支付10个莫拉硬币. 这是你的遗迹装备 "+.@jobs$[.@job]+" 职业. 等你有更多的莫拉硬币时记得再来找我.";
+	mes "[Guardian of Power]";
+	mes "Thank you for the 10 Mora Coins. Here is your artifact for the "+.@jobs$[.@job]+" job. Come back whenever you get more Mora Coins.";
 	close;
 }
 
-mora,148,98,3	script	遗迹研究员#new	521,{
+mora,148,98,3	script	Artifact Researcher#new	521,{
 	if (checkweight(1201,1) == 0) {
-		mes "你必须减少你所携带的物品种类, 然后再继续.";
+		mes "Reduce the amount of items that you have in your inventory before continuing.";
 		close;
 	}
 	if (MaxWeight - Weight < 1000) {
-		mes "你的负重不够了, 请清理.";
+		mes "You are carrying too much in your inventory.";
 		close;
 	}
 	disable_items;
-	mes "[遗迹研究员]";
-	mes "见到你真高兴.";
-	mes "我在莫拉村研究古代遗迹和文物. 冒险家们对这村子的很多新发现, 让我非常兴奋..";
+	mes "[Artifact Researcher]";
+	mes "Nice to meet you.";
+	mes "I'm here in Mora studying ancient relics and artifacts. The new discoveries of Adventurers has made this village very exciting for me.";
 	next;
-	switch(select("- 告诉我更多的信息...:- 给遗迹装备新的能力.:- 重置遗迹装备的附魔.")) {
+	switch(select("Tell me more...:Give abilities to artifacts.:Reset Enhanced abilities.")) {
 	case 1:
-		mes "[遗迹研究员]";
-		mes "在莫拉村发现了新的古代文物, 你难道没听说吗?";
+		mes "[Artifact Researcher]";
+		mes "New artifacts have been found here in Mora village, haven't you heard the news?";
 		next;
-		mes "[遗迹研究员]";
-		mes "如果你将这些远古的文物应用到装备上, 将激发现有装备的 隐藏能力.";
+		mes "[Artifact Researcher]";
+		mes "If you come across any of these artifacts, there are hidden powers that can be extracted from them.";
 		next;
-		mes "[遗迹研究员]";
-		mes "为了能够进行持续的研究并提供开发装备能力的附魔服务, 我们开始接受以莫拉硬币为货币单位的有偿服务服务...";
+		mes "[Artifact Researcher]";
+		mes "I'm going to continue my research for these artifacts. We researchers are taking Mora Coins as payment for our services...";
 		next;
-		mes "[遗迹研究员]";
-		mes "对于遗迹装备的改造和附魔, 我们每次收取的费用是 100,000 Zeny 和1个莫拉币..";
+		mes "[Artifact Researcher]";
+		mes "I'm offering my services to give abilities to the artifacts for 100,000 zeny and 1 Mora Coin.";
 		next;
-		mes "[遗迹研究员]";
-		mes "我会尽可能的将遗迹装备保护好, 并提升它们的能力.";
+		mes "[Artifact Researcher]";
+		mes "The best part of my service is that any enhancements that you have in these artifacts will not be harmed.";
 		close;
 	case 2:
 		set @mora_enchant_select,1;
@@ -642,24 +634,24 @@ mora,148,98,3	script	遗迹研究员#new	521,{
 		break;
 	}
 	if (Zeny < 100000 || countitem(6380) == 0) {
-		mes "[遗迹研究员]";
-		mes "我不会免费提供这些服务的. 100,000 Zeny 和1个莫拉币. 这个要求非常高?";
+		mes "[Artifact Researcher]";
+		mes "I'm not giving these services out for free pal. 100,000 zeny and 1 Mora Coin. Is that too much to ask?";
 		close;
 	}
-	mes "[遗迹研究员]";
-	mes "好的, 你准备好了是吧? 在我开始之前, 请你先选择一下你需要附魔的装备类型?";
+	mes "[Artifact Researcher]";
+	mes "Ok, so are you ready? Before I start working on this, what kind of equipment did you want me to enhance?";
 	next;
-	set .@i, select("- 我不需要附魔装备:- 1. 武器:- 2. 鞋子:- 3. 披肩:- 4. 铠甲:- 5. 装饰品")-2;
+	set .@i, select("I'm not wearing the equipment:1. Weapon:2. Shoes:3. Garment:4. Armor:5. Accessory")-2;
 	if (.@i == -1) {
-		mes "[遗迹研究员]";
-		mes "请先穿上需要附魔的装备.";
+		mes "[Artifact Researcher]";
+		mes "Make sure you're wearing the equipment first.";
 		close;
 	}
 	setarray .@parts[0], EQI_HAND_R, EQI_SHOES, EQI_GARMENT, EQI_ARMOR, EQI_ACC_L;
 	set .@part, .@parts[.@i];
 	if (!getequipisequiped(.@part)) {
-		mes "[遗迹研究员]";
-		mes "请先穿上需要附魔的装备.";
+		mes "[Artifact Researcher]";
+		mes "Make sure you're wearing the equipment first.";
 		close;
 	}
 	set .@equip_id, getequipid(.@part);
@@ -720,9 +712,9 @@ mora,148,98,3	script	遗迹研究员#new	521,{
 		}
 		break;
 	}
-	mes "[遗迹研究员]";
+	mes "[Artifact Researcher]";
 	mes "^990099"+getequipname(.@part)+"^000000??";
-	mes "我真想好好研究下这个装备...";
+	mes "I really want to study this equipment...";
 	set @mora_equip_part,0;
 	close;
 
@@ -743,13 +735,13 @@ L_Socket:
 		// If refine is +9 or higher, unlock bonus enchant type.
 		if (.@equip_refine >= 9 && .@bonus_enchant > 0) {
 			if (.@enchant_type < 1 || .@enchant_type > 11 || .@bonus_enchant > 11) {
-				mes "[遗迹研究员]";
-				mes "嗯, 看来有地方出错了.";
+				mes "[Artifact Researcher]";
+				mes "Mm-hmm something is wrong.";
 				close;
 			}
-			setarray .@enchant_type$[1],"攻击类型","暴击类型","闪避类型","治疗类型","法术能力1","辅助能力1","辅助能力2","力量","范围类型","物理类型","法术能力2";
-			mes "[遗迹研究员]";
-			mes "这是对装备一次巨大的提升. 在这个情况下可以进行多次附魔. 你想要附魔哪部分?";
+			setarray .@enchant_type$[1],"ATK Type","Critical Type","Evasion Type","Healer Type","Spell Ability 1","Assist Ability 1","Assist Ability 2","Strength","Range Type","Physical Type","Spell Ability 2";
+			mes "[Artifact Researcher]";
+			mes "It's a considerable reinforcement to the equipment. In this case extended enhancements can be granted. Which stat do you want to enhance?";
 			next;
 			switch(select(.@enchant_type$[.@enchant_type],.@enchant_type$[.@bonus_enchant])) {
 			case 1:
@@ -761,28 +753,28 @@ L_Socket:
 		}
 		if (.@equip_card[3] == 0 && .@allowed_slot < 4) {
 			set .@slot,4;
-			mes "[遗迹研究员]";
-			mes "尝试进一步加强装备的能力. 之前的附魔不会受到任何影响. 你是否想继续?";
+			mes "[Artifact Researcher]";
+			mes "Attempting to strengthen the ability further. The previous enforcement won't be affected. Do you want to continue?";
 		} else if (.@equip_card[2] == 0 && .@allowed_slot < 3) {
 			set .@slot,3;
-			mes "[遗迹研究员]";
-			mes "尝试第2次附魔. 之前的附魔不会受到任何影响.";
+			mes "[Artifact Researcher]";
+			mes "Attempting second enhancement. The previous enforcement won't be affected.";
 			next;
-			mes "[遗迹研究员]";
-			mes "有一定概率会失败. 是否继续?";
+			mes "[Artifact Researcher]";
+			mes "I may have a chance to fail now with this attempt. Do you wish to continue?";
 		} else if (.@equip_card[1] == 0 && .@allowed_slot < 2) {
 			set .@slot,2;
-			mes "[遗迹研究员]";
-			mes "让我们开始第三次附魔. 这是我能够给的最大的能力了, 但请牢记, ^990000如果这次失败, 之前的附魔会被摧毁^000000. 是否继续?";
+			mes "[Artifact Researcher]";
+			mes "Let's start the third enhancement. I can give the best stats at this stage but remember, ^990000there is now a chance for the artifact to be destroyed and previous enhancements will be erased^000000. Continue?";
 		} else {
-			mes "[遗迹研究员]";
-			mes "这个遗迹装备已经附魔到了极限. 在现有情况下不可能再被强化了.";
+			mes "[Artifact Researcher]";
+			mes "This artifact has been strengthened to the limit. Further enhancement is impossible at its current state.";
 			close;
 		}
 		next;
-		if(select("- 我会稍后再来.:- 请继续!") == 1) {
-			mes "[遗迹研究员]";
-			mes "如果你改变主意, 请再来找我.";
+		if(select("I'll come back later.:Please continue!") == 1) {
+			mes "[Artifact Researcher]";
+			mes "If you change your mind, please come back.";
 			close;
 		}
 		switch(.@enchant_type) {
@@ -791,8 +783,8 @@ L_Socket:
 			else if (.@slot == 3) set .@i, rand(301,655);
 			else if (.@slot == 2) set .@i, rand(451,750);
 			else {
-				mes "[遗迹研究员]";
-				mes "发生一个未知错误.";
+				mes "[Artifact Researcher]";
+				mes "An unknown error has occurred.";
 				close;
 			}
 			     if (.@i < 101) set .@enchant,4700; //Strength1
@@ -818,8 +810,8 @@ L_Socket:
 			else if (.@slot == 3) set .@i, rand(201,610);
 			else if (.@slot == 2) set .@i, rand(381,750);
 			else {
-				mes "[遗迹研究员]";
-				mes "发生一个未知错误.";
+				mes "[Artifact Researcher]";
+				mes "An unknown error has occurred.";
 				close;
 			}
 			     if (.@i < 101) set .@enchant,4750; //Luck1
@@ -845,8 +837,8 @@ L_Socket:
 			else if (.@slot == 3) set .@i, rand(301,670);
 			else if (.@slot == 2) set .@i, rand(451,800);
 			else {
-				mes "[遗迹研究员]";
-				mes "发生一个未知错误.";
+				mes "[Artifact Researcher]";
+				mes "An unknown error has occurred.";
 				close;
 			}
 			     if (.@i < 101) set .@enchant,4859; //Evasion1
@@ -872,8 +864,8 @@ L_Socket:
 			else if (.@slot == 3) set .@i, rand(201,535);
 			else if (.@slot == 2) set .@i, rand(301,650);
 			else {
-				mes "[遗迹研究员]";
-				mes "发生一个未知错误.";
+				mes "[Artifact Researcher]";
+				mes "An unknown error has occurred.";
 				close;
 			}
 			     if (.@i < 101) set .@enchant,4710; //Inteligence1
@@ -899,8 +891,8 @@ L_Socket:
 			else if (.@slot == 3) set .@i, rand(401,760);
 			else if (.@slot == 2) set .@i, rand(401,766);
 			else {
-				mes "[遗迹研究员]";
-				mes "发生一个未知错误.";
+				mes "[Artifact Researcher]";
+				mes "An unknown error has occurred.";
 				close;
 			}
 			     if (.@i < 101) set .@enchant,4710; //Inteligence1
@@ -926,8 +918,8 @@ L_Socket:
 			else if (.@slot == 3) set .@i, rand(321,720);
 			else if (.@slot == 2) set .@i, rand(521,850);
 			else {
-				mes "[遗迹研究员]";
-				mes "发生一个未知错误.";
+				mes "[Artifact Researcher]";
+				mes "An unknown error has occurred.";
 				close;
 			}
 			     if (.@i < 81)  set .@enchant,4792; //Def6
@@ -953,8 +945,8 @@ L_Socket:
 			else if (.@slot == 3) set .@i, rand(321,720);
 			else if (.@slot == 2) set .@i, rand(521,850);
 			else {
-				mes "[遗迹研究员]";
-				mes "发生一个未知错误.";
+				mes "[Artifact Researcher]";
+				mes "An unknown error has occurred.";
 				close;
 			}
 			     if (.@i < 81)  set .@enchant,4792; //Def6
@@ -980,8 +972,8 @@ L_Socket:
 			else if (.@slot == 3) set .@i, rand(301,685);
 			else if (.@slot == 2) set .@i, rand(451,800);
 			else {
-				mes "[遗迹研究员]";
-				mes "发生一个未知错误.";
+				mes "[Artifact Researcher]";
+				mes "An unknown error has occurred.";
 				close;
 			}
 			     if (.@i < 101) set .@enchant,4740; //Vitality1
@@ -1007,8 +999,8 @@ L_Socket:
 			else if (.@slot == 3) set .@i, rand(201,610);
 			else if (.@slot == 2) set .@i, rand(321,750);
 			else {
-				mes "[遗迹研究员]";
-				mes "发生一个未知错误.";
+				mes "[Artifact Researcher]";
+				mes "An unknown error has occurred.";
 				close;
 			}
 			     if (.@i < 101) set .@enchant,4750; //Luck1
@@ -1034,8 +1026,8 @@ L_Socket:
 			else if (.@slot == 3) set .@i, rand(401,800);
 			else if (.@slot == 2) set .@i, rand(601,930);
 			else {
-				mes "[遗迹研究员]";
-				mes "发生一个未知错误.";
+				mes "[Artifact Researcher]";
+				mes "An unknown error has occurred.";
 				close;
 			}
 			     if (.@i < 101) set .@enchant,4791; //Def3
@@ -1061,8 +1053,8 @@ L_Socket:
 			else if (.@slot == 3) set .@i, rand(401,760);
 			else if (.@slot == 2) set .@i, rand(401,766);
 			else {
-				mes "[遗迹研究员]";
-				mes "发生一个未知错误.";
+				mes "[Artifact Researcher]";
+				mes "An unknown error has occurred.";
 				close;
 			}
 			     if (.@i < 101) set .@enchant,4711; //Inteligence2
@@ -1084,8 +1076,8 @@ L_Socket:
 			else set .@enchant,9;
 			break;
 		default:
-			mes "[遗迹研究员]";
-			mes "好吧, 我想我弄错了...";
+			mes "[Artifact Researcher]";
+			mes "Well I guess I was wrong...";
 			close;
 		}
 
@@ -1109,13 +1101,13 @@ L_Socket:
 				set .@equip_card[3],0;
 			}
 		} else {
-			mes "[遗迹研究员]";
-			mes "我想可能这个遗迹装备有限制.";
+			mes "[Artifact Researcher]";
+			mes "I think there was an enhancing limit to the artifacts.";
 			close;
 		}
 		if (Zeny < 100000 || countitem(6380) == 0) {
-			mes "[遗迹研究员]";
-			mes "如果你不能付费用的话, 我可没办法继续工作.";
+			mes "[Artifact Researcher]";
+			mes "I'm not going to do the work unless you pay the fee.";
 			close;
 		}
 		delitem 6380,1; //Mora_Coin
@@ -1123,21 +1115,21 @@ L_Socket:
 		delequip .@part;
 		if (.@enchant == 9) {
 			specialeffect2 EF_SUI_EXPLOSION;
-			mes "[遗迹研究员]";
-			mes "这!";
- 			mes "我... 我很抱歉, 这个装备损坏了.";
+			mes "[Artifact Researcher]";
+			mes "This!";
+ 			mes "I... I'm sorry but the equipment has been destroyed.";
 			close;
 		}
 		if (.@enchant == 0) {
 			specialeffect2 EF_SHIELDCHARGE;
-			mes "[遗迹研究员]";
-			mes "由于不符合力量的平衡原理, 现有的附魔被毁坏了. 这非常不幸, 希望下次能够走运.";
+			mes "[Artifact Researcher]";
+			mes "Since the balance of power does not match, the given existing ability has been destroyed. It is unfortunate but please try again next time.";
 		} else {
 			specialeffect2 EF_REPAIRWEAPON;
-			mes "[遗迹研究员]";
+			mes "[Artifact Researcher]";
 			// Replacing original dialogue since it doesn't make sense.
 			//mes "The artifact ^990000"+.@slot+" will have the first enhancement retained.";
-			mes "我已经完成了遗迹装备的附魔 ^990000"+.@equip_name$+"^000000 在插槽 "+.@slot+".";
+			mes "I've successfully enhanced the artifact ^990000"+.@equip_name$+"^000000 at socket "+.@slot+".";
 		}
 
 //		GetNonSlotItemSock2 .@equip_refine .@equip_id .@equip_card[0] .@equip_card[1] .@equip_card[2] .@equip_card[3]
@@ -1146,20 +1138,25 @@ L_Socket:
 		close;
 	} else if (.@select == 2) {
 		if (Zeny < 100000 || countitem(6380) == 0) {
-			mes "[遗迹研究员]";
-			mes "你必须为了这个服务而付费.";
+			mes "[Artifact Researcher]";
+			mes "You've got to pay if you want the services.";
 			close;
 		}
 		specialeffect2 EF_REPAIRWEAPON;
-		mes "[遗迹研究员]";
-		mes "提升的能力依然存在.";
+		mes "[Artifact Researcher]";
+		mes "The ability to enhance remains.";
 		delitem 6380,1; //Mora_Coin
 		set Zeny, Zeny-100000;
+
+		// anti-hack
+		if (callfunc("F_IsEquipIDHack", .@part, .@equip_id) || callfunc("F_IsEquipCardHack", .@part, .@equip_card[0], .@equip_card[1], .@equip_card[2], .@equip_card[3]) || callfunc("F_IsEquipRefineHack", .@part, .@equip_refine))
+			close;
+
 		delequip .@part;
 
 //		GetNonSlotItemSock2 .@equip_refine .@equip_id .@equip_card[0] .@equip_card[1] .@equip_card[2] .@equip_card[3]
-		for ( .@i = getiteminfo(.@equip_id,10); .@i < MAX_SLOTS; .@i++ ) {
-			if (callfunc("F_IsCharm",.@equip_card[.@i]) == true)
+		for ( .@i = getiteminfo(.@equip_id, ITEMINFO_SLOT); .@i < MAX_SLOTS; .@i++ ) {
+			if (getiteminfo(.@equip_card[.@i], ITEMINFO_SUBTYPE) == CARD_ENCHANT)
 				.@equip_card[.@i] = 0;// Armor Enchant System
 		}
 		getitem2 .@equip_id,1,1,.@equip_refine,0,.@equip_card[0],.@equip_card[1],.@equip_card[2],.@equip_card[3];
@@ -1170,135 +1167,135 @@ L_Socket:
 
 // Arch Bishop & Warlock Empowering :: relic_change
 //============================================================
-mora,124,82,4	script	遗迹收藏家#blan	522,{
+mora,124,82,4	script	Artifact Collector#blan	522,{
 	if (checkweight(1201,1) == 0) {
-		mes "你必须减少你所携带的物品种类, 然后再继续.";
+		mes "Reduce the amount of items that you have in your inventory before continuing.";
 		close;
 	}
 	if (MaxWeight - Weight < 1000) {
-		mes "你的负重不够了, 请清理.";
+		mes "You are carrying too much in your inventory.";
 		close;
 	}
 	disable_items;
 	emotion ET_DELIGHT;
-	mes "这些莫拉的文物看上去是如此的完美!";
-	mes "但我知道你希望他们能够变的更强!";
+	mes "Those Mora Artifacts look so perfect!";
+	mes "But I know you want them to be even better!";
 	next;
-	mes "[遗迹收藏家]";
-	mes "向冒险家致敬. 我们会成为很好的朋友, 我会指导你如何加强你的遗迹装备!";
+	mes "[Artifact Collector]";
+	mes "Greetings Adventurer. We will be great friends in a moment after I tell you how to Empower your Artifacts!";
 	next;
-	switch(select("- 让我们干起来吧!:- 强化遗迹套装?:- 不, 这不适合我!")) {
+	switch(select("Let's do this!:Empower Artifacts?:Nope, not for me!")) {
 	case 1:
 		break;
 	case 2:
 		emotion ET_OK;
-		mes "[遗迹收藏家]";
-		mes "你看上去像个不错的大主教.";
+		mes "[Artifact Collector]";
+		mes "You seem like a pretty good judge of character.";
 		next;
-		mes "[遗迹收藏家]";
-		mes "我们在这里研究莫拉的古代遗物已经超过200年了. 为了得到完美的 +9 遗物!";
+		mes "[Artifact Collector]";
+		mes "For over 200 years I've been working with Artifacts here in Mora. Toiling to get the perfect +9!";
 		next;
-		select("咽口水... +9?!");
-		emotion ET_HUK,1;
-		mes "[遗迹收藏家]";
-		mes "我的生意是收集并提取这些文物的精华.";
+		select("Gulp... +9?!");
+		emotion ET_HUK, playerattached();
+		mes "[Artifact Collector]";
+		mes "My business is collecting the old relics and refining them to their essence!";
 		next;
 		emotion ET_CRY;
-		mes "[遗迹收藏家]";
-		mes "通过试验来获得完美遗迹装备是我毕生的心愿.";
-		mes "能够看到祖先的遗物获得附加的能力, 这是多让人高兴的事情啊.";
+		mes "[Artifact Collector]";
+		mes "Finding the perfect Artifact for me to experiment on is my life's work.";
+		mes "Plus seeing the wonder of our ancestor's legacy is also gratifying.";
 		next;
-		select("我能想象那有多高兴.");
+		select("I can see how that could be fun.");
 		emotion ET_GOODBOY;
-		mes "[遗迹收藏家]";
-		mes "谢谢你人类.";
+		mes "[Artifact Collector]";
+		mes "Thank you human.";
 		next;
-		mes "[遗迹收藏家]";
-		mes "我已经在这里工作了200年了, 垂手可得的神器的时代已经一去不复返了, 遗迹装备和遗迹工匠已经无法卖给我更多有用的东西了...";
+		mes "[Artifact Collector]";
+		mes "I've been doing this for over 200 years, and honestly the readily available supply is gone, and Artificer and Artifact Crafter won't trade me anymore...";
 		next;
 		emotion ET_THINK;
-		mes "[遗迹收藏家]";
-		mes "不过也许人类的来访能够带来一些新的契机!";
+		mes "[Artifact Collector]";
+		mes "But maybe the Humans that are starting to visit can bring in some new stock!";
 		next;
-		select("人类... Stock?");
-		emotion ET_QUESTION,1;
-		mes "[遗迹收藏家]";
-		mes "是的! 如果人类能带给我新的文物, 我想我有可能能够完成我的终极成就!";
+		select("Humans... Stock?");
+		emotion ET_QUESTION, playerattached();
+		mes "[Artifact Collector]";
+		mes "Yes! If the humans can bring me new artifacts I can work on my ultimate achievement!";
 		next;
-		select("终极成就?");
-		emotion ET_QUESTION,1;
+		select("Ultimate Achievement?");
+		emotion ET_QUESTION, playerattached();
 		emotion ET_OK;
-		mes "[遗迹收藏家]";
-		mes "耐心等待, 我们就会得到...";
+		mes "[Artifact Collector]";
+		mes "Patience, we'll get to that...";
 		next;
-		mes "[遗迹收藏家]";
-		mes "我是一个收藏家, 通过收购来获得各类文物. 但我最大的成就是能够让这些遗迹装备获得更强的能力!";
-		mes "到目前为止我只完善了几个遗迹装备的完美能力.";
+		mes "[Artifact Collector]";
+		mes "I am a collector, by trade, but my greatest achievement is empowering some artifacts with greater power!";
+		mes "I have only perfected my ability on a few Artifact types so far.";
 		next;
-		mes "[遗迹收藏家]";
-		mes "你很可能就是那个能够帮我完成完美计划的人类.";
+		mes "[Artifact Collector]";
+		mes "You might just be the human to help me complete my plan.";
 		next;
 		emotion ET_OTL;
-		mes "[遗迹收藏家]";
-		mes "我太热爱这份工作了...";
+		mes "[Artifact Collector]";
+		mes "Oh how I love how fate works sometimes...";
 		next;
-		mes "[遗迹收藏家]";
-		mes "+1, +2, +3, +4, +5, +6 这些级别的精炼还无法承载我的技艺.";
+		mes "[Artifact Collector]";
+		mes "+1, +2, +3, +4, +5, +6 those refinements are not strong enough to work on my craft.";
 		next;
-		emotion ET_OTL,0;
-		mes "[遗迹收藏家]";
-		mes "但是 +7! +7 是最低的一个精炼级别, 可以勉强的承载我的技艺.";
+		emotion ET_OTL;
+		mes "[Artifact Collector]";
+		mes "But +7! +7 is rare and just barely strong enough to work in my crafting attempts.";
 		next;
-		select("我会再度被滥用...");
-		emotion ET_SCRATCH,1;
-		mes "[遗迹收藏家]";
-		mes "你是对的! 我知道你们人类很乐意帮助自己的朋友, 即使你的朋友没有提出帮忙的要求...";
+		select("I'm gonna be abused again...");
+		emotion ET_SCRATCH, playerattached();
+		mes "[Artifact Collector]";
+		mes "Right you are! I know it is natural for you Humans to help a friend, even without the friend asking...";
 		next;
-		select("我不确定如果...");
-		emotion ET_QUESTION,1;
-		mes "[遗迹收藏家]";
-		mes "当然, 我接受你的帮助!  找到...";
+		select("I'm not sure if...");
+		emotion ET_QUESTION, playerattached();
+		mes "[Artifact Collector]";
+		mes "Of course I'll accept your help!  Find me...";
 		next;
-		mes "- 黄金权杖 -";
-		mes "- 流水之杖 -";
-		mes "- 赤红之杖 -";
-		mes "- 森林之杖 -";
-		mes "- 慈爱之杖 -";
-		mes "- 审判之锤 -";
+		mes "- Golden Rod Staff -";
+		mes "- Aqua Staff -";
+		mes "- Crimson Staff -";
+		mes "- Forest Staff -";
+		mes "- Staff of Mercy -";
+		mes "- Mace of Judgement -";
 		next;
-		select("还有其他事情吗?");
-		emotion ET_QUESTION,1;
-		mes "[遗迹收藏家]";
-		mes "除了 +7, 有助于推动这一进程的还有一些非常特殊的遗迹装备附魔.";
+		select("Anything else?");
+		emotion ET_QUESTION, playerattached();
+		mes "[Artifact Collector]";
+		mes "Well aside from the +7, there are very specific enchantments that need to be on the artifact that help catalyze the process.";
 		next;
-		mes "[遗迹收藏家]";
-		mes "除非 +7 或者特定附魔, 否则我是无法做到这点的.";
+		mes "[Artifact Collector]";
+		mes "If either the +7 or the specific enchantment is missing I can't do it.";
 		next;
-		select("那精炼值会被保留?");
-		emotion ET_HUK,1;
+		select("So the Refining will be preserved?");
+		emotion ET_HUK, playerattached();
 		emotion ET_FRET;
-		mes "[遗迹收藏家]";
-		mes "不, 但你将得到的会是更好的!";
+		mes "[Artifact Collector]";
+		mes "No, but what you'll get back is so much better!";
 		next;
-		mes "[遗迹收藏家]";
-		mes "你知道我们现在正在寻找更多的文物遗迹?";
+		mes "[Artifact Collector]";
+		mes "By now you are wondering more about the artifacts I'm looking for?";
 		next;
 		emotion ET_QUESTION;
-		mes "[遗迹收藏家]";
-		mes "来吧继续!";
+		mes "[Artifact Collector]";
+		mes "Go ahead and ask!";
 		next;
 		setarray .@artifacts[0],1657,16013,2007,2008,2009,2010;
 		setarray .@empowered[0],1660,16018,2011,2012,2013,2014;
 		while(1) {
-			set .@i, select("- 我不感兴趣:- 慈爱权杖:- 审判之锤:- 黄金权杖:- 流水之杖:- 赤红之杖:- 森林之杖")-2;
+			set .@i, select("I don't think I'm interested:Staff of Mercy:Mace of Judgement:Golden Rod Staff:Aqua Staff:Crimson Staff:Forest Staff")-2;
 			if (.@i == -1) {
 				emotion ET_QUESTION;
-				mes "[遗迹收藏家]";
-				mes "好吧, 也许有一天你会.";
+				mes "[Artifact Collector]";
+				mes "Ok, well maybe someday you will be.";
 				close;
 			}
-			mes "[遗迹收藏家]";
-			mes getitemname(.@artifacts[.@i])+" 我的附魔必须在精炼值+7或者更高的遗迹装备上.";
+			mes "[Artifact Collector]";
+			mes getitemname(.@artifacts[.@i])+" must of course be refined to +7 or higher for me to distill it to an enchantment.";
 			next;
 			switch(.@i) {
 			case 0:
@@ -1314,32 +1311,33 @@ mora,124,82,4	script	遗迹收藏家#blan	522,{
 				set .@str$, "MATK+2%, INT+4";
 				break;
 			}
-			mes "[遗迹收藏家]";
-			mes "还要能承载这些附魔: "+.@str$+" 由我这里.";
+			mes "[Artifact Collector]";
+			mes "It must also carry any of these enchantments: "+.@str$+" to be craftable by me.";
 			next;
-			select(getitemname(.@empowered[.@i])+" 属性?");
+			select(getitemname(.@empowered[.@i])+" attributes?");
 			callsub L_ShowInfo, .@empowered[.@i];
-			mes "[遗迹收藏家]";
-			mes "如果你有的话, 请让我来附魔它, 谢谢你了.";
+			mes "[Artifact Collector]";
+			mes "But please if you do get one, please let me work on it, I'm begging you.";
 			next;
 		}
 	case 3:
-		mes "[遗迹收藏家]";
-		mes "祝你游戏快乐. 再见~";
+		mes "[Artifact Collector]";
+		mes "Have yourself a great day. Bye~";
 		close;
 	}
 	emotion ET_SPARK;
-	mes "[遗迹收藏家]";
-	mes "让我看看你带来了什么.";
+	mes "[Artifact Collector]";
+	mes "Let me take a look at what you have brought me.";
 	next;
 	if (!getequipisequiped(EQI_HAND_R)) {
 		emotion ET_FRET;
-		mes "[遗迹收藏家]";
-		mes "我不清楚你究竟想干什么... 你没有任何东西可以让我帮你附魔的.";
+		mes "[Artifact Collector]";
+		mes "I don't know what you are trying to do... I can't enhance what you don't have.";
 		close;
 	}
 	set .@equip_id, getequipid(EQI_HAND_R);
-	setarray .@equip_card[2], getequipcardid(EQI_HAND_R,2),getequipcardid(EQI_HAND_R,3);
+	.@equip_refine = getequiprefinerycnt(EQI_HAND_R);
+	setarray .@equip_card[0], getequipcardid(EQI_HAND_R,0), getequipcardid(EQI_HAND_R,1), getequipcardid(EQI_HAND_R,2),getequipcardid(EQI_HAND_R,3);
 	switch(.@equip_id) {
 	case 2007: //Golden_Rod_Staff
 	case 2008: //Aqua_Staff
@@ -1363,126 +1361,131 @@ mora,124,82,4	script	遗迹收藏家#blan	522,{
 		break;
 	default:
 		emotion ET_FRET;
-		mes "[遗迹收藏家]";
-		mes "我无法为一件不属于遗迹装备的武器进行附魔.";
+		mes "[Artifact Collector]";
+		mes "The weapon you have isn't one of the Artifacts I can work with.";
 		close;
 	}
-	if (getequiprefinerycnt(EQI_HAND_R) < 7) {
+	if (.@equip_refine < 7) {
 		emotion ET_FRET;
-		mes "[遗迹收藏家]";
-		mes "你的遗迹装备精炼值至少需要达到 +7!";
+		mes "[Artifact Collector]";
+		mes "I must insist that the refine level of the Artifact be at least +7!";
 		close;
 	}
 	if (!.@empowered) {
 		emotion ET_FRET;
-		mes "[遗迹收藏家]";
-		mes "这些属性不在我的研究范围内, 尝试重新附魔.";
+		mes "[Artifact Collector]";
+		mes "These attributes just won't do for my research process, try re-randoming them.";
 		close;
 	}
 	emotion ET_SEXY;
-	mes "[遗迹收藏家]";
-	mes "我太兴奋了!";
-	mes "你带来了我想要的一切!!";
+	mes "[Artifact Collector]";
+	mes "I'm tingling with excitement!";
+	mes "You've brought me everything I need!!";
 	next;
 	emotion ET_OK;
-	mes "[遗迹收藏家]";
-	mes "如果你准备好了, 我将告诉你我可以如何改造你的 +"+getequiprefinerycnt(EQI_HAND_R)+" 遗迹装备!";
+	mes "[Artifact Collector]";
+	mes "If you are ready I am about to show you what I can do with your +" + .@equip_refine + " Artifact!";
 	next;
-	mes "[遗迹收藏家]";
-	mes "我将拿走你的 ^FF0000"+getequipname(EQI_HAND_R)+"^000000 作为交换, 你准备好了吗?";
+	mes "[Artifact Collector]";
+	mes "I'm going to take your ^FF0000"+getequipname(EQI_HAND_R)+"^000000 and exchange it, are you ready?";
 	next;
-	switch(select("- 不!:- 是的, 准备好了!:- 之后会发生什么?")) {
+	switch(select("NOOO!:Yes, I'm ready!:What will it be after?")) {
 	case 1:
 		emotion ET_FRET;
-		mes "[遗迹收藏家]";
-		mes "你一定是在开玩笑... 你无视我的理想...";
+		mes "[Artifact Collector]";
+		mes "You've got to be kidding... you got my hopes up...";
 		close;
 	case 2:
 		break;
 	case 3:
 		callsub L_ShowInfo, .@empowered;
-		mes "[遗迹收藏家]";
-		mes "你确定要继续?";
+		mes "[Artifact Collector]";
+		mes "Surely you want to go on?";
 		next;
-		if(select("- 不, 我不要.:- 是的, 干吧!") == 1) {
+		if(select("No, I don't.:Yes, do it!") == 1) {
 			emotion ET_FRET;
-			mes "[遗迹收藏家]";
-			mes "你一定是在开玩笑... 你无视我的理想...";
+			mes "[Artifact Collector]";
+			mes "You've got to be kidding... you got my hopes up...";
 			close;
 		}
 		break;
 	}
 	emotion ET_SMILE;
+
+	// anti-hack
+	if (callfunc("F_IsEquipIDHack", EQI_HAND_R, .@equip_id) || callfunc("F_IsEquipCardHack", EQI_HAND_R, .@equip_card[0], .@equip_card[1], .@equip_card[2], .@equip_card[3]) || callfunc("F_IsEquipRefineHack", EQI_HAND_R, .@equip_refine))
+		close;
+
 	delequip EQI_HAND_R;
 	getitem .@empowered,1;
-	mes "[遗迹收藏家]";
-	mes "这是完全可以做到, 你肯定会很高兴! 再见朋友~";
+	mes "[Artifact Collector]";
+	mes "It is perfectly done, you will be so happy! Good bye friend~";
 	close;
 
 L_ShowInfo:
-	mes "[遗迹收藏家]";
+	mes "[Artifact Collector]";
 	mes getitemname(getarg(0));
 	switch(getarg(0)) {
 	case 1660: //Wand_Of_Affection2
-		mes "单手法杖 / 攻击 : 30";
-		mes "重量 : 50 / 无性别限制";
-		mes "仅大主教可用";
-		mes "武器等级 : 4 / ^ff0000装备等级: 130^000000";
+		mes "One handed Staff / Attack : 30";
+		mes "Weight : 50 / Any Sex";
+		mes "Archbishop only";
+		mes "Weapon Level : 4 / ^ff0000Required Level: 130^000000";
 		mes "MATK + 180, INT + 4.";
-		mes "增加 20% 治疗奖励.";
-		mes "和慈爱之袍、慈爱之鞋、慈爱披肩一起装备时, 恢复效果+45%, 治愈术的SP消耗增加50.";
-		mes "受到物理和魔法攻击一定机率发动净化.";
-		mes "圣礼、羔羊赞歌和大树赞歌的独立冷却时间减少3秒.";
+		mes "Adds 20% Heal Bonus.";
+		mes "If worn with Robes, Shoes, and Robe of Mercy Increase Heal Bonus by an additional 45% and SP consumption of 'Heal' by 50.";
+		mes "When receives close physical attack, Lv.1 Silentium will be excuted at a certain rate.";
+		mes "Recuces 3 seconds of delay after excuting Clearance, Laudaramus, and Laudaagnus skills.";
 		break;
 	case 16018: //Mace_Of_Judgement2
-		mes "锤子 / 攻击 : 170";
-		mes "重量 : 120 / 无性别限制";
-		mes "仅大主教可用";
-		mes "武器等级 : 4 / ^ff0000装备等级: 130^000000";
+		mes "Mace / Attack : 170";
+		mes "Weight : 120 / Any Sex";
+		mes "Archbishop only";
+		mes "Weapon Level : 4 / ^ff0000Required Level: 130^000000";
 		mes "MATK + 180, STR + 2, INT + 2.";
-		mes "物理攻击和魔法攻击时, 一定机率在7秒对恶魔种族的伤害+40%.";
-		mes "和审判之袍、审判之靴、审判披肩一起装备时, 对不死种族的物理和魔法伤害+30%.";
-		mes "赞歌的伤害提高200%, 赞歌的SP消耗提高30.";
+		mes "Physical and Magical Attacks have a chance to increase damage by 40% to Demon monsters for 7 seconds.";
+		mes "If worn with Judgement Golves, Shoes and Shawl, increase Damage against Undead by 30%.";
+		mes "Increase damage of Adoramus by 200%, and increase SP cost of Adoramus by 30.";
 		break;
 	case 2011: //Golden_Rod_Staff2
-		mes "法杖 / 攻击 : 30";
-		mes "重量 : 90 / 无性别限制";
-		mes "大法师专用";
-		mes "武器等级 : 4 / ^ff0000装备等级 : 130^000000";
+		mes "Staff / Attack: 30";
+		mes "Weight : 90 / Any Sex";
+		mes "Warlock only";
+		mes "Weapon Level : 4 / ^ff0000Required Level : 130^000000";
 		mes "INT + 5, MATK + 270.";
-		mes "雷鸣术的伤害提高30%.";
-		mes "和黄金领主外袍、黄金领主之靴、黄金领主法球一起装备时, 使用所有风属性技能的伤害提高60%.";
-		mes "使用所有地属性技能的伤害降低60%, 对地属性攻击的抵抗力-50%.";
+		mes "Increase Jupitel Thunder damage by 30%.";
+		mes "If worn with Golden Robe, Golden Shoes, and Golden Orb Increase Wind Magic damage by 60%.";
+		mes "Lower Earth Magic damage by 60% and resistance to Earth by 50%.";
 		break;
 	case 2012: //Aqua_Staff2
-		mes "法杖 / 攻击 : 30";
-		mes "重量 : 90 / 无性别限制";
-		mes "大法师专用";
-		mes "武器等级 : 4 / ^ff0000装备等级: 130^000000";
+		mes "Staff / Attack : 30";
+		mes "Weight : 90 / Any Sex";
+		mes "Warlock only";
+		mes "Weapon Level : 4 / ^ff0000Required Level: 130^000000";
 		mes "INT + 5, MATK + 270.";
-		mes "冰箭术和冰冻术的伤害提高30%.";
-		mes "和水之外袍、水之靴、水之法球一起装备时, 使用所有水属性技能的伤害提高60%.";
-		mes "使用所有风属性技能的伤害降低60%, 对风属性攻击的抵抗力-50%.";
+		mes "Increase Cold Bolt and Frost Diver damage by 30%.";
+		mes "If worn with Aqua Robe, Shoes, and Orb Increase Water Magic damage by 60%.";
+		mes "Lower Wind Magic damage by 60% and resistance to Wind by 50%.";
 		break;
 	case 2013: //Crimson_Staff2
-		mes "法杖 / 攻击 : 30";
-		mes "重量 : 90 / 无性别限制";
-		mes "大法师专用";
-		mes "武器等级 : 4 / ^ff0000装备等级: 130^000000";
+		mes "Staff / Attack : 30";
+		mes "Weight : 90 / Any Sex";
+		mes "Warlock only";
+		mes "Weapon Level : 4 / ^ff0000Required Level: 130^000000";
 		mes "INT + 5, MATK + 270.";
-		mes "火箭术和火球术的伤害提高30%.";
-		mes "和赤红外袍、赤红之靴、赤红法球一起装备时, 使用所有火属性技能的伤害提高60%.";
-		mes "使用所有火属性技能的伤害降低60%, 对火属性攻击的抵抗力-50%.";
+		mes "Increase Fire Bolt and Fireball damage by 30%.";
+		mes "If worn with Crimson Robe, Shoes, and Orb Increase Fire Magic damage by 60%.";
+		mes "Lower Water Magic damage by 60% and resistance to Water by 50%.";
 		break;
 	case 2014: //Forest_Staff2
-		mes "法杖 / 攻击 : 30";
-		mes "重量 : 90 / 无性别限制";
-		mes "大法师专用";
-		mes "武器等级 : 4 / ^ff0000装备等级: 130^000000";
+		mes "Staff / Attack : 30";
+		mes "Weight : 90 / Any Sex";
+		mes "Warlock only";
+		mes "Weapon Level : 4 / ^ff0000Required Level: 130^000000";
 		mes "INT + 5, MATK + 270.";
-		mes "地震术和崩裂术的伤害提高30%.";
-		mes "和森林外袍、森林之靴、森林法球一起装备时, 使用所有地属性技能的伤害提高60%.";
-		mes "使用所有火属性技能的伤害降低60%, 对火属性攻击的抵抗力-50%.";
+		mes "Increase Earth Spike and Heaven's Drive damage by 30%.";
+		mes "If worn with Forest Robe, Shoes, and Orb Increase Earth Magic damage by 60%.";
+		mes "Lower Fire Magic damage by 60% and resistance to Fire by 50%.";
 		break;
 	}
 	next;
@@ -1495,6 +1498,8 @@ function	script	F_Mora_Enchant	{
 	specialeffect2 EF_REPAIRWEAPON;
 	progressbar "ffff00",3;
 	delitem 6380,5; //Mora_Coin
+	if (countitem(getarg(0)) < 1)
+		return 0;
 	delitem getarg(0),1;
 	set .@i, rand(1,4568);
 	if (.@i <= 3168) {
@@ -1523,250 +1528,253 @@ function	script	F_Mora_Enchant	{
 	getitem2 getarg(0),1,1,0,0,0,.@enchants[1],.@enchants[2],.@enchants[3];
 	return 1;
 }
-mora,105,176,4	script	裁缝大师#pa0829	509,{
+mora,105,176,4	script	Master Tailor#pa0829	509,{
+	disable_items;
 	if (checkweight(1201,1) == 0) {
-		mes "你携带的物品种类过多, 请清理自己的背包后再来.";
+		mes "You have too many kinds of things with you to do that. Throw out some of them and try again.";
 		close;
 	}
 	if (MaxWeight - Weight < 1000) {
-		mes "你携带的物品过重, 你现在的负重不够, 请清理自己的背包后再来.";
+		mes "You are carrying too much weight to do that. Reduce the weight and try again.";
 		close;
 	}
 	if (countitem(6380) < 5 || countitem(15024) < 1) {
-		mes "[裁缝大师]";
-		mes "经过我手, 我能够将军装改造成艺术品. 我是一名裁缝大师, 为军装提供款式制作.";
+		mes "[Master Tailor]";
+		mes "With my touch, I can turn a typical army padding into a piece of art. I'm Kay the Master Tailor, creating art with army paddings.";
 		next;
-		mes "[裁缝大师]";
-		mes "名字里有什么? 我可以把你的军装变成一件艺术品 ^ff0000一套军装和5个莫拉硬币^000000.";
+		mes "[Master Tailor]";
+		mes "Well, what's in a name? I can turn your army padding into a piece of art if you bring ^ff00005 Mora Coins and an Army Padding^000000.";
 		if (countitem(6380)) {
 			next;
-			mes "[裁缝大师]";
-			mes "我这里正好有一些军装的装饰品存货. 你有没有兴趣买一些? 只需要1个莫拉币. 非常便宜.";
+			mes "[Master Tailor]";
+			mes "I happen to have a few army paddings in stock. Would you like to buy one? The price is 1 Mora Coin. So cheap.";
 			next;
-			switch(select("- 下一次吧.:- 我想买一个.")) {
+			switch(select("Maybe next time.:I'll buy one now.")) {
 	 		case 1:
-				mes "[裁缝大师]";
-				mes "好的, 我明白.";
-				mes "如果你改变主意了, 就来找我吧.";
+				mes "[Master Tailor]";
+				mes "Okay, I understand.";
+				mes "Come back for one if you change your mind.";
 				close;
 			case 2:
 				delitem 6380,1; //Mora_Coin
 				getitem 15024,1; //Army_Padding
-				mes "[裁缝大师]";
-				mes "拿着吧.";
-				mes "这非常漂亮和舒适. 请下次再来.";
+				mes "[Master Tailor]";
+				mes "Here it is.";
+				mes "It's very nice and fluffy. Please come back.";
 				close;
 			}
 		}
 		close;
 	}
-	mes "[裁缝大师]";
-	mes "你是来这里将军装改造成艺术品的吗?";
+	mes "[Master Tailor]";
+	mes "Have you come to add art to one of your army paddings?";
 	next;
-	switch(select("- 请, 告诉我更多的信息.:- 是的, 我想.")) {
+	switch(select("Please tell me more.:Yes, I have.")) {
 	case 1:
-		mes "[裁缝大师]";
-		mes "一套标准的军装不够暖和. 也不漂亮, 并且会损伤你的皮肤. 艺术价值? 这可粘不上边.";
+		mes "[Master Tailor]";
+		mes "A typical army padding isn't warm enough. It feels rough on your skin and doesn't look good. And artistic value? It has next to none.";
 		next;
-		mes "[裁缝大师]";
-		mes "因此, 我会重新缝制它们, 并且增加三个特色.";
+		mes "[Master Tailor]";
+		mes "However, I'll embroider it with velvet threads, and add three options to it.";
 		next;
-		mes "[裁缝大师]";
-		mes "给我 ^8888005个莫拉币^000000 和一件军装, 让我们一起给它们加点艺术色彩!";
+		mes "[Master Tailor]";
+		mes "Bring me ^8888005 Mora Coins^000000 and an Army Padding, and we can add some art together!";
 		close;
 	case 2:
-		mes "[裁缝大师]";
-		mes "我告诉你, 以防万一 - 我会做什么, 我需要做的是将你的军装修饰, 无论它原来是新的或者是旧的.";
+		mes "[Master Tailor]";
+		mes "I'm telling you just in case - I'll do whatever I need to do with your army padding, whether it's brand-new or has been mended before.";
 		next;
-		mes "[裁缝大师]";
-		mes "如果你有很中意的装备不想改制的话, 就先把它存放好再来找我.";
+		mes "[Master Tailor]";
+		mes "So if you have with you an army padding mended to your liking, put it in a safe place and come back.";
 		next;
-		mes "[裁缝大师]";
-		mes "还有一件事 - 如果我改造失败, 它会变成废品... 你就需要再买一件新的了.";
+		mes "[Master Tailor]";
+		mes "And another thing - once I fail to add art to it, it becomes unusable... you'll need to buy a new one in that case.";
 		next;
-		switch(select("- 什么, 呢么匆忙?:- 好的! 让我们操作吧!!")) {
+		switch(select("Come on, what's the rush?:Okay! Let's do it!!")) {
 		case 1:
-			mes "[裁缝大师]";
-			mes "你怎么了?";
-			mes "这里的村民已经让我够忙乎了.";
+			mes "[Master Tailor]";
+			mes "What's wrong with you?";
+			mes "The villagers keep me busy enough.";
 			close;
 		case 2:
 			if (countitem(6380) < 5 || countitem(15024) == 0) {
-				mes "[裁缝大师]";
-				mes "看上去你准备的东西不够啊.";
+				mes "[Master Tailor]";
+				mes "It looks like you don't have everything you need.";
 				next;
-				mes "[裁缝大师]";
-				mes "你至少需要有5个莫拉币和一件军用内衣, 这样我才可以帮你操作.";
+				mes "[Master Tailor]";
+				mes "You have to have 5 Mora Coins and an Army Padding with you before I can do my work.";
 				close;
 			}
 			if (callfunc("F_Mora_Enchant",15024) == 0) {
-				mes "[裁缝大师]";
-				mes "呃......";
-				mes "不敢相信, 我失手了.";
+				mes "[Master Tailor]";
+				mes "Oh......";
+				mes "I can't believe I messed up.";
 				next;
-				mes "[裁缝大师]";
-				mes "我想一个人静静. 请自便!";
+				mes "[Master Tailor]";
+				mes "I want to be alone. Go away!";
 				close;
 			}
-			mes "[裁缝大师]";
-			mes "我的作品太优秀了.";
+			mes "[Master Tailor]";
+			mes "My art looks great.";
 			close;
 		}
 	}
 }
 
-mora,123,177,6	script	坠饰工匠#pa0829	509,{
+mora,123,177,6	script	Pendant Crafter#pa0829	509,{
+	disable_items;
 	if (checkweight(1201,1) == 0) {
-		mes "你携带的物品种类过多, 请清理自己的背包后再来.";
+		mes "You have too many kinds of things with you to do that. Throw out some of them and try again.";
 		close;
 	}
 	if (MaxWeight - Weight < 1000) {
-		mes "你携带的物品过重, 你现在的负重不够, 请清理自己的背包后再来.";
+		mes "You are carrying too much weight to do that. Reduce the weight and try again.";
 		close;
 	}
 	if (countitem(6380) < 5 || countitem(2858) == 0) {
-		mes "[坠饰工匠]";
-		mes "我的工作是把这些石头给镶嵌到坠饰上去, 然后将它进行篆刻, 使其拥有特别的力量.";
+		mes "[Pendant Crafter]";
+		mes "My job is to polish the stone in a Guardian's Pendant, and then carve a symbol with special power on it.";
 		next;
-		mes "[坠饰工匠]";
-		mes "这个过程将会让你的装饰品获得比一般的装饰品更强大的威力.";
+		mes "[Pendant Crafter]";
+		mes "The process gives the Guardian's Pendant more power than an ordinary accessory.";
 		next;
-		mes "[坠饰工匠]";
-		mes "如果你有兴趣, 我需要 ^ff00005个莫拉币^000000作为酬劳. 当然你还必须拥有一件守护者坠饰.";
+		mes "[Pendant Crafter]";
+		mes "If you're interested, I can work on your pendant for ^ff00005 Mora Coins^000000. Of course you need to have a Guardian's Pendant so I can work on with you.";
 		close;
 	}
-	mes "[坠饰工匠]";
-	mes "你准备好让你的守护者坠饰升级了吗?";
+	mes "[Pendant Crafter]";
+	mes "Have you come to have your Guardian's Pendant upgraded?";
 	next;
-	switch(select("- 请告诉我更多的信息.:- 是的, 我装备好了.")) {
+	switch(select("Please tell me more.:Yes, I have.")) {
 	case 1:
-		mes "[坠饰工匠]";
-		mes "我的工作是把这些石头给镶嵌到坠饰上去,  然后将它进行篆刻, 使其拥有特别的力量.";
+		mes "[Pendant Crafter]";
+		mes "My job is to polish the stone in a Guardian's Pendant, and then carve a symbol with special power on it.";
 		next;
-		mes "[坠饰工匠]";
-		mes "这个过程将会让你的装饰品获得比一般的装饰品更强大的威力.";
+		mes "[Pendant Crafter]";
+		mes "The process gives the Guardian's Pendant more power than an ordinary accessory.";
 		next;
-		mes "[坠饰工匠]";
-		mes "如果你有兴趣, 我需要 ^ff00005个莫拉币^000000作为酬劳. 当然你还必须拥有一件守护者坠饰.";
+		mes "[Pendant Crafter]";
+		mes "If you're interested, I can work on your pendant for ^ff00005 Mora Coins^000000. Of course you need to have a Guardian's Pendant so I can work on with you.";
 		close;
 	case 2:
-		mes "[坠饰工匠]";
-		mes "我告诉你, 以防万一 - ";
-		mes "如果你给我的守护者坠饰之前有强化过, 那它将失去之前的强化效果.";
+		mes "[Pendant Crafter]";
+		mes "I'm telling you just in case - ";
+		mes "If I work on a Guardian's Pendant that's been upgraded before, it loses its original power.";
 		next;
-		mes "[坠饰工匠]";
-		mes "更糟糕的是, 它可能会失去其魔力, 成为一个普通的挂件. 当然, 石头可不像布料呢么容易损坏, 所以你不会失去挂件本身.";
+		mes "[Pendant Crafter]";
+		mes "And worse, it can lose its power and become an ordinary pendant. Of course, stone is not as susceptible to damage as cloth, so you won't lose the pendant itself.";
 		next;
-		switch(select("- 什么, 呢么匆忙?:- 好的! 让我们操作吧!!")) {
+		switch(select("Come on, what's the rush?:Okay! Let's do it!!")) {
 		case 1:
-			mes "[坠饰工匠]";
-			mes "等你什么时候有空再来吧. 我总是能腾出一些时间的.";
+			mes "[Pendant Crafter]";
+			mes "Come back when you're not in a hurry. I always have a lot of time on my hands.";
 			close;
 		case 2:
 			if (countitem(6380) < 5 || countitem(2858) == 0) {
-				mes "[坠饰工匠]";
-				mes "看上去你的准备不够充分啊.";
+				mes "[Pendant Crafter]";
+				mes "It looks like you don't have everything you need.";
 				next;
-				mes "[坠饰工匠]";
-				mes "你至少需要有5个莫拉币, 同时有一件守护者坠饰才能让我开工.";
+				mes "[Pendant Crafter]";
+				mes "You must have 5 Mora Coins and a Guardian's Pendant with you before I can do my work.";
 				close;
 			}
 			if (callfunc("F_Mora_Enchant",2858) == 0) {
 				getitem 2858,1; //Pendant_Of_Guardian
-				mes "[坠饰工匠]";
-				mes "什么~!!";
-				mes "地属性出错了!!";
+				mes "[Pendant Crafter]";
+				mes "What~!!";
+				mes "What on earth is wrong with it!!";
 				close;
 			}
-			mes "[坠饰工匠]";
-			mes "看看我的杰作!";
+			mes "[Pendant Crafter]";
+			mes "Looks like I did it!";
 			close;
 		}
 	}
 }
 
-mora,134,166,4	script	巴宝莉 维斯特伍德#pa0829	509,{
+mora,134,166,4	script	Bulberry Westhood#pa0829	509,{
+	disable_items;
 	if (checkweight(1201,1) == 0) {
-		mes "你携带的物品种类过多, 请清理自己的背包后再来.";
+		mes "You have too many kinds of things with you to do that. Throw out some of them and try again.";
 		close;
 	}
 	if (MaxWeight - Weight < 1000) {
-		mes "你携带的物品过重, 你现在的负重不够, 请清理自己的背包后再来.";
+		mes "You are carrying too much weight to do that. Reduce the weight and try again.";
 		close;
 	}
 	if (countitem(6380) < 5 || countitem(2568) == 0) {
-		mes "[巴宝莉 维斯特伍德]";
-		mes "我是巴宝莉 维斯特伍德, 保留传统的制作工艺.";
+		mes "[Bulberry Westhood]";
+		mes "I'm Bulberry Westhood, keeping the tradition of quality hoods alive.";
 		next;
-		mes "[巴宝莉 维斯特伍德]";
-		mes "我只处理高品质物品 - 不是从市场里面随便买来的那些.";
+		mes "[Bulberry Westhood]";
+		mes "I only handle quality items - not random scarfs from a marketplace.";
 		next;
-		mes "[巴宝莉 维斯特伍德]";
-		mes "如果你有1个遗迹装备想获得更强的属性, 就带 ^ff00005个莫拉币^000000来找我吧.";
+		mes "[Bulberry Westhood]";
+		mes "If you have anything that you think is of high enough quality, come find me with ^ff00005 Mora Coins^000000.";
 		next;
-		mes "[巴宝莉 维斯特伍德]";
-		mes "我可以用自己的双手改变它品质.";
+		mes "[Bulberry Westhood]";
+		mes "I can improve its high quality with my own hands.";
 		close;
 	}
-	mes "[巴宝莉 维斯特伍德]";
-	mes "你有1个 洛奇的披肩 1042 特别版本. 你真的有一双敏锐的眼睛. 我可以马上开始工作?";
+	mes "[Bulberry Westhood]";
+	mes "So you have a Loki's Scarf 1042 Special Edition. You really have an eye for quality. Can I start working on it right away?";
 	next;
-	switch(select("- 我不明白.:- 是的, 请.")) {
+	switch(select("I don't get it.:Yes, please.")) {
 	case 1:
-		mes "[巴宝莉 维斯特伍德]";
-		mes "如我所述, 我只处理高品质物品 - 不是从市场里面随便买来的那些.";
+		mes "[Bulberry Westhood]";
+		mes "Like I said, I only handle quality items - not random scarfs from a marketplace.";
 		next;
-		mes "[巴宝莉 维斯特伍德]";
-		mes "这件洛奇的披肩非常棒. 这在洛奇的装饰品中属于限量版!";
+		mes "[Bulberry Westhood]";
+		mes "This Loki's Scarf you have is awesome. It's a limited edition product with Loki's crest on it!";
 		next;
-		mes "[巴宝莉 维斯特伍德]";
-		mes "我的专长是花费小成本, 引导出装备隐藏的力量... ";
-		mes "5个莫拉币.";
+		mes "[Bulberry Westhood]";
+		mes "My specialty is bringing out the hidden power at the small cost of... ";
+		mes "5 Mora Coins.";
 		next;
-		mes "[巴宝莉 维斯特伍德]";
-		mes "如果你改变主意了请来找我.";
+		mes "[Bulberry Westhood]";
+		mes "Come back if you change your mind.";
 		close;
 	case 2:
-		mes "[巴宝莉 维斯特伍德]";
-		mes "我告诉你, 以防万一 - ";
-		mes "如果你的洛奇的披肩曾经附魔过, 他原来的附魔会消失.";
+		mes "[Bulberry Westhood]";
+		mes "I'm telling you just in case - ";
+		mes "If I work on a Loki's Scarf that's been upgraded before, it loses its original power.";
 		next;
-		mes "[巴宝莉 维斯特伍德]";
-		mes "更糟糕的是, 它可能会失去其所有的力量, 成为一条普通的披肩.";
+		mes "[Bulberry Westhood]";
+		mes "And worse, it can lose all its power becoming an ordinary scarf.";
 		next;
-		mes "[巴宝莉 维斯特伍德]";
-		mes "当然, 洛奇的披肩品质非常好, 所以你不会在这个过程中失去披肩本身.";
+		mes "[Bulberry Westhood]";
+		mes "Of course, the Loki's Scarf is a quality item, so you won't lose the scarf itself in the process.";
 		next;
-		switch(select("- 也许以后, 先生...:- 我想让它更优秀!")) {
+		switch(select("Maybe later, sir...:I'd like to own a quality item!")) {
 		case 1:
-			mes "[巴宝莉 维斯特伍德]";
-			mes "哈...!";
-			mes "你又想获得最好的东西, 但又举棋不定? 好吧, 你有自己的想法.";
+			mes "[Bulberry Westhood]";
+			mes "Ha...!";
+			mes "You say 'later' when you can have the best quality item right away? Well, have it your own way.";
 			close;
 		case 2:
 			if (countitem(6380) < 5 || countitem(2568) == 0) {
-				mes "[巴宝莉 维斯特伍德]";
-				mes "看上去你的准备不够充分.";
+				mes "[Bulberry Westhood]";
+				mes "It looks like you don't everything you need.";
 				next;
-				mes "[巴宝莉 维斯特伍德]";
-				mes "想获得最好的回报, 你至少需要准备1条洛奇的披肩和5个莫拉硬币.";
+				mes "[Bulberry Westhood]";
+				mes "You must have 5 Mora Coins and a Loki's Scarf with you before you can have the best quality item.";
 				close;
 			}
 			if (callfunc("F_Mora_Enchant",2568) == 0) {
 				getitem 2568,1; //Muffler_Of_Roki
-				mes "[巴宝莉 维斯特伍德]";
-				mes "啊啊, 这不可能!";
-				mes "我的! 我的披肩!....";
+				mes "[Bulberry Westhood]";
+				mes "Aaarrgghh, this is impossible!";
+				mes "My! My Loki's Scarf!....";
 				next;
-				mes "[巴宝莉 维斯特伍德]";
-				mes "噢, 我对我的失误进行道歉. 我非常难过.";
+				mes "[Bulberry Westhood]";
+				mes "Oh, I apologize for my disgraceful behavior. I was too upset.";
 				next;
-				mes "[巴宝莉 维斯特伍德]";
-				mes "幸好, 它还是我操作前的样子. 没有任何变形或损坏. 它毕竟是件好装备. 噢呵呵~";
+				mes "[Bulberry Westhood]";
+				mes "Fortunately, it's still in its original state before I started working on it. It's not torn or stretched. It's a quality item after all. Oh ho ho~";
 				close;
 			}
-			mes "[巴宝莉 维斯特伍德]";
-			mes "哇噢~ 任务完成!";
+			mes "[Bulberry Westhood]";
+			mes "Wow~ mission complete!";
 			close;
 		}
 	}

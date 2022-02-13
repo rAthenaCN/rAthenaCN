@@ -37,7 +37,7 @@ prt_in,24,61,7	script	Perchik	47,{
 		}
 		else mes "I work for free, but...";
 		next;
-		emotion e_cry;
+		emotion ET_CRY;
 		mes "[Perchik]";
 		mes "Alas, I have 12 hungry children";
 		mes "and a very angry wife.";
@@ -80,7 +80,7 @@ prt_in,24,61,7	script	Perchik	47,{
 		emotion ET_SCRATCH;
 		close;
 	}
-	if (getiteminfo(.@id,10)) {
+	if (getiteminfo(.@id, ITEMINFO_SLOT)) {
 		mes "Sorry, I don't sign slotted items.";
 		emotion ET_SORRY;
 		close;
@@ -127,7 +127,7 @@ prt_in,24,61,7	script	Perchik	47,{
 		delitem .@Item[.@i], .@Item[.@i+1];
 	delitem2 .@id,1,1,.@ref,0,.@slot[0],.@slot[1],.@slot[2],.@slot[3];
 	mes "Done!";
-	emotion e_proud;
+	emotion ET_OK;
 	getitem2 .@id,1,1,.@ref,0,254,0,getcharid(0)&0xffff,(getcharid(0)>>16)&0xffff;
 	equip .@id;
 	close;

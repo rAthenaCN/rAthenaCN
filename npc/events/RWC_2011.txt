@@ -1,19 +1,11 @@
-//============================================================
-//= rAthenaCN [RWC2011代理商]汉化脚本 [ www.rAthenaCN.com ]
-//============================================================
-//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
-
 //===== rAthena Script ======================================= 
 //= RWC 2011 Golden Poring
-//===== By: =========Translation:============================= 
-
+//===== By: ================================================== 
+//= Euphy
 //===== Current Version: ===================================== 
 //= 1.0
 //===== Compatible With: ===================================== 
-//= rAthena SVN
+//= rAthena Project
 //===== Description: ========================================= 
 //= [Official Conversion]
 //= Collect blue cards dropped by Golden Porings to spell out
@@ -22,189 +14,155 @@
 //= 1.0 First Version. [Euphy]
 //============================================================ 
 
-prontera,114,81,5	script	RWC2011代理商#2	407,{
+prontera,114,81,5	script	RWC2011 Agent#2	407,{
 	if (checkweight(1201,1) == 0 || MaxWeight - Weight < 500) {
-		mes "[新代理商]";
-		mes "--------------------------------";
-		mes "您有太多的东西. 请您清理一下再来. ";
+		mes "[New Agent]";
+		mes "You have too many items. Please make room in your inventory and come back.";
 		close;
 	}
 	if (oversea_event == 0) {
-		mes "[新代理商]";
-		mes "--------------------------------";
-		mes "哇~ 终于!!这是我们一直期待的赛季!";
+		mes "[New Agent]";
+		mes "Wow~ Finally!! It's the season we've all been waiting for!";
 		emotion ET_BIGTHROB;
 		next;
-		mes "[新代理商]";
-		mes "--------------------------------";
-		mes "现在是RWC的时间!";
+		mes "[New Agent]";
+		mes "It's RWC time!";
 		next;
 		set .@loop,1;
 		while(.@loop) {
-			switch(select("- 什么是RWC?:- 你是一个新的代理?:- 我没兴趣")) {
+			switch(select("What is RWC?:Are you a New Agent?:I don't care.")) {
 			case 1:
-				mes "[新代理商]";
-				mes "--------------------------------";
+				mes "[New Agent]";
 				if (BaseLevel < 70)
-					mes "等您真正成为冒险家至少70级. 然后我会向您解释. ";
+					mes "You must be a new adventurer. I will kindly explain it to you.";
 				else
-					mes "看上去您已经经历了很多, 但是您看来不太关心世界各地的新鲜事. ";
+					mes "It seems you've traveled quite enough but you're not good with hearing the news around the world.";
 				next;
-				mes "[新代理商]";
-				mes "--------------------------------";
-				mes "在米德加兹王国里有一群一生致力于战斗的冒险家, 他们每日训练, 隐居, 并在他们的擅长方面是专家. ";
+				mes "[New Agent]";
+				mes "There are few adventurers in Midgard whose lives are dedicated to battle, who never skip their training, live in seclusion, and are experts in their art.";
 				next;
-				mes "[新代理商]";
-				mes "--------------------------------";
-				mes "RWC是一个节日, 在这个节日里, 那里的冒险者互相竞争, 最终决出王者!";
+				mes "[New Agent]";
+				mes "The RWC is the festival where those adventurers can compete with each other and find out who is the best!";
 				next;
-				mes "[新代理商]";
-				mes "--------------------------------";
-				mes "但是王者是孤独的. 他们希望能够在竞争中证明自己. ";
+				mes "[New Agent]";
+				mes "But this cannot be achieved all alone. Your friends will have a huge role in the competition.";
 				next;
-				mes "[新代理商]";
-				mes "--------------------------------";
-				mes "如果您对这个节日感兴趣, 去寻找您能信任的伙伴一起来参加吧!";
+				mes "[New Agent]";
+				mes "If you're interested in this festival, start looking for friends you can trust!";
 				next;
 				break;
 			case 2:
-				mes "[新代理商]";
-				mes "--------------------------------";
-				mes "重力社每年都会举办许多对于RWC推广的宣传活动. ";
+				mes "[New Agent]";
+				mes "Many events are organized for RWC promotion every year.";
 				next;
-				mes "[新代理商]";
-				mes "--------------------------------";
-				mes "今年, 一个特殊的任务被委托给一个新的代理… 那就是我!";
+				mes "[New Agent]";
+				mes "And this year, a special mission has been entrusted to a new agent... myself!";
 				next;
-				mes "[新代理商]";
-				mes "--------------------------------";
-				mes "把蓝色卡片以字母RWC2011向全世界推广活动. 但是...";
+				mes "[New Agent]";
+				mes "I am supposed to attach blue cards with the letters RWC2011 all over the world to promote the event. But... but...";
 				next;
-				mes "- 他沉思并看着您的双眼 -";
+				mes "- He thought of something and then looked at your eyes. -";
 				next;
-				mes "[新代理商]";
-				mes "--------------------------------";
-				mes "您想听我的故事吗?";
+				mes "[New Agent]";
+				mes "Would you like to listen to my story?";
 				next;
-				if(select("- 当然, 让我听听.:- 不了, 谢谢.") == 2) {
-					mes "[新代理商]";
-					mes "--------------------------------";
-					mes "NND!! 因为我是新来的您就忽视我? 通常人们听到...";
+				if(select("Sure, let me hear it.:No, thank you.") == 2) {
+					mes "[New Agent]";
+					mes "Arrgg!! Are you ignoring me because I'm new? Usually people listen...";
 					next;
-					mes "- 新的代理用可怜的眼神看着您.  -";
+					mes "- New Agent is looking at you with pitiable eyes. -";
 					next;
-					mes "- 他满满的小眼睛似乎在告诉您一些事情. ^FF0000请再次和我说话...^000000 -";
+					mes "- His brimming small eyes seem to tell you something. ^FF0000Please talk to me again...^000000 -";
 					close;
 				}
 				set .@loop,0;
 				break;
 			case 3:
-				mes "[新代理商]";
-				mes "--------------------------------";
-				mes "这是我的第一个任务, 但人们的反响不好. ";
+				mes "[New Agent]";
+				mes "This is my first mission but people's reaction is not good.";
 				next;
-				mes "- 新的代理用可怜的眼神看着您.  -";
+				mes "- New Agent is looking at you with pitiable eyes. -";
 				next;
-				mes "- 他满满的小眼睛似乎在告诉您一些事情. ^FF0000请再次和我说话...^000000 -";
+				mes "- His twinkling small eyes seem to tell you something. ^FF0000Please talk to me again...^000000 -";
 				close;
 			}
 		}
-		mes "[新代理商]";
-		mes "--------------------------------";
-		mes "我是一个很平常的在梦罗克生活的男孩.";
-		mes "我不是一个冒险家, 我甚至不知道如何买/卖东西. 有时候, 我只是很高兴看到冒险家.  您知道的... 我只是个普通的男孩.";
+		mes "[New Agent]";
+		mes "I used to be a very normal boy in Morocc.";
+		mes "I am not an adventurer and I don't even know how to buy/sell things. Sometimes I'm just very happy to see adventurers. You know... I am just an ordinary boy.";
 		next;
-		mes "[新代理商]";
-		mes "--------------------------------";
-		mes "当我还很青涩的年纪时, 人们常常告诉我. ";
-		mes "我会在农村度过我的一生. ";
+		mes "[New Agent]";
+		mes "People used to tell me that since I was very shy.";
+		mes "I would spend my life in a suburb.";
 		next;
-		mes "[新代理商]";
-		mes "--------------------------------";
-		mes "但最终, 我忍耐和坚毅的性格. 激励我成为RWC2011代理人!";
-		mes "当我获选的那天, 开心地整晚睡不着! 我终于有机会见到许多伟大的冒险家了. ";
+		mes "[New Agent]";
+		mes "But eventually, my patience and restrained personality motivated me to become an agent for RWC2011!";
+		mes "I was so happy that I couldn't sleep! I would finally have a chance to meet lots of adventurers and get to know them.";
 		next;
-		mes "[新代理商]";
-		mes "--------------------------------";
-		mes "这个任务对我很重要,";
-		mes "我担心在街上贴RWC2011蓝色卡片时怪物会攻击我. ";
+		mes "[New Agent]";
+		mes "This mission was so important to me,";
+		mes "I was afraid of being attacked by monsters when attaching the blue cards for RWC2011 in the streets.";
 		next;
-		mes "[新代理商]";
-		mes "--------------------------------";
+		mes "[New Agent]";
 		mes "......";
 		next;
-		mes "[新代理商]";
-		mes "--------------------------------";
-		mes "您知道吗?";
-		mes "^FF0000这真是太开心了!^000000";
+		mes "[New Agent]";
+		mes "And you know what?";
+		mes "^FF0000It really happened!^000000";
 		next;
-		select("- 您是认真的吗!?");
-		mes "[新代理商]";
-		mes "--------------------------------";
-		mes "我把灯关了, 想睡一会, 不过之后我看到了明亮的光线通过窗口. ";
-		mes "突然, 窗户被打破, 出现了....'它'.!";
+		select("Are you serious!?");
+		mes "[New Agent]";
+		mes "I had turned off the light and was trying to get some sleep, then I saw this bright light through the window.";
+		mes "Suddenly, the window was broken and it appeared!";
 		next;
-		select("- 它?");
-		mes "[新代理商]";
-		mes "--------------------------------";
-		mes "这是一个闪闪发光的波利! 在我完全没有防备的时候, 不到一秒钟就吃光了所有的蓝色卡片!";
+		select("It?");
+		mes "[New Agent]";
+		mes "It was a shining poring! And it ate all blue cards I had prepared in less than a second!";
 		next;
-		mes "[新代理商]";
-		mes "--------------------------------";
-		mes "我震惊了, 我冷静下仔细回想… 我从没有听说过也没有看过到任何会发如此金色光芒的波利!";
+		mes "[New Agent]";
+		mes "I was so shocked, I tried to calm down and think... I had neither heard about nor seen any shining poring!";
 		next;
-		mes "[新代理商]";
-		mes "--------------------------------";
-		mes "^FF0000是的!这是一个梦!^000000 这是我辗转反侧数次后得出的结论.";
+		mes "[New Agent]";
+		mes "^FF0000Yes! It must be a dream!^000000 That's the conclusion I came up with and went back to sleep.";
 		next;
-		mes "[新代理商]";
-		mes "--------------------------------";
-		mes "但它不是一个梦. 当我醒来时, 我意识到所有的蓝色卡片都消失了...";
+		mes "[New Agent]";
+		mes "But it wasn't a dream. When I woke up, I realized all the blue cards were gone...";
 		next;
-		mes "[新代理商]";
-		mes "--------------------------------";
-		mes "如果我毁了这个推广活动, 我可能会失去工作, 不得不回到我独自生活的时候...";
+		mes "[New Agent]";
+		mes "If I ruin this promotion, I might lose the job and have to go back to where I used to live alone...";
 		next;
-		mes "[新代理商]";
-		mes "--------------------------------";
-		mes "如果您看到'黄金波利', 您能为我找到珍贵的蓝色卡片吗?";
+		mes "[New Agent]";
+		mes "If you see the Golden Poring, could you please find the precious blue cards for me?";
 		next;
 		emotion ET_CRY;
-		mes "- 它用可怜的眼神看着您.  -";
+		mes "- He looks at you with imploring eyes. -";
 		next;
-		if(select("- 好, 我会帮您!:- 您可以支付我多少报酬?") == 2) {
-			mes "[新代理商]";
-			mes "--------------------------------";
-			mes "您已经决定帮助我了么? 好的,我会准备一些礼物. 我相信您会喜欢的.";
+		if(select("Ok, I will help you!:How much money can you offer me?") == 2) {
+			mes "[New Agent]";
+			mes "Have you decided to help me? Well, I will prepare some gifts. I'm sure you'll like them.";
 			next;
 		}
-		mes "[新代理商]";
-		mes "--------------------------------";
-		mes "您所寻找的是以大字母的牌子 ^FF0000R W C 2 0 1 1^000000. 虽然其中一些可能已经被腐蚀";
+		mes "[New Agent]";
+		mes "What you are looking for are large cards with the letters ^FF0000RWC2011^000000. Some of them might already be digested though.";
 		next;
-		mes "[新代理商]";
-		mes "--------------------------------";
-		mes "试图找其他卡拼成这个单词, 'RWC2011'.";
+		mes "[New Agent]";
+		mes "Try to gather remaining cards until you make the word, 'RWC2011'.";
 		next;
-		mes "[新代理商]";
-		mes "--------------------------------";
-		mes "请帮助我!! 我的人生掌握在您的手里!";
+		mes "[New Agent]";
+		mes "Please help me out!! My life is in your hands!";
 		set oversea_event,1;
 		setquest 13000;
 		close;
 	} else if (oversea_event == 1) {
 		if (countitem(6485) && countitem(6486) && countitem(6487) > 1 && countitem(7602) && countitem(7470) && countitem(6012)) {
-			mes "[RWC2011代理商]";
-			mes "--------------------------------";
-			mes "您收集了所有卡片么?";
+			mes "[RWC2011 Agent]";
+			mes "Have you gathered all the cards?";
 			next;
-			mes "[RWC2011代理商]";
-			mes "--------------------------------";
-			mes "哇哦~ 您给我的人生再次带来了光明!";
+			mes "[RWC2011 Agent]";
+			mes "Wow~ You bring light in my life again!";
 			next;
-			mes "[RWC2011代理商]";
-			mes "--------------------------------";
-			mes "这是我许诺的礼物... 看看吧...";
+			mes "[RWC2011 Agent]";
+			mes "Here are the gifts I promised... Let's see...";
 			next;
 			delitem 6485,1; //BlueCard_2
 			delitem 6486,1; //BlueCard_0
@@ -231,358 +189,347 @@ prontera,114,81,5	script	RWC2011代理商#2	407,{
 				getitem 12696,5; //RWC_Cele_Fire
 				getitem 12697,5; //RWC_Cele_Fire2
 	 		}
-	 		mes "[RWC2011代理商]";
-			mes "--------------------------------";
-	 		mes "虽然不多, 但请留下它! 哈哈, 我们仍可以发现很多卡片. 我希望您明天能再次帮助我. ";
+	 		mes "[RWC2011 Agent]";
+	 		mes "It's not much but please keep it! Haha, we still have lots of cards to be found. I hope you can help me tomorrow as well.";
 	 		next;
-	 		mes "[RWC2011代理商]";
-			mes "--------------------------------";
-	 		mes "谢谢您!! 现在我能继续工作了. 在这个世界上我们拥有像您这样伟大的冒险家, 我发现任何事没有什么是不可能的!";
+	 		mes "[RWC2011 Agent]";
+	 		mes "Thank you!! I can continue working now. Nothing is impossible when we have great adventurers like you in this world!";
 	 		next;
-	 		mes "[RWC2011代理商]";
-			mes "--------------------------------";
-	 		mes "ADIOS（再见）!";
+	 		mes "[RWC2011 Agent]";
+	 		mes "ADIOS!";
 	 		next;
-	 		mes "- 代理商他喃喃自语. -";
+	 		mes "- Agent muttered something to himself. -";
 	 		close;
 		} else {
-			mes "[RWC2011代理商]";
-			mes "--------------------------------";
-			mes "嗯~没有? 我们人手不够… 请帮助我.";
+			mes "[RWC2011 Agent]";
+			mes "Mmmm~ not yet? We're short-handed... Please help me.";
 			next;
-			mes "[RWC2011代理商]";
-			mes "--------------------------------";
-			mes "我刚刚只说了对您的关心. 您需要2个 ^FF0000蓝色的 1 字卡片^000000. 这是 \"2011\"... 知道了吗?";
+			mes "[RWC2011 Agent]";
+			mes "I'm just saying that out of concern for you. You need TWO ^FF0000Blue 1 Card^000000. It's \"2011\"... Got it?";
 			close;
 		}
 	} else if (oversea_event == 2) {
 		set .@playtime, checkquest(13001,PLAYTIME);
 		if (.@playtime == 0 || .@playtime == 1) {
-			mes "[RWC2011代理商]";
-			mes "--------------------------------";
-			mes "目前, 我们在开始安装您发现的卡片, 明天装剩下的";
-			mes "请明天再来, 谢谢.";
+			mes "[RWC2011 Agent]";
+			mes "First, I will start attaching cards you found... I'll take the rest of cards tomorrow.";
+			mes "Please come back tomorrow.";
 			close;
 		} else if (.@playtime == 2)
 			erasequest 13001;
-		mes "[RWC2011代理商]";
-		mes "--------------------------------";
-		mes "再次谢谢您.";
-		mes "我必须继续开展活动, 所以我想再请求您一次~!";
+		mes "[RWC2011 Agent]";
+		mes "Thanks for the last time.";
+		mes "I must keep on promoting the event so I want to ask you again~!";
 		set oversea_event,3;
 		close;
 	} else if (oversea_event == 3) {
-		mes "[RWC2011代理商]";
-		mes "--------------------------------";
-		mes "您又来啦, 亲~";
-		mes "再次谢谢您! 我们仍然有很多卡片需要去找. 您能帮我吗?";
+		mes "[RWC2011 Agent]";
+		mes "You've come again~";
+		mes "Thanks for the last time! We still have lots of cards to find. Could you help me out?";
 		next;
-		switch(select("- 没问题!:- 我现在很忙, 别烦我.")) {
+		switch(select("Ok!:I'm busy now.")) {
 		case 1:
-			mes "[RWC2011代理商]";
-			mes "--------------------------------";
-			mes "这和之前的任务相同.";
-			mes "尽量收集蓝色的卡片, 拼成单词, ^FF0000R W C 2 0 1 1 ^000000.";
-			mes "祝您好运!";
+			mes "[RWC2011 Agent]";
+			mes "It's the same mission as before.";
+			mes "Try to gather blue cards and make the word, ^FF0000R W C 2 0 1 1 ^000000.";
+			mes "Good Luck!";
 			set oversea_event,1;
 			setquest 13000;
 			close;
 		case 2:
-			mes "[RWC2011代理商]";
-			mes "--------------------------------";
-			mes "...我明白...";
-			mes "如果您有时间, 我其实还是有很多的卡片要去找, 请回来再次帮助我.";
+			mes "[RWC2011 Agent]";
+			mes "...I see...";
+			mes "I still have lots of cards to find so if you have time, please come back and help again.";
 			close;
 		}
 	} else {
-		mes "[RWC2011代理商]";
-		mes "--------------------------------";
-		mes "... 啥...?";
-		mes "我是...一个新代理商.";
+		mes "[RWC2011 Agent]";
+		mes "... huh...?";
+		mes "I am... a new agent.";
 		close;
 	}
 }
 
 // Monster Spawns
 //============================================================
-dic_dun03,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-dew_fild01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-dew_dun01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-dew_dun02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-mal_dun01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-iz_dun05,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-man_fild01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-man_fild03,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-spl_fild02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-spl_fild03,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-man_fild02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-spl_fild01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-nyd_dun01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-bra_fild01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-bra_dun01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-bra_dun02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-dic_fild01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-dic_fild02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-dic_dun01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-dic_dun02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-bif_fild01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-bif_fild02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-abbey01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-abbey02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-abbey03,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-abyss_01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-abyss_02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-abyss_03,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-alde_dun01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-alde_dun02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-alde_dun03,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-alde_dun04,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-ama_dun01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-ama_dun02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-ama_dun03,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-ama_fild01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-anthell01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-anthell02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-ayo_dun01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-ayo_dun02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-ayo_fild01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-ayo_fild02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-beach_dun,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-beach_dun2,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-beach_dun3,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-c_tower1,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-c_tower2,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-c_tower3,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-c_tower4,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-cmd_fild01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-cmd_fild02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-cmd_fild03,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-cmd_fild04,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-cmd_fild06,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-cmd_fild07,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-cmd_fild08,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-cmd_fild09,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-ein_dun01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-ein_dun02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-ein_fild03,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-ein_fild04,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-ein_fild05,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-ein_fild06,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-ein_fild07,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-ein_fild08,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-ein_fild09,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-gef_dun00,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-gef_dun01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-gef_dun02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-gef_fild00,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-gef_fild01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-gef_fild02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-gef_fild03,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-gef_fild04,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-gef_fild05,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-gef_fild06,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-gef_fild07,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-gef_fild08,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-gef_fild09,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-gef_fild10,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-gef_fild11,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-gef_fild13,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-gefenia01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-gefenia02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-gefenia03,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-gefenia04,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-gl_cas01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-gl_cas02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-gl_church,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-gl_chyard,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-gl_dun01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-gl_dun02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-gl_in01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-gl_knt01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-gl_knt02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-gl_prison,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-gl_prison1,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-gl_sew01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-gl_sew02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-gl_sew03,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-gl_sew04,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-gl_step,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-glast_01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-gon_dun01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-gon_dun02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-gon_dun03,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-gon_fild01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-hu_fild01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-hu_fild02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-hu_fild04,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-hu_fild05,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-hu_fild06,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-ice_dun01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-ice_dun02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-ice_dun03,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-in_sphinx1,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-in_sphinx2,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-in_sphinx3,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-in_sphinx4,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-in_sphinx5,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-iz_dun00,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-iz_dun01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-iz_dun02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-iz_dun03,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-iz_dun04,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-jupe_core,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-juperos_01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-juperos_02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-kh_dun01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-kh_dun02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-lhz_dun01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-lhz_dun02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-lhz_dun03,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-lhz_fild01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-lhz_fild02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-lhz_fild03,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-lou_dun01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-lou_dun02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-lou_dun03,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-lou_fild01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-mag_dun01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-mag_dun02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-man_fild02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-mjo_dun01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-mjo_dun02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-mjo_dun03,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-mjolnir_01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-mjolnir_02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-mjolnir_03,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-mjolnir_04,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-mjolnir_05,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-mjolnir_06,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-mjolnir_07,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-mjolnir_08,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-mjolnir_09,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-mjolnir_10,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-mjolnir_11,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-mjolnir_12,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-moc_fild01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-moc_fild02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-moc_fild03,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-moc_fild04,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-moc_fild05,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-moc_fild06,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-moc_fild07,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-moc_fild08,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-moc_fild09,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-moc_fild10,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-moc_fild11,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-moc_fild12,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-moc_fild13,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-moc_fild14,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-moc_fild15,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-moc_fild16,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-moc_fild17,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-moc_fild18,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-moc_pryd01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-moc_pryd02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-moc_pryd03,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-moc_pryd04,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-moc_pryd05,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-moc_pryd06,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-nameless_n,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-nif_fild01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-nif_fild02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-nyd_dun01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-odin_tem01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-odin_tem02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-odin_tem03,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-orcsdun01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-orcsdun02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-pay_dun00,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-pay_dun01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-pay_dun02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-pay_dun03,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-pay_dun04,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-pay_fild01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-pay_fild02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-pay_fild03,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-pay_fild04,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-pay_fild06,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-pay_fild07,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-pay_fild08,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-pay_fild09,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-pay_fild10,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-prt_fild00,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-prt_fild01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-prt_fild02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-prt_fild03,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-prt_fild04,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-prt_fild05,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-prt_fild06,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-prt_fild07,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-prt_fild08,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-prt_fild09,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-prt_fild10,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-prt_fild11,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-prt_maze01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-prt_maze02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-prt_maze03,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-prt_sewb1,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-prt_sewb2,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-prt_sewb3,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-prt_sewb4,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-ra_fild01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-ra_fild03,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-ra_fild04,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-ra_fild05,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-ra_fild06,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-ra_fild08,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-ra_fild12,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-ra_san01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-ra_san02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-ra_san03,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-ra_san04,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-ra_san05,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-spl_fild01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-tha_t01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-tha_t02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-tha_t03,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-tha_t04,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-tha_t05,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-tha_t06,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-tha_t07,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-tha_t08,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-tha_t09,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-tha_t10,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-tha_t11,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-tha_t12,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-thor_v01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-thor_v02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-thor_v03,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-treasure01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-treasure02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-tur_dun01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-tur_dun02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-tur_dun03,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-tur_dun04,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-um_fild01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-um_fild02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-um_fild03,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-um_fild04,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-ve_fild01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-ve_fild02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-ve_fild03,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-ve_fild04,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-ve_fild05,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-ve_fild07,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-xmas_dun01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-xmas_dun02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-xmas_fild01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-yuno_fild01,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-yuno_fild02,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-yuno_fild03,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-yuno_fild04,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-yuno_fild06,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-yuno_fild07,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-yuno_fild08,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-yuno_fild09,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-yuno_fild10,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
-yuno_fild12,0,0,0,0	monster	黄金波利	2248,3,5000,0,0
+dic_dun03,0,0	monster	Golden Poring	2248,3,5000
+dew_fild01,0,0	monster	Golden Poring	2248,3,5000
+dew_dun01,0,0	monster	Golden Poring	2248,3,5000
+dew_dun02,0,0	monster	Golden Poring	2248,3,5000
+mal_dun01,0,0	monster	Golden Poring	2248,3,5000
+iz_dun05,0,0	monster	Golden Poring	2248,3,5000
+man_fild01,0,0	monster	Golden Poring	2248,3,5000
+man_fild03,0,0	monster	Golden Poring	2248,3,5000
+spl_fild02,0,0	monster	Golden Poring	2248,3,5000
+spl_fild03,0,0	monster	Golden Poring	2248,3,5000
+man_fild02,0,0	monster	Golden Poring	2248,3,5000
+spl_fild01,0,0	monster	Golden Poring	2248,3,5000
+nyd_dun01,0,0	monster	Golden Poring	2248,3,5000
+bra_fild01,0,0	monster	Golden Poring	2248,3,5000
+bra_dun01,0,0	monster	Golden Poring	2248,3,5000
+bra_dun02,0,0	monster	Golden Poring	2248,3,5000
+dic_fild01,0,0	monster	Golden Poring	2248,3,5000
+dic_fild02,0,0	monster	Golden Poring	2248,3,5000
+dic_dun01,0,0	monster	Golden Poring	2248,3,5000
+dic_dun02,0,0	monster	Golden Poring	2248,3,5000
+bif_fild01,0,0	monster	Golden Poring	2248,3,5000
+bif_fild02,0,0	monster	Golden Poring	2248,3,5000
+abbey01,0,0	monster	Golden Poring	2248,3,5000
+abbey02,0,0	monster	Golden Poring	2248,3,5000
+abbey03,0,0	monster	Golden Poring	2248,3,5000
+abyss_01,0,0	monster	Golden Poring	2248,3,5000
+abyss_02,0,0	monster	Golden Poring	2248,3,5000
+abyss_03,0,0	monster	Golden Poring	2248,3,5000
+alde_dun01,0,0	monster	Golden Poring	2248,3,5000
+alde_dun02,0,0	monster	Golden Poring	2248,3,5000
+alde_dun03,0,0	monster	Golden Poring	2248,3,5000
+alde_dun04,0,0	monster	Golden Poring	2248,3,5000
+ama_dun01,0,0	monster	Golden Poring	2248,3,5000
+ama_dun02,0,0	monster	Golden Poring	2248,3,5000
+ama_dun03,0,0	monster	Golden Poring	2248,3,5000
+ama_fild01,0,0	monster	Golden Poring	2248,3,5000
+anthell01,0,0	monster	Golden Poring	2248,3,5000
+anthell02,0,0	monster	Golden Poring	2248,3,5000
+ayo_dun01,0,0	monster	Golden Poring	2248,3,5000
+ayo_dun02,0,0	monster	Golden Poring	2248,3,5000
+ayo_fild01,0,0	monster	Golden Poring	2248,3,5000
+ayo_fild02,0,0	monster	Golden Poring	2248,3,5000
+beach_dun,0,0	monster	Golden Poring	2248,3,5000
+beach_dun2,0,0	monster	Golden Poring	2248,3,5000
+beach_dun3,0,0	monster	Golden Poring	2248,3,5000
+c_tower1,0,0	monster	Golden Poring	2248,3,5000
+c_tower2,0,0	monster	Golden Poring	2248,3,5000
+c_tower3,0,0	monster	Golden Poring	2248,3,5000
+c_tower4,0,0	monster	Golden Poring	2248,3,5000
+cmd_fild01,0,0	monster	Golden Poring	2248,3,5000
+cmd_fild02,0,0	monster	Golden Poring	2248,3,5000
+cmd_fild03,0,0	monster	Golden Poring	2248,3,5000
+cmd_fild04,0,0	monster	Golden Poring	2248,3,5000
+cmd_fild06,0,0	monster	Golden Poring	2248,3,5000
+cmd_fild07,0,0	monster	Golden Poring	2248,3,5000
+cmd_fild08,0,0	monster	Golden Poring	2248,3,5000
+cmd_fild09,0,0	monster	Golden Poring	2248,3,5000
+ein_dun01,0,0	monster	Golden Poring	2248,3,5000
+ein_dun02,0,0	monster	Golden Poring	2248,3,5000
+ein_fild03,0,0	monster	Golden Poring	2248,3,5000
+ein_fild04,0,0	monster	Golden Poring	2248,3,5000
+ein_fild05,0,0	monster	Golden Poring	2248,3,5000
+ein_fild06,0,0	monster	Golden Poring	2248,3,5000
+ein_fild07,0,0	monster	Golden Poring	2248,3,5000
+ein_fild08,0,0	monster	Golden Poring	2248,3,5000
+ein_fild09,0,0	monster	Golden Poring	2248,3,5000
+gef_dun00,0,0	monster	Golden Poring	2248,3,5000
+gef_dun01,0,0	monster	Golden Poring	2248,3,5000
+gef_dun02,0,0	monster	Golden Poring	2248,3,5000
+gef_fild00,0,0	monster	Golden Poring	2248,3,5000
+gef_fild01,0,0	monster	Golden Poring	2248,3,5000
+gef_fild02,0,0	monster	Golden Poring	2248,3,5000
+gef_fild03,0,0	monster	Golden Poring	2248,3,5000
+gef_fild04,0,0	monster	Golden Poring	2248,3,5000
+gef_fild05,0,0	monster	Golden Poring	2248,3,5000
+gef_fild06,0,0	monster	Golden Poring	2248,3,5000
+gef_fild07,0,0	monster	Golden Poring	2248,3,5000
+gef_fild08,0,0	monster	Golden Poring	2248,3,5000
+gef_fild09,0,0	monster	Golden Poring	2248,3,5000
+gef_fild10,0,0	monster	Golden Poring	2248,3,5000
+gef_fild11,0,0	monster	Golden Poring	2248,3,5000
+gef_fild13,0,0	monster	Golden Poring	2248,3,5000
+gefenia01,0,0	monster	Golden Poring	2248,3,5000
+gefenia02,0,0	monster	Golden Poring	2248,3,5000
+gefenia03,0,0	monster	Golden Poring	2248,3,5000
+gefenia04,0,0	monster	Golden Poring	2248,3,5000
+gl_cas01,0,0	monster	Golden Poring	2248,3,5000
+gl_cas02,0,0	monster	Golden Poring	2248,3,5000
+gl_church,0,0	monster	Golden Poring	2248,3,5000
+gl_chyard,0,0	monster	Golden Poring	2248,3,5000
+gl_dun01,0,0	monster	Golden Poring	2248,3,5000
+gl_dun02,0,0	monster	Golden Poring	2248,3,5000
+gl_in01,0,0	monster	Golden Poring	2248,3,5000
+gl_knt01,0,0	monster	Golden Poring	2248,3,5000
+gl_knt02,0,0	monster	Golden Poring	2248,3,5000
+gl_prison,0,0	monster	Golden Poring	2248,3,5000
+gl_prison1,0,0	monster	Golden Poring	2248,3,5000
+gl_sew01,0,0	monster	Golden Poring	2248,3,5000
+gl_sew02,0,0	monster	Golden Poring	2248,3,5000
+gl_sew03,0,0	monster	Golden Poring	2248,3,5000
+gl_sew04,0,0	monster	Golden Poring	2248,3,5000
+gl_step,0,0	monster	Golden Poring	2248,3,5000
+glast_01,0,0	monster	Golden Poring	2248,3,5000
+gon_dun01,0,0	monster	Golden Poring	2248,3,5000
+gon_dun02,0,0	monster	Golden Poring	2248,3,5000
+gon_dun03,0,0	monster	Golden Poring	2248,3,5000
+gon_fild01,0,0	monster	Golden Poring	2248,3,5000
+hu_fild01,0,0	monster	Golden Poring	2248,3,5000
+hu_fild02,0,0	monster	Golden Poring	2248,3,5000
+hu_fild04,0,0	monster	Golden Poring	2248,3,5000
+hu_fild05,0,0	monster	Golden Poring	2248,3,5000
+hu_fild06,0,0	monster	Golden Poring	2248,3,5000
+ice_dun01,0,0	monster	Golden Poring	2248,3,5000
+ice_dun02,0,0	monster	Golden Poring	2248,3,5000
+ice_dun03,0,0	monster	Golden Poring	2248,3,5000
+in_sphinx1,0,0	monster	Golden Poring	2248,3,5000
+in_sphinx2,0,0	monster	Golden Poring	2248,3,5000
+in_sphinx3,0,0	monster	Golden Poring	2248,3,5000
+in_sphinx4,0,0	monster	Golden Poring	2248,3,5000
+in_sphinx5,0,0	monster	Golden Poring	2248,3,5000
+iz_dun00,0,0	monster	Golden Poring	2248,3,5000
+iz_dun01,0,0	monster	Golden Poring	2248,3,5000
+iz_dun02,0,0	monster	Golden Poring	2248,3,5000
+iz_dun03,0,0	monster	Golden Poring	2248,3,5000
+iz_dun04,0,0	monster	Golden Poring	2248,3,5000
+jupe_core,0,0	monster	Golden Poring	2248,3,5000
+juperos_01,0,0	monster	Golden Poring	2248,3,5000
+juperos_02,0,0	monster	Golden Poring	2248,3,5000
+kh_dun01,0,0	monster	Golden Poring	2248,3,5000
+kh_dun02,0,0	monster	Golden Poring	2248,3,5000
+lhz_dun01,0,0	monster	Golden Poring	2248,3,5000
+lhz_dun02,0,0	monster	Golden Poring	2248,3,5000
+lhz_dun03,0,0	monster	Golden Poring	2248,3,5000
+lhz_fild01,0,0	monster	Golden Poring	2248,3,5000
+lhz_fild02,0,0	monster	Golden Poring	2248,3,5000
+lhz_fild03,0,0	monster	Golden Poring	2248,3,5000
+lou_dun01,0,0	monster	Golden Poring	2248,3,5000
+lou_dun02,0,0	monster	Golden Poring	2248,3,5000
+lou_dun03,0,0	monster	Golden Poring	2248,3,5000
+lou_fild01,0,0	monster	Golden Poring	2248,3,5000
+mag_dun01,0,0	monster	Golden Poring	2248,3,5000
+mag_dun02,0,0	monster	Golden Poring	2248,3,5000
+man_fild02,0,0	monster	Golden Poring	2248,3,5000
+mjo_dun01,0,0	monster	Golden Poring	2248,3,5000
+mjo_dun02,0,0	monster	Golden Poring	2248,3,5000
+mjo_dun03,0,0	monster	Golden Poring	2248,3,5000
+mjolnir_01,0,0	monster	Golden Poring	2248,3,5000
+mjolnir_02,0,0	monster	Golden Poring	2248,3,5000
+mjolnir_03,0,0	monster	Golden Poring	2248,3,5000
+mjolnir_04,0,0	monster	Golden Poring	2248,3,5000
+mjolnir_05,0,0	monster	Golden Poring	2248,3,5000
+mjolnir_06,0,0	monster	Golden Poring	2248,3,5000
+mjolnir_07,0,0	monster	Golden Poring	2248,3,5000
+mjolnir_08,0,0	monster	Golden Poring	2248,3,5000
+mjolnir_09,0,0	monster	Golden Poring	2248,3,5000
+mjolnir_10,0,0	monster	Golden Poring	2248,3,5000
+mjolnir_11,0,0	monster	Golden Poring	2248,3,5000
+mjolnir_12,0,0	monster	Golden Poring	2248,3,5000
+moc_fild01,0,0	monster	Golden Poring	2248,3,5000
+moc_fild02,0,0	monster	Golden Poring	2248,3,5000
+moc_fild03,0,0	monster	Golden Poring	2248,3,5000
+moc_fild04,0,0	monster	Golden Poring	2248,3,5000
+moc_fild05,0,0	monster	Golden Poring	2248,3,5000
+moc_fild06,0,0	monster	Golden Poring	2248,3,5000
+moc_fild07,0,0	monster	Golden Poring	2248,3,5000
+moc_fild08,0,0	monster	Golden Poring	2248,3,5000
+moc_fild09,0,0	monster	Golden Poring	2248,3,5000
+moc_fild10,0,0	monster	Golden Poring	2248,3,5000
+moc_fild11,0,0	monster	Golden Poring	2248,3,5000
+moc_fild12,0,0	monster	Golden Poring	2248,3,5000
+moc_fild13,0,0	monster	Golden Poring	2248,3,5000
+moc_fild14,0,0	monster	Golden Poring	2248,3,5000
+moc_fild15,0,0	monster	Golden Poring	2248,3,5000
+moc_fild16,0,0	monster	Golden Poring	2248,3,5000
+moc_fild17,0,0	monster	Golden Poring	2248,3,5000
+moc_fild18,0,0	monster	Golden Poring	2248,3,5000
+moc_pryd01,0,0	monster	Golden Poring	2248,3,5000
+moc_pryd02,0,0	monster	Golden Poring	2248,3,5000
+moc_pryd03,0,0	monster	Golden Poring	2248,3,5000
+moc_pryd04,0,0	monster	Golden Poring	2248,3,5000
+moc_pryd05,0,0	monster	Golden Poring	2248,3,5000
+moc_pryd06,0,0	monster	Golden Poring	2248,3,5000
+nameless_n,0,0	monster	Golden Poring	2248,3,5000
+nif_fild01,0,0	monster	Golden Poring	2248,3,5000
+nif_fild02,0,0	monster	Golden Poring	2248,3,5000
+nyd_dun01,0,0	monster	Golden Poring	2248,3,5000
+odin_tem01,0,0	monster	Golden Poring	2248,3,5000
+odin_tem02,0,0	monster	Golden Poring	2248,3,5000
+odin_tem03,0,0	monster	Golden Poring	2248,3,5000
+orcsdun01,0,0	monster	Golden Poring	2248,3,5000
+orcsdun02,0,0	monster	Golden Poring	2248,3,5000
+pay_dun00,0,0	monster	Golden Poring	2248,3,5000
+pay_dun01,0,0	monster	Golden Poring	2248,3,5000
+pay_dun02,0,0	monster	Golden Poring	2248,3,5000
+pay_dun03,0,0	monster	Golden Poring	2248,3,5000
+pay_dun04,0,0	monster	Golden Poring	2248,3,5000
+pay_fild01,0,0	monster	Golden Poring	2248,3,5000
+pay_fild02,0,0	monster	Golden Poring	2248,3,5000
+pay_fild03,0,0	monster	Golden Poring	2248,3,5000
+pay_fild04,0,0	monster	Golden Poring	2248,3,5000
+pay_fild06,0,0	monster	Golden Poring	2248,3,5000
+pay_fild07,0,0	monster	Golden Poring	2248,3,5000
+pay_fild08,0,0	monster	Golden Poring	2248,3,5000
+pay_fild09,0,0	monster	Golden Poring	2248,3,5000
+pay_fild10,0,0	monster	Golden Poring	2248,3,5000
+prt_fild00,0,0	monster	Golden Poring	2248,3,5000
+prt_fild01,0,0	monster	Golden Poring	2248,3,5000
+prt_fild02,0,0	monster	Golden Poring	2248,3,5000
+prt_fild03,0,0	monster	Golden Poring	2248,3,5000
+prt_fild04,0,0	monster	Golden Poring	2248,3,5000
+prt_fild05,0,0	monster	Golden Poring	2248,3,5000
+prt_fild06,0,0	monster	Golden Poring	2248,3,5000
+prt_fild07,0,0	monster	Golden Poring	2248,3,5000
+prt_fild08,0,0	monster	Golden Poring	2248,3,5000
+prt_fild09,0,0	monster	Golden Poring	2248,3,5000
+prt_fild10,0,0	monster	Golden Poring	2248,3,5000
+prt_fild11,0,0	monster	Golden Poring	2248,3,5000
+prt_maze01,0,0	monster	Golden Poring	2248,3,5000
+prt_maze02,0,0	monster	Golden Poring	2248,3,5000
+prt_maze03,0,0	monster	Golden Poring	2248,3,5000
+prt_sewb1,0,0	monster	Golden Poring	2248,3,5000
+prt_sewb2,0,0	monster	Golden Poring	2248,3,5000
+prt_sewb3,0,0	monster	Golden Poring	2248,3,5000
+prt_sewb4,0,0	monster	Golden Poring	2248,3,5000
+ra_fild01,0,0	monster	Golden Poring	2248,3,5000
+ra_fild03,0,0	monster	Golden Poring	2248,3,5000
+ra_fild04,0,0	monster	Golden Poring	2248,3,5000
+ra_fild05,0,0	monster	Golden Poring	2248,3,5000
+ra_fild06,0,0	monster	Golden Poring	2248,3,5000
+ra_fild08,0,0	monster	Golden Poring	2248,3,5000
+ra_fild12,0,0	monster	Golden Poring	2248,3,5000
+ra_san01,0,0	monster	Golden Poring	2248,3,5000
+ra_san02,0,0	monster	Golden Poring	2248,3,5000
+ra_san03,0,0	monster	Golden Poring	2248,3,5000
+ra_san04,0,0	monster	Golden Poring	2248,3,5000
+ra_san05,0,0	monster	Golden Poring	2248,3,5000
+spl_fild01,0,0	monster	Golden Poring	2248,3,5000
+tha_t01,0,0	monster	Golden Poring	2248,3,5000
+tha_t02,0,0	monster	Golden Poring	2248,3,5000
+tha_t03,0,0	monster	Golden Poring	2248,3,5000
+tha_t04,0,0	monster	Golden Poring	2248,3,5000
+tha_t05,0,0	monster	Golden Poring	2248,3,5000
+tha_t06,0,0	monster	Golden Poring	2248,3,5000
+tha_t07,0,0	monster	Golden Poring	2248,3,5000
+tha_t08,0,0	monster	Golden Poring	2248,3,5000
+tha_t09,0,0	monster	Golden Poring	2248,3,5000
+tha_t10,0,0	monster	Golden Poring	2248,3,5000
+tha_t11,0,0	monster	Golden Poring	2248,3,5000
+tha_t12,0,0	monster	Golden Poring	2248,3,5000
+thor_v01,0,0	monster	Golden Poring	2248,3,5000
+thor_v02,0,0	monster	Golden Poring	2248,3,5000
+thor_v03,0,0	monster	Golden Poring	2248,3,5000
+treasure01,0,0	monster	Golden Poring	2248,3,5000
+treasure02,0,0	monster	Golden Poring	2248,3,5000
+tur_dun01,0,0	monster	Golden Poring	2248,3,5000
+tur_dun02,0,0	monster	Golden Poring	2248,3,5000
+tur_dun03,0,0	monster	Golden Poring	2248,3,5000
+tur_dun04,0,0	monster	Golden Poring	2248,3,5000
+um_fild01,0,0	monster	Golden Poring	2248,3,5000
+um_fild02,0,0	monster	Golden Poring	2248,3,5000
+um_fild03,0,0	monster	Golden Poring	2248,3,5000
+um_fild04,0,0	monster	Golden Poring	2248,3,5000
+ve_fild01,0,0	monster	Golden Poring	2248,3,5000
+ve_fild02,0,0	monster	Golden Poring	2248,3,5000
+ve_fild03,0,0	monster	Golden Poring	2248,3,5000
+ve_fild04,0,0	monster	Golden Poring	2248,3,5000
+ve_fild05,0,0	monster	Golden Poring	2248,3,5000
+ve_fild07,0,0	monster	Golden Poring	2248,3,5000
+xmas_dun01,0,0	monster	Golden Poring	2248,3,5000
+xmas_dun02,0,0	monster	Golden Poring	2248,3,5000
+xmas_fild01,0,0	monster	Golden Poring	2248,3,5000
+yuno_fild01,0,0	monster	Golden Poring	2248,3,5000
+yuno_fild02,0,0	monster	Golden Poring	2248,3,5000
+yuno_fild03,0,0	monster	Golden Poring	2248,3,5000
+yuno_fild04,0,0	monster	Golden Poring	2248,3,5000
+yuno_fild06,0,0	monster	Golden Poring	2248,3,5000
+yuno_fild07,0,0	monster	Golden Poring	2248,3,5000
+yuno_fild08,0,0	monster	Golden Poring	2248,3,5000
+yuno_fild09,0,0	monster	Golden Poring	2248,3,5000
+yuno_fild10,0,0	monster	Golden Poring	2248,3,5000
+yuno_fild12,0,0	monster	Golden Poring	2248,3,5000

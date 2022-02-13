@@ -1,161 +1,135 @@
-//===== Hercules Script ======================================
+//===== rAthena Script ======================================= 
 //= Quest NPCs related to Geffen
-//===== By: ==================================================
+//===== By: ================================================== 
 //= kobra_k88 & Samuray22
-//===== Current Version: =====================================
+//===== Current Version: ===================================== 
 //= 1.5
-//===== Description: =========================================
+//===== Compatible With: ===================================== 
+//= rAthena Project; 7.15 +
+//===== Description: ========================================= 
 //= Welding Mask and Headset Quests.
-//===== Additional Comments: =================================
+//===== Additional Comments: ================================= 
 //= 1.1 Fixed exploits [Lupus]
 //= 1.2 Removed Duplicates [Silent]
 //= 1.3 Updated "Welding Mask" Quest to the Official one. [Samuray22]
 //= 1.3a replaced item "names" with item id. Added missing [Lupus]
 //= 1.4 Updated welding mask and headset quests. [L0ne_W0lf]
 //= 1.5 Added Number Match Game. [Euphy]
-//============================================================
+//============================================================ 
 
 // Blacksmith: 'Welding Mask' Quest
 //============================================================
-geffen_in,144,166,4	script	铁匠	1_M_SMITH,{
-	mes "[铁匠]";
-	mes "你没有听说过我?";
-	mes "为什么, 我是这里的资深铁匠.";
-	mes "我在这热与血腥的地狱之火奋斗了30年, ";
-	mes "我有无法弯曲的钢铁意志!";
+geffen_in,144,166,4	script	Blacksmith	63,{
+	mes "[Blacksmith]";
+	mes "You've never heard of me? Why, I'm the Veteran Blacksmith of this land. I've spent 30 years in this hot and bloody hellfire, bending steel to my iron will!";
 	next;
-	mes "[铁匠]";
-	mes "但是...";
-	mes "我的力量随着我年龄的老去而消失着.";
-	mes "所以我请来了一些年轻的, 热血的, ";
-	mes "上进的铁匠, 希望他们掌握我的技术...";
+	mes "[Blacksmith]";
+	mes "But...";
+	mes "I am growing older and my prowess begins to fade with age. So I've invented something for young, hot, upcoming Blacksmiths, in hopes that they too will master my craft...";
 	next;
-	switch(select("这是什么?:...")) {
+	switch(select("What is it?:...")) {
 	case 1:
-		mes "[铁匠]";
-		mes "我们铁匠经常在极度高温的环境下打铁, 这些炎热的气温和融化的钢铁不是一般人可以忍耐的.";
+		mes "[Blacksmith]";
+		mes "We Blacksmiths must always manipulate steel under extreme heat, and the hot air and melted metals are more than most people can stand.";
 		next;
-		mes "[铁匠]";
-		mes "为了我们的艺术, 我们的美丽, 我们的脸部时常处于危险中...";
+		mes "[Blacksmith]";
+		mes "For the sake of our craft, our beautiful, yet masculine faces are put at risk...";
 		next;
-		mes "[铁匠]";
-		mes "但随着一个非凡的技术诞生, 这些问题再也没有需要担忧!";
-		mes "看, 这是就是我发明的^3355FF钢铁面罩^000000";
+		mes "[Blacksmith]";
+		mes "But with this wonder of technology, there's no need to worry! Behold, the ^3355FFWelding Mask^000000 !!";
 		next;
-		mes "[铁匠]";
-		mes "它由可以覆盖脸部的厚金属板构成.";
-		mes "事实上, 这是所有人都想要的道具!";
-		mes "如果我不是自己要用, 给一些正在学习打铁的朋友也不失为一个好主意.";
+		mes "[Blacksmith]";
+		mes "It works by covering your face with a fat metal plate. Truly, it's an item that everyone should want! If not yourself, it'd be a good idea to give this to a friend who is studying smithing.";
 		next;
-		mes "[铁匠]";
-		mes "这样如何?如果你给我^2244FF50个钢铁^000000和^4422FF2000金币^000000, 我会马上为你做一个~";
+		mes "[Blacksmith]";
+		mes "So how about it ? If you give me ^2244FF50 Steel^000000 and ^4422FFonly 2000 Zeny^000000, I will make it for you right away~!!";
 		next;
-		switch(select("嗯...不错的样子, 好吧:这是怎么工作的能再说一遍么?")) {
+		switch(select("Hm... Not bad. Alright.:How does it work again?")) {
 		case 1:
 			if ((countitem(999) > 49) && (Zeny > 1999)){
-				mes "[铁匠]";
-				mes "啊, 我发现你很欣赏铁匠的工作! 很好, 我马上做给你";
+				mes "[Blacksmith]";
+				mes "Ah, I see that you appreciate a Blacksmith's work! Alright, I'll do it right away !!";
 				next;
 				delitem 999,50;  //Steel
-				set Zeny, Zeny - 2000;
+				set Zeny,Zeny-2000;
 				getitem 2292,1; // Welding_Mask
-				mes "[铁匠]";
-				mes "哈哈哈~!好好用它哦!";
+				mes "[Blacksmith]";
+				mes "Hahaha~! Make good use of that!";
 				close;
 			}
 			else {
-				mes "[铁匠]";
-				mes "嗯...很抱歉~";
-				mes "你没有我需要的道具.";
+				mes "[Blacksmith]";
+				mes "Hmmm...";
+				mes "You do not have the items I require.";
 				next;
-				mes "[铁匠]";
-				mes "正常的铁匠会把这当成是不尊重的信号, 但我并没有觉得你对铁匠有不敬的感觉.如果你还想我做面具的话就别忘了我需要的东西.";
+				mes "[Blacksmith]";
+				mes "A common Blacksmith would interpret this as a sign of disrepect, but I will forgive you. Just don't forget what I need if you want me to make you this mask.";
 				close;
 			}
 		case 2:
-			mes "[铁匠]";
-			mes "^3355FF钢铁面具^000000用覆盖你脸部的厚铁板来保护你的脸.本发明是我在铁锤和铁砧中无休止地工作30年的结果.";
+			mes "[Blacksmith]";
+			mes "The ^3355FFWelding Mask^000000 protects your face by covering it with a fat metal plate. This invention is the result of 30 years of endless toil at the hammer and anvil.";
 			close;
 		}
 	case 2:
-		mes "[铁匠]";
-		mes "啊...!";
-		mes "我相信你第一次遇到我这么好的铁匠, ";
-		mes "所以敬畏得说不出话.";
-		mes "当你准备好的时候请找个时间告诉我.";
+		mes "[Blacksmith]";
+		mes "Ah...!";
+		mes "I guess this is the first time you've met a Blacksmith as great as me, and you're just speechless with awe. Please, take your time and speak up when you are ready.";
 		next;
-		mes "^3355FF这家伙似乎有点自满~^000000";
+		mes "^3355FFThis guy seems";
+		mes "a little full";
+		mes "of himself.^000000";
 		close;
 	}
 }
 
 // Eric: 'Headset' Quest
 //============================================================
-geffen_in,30,71,4	script	郑何意嘉	4_M_01,{
-	mes "[郑何意嘉]";
-	mes "你要不要听听我爷爷说的故事呢?";
+geffen_in,30,71,4	script	Eric	83,{
+	mes "[Eric]";
+	mes "Please listen";
+	mes "to my story";
+	mes "of my blessed";
+	mes "grandfather.";
 	next;
-	switch (select("继续对话:询问材料:制作看看:取消")) {
+	switch(select("Talk:Ask about Items needed:Manufacture:Quit")) {
 	case 1:
-		mes "[郑何意嘉]";
-		mes "前几年刚过世的爷爷";
-		mes "在我的生命中是个相当重要的人物";
-		mes "比起我那忙碌的父亲";
-		mes "我可以感觉到爷爷依旧在我身边守候着我";
+		mes "[Eric]";
+		mes "My Grandfather, who passed away a few years ago, was special to me. He always stayed with me, and took care of me. He was much better than my old man, who was always busy working.";
 		next;
-		mes "[郑何意嘉]";
-		mes "爷爷的书房更是最令我感到有趣的地方";
-		mes "就像是' 世外桃源 '一般";
-		mes "每当我想念我爷爷的时候";
-		mes "我就会到书房去找些书来看";
+		mes "[Eric]";
+		mes "To me, Grandfather's library was always like a fantasy land where I could escape. I spent most of my time there.";
 		next;
-		mes "[郑何意嘉]";
-		mes "在那里";
-		mes "我可以透过书籍学习到许多的知识";
-		mes "因为爷爷对于炼金术和音乐都相当的喜爱";
-		mes "所以书房里头几乎满满的都是相关的书籍";
+		mes "[Eric]";
+		mes "I learned a lot of things from his books in the Library. Grandfather was interested in Alchemy and Music, and his Library was filled with many mysterious old books.";
 		next;
-		mes "[郑何意嘉]";
-		mes "直到有一天 ..";
-		mes "我像往常一样进到爷爷的书房里";
-		mes "在那里我偶然发现了一张相当神奇的设计图";
+		mes "[Eric]";
+		mes "One day...";
+		mes "As usual, I went to the Library and discovered an interesting schematic.";
 		next;
-		mes "[郑何意嘉]";
-		mes "在设计图中有一样东西, 如果将它像耳罩一样戴上";
-		mes "如果将它像耳罩一样戴, 透过一条细线的牵引";
-		mes "将可以听到像留声机中一样的声音";
-		mes "这就是设计图的内容";
+		mes "[Eric]";
+		mes "It showed some instrument which looked like Ear Muffs that, when worn on the head, could transmit music or whispers to the ears through a thin wire.";
 		next;
-		mes "[郑何意嘉]";
-		mes "我 ..一定要完成爷爷的遗愿";
-		mes "做出这样东西来";
-		mes "所以我到处去将这设计图给其他炼金者看";
-		mes "请求他们帮忙, 但是所有的人都说不知道这是什么东西";
+		mes "[Eric]";
+		mes "I guess...";
+		mes "It is my grand father's unfinished work. I met a few Alchemists and asked them to produce it, but they rejected my offer...";
 		next;
-		mes "[郑何意嘉]";
-		mes "所以我才会想要亲自动手来做做看";
-		mes "经过我多年的苦心研究..";
-		mes "我已经可以完全理解那图上的结构了";
-		mes "不过 .. 我还没能收集到所需要的材料";
+		mes "[Eric]";
+		mes "In the end, I thought 'I've gotta make it myself.' So I researched for a few years, and now I fully understand how to make that thing. But, I could never gather the materials to make it!";
 		next;
-		mes "[郑何意嘉]";
-		mes "如果现在手边有材料的话";
-		mes "我就可以马上依照设计图动手制作了";
-		mes "如果 .. 你感兴趣的话";
-		mes "是不是可以帮我找到所需要的材料呢?";
+		mes "[Eric]";
+		mes "If I can get those articles, I would build it right away. If you are interested in my idea, would you bring them for me?";
 		next;
-		mes "[郑何意嘉]";
-		mes "我只是想要完成爷爷的遗愿";
-		mes "做出设计图上的东西而已";
-		mes "完成后如果你要的话, 给你也没关系";
+		mes "[Eric]";
+		mes "All I wanna do is build this thing in honor of my grandfather and finish the work he started. If you ask me to keep it, I wouldn't mind.";
 		close;
 	case 2:
-		mes "[郑何意嘉]";
-		mes "想完成爷爷的遗愿, 我需要这些东西：";
-		mes "^3355FF钢铁^000000 ^FF555540^000000 片";
-		mes "^3355FF神之金属^000000 ^FF55551^000000 个";
-		mes "^3355FF酒精^000000 ^FF55551^000000 瓶";
-		mes "^3355FF煤矿^000000 ^FF55551^000000 块";
+		mes "[Eric]";
+		mes "40 ^3355FFSteel^000000";
+		mes "1 ^3355FFOridecon^000000";
+		mes "1 ^3355FFAlcohol^000000";
+		mes "1 ^3355FFCoal^000000";
+		mes "These are the things I need for Grandfather's masterpiece.";
 		close;
 	case 3:
 		if ((countitem(999) > 39) && (countitem(984) > 0) && (countitem(970) > 0) && (countitem(1003) > 0)) {
@@ -163,37 +137,36 @@ geffen_in,30,71,4	script	郑何意嘉	4_M_01,{
 			delitem 984,1; //Oridecon
 			delitem 970,1; //Alchol
 			delitem 1003,1; //Coal
-			mes "滴答..滴答..滴答..";
-			next;
 			getitem 5001,1; //Headset
-			mes "[郑何意嘉]";
-			mes "真是太感谢你了";
-			mes "托你的福我才能完成爷爷的遗愿";
-			mes "如果爷爷能看到的话一定会很开心的";
+			mes "*Tap! Tap! Tap!*";
 			next;
-			mes "[郑何意嘉]";
-			mes "诚如我之前说过的, 完成品请你带走吧!";
-			mes "既然已经完成了, 我就感到很高兴了";
+			mes "[Eric]";
+			mes "Thank you.";
+			mes "Because of you, I could accomplish my grandfather's wish. He would be happy if he looked down on me from Heaven.";
+			next;
+			mes "[Eric]";
+			mes "As I said, please take this. I am just proud that I can make this by myself.";
 			close;
 		}
 		else {
-			mes "[郑何意嘉]";
-			mes "谢谢你的好意 .. 但是材料似乎不足";
-			mes "请你备齐了再来吧!";
+			mes "[Eric]";
+			mes "Thank you for trying to help me, but you didn't bring all the items I need. I think you will find them all soon though.";
 			close;
 		}
 	case 4:
-		mes "[郑何意嘉]";
-		mes "不想听吗?";
-		mes "好吧...或许你有你自己的想法~";
-		mes "请慢走";
+		mes "[Eric]";
+		mes "N-no?";
+		mes "Well...";
+		mes "You have your own";
+		mes "worries, I suppose.";
+		mes "Farewell.";
 		close;
 	}
 }
 
 // Number Match Game :: gef_yagu
 //============================================================
-geffen,122,77,4	script	Nia#yagu	8_F_GIRL,{
+geffen,122,77,4	script	Nia#yagu	700,{
 	mes "[Nia]";
 	mes "Hello, I'm Nia, the fifth";
 	mes "disciple of Mawong, the";

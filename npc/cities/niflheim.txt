@@ -1,22 +1,14 @@
-//============================================================
-//= rAthenaCN [城镇人员]汉化脚本 [ www.rAthenaCN.com ]
-//============================================================
-//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
-
-//===== rAthena Script ======================================= 
-//= Niflheim Script 
-//===== By: ================================================== 
+//===== rAthena Script =======================================
+//= Niflheim Script
+//===== By: ==================================================
 //= Fyrien, Dizzy, PKGINGO
 //= Official NPCs translated and re-edited by Celest
-//===== Current Version: ===================================== 
+//===== Current Version: =====================================
 //= 1.5
-//===== Compatible With: ===================================== 
+//===== Compatible With: =====================================
+//= rAthena Project
+//===== Description: =========================================
 //= [Official Conversion]
-//= rAthena SVN; Niflheim Required
-//===== Description: ========================================= 
 //= Official NPC's for Niflheim
 //= 1.01 Splitted file(guides, shops). Fixed rand() bugs,
 //=      missing labels bugs, optimization [Lupus]
@@ -26,7 +18,7 @@
 //=     fixed zeny/item, exploit in Sairin, some optimizations [Lupus]
 //= 1.06 some typos in some variables fixed (thx 2 Dr.Evil) [Lupus]
 //= 1.07 Fixed typos [Nexon]
-//= 1.08 Commented "Traveler" out as it is not official & we have correct Bungee quest in. 
+//= 1.08 Commented "Traveler" out as it is not official & we have correct Bungee quest in.
 //=     Also removed TODO, as they are already done. [Vicious_Pucca]
 //= 1.1 Replaced nif_q_done with MISC_QUEST & 32. nif_t -> @nif_t [Lupus]
 //= 1.2 Removed Duplicates [Silent]
@@ -34,28 +26,27 @@
 //= 1.4 Rescripted to Aegis 10.3 standards. [L0ne_W0lf]
 //=     Removed Cursed Spirits as they were custom.
 //= 1.5 Added dummy "OnMyMobDead" event to Cursed Spirit. [L0ne_W0lf]
-//============================================================ 
+//============================================================
 
-niflheim,52,147,3	script	柯资#nif	796,{
-	mes "[柯资]";
-	mes "活着的人不准进来";
-	mes "这里 -! 不允许";
-	mes "活着的人通行-!";
+niflheim,52,147,3	script	Keedz#nif	796,{
+	mes "[Keedz]";
+	mes "I don't allow any living person";
+	mes "to come in this place!";
 	close;
 }
 
-niflheim,195,211,6	script	其甘提阿#nif	796,3,3,{
+niflheim,195,211,6	script	Gigantia#nif	796,3,3,{
 	if (isequipped(5038) || isequipped(2257) || isequipped(2256)) {
 		mes "[" + strcharinfo(0) + "]";
 		mes "What's up?";
 		next;
-		mes "[其甘提阿]";
+		mes "[Gigantia]";
 		mes "Just...";
 		mes "Come over here.";
 		mes "I have something";
 		mes "I must do for you.";
 		next;
-		mes "[其甘提阿]";
+		mes "[Gigantia]";
 		mes "Your horn is crooked.";
 		mes "Always make sure your horn";
 		mes "is worn straight and neat.";
@@ -63,145 +54,210 @@ niflheim,195,211,6	script	其甘提阿#nif	796,3,3,{
 		mes "looking at you.";
 		close;
 	}
-	mes "[其甘提阿]";
-	mes "死灵骑士总是看的一清二楚";
+	mes "[Gigantia]";
+	mes "The Lord of Death knows";
+	mes "and sees all. It's useless";
+	mes "to hide, and escape from";
+	mes "Death's sweet embrace.";
 	close;
 
-OnTouch:
+OnTouch_:
 	if (isequipped(5038) || isequipped(2257) || isequipped(2256)) {
-		mes "[其甘提阿]";
+		mes "[Gigantia]";
 		mes "Hey, wait!";
 		close;
 	}
 	end;
 }
 
-nif_in,16,27,1	script	死鸡#nif	800,{
-	mes "[瞎眼鸡]";
-	mes "活着的时候被人们吃掉了，";
-	mes "现在换我来吃你了，咕咕咕，";
-	mes "啊啊，没想到死了后还会有这种世界，咕咕咕";
+nif_in,16,27,1	script	Undead Chicken#nif	800,{
 	percentheal -5,0;
-	close;
-}
-
-nif_in,16,30,4	script	死的 吸血蝙蝠#nif	799,{
-	mes "[帕豆曼]";
-	mes "不管活着或死了，人类的血";
-	mes "还是很好喝，";
-	mes "什么? 你也想要";
-	mes "被我吸血吗?";
-	percentheal -5,0;
-	close;
-}
-
-nif_in,156,93,5	script	小孩#nif	793,{
-	mes "[阿拉克娜 安]";
-	mes "这里，是哪里呢...? 睡一觉起来，";
-	mes "就来到这里了... 我妈妈，";
-	mes "没有看到我妈妈吗? 嗯...? 呜呜呜...";
-	mes "我想要回家...";
+	mes "[Undead Chicken]";
+	mes "I lived a peaceful life as a normal chicken. But then came the day I was tragically killed and eaten by humans. Well... Heh heh~! Now it's my turn! *Cackles*";
 	next;
-	switch(select("关于魔女...:关于诅咒...:停止对话")){
+	mes "["+ strcharinfo(0) +"]";
+	mes "Ouch...!";
+	mes "A chicken...";
+	mes "It bit me!";
+	next;
+	mes "[Undead Chicken]";
+	mes "Ho ho~!";
+	mes "I can talk AND feast";
+	mes "on living humans!";
+	mes "Being a zombie is great!";
+	mes "*Cackles*";
+	close;
+}
+
+nif_in,16,30,4	script	Undead Familiar#nif	799,{
+	percentheal -5,0;
+	mes "[Vatoman]";
+	mes "Oooh, how handy, a living";
+	mes "human~! Fresh blood is";
+	mes "always tasty...! I think I'll just";
+	mes "take a liiittle sip.";
+	next;
+	mes "[" + strcharinfo(0) + "]";
+	mes "Ow! My vein!";
+	mes "Did you just";
+	mes "suck my blood?!";
+	next;
+	mes "[Vatoman]";
+	mes "Mwahahaha~";
+	mes "Foolish mortal!";
+	mes "Beware my powers!";
+	close;
+}
+
+nif_in,156,93,5	script	Child#niflheim	793,{
+	mes "[Alakina Ann]";
+	mes "Where...where am I...?";
+	mes "I remember I was sleeping";
+	mes "and when I woke up, I was here...";
+	mes "Mommy, have you seen my mommy?";
+	mes "I wanna go home...*Sob*";
+	next;
+	switch(select("About the witch:About the curse:Cancel.")) {
 	case 1:
-		mes "[阿拉克娜 安]";
-		mes "魔女...? 我不知道所谓的魔女...";
-		mes "虽然在童话书里有读过，";
-		mes "不过不知道真的有没有那种人，";
-		mes "如果有的话一定很可怕啊...";
+		mes "[Alakina Ann]";
+		mes "Witch...? I've never seen a witch, but I've read about them in books. I'm not sure if they exist or not, but it would be so horrifying if they did...";
 		next;
-		mes "[阿拉克娜 安]";
-		mes "可是为什么会这么冷呢...?";
-		if (sex == 1) 
-			mes "哥哥你不会冷吗? 好奇怪... 呼唷";
-		else
-			mes "姊姊你不会冷吗? 好奇怪... 呼唷";
-		mes "想回到我温暖的家，";
-		mes "帮帮忙吧... 嗯...? 嗯...?";
+		mes "[Alakina Ann]";
+		mes "Why is it so cold in here...?";
+		mes "A-aren't you cold, or even scared? I wanna go home... It's warm over there. Could you help me get back... Please...? H-help me...";
 		close;
 	case 2:
-		mes "[阿拉克娜 安]";
-		mes "诅咒... 想起奶奶曾经";
-		mes "所说过的话，她说有种方法";
-		mes "可以躲避无法以祝福";
-		mes "解开的狠毒诅咒";
+		mes "[Alakina Ann]";
+		mes "A c-curse...?";
+		mes "My grandma says that there are lots of curses in the world. Some of them, you can tell it's a curse. But there are other curses that follow you throughout life...";
 		next;
-		mes "[阿拉克娜 安]";
-		mes "克拉图(Klaatu)...";
-		mes "北拉塔(Verata).....";
-		mes "再来是... 什么... 什么的...? 是什么啦?";
-		mes "最后面记不起来了";
+		mes "[Alakina Ann]";
+		mes "Grandma says curses can take other forms... Like if someone's always mad at you, and won't forgive you, you can see that as a curse too.";
 		next;
-		mes "[阿拉克娜 安]";
-		mes "她还说过按照顺序念那3种咒文的话，";
-		mes "可以从被诅咒的命运中逃过，";
-		mes "现在已不太记得她主要在";
-		mes "讲什么了... 我也忘了";
+		mes "[Alakina Ann]";
+		mes "My grandma told me there's only one spell that can break a strong curse that you can't lift with Blessings...";
+		next;
+		mes "[Alakina Ann]";
+		mes "Klaatu...";
+		mes "Verata.....";
+		mes "Ne...ni...umm...?";
+		mes "What was the last part?";
+		mes "I-I can't remember";
+		mes "the last part of the spell!";
+		next;
+		mes "[Alakina Ann]";
+		mes "If you repeat the spell in that order, it will release you from someone's anger and hate. And if you do it near a bad spirit, they might get the curse instead.";
+		next;
+		mes "[Alakina Ann]";
+		mes "Why are you asking me about these scary kind of things...? I just wanna go home...";
 		close;
 	case 3:
-		mes "[阿拉克娜 安]";
-		mes "好冷... 好冷喔... 想要回到";
-		mes "家里... 方便的话带我一起走..";
-		mes "这里太可怕了啦.....";
-		mes "拜托你帮帮忙... 救救我...";
+		mes "[Alakina Ann]";
+		mes "It's so cold in here...";
+		mes "I'm freezing...";
+		mes "And I wanna go home and";
+		mes "get away from this scary place...";
+		next;
+		mes "[Alakina Ann]";
+		mes "Please... help me.";
+		mes "Could you take me with you...?";
 		close;
 	}
 }
 
-niflheim,350,258,1	script	被诅咒的 灵魂#nif	802,{
-	killmonster "niflheim","被诅咒的 灵魂#nif::OnMyMobDead";
-	mes "[艾书 布路斯]";
-	mes "在你身上感受到强烈的诅咒啊啊啊，";
-	mes "我拒绝你的存在啊啊啊啊，";
-	mes "不退回去否则会死啊啊啊，";
-	mes "不准动我的书啊啊啊";
+niflheim,350,258,1	script	Cursed Spirit#nif	802,{
+	killmonster "niflheim","Cursed Spirit#nif::OnMyMobDead";
+	mes "[Ashe Bruce]";
+	mes "I sense you're cursed";
+	mes "by a powerful spell...";
+	mes "Hmm... It's clear what";
+	mes "you must be up to....";
 	next;
-	switch(select("拿起第一本书:拿起第二本书:拿起第三本书:乖乖的退回去")) {
+	mes "[Ashe Bruce]";
+	mes "You wish to get";
+	mes "rid of your curse....";
+	mes "By giving it to me!!";
+	next;
+	mes "[Ashe Bruce]";
+	mes "Just because I'm a cursed spirit, you adventurers think you can just dump your curses on me?!";
+	emotion ET_FRET;
+	next;
+	mes "[Ashe Bruce]";
+	mes "I refuse to let";
+	mes "you remain here.....";
+	mes "Leave now, or I will";
+	mes "remove you by force....";
+	next;
+	mes "[Ashe Bruce]";
+	mes "....And...";
+	mes "....Whatever you do...";
+	mes "....Do NOT touch my books...";
+	next;
+	switch(select("Touch the first book.:Touch the second book.:Touch the third book.:Okay, I am leaving.")) {
 	case 1:
-		monster "niflheim",349,259,"Rideword",1478,1,"飞行魔书#nif::OnMyMobDead";
-		mes "[艾书 布路斯]";
-		mes "不要随便动我的书啊啊!!";
-		mes "喀哈啊啊! 诅咒你被咬被撕被抓伤!!";
-		mes "永远被埋在束缚的诅咒里!!";
+		monster "niflheim",349,259,"Rideword",1478,1,"Cursed Spirit#nif::OnMyMobDead";
+		mes "[Ashe Bruce]";
+		mes "...!...";
+		mes "How dare you touch my books";
+		mes "when I specifically said";
+		mes "'Don't touch my books!'";
+		next;
+		mes "[Ashe Bruce]";
+		mes "....!...Grrrrr!";
+		mes "I shall tear you apart...!";
+		mes "Be bound by an eternal curse...!";
 		close;
 	case 2:
-		mes "[艾书 布路斯]";
-		mes "我说过不准动我的书啊啊...";
-		mes "给我滚远一点..";
-		mes "不要妨碍我休息啊啊啊!";
+		mes "[Ashe Bruce]";
+		mes "...!...";
+		mes "You dare touch my books?!";
+		mes "Right after I said not";
+		mes "to touch them...?!";
+		mes "Foolish mortal!";
+		mes "...BEGONE!";
 		close2;
 		warp "niflheim",34,162;
 		end;
 	case 3:
-		mes "[艾书 布路斯]";
-		mes "喀哈哈啊啊.... 相当有胆量";
-		mes "的家伙啊啊...!! 来...";
-		mes "开始念咒文吧啊啊啊...!!";
+		mes "[Ashe Bruce]";
+		mes "Muhahahaha....";
+		mes "Stubborn mortal~!";
+		mes "Fine! I will give you";
+		mes "a fighting chance and let";
+		mes "you cast a spell.";
+		next;
+		mes "[Ashe Bruce]";
+		mes "But Blessings won't";
+		mes "work with the curse";
+		mes "that you have...";
+		mes "And the spell to lift";
+		mes "your curse has been";
+		mes "lost to the ages~!";
 		emotion ET_KIK;
 		next;
-		if(select("克罗柏(Clover):克拉图(Klaatu):克雷易托思(Kleitos)")==2)
+		if (select("Clover:Klaatu:Klaytos") == 2)
 			set .@spell,.@spell+1;
-		if(select("北利特(Verit):北利塔司(Veritas):北拉塔 (Verata)")==3)
+		if (select("Verit:Veritas:Verata") == 3)
 			set .@spell,.@spell+1;
-		if(select("内塔易(Necktie):内克利司(Necklace):内罗(Nero):^FFFFFF尼图(Nictu)^000000")==4)
+		if (select("Necktie:Necklace:Nero:^FFFFFFNictu!!!^000000") == 4)
 			set .@spell,.@spell+1;
 		if (.@spell == 3) {
 			switch(rand(1,5)) {
 			case 1:
 				if (morison_meat < 15) {
-					set MISC_QUEST,MISC_QUEST | 1;
-					mes "[艾书 布路斯]";
+					set morrison_meat,15;
+					mes "[Ashe Bruce]";
 					mes "You... You broke the curse!";
 					mes "How did you know that spell?!";
 					next;
-					mes "[艾书 布路斯]";
+					mes "[Ashe Bruce]";
 					mes "I suppose you expect for me to";
 					mes "melt in agony about now, don't";
 					mes "you? Well... Sorry to disappoint";
 					mes "you, mortal, but I can never die!";
 					close;
 				}
-				mes "[艾书 布路斯]";
+				mes "[Ashe Bruce]";
 				mes "...! You cast the correct spell?!";
 				mes "...!...";
 				mes "But...You're still cursed...";
@@ -210,56 +266,56 @@ niflheim,350,258,1	script	被诅咒的 灵魂#nif	802,{
 			case 2:
 				if (thai_head == 1) {
 					set thai_head,2;
-					mes "[艾书 布路斯]";
+					mes "[Ashe Bruce]";
 					mes "What's...";
 					mes "this feeling?";
 					next;
-					mes "[艾书 布路斯]";
+					mes "[Ashe Bruce]";
 					mes "No...!";
 					mes "NOOOOOOOOOOOOOOOO!";
 					next;
-					mes "[艾书 布路斯]";
+					mes "[Ashe Bruce]";
 					mes "Why did your spell have to work?!";
 					close;
 				}
-				mes "[艾书 布路斯]";
+				mes "[Ashe Bruce]";
 				mes "You...";
 				mes "cast the correct spell?!";
 				next;
-				mes "[艾书 布路斯]";
+				mes "[Ashe Bruce]";
 				mes "Hoho~";
 				mes "But you're still cursed...";
 				close;
 			case 3:
 				if (thai_head == 8) {
 					set thai_head,7;
-					mes "[艾书 布路斯]";
+					mes "[Ashe Bruce]";
 					mes "You... You broke the curse!";
 					mes "Who taught you that spell?!";
 					next;
-					mes "[艾书 布路斯]";
+					mes "[Ashe Bruce]";
 					mes "I suppose you expect for me to";
 					mes "melt in agony about now, don't";
 					mes "you? Well... Sorry to disappoint";
 					mes "you, mortal, but I can never die!";
 					next;
-					mes "[艾书 布路斯]";
+					mes "[Ashe Bruce]";
 					mes "So long as I'm...";
 					mes "still...";
 					mes "cursed.";
 					next;
-					mes "[艾书 布路斯]";
+					mes "[Ashe Bruce]";
 					mes "NOOOOOOOOOO!";
 					close;
 				}
-				mes "[艾书 布路斯]";
+				mes "[Ashe Bruce]";
 				mes "...! You cast the correct spell?!";
 				mes "...!...";
 				mes "But...You're still cursed...";
 				mes "Umhaaaaaaaaaaaaaaaaa.....!";
 				close;
 			case 4:
-				mes "[艾书 布路斯]";
+				mes "[Ashe Bruce]";
 				mes "...! You cast the correct spell?!";
 				mes "...!...";
 				mes "But...You're still cursed...";
@@ -267,22 +323,30 @@ niflheim,350,258,1	script	被诅咒的 灵魂#nif	802,{
 				close;
 			}
 		}
-		monster "niflheim",345,259,"Orc Skeleton",1462,1,"被诅咒的 灵魂#nif::OnMyMobDead";
-		monster "niflheim",347,261,"Orc Skeleton",1462,1,"被诅咒的 灵魂#nif::OnMyMobDead";
-		monster "niflheim",344,253,"Orc Skeleton",1462,1,"被诅咒的 灵魂#nif::OnMyMobDead";
-		monster "niflheim",346,251,"Orc Skeleton",1462,1,"被诅咒的 灵魂#nif::OnMyMobDead";
-		monster "niflheim",349,249,"Orc Skeleton",1462,1,"被诅咒的 灵魂#nif::OnMyMobDead";
-		monster "niflheim",350,260,"Orc Skeleton",1462,1,"被诅咒的 灵魂#nif::OnMyMobDead";
-		monster "niflheim",353,256,"Orc Skeleton",1462,1,"被诅咒的 灵魂#nif::OnMyMobDead";
-		mes "[艾书 布路斯]";
-		mes "哈哈哈啊啊啊!!! 咒文错了!";
-		mes "你即将要面临死亡了喔喔喔，";
-		mes "愿你一辈子都受到诅咒吧啊啊啊...!!";
+		monster "niflheim",345,259,"Orc Skeleton",1462,1,"Cursed Spirit#nif::OnMyMobDead";
+		monster "niflheim",347,261,"Orc Skeleton",1462,1,"Cursed Spirit#nif::OnMyMobDead";
+		monster "niflheim",344,253,"Orc Skeleton",1462,1,"Cursed Spirit#nif::OnMyMobDead";
+		monster "niflheim",346,251,"Orc Skeleton",1462,1,"Cursed Spirit#nif::OnMyMobDead";
+		monster "niflheim",349,249,"Orc Skeleton",1462,1,"Cursed Spirit#nif::OnMyMobDead";
+		monster "niflheim",350,260,"Orc Skeleton",1462,1,"Cursed Spirit#nif::OnMyMobDead";
+		monster "niflheim",353,256,"Orc Skeleton",1462,1,"Cursed Spirit#nif::OnMyMobDead";
+		mes "[Ashe Bruce]";
+		mes "Muhahahahahaha!";
+		mes "That's not the right spell!";
+		mes "Now, death awaits you!";
+		mes "You're eternally bound";
+		mes "to the curse...!";
 		close;
 	case 4:
-		mes "[艾书 布路斯]";
-		mes "喀哈啊啊! 想的不错啊啊啊啊...";
-		mes "我会帮你祈祷活着回去啊啊啊....";
+		mes "[Ashe Bruce]";
+		mes "...";
+		mes ".....";
+		next;
+		mes "[Ashe Bruce]";
+		mes "Well then.";
+		mes "Try not to trip on";
+		mes "your feet in your";
+		mes "rush to leave.";
 		close;
 	}
 

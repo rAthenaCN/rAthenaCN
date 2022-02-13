@@ -1,11 +1,3 @@
-//============================================================
-//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
-//============================================================
-//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
-
 //===== rAthena Script ======================================= 
 //= Octopus Cave
 //===== By: ================================================== 
@@ -13,7 +5,7 @@
 //===== Current Version: ===================================== 
 //= 1.1
 //===== Compatible With: ===================================== 
-//= rAthena SVN
+//= rAthena Project
 //===== Description: ========================================= 
 //= [Official Conversion]
 //= Defeat the Disgusting Octopus.
@@ -22,154 +14,154 @@
 //= 1.1 Instance system rewrite. [Euphy]
 //============================================================ 
 
-// Instance Creation
+// Instance Creation :: oct
 //============================================================
-mal_dun01,151,235,5	script	海星	551,{
+mal_dun01,151,235,5	script	Starfish	551,{
 
 	set .@party_id,getcharid(1);
 	set .@md_name$,"Octopus Cave";
 
 	if (!.@party_id) {
-		mes "[海星]";
-		mes "孤身一人是没用的, 呵呵!";
-		mes "找些志同道合的人来帮你把.";
-		mes "组成一支队伍, 然后再来找我.";
+		mes "[Starfish]";
+		mes "You alone is powerless, hehe!";
+		mes "Better get someone to help you out.";
+		mes "Make a party, and come back later.";
 		close;
 	}
-	if (getcharid(0) != getpartyleader(.@party_id,2)) {
-		mes "[海星]";
-		mes "你们的队长在哪里, 呵呵.";
-		mes "我可不是个随便的人,";
-		mes "把你们头叫来.";
+	if (is_party_leader() == false) {
+		mes "[Starfish]";
+		mes "Where is your leader, hehe.";
+		mes "I don't talk to some random people.";
+		mes "Bring your boss to me.";
 		close;
 	}
-	mes "[海星]";
-	mes "我在这里守着, 呵呵!";
-	mes "现在八爪鱼的洞穴只是临时被堵死了.";
-	mes "不过我觉得离它永远被封的日子不远了, 呵呵!";
+	mes "[Starfish]";
+	mes "I am guarding here, hehe!";
+	mes "It is just roughly blocked for now.";
+	mes "But someday this cave must be sealed forever, hehe!";
 	next;
 	while(1) {
-		switch(select("- 询问发生了什么.:- 要求打开洞口.:- 去别的地方.")) {
+		switch(select("Ask what's going on.:Ask to open the gate.:Go to other location.")) {
 		case 1:
-			mes "[海星]";
-			mes "最近, 我们海星一族的女王";
-			mes "碰到了一些麻烦, 嚯嚯.";
-			mes "一些不愉快的事情打破了这个";
-			mes "地方的宁静, 呵呵!";
+			mes "[Starfish]";
+			mes "Lately, our Starfish lady is";
+			mes "suffering with some issues, ooh ooh.";
+			mes "Something bad happen in this";
+			mes "peaceful place, hehe!";
 			next;
-			mes "[海星]";
-			mes "从我背后的洞里出来很多";
-			mes "八爪鱼的触手,";
-			mes "这些鬼东西试图绑架我们海星.";
-			mes "一族的女王, 噢噢.";
+			mes "[Starfish]";
+			mes "Weird looking limbs came out";
+			mes "from the hole there,";
+			mes "tried to kidnap our lady Starfish.";
+			mes "Ooh Ooh.";
 			next;
-			mes "[海星]";
-			mes "这些恶心的触手都是属于那个";
-			mes "该死的八爪鱼的.";
-			mes "这个家伙应该被好好的修理一下,";
-			mes "不过这个对于我们弱小的海星一族来说是非常有难度的, 呵呵.";
+			mes "[Starfish]";
+			mes "It seems those limbs belong to";
+			mes "that ugly octopus.";
+			mes "That monster should be taken care of,";
+			mes "but it's hard for ourselves only to make it happen, hehe.";
 			next;
-			mes "[海星]";
-			mes "我需要有一些专业的人,";
-			mes "来好好教训这只八爪鱼.";
-			mes "让它以后再也不敢打我们女王的主意.";
-			mes "呵呵.";
+			mes "[Starfish]";
+			mes "I want to find someone special,";
+			mes "and ask to punish this ugly octopus.";
+			mes "I hope this octopus won't ever";
+			mes "harass our lady, hehe.";
 			next;
-			mes "[海星]";
-			mes "去拔掉它的触手, 并把它们做成标本.";
-			mes "如果你能够承诺带回一些这样的战利品, ";
-			mes "我就打开背后的洞门.";
-			mes "让你能够进去探险, 呵呵.";
+			mes "[Starfish]";
+			mes "Go catch that octopus and stick it to this pick.";
+			mes "If you bring back the pick, I will";
+			mes "open this gate for a while.";
+			mes "You should challenge if you are interested, hehe.";
 			next;
 			break;
 		case 2:
 			set .@playtime, checkquest(4197,PLAYTIME);
 			if (.@playtime == 0 || .@playtime == 1) {
-				mes "[海星]";
-				mes "那只八爪鱼不在附近, 呵呵.";
-				mes "请稍候再来.";
+				mes "[Starfish]";
+				mes "Octopus is not around now, hehe.";
+				mes "Please come back later.";
 				close;
 			}
 			if (.@playtime == 2) erasequest 4197;
-			if (countitem(6442)) {
+			if (rentalcountitem(6442)) {
 				if (instance_create(.@md_name$) < 0) {
-					mes "[海星]";
-					mes "队伍名是... "+getpartyname(.@party_id)+".";
-					mes "队长... "+strcharinfo(0)+".";
-					mes "^0000ff"+.@md_name$+"^000000, 现在我可没法打开洞门, 呵呵.";
-					mes "时机不对, 请再等等.";
+					mes "[Starfish]";
+					mes "Party name is... "+getpartyname(.@party_id)+".";
+					mes "Party leader is... "+strcharinfo(0)+".";
+					mes "^0000ff"+.@md_name$+"^000000, I cannot open now, hehe.";
+					mes "Now is not the time, please wait.";
 					close;
 				}
-				mes "[海星]";
-				mes "我马上打开洞门, 不过只有一会时间 ^0000ff"+.@md_name$+"^000000.";
-				mes "请教训那个色狼章鱼,";
-				mes "并带回一些它的触手, 呵呵.";
+				mes "[Starfish]";
+				mes "I will open the gate for a while to ^0000ff"+.@md_name$+"^000000.";
+				mes "Please catch that pervert octopus,";
+				mes "and come back with it sticked to the pick, hehe.";
 				close;
 			}
-			mes "[海星]";
-			mes "准备好捕章鱼棍,";
-			mes "有了它我才能放你进去.";
-			mes "快去准备吧.";
-			mes "然后, 我会让你进去一会, 呵呵.";
+			mes "[Starfish]";
+			mes "Prepare a pick first,";
+			mes "so you can thread that octopus";
+			mes "with that pick.";
+			mes "Then, I will let you in for a while, hehe.";
 			close;
 		case 3:
-			mes "[海星]";
-			mes "这不是个好地方, 试试检查别的地方.";
+			mes "[Starfish]";
+			mes "This is not a good location, check someplace else.";
 			close;
 		}
 	}
 }
 
-mal_dun01,153,237,5	script	怪异的入口	844,{
-	mes "这里有个怪异的入口.";
-	mes "被一些木板给堵死了.";
+mal_dun01,153,237,5	script	Weird Entrance	844,{
+	mes "There is a strange entrance";
+	mes "blocked roughly with some boards.";
 	next;
-	switch(select("- 进入.:- 停下.")) {
+	switch(select("Go in.:Stop.")) {
 	case 1:
-		if (countitem(6442)) {
+		if (rentalcountitem(6442)) {
 			switch(instance_enter("Octopus Cave")) {
-			case 3:
-				mes "[海星]";
-				mes "啊, 现在可不是好时机...";
-				mes "你可以晚点再来? 呵呵.";
+			case IE_OTHER:
+				mes "[Starfish]";
+				mes "Ah, now is not the time...";
+				mes "Would you come back later? Hehe.";
 				close;
-			case 2:
-			case 1:
-				mes "[海星]";
-				mes "这个入口有一个秘密.";
-				mes "所以, 请小心一点, 好吗? 呵呵.";
+			case IE_NOINSTANCE:
+			case IE_NOMEMBER:
+				mes "[Starfish]";
+				mes "There is a secret with that entrance.";
+				mes "So, please be careful with it, will ya? Hehe.";
 				close;
-			case 0:
-				mapannounce "mal_dun01", getpartyname(getcharid(1))+" 队伍成员 "+strcharinfo(0)+" 开始进入八爪鱼洞穴教训色狼章鱼了!",bc_map,"0x00ff99";
+			case IE_OK:
+				mapannounce "mal_dun01", getpartyname(getcharid(1))+" party's "+strcharinfo(0)+" member started to hunt the Octopus!",bc_map,"0x00ff99";
 				if (checkquest(4197) == -1) setquest 4197;
-				//warp "1@cash",199,99;
+				//warp instance_mapname("1@cash"),199,99;
 				close;
 			default:
-				mes "[海星]";
-				mes "嘘... 洞里散发出奇怪的光芒.";
-				mes "这可不是好兆头.";
-				mes "现在进入可能会碰到大麻烦.";
+				mes "[Starfish]";
+				mes "Shhh... Weird aura is";
+				mes "coming from that entrance.";
+				mes "Big trouble is waiting, if you go in now.";
 				close;
 			}
 		}
-		mes "[海星]";
-		mes "如果你要帮我们教训这只色狼章鱼的话";
-		mes "一定要做好充分的准备.";
-		mes "记得带上狩猎棒.";
-		mes "不然我可不会让你进去! 呵呵.";
+		mes "[Starfish]";
+		mes "You should definitely prepare";
+		mes "hunting stick if you want to";
+		mes "punish the Octopus.";
+		mes "Or I will not let you in! Hehe.";
 		close;
 	case 2:
-		mes "[海星]";
-		mes "是的是的, 你最好别乱搅和.";
+		mes "[Starfish]";
+		mes "Yes Yes, you better quit.";
 		close;
 	}
 }
 
-// Instance Scripts
+// Instance Scripts :: oct_in
 //============================================================
 1@cash,199,99,0	script	oct_enter	139,4,4,{
 	end;
-OnTouch:
+OnTouch_:
 	donpcevent instance_npcname("oct_enter_broad")+"::OnEnable";
 	specialeffect EF_BASH;
 	disablenpc instance_npcname("oct_enter");
@@ -179,6 +171,11 @@ OnTouch:
 1@cash,1,1,0	script	oct_enter_broad	-1,{
 	end;
 OnInstanceInit:
+	disablenpc instance_npcname("oct_foot_exit1");
+	disablenpc instance_npcname("oct_foot_exit2");
+	disablenpc instance_npcname("oct_foot_exit3");
+	disablenpc instance_npcname("oct_foot_exit4");
+	disablenpc instance_npcname("oct_boss_warp");
 	donpcevent instance_npcname("oct_enter_broad")+"::OnDisable";
 	end;
 OnEnable:
@@ -191,13 +188,13 @@ OnDisable:
 	disablenpc instance_npcname("oct_enter_broad");
 	end;
 OnTimer1000:
-	mapannounce instance_mapname("1@cash"),"色狼八爪鱼 : 你怎么敢进来我的地盘!",bc_map,"0xFFFF00";
+	mapannounce instance_mapname("1@cash"),"Pervert Octopus : How dare you to come inside of my place!",bc_map,"0xFFFF00";
 	end;
 OnTimer4000:
-	mapannounce instance_mapname("1@cash"),"色狼八爪鱼 : 让我堵上所有的通道!! 搞得你没方向!",bc_map,"0xFFFF00";
+	mapannounce instance_mapname("1@cash"),"Pervert Octopus : But I blocked all the cave gates!! There is nothing you can do!",bc_map,"0xFFFF00";
 	end;
 OnTimer7000:
-	mapannounce instance_mapname("1@cash"),"色狼八爪鱼 : 儿孙们~ 这里有个您爱玩的东西! 好好和他耍耍~ 哇咔咔",bc_map,"0xFFFF00";
+	mapannounce instance_mapname("1@cash"),"Pervert Octopus : My juniors~ There is your toy! Play with it~ kakaka",bc_map,"0xFFFF00";
 	stopnpctimer;
 	donpcevent instance_npcname("oct_enter_broad")+"::OnDisable";
 	end;
@@ -215,10 +212,10 @@ OnEnable:
 	donpcevent instance_npcname("oct_foot3")+"::OnEnable";
 	donpcevent instance_npcname("oct_foot4")+"::OnEnable";
 	set .@map$, instance_mapname("1@cash");
-	monster .@map$,20,114,"章鱼触须#1",2193,1,instance_npcname("oct_foot_4")+"::OnMyMobDead";
-	monster .@map$,88,190,"章鱼触须#2",2193,1,instance_npcname("oct_foot_4")+"::OnMyMobDead";
-	monster .@map$,307,215,"章鱼触须#3",2193,1,instance_npcname("oct_foot_4")+"::OnMyMobDead";
-	monster .@map$,372,131,"章鱼触须#4",2193,1,instance_npcname("oct_foot_4")+"::OnMyMobDead";
+	monster .@map$,20,114,"Octopus Leg#1",2193,1,instance_npcname("oct_foot_4")+"::OnMyMobDead";
+	monster .@map$,88,190,"Octopus Leg#2",2193,1,instance_npcname("oct_foot_4")+"::OnMyMobDead";
+	monster .@map$,307,215,"Octopus Leg#3",2193,1,instance_npcname("oct_foot_4")+"::OnMyMobDead";
+	monster .@map$,372,131,"Octopus Leg#4",2193,1,instance_npcname("oct_foot_4")+"::OnMyMobDead";
 	end;
 OnDisable:
 	disablenpc instance_npcname("oct_foot_4");
@@ -227,12 +224,12 @@ OnMyMobDead:
 	set .@map$, instance_mapname("1@cash");
 	if (mobcount(.@map$,instance_npcname("oct_foot_4")+"::OnMyMobDead") < 1) {
 		donpcevent instance_npcname("oct_boss_con")+"::OnEnable";
-		mapannounce .@map$,"嘿小子!! 我会亲手料理你们这帮家伙! Let's bring it on!",bc_map,"0x00ff99";
+		mapannounce .@map$,"Hey you!! I'll personally take care of you all! Let's bring it on!",bc_map,"0x00ff99";
 		enablenpc instance_npcname("oct_boss_warp");
-		instance_warpall .@map$,199,99;
+		instance_warpall .@map$,199,99, instance_id();
 		end;
 	}
-	mapannounce .@map$,"我日!! 受伤了!!! 我需要改变进攻策略...",bc_map,"0x00ff99";
+	mapannounce .@map$,"Arrgg!! That hurts!!! I need another strategy...",bc_map,"0x00ff99";
 	end;
 }
 
@@ -242,70 +239,70 @@ OnInstanceInit:
 	donpcevent instance_npcname(strnpcinfo(0))+"::OnDisable";
 	end;
 OnEnable:
-	enablenpc instance_npcname(strnpcinfo(0));
+	enablenpc();
 	set .@label$, instance_npcname(strnpcinfo(0))+"::OnMyMobDead";
 	set .@i, atoi(charat(strnpcinfo(0),8));
 	set .@map$, instance_mapname("1@cash");
 	switch(.@i) {
 	case 1:
-		areamonster .@map$,34,96,38,100,"八爪鱼的心腹",2192,3,.@label$;
-		areamonster .@map$,39,90,41,92,"八爪鱼的心腹",2192,2,.@label$;
-		areamonster .@map$,38,76,40,78,"八爪鱼的心腹",2192,2,.@label$;
-		areamonster .@map$,39,58,41,60,"八爪鱼的心腹",2192,2,.@label$;
-		areamonster .@map$,50,38,56,44,"八爪鱼的心腹",2192,5,.@label$;
-		areamonster .@map$,68,32,72,36,"八爪鱼的心腹",2192,5,.@label$;
-		areamonster .@map$,83,26,85,28,"八爪鱼的心腹",2192,2,.@label$;
-		areamonster .@map$,107,28,109,30,"八爪鱼的心腹",2192,1,.@label$;
-		areamonster .@map$,123,28,125,30,"八爪鱼的心腹",2192,2,.@label$;
-		areamonster .@map$,134,31,138,35,"八爪鱼的心腹",2192,5,.@label$;
-		areamonster .@map$,142,39,146,43,"八爪鱼的心腹",2192,2,.@label$;
+		areamonster .@map$,34,96,38,100,"Octopus's Henchman",2192,3,.@label$;
+		areamonster .@map$,39,90,41,92,"Octopus's Henchman",2192,2,.@label$;
+		areamonster .@map$,38,76,40,78,"Octopus's Henchman",2192,2,.@label$;
+		areamonster .@map$,39,58,41,60,"Octopus's Henchman",2192,2,.@label$;
+		areamonster .@map$,50,38,56,44,"Octopus's Henchman",2192,5,.@label$;
+		areamonster .@map$,68,32,72,36,"Octopus's Henchman",2192,5,.@label$;
+		areamonster .@map$,83,26,85,28,"Octopus's Henchman",2192,2,.@label$;
+		areamonster .@map$,107,28,109,30,"Octopus's Henchman",2192,1,.@label$;
+		areamonster .@map$,123,28,125,30,"Octopus's Henchman",2192,2,.@label$;
+		areamonster .@map$,134,31,138,35,"Octopus's Henchman",2192,5,.@label$;
+		areamonster .@map$,142,39,146,43,"Octopus's Henchman",2192,2,.@label$;
 		break;
 	case 2:
-		areamonster .@map$,139,113,143,117,"八爪鱼的心腹",2192,5,.@label$;
-		areamonster .@map$,135,104,137,106,"八爪鱼的心腹",2192,2,.@label$;
-		areamonster .@map$,123,93,127,97,"八爪鱼的心腹",2192,3,.@label$;
-		areamonster .@map$,113,90,115,92,"八爪鱼的心腹",2192,2,.@label$;
-		areamonster .@map$,103,89,105,91,"八爪鱼的心腹",2192,2,.@label$;
-		areamonster .@map$,89,90,91,92,"八爪鱼的心腹",2192,2,.@label$;
-		areamonster .@map$,74,104,76,106,"八爪鱼的心腹",2192,2,.@label$;
-		areamonster .@map$,74,120,76,122,"八爪鱼的心腹",2192,2,.@label$;
-		areamonster .@map$,83,131,87,135,"八爪鱼的心腹",2192,3,.@label$;
-		areamonster .@map$,92,142,94,144,"八爪鱼的心腹",2192,2,.@label$;
-		areamonster .@map$,98,159,100,161,"八爪鱼的心腹",2192,2,.@label$;
-		areamonster .@map$,94,180,98,184,"八爪鱼的心腹",2192,5,.@label$;
+		areamonster .@map$,139,113,143,117,"Octopus's Henchman",2192,5,.@label$;
+		areamonster .@map$,135,104,137,106,"Octopus's Henchman",2192,2,.@label$;
+		areamonster .@map$,123,93,127,97,"Octopus's Henchman",2192,3,.@label$;
+		areamonster .@map$,113,90,115,92,"Octopus's Henchman",2192,2,.@label$;
+		areamonster .@map$,103,89,105,91,"Octopus's Henchman",2192,2,.@label$;
+		areamonster .@map$,89,90,91,92,"Octopus's Henchman",2192,2,.@label$;
+		areamonster .@map$,74,104,76,106,"Octopus's Henchman",2192,2,.@label$;
+		areamonster .@map$,74,120,76,122,"Octopus's Henchman",2192,2,.@label$;
+		areamonster .@map$,83,131,87,135,"Octopus's Henchman",2192,3,.@label$;
+		areamonster .@map$,92,142,94,144,"Octopus's Henchman",2192,2,.@label$;
+		areamonster .@map$,98,159,100,161,"Octopus's Henchman",2192,2,.@label$;
+		areamonster .@map$,94,180,98,184,"Octopus's Henchman",2192,5,.@label$;
 		break;
 	case 3:
-		areamonster .@map$,299,209,303,213,"八爪鱼的心腹",2192,3,.@label$;
-		areamonster .@map$,292,203,296,207,"八爪鱼的心腹",2192,3,.@label$;
-		areamonster .@map$,291,186,293,188,"八爪鱼的心腹",2192,2,.@label$;
-		areamonster .@map$,292,166,294,168,"八爪鱼的心腹",2192,2,.@label$;
-		areamonster .@map$,293,151,295,153,"八爪鱼的心腹",2192,2,.@label$;
-		areamonster .@map$,299,137,303,141,"八爪鱼的心腹",2192,2,.@label$;
-		areamonster .@map$,300,123,304,127,"八爪鱼的心腹",2192,2,.@label$;
-		areamonster .@map$,300,104,304,108,"八爪鱼的心腹",2192,3,.@label$;
-		areamonster .@map$,279,101,281,103,"八爪鱼的心腹",2192,2,.@label$;
-		monster .@map$,260,103,"八爪鱼的心腹",2192,1,.@label$;
+		areamonster .@map$,299,209,303,213,"Octopus's Henchman",2192,3,.@label$;
+		areamonster .@map$,292,203,296,207,"Octopus's Henchman",2192,3,.@label$;
+		areamonster .@map$,291,186,293,188,"Octopus's Henchman",2192,2,.@label$;
+		areamonster .@map$,292,166,294,168,"Octopus's Henchman",2192,2,.@label$;
+		areamonster .@map$,293,151,295,153,"Octopus's Henchman",2192,2,.@label$;
+		areamonster .@map$,299,137,303,141,"Octopus's Henchman",2192,2,.@label$;
+		areamonster .@map$,300,123,304,127,"Octopus's Henchman",2192,2,.@label$;
+		areamonster .@map$,300,104,304,108,"Octopus's Henchman",2192,3,.@label$;
+		areamonster .@map$,279,101,281,103,"Octopus's Henchman",2192,2,.@label$;
+		monster .@map$,260,103,"Octopus's Henchman",2192,1,.@label$;
 		break;
 	case 4:
-		areamonster .@map$,363,123,367,127,"八爪鱼的心腹",2192,2,.@label$;
-		areamonster .@map$,364,108,368,112,"八爪鱼的心腹",2192,5,.@label$;
-		areamonster .@map$,363,93,367,97,"八爪鱼的心腹",2192,3,.@label$;
-		areamonster .@map$,364,72,366,74,"八爪鱼的心腹",2192,2,.@label$;
-		areamonster .@map$,364,58,366,60,"八爪鱼的心腹",2192,2,.@label$;
-		areamonster .@map$,355,44,359,48,"八爪鱼的心腹",2192,3,.@label$;
-		areamonster .@map$,346,36,350,40,"八爪鱼的心腹",2192,3,.@label$;
-		areamonster .@map$,319,28,325,34,"八爪鱼的心腹",2192,5,.@label$;
-		areamonster .@map$,305,27,307,29,"八爪鱼的心腹",2192,2,.@label$;
-		areamonster .@map$,276,29,280,33,"八爪鱼的心腹",2192,5,.@label$;
-		areamonster .@map$,258,37,262,41,"八爪鱼的心腹",2192,2,.@label$;
+		areamonster .@map$,363,123,367,127,"Octopus's Henchman",2192,2,.@label$;
+		areamonster .@map$,364,108,368,112,"Octopus's Henchman",2192,5,.@label$;
+		areamonster .@map$,363,93,367,97,"Octopus's Henchman",2192,3,.@label$;
+		areamonster .@map$,364,72,366,74,"Octopus's Henchman",2192,2,.@label$;
+		areamonster .@map$,364,58,366,60,"Octopus's Henchman",2192,2,.@label$;
+		areamonster .@map$,355,44,359,48,"Octopus's Henchman",2192,3,.@label$;
+		areamonster .@map$,346,36,350,40,"Octopus's Henchman",2192,3,.@label$;
+		areamonster .@map$,319,28,325,34,"Octopus's Henchman",2192,5,.@label$;
+		areamonster .@map$,305,27,307,29,"Octopus's Henchman",2192,2,.@label$;
+		areamonster .@map$,276,29,280,33,"Octopus's Henchman",2192,5,.@label$;
+		areamonster .@map$,258,37,262,41,"Octopus's Henchman",2192,2,.@label$;
 		break;
 	}
 	end;
 OnDisable:
 	killmonster instance_mapname("1@cash"),instance_npcname(strnpcinfo(0))+"::OnMyMobDead"; // Not in official script.
-	disablenpc instance_npcname(strnpcinfo(0));
+	disablenpc();
 	end;
-OnTouch:
+OnTouch_:
 	if (getd("."+strnpcinfo(0)+instance_id())) end;
 	setd "."+strnpcinfo(0)+instance_id(),1;
 	hideonnpc instance_npcname(strnpcinfo(0));
@@ -319,20 +316,20 @@ OnTimer5000:
 	set .@i, atoi(charat(strnpcinfo(0),8));
 	switch(.@i) {
 	case 1:
-		areamonster .@map$,18,112,22,116,"八爪鱼的心腹",2192,3,.@label$;
-		areamonster .@map$,18,112,22,116,"八爪鱼的心腹",2192,3,.@label$;
+		areamonster .@map$,18,112,22,116,"Octopus's Henchman",2192,3,.@label$;
+		areamonster .@map$,18,112,22,116,"Octopus's Henchman",2192,3,.@label$;
 		break;
 	case 2:
-		areamonster .@map$,86,188,90,192,"八爪鱼的心腹",2192,3,.@label$;
-		areamonster .@map$,96,98,100,102,"八爪鱼的心腹",2192,3,.@label$;
+		areamonster .@map$,86,188,90,192,"Octopus's Henchman",2192,3,.@label$;
+		areamonster .@map$,96,98,100,102,"Octopus's Henchman",2192,3,.@label$;
 		break;
 	case 3:
-		areamonster .@map$,305,213,309,217,"八爪鱼的心腹",2192,3,.@label$;
-		areamonster .@map$,305,213,309,217,"八爪鱼的心腹",2192,3,.@label$;
+		areamonster .@map$,305,213,309,217,"Octopus's Henchman",2192,3,.@label$;
+		areamonster .@map$,305,213,309,217,"Octopus's Henchman",2192,3,.@label$;
 		break;
 	case 4:
-		areamonster .@map$,370,129,374,133,"八爪鱼的心腹",2192,3,.@label$;
-		areamonster .@map$,370,129,374,133,"八爪鱼的心腹",2192,3,.@label$;
+		areamonster .@map$,370,129,374,133,"Octopus's Henchman",2192,3,.@label$;
+		areamonster .@map$,370,129,374,133,"Octopus's Henchman",2192,3,.@label$;
 		break;
 	}
 	end;
@@ -340,17 +337,17 @@ OnTimer30000:
 	setd "."+strnpcinfo(0)+instance_id(),0;
 	stopnpctimer;
 	set .@i, atoi(charat(strnpcinfo(0),8));
-	donpcevent instance_npcname("oct_foot_exit"+.@i)+"::OnEnable";
+	enablenpc instance_npcname("oct_foot_exit"+.@i);
 	donpcevent instance_npcname(strnpcinfo(0))+"::OnDisable";
 	end;
 OnMyMobDead:
 	set .@map$, instance_mapname("1@cash");
 	if (mobcount(.@map$,instance_npcname(strnpcinfo(0))+"::OnMyMobDead") < 1) {
-		mapannounce .@map$,"你竟敢伤了我的儿孙们!!? 你会为此付出代价的!!!",bc_map,"0x00ff99";
+		mapannounce .@map$,"You hurt my babies!!? You'll have to pay for this!!!",bc_map,"0x00ff99";
 		setd "."+strnpcinfo(0)+instance_id(),0;
 		stopnpctimer;
 		set .@i, atoi(charat(strnpcinfo(0),8));
-		donpcevent instance_npcname("oct_foot_exit"+.@i)+"::OnEnable";
+		enablenpc instance_npcname("oct_foot_exit"+.@i);
 		donpcevent instance_npcname(strnpcinfo(0))+"::OnDisable";
 		end;
 	}
@@ -360,22 +357,6 @@ OnMyMobDead:
 1@cash,307,215,0	duplicate(oct_foot1)	oct_foot3	139,6,6
 1@cash,372,131,0	duplicate(oct_foot1)	oct_foot4	139,6,6
 
-1@cash,16,117,0	script	oct_foot_exit1	45,2,2,{
-	end;
-OnInstanceInit:
-	disablenpc instance_npcname(strnpcinfo(0));
-	end;
-OnEnable:
-	enablenpc instance_npcname(strnpcinfo(0));
-	end;
-OnTouch:
-	warp instance_mapname("1@cash"),198,99;
-	end;
-}
-1@cash,77,193,0	duplicate(oct_foot_exit1)	oct_foot_exit2	45,2,2
-1@cash,312,214,0	duplicate(oct_foot_exit1)	oct_foot_exit3	45,2,2
-1@cash,370,139,0	duplicate(oct_foot_exit1)	oct_foot_exit4	45,2,2
-
 1@cash,15,15,0	script	oct_mob_con	-1,{
 	end;
 OnInstanceInit:
@@ -384,49 +365,49 @@ OnInstanceInit:
 OnEnable:
 	set .@map$, instance_mapname("1@cash");
 	enablenpc instance_npcname("oct_mob_con");
-	monster .@map$,32,94,"海葵",1068,1;
-	monster .@map$,41,101,"海葵",1068,1;
-	monster .@map$,35,78,"海葵",1068,1;
-	monster .@map$,35,62,"海葵",1068,1;
-	monster .@map$,49,54,"海葵",1068,1;
-	monster .@map$,70,28,"海葵",1068,1;
-	monster .@map$,83,22,"海葵",1068,1;
-	monster .@map$,99,23,"海葵",1068,1;
-	monster .@map$,115,23,"海葵",1068,1;
-	monster .@map$,132,25,"海葵",1068,1;
-	monster .@map$,100,185,"海葵",1068,1;
-	monster .@map$,92,178,"海葵",1068,1;
-	monster .@map$,92,162,"海葵",1068,1;
-	monster .@map$,70,121,"海葵",1068,1;
-	monster .@map$,70,105,"海葵",1068,1;
-	monster .@map$,105,85,"海葵",1068,1;
-	monster .@map$,121,84,"海葵",1068,1;
-	monster .@map$,292,209,"海葵",1068,1;
-	monster .@map$,303,206,"海葵",1068,1;
-	monster .@map$,290,163,"海葵",1068,1;
-	monster .@map$,299,150,"海葵",1068,1;
-	monster .@map$,308,141,"海葵",1068,1;
-	monster .@map$,308,125,"海葵",1068,1;
-	monster .@map$,295,97,"海葵",1068,1;
-	monster .@map$,279,97,"海葵",1068,1;
-	monster .@map$,370,111,"海葵",1068,1;
-	monster .@map$,370,110,"海葵",1068,1;
-	monster .@map$,371,96,"海葵",1068,1;
-	monster .@map$,371,80,"海葵",1068,1;
-	monster .@map$,367,55,"海葵",1068,1;
-	monster .@map$,343,29,"海葵",1068,1;
-	monster .@map$,327,24,"海葵",1068,1;
-	monster .@map$,311,22,"海葵",1068,1;
-	monster .@map$,295,22,"海葵",1068,1;
-	monster .@map$,279,22,"海葵",1068,1;
-	areamonster .@map$,30,67,50,87,"石头波利",1784,1;
-	areamonster .@map$,102,19,122,39,"石头波利",1784,1;
-	areamonster .@map$,89,138,109,158,"石头波利",1784,1;
-	areamonster .@map$,112,83,132,103,"石头波利",1784,1;
-	areamonster .@map$,283,168,303,188,"石头波利",1784,1;
-	areamonster .@map$,292,97,312,117,"石头波利",1784,1;
-	areamonster .@map$,355,64,375,84,"石头波利",1784,1;
-	areamonster .@map$,317,17,337,37,"石头波利",1784,1;
+	monster .@map$,32,94,"Hydra",1068,1;
+	monster .@map$,41,101,"Hydra",1068,1;
+	monster .@map$,35,78,"Hydra",1068,1;
+	monster .@map$,35,62,"Hydra",1068,1;
+	monster .@map$,49,54,"Hydra",1068,1;
+	monster .@map$,70,28,"Hydra",1068,1;
+	monster .@map$,83,22,"Hydra",1068,1;
+	monster .@map$,99,23,"Hydra",1068,1;
+	monster .@map$,115,23,"Hydra",1068,1;
+	monster .@map$,132,25,"Hydra",1068,1;
+	monster .@map$,100,185,"Hydra",1068,1;
+	monster .@map$,92,178,"Hydra",1068,1;
+	monster .@map$,92,162,"Hydra",1068,1;
+	monster .@map$,70,121,"Hydra",1068,1;
+	monster .@map$,70,105,"Hydra",1068,1;
+	monster .@map$,105,85,"Hydra",1068,1;
+	monster .@map$,121,84,"Hydra",1068,1;
+	monster .@map$,292,209,"Hydra",1068,1;
+	monster .@map$,303,206,"Hydra",1068,1;
+	monster .@map$,290,163,"Hydra",1068,1;
+	monster .@map$,299,150,"Hydra",1068,1;
+	monster .@map$,308,141,"Hydra",1068,1;
+	monster .@map$,308,125,"Hydra",1068,1;
+	monster .@map$,295,97,"Hydra",1068,1;
+	monster .@map$,279,97,"Hydra",1068,1;
+	monster .@map$,370,111,"Hydra",1068,1;
+	monster .@map$,370,110,"Hydra",1068,1;
+	monster .@map$,371,96,"Hydra",1068,1;
+	monster .@map$,371,80,"Hydra",1068,1;
+	monster .@map$,367,55,"Hydra",1068,1;
+	monster .@map$,343,29,"Hydra",1068,1;
+	monster .@map$,327,24,"Hydra",1068,1;
+	monster .@map$,311,22,"Hydra",1068,1;
+	monster .@map$,295,22,"Hydra",1068,1;
+	monster .@map$,279,22,"Hydra",1068,1;
+	areamonster .@map$,30,67,50,87,"Stapo",1784,1;
+	areamonster .@map$,102,19,122,39,"Stapo",1784,1;
+	areamonster .@map$,89,138,109,158,"Stapo",1784,1;
+	areamonster .@map$,112,83,132,103,"Stapo",1784,1;
+	areamonster .@map$,283,168,303,188,"Stapo",1784,1;
+	areamonster .@map$,292,97,312,117,"Stapo",1784,1;
+	areamonster .@map$,355,64,375,84,"Stapo",1784,1;
+	areamonster .@map$,317,17,337,37,"Stapo",1784,1;
 	donpcevent instance_npcname("oct_backattack1")+"::OnEnable";
 	donpcevent instance_npcname("oct_backattack2")+"::OnEnable";
 	donpcevent instance_npcname("oct_backattack3")+"::OnEnable";
@@ -443,16 +424,16 @@ OnDisable:
 OnInstanceInit:
 	disablenpc instance_npcname("oct_backattack1");
 	end;
-OnTouch:
+OnTouch_:
 	set .@map$, instance_mapname("1@cash");
-	monster .@map$,39,59,"海葵",1068,1;
-	monster .@map$,40,59,"海葵",1068,1;
-	monster .@map$,41,59,"海葵",1068,1;
-	monster .@map$,47,50,"海葵",1068,1;
-	monster .@map$,48,50,"海葵",1068,1;
-	monster .@map$,49,50,"海葵",1068,1;
-	monster .@map$,41,53,"八爪鱼的心腹",2192,1;
-	mapannounce .@map$,"不要让他们突破通道, 制止他们!!!",bc_map,"0x00ff99";
+	monster .@map$,39,59,"Hydra",1068,1;
+	monster .@map$,40,59,"Hydra",1068,1;
+	monster .@map$,41,59,"Hydra",1068,1;
+	monster .@map$,47,50,"Hydra",1068,1;
+	monster .@map$,48,50,"Hydra",1068,1;
+	monster .@map$,49,50,"Hydra",1068,1;
+	monster .@map$,41,53,"Octopus's Henchman",2192,1;
+	mapannounce .@map$,"Don't let them break through, stop them!!!",bc_map,"0x00ff99";
 	specialeffect EF_BASH;
 	disablenpc instance_npcname("oct_backattack1");
 	end;
@@ -466,34 +447,34 @@ OnEnable:
 OnInstanceInit:
 	disablenpc instance_npcname("oct_backattack2");
 	end;
-OnTouch:
+OnTouch_:
 	if (getd("."+instance_id())) end;
 	setd "."+instance_id(),1;
 	initnpctimer;
 	set .@map$, instance_mapname("1@cash");
-	monster .@map$,71,105,"八爪鱼的心腹",2192,1;
-	mapannounce .@map$,"老家空虚, 快走!!!",bc_map,"0x00ff99";
+	monster .@map$,71,105,"Octopus's Henchman ",2192,1;
+	mapannounce .@map$,"Headquarters are empty, GO!!!",bc_map,"0x00ff99";
 	hideonnpc instance_npcname("oct_backattack2");
 	end;
 OnTimer2000:
 	set .@map$, instance_mapname("1@cash");
-	monster .@map$,71,105,"八爪鱼的心腹",2192,1;
-	mapannounce .@map$,"速度, 速度! 快, 快!!!",bc_map,"0x00ff99";
+	monster .@map$,71,105,"Octopus's Henchman ",2192,1;
+	mapannounce .@map$,"Run, RUN! Go, GO!!!",bc_map,"0x00ff99";
 	end;
 OnTimer4000:
 	set .@map$, instance_mapname("1@cash");
-	monster .@map$,71,105,"八爪鱼的心腹",2192,1;
-	mapannounce .@map$,"没时间了, 快出来!",bc_map,"0x00ff99";
+	monster .@map$,71,105,"Octopus's Henchman ",2192,1;
+	mapannounce .@map$,"No time, come out fast!",bc_map,"0x00ff99";
 	end;
 OnTimer6000:
 	set .@map$, instance_mapname("1@cash");
-	monster .@map$,71,105,"八爪鱼的心腹",2192,3;
-	mapannounce .@map$,"我们去占它们老家!!!",bc_map,"0x00ff99";
+	monster .@map$,71,105,"Octopus's Henchman ",2192,3;
+	mapannounce .@map$,"Let's take over the headquarters!!!",bc_map,"0x00ff99";
 	end;
 OnTimer8000:
 	set .@map$, instance_mapname("1@cash");
-	monster .@map$,71,105,"八爪鱼的心腹",2192,1;
-	mapannounce .@map$,"没时间再浪费了, 速度!!!!",bc_map,"0x00ff99";
+	monster .@map$,71,105,"Octopus's Henchman ",2192,1;
+	mapannounce .@map$,"There is no time to lose, hurry up!!!",bc_map,"0x00ff99";
 	stopnpctimer;
 	end;
 OnEnable:
@@ -506,21 +487,21 @@ OnEnable:
 OnInstanceInit:
 	disablenpc instance_npcname("oct_backattack3");
 	end;
-OnTouch:
+OnTouch_:
 	if (getd("."+instance_id())) end;
 	setd "."+instance_id(),1;
 	set .@map$, instance_mapname("1@cash");
-	monster .@map$,293,153,"八爪鱼的心腹",2192,1;
-	monster .@map$,294,152,"八爪鱼的心腹",2192,1;
-	monster .@map$,292,153,"八爪鱼的心腹",2192,1;
-	monster .@map$,293,151,"八爪鱼的心腹",2192,1;
-	monster .@map$,293,152,"八爪鱼的心腹 ?",2175,1;
-	mapannounce .@map$,"哇嘎嘎! 吃惊吗??!!",bc_map,"0x00ff99";
+	monster .@map$,293,153,"Octopus's Henchman ",2192,1;
+	monster .@map$,294,152,"Octopus's Henchman ",2192,1;
+	monster .@map$,292,153,"Octopus's Henchman ",2192,1;
+	monster .@map$,293,151,"Octopus's Henchman ",2192,1;
+	monster .@map$,293,152,"Octopus's Henchman ?",2175,1;
+	mapannounce .@map$,"Kakaka! Suprised??!!",bc_map,"0x00ff99";
 	initnpctimer;
 	hideonnpc instance_npcname("oct_backattack3");
 	end;
 OnTimer5000:
-	mapannounce instance_mapname("1@cash"),"... 看起来在我们中间有个间谍.",bc_map,"0x00ff99";
+	mapannounce instance_mapname("1@cash"),"... Looks like we have a spy among us.",bc_map,"0x00ff99";
 	stopnpctimer;
 	end;
 OnEnable:
@@ -533,32 +514,32 @@ OnEnable:
 OnInstanceInit:
 	disablenpc instance_npcname("oct_backattack4");
 	end;
-OnTouch:
+OnTouch_:
 	if (getd("."+instance_id())) end;
 	setd "."+instance_id(),1;
 	set .@map$, instance_mapname("1@cash");
-	monster .@map$,332,37,"八爪鱼的心腹",2192,1;
-	monster .@map$,332,36,"八爪鱼的心腹",2192,1;
-	monster .@map$,332,35,"八爪鱼的心腹",2192,1;
-	monster .@map$,332,34,"八爪鱼的心腹",2192,1;
-	monster .@map$,341,37,"八爪鱼的心腹",2192,1;
-	monster .@map$,341,36,"八爪鱼的心腹",2192,1;
-	monster .@map$,341,35,"八爪鱼的心腹",2192,1;
-	monster .@map$,341,34,"八爪鱼的心腹",2192,1;
-	monster .@map$,260,40,"乌贼佣兵",2175,1;
-	monster .@map$,260,41,"乌贼佣兵",2175,1;
-	monster .@map$,260,39,"乌贼佣兵",2175,1;
-	monster .@map$,259,40,"乌贼佣兵",2175,1;
-	monster .@map$,261,40,"乌贼佣兵",2175,1;
-	mapannounce .@map$,"一次漂亮的夹击战术! 敌人非常强悍! 不要担心! 总之, 这里到处都是佣兵??",bc_map,"0x00ff99";
+	monster .@map$,332,37,"Octopus's Henchman ",2192,1;
+	monster .@map$,332,36,"Octopus's Henchman ",2192,1;
+	monster .@map$,332,35,"Octopus's Henchman ",2192,1;
+	monster .@map$,332,34,"Octopus's Henchman ",2192,1;
+	monster .@map$,341,37,"Octopus's Henchman ",2192,1;
+	monster .@map$,341,36,"Octopus's Henchman ",2192,1;
+	monster .@map$,341,35,"Octopus's Henchman ",2192,1;
+	monster .@map$,341,34,"Octopus's Henchman ",2192,1;
+	monster .@map$,260,40,"Mercenary Squid",2175,1;
+	monster .@map$,260,41,"Mercenary Squid",2175,1;
+	monster .@map$,260,39,"Mercenary Squid",2175,1;
+	monster .@map$,259,40,"Mercenary Squid",2175,1;
+	monster .@map$,261,40,"Mercenary Squid",2175,1;
+	mapannounce .@map$,"What a successful pincer tactic! The enemy is strong! Let's not lose yourselves! Anyway, where are all the mercenaries??",bc_map,"0x00ff99";
 	initnpctimer;
 	hideonnpc instance_npcname("oct_backattack4");
 	end;
 OnTimer5000:
-	mapannounce instance_mapname("1@cash"),"乌贼佣兵 : 呃...呃... 走错了方向. 在这个方向没有敌人.",bc_map,"0x00ff99";
+	mapannounce instance_mapname("1@cash"),"Mercenary Squid : eh...eh... wrong direction. No enemies are shown in this direction.",bc_map,"0x00ff99";
 	end;
 OnTimer7000:
-	mapannounce instance_mapname("1@cash"),"色狼八爪鱼 : 蠢货上当了! 难道你不看地图??!! Useless!!",bc_map,"0x00ff99";
+	mapannounce instance_mapname("1@cash"),"Pervert Octopus : Fools! Can't you read the map??!! Useless!!",bc_map,"0x00ff99";
 	stopnpctimer;
 	end;
 OnEnable:
@@ -577,60 +558,60 @@ OnDisable:
 OnEnable:
 	enablenpc instance_npcname("oct_boss_con");
 	donpcevent instance_npcname("oct_boss_foot")+"::OnEnable";
-	monster instance_mapname("1@cash"),199,188,"恶心的八爪鱼",2194,1,instance_npcname("oct_boss_con")+"::OnMyMobDead";
+	monster instance_mapname("1@cash"),199,188,"Disgusting Octopus",2194,1,instance_npcname("oct_boss_con")+"::OnMyMobDead";
 	initnpctimer;
 	end;
 OnTimer7000:
 	callsub OnAnnounce,
-		"你不能攻击人类.",
-		"我上周被墨水店给解雇了.",
-		"恶心的八爪鱼 : 啊嘎嘎, 来吧!";
+		"You won't attack the one man.",
+		"I got fired from ink manufacturer last week.",
+		"Disgusting Octopus : Arghhhhh, come on!";
 	end;
 OnTimer14000:
 	callsub OnAnnounce,
-		"为什么...你为什么不能明白我的心!",
-		"你知道是多么痛苦的一段时光,因为不会有太多新的冒险?",
-		"你..我要灭了你...!";
+		"Why... why can't you know my heart!",
+		"Do you know how hard it is to live these days because there are not many new adventurers?",
+		"You.. I'll destroy you all...!";
 	end;
 OnTimer21000:
 	callsub OnAnnounce,
-		"什么? 我是一个恶心章鱼? 你是虐待狂.",
-		"我们这样做,让我们来看看最佳解决方案,呵呵??",
-		"就算我失败了,我还会继续回来,直到永远!!!";
+		"What? I'm a disgusting octopus? You're sadists.",
+		"Let's not do this and how about we look for the best solution, huh??",
+		"Even if I fail here, I will keep coming back, forever!!!";
 	end;
 OnTimer28000:
 	callsub OnAnnounce,
-		"交配是男性的本能,我有什么错?",
-		"难道你真的想要去解决这个问题,人与人之间是强奸? 啊哈哈,我是章鱼...",
-		"够了,闪开!";
+		"Instinct of mating is for males, what did I do wrong?",
+		"Do you really want to solve the problem between humans by violence?? Ah, I'm an octopus...",
+		"That's enough! Back off!";
 	end;
 OnTimer35000:
 	callsub OnAnnounce,
-		"难道我又一次要再次单独度过圣诞节...",
-		"青年就业问题成为一个很大的麻烦,如果你继续在这里跟我玩,你将一直不会得到一份工作.",
-		"这就是到目前为止,我还可以继续!";
+		"Do I have to spend Christmas alone again...",
+		"Youth unemployment became a big issue these days... You won't get a job if you keep playing with me here.",
+		"This is as far as I can go!";
 	end;
 OnTimer42000:
 	callsub OnAnnounce,
-		"当你想起某人的时候,你可以把手放在胸前然后祈祷...",
-		"我们不要在这里做这事,要按照法律流程来做!",
-		"你会继续这样做直到最后,是吗?";
+		"Hand on your heart and think if you come onto anyone...",
+		"Let's not do this here and follow the law!",
+		"You'll keep on doing this til the end, is that it?";
 	end;
 OnTimer49000:
 	callsub OnAnnounce,
-		"errrrrrrrrrrrrrrrrrrrrrrrr... 咳嗽! 咳嗽!",
-		"恶心的八爪鱼 : 无论如何,暴力都不得视为正当.",
-		"这是我的地盘!!!";
+		"errrrrrrrrrrrrrrrrrrrrrrrr... Cough! Cough!",
+		"Disgusting Octopus : Violence cannot be justified in any case.",
+		"This is my place!!!";
 	stopnpctimer;
 	initnpctimer;
 	end;
 OnAnnounce:
-	mapannounce instance_mapname("1@cash"),"恶心的八爪鱼 : "+getarg(rand(3)),bc_map,"0xFFFF00";
+	mapannounce instance_mapname("1@cash"),"Disgusting Octopus : "+getarg(rand(3)),bc_map,"0xFFFF00";
 	return;
 OnMyMobDead:
 	set .@map$, instance_mapname("1@cash");
 	if (mobcount(.@map$,instance_npcname("oct_boss_con")+"::OnMyMobDead") < 1) {
-		mapannounce .@map$,"恶心的八爪鱼 : 就是它今天糟糕的表现! 下一次,让我来和你玩玩, 如何?",bc_map,"0xFFFF00";
+		mapannounce .@map$,"Disgusting Octopus : That's it for the today! Next time, I will play with you badly!",bc_map,"0xFFFF00";
 		enablenpc instance_npcname("oct_exit_1");
 		enablenpc instance_npcname("oct_exit_2");
 		donpcevent instance_npcname("oct_boss_foot")+"::OnDisable";
@@ -655,12 +636,12 @@ OnCall:
 	if (mobcount(.@map$,instance_npcname("oct_boss_foot")+"::OnMyMobDead") < 100) {
 		switch(rand(2)) {
 		case 0:
-			mapannounce .@map$,"恶心的八爪鱼 : 你想知道章鱼有多少条腿? 没关系,我有无限的腿!!",bc_map,"0xFFFF00";
+			mapannounce .@map$,"Disgusting Octopus : Do you know how many legs octopus have? It doesn't matter, I have unlimited legs!!",bc_map,"0xFFFF00";
 			areamonster .@map$,192,181,206,195,"Octopus Leg",2193,1,instance_npcname("oct_boss_foot")+"::OnMyMobDead";
 			break;
 		case 1:
-			mapannounce .@map$,"恶心的八爪鱼 : 我...顶不住..更多的了, 我的孩子们~ 出来战斗吧!",bc_map,"0xFFFF00";
-			areamonster .@map$,192,181,206,195,"八爪鱼的心腹",2192,5,instance_npcname("oct_boss_foot")+"::OnMyMobDead";
+			mapannounce .@map$,"Disgusting Octopus : I...cannot..hold anymore, my babies~ please come out and fight!",bc_map,"0xFFFF00";
+			areamonster .@map$,192,181,206,195,"Octopus's Henchman ",2192,5,instance_npcname("oct_boss_foot")+"::OnMyMobDead";
 			break;
 		}
 	}
@@ -679,25 +660,16 @@ OnMyMobDead:
 	end;
 }
 
-1@cash,198,116,0	script	oct_boss_warp	45,2,2,{
-	end;
-OnInstanceInit:
-	disablenpc instance_npcname("oct_boss_warp");
-	end;
-OnTouch:
-	warp instance_mapname("1@cash"),210,172;
-	end;
-}
 
 1@cash,190,208,0	script	oct_exit_1	45,2,2,{
 	end;
 OnInstanceInit:
-	disablenpc instance_npcname(strnpcinfo(0));
+	disablenpc();
 	end;
 OnTouch:
-	mes "你想离开八爪鱼洞穴副本吗?";
+	mes "Do you want to go out from the octopus dungeon?";
 	next;
-	if(select("- 不!:- 是!") == 2)
+	if(select("No!:Yes!") == 2)
 		warp "mal_dun01",153,233;
 	close;
 }
@@ -707,11 +679,17 @@ OnTouch:
 
 // Warp Portals
 //============================================================
-1@cash,193,82,0	warp	oct_door1	2,2,1@cash,151,48
-1@cash,154,53,0	warp	oct_door2	2,2,1@cash,197,87
-1@cash,187,99,0	warp	oct_door3	2,2,1@cash,148,128
-1@cash,153,133,0	warp	oct_door4	2,2,1@cash,197,99
-1@cash,209,100,0	warp	oct_door5	2,2,1@cash,250,111
-1@cash,244,118,0	warp	oct_door6	2,2,1@cash,199,100
-1@cash,209,83,0	warp	oct_door7	2,2,1@cash,252,46
-1@cash,246,53,0	warp	oct_door8	2,2,1@cash,203,83
+1@cash,16,117,0	warp2	oct_foot_exit1	2,2,1@cash,198,99
+1@cash,77,193,0	warp2	oct_foot_exit2	2,2,1@cash,198,99
+1@cash,312,214,0	warp2	oct_foot_exit3	2,2,1@cash,198,99
+1@cash,370,139,0	warp2	oct_foot_exit4	2,2,1@cash,198,99
+1@cash,198,116,0	warp2	oct_boss_warp	2,2,1@cash,210,172
+
+1@cash,193,82,0	warp2	oct_door1	2,2,1@cash,151,48
+1@cash,154,53,0	warp2	oct_door2	2,2,1@cash,197,87
+1@cash,187,99,0	warp2	oct_door3	2,2,1@cash,148,128
+1@cash,153,133,0	warp2	oct_door4	2,2,1@cash,197,99
+1@cash,209,100,0	warp2	oct_door5	2,2,1@cash,250,111
+1@cash,244,118,0	warp2	oct_door6	2,2,1@cash,199,100
+1@cash,209,83,0	warp2	oct_door7	2,2,1@cash,252,46
+1@cash,246,53,0	warp2	oct_door8	2,2,1@cash,203,83

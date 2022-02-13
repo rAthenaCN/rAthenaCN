@@ -1,90 +1,88 @@
-//============================================================
-//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
-//============================================================
-//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
-
 //===== rAthena Script ======================================= 
 //= Moscovia Guide
 //===== By: ================================================== 
 //= L0ne_W0lf
 //===== Current Version: ===================================== 
-//= 1.1
+//= 1.2
 //===== Compatible With: ===================================== 
-//= rAthena SVN
+//= rAthena Project
 //===== Description: ========================================= 
 //= [Official Conversion]
 //= Guide for the city of Moscovia.
 //===== Additional Comments: ================================= 
 //= 1.0 First version, Renewal guide.
 //= 1.1 Optimized (a little bit). [Euphy]
+//= 1.2 Navigation system update. [Euphy]
 //============================================================ 
 
-moscovia,226,191,4	script	莫斯科利亚导游#02mosc	959,{
-	mes "[莫斯科利亚导游]";
-	mes "一望无际海上的乐园,";
-	mes "有着漂亮的海洋和温暖的太阳等着你的";
-	mes "欢迎光临 ^8B4513莫斯科利亚^000000";
-	set .@str$,"需要为您介绍吗?";
+moscovia,161,76,3	script	Moscovia Guide#01mosc	959,{
+	mes "[Moscovia Guide]";
+	mes "A paradise on the sea,";
+	mes "beautiful waves and warm sunshine.";
+	mes "^8B4513Moscovia^000000 is waiting for you.";
+	mes "I'm supporting to offer information about here.";
+	mes "If you want to ask anything just feel free tell me.";
+	F_Navi("[Moscovia Guide]");
+	set .@str$,"Is there anything else I can do for you?";
 	while (1) {
 		next;
-		switch(select("[ 王宫 ]:[ 礼拜堂 ]:[ 武器店 ]:[ 防具店 ]:[ 道具店 ]:[ 旅馆 ]:[ 回去艾尔贝塔 ]:删除小地图的标记:结束对话")) {
+		switch(select("[ Kafra Employee ]:[ Palace ]:[ Chapel ]:[ Weapon Shop ]:[ Armor Shop ]:[ Tool Shop ]:[ Inn ]:[ Return to Alberta ]:Remove Marks from Mini-Map:Cancel")) {
 		case 1:
-			mes "[莫斯科利亚导游]";
-			mes "^006400王宫^000000是统治者沙皇和很多臣僚们所聚集的地方";
-			mes "是统治者沙皇";
-			mes "和很多臣僚们所聚集的地方.";
-			mes .@str$;
-			viewpoint 1,255,140,0,0x0A82FF;
+			mes "[Moscovia Guide]";
+			mes "The ^0000FFKafra Employee^000000 has";
+			mes "been marked on your mini-map";
+			mes "Check your mini-map.";
+			mes "Do you need anything else?";
+			viewpoint 1,223,191,0,0x0A82FF;
 			break;
 		case 2:
-			mes "[莫斯科利亚导游]";
-			mes "^008080礼拜堂^000000";
-			mes "^是祈祷莫斯科利亚安宁的修道士们所在的地方";
+			mes "[Moscovia Guide]";
+			mes "In the "+F_Navi("Palace","moscovia,255,140","^006400")+" you will find our Lord the Czar and other servants.";
 			mes .@str$;
-			viewpoint 1,253,179,1,0xAAFF00;
+			viewpoint 1,255,140,1,0x0A82FF;
 			break;
 		case 3:
-			mes "[莫斯科利亚导游]";
-			mes "你可以在莫斯科比亚^FF1493武器店^000000";
-			mes "从最好的工匠们手中买到";
-			mes "最好的武器";
+			mes "[Moscovia Guide]";
+			mes "The "+F_Navi("Chapel","moscovia,253,179","^008080")+" is located here.";
 			mes .@str$;
-			viewpoint 1,186,191,2,0x008080;
+			viewpoint 1,253,179,2,0xAAFF00;
 			break;
 		case 4:
-			mes "[莫斯科利亚导游]";
-			mes "你会在莫斯科利亚^8B4513防具店^000000";
-			mes "买到最好的防具";
+			mes "[Moscovia Guide]";
+			mes "You can buy weapons from the best craftsmen in Moscovia if you go to the "+F_Navi("Weapon Shop","moscovia,186,191","^FF1493")+".";
 			mes .@str$;
-			viewpoint 1,204,169,3,0xB200FF;
+			viewpoint 1,186,191,3,0x008080;
 			break;
 		case 5:
-			mes "[莫斯科利亚导游]";
-			mes "^FF1493道具店^000000在镇中心的南边,";
-			mes "在出去旅行之前要充分的做好准备.";
+			mes "[Moscovia Guide]";
+			mes "You will find only the best gear at the Moscovia "+F_Navi("Armor Shop","moscovia,204,169","^8B4513")+".";
 			mes .@str$;
-			viewpoint 1,221,176,4,0xFF1493;
+			viewpoint 1,204,169,4,0xB200FF;
 			break;
 		case 6:
-			mes "[莫斯科利亚导游]";
-			mes "'苹果树'旅馆在镇中心的北边,";
-			mes "因旅行时的疲惫";
-			mes "请务必在这里消除后再走吧";
+			mes "[Moscovia Guide]";
+			mes "The "+F_Navi("Tool Shop","moscovia,221,176","^FF1493")+" is located just south from the center of town.";
+			mes "You can find all sorts of things you need for your travels.";
 			mes .@str$;
-			viewpoint 1,227,206,5,0x8B4513;
+			viewpoint 1,221,176,5,0xFF1493;
 			break;
 		case 7:
-			mes "[莫斯科利亚导游]";
-			mes "你可以去码头坐船回去艾尔贝塔.";
+			mes "[Moscovia Guide]";
+			mes "The Inn "+F_Navi("Sticky Herb Tree","moscovia,227,206")+" is just north from the center of town.";
+			mes "If you need to rest, there is no better place to stay.";
 			mes .@str$;
-			viewpoint 1,166,53,6,0x00BFFF;
+			viewpoint 1,227,206,6,0x8B4513;
 			break;
 		case 8:
-			mes "[莫斯科利亚导游]";
-			mes "标记已删除,";
+			mes "[Moscovia Guide]";
+			mes "You can find the";
+			mes F_Navi("Moscovia P.R. Officer","moscovia,166,53")+" at the docks if";
+			mes "you want to return to Alberta.";
+			viewpoint 1,166,53,7,0x00BFFF;
+			break;
+		case 9:
+			mes "[Moscovia Guide]";
+			mes "I'll remove all marks from your mini-map.";
 			mes .@str$;
 			viewpoint 2,1,1,0,0xFFFFFF;
 			viewpoint 2,1,1,1,0xFFFFFF;
@@ -93,11 +91,13 @@ moscovia,226,191,4	script	莫斯科利亚导游#02mosc	959,{
 			viewpoint 2,1,1,4,0xFFFFFF;
 			viewpoint 2,1,1,5,0xFFFFFF;
 			viewpoint 2,1,1,6,0xFFFFFF;
+			viewpoint 2,1,1,7,0xFFFFFF;
 			break;
-		case 9:
-			mes "[莫斯科利亚导游]";
-			mes "祝你旅途愉快!";
+		case 10:
+			mes "[Moscovia Guide]";
+			mes "Enjoy your trip~!";
 			close;
 		}
 	}
 }
+moscovia,226,191,4	duplicate(Moscovia Guide#01mosc)	Moscovia Guide#02mosc	959

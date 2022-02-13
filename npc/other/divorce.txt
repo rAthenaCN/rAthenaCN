@@ -1,12 +1,4 @@
-//============================================================
-//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
-//============================================================
-//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
-
-//===== rAthena Script =======================================  
+//===== rAthena Script ======================================= 
 //= Divorcing Deviruchi
 //===== By: ================================================== 
 //= Perkka, Scriptor, LightFighter
@@ -14,7 +6,7 @@
 //===== Current Version: ===================================== 
 //= 1.5
 //===== Compatible With: ===================================== 
-//= rAthena SVN
+//= rAthena Project
 //===== Description: ========================================= 
 //= [Official Conversion]
 //= Official Divorce script.
@@ -32,194 +24,194 @@
 //= 1.5 Replaced effect numerics with constants. [L0ne_W0lf]
 //============================================================ 
 
-nif_in,190,112,5	script	Deviruchi#divorce	4_DEVIRUCHI,{
-	mes "[小恶魔]";
+nif_in,190,112,5	script	Deviruchi#divorce	738,{
+	mes "[Deviruchi]";
 //	if (wedding_sign == 0) {
-//		mes "呵 呵...";
-//		mes "看着那张沮丧的脸.";
-//		mes "你一定感觉到非常的孤独.";
-//		mes "不过有些事是每个人";
-//		mes "都必须处理的.";
+//		mes "Heh heh...";
+//		mes "Look at that depressed face.";
+//		mes "You must be feeling very lonely.";
+//		mes "But that's something everyone";
+//		mes "has to deal with.";
 //		next;
-//		mes "[小恶魔]";
-//		mes "如果你觉得这么孤独,";
-//		mes "不如去试试养个宠物?";
-//		mes "我听说过我们这种";
-//		mes "现在是很流行的啊,呵 呵~";
+//		mes "[Deviruchi]";
+//		mes "If you feel that lonely,";
+//		mes "how about raising a Pet?";
+//		mes "I hear that my kind is very";
+//		mes "popular nowadays, heh heh~";
 //		close;
 //	}
 //	else 
   	if (!getpartnerid()) {
-		mes "巴 啦 啦 啦~!";
-		mes "看着我的眼睛~!";
-		if (Sex) {
-			mes "那清澈的眼睛";
-			mes "绝对是一位男单身汉的.";
-			mes "我百分百确定";
-			mes "你在圣坛前面被抛弃.";
+		mes "Bwah hah hah~!";
+		mes "That look in your eyes~!";
+		if (Sex == SEX_MALE) {
+			mes "Those are definitely the eyes";
+			mes "of a lonely male bachelor.";
+			mes "I'm almost 100 percent sure";
+			mes "you got ditched at the altar.";
 		}
 		else {
-			mes "对于你来说, 她只是";
-			mes "一个充满痛苦的老处女--!";
-			mes "你不能强制一个";
-			mes "可怜人去结婚, 对吧?";
+			mes "They're just filled with the";
+			mes "pain of an old maid--!";
+			mes "Couldn't rope some poor guy";
+			mes "into marriage, huh?";
 		}
 		next;
-		mes "[小恶魔]";
+		mes "[Deviruchi]";
 		mes "HHAHAHAHA~!";
-		mes "Oooooh...嘿嘿 嘿~";
-		mes "如果你知道我是";
-		mes "黑暗创造的生物,";
-		mes "我会更有同情心的";
+		mes "Oooooh...Hee hee~";
+		mes "I'd be more sympathetic if,";
+		mes "you know, I weren't a creature";
+		mes "of darkness.";
 		close;
 	}
-	mes "你看起来非常的沮丧...";
-	mes "祝你好运, 对于快乐的人";
-	mes "我才不会注意...";
-	mes "人类的绝望";
-	mes "还真是有趣啊.";
-	mes "哈哈哈哈~!";
+	mes "You look awfully depressed...";
+	mes "Lucky for you, I could care";
+	mes "less about happy people...";
+	mes "It's the humans in despair";
+	mes "that I take an interest in.";
+	mes "Hahahahahahah~!";
 	next;
-	mes "[小恶魔]";
-	mes "我能感受到";
-	mes "你携带的烦恼...";
-	mes "如果我没猜错的话";
-	if (Sex)
-		mes "与一个男人结婚了, 对吧?";
+	mes "[Deviruchi]";
+	mes "I sense that you carry a";
+	mes "tiresome burden...";
+	mes "If I'm not wrong, you're";
+	if (Sex == SEX_MALE)
+		mes "a married man, aren't you?";
 	else
-		mes "与一个女人结婚了, 对吧?";
+		mes "a married woman, aren't you?";
 	next;
-	mes "[小恶魔]";
-	mes "让我问你一个问题.";
-	mes "结婚后你感觉快乐么?";
-	mes "忘记了自己的责任,";
-	mes "浪漫并且其他的都是垃圾";
-	mes "现在.";
+	mes "[Deviruchi]";
+	mes "Let me ask you one thing.";
+	mes "Are you happy to be married?";
+	mes "Forget about responsibilities,";
+	mes "romance and all that other junk";
+	mes "for now.";
 	next;
-	mes "[小恶魔]";
-	mes "我的意思是, 变成一个人";
-	mes "真正能带给你幸福么?";
-	mes "我知道所有关于";
-	mes "特别的婚礼和神奇的爱";
-	mes "应该是,不过...";
+	mes "[Deviruchi]";
+	mes "I mean, can just one single";
+	mes "person really bring you all that";
+	mes "happiness? I know all about how";
+	mes "special weddings and the magic";
+	mes "of love is supposed to be, but...";
 	next;
-	mes "[小恶魔]";
-	mes "在一切终止之日, 你和你的";
-	mes "恋人在对打, 你感觉";
-	mes "完全完全的悲伤.";
-	if (Sex)
-		mes "...完全是因为她.";
+	mes "[Deviruchi]";
+	mes "At the end of the day, you and";
+	mes "your partner fight, and you feel";
+	mes "totally totally miserable.";
+	if (Sex == SEX_MALE)
+		mes "...all because of HER.";
 	else
-		mes "...完全是因为他.";
+		mes "...all because of HIM.";
 	next;
-	mes "[小恶魔]";
-	mes "是的, 你命中注定要遇见我";
-	mes "我们都犯了错误...";
-	mes "就算你发誓永恒的爱";
-	mes "就算你曾经宣誓...";
-	mes "我可以把使你从爱情的围城中";
-	mes "解脱出来";
+	mes "[Deviruchi]";
+	mes "Yes, it's your destiny to find me";
+	mes "here. We all make mistakes...";
+	mes "Even if you promised everlasting";
+	mes "love, even if you made a vow...";
+	mes "I can free you from that prison";
+	mes "of matrimony.";
 	next;
-	mes "[小恶魔]";
-	mes "如果你把婚姻看成";
-	mes "一纸合同的话...";
-	mes "一张“至死也要在一起”的合同";
-	mes "不过我们是在尼芙菲姆";
-	mes "所以说我们";
-	mes "可以利用一个小漏洞...";
+	mes "[Deviruchi]";
+	mes "It's simple if you look at";
+	mes "marriage as a contract...a";
+	mes "contract that ends with 'till";
+	mes "death do we part.' Here in";
+	mes "Niflheim, it's easy to use";
+	mes "that little loophole...";
 	next;
-	mes "[小恶魔]";
-	mes "*小声的说*";
-	mes "^555555对于你来说这不像是打破一个^000000";
-	if (Sex) {
-		mes "^555555誓言, 当然";
-		mes "如果你妻子她不知道的话她也不会关心";
-		mes "难道你不想";
-		mes "从她的围城中解脱出来么?^000000";
+	mes "[Deviruchi]";
+	mes "*whispers*";
+	mes "^555555It's not like you're breaking^000000";
+	if (Sex == SEX_MALE) {
+		mes "^555555any promises, and it's not";
+		mes "like your wife will care if she";
+		mes "doesn't know... Don't you";
+		mes "want to be freed from her?^000000";
 	}
 	else {
-		mes "^555555誓言.当然";
-		mes "如果你丈夫他不知道的话他也不会关心";
-		mes "你应该得到";
-		mes "真正的幸福, 对吧?^000000";
+		mes "^555555any promises. Hell, your husband";
+		mes "doesn't even have to know";
+		mes "about it... you deserve";
+		mes "real happiness, right?^000000";
 	}
 	next;
-	mes "[小恶魔]";
-	mes "你能与更好的人";
-	mes "发生一段更棒的感情...";
-	mes "不是更棒么...?";
-	mes "如果你想的话, 我能帮你...";
-	mes "我能使这一切发生!";
+	mes "[Deviruchi]";
+	mes "You can have a brand new love";
+	mes "with a better person...";
+	mes "Wouldn't that be great...?";
+	mes "I can help you if you want...";
+	mes "I can make all of this happen!";
 	next;
-	if (select("不用了, 谢谢我过的很愉快.:是的, 请让他发生吧.") == 1) {
-		mes "[小恶魔]";
-		mes "呜呼~! 你一定还在";
-		mes "对‘永恒的爱’的奇葩概念有迷恋";
-		mes "好吧,";
-		mes "如果你认为你还,";
-		mes "快乐的话";
-		mes "那么我对于你没有任何意义--!";
+	if (select("No thanks, I am happy.:Yes, please do.") == 1) {
+		mes "[Deviruchi]";
+		mes "Hmpf~! You must still be";
+		mes "fascinated with the silly";
+		mes "notion of eternal love. Well,";
+		mes "if you think you're happy,";
+		mes "then I'll have nothing";
+		mes "to do with you--!";
 		close2;
 		warp "niflheim",169,162;
 		end;
 	}
-	mes "[小恶魔]";
-	mes "很好,很好...";
-	mes "你所需要做的就是";
-	mes "给我这些东西...";
-	mes "我要 2,500,000 zeny 和...*cough!*";
-	mes "^666666你灵魂的一小片.^000000";
+	mes "[Deviruchi]";
+	mes "Good, good...";
+	mes "Now all you have to do is give";
+	mes "me what I want in exchange...";
+	mes "Just 2,500,000 zeny and...*cough!*";
+	mes "^666666An eensy piece of your soul.^000000";
 	next;
-	mes "[小恶魔]";
-	mes "在那之后";
-	mes "就是无忧无虑的单身生活了";
-	mes "但要为了实现, 你必须说出以下的话...";
+	mes "[Deviruchi]";
+	mes "After that, it's the carefree";
+	mes "single's life. All you have to";
+	mes "do is say the word...";
 	next;
-	if (select("...给我点时间让我想想.:我愿意付钱, 让我现在就离婚了吧!") == 1) {
-		mes "[小恶魔]";
-		mes "我能理解. 如果你在";
-		mes "想什么的话, 请考虑";
-		if (Sex) {
-			mes "你老婆的唠叨, ";
-			mes "回到了单身生活";
-			mes "终于从婚姻的枷锁中";
-			mes "彻底的解放出来~";
+	if (select("...Give me some time to think.:Any price will do, give me a divorce right now!") == 1) {
+		mes "[Deviruchi]";
+		mes "I understand. But if you think";
+		mes "about anything, think about";
+		if (Sex == SEX_MALE) {
+			mes "your wife's nagging, and";
+			mes "how great it would be to";
+			mes "finally free yourself of the";
+			mes "old ball and chain~";
 		}
 		else {
-			mes "你老公多么的糟糕,";
-			mes "从讨厌的人的";
-			mes "身边解脱出来是有多好~";
+			mes "how horrible your husband is,";
+			mes "and what a relief it would";
+			mes "be to be rid of that crumbum~";
 		}
 		close;
 	}
-	mes "[小恶魔]";
+	mes "[Deviruchi]";
 	if (Zeny > 2499999) {
-		mes "明智的选择~";
-		mes "让我们开始吧";
-		mes "这需要点时间";
-		mes "但总比无望的";
-		mes "婚姻要好很多";
-		mes "^FF0000为了你余下的人生.^000000";
+		mes "Excellent choice~";
+		mes "Let's get started right";
+		mes "away! This may take some";
+		mes "time, but it's better than";
+		mes "being hopelessly married";
+		mes "^FF0000for the rest of your life.^000000";
 		next;
 		specialeffect EF_MAGICROD;
 		specialeffect2 EF_DEVIL;
 		set wedding_sign,0;
-		set Zeny, Zeny - 2500000;
+		set Zeny, Zeny-2500000;
 		percentheal -100,-100;
 		divorce;
-		mes "[小恶魔]";
-		mes "哇哈哈哈~!";
-		mes "现在你自由了~!";
-		mes "变成单身后";
-		mes "是不是感觉好多了?";
-		mes "啊,美妙的单身生活...";
+		mes "[Deviruchi]";
+		mes "Bwahhahahaha~!";
+		mes "Now you're free~!";
+		mes "Don't you feel so much";
+		mes "better now as a single?";
+		mes "Ah, bachelorhood...";
 		close;
 	}
-	mes "Hmmm...我是不是告诉过你带";
-	mes "2,500,000 zeny来, 对么?";
-	mes "这世界上没人能免费";
-	mes "的离婚, 就连GM也不行...";
-	mes "宁静的生活是无价的";
-	mes "对吧?";
+	mes "Hmmm...I did tell you to bring";
+	mes "2,500,000 zeny, right?";
+	mes "No one else in this world can";
+	mes "offer this kind of freedom...";
+	mes "You can't put a price on";
+	mes "peace of mind, can you?";
 	close;
 }

@@ -1,11 +1,3 @@
-//============================================================
-//= rAthenaCN [道具租用师]汉化脚本 [ www.rAthenaCN.com ]
-//============================================================
-//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
-
 //===== rAthena Script =======================================
 //= Universal Rental NPC
 //===== By: ==================================================
@@ -18,28 +10,28 @@
 //= One-click automatic mount rentals.
 //============================================================
 
-prontera,124,201,1	script	道具租用师	726,{
+prontera,124,201,1	script	Universal Rental NPC	726,{
 	if (ismounting()) {
-		message strcharinfo(0),"您必须先卸除您的坐骑.";
+		message strcharinfo(0),"You must first remove your mount.";
 		end;
-	} else if ((eaclass()&EAJ_THIRDMASK==EAJ_RANGER) && !countitem(6124)) {
+	} else if (((eaclass()&EAJ_THIRDMASK)==EAJ_RANGER) && !countitem(6124)) {
 		if (!checkfalcon() && getskilllv("HT_FALCON") && !checkwug()) {
-			if(select(" ~ 猎鹰: ~ 狼")==1) setfalcon;
+			if(select(" ~ Falcon: ~ Warg")==1) setfalcon;
 			else getitem 6124,1; //Wolf's_Flute
 		} else getitem 6124,1; //Wolf's_Flute
-	} else if ((eaclass()&EAJ_THIRDMASK==EAJ_MECHANIC) && !checkcart() && getskilllv("MC_PUSHCART")) {
+	} else if (((eaclass()&EAJ_THIRDMASK)==EAJ_MECHANIC) && !checkcart() && getskilllv("MC_PUSHCART")) {
 		if (!checkmadogear() && getskilllv("NC_MADOLICENCE")) {
-			if(select(" ~ 手推车: ~ Mado")==1) setcart;
+			if(select(" ~ Cart: ~ Mado")==1) setcart;
 			else setmadogear;
 		} else setcart;
 	} else if (!checkcart() && getskilllv("MC_PUSHCART")) setcart;
 	else if (!checkfalcon() && getskilllv("HT_FALCON") && !checkwug()) setfalcon;
 	else if (!checkriding() && !checkdragon() && getskilllv("KN_RIDING")) {
-		if (eaclass()&EAJ_THIRDMASK==EAJ_RUNE_KNIGHT) setdragon;
+		if ((eaclass()&EAJ_THIRDMASK)==EAJ_RUNE_KNIGHT) setdragon;
 		else setriding;
 	} else if (!checkmadogear() && getskilllv("NC_MADOLICENCE")) setmadogear;
 	else {
-		message strcharinfo(0),"您不符合租用的条件.";
+		message strcharinfo(0),"You do not meet requirements to rent.";
 		end;
 	}
 	specialeffect2 EF_TEIHIT3;

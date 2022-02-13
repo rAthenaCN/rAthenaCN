@@ -204,7 +204,7 @@ lhz_in02,276,281,1	script	Drunken Man#Necktie	748,{
 		next;
 		mes "[Drunken Man]";
 		mes "Drunk...drunk.... Zzzzz...";
-		emotion ET_QUESTION,1;
+		emotion ET_QUESTION, playerattached();
 		next;
 		if (countitem(978) > 0 && countitem(7151) > 29 && countitem(1059) > 99 && countitem(7217) > 19) {
 			callsub L_CheckWeight;
@@ -300,7 +300,7 @@ comodo,236,164,0	script	Hat Girl#Hair_Brush	69,{
 		mes "Okay, I'll do it right away!";
 		next;
 		mes "Ch ch ch... combining...ch ch.";
-		emotion ET_PROFUSELY_SWEAT,1;
+		emotion ET_PROFUSELY_SWEAT, playerattached();
 		next;
 		mes "[Hat Girl]";
 		mes "Here, it's done!";
@@ -444,7 +444,7 @@ alberta,151,78,0	script	Bebete#Baby_Angel	96,{
 			next;
 			mes "[" + strcharinfo(0) + "]";
 			mes "There's nothing. Everything is lie!";
-			emotion ET_KIK,1;
+			emotion ET_KIK, playerattached();
 			next;
 			mes "[Bebete]";
 			mes "You're a devil! a monster! an idiot!";
@@ -820,13 +820,13 @@ OnTouch:
 	case 2:
 		donpcevent "Roda Frog#Frog_Cap::OnEnable";
 		if (hat_2009 > 0) {
-			emotion ET_THINK,1;
+			emotion ET_THINK, playerattached();
 			mes "[" + strcharinfo(0) + "]";
 			mes "It's so amazing to see";
 			mes "the frog which transforms itself.";
 			close;
 		} else {
-			emotion ET_HUK,1;
+			emotion ET_HUK, playerattached();
 			mes "[" + strcharinfo(0) + "]";
 			mes "Oh my.. the frog transformed into a child...";
 			close;
@@ -931,7 +931,7 @@ alberta,120,206,3	script	Alonie#Solo_Play_Box	787,{
 			mes "to be a playing-alone expert!";
 			next;
 			mes "[Alonie]";
-			mes "The special training, to play alone in Louyang!";
+			mes "The special training, to play alone in Luoyang!";
 			mes "For make it";
 			mes "the fruitful training,";
 			mes "Get around and kill";
@@ -1054,7 +1054,7 @@ alberta,120,206,3	script	Alonie#Solo_Play_Box	787,{
 			mes "My affection-lacked student!";
 			mes "This is the end of your training!";
 			next;
-			if (gettime(3) < 12) {
+			if (gettime(DT_HOUR) < 12) {
 				set .@item,5448; //Solo_Play_Box1
 				set .@time$,"AM";
 			} else {

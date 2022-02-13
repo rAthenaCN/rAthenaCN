@@ -1,11 +1,3 @@
-//============================================================
-//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
-//============================================================
-//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
-
 //===== rAthena Script =======================================
 //= Card Exchanger
 //===== By: ==================================================
@@ -26,36 +18,36 @@
 
 // Main NPC :: Card_Change_tw
 //============================================================
-prontera,162,193,4	script	卡片兑换机#pa08	562,{
+comodo,148,306,4	script	Card Vendor Machine#pa08	562,{
 	if (checkweight(1201,1) == 0) {
-		mes "您目前有太多的物品, 请删减后再来!";
+		mes "You have too many items, please reduce it and come back later!";
 		close;
 	}
 	if (MaxWeight - Weight < 1000) {
-		mes "您现在已经超重了, 请减轻后再来!";
+		mes "You are overweight now, please reduce it and come back later!";
 		close;
 	}
-	mes "[卡片兑换机]";
-	mes "选择菜单介绍:";
-	mes "选择 1 - 取消,";
-	mes "选择 2 - 说明,";
-	mes "选择 3 - 卡片*1 兑换 硬币*1,";
-	mes "选择 4 - 硬币*5 兑换 卡片*1.";
+	mes "[Terminator RX1]";
+	mes "Text Explanation Begins:";
+	mes "Press 1 for Cancel,";
+	mes "Press 2 for Explanation,";
+	mes "Press 3 for Coin Exchange,";
+	mes "Press 4 for Card Exchange.";
 	next;
-	switch(select("1.取消:2.说明:3.卡片*1 兑换 硬币*1:4.硬币*5 兑换 卡片*1:^ffffff5.启动安全系统^000000")) {
+	switch(select("1.Cancel:2.Explanation:3.Change Card into Coin:4.Change Coin into Card:^ffffff5.Start Security System^000000")) {
 	case 1:
-		mes "[卡片兑换机]";
-		mes "谢谢光临!";
+		mes "[Terminator RX1]";
+		mes "You are welcome!";
 		close;
 	case 2:
-		mes "[卡片兑换机]";
-		mes "No.1, 当您选择 [卡片兑换硬币] 时, 系统将会随意扣除您一张卡片来兑换一枚硬币.";
+		mes "[Terminator RX1]";
+		mes "No.3, when you choose Coin Exchange, system will collect ONE card from your inventory randomly to exchange into ONE Coin.";
 		next;
-		mes "[卡片兑换机]";
-		mes "No.2, 当您选择 [硬币兑换卡片] 时, 系统将会扣除您五枚硬币来兑换随意一张卡片.";
+		mes "[Terminator RX1]";
+		mes "No.4, when you choose Card Excahnge, system will collect FIVE coin from your inventory to exchange into ONE Card randomly.";
 		next;
-		mes "[卡片兑换机]";
-		mes "谢谢光临!";
+		mes "[Terminator RX1]";
+		mes "You are welcome!";
 		close;
 	case 3:
 		specialeffect2 EF_COIN;
@@ -91,19 +83,19 @@ prontera,162,193,4	script	卡片兑换机#pa08	562,{
 			4417, 4418, 4420, 4421, 4422, 4423, 4432, 4434, 4435, 4436,
 			4437, 4438, 4439, 4442, 4443, 4444, 4445, 4447, 4448, 4449,
 			4450, 4452;
-		mes "[卡片兑换机]";
-		mes "卡片搜索已完成!";
+		mes "[Terminator RX1]";
+		mes "Card searching has finished!";
 		next;
-		mes "[卡片兑换机]";
-		mes "谢谢光临!";
+		mes "[Terminator RX1]";
+		mes "Thank you for coming!";
 		close;
 	case 4:
 		specialeffect2 EF_COIN;
 		specialeffect2 EF_LOUD;
 		progressbar "0xffff00",3;
 		if (countitem(6379) < 5) {
-			mes "[卡片兑换机]";
-			mes "您没有足够的硬币.";
+			mes "[Terminator RX1]";
+			mes "You do not have enough coins.";
 			close;
 		}
 		delitem 6379,5; //Card_Coin
@@ -214,7 +206,7 @@ prontera,162,193,4	script	卡片兑换机#pa08	562,{
 		else if (.@r <= 24804) getitem 4167,1; //Neraid_Card
 		else if (.@r <= 24855) getitem 4170,1; //Dark_Frame_Card
 		else if (.@r <= 24906) getitem 4171,1; //Dark_Priest_Card
-		else if (.@r <= 24957) getitem 4172,1; //ThET_WRAP_Card
+		else if (.@r <= 24957) getitem 4172,1; //The_Paper_Card
 		else if (.@r <= 25008) getitem 4173,1; //Demon_Pungus_Card
 		else if (.@r <= 25059) getitem 4175,1; //Poison_Toad_Card
 		else if (.@r <= 25110) getitem 4176,1; //Dullahan_Card
@@ -266,7 +258,7 @@ prontera,162,193,4	script	卡片兑换机#pa08	562,{
 		else if (.@r <= 27456) getitem 4232,1; //Wild_Ginseng_Card
 		else if (.@r <= 27507) getitem 4233,1; //Baby_Leopard_Card
 		else if (.@r <= 27558) getitem 4234,1; //Anolian_Card
-		else if (.@r <= 27609) getitem 4235,1; //CookiET_XMAS_Card
+		else if (.@r <= 27609) getitem 4235,1; //Cookie_XMAS_Card
 		else if (.@r <= 27660) getitem 4239,1; //Iron_Fist_Card
 		else if (.@r <= 27711) getitem 4240,1; //Arclouse_Card
 		else if (.@r <= 27762) getitem 4242,1; //Apocalips_Card
@@ -319,7 +311,7 @@ prontera,162,193,4	script	卡片兑换机#pa08	562,{
 		else if (.@r <= 30159) getitem 4312,1; //Fur_Seal_Card
 		else if (.@r <= 30210) getitem 4313,1; //Punk_Card
 		else if (.@r <= 30261) getitem 4315,1; //Pest_Card
-		else if (.@r <= 30312) getitem 4316,1; //FakET_FRETgel_Card
+		else if (.@r <= 30312) getitem 4316,1; //Fake_Angel_Card
 		else if (.@r <= 30363) getitem 4319,1; //Freezer_Card
 		else if (.@r <= 30414) getitem 4321,1; //Hylozoist_Card
 		else if (.@r <= 30465) getitem 4322,1; //High_Orc_Card
@@ -472,15 +464,15 @@ prontera,162,193,4	script	卡片兑换机#pa08	562,{
 			else
 				getitem 4092,1; //Skel_Worker_Card
 		}
-		mes "[卡片兑换机]";
-		mes "所有的卡片已经完成.";
+		mes "[Terminator RX1]";
+		mes "All cards have finished.";
 		next;
-		mes "[卡片兑换机]";
-		mes "谢谢光临!";
+		mes "[Terminator RX1]";
+		mes "Thank you for coming!";
 		close;
 	case 5:
-		mes "[卡片兑换机]";
-		mes "发现未经授权的信号, 启动安全系统...";
+		mes "[Terminator RX1]";
+		mes "Found unauthorized signal, starting security system...";
 		close2;
 		warp "comodo",263,286;
 		end;
@@ -492,15 +484,15 @@ L_Exchange:
 	.@args = getargcount();
 	for (.@i = 0; .@i < .@args; .@i++) {
 		if (countitem(getarg(.@i))) {
-			mes "搜索到 ^980078" + getitemname(getarg(.@i)) + "^000000,";
-			mes "您确定用这张卡片兑换一枚硬币吗?";
+			mes "Found ^980078" + getitemname(getarg(.@i)) + "^000000,";
+			mes "Do you want to exchange ONE Card into ONE Coin?";
 			next;
-			switch(select("不要:是的")) {
+			switch(select("No:Yes")) {
 			case 1:
-				mes "^980078您是否继续搜索其他的卡片?^000000";
+				mes "^980078Do you want search for other cards?^000000";
 				next;
-				if(select("不要:是的") == 1) {
-					mes "^980078搜索卡片被中断.^000000";
+				if(select("No:Yes") == 1) {
+					mes "^980078Card searching is interrupted^000000";
 					close;
 				}
 				break;
@@ -508,10 +500,10 @@ L_Exchange:
 				if (countitem(getarg(.@i))) {
 					delitem getarg(.@i),1;
 					getitem 6379,1; //Card_Coin
-					mes "^980078" + getitemname(getarg(.@i)) + " 已经兑换成硬币.^000000";
+					mes "^980078" + getitemname(getarg(.@i)) + " has exchanged into Coin.^000000";
 					next;
 				} else {
-					mes "^980078您的背包过重, 不能再使用兑换功能了.^000000";
+					mes "^980078Your inventory does not contain the card for exchange.^000000";
 					next;
 				}
 				break;

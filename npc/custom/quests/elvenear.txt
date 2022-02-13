@@ -1,17 +1,11 @@
-//============================================================
-//= rAthenaCN [妖精耳朵任务]汉化脚本 [ www.rAthenaCN.com ]
-//============================================================
-//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
-
-//===== Hercules Script ======================================
+//===== rAthena Script =======================================
 //= Daily Job Quest For Elven Ears
 //===== By: ==================================================
 //= someone
 //===== Current Version: =====================================
 //= 1.2
+//===== Compatible With: =====================================
+//= rAthena Project
 //===== Description: =========================================
 //= Elven Ears (require 75+ Base Level)
 //===== Additional Comments: =================================
@@ -19,56 +13,56 @@
 //= 1.2 Fixed exploit [Lupus]
 //============================================================
 
-geffen,127,49,5	script	妖精长耳朵饰任务	4_M_02,{
-	mes "[妖精长耳朵饰任务]"; 
-	mes "你好, 今天的任务是..."; 
-	mes "啊, ^61B031妖精长耳朵饰 ^000000任务!"; 
+geffen,127,49,5	script	Elven Ears Quest	84,{
+	mes "[Elven Ears Quest]"; 
+	mes "Hi, today's quest is...."; 
+	mes "Ah, the ^61B031Elven Ears ^000000Quest!"; 
 	next; 
-	menu "- 任务要求",L_Bl, "- 制作物品",-,"- 取消",L_Cancel;
+	menu "Requirements",L_Bl, "Make Item",-,"Cancel",L_Cancel;
 
-	mes "[妖精长耳朵饰任务]";
-	mes "很好很好, 让我来看一下"; 
+	mes "[Elven Ears quest]";
+	mes "Good good, let me just check"; 
 	next;
 	if(countitem(2213)<1 || countitem(1040)<20 || countitem(919)<20) goto L_NoMake; 
 	delitem 2213,1;
 	delitem 1040,20;
 	delitem 919,20;
-	mes "[妖精长耳朵饰任务]";
-	mes "稍等.....";
+	mes "[Elven Ears quest]";
+	mes "Give me a second.....";
 	next;
 	getitem 2286,1;
-	mes "[妖精长耳朵饰任务]";
-	mes "完成!";
+	mes "[Elven Ears Quest]";
+	mes "Ok done!";
 	close;
 
 L_NoMake:
-	mes "[妖精长耳朵饰任务]";
-	mes "你没有达到任务要求.";
-	mes "请以后再来吧...";
+	mes "[Elven Ears Quest]";
+	mes "You don't have the requirements.";
+	mes "Please come back another time...";
 	close;
 
 L_Bl: 
-	mes "[妖精长耳朵饰任务]";
-	mes "好的,你要做的就是:"; 
-	mes "^362ED61 猫耳发圈^000000"; 
-	mes "^362ED620 老妖精胡须^000000"; 
-	mes "以及 ^362ED620 动物外皮^000000";
+	mes "[Elven Ears Quest]";
+	mes "Ok all you have to do is collect:"; 
+	mes "^362ED61 Kitty Band^000000"; 
+	mes "^362ED620 Elder Pixie Mustaches^000000"; 
+	mes "and ^362ED620 Animal Skin^000000";
 	next;
-	menu "- 接受",-, "- 离开",L_Leave;
+	menu "Accept",-, "Leave",L_Leave;
 
-	mes "[妖精长耳朵饰任务]";
-	mes "当你收集完成之后把它们带来给我, 祝你好运.";
+	mes "[Elven Ears Quest]";
+	mes "When you are done, bring the items to me.  Ok good luck finding those items.";
 	close;
 
 L_Leave:
-	mes "[妖精长耳朵饰任务]";
-	mes "也许下次吧?";
+	mes "[Elven Ears quest]";
+	mes "Maybe another time?";
 	close;
 
 L_Cancel:
-	mes "[妖精长耳朵饰任务]";
-	mes "唉, 真可惜.";
-	mes "已经放弃了?";
-	mes "好吧, 也许你可以尝试明天的任务吧.";
+	mes "[Elven Ears quest]";
+	mes "Aw, what a shame";
+	mes "Giving up already?";
+	mes "Oh well maybe you will participate in tomorrow's quest.";
 	close;
 }

@@ -1,138 +1,132 @@
-//============================================================
-//= rAthenaCN [城镇人员]汉化脚本 [ www.rAthenaCN.com ]
-//============================================================
-//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
-
-//===== Hercules Script ======================================
+//===== rAthena Script ======================================= 
 //= Port Malaya
-//===== By: ==================================================
+//===== By: ================================================== 
 //= Euphy
-//===== Current Version: =====================================
+//===== Current Version: ===================================== 
 //= 1.1
-//===== Description: =========================================
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
 //= [Official Conversion]
 //= Port Malaya Town Script
-//===== Additional Comments: =================================
+//===== Additional Comments: ================================= 
 //= 0.1 Alberta sailors only. [Euphy]
 //= 0.2 Adapted from Masao's conversion.
 //= 1.0 Added remaining NPCs.
 //= 1.1 Added Jeepney script. [DeadlySilence]
-//============================================================
+//============================================================ 
 
 // Port Malaya Transportation
 //============================================================
 // Old coordinates: alberta (237,71)
-alberta,196,202,3	script	船员 奥塔玛拉#alberta	4W_SAILOR,{
-	mes "[船员 奥塔玛拉]";
-	mes "嘿~这儿~";
-	mes "10,000 Zeny就能去马来西亚港口,有兴趣么?";
+alberta,196,202,3	script	Optamara Crew#alberta	100,{
+	mes "[Optamara Crew]";
+	mes "Hey, there!";
+	mes "It's 10,000 Zeny to go to Port Malaya. Interested?";
 	next;
-	switch(select("有关马来西亚港口.:去往马来西亚港口.:取消.")) {
+	switch(select("About Port Malaya.:Go to Port Malaya.:Cancel.")) {
 	case 1:
-		mes "[船员 奥塔玛拉]";
-		mes "马来西亚是一个小村庄,从艾尔贝塔坐船向西南方向航行便能到达.";
+		mes "[Optamara Crew]";
+		mes "Port Malaya is a small village you could reach by sailing southwest from Alberta.";
 		next;
-		mes "[船员 奥塔玛拉]";
-		mes "之前一阵我都不去马来西亚,因为那里有些问题,不过似乎现在都已经解决了.";
+		mes "[Optamara Crew]";
+		mes "I couldn't visit the village because they had some issues there but now it seems all is clear!";
 		next;
-		mes "[船员 奥塔玛拉]";
-		mes "我不是很确定啦,不过那里就像是一个舒适又安逸的公园~";
+		mes "[Optamara Crew]";
+		mes "I don't know for sure but it was a village that's like a comfortable and cozy park.";
 		next;
-		mes "[船员 奥塔玛拉]";
-		mes "我差点儿就待在那里再也不回艾尔贝塔了!";
+		mes "[Optamara Crew]";
+		mes "I was this close to not coming back to cozy Alberta again.";
 		next;
-		mes "[船员 奥塔玛拉]";
-		mes "我相信,等你到了那里也会有同样感受的.";
+		mes "[Optamara Crew]";
+		mes "I'm sure you'll feel the same once you reach Port Malaya.";
 		close;
 	case 2:
 		if (Zeny < 10000) {
-			mes "[船员 奥塔玛拉]";
-			mes "噢!天哪!";
-			mes "这不能免费啦,你不知道去马来西亚有多远!等你有了10,000 Zeny的时候再来找我吧!";
+			mes "[Optamara Crew]";
+			mes "Oh God!!";
+			mes "You don't know how far it is from here. Of course it's not free. Please come back with 10,000 Zeny. Sorry!";
 			close;
 		}
-		mes "[船员 奥塔玛拉]";
-		mes "太好了!";
-		mes "方向马来西亚港口~走起!~";
-		set Zeny, Zeny - 10000;
+		mes "[Optamara Crew]";
+		mes "Great!";
+		mes "Heading for Port Malaya!!";
+		set Zeny, Zeny-10000;
 		close2;
 		warp "malaya",271,55;
 		end;
 	case 3:
-		mes "[船员 奥塔玛拉]";
-		mes "冒险家们最近似乎都很忙的样子.好吧,等你有时间的时候再回来找我一起去马来西亚港口吧.";
+		mes "[Optamara Crew]";
+		mes "Adventurers these days act like they are busy. Come back when you have the time and we could go visit Port Malaya together.";
 		close;
 	}
 }
 
-malaya,276,55,4	script	船员 奥塔玛拉#malaya	4W_SAILOR,{
+malaya,276,55,4	script	Optamara Crew#malaya	100,{
 	if (malaya_hi < 10) {
-		mes "[船员 奥塔玛拉]";
-		mes "这个小村庄现在依旧繁忙.你已经参观完毕了吗?这儿一直有返回艾尔贝塔的船只.";
+		mes "[Optamara Crew]";
+		mes "I think the village is still busy. Done with your visit? There is always a ship heading for Alberta.";
 		next;
 	} else if (malaya_hi < 20) {
-		mes "[船员 奥塔玛拉]";
-		mes "我记得一位无名的冒险家帮助了村民,使他们放下心来.好了~你想回艾尔贝塔吗?";
+		mes "[Optamara Crew]";
+		mes "I think a nameless adventurer helped take a load off the villagers' minds. Yahoo! Would you like to go back to Alberta?";
 		next;
 	} else {
-		mes "[船员 奥塔玛拉]";
-		mes "你想和我一起返回艾尔贝塔吗?";
+		mes "[Optamara Crew]";
+		mes "Would you like to go back to Alberta with me?";
 		next;
 	}
-	switch(select("回去.:不回.")) {
+	switch(select("Return.:Do not return.")) {
 	case 1:
-		mes "[船员 奥塔玛拉]";
-		mes "好了!~我们起航返回艾尔贝塔!";
+		mes "[Optamara Crew]";
+		mes "Great! Let's leave now for Alberta!!";
 		close2;
 		warp "alberta",239,68;
 		end;
 	case 2:
-		mes "[船员 奥塔玛拉]";
-		mes "没关系,等你想回去的时候再来找我吧.";
+		mes "[Optamara Crew]";
+		mes "That's okay. Come here if you ever want to go back to Alberta.";
 		close;
 	}
 }
 
 // Generic Port Malaya NPCs
 //============================================================
-ma_in01,30,94,4	script	旅店老板#ma	4_F_MALAYA,{
+ma_in01,30,94,4	script	Inn Keeper#ma	583,{
 	if (malaya_hi < 10) {
-		mes "[旅店老板]";
-		mes "俄..你是来旅行的?";
-		mes "你来得真不是时候..目前这个村庄还有些混乱,我的旅馆一直没有营业.";
+		mes "[Inn Keeper]";
+		mes "Oh my! Visiting?";
+		mes "What bad timing. The village is a bit unorganized at the moment so I'm actually closed. Sorry.";
 		close;
 	} else if (malaya_hi < 20) {
-		mes "[旅店老板]";
-		mes "你就是那个村民们正在谈论的冒险家?!为了表示感谢,我的旅馆为您马上开业!";
+		mes "[Inn Keeper]";
+		mes "So you are the adventurer villagers are talking about? I reopened my inn thanks to you. Thank you.";
 		next;
 	} else {
-		mes "[旅店老板]";
-		mes "欢迎光临.";
-		mes "这儿是马来西亚最棒的旅店---城中小屋~";
+		mes "[Inn Keeper]";
+		mes "Welcome.";
+		mes "This is Port Malaya's best inn, 'Cabin in the City'.";
 		next;
 	}
-	mes "[旅店老板]";
-	mes "需要在这里休息吗?住宿费用为 5,000 Zeny.";
+	mes "[Inn Keeper]";
+	mes "Come for a rest? Lodging will be 5,000 Zeny.";
 	next;
-	switch(select("储存服务.:住宿--5,000 Zeny.:取消.")) {
+	switch(select("Store.:Lodge. - 5,000z:Cancel.")) {
 	case 1:
-		mes "[旅店老板]";
-		mes "已经成功储存.下次再见~";
-		savepoint "ma_in01",43,98;
+		mes "[Inn Keeper]";
+		mes "Successfully stored. See you next time.";
+		savepoint "ma_in01",43,98,1,1;
 		close;
 	case 2:
 		if (Zeny < 5000) {
-			mes "[旅店老板]";
-			mes "不好意思,您的钱不够.";
+			mes "[Inn Keeper]";
+			mes "Sorry. I think you are a bit short.";
 			close;
 		}
-		mes "[旅店老板]";
-		mes "住宿愉快~!";
+		mes "[Inn Keeper]";
+		mes "Hope you enjoy your stay.";
 		close2;
-		set Zeny, Zeny - 5000;
+		set Zeny, Zeny-5000;
 		percentheal 100,100;
 		warp "ma_in01",43,98;
 		end;
@@ -141,7 +135,7 @@ ma_in01,30,94,4	script	旅店老板#ma	4_F_MALAYA,{
 	}
 }
 
--	script	不明生物#i	-1,{
+-	script	Unidentified Creature#i	-1,{
 	end;
 OnInit:
 	switch(atoi(strnpcinfo(2))) {
@@ -153,13 +147,13 @@ OnInit:
 	set .@size, getarraysize(.@npc$);
 	set .@rand, rand(.@size);
 	for(set .@i,0; .@i<.@size; set .@i,.@i+1)
-		donpcevent "不明生物#"+.@npc$[.@i]+"::"+((.@i == .@rand)?"OnEnable":"OnDisable");
+		donpcevent "Unidentified Creature#"+.@npc$[.@i]+"::"+((.@i == .@rand)?"OnEnable":"OnDisable");
 	end;
 OnEnable:
-	enablenpc strnpcinfo(0);
+	enablenpc();
 	end;
 OnDisable:
-	disablenpc strnpcinfo(0);
+	disablenpc();
 	end;
 OnBingx2:
 	switch(atoi(strnpcinfo(2))) {
@@ -170,14 +164,14 @@ OnBingx2:
 	set .@size, getarraysize(.@npc$);
 	set .@rand, rand(.@size);
 	for(set .@i,0; .@i<.@size; set .@i,.@i+1)
-		donpcevent "不明生物#"+.@npc$[.@i]+"::"+((.@i == .@rand)?"OnEnable":"OnDisable");
+		donpcevent "Unidentified Creature#"+.@npc$[.@i]+"::"+((.@i == .@rand)?"OnEnable":"OnDisable");
 	donpcevent strnpcinfo(0)+"::OnDisable";
 	end;
-OnTouch:
+OnTouch_:
 	if (getcharid(1)) {
 		if ($ma_name04$ == strcharinfo(0) || $ma_name05$ == strcharinfo(0) || $ma_name06$ == strcharinfo(0)) {
 			donpcevent strnpcinfo(0)+"::OnBingx2";
-			mes "不明生物瞥了你一眼,脸红了下后消失了.";
+			mes "The unidentified creature gets a glimpse of you, blushes and then disappears.";
 			close;
 		}
 		if (rand(1,5)%2) {
@@ -188,24 +182,24 @@ OnTouch:
 			}
 		}
 		donpcevent strnpcinfo(0)+"::OnBingx2";
-		mes "不明生物瞥了你一眼后消失了.";
+		mes "The unidentified creature gets a glimpse of you and disappears.";
 		close;
 	}
 	donpcevent strnpcinfo(0)+"::OnBingx2";
-	mes "不明生物朝你看看,然后跑开了.";
+	mes "The unidentified creature looks at you and runs away.";
 	close;
 }
-ma_fild01,74,367,6	duplicate(不明生物#i)	不明生物#01	4_MAL_BUDIDAI,2,2
-ma_fild02,282,41,4	duplicate(不明生物#i)	不明生物#05	4_MAL_BUDIDAI,2,2
-ma_scene01,195,92,4	duplicate(不明生物#i)	不明生物#09	4_MAL_BUDIDAI,2,2
+ma_fild01,74,367,6	duplicate(Unidentified Creature#i)	Unidentified Creature#01	572,2,2
+ma_fild02,282,41,4	duplicate(Unidentified Creature#i)	Unidentified Creature#05	572,2,2
+ma_scene01,195,92,4	duplicate(Unidentified Creature#i)	Unidentified Creature#09	572,2,2
 
--	script	不明生物#j	-1,{
+-	script	Unidentified Creature#j	-1,{
 	end;
 OnEnable:
-	enablenpc strnpcinfo(0);
+	enablenpc();
 	end;
 OnDisable:
-	disablenpc strnpcinfo(0);
+	disablenpc();
 	end;
 OnBingx2:
 	switch(atoi(strnpcinfo(2))) {
@@ -221,13 +215,13 @@ OnBingx2:
 	set .@size, getarraysize(.@npc$);
 	set .@rand, rand(.@size);
 	for(set .@i,0; .@i<.@size; set .@i,.@i+1)
-		donpcevent "不明生物#"+.@npc$[.@i]+"::"+((.@i == .@rand)?"OnEnable":"OnDisable");
+		donpcevent "Unidentified Creature#"+.@npc$[.@i]+"::"+((.@i == .@rand)?"OnEnable":"OnDisable");
 	donpcevent strnpcinfo(0)+"::OnDisable";
 	end;
-OnTouch:
+OnTouch_:
 	set .@i, atoi(strnpcinfo(2));
 	if (.@i%4 == 2) {
-		if (getcharid(0) == getpartyleader(getcharid(1),2))
+		if (is_party_leader() == true)
 			set .@pass,1;
 	} else if (.@i%4 == 3) {
 		if (checkquest(4229,PLAYTIME) > -1 && checkquest(9223,PLAYTIME) > -1 && checkquest(12278,PLAYTIME) > -1)
@@ -239,7 +233,7 @@ OnTouch:
 	if (.@pass) {
 		if ($ma_name04$ == strcharinfo(0) || $ma_name05$ == strcharinfo(0) || $ma_name06$ == strcharinfo(0)) {
 			donpcevent strnpcinfo(0)+"::OnBingx2";
-			mes "不明生物瞥了你一眼,脸红了下后消失了.";
+			mes "The unidentified creature gets a glimpse of you, blushes and then disappears.";
 			close;
 		}
 		if (rand(1,5)%2) {
@@ -261,440 +255,440 @@ OnTouch:
 			}
 		}
 		donpcevent strnpcinfo(0)+"::OnBingx2";
-		mes "不明生物瞥了你一眼后消失了.";
+		mes "The unidentified creature gets a glimpse of you and disappears.";
 		close;
 	}
 	donpcevent strnpcinfo(0)+"::OnBingx2";
-	mes "不明生物朝你看看,然后跑开了.";
+	mes "The unidentified creature looks at you and runs away.";
 	close;
 }
-ma_fild01,109,116,4	duplicate(不明生物#j)	不明生物#02	4_MAL_BUDIDAI,2,2
-ma_fild01,280,150,6	duplicate(不明生物#j)	不明生物#03	4_MAL_BUDIDAI,2,2
-ma_fild01,309,221,6	duplicate(不明生物#j)	不明生物#04	4_MAL_BUDIDAI,2,2
-ma_fild02,246,324,4	duplicate(不明生物#j)	不明生物#06	4_MAL_BUDIDAI,2,2
-ma_fild02,71,296,6	duplicate(不明生物#j)	不明生物#07	4_MAL_BUDIDAI,2,2
-ma_fild02,32,263,4	duplicate(不明生物#j)	不明生物#08	4_MAL_BUDIDAI,2,2
-ma_scene01,158,139,4	duplicate(不明生物#j)	不明生物#10	4_MAL_BUDIDAI,2,2
-ma_scene01,167,112,6	duplicate(不明生物#j)	不明生物#11	4_MAL_BUDIDAI,2,2
+ma_fild01,109,116,4	duplicate(Unidentified Creature#j)	Unidentified Creature#02	572,2,2
+ma_fild01,280,150,6	duplicate(Unidentified Creature#j)	Unidentified Creature#03	572,2,2
+ma_fild01,309,221,6	duplicate(Unidentified Creature#j)	Unidentified Creature#04	572,2,2
+ma_fild02,246,324,4	duplicate(Unidentified Creature#j)	Unidentified Creature#06	572,2,2
+ma_fild02,71,296,6	duplicate(Unidentified Creature#j)	Unidentified Creature#07	572,2,2
+ma_fild02,32,263,4	duplicate(Unidentified Creature#j)	Unidentified Creature#08	572,2,2
+ma_scene01,158,139,4	duplicate(Unidentified Creature#j)	Unidentified Creature#10	572,2,2
+ma_scene01,167,112,6	duplicate(Unidentified Creature#j)	Unidentified Creature#11	572,2,2
 
-malaya,227,311,4	script	婆婆#ma01	4_F_BARYO_OLD,{
+malaya,227,311,4	script	Grandma#ma01	575,{
 	if (malaya_hi < 10) {
-		mes "[婆婆]";
-		mes "你不是这儿附近的人吧?自己小心点~!";
+		mes "[Grandma]";
+		mes "You're not from around here? Take care of yourself.";
 		next;
-		mes "[婆婆]";
-		mes "我的媳妇儿怀孕了,我有点担心,希望别出什么岔子.";
+		mes "[Grandma]";
+		mes "I'm worried because my daughter-in-law is pregnant. I hope nothing goes wrong.";
 		close;
 	} else if (malaya_hi < 20) {
-		mes "[婆婆]";
-		mes "我听说一个外族人正在帮助我们的村庄.";
+		mes "[Grandma]";
+		mes "I heard there is an outsider that is helping the village.";
 		next;
-		mes "[婆婆]";
-		mes "我想我的媳妇儿会平安的!";
+		mes "[Grandma]";
+		mes "Then my daughter-in-law will be safe.";
 		close;
 	}
 	if (rand(1,3) == 2) {
-		mes "[婆婆]";
-		mes "听说"+getd("$ma_name0"+rand(1,6)+"$")+"一直跟随在噩梦护士左右.";
+		mes "[Grandma]";
+		mes "Heard there is this "+getd("$ma_name0"+rand(1,6)+"$")+" that follows Meoneonuncle around.";
 		next;
-		mes "[婆婆]";
-		mes "我会祝福他们这种禁忌爱恋的.";
+		mes "[Grandma]";
+		mes "I will cheer for their forbidden love.";
 		close;
 	}
-	mes "[婆婆]";
-	mes "我很担心我怀孕的媳妇儿.希望噩梦护士不会来伤害她.";
+	mes "[Grandma]";
+	mes "I'm worried about my pregnant daughter-in-law. Hope Meoneonuncle won't bother her.";
 	next;
-	select("噩梦护士?");
-	mes "[婆婆]";
-	mes "你不是附近的村民?即使你是外乡人,在这里也得小心.";
+	select("Meoneonuncle?");
+	mes "[Grandma]";
+	mes "Not from around here? Let me tell you why even a foreigner like you should be careful.";
 	next;
-	mes "[婆婆]";
-	mes "噩梦护士在很久以前是一个居住在马来西亚港口的女人,她嫁给了一个体面的男人后不久便怀孕了.";
+	mes "[Grandma]";
+	mes "Meoneonuncle was a woman who lived in Port Malaya long ago. She married a decent man and also had a baby.";
 	next;
-	mes "[婆婆]";
-	mes "可是,快乐总是短暂的.在一次意外中,她流产了..";
+	mes "[Grandma]";
+	mes "But happiness never lasts forever, right? The baby was miscarried from an accident...";
 	next;
-	mes "[婆婆]";
-	mes "她失去孩子后无比悲伤,没过几天便离开了人世.";
+	mes "[Grandma]";
+	mes "She eventually passed away after grieving over her lost baby for days.";
 	next;
-	select("这真是个悲伤的故事.");
-	mes "[婆婆]";
-	mes "之后,噩梦护士的灵魂一直在村子里徘徊,带走村庄里所有怀孕女人腹中的孩子.";
+	select("That is a sad story.");
+	mes "[Grandma]";
+	mes "Meoneonuncle then started to appear in spirit and take away babies from pregnant women in the village.";
 	next;
-	mes "[婆婆]";
-	mes "如果夜晚你还在马来西亚港口行走..";
+	mes "[Grandma]";
+	mes "If you ever walk around Port Malaya at night...";
 	next;
-	mes "[婆婆]";
-	mes "听见tik-tik或者wak-wak的声音,那你得小心了,那是噩梦护士在煽动翅膀.";
+	mes "[Grandma]";
+	mes "And hear either tik-tik or wak-wak, be cautious because that is the sound of Meoneonuncle's wings flapping.";
 	close;
 }
 
-malaya,189,263,4	script	击鼓的 年轻人#ma02	4_M_BARYO_MAN,{
+malaya,189,263,4	script	Drumming Young Man#ma02	578,{
 	if (malaya_hi < 10) {
 		emotion ET_HUK;
-		mes "[击鼓的 年轻人]";
-		mes "呃..这就和以前那时候一样...";
+		mes "[Drumming Young Man]";
+		mes "Ugh... it's just like that time before...";
 		next;
 		emotion ET_HUK;
-		mes "[击鼓的 年轻人]";
-		mes "当月亮被吞掉的时候..呃!!";
+		mes "[Drumming Young Man]";
+		mes "When the moon was swallowed. Argh!";
 		close;
 	} else if (malaya_hi < 20) {
-		mes "[击鼓的 年轻人]";
-		mes "我记得当时村庄被一位无名的英雄所拯救.";
+		mes "[Drumming Young Man]";
+		mes "I think the village was saved by a nameless adventurer.";
 		next;
 		emotion ET_OHNO;
-		mes "[击鼓的 年轻人]";
-		mes "唔..我觉得食月暴龙又出现了!!";
+		mes "[Drumming Young Man]";
+		mes "Phew... I thought Bakonawa appeared again.";
 		close;
 	}
 	if (rand(1,3) == 2) {
-		mes "[击鼓的 年轻人]";
-		mes getd("$ma_name0"+rand(1,6)+"$")+"据说曾经阻止了食月暴龙吞下月亮.是不是很可怕?不过我不担心~ ";
+		mes "[Drumming Young Man]";
+		mes getd("$ma_name0"+rand(1,6)+"$")+" is said to have stopped Bakonawa from swallowing the moon. Isn't it awesome? I'm so relieved.";
 		close;
 	}
-	mes "[击鼓的 年轻人]";
-	mes "在马来西亚港口,传说食月暴龙是一只能吞下月亮的怪物!";
+	mes "[Drumming Young Man]";
+	mes "Bakonawa is also known as the 'monster that swallows the moon' in Port Malaya.";
 	next;
-	mes "[击鼓的 年轻人]";
-	mes "不过我还知道,食月暴龙还会吞食人类!!";
+	mes "[Drumming Young Man]";
+	mes "But I know that Bakonawa could also 'swallow people', too.";
 	next;
-	select("靠!那不是很危险?!");
+	select("Huk! Then isn't it dangerous?");
 	emotion ET_KIK;
-	mes "[击鼓的 年轻人]";
-	mes "哈哈哈,不过还是有办法阻止食月暴龙吞食人类的~";
+	mes "[Drumming Young Man]";
+	mes "Ha ha ha. There is a way to stop Bakonawa from swallowing a person.";
 	next;
-	mes "[击鼓的 年轻人]";
-	mes "即使是已经吞掉了6个月亮的怪物也是有弱点的嘛!~";
+	mes "[Drumming Young Man]";
+	mes "Yes, there is a weakness to even the worst monster that swallowed 6 moons already.";
 	next;
-	select("哦?那弱点是什么?");
-	mes "[击鼓的 年轻人]";
-	mes "当它要吞食月亮的时候,对外界的噪音相当敏感.";
+	select("Wow. What is it?");
+	mes "[Drumming Young Man]";
+	mes "He is sensitive to noise so when he's about to swallow the moon!!";
 	next;
-	mes "[击鼓的 年轻人]";
-	mes "这时候你的机会就来了!!不管是锅碗瓢盆还是鼓~无论哪种噪音都可以!!";
+	mes "[Drumming Young Man]";
+	mes "That's your chance!! It doesn't matter what kind of noise!! Whether it's a caldron, symbol, drum, pot or fry pan, just keep on making noise.";
 	next;
-	mes "[击鼓的 年轻人]";
-	mes "食月暴龙受到惊吓后便会吐出月亮随即逃走!~";
+	mes "[Drumming Young Man]";
+	mes "Then Bakonawa will get surprised, spit out the moon and run away!";
 	next;
-	mes "[击鼓的 年轻人]";
-	mes "随身带一个鼓吧,很方便的~!";
+	mes "[Drumming Young Man]";
+	mes "Carry a drum around with you. You'll find it handy.";
 	close;
 }
 
-malaya,270,59,4	script	港口 守卫#ma03	4_MAL_SOLDIER,{
+malaya,270,59,4	script	Port Guard#ma03	570,{
 	if (malaya_hi < 10) {
 		emotion ET_PROFUSELY_SWEAT;
-		mes "[港口 守卫]";
-		mes "村子里最近不怎么太平.我就这么离开不好吧?";
+		mes "[Port Guard]";
+		mes "The village is chaotic these days. Is it okay for me to be off like this?";
 		close;
 	} else if (malaya_hi < 20) {
 		emotion ET_STARE_ABOUT;
-		mes "[港口 守卫]";
-		mes "现在,村庄里已经安定多了,不过即使这样,夜晚出门的时候也请小心.";
+		mes "[Port Guard]";
+		mes "The village is somewhat stable now but you should still be careful walking around at night.";
 		close;
 	}
 	if (rand(1,3) == 2) {
-		mes "[港口 守卫]";
-		mes getd("$ma_name0"+rand(1,6)+"$")+"据说曾经被宝箱巨鳄俘获过,不过他逃脱了.他肯定是个厉害角色!";
+		mes "[Port Guard]";
+		mes getd("$ma_name0"+rand(1,6)+"$")+" is said to escape from Buwaya alive after being captured. This person must be powerful.";
 		close;
 	}
 	emotion ET_HUK;
-	mes "[港口 守卫]";
-	mes "什么?!港口解除警报!!";
+	mes "[Port Guard]";
+	mes "What!! Port all clear!!";
 	next;
-	mes "[港口 守卫]";
-	mes "咦?你不是队长?靠!吓死我了..好了,我接到了一份有关游客的官方文件.";
+	mes "[Port Guard]";
+	mes "Huh? You're not the captain? You scared me. Shoot! Ah, right! I received an official document for travelers.";
 	next;
-	select("什么文件?");
-	mes "[港口 守卫]";
-	mes "文件上说,游客夜晚在村庄里活动的时候一定要小心这里的怪物出没.";
+	select("What document?");
+	mes "[Port Guard]";
+	mes "It says that travelers should be careful of monsters when walking in the village at night.";
 	next;
-	mes "[港口 守卫]";
-	mes "宝箱巨鳄并不会经常在村子里出没,不过它们会将人诱拐进箱子并在夜晚带走他们.";
+	mes "[Port Guard]";
+	mes "Buwaya don't come to the village often but there are cases when they snatch people in the boxes they carry at night.";
 	next;
-	mes "[港口 守卫]";
-	mes "俄..还有一种叫食尸鬼的怪物经常会在晚上出现,一定要小心别碰见.";
+	mes "[Port Guard]";
+	mes "Huh?! And it says here that a monster named Wokwok especially visits the village often at night and should be avoided.";
 	next;
-	switch(select("我知道了.:有什么办法阻止它们进村么?")) {
+	switch(select("I see.:Is there any way to prevent them from coming?")) {
 	case 1:
-		mes "[港口 守卫]";
-		mes "晚上的时候要小心!";
+		mes "[Port Guard]";
+		mes "Be careful at night!";
 		close;
 	case 2:
-		mes "[港口 守卫]";
-		mes "听说,如果你被关在宝箱巨鳄背着的箱子里时,可以趁机在箱子里攻击它的弱点!";
+		mes "[Port Guard]";
+		mes "They say you can attack Buwaya's weak point inside the box they carry if you ever get caught in one.";
 		next;
-		mes "[港口 守卫]";
-		mes "如果你听见食尸鬼从远处飞翔而来的声音,一定要立刻躲进最近的建筑里去.";
+		mes "[Port Guard]";
+		mes "And you should run into the nearest building when you hear Wokwoks wings fluttering from afar.";
 		next;
 		emotion ET_SCRATCH;
-		mes "[港口 守卫]";
-		mes "不过要是听不见声音或者煽动翅膀的声音并不是很大,那你就自求多福,随时保持警惕吧!";
+		mes "[Port Guard]";
+		mes "But if the fluttering sound is small or if you don't hear anything, let's just say you should prepare for attack and wish for luck.";
 		close;
 	}
 }
 
-malaya,88,252,4	script	小女孩#ma04	4_F_BARYO_GIRL,{
+malaya,88,252,4	script	Little Girl#ma04	576,{
 	if (malaya_hi < 10) {
-		mes "[小女孩]";
-		mes "我很害怕,不过我还是要去拜访森林里的精灵.";
+		mes "[Little Girl]";
+		mes "I'm scared but I have to visit the fairy in the forest.";
 		close;
 	} else if (malaya_hi < 20) {
-		mes "[小女孩]";
-		mes "呵呵.爸爸说只要村子恢复平静了我就能去森林拜访精灵.";
+		mes "[Little Girl]";
+		mes "He he. Father said I can visit the fairy in the forest when the village calms down.";
 		close;
 	}
 	if (rand(1,3) == 2) {
 		set .@name$, getd("$ma_name0"+rand(1,6)+"$");
-		mes "[小女孩]";
-		mes "不久以前,"+.@name$+"来到这里说了一句有趣的话~";
+		mes "[Little Girl]";
+		mes "A little while ago "+.@name$+" came and told me a fun story.";
 		next;
-		mes "[小女孩]";
-		mes "'我在院子里种了一对梨树~'";
-		mes " 呵呵,这真有趣~不是么?"+.@name$+"看起来是个很有趣的人~!";
+		mes "[Little Girl]";
+		mes "'I planted a pair of pear trees in the yard.'";
+		mes "He he. Isn't it fun? "+.@name$+" seems like a fun person.";
 		close;
 	}
-	mes "[小女孩]";
-	mes "爸爸说,只要和森林里的精灵成为朋友就不会得皮肤病了!";
+	mes "[Little Girl]";
+	mes "Father said I won't catch skin diseases once I'm friends with the fairy from the forest.";
 	next;
-	select("这是什么精灵?");
-	mes "[小女孩]";
-	mes "他们是仙女!他们住在森林里的大树或岩石里.仙女有女的,也有男的...";
+	select("What is this fairy?");
+	mes "[Little Girl]";
+	mes "Encan'to! Encan'to fairies live in big trees or rocks in the forest. There are boy fairies and girl fairies...";
 	next;
-	mes "[小女孩]";
-	mes "不过,男仙女比较好看哦...为什么呢...";
+	mes "[Little Girl]";
+	mes "But boy fairies are prettier. Why is that?";
 	close;
 }
 
-malaya,219,92,6	script	小孩#ma05	4_M_BARYO_BOY,{
+malaya,219,92,6	script	Little Kid#ma05	577,{
 	if (malaya_hi < 10) {
-		mes "[小孩]";
-		mes "妈妈说外面太危险了,不让我出去玩.为什么呢?";
+		mes "[Little Kid]";
+		mes "My mom told me not to play outside because its dangerous. Why?";
 		close;
 	} else if (malaya_hi < 20) {
-		mes "[小孩]";
-		mes "妈妈只让我在马来西亚港口玩耍.";
+		mes "[Little Kid]";
+		mes "My mom told me I can play but only in Port Malaya.";
 		next;
-		mes "[小孩]";
-		mes "呵呵,不过我从来没想过去马来西亚港口以外的世界玩呢.";
+		mes "[Little Kid]";
+		mes "He he. But I never thought of going outside of Port Malaya.";
 		close;
 	}
 	if (rand(1,3) == 2) {
-		mes "[小孩]";
-		mes "我听说哦,有人在神秘的村庄里面拿走了食人波利的帽子..";
+		mes "[Little Kid]";
+		mes "I heard someone took Jejelings hat in Baryo Mahiwaga.";
 		next;
-		mes "[小孩]";
-		mes "为什么会有人要偷怪物的帽子呢?"+getd("$ma_name0"+rand(1,6)+"$")+"肯定要绝望了.";
+		mes "[Little Kid]";
+		mes "Why would someone steal a monster's hat? "+getd("$ma_name0"+rand(1,6)+"$")+" must be desperate.";
 		next;
-		mes "[小孩]";
-		mes "哦!!等等.. 这应该是个秘密的.嘘~~~~~你什么都没有听见哦!";
+		mes "[Little Kid]";
+		mes "Oh wait! This was suppose to be a secret. Shsh! Please pretend you didn't hear me.";
 		close;
 	}
-	mes "[小孩]";
-	mes "我想有人偷走了村子里所有的帽子!";
+	mes "[Little Kid]";
+	mes "I think someone is stealing all the hats in the village.";
 	next;
-	mes "[小孩]";
-	mes "邻居们的帽子在几天前就已经消失了,我妈昨天刚洗好的帽子也不见了.";
+	mes "[Little Kid]";
+	mes "The hat my mom washed yesterday disappeared. Our neighbor's hat also disappeared a few days ago.";
 	next;
-	mes "[小孩]";
-	mes "唔...你觉得会不会是被食人波利拿走了?";
+	mes "[Little Kid]";
+	mes "Hmm... do you think Jejeling took it?";
 	next;
-	mes "[小孩]";
-	mes "我的朋友说,他曾经看见食人波利戴着这些消失的帽子...";
+	mes "[Little Kid]";
+	mes "I visited a friend in Baryo Mahiwaga and he said he saw Jejeling wearing the missing hat...";
 	close;
 }
 
-malaya,363,283,4	script	当地居民#ma06	4_M_MALAYA,{
+malaya,363,283,4	script	Local#ma06	582,{
 	if (malaya_hi < 10) {
-		mes "[当地居民]";
-		mes "唔...女巫的诅咒又来了!";
+		mes "[Local]";
+		mes "Hmm... is it time to be careful of the witches' curse?";
 		next;
-		mes "[当地居民]";
-		mes "外乡人,一定要小心噩梦巫师手里的针!";
+		mes "[Local]";
+		mes "Beware of Mongkukurums needle, foreigner.";
 		close;
 	} else if (malaya_hi < 20) {
-		mes "[当地居民]";
-		mes "欢迎来到马来西亚!";
+		mes "[Local]";
+		mes "Welcome to Port Malaya, foreigner..";
 		next;
-		mes "[当地居民]";
-		mes "村子里最近有些不安全,如果你见到有谁的眼睛是红色的,切忌不要盯着他们的眼睛看!!";
+		mes "[Local]";
+		mes "The village is chaotic these days. If you see someone with red eyes, try not to stare at their eyes.";
 		close;
 	}
 	set .@name$, getd("$ma_name0"+rand(1,6)+"$");
 	switch(rand(1,6)) {
 	case 1:
-		mes "[当地居民]";
-		mes "夜晚出门的时候一定要小心,听说"+.@name$+"被食尸鬼带走了.";
+		mes "[Local]";
+		mes "Be careful walking around the village at night. "+.@name$+" was taken down by Wokwok.";
 		close;
 	case 2:
-		mes "[当地居民]";
-		mes .@name$+"据说成功地驯服了一只邪魔马.这家伙一定很勇敢!!真希望我能亲眼见到这只邪魔马呢!";
+		mes "[Local]";
+		mes .@name$+" is said to have successfully tamed a Tikbalang. This person must be courageous. Wonder if I'll get to see this tamed Tikbalang?";
 		close;
 	case 3:
-		mes "[当地居民]";
-		mes "你有见过独眼怪么?听说"+.@name$+"抓捕到了一只.";
+		mes "[Local]";
+		mes "Have you ever seen Bongisungisu? I heard "+.@name$+" is hunting down Bongisungisus.";
 		close;
 	case 4:
-		mes "[当地居民]";
-		mes "如果你想去村庄的外面走走,一定要小心恶魔婴儿."+.@name$+"住院了,听说他被恶魔婴儿骗了.";
+		mes "[Local]";
+		mes "If you plan to go out of the village, be careful of Tiucknuc. "+.@name$+" is said to be tricked by Tiucknuc and had to go to the hospital.";
 		close;
 	case 5:
 	case 6:
 		break;
 	}
-	mes "[当地居民]";
-	mes "最近村子里很混乱,看起来噩梦巫师又回来了..";
+	mes "[Local]";
+	mes "The village is chaotic these days. Looks like Mongkukurum is back in the village.";
 	next;
-	select("噩梦巫师?");
-	mes "[当地居民]";
-	mes "那怪物是巫师,它们也穿着衣服,看起来就和人一样.";
+	select("Mongkukurum?");
+	mes "[Local]";
+	mes "A monster that is also called witch. Looks like a person and also wears clothes.";
 	next;
-	mes "[当地居民]";
-	mes "噩梦巫师会把它看见的人制做成娃娃并用针来诅咒.";
+	mes "[Local]";
+	mes "Mongkukurum makes a doll out of the people it sees and curses it with needles.";
 	next;
-	select("有没有办法可以辨认出这种怪物?");
-	mes "[当地居民]";
-	mes "有一种办法,所有的噩梦巫师都是红色的眼睛.";
+	select("Is there a way to recognize this monster?");
+	mes "[Local]";
+	mes "There is one way. All Mongkukurum have red eyes.";
 	next;
-	mes "[当地居民]";
-	mes "你可以通过它们的眼睛颜色辨别出,不过一定要切记一点!";
+	mes "[Local]";
+	mes "You can recognize them by their eyes but! You must remember one thing.";
 	next;
-	mes "[当地居民]";
-	mes "别盯着它们的眼睛看太久!不然你会被噩梦巫师俘获的.";
+	mes "[Local]";
+	mes "You will be captivated by Mongkukurum if you stare at their eyes too long.";
 	next;
-	mes "[当地居民]";
-	mes "记着!别盯着它们的眼睛看!!";
+	mes "[Local]";
+	mes "Never ever stare into their eyes for too long.";
 	close;
 }
 
-malaya,41,127,6	script	老人 #ma07	4_M_BARYO_OLD,{
+malaya,41,127,6	script	Old Man #ma07	574,{
 	if (malaya_hi < 10) {
-		mes "[老人]";
-		mes "我们并不希望有外乡人来,因为这里最近不安全.";
+		mes "[Old Man]";
+		mes "Foreigners are not welcomed that much when our village is chaotic like these days.";
 		close;
 	} else if (malaya_hi < 20) {
-		mes "[老人]";
-		mes "现在真不是来我们村庄旅游的时候,我们不希望您前来.";
+		mes "[Old Man]";
+		mes "You are out of luck visiting the village at a time like this and not being welcomed.";
 		close;
 	}
 	if (rand(1,3) == 2) {
-		mes "[老人]";
-		mes getd("$ma_name0"+rand(1,6)+"$")+"听说在村子里丢掉了杰勒比结晶. ";
+		mes "[Old Man]";
+		mes getd("$ma_name0"+rand(1,6)+"$")+" is said to throw out Jellopy in this village.";
 		next;
-		mes "[老人]";
-		mes "啧,啧..肯定是个不值得拥有杰勒比结晶的人!";
+		mes "[Old Man]";
+		mes "Tsk, tsk... Must be a person that isn't worthy of a Jellopy.";
 		close;
 	}
-	mes "[老人]";
-	mes "如果你要砍树的话还必须注意是不是有噩梦死神住在那棵树上.";
+	mes "[Old Man]";
+	mes "You must also look out to see if Bangungot lives in a tree you are about to cut down.";
 	next;
-	mes "[老人]";
-	mes "要是使用了噩梦死神居住过的树木上的木头建造房子,会发生奇怪的事情!";
+	mes "[Old Man]";
+	mes "Because strange things happen if logs from trees that Bangungot lived in are used as building pillars.";
 	next;
-	select("会发生什么?");
-	mes "[老人]";
-	mes "对噩梦死神来说,这意味着它们失去了自己的家,你就等着被报复吧!";
+	select("What happens?");
+	mes "[Old Man]";
+	mes "Well, for a Bangungot, it means losing its home so they get vengeful.";
 	next;
-	mes "[老人]";
-	mes "当你在屋子里想要入睡的时候,它们会对你恶作剧,让你无法睡着.";
+	mes "[Old Man]";
+	mes "When you try to sleep near the pillar, it will keep awake by playing pranks at first.";
 	next;
-	mes "[老人]";
-	mes "随着时间的推移,复仇升级,他们会坐在你身上直到你没气了.";
+	mes "[Old Man]";
+	mes "But as time goes by and their vengeance grows, they sit on top of you until you suffocate.";
 	next;
-	select("俄..天哪..");
-	mes "[老人]";
-	mes "哈哈哈!不过通常房梁里面没有噩梦死神的,别担心会失眠.";
+	select("Oh, gosh...");
+	mes "[Old Man]";
+	mes "Ha ha ha. There are no Bangungots in normal pillars, so don't lose sleep over it.";
 	close;
 }
 
-malaya,63,185,4	script	女人#ma08	4_F_MALAYA,{
+malaya,63,185,4	script	Woman#ma08	583,{
 	if (malaya_hi < 10) {
-		mes "[女人]";
-		mes "我没什么可以和你说的.";
+		mes "[Woman]";
+		mes "I don't have anything to share with you.";
 		close;
 	} else if (malaya_hi < 20) {
-		mes "[女人]";
-		mes "我很担心那些孩子们.希望村子里发生的可怕事件别给他们留下阴影.";
+		mes "[Woman]";
+		mes "Im worried about the children. I hope they aren't terrified from whats going on in the village.";
 		close;
 	}
 	if (rand(1,3) == 2) {
 		set .@name$, getd("$ma_name0"+rand(1,6)+"$");
 		set .@rand, rand(1,10);
 		if (.@rand < 5) {
-			mes "[女人]";
-			mes "我喜欢有趣的语句.不久之前,"+.@name$+"来到这里告诉了我一个有趣的段子.";
+			mes "[Woman]";
+			mes "I like fun stories. Not so long ago, "+.@name$+" came and told me a funny story.";
 			next;
 		}
 		switch(.@rand) {
 		case 1:
-			mes "[女人]";
-			mes "'我的阿姨踩到了一只蚂蚁.'";
+			mes "[Woman]";
+			mes "'My aunt stepped on an ant.'";
 			next;
 			break;
 		case 2:
-			mes "[女人]";
-			mes "'你在一个寒冷的日子吃辣椒.'";
+			mes "[Woman]";
+			mes "'You eat chili on a chilly day.'";
 			next;
 			break;
 		case 3:
-			mes "[女人]";
-			mes "'你为什么往花上撒面粉?'";
+			mes "[Woman]";
+			mes "'Why are you putting flour on that flower?'";
 			next;
 			break;
 		case 4:
-			mes "[女人]";
-			mes "在工具店里, '我想去买针线,你却买了干草把针都藏了进去.'";
+			mes "[Woman]";
+			mes "At the Tool Store, 'Ill buy the needle and thread! You buy the hay to lose the needle in.'";
 			next;
-			mes "[女人]";
-			mes .@name$+"说完后被扔出了工具店.";
+			mes "[Woman]";
+			mes .@name$+" said that and was kicked out of the Tool Store.";
 			next;
 			break;
 		case 5:
-			mes "[女人]";
-			mes "我的一个卡普拉服务员朋友告诉了我有关一位客人的故事.";
+			mes "[Woman]";
+			mes "A Kafra Employee I'm friends with told me a story about a customer.";
 			next;
-			mes "[女人]";
-			mes "'聪明如卡普拉,她们从不结婚,一旦他们结婚了,就再也不是卡普拉了.'";
+			mes "[Woman]";
+			mes "'Kafra, the wise never marry and when they marry, they become otherwise.'";
 			next;
-			mes "[女人]";
-			mes "呵呵~~我喜欢有趣的故事~不过要合我的口味有点困难~";
+			mes "[Woman]";
+			mes "He he... I do like funny stories but a bit difficult for my taste.";
 			close;
 		default:
-			mes "[女人]";
-			mes "我喜欢有趣的语句,等一下~还有一个~ "+.@name$+", 爱情就像照片,你同意么?";
+			mes "[Woman]";
+			mes "I like fun stories. Oh by the way! "+.@name$+", love is photogenic. Don't you agree?";
 			next;
-			mes "[女人]";
-			mes "爱情就像照片,需要黑暗来显影感光.";
+			mes "[Woman]";
+			mes "It needs darkness to develop.";
 			next;
 		}
-		mes "[女人]";
-		mes "呵呵~这不是很有趣嘛~?";
+		mes "[Woman]";
+		mes "He he. Isn't it fun?";
 		close;
 	}
-	mes "[女人]";
-	mes "如果你听见从村外的树林传来婴儿的哭声,千万不要靠近那里.";
+	mes "[Woman]";
+	mes "If you hear a baby crying from the forest outside of the village, never go near it.";
 	next;
-	select("为什么?");
-	mes "[女人]";
-	mes "有一种叫恶魔婴儿的怪物会在村外游荡,它们将自己变身成为啼哭的婴儿吸引行人的注意.";
+	select("Why?");
+	mes "[Woman]";
+	mes "There is a monster named Tiucknuc that roams around outside of the village and cries after transforming himself into a baby.";
 	next;
-	mes "[女人]";
-	mes "一旦你抱起了婴儿,它就会立刻现出原形攻击你.";
+	mes "[Woman]";
+	mes "But when kind travelers pick up the baby, it turns back into its original form and attacks.";
 	next;
-	select("听起来真是个卑鄙的怪物.");
-	mes "[女人]";
-	mes "是的,这种怪物利用旅行者的好心真是太无耻了..但是..";
+	select("Sounds like a sneaky monster.");
+	mes "[Woman]";
+	mes "Yes, this monster is bad to trick the kindness of travelers but...";
 	next;
-	mes "[女人]";
-	mes "但是..传闻这种怪物是一个未出生孩子的灵魂转变的..哎..真是太悲伤了..";
+	mes "[Woman]";
+	mes "There is rumor that the monster came from the soul of a baby that never been born. So sad.";
 	close;
 }
 
 // Jeepneys
 //============================================================
 function	script	F_Malaya_Jeepney	{
-	.@mapname$        = getarg(0);
+	.@mapName$        = getarg(0);
 	.@passengers      = getarg(1);
 
 	// set the other messages of varying amount)
@@ -715,9 +709,9 @@ function	script	F_Malaya_Jeepney	{
 		mes getarg(4);
 		next;
 	}
-	switch(select("Board [Passenger " + getmapusers(.@mapname$) + "/" + .@passengers +"]:Jeepney?:Are there any other Jeepneys?:Ah... Yes...")) {
+	switch(select("Board [Passenger " + getmapusers(.@mapName$) + "/" + .@passengers +"]:Jeepney?:Are there any other Jeepneys?:Ah... Yes...")) {
 	case 1:
-		if (getmapusers(.@mapname$) >= .@passengers) {
+		if (getmapusers(.@mapName$) >= .@passengers) {
 			mes "[Jeepney Driver]";
 			mes "I'm afraid the Jeepney is full.";
 			mes "I'm sorry but how about some other Jeepney?";
@@ -726,7 +720,7 @@ function	script	F_Malaya_Jeepney	{
 			mes "[Jeepney Driver]";
 			mes "Have a nice day.";
 			close2;
-			warp .@mapname$,29,24;
+			warp .@mapName$,29,24;
 			end;
 		}
 	case 2:
@@ -780,7 +774,7 @@ function	script	F_Malaya_Jeepney	{
 	close;
 }
 
-malaya,237,240,4	script	Jeepney Driver#01	4_M_MALAYA,{
+malaya,237,240,4	script	Jeepney Driver#01	582,{
 	callfunc(
 		"F_Malaya_Jeepney",
 		"ma_zif01",
@@ -800,7 +794,7 @@ malaya,237,240,4	script	Jeepney Driver#01	4_M_MALAYA,{
 	);
 }
 
-malaya,67,44,4	script	Jeepney Driver#02	4_M_MALAYA,{
+malaya,67,44,4	script	Jeepney Driver#02	582,{
 	callfunc(
 		"F_Malaya_Jeepney",
 		"ma_zif02",
@@ -818,7 +812,7 @@ malaya,67,44,4	script	Jeepney Driver#02	4_M_MALAYA,{
 	);
 }
 
-malaya,282,129,4	script	Jeepney Driver#03	4_M_MALAYA,{
+malaya,282,129,4	script	Jeepney Driver#03	582,{
 	callfunc(
 		"F_Malaya_Jeepney",
 		"ma_zif03",
@@ -836,7 +830,7 @@ malaya,282,129,4	script	Jeepney Driver#03	4_M_MALAYA,{
 	);
 }
 
-malaya,134,250,6	script	Jeepney Driver#04	4_M_MALAYA,{
+malaya,134,250,6	script	Jeepney Driver#04	582,{
 	callfunc(
 		"F_Malaya_Jeepney",
 		"ma_zif04",
@@ -854,7 +848,7 @@ malaya,134,250,6	script	Jeepney Driver#04	4_M_MALAYA,{
 	);
 }
 
-malaya,341,153,4	script	Jeepney Driver#05	4_M_MALAYA,{
+malaya,341,153,4	script	Jeepney Driver#05	582,{
 	callfunc(
 		"F_Malaya_Jeepney",
 		"ma_zif05",
@@ -872,7 +866,7 @@ malaya,341,153,4	script	Jeepney Driver#05	4_M_MALAYA,{
 	);
 }
 
-malaya,293,290,6	script	Jeepney Driver#06	4_M_MALAYA,{
+malaya,293,290,6	script	Jeepney Driver#06	582,{
 	callfunc(
 		"F_Malaya_Jeepney",
 		"ma_zif06",
@@ -890,7 +884,7 @@ malaya,293,290,6	script	Jeepney Driver#06	4_M_MALAYA,{
 	);
 }
 
-malaya,242,221,4	script	Jeepney Driver#07	4_M_MALAYA,{
+malaya,242,221,4	script	Jeepney Driver#07	582,{
 	callfunc(
 		"F_Malaya_Jeepney",
 		"ma_zif07",
@@ -905,7 +899,7 @@ malaya,242,221,4	script	Jeepney Driver#07	4_M_MALAYA,{
 	);
 }
 
-malaya,62,245,6	script	Jeepney Driver#08	4_M_MALAYA,{
+malaya,62,245,6	script	Jeepney Driver#08	582,{
 	callfunc(
 		"F_Malaya_Jeepney",
 		"ma_zif08",
@@ -921,7 +915,7 @@ malaya,62,245,6	script	Jeepney Driver#08	4_M_MALAYA,{
 	);
 }
 
-malaya,257,58,6	script	Jeepney Driver#09	4_M_MALAYA,{
+malaya,257,58,6	script	Jeepney Driver#09	582,{
 	callfunc(
 		"F_Malaya_Jeepney",
 		"ma_zif09",

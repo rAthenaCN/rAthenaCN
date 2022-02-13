@@ -1,11 +1,3 @@
-//============================================================
-//= rAthenaCN [公会战GVG]汉化脚本 [ www.rAthenaCN.com ]
-//============================================================
-//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
-
 //===== rAthena Script =======================================
 //= War of Emperium Guild Template File
 //===== By: ==================================================
@@ -13,9 +5,9 @@
 //===== Current Version: =====================================
 //= 2.0
 //===== Compatible With: =====================================
-//= rAthena SVN
+//= rAthena Project
 //===== Description: =========================================
-//= [ Official Conversion]
+//= [Official Conversion]
 //= ----------------------------------------------------------
 //= - THIS FILE IS REQUIRED FOR GUILD CASTLES TO FUNCTION.
 //= ----------------------------------------------------------
@@ -71,7 +63,7 @@
 // War of Emperium has started.
 OnAgitStart:
 	if (strnpcinfo(0) == "Gld_Agit_Manager") end;
-	MapRespawnGuildID strnpcinfo(2),GetCastleData(strnpcinfo(2),1),6;
+	MapRespawnGuildID strnpcinfo(2),GetCastleData(strnpcinfo(2),CD_GUILD_ID),6;
 	GvgOn strnpcinfo(2);
 
 // Spawn (fall through), or respawn the Emperium once it has been broken.
@@ -102,7 +94,7 @@ OnStartArena:
 		end;
 	}
 	if (!mobcount(strnpcinfo(2),"Agit#"+strnpcinfo(2)+"::OnAgitBreak")) {
-		monster strnpcinfo(2),.@emproom[0],.@emproom[1],"华丽金属",1288,1,"Agit#"+strnpcinfo(2)+"::OnAgitBreak";
+		monster strnpcinfo(2),.@emproom[0],.@emproom[1],"Emperium",1288,1,"Agit#"+strnpcinfo(2)+"::OnAgitBreak";
 	}
 	end;
 
@@ -111,36 +103,36 @@ OnAgitBreak:
 	set .@GID,getcharid(2);
 	// Show and log error if an unguilded player breaks the Emperium. (Should NEVER happen)
 	if (.@GID <= 0) {
-		set .@notice$,"玩家 "+strcharinfo(0)+" ("+getcharid(0)+") 击碎了华丽金属: "+strnpcinfo(2)+" while guildless. No data will be saved and Emperium respawned.";
+		set .@notice$,"Character "+strcharinfo(0)+" ("+getcharid(0)+") broke the Emperium in Castle: "+strnpcinfo(2)+" while guildless. No data will be saved and Emperium respawned.";
  		logmes .@notice$; debugmes .@notice$;
 		donpcevent "Agit#"+strnpcinfo(2)+"::OnStartArena";
 		end;
 	}
 	// Adjust Economy Invest Level for Castle
-	set .@Economy,GetCastleData(strnpcinfo(2),2) - 5;
+	set .@Economy,GetCastleData(strnpcinfo(2),CD_CURRENT_ECONOMY) - 5;
 	if (.@Economy < 0) set .@Economy, 0;
-	SetCastleData strnpcinfo(2), 2, .@Economy;
+	SetCastleData strnpcinfo(2), CD_CURRENT_ECONOMY, .@Economy;
 	// Adjust Defense Invest Level for Castle
-	set .@Defence,GetCastleData(strnpcinfo(2),3) - 5;
+	set .@Defence,GetCastleData(strnpcinfo(2),CD_CURRENT_DEFENSE) - 5;
 	if (.@Defence < 0) set .@Defence, 0;
-	SetCastleData strnpcinfo(2), 3, .@Defence;
+	SetCastleData strnpcinfo(2), CD_CURRENT_DEFENSE, .@Defence;
 
 	// Set new Castle Occupant
-	SetCastleData strnpcinfo(2),1, .@GID;
+	SetCastleData strnpcinfo(2),CD_GUILD_ID, .@GID;
 
 	// Announce that the Emperium is destroyed, and respawn all but new castle-occupants.
-	mapannounce strnpcinfo(2),"华丽金属被击碎了.",bc_map|bc_woe,"0x00CCFF",FW_NORMAL,12;
+	mapannounce strnpcinfo(2),"The emperium has been destroyed.",bc_map|bc_woe,"0x00CCFF",FW_NORMAL,12;
 	MapRespawnGuildID strnpcinfo(2),.@GID,6;
 
 	// Refresh castle data, disable Kafra and reset Invest information.
 	donpcevent strnpcinfo(0)+"::OnRecvCastle";
-	disablenpc "卡普拉 职员#"+strnpcinfo(2);
-	for( set .@i, 4; .@i <= 9; set .@i, .@i+1 ) {
+	disablenpc "Kafra Staff#"+strnpcinfo(2);
+	for( set .@i, CD_INVESTED_ECONOMY; .@i <= CD_ENABLED_KAFRA; set .@i, .@i+1 ) {
 		SetCastleData strnpcinfo(2), .@i, 0;
 	}
 	// Erase Guardian Database information if the new owners do not have Guardian Research.
 	if( getgdskilllv(.@GID,10002) == 0 ) {
-		for( set .@i, 10; .@i <= 17; set .@i, .@i+1 ) {
+		for( set .@i, CD_ENABLED_GUARDIAN00; .@i < CD_MAX; set .@i, .@i+1 ) {
 			SetCastleData strnpcinfo(2), .@i, 0;
 		}
 	}
@@ -149,7 +141,7 @@ OnAgitBreak:
 	if( agitcheck() )
 		donpcevent "Agit#"+strnpcinfo(2)+"::OnStartArena";
 	sleep 7000;
-	announce "公会城堡 [" + getcastlename(strnpcinfo(2)) + "] 被 [" + getguildName(.@GID) + "] 公会占领.",bc_all|bc_woe;
+	announce "The [" + getcastlename(strnpcinfo(2)) + "] castle has been conquered by the [" + getguildName(.@GID) + "] guild.",bc_all|bc_woe;
 	end;
 
 // War of Emperium has ended.
@@ -157,7 +149,7 @@ OnAgitEnd:
 	if (strnpcinfo(0) == "Gld_Agit_Manager") end;
 	GvgOff strnpcinfo(2);
 	// If the castle has no owner at the end of WoE, do not kill Emperium.
-	if (GetCastleData(strnpcinfo(2),1)) {
+	if (GetCastleData(strnpcinfo(2),CD_GUILD_ID)) {
 		KillMonster strnpcinfo(2),"Agit#"+strnpcinfo(2)+"::OnAgitBreak";
 	}
 	end;
@@ -166,12 +158,12 @@ OnAgitEnd:
 OnGuildBreak:
 	if (strnpcinfo(0) == "Gld_Agit_Manager") end;
 	// Kill guardians, disable the Kafra, and set owner to 0.
-	killmonster strnpcinfo(2),"监护人#"+strnpcinfo(2)+"::OnGuardianDied";
-	disablenpc "卡普拉 职员#"+strnpcinfo(2);
-	SetCastleData strnpcinfo(2),1,0;
+	killmonster strnpcinfo(2),"Guardian#"+strnpcinfo(2)+"::OnGuardianDied";
+	disablenpc "Kafra Staff#"+strnpcinfo(2);
+	SetCastleData strnpcinfo(2),CD_GUILD_ID,0;
 	// Wait before refreshing guild information.
 	sleep 7000;
-	Announce "公会城堡 [" + GetCastleName(strnpcinfo(2)) + "] 被占领了.",0;
+	Announce "Guild Base [" + GetCastleName(strnpcinfo(2)) + "] has been abandoned.",0;
 	donpcevent strnpcinfo(0)+"::OnRecvCastle";
 	end;
 
@@ -179,105 +171,105 @@ OnAgitInit:
 OnRecvCastle:
 	if (strnpcinfo(0) == "Gld_Agit_Manager") end;
 	// Spawn Monsters if the castle is empty.
-	set .@GID, GetCastleData(strnpcinfo(2),1);
+	set .@GID, GetCastleData(strnpcinfo(2),CD_GUILD_ID);
 	if (.@GID == 0) {
 		killmonsterall strnpcinfo(2);
 		if (compare(strnpcinfo(2),"aldeg")) {
 			// Normal Spawns
-			monster strnpcinfo(2),0,0,"闇神官",1117,10;
-			monster strnpcinfo(2),0,0,"卡利斯格",1132,4;
-			monster strnpcinfo(2),0,0,"深渊骑士",1219,2;
-			monster strnpcinfo(2),0,0,"行刑者",1205,1;
-			monster strnpcinfo(2),0,0,"梅纳海葵",1216,10;
-			monster strnpcinfo(2),0,0,"钟怪",1193,18;
-			monster strnpcinfo(2),0,0,"古钟魔",1269,9;
-			monster strnpcinfo(2),0,0,"幽灵弓箭手",1276,7;
-			monster strnpcinfo(2),0,0,"邪骸浪人",1208,3;
-			monster strnpcinfo(2),0,0,"爱丽丝女仆",1275,1;
-			monster strnpcinfo(2),0,0,"血腥骑士",1268,1;
-			//monster strnpcinfo(2),0,0,"黑暗之王",1272,1;
+			monster strnpcinfo(2),0,0,"Evil Druid",1117,10;
+			monster strnpcinfo(2),0,0,"Khalitzburg",1132,4;
+			monster strnpcinfo(2),0,0,"Abysmal Knight",1219,2;
+			monster strnpcinfo(2),0,0,"Executioner",1205,1;
+			monster strnpcinfo(2),0,0,"Penomena",1216,10;
+			monster strnpcinfo(2),0,0,"Alarm",1193,18;
+			monster strnpcinfo(2),0,0,"Clock",1269,9;
+			monster strnpcinfo(2),0,0,"Raydric Archer",1276,7;
+			monster strnpcinfo(2),0,0,"Wanderer",1208,3;
+			monster strnpcinfo(2),0,0,"Alice",1275,1;
+			monster strnpcinfo(2),0,0,"Bloody Knight",1268,1;
+			monster strnpcinfo(2),0,0,"Dark Lord",1272,1;
 			// Set Emperium room spawn coordinates and spawn monsters.
 			if (strnpcinfo(2) == "aldeg_cas01") { setarray .@emproom[0],216,23; }
 			else if (strnpcinfo(2) == "aldeg_cas02") { setarray .@emproom[0],213,23; }
 			else if (strnpcinfo(2) == "aldeg_cas03") { setarray .@emproom[0],205,31; }
 			else if (strnpcinfo(2) == "aldeg_cas04") { setarray .@emproom[0],36,217; }
 			else if (strnpcinfo(2) == "aldeg_cas05") { setarray .@emproom[0],27,101; }
-			//monster strnpcinfo(2),.@emproom[0],.@emproom[1],"黑暗之王",1272,1;
-			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"钟塔守护者",1270,4;
-			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"血腥骑士",1268,1;
-			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"深渊骑士",1219,1;
-			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"幽灵弓箭手",1276,5;
+			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"Dark Lord",1272,1;
+			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"Tower Keeper",1270,4;
+			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"Bloody Knight",1268,1;
+			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"Abysmal Knight",1219,1;
+			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"Raydric Archer",1276,5;
 		}
 		else if (compare(strnpcinfo(2),"gefg")) {
 			// Normal Spawns
-			monster strnpcinfo(2),0,0,"闇神官",1117,10;
-			monster strnpcinfo(2),0,0,"风魔巫师",1263,11;
-			monster strnpcinfo(2),0,0,"巫婆",1102,10;
-			monster strnpcinfo(2),0,0,"南瓜先生",1130,10;
-			monster strnpcinfo(2),0,0,"马尔杜克",1140,20;
-			monster strnpcinfo(2),0,0,"幽灵剑士",1163,9;
-			monster strnpcinfo(2),0,0,"爱丽丝女仆",1275,1;
-			monster strnpcinfo(2),0,0,"深渊骑士",1219,1;
-			//monster strnpcinfo(2),0,0,"月夜猫",1150,1;
-			//monster strnpcinfo(2),0,0,"皮里恩",1159,1;
+			monster strnpcinfo(2),0,0,"Evil Druid",1117,10;
+			monster strnpcinfo(2),0,0,"Wind Ghost",1263,11;
+			monster strnpcinfo(2),0,0,"Bathory",1102,10;
+			monster strnpcinfo(2),0,0,"Jakk",1130,10;
+			monster strnpcinfo(2),0,0,"Marduk",1140,20;
+			monster strnpcinfo(2),0,0,"Raydric",1163,9;
+			monster strnpcinfo(2),0,0,"Alice",1275,1;
+			monster strnpcinfo(2),0,0,"Abysmal Knight",1219,1;
+			monster strnpcinfo(2),0,0,"Moonlight Flower",1150,1;
+			monster strnpcinfo(2),0,0,"Phreeoni",1159,1;
 			// Set Emperium room spawn coordinates and spawn monsters.
 			if (strnpcinfo(2) == "gefg_cas01") { setarray .@emproom[0],197,181; }
 			else if (strnpcinfo(2) == "gefg_cas02") { setarray .@emproom[0],176,178; }
 			else if (strnpcinfo(2) == "gefg_cas03") { setarray .@emproom[0],244,166; }
 			else if (strnpcinfo(2) == "gefg_cas04") { setarray .@emproom[0],174,177; }
 			else if (strnpcinfo(2) == "gefg_cas05") { setarray .@emproom[0],194,184; }
-			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"弑神者",1203,1;
-			//monster strnpcinfo(2),.@emproom[0],.@emproom[1],"兽人英雄",1087,1;
-			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"兽人战士长",1213,10;
-			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"兽人弓箭手",1189,10;
+			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"Mysteltainn",1203,1;
+			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"Orc Hero",1087,1;
+			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"High Orc",1213,10;
+			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"Orc Archer",1189,10;
 		}
 		else if (compare(strnpcinfo(2),"payg")) {
 			// Normal Spawns
-			monster strnpcinfo(2),0,0,"将军魔碑",1277,9;
-			monster strnpcinfo(2),0,0,"邪骸浪人",1208,10;
-			monster strnpcinfo(2),0,0,"半龙人",1262,5;
-			monster strnpcinfo(2),0,0,"巫婆",1102,5;
-			//monster strnpcinfo(2),0,0,"月夜猫",1150,1;
-			//monster strnpcinfo(2),0,0,"虎王",1115,1;
-			monster strnpcinfo(2),0,0,"鬼火",1129,11;
-			monster strnpcinfo(2),0,0,"幽灵弓箭手",1276,5;
-			monster strnpcinfo(2),0,0,"犬妖弓箭手",1282,4;
-			monster strnpcinfo(2),0,0,"蝙蝠弓箭手",1253,5;
+			monster strnpcinfo(2),0,0,"Greatest General",1277,9;
+			monster strnpcinfo(2),0,0,"Wanderer",1208,10;
+			monster strnpcinfo(2),0,0,"Mutant Dragonoid",1262,5;
+			monster strnpcinfo(2),0,0,"Bathory",1102,5;
+			monster strnpcinfo(2),0,0,"Moonlight Flower",1150,1;
+			monster strnpcinfo(2),0,0,"Eddga",1115,1;
+			monster strnpcinfo(2),0,0,"Horong",1129,11;
+			monster strnpcinfo(2),0,0,"Raydric Archer",1276,5;
+			monster strnpcinfo(2),0,0,"Kobold Archer",1282,4;
+			monster strnpcinfo(2),0,0,"Gargoyle",1253,5;
 			// Set Emperium room spawn coordinates and spawn monsters.
 			if (strnpcinfo(2) == "payg_cas01") { setarray .@emproom[0],139,139; }
 			else if (strnpcinfo(2) == "payg_cas02") { setarray .@emproom[0],38,25; }
 			else if (strnpcinfo(2) == "payg_cas03") { setarray .@emproom[0],269,265; }
 			else if (strnpcinfo(2) == "payg_cas04") { setarray .@emproom[0],270,28; }
 			else if (strnpcinfo(2) == "payg_cas05") { setarray .@emproom[0],30,30; }
-			//monster strnpcinfo(2),.@emproom[0],.@emproom[1],"月夜猫",1150,1;
-			//monster strnpcinfo(2),.@emproom[0],.@emproom[1],"虎王",1115,1;
-			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"邪骸浪人",1208,6;
-			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"幽灵弓箭手",1276,5;
+			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"Moonlight Flower",1150,1;
+			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"Eddga",1115,1;
+			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"Wanderer",1208,6;
+			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"Raydric Archer",1276,5;
 		}
 		else if (compare(strnpcinfo(2),"prtg")) {
 			// Normal Spawns
-			monster strnpcinfo(2),0,0,"幽灵剑士",1163,1;
-			monster strnpcinfo(2),0,0,"卡利斯格",1132,10;
-			monster strnpcinfo(2),0,0,"深渊骑士",1219,5;
-			monster strnpcinfo(2),0,0,"血腥骑士",1268,5;
-			//monster strnpcinfo(2),0,0,"冰暴骑士",1251,1;
-			//monster strnpcinfo(2),0,0,"卡仑",1252,1;
-			monster strnpcinfo(2),0,0,"幽灵弓箭手",1276,5;
-			monster strnpcinfo(2),0,0,"狮鹫兽",1259,2;
-			monster strnpcinfo(2),0,0,"凯美拉",1283,3;
-			monster strnpcinfo(2),0,0,"爱丽丝女仆",1275,1;
-			monster strnpcinfo(2),0,0,"艾斯恩魔女",1200,1;
+			monster strnpcinfo(2),0,0,"Raydric",1163,1;
+			monster strnpcinfo(2),0,0,"Khalitzburg",1132,10;
+			monster strnpcinfo(2),0,0,"Abysmal Knight",1219,5;
+			monster strnpcinfo(2),0,0,"Bloody Knight",1268,5;
+			monster strnpcinfo(2),0,0,"Stormy Knight",1251,1;
+			monster strnpcinfo(2),0,0,"Hatii",1252,1;
+			monster strnpcinfo(2),0,0,"Raydric Archer",1276,5;
+			monster strnpcinfo(2),0,0,"Gryphon",1259,2;
+			monster strnpcinfo(2),0,0,"Chimera",1283,3;
+			monster strnpcinfo(2),0,0,"Alice",1275,1;
+			monster strnpcinfo(2),0,0,"Zealotus",1200,1;
 			// Set Emperium room spawn coordinates and spawn monsters.
 			if (strnpcinfo(2) == "prtg_cas01") { setarray .@emproom[0],197,197; }
 			else if (strnpcinfo(2) == "prtg_cas02") { setarray .@emproom[0],157,174; }
 			else if (strnpcinfo(2) == "prtg_cas03") { setarray .@emproom[0],16,220; }
 			else if (strnpcinfo(2) == "prtg_cas04") { setarray .@emproom[0],291,14; }
 			else if (strnpcinfo(2) == "prtg_cas05") { setarray .@emproom[0],266,266; }
-			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"血腥骑士",1268,1;
-			//monster strnpcinfo(2),.@emproom[0],.@emproom[1],"冰暴骑士",1251,1;
-			//monster strnpcinfo(2),.@emproom[0],.@emproom[1],"卡仑",1252,1;
-			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"深渊骑士",1219,1;
-			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"幽灵弓箭手",1276,5;
+			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"Guardian Knight",1268,1;
+			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"Guardian Master",1251,1;
+			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"Hatii",1252,1;
+			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"Guardian Knight",1219,1;
+			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"Raydric Archer",1276,5;
 		}
 		// Add custom Guild Castles here.
 		else {
@@ -285,7 +277,7 @@ OnRecvCastle:
 		}
 		donpcevent "Agit#"+strnpcinfo(2)+"::OnStartArena";
 		// Disable Kafra Staff...
-		disablenpc "卡普拉 职员#"+strnpcinfo(2);
+		disablenpc "Kafra Staff#"+strnpcinfo(2);
 		end;
 	}
 	else {
@@ -315,33 +307,33 @@ OnRecvCastle:
 			end;
 		}
 		// And load purchased Guardian in castles.
-		donpcevent "监护人#"+strnpcinfo(2)+"::OnSpawnGuardians";
+		donpcevent "Guardian#"+strnpcinfo(2)+"::OnSpawnGuardians";
 		// And display Kafra if purchased.
-		if (GetCastleData(strnpcinfo(2),9) < 1) disablenpc "卡普拉 职员#"+strnpcinfo(2);
+		if (GetCastleData(strnpcinfo(2),CD_ENABLED_KAFRA) < 1) disablenpc "Kafra Staff#"+strnpcinfo(2);
 	}
 	end;
 }
 
 // WoE : Guild Kafras
 //============================================================
--	script	卡普拉 职员#woe::guildkafra	-1,{
+-	script	Kafra Staff#woe::guildkafra	-1,{
 
-	set .@GID,GetCastleData(strnpcinfo(2),1);
+	set .@GID,GetCastleData(strnpcinfo(2),CD_GUILD_ID);
 
 	if (compare(strnpcinfo(2),"aldeg")) {
-		setarray .@destination$[0],"艾尔帕兰","aldebaran";
+		setarray .@destination$[0],"Al De Baran","aldebaran";
 		setarray .@coordinates[0],132,103;
 	}
 	else if (compare(strnpcinfo(2),"gefg")) {
-		setarray .@destination$[0],"吉芬","geffen";
+		setarray .@destination$[0],"Geffen","geffen";
 		setarray .@coordinates[0],120,39;
 	}
 	else if (compare(strnpcinfo(2),"payg")) {
-		setarray .@destination$[0],"斐扬","payon";
+		setarray .@destination$[0],"Payon","payon";
 		setarray .@coordinates[0],70,100;
 	}
 	else if (compare(strnpcinfo(2),"prtg")) {
-		setarray .@destination$[0],"普隆德拉","prontera";
+		setarray .@destination$[0],"Prontera","prontera";
 		setarray .@coordinates[0],278,211;
 	}
 	// Add custom Guild Castles here.
@@ -351,50 +343,50 @@ OnRecvCastle:
 
 	cutin "kafra_01",2;
 	if (getcharid(2) == .@GID) {
-		mes "[卡普拉 职员]";
-		mes "欢迎光临. ^ff0000" + GetGuildName(.@GID) + "^000000 会员们.";
-		mes "卡普拉公司, 永远在各位身边为您服务.";
+		mes "[Kafra Employee]";
+		mes "Welcome. ^ff0000" + GetGuildName(.@GID) + "^000000 Member.";
+		mes "The Kafra Corporation will stay with you wherever you go.";
 		next;
-		switch (select("使用仓库服务:使用空间移动服务:使用手推车服务:结束")) {
+		switch (select("Use Storage:Use Teleport Service:Rent a Pushcart:Cancel")) {
 		case 1:
-			if (getskilllv("NV_BASIC") < 6) {
-				mes "[卡普拉 职员]";
-				mes "对不起,";
-				mes "想要使用仓库服务的话";
-				mes "初学者的基本技能";
-				mes "等级要到达 6级以上.";
+			if(!callfunc("F_CanOpenStorage")){
+				mes "[Kafra Employee]";
+				mes "I'm sorry, but you";
+				mes "need the Novice's";
+				mes "Basic Skill Level 6 to";
+				mes "use the Storage Service.";
 				close2;
 				cutin "",255;
 				end;
 			}
-			mes "[卡普拉 职员]";
-			mes "你好, ";
-			mes "仓库已开启.";
-			mes "感谢您使用";
-			mes "卡普拉服务.";
+			mes "[Kafra Employee]";
+			mes "Here, let me open";
+			mes "your Storage for you.";
+			mes "Thank you for using";
+			mes "the Kafra Service.";
 			close2;
 			cutin "",255;
 			openstorage;
 			end;
 		case 2:
-			mes "[卡普拉 职员]";
-			mes "请说";
-			mes "你想要去的地方.";
+			mes "[Kafra Employee]";
+			mes "Please choose";
+			mes "your destination.";
 			next;
-			switch (select(.@destination$+" -> 200z:取消")) {
+			switch (select(.@destination$+" -> 200z:Cancel")) {
 			case 1:
 				if (Zeny < 200) {
-					mes "[卡普拉 职员]";
-					mes "抱歉, ";
-					mes "您的金额不足";
-					mes "请再确认.";
-					mes "需要 "+.@destination$+" 200 zeny.";
+					mes "[Kafra Employee]";
+					mes "I'm sorry, but you don't have";
+					mes "enough zeny for the Teleport";
+					mes "Service. The fee to teleport";
+					mes "to "+.@destination$+" is 200 zeny.";
 					close2;
 					cutin "",255;
 					end;
 				}
 				set Zeny, Zeny - 200;
-				set RESRVPTS,RESRVPTS+2;
+				set RESRVPTS,RESRVPTS+20;
 				close2;
 				warp .@destination$[1],.@coordinates[0],.@coordinates[1];
 				end;
@@ -405,46 +397,46 @@ OnRecvCastle:
 			}
 		case 3:
 			if (BaseClass != Job_Merchant) {
-				mes "[卡普拉 职员]";
-				mes "很抱歉,";
-				mes "手推车服务";
-				mes "只适用于商人,";
-				mes "铁匠, 神工匠";
-				mes "炼金术师, 创造者,";
-				mes "机械工匠与基因学者.";
+				mes "[Kafra Employee]";
+				mes "I'm sorry, but the";
+				mes "Pushcart rental service";
+				mes "is only available to Merchants,";
+				mes "Blacksmiths, Master Smiths,";
+				mes "Alchemists, Biochemists,";
+				mes "Mechanics and Geneticists.";
 				close2;
 				cutin "",255;
 				end;
 			}
 			if (checkcart()) {
-				mes "[卡普拉 职员]";
-				mes "你已经租";
-				mes "过手推车了.";
-				mes "抱歉,";
-				mes "租过手推车";
-				mes "就无法在租啰.";
+				mes "[Kafra Employee]";
+				mes "You already have";
+				mes "a Pushcart equipped.";
+				mes "Unfortunately, we can't";
+				mes "rent more than one to";
+				mes "each customer at a time.";
 				close2;
 				cutin "",255;
 				end;
 			}
-			mes "[卡普拉 职员]";
-			mes "手推车使用费用是";
-			mes "800 zeny. ";
-			mes "您要使用吗?";
+			mes "[Kafra Employee]";
+			mes "The Pushcart rental";
+			mes "fee is 800 zeny. Would";
+			mes "you like to rent a Pushcart?";
 			next;
-			switch (select("使用.:取消")) {
+			switch (select("Rent a Pushcart.:Cancel")) {
 			case 1:
 				if (Zeny < 800) {
-					mes "[卡普拉 职员]";
-					mes "抱歉,";
-					mes "您的金额不足";
-					mes "手推车使用费是";
-					mes "800 zeny.";
+					mes "[Kafra Employee]";
+					mes "I'm sorry, but you";
+					mes "don't have enough";
+					mes "zeny to pay the Pushcart";
+					mes "rental fee of 800 zeny.";
 					close2;
 					cutin "",255;
 					end;
 				}
-				set RESRVPTS,RESRVPTS+8;
+				set RESRVPTS,RESRVPTS+80;
 				set Zeny, Zeny - 800;
 				setcart;
 				close2;
@@ -456,16 +448,16 @@ OnRecvCastle:
 				end;
 			}
 		case 4:
-			mes "[卡普拉 职员]";
-			mes "我们卡普拉公司的服务是为了让顾客们放心和方便的使用. 我们会尽我们最大的努力做到更好的服务与严格的营业管理.";
-			mes "谢谢您们使用我们卡普拉公司的服务.";
+			mes "[Kafra Employee]";
+			mes "We, here at Kafra Corporation,";
+			mes "are always endeavoring to provide you with the best services. We hope that we meet your adventuring needs and standards of excellence.";
 			close2;
 			cutin "",255;
 			end;
 		}
 	}
-	mes "[卡普拉 职员]";
-	mes "我已签订契约专为 ^ff0000"+GetGuildName(.@GID)+"^000000 会员服务, 请使用我们其它地方的卡普拉职员, 如有不便之处敬请见谅.";
+	mes "[Kafra Employee]";
+	mes "I am instructed to only offer my services to the ^ff0000"+GetGuildName(.@GID)+"^000000 Guild. Please try another Kafra Employee around here. Sorry for the inconvenience.";
 	close2;
 	cutin "",255;
 	end;
@@ -475,7 +467,7 @@ OnRecvCastle:
 //============================================================
 -	script	Castle Manager#cm::cm	-1,{
 
-	set .@GID,GetCastleData(strnpcinfo(2),1);
+	set .@GID,GetCastleData(strnpcinfo(2),CD_GUILD_ID);
 
 	// .@guardiantype = Defines the types of guardians per castle basis.
 	// 1 - Soldier Guardian, 2 - Archer Guardian, 3 - Knight Guardian
@@ -614,37 +606,37 @@ OnRecvCastle:
 
 	if (.@GID == 0) {
 		mes "["+strnpcinfo(1)+"]";
-		mes "我在此等待我的主人.";
-		mes "勇敢的冒险者啊... 追随你的命运吧...";
+		mes "I have been waiting for a master to fulfill my destiny.";
+		mes "Brave soul... fate will guide you towards your future...";
 		close;
 	}
-	if (GetGuildMaster(.@GID) != strcharinfo(0)) {
+	if (is_guild_leader(.@GID) == false) {
 		mes "["+strnpcinfo(1)+"]";
-		mes "不管你们怎么威胁我, 我只愿意追随我的主人 ^ff0000"+GetGuildMaster(.@GID)+"^000000. 监护人你们在哪里呀?! 赶快把这些无理的家伙们赶走吧!";
+		mes "No matter how much you pester me, I'll still follow my master ^ff0000"+GetGuildMaster(.@GID)+"^000000. Where are the Guardians?! Send these ruffians away right now!";
 		close;
 	}
 	mes "["+strnpcinfo(1)+"]";
-	mes "欢迎光临. 我的主人, ^ff0000"+strcharinfo(0)+"^000000...";
-	mes "请尽管吩咐, "+strnpcinfo(1)+", 我将忠诚地为你完成任务.";
+	mes "Welcome. My honorable master, ^ff0000"+strcharinfo(0)+"^000000...";
+	mes "Your humble servent, "+strnpcinfo(1)+", is here to serve you.";
 	next;
-	switch (select("查看公会城堡状况:投资商业发展度:投资防御度:设置监护人:雇用 / 解雇 仓库职员:进入主人房间")) {
+	switch (select("Castle briefing:Invest in commercial growth:Invest in Castle Defenses:Summon Guardian:Hire / Fire a Kafra Employee:Go into Master's room")) {
 	case 1:
 		mes "["+strnpcinfo(1)+"]";
-		mes "现在向你报告公会城堡的状况.";
+		mes "I will report the Castle briefing, Master.";
 		mes " ";
-		mes "^0000ff现在商业发展度是 "+GetCastleData(strnpcinfo(2),2)+".";
-		if (GetCastleData(strnpcinfo(2),4)) {
-			mes " 在过去一天之内,投资了 "+GetCastleData(strnpcinfo(2),4)+" 次.";
+		mes "^0000ffNow, the commercial growth level is "+GetCastleData(strnpcinfo(2),CD_CURRENT_ECONOMY)+".";
+		if (GetCastleData(strnpcinfo(2),CD_INVESTED_ECONOMY)) {
+			mes " You invested "+GetCastleData(strnpcinfo(2),CD_INVESTED_ECONOMY)+" times in past 1 day.";
 		}
-		mes " 现在的防御度是 "+GetCastleData(strnpcinfo(2),3)+".^000000";
-		if (GetCastleData(strnpcinfo(2),5)) {
-			mes " ^0000ff- 在过去一天之内,投资了"+GetCastleData(strnpcinfo(2),5)+" 次.^000000";
+		mes " Now, the Castle Defense level is "+GetCastleData(strnpcinfo(2),CD_CURRENT_DEFENSE)+".^000000";
+		if (GetCastleData(strnpcinfo(2),CD_INVESTED_DEFENSE)) {
+			mes " ^0000ff- You invested "+GetCastleData(strnpcinfo(2),CD_INVESTED_DEFENSE)+" times in past 1 day.^000000";
 		}
 		mes " ";
-		mes "报告完毕.";
+		mes "That's all I have to report, Master.";
 		close;
 	case 2:
-		set .@Economy,GetCastleData(strnpcinfo(2),2);
+		set .@Economy,GetCastleData(strnpcinfo(2),CD_CURRENT_ECONOMY);
 		if (.@Economy < 6) { set .@eco_invest,5000; }
 		else if ((.@Economy >= 6) && (.@Economy <= 10)) { set .@eco_invest,10000; }
 		else if ((.@Economy >= 11) && (.@Economy <= 15)) { set .@eco_invest,20000; }
@@ -666,51 +658,51 @@ OnRecvCastle:
 		else if ((.@Economy >= 91) && (.@Economy <= 95)) { set .@eco_invest,860000; }
 		else if ((.@Economy >= 96) && (.@Economy <= 100)) { set .@eco_invest,955000; }
 		//Quadruple the cost of investing if you've already invested once.
-		if (GetCastleData(strnpcinfo(2),4)) {
+		if (GetCastleData(strnpcinfo(2),CD_INVESTED_ECONOMY)) {
 			set .@eco_invest,.@eco_invest*4;
 		}
 		mes "["+strnpcinfo(1)+"]";
-		mes "提高商业发展度的话, 在工会里生产的物品数量会增加, 为了以后着想的话, 不能不投资啊.";
+		mes "If you invest in commercial growth, the quantity of goods made by the guild will increase. Therfore, if you consider our future, investments will be a necessity.";
 		mes " ";
-		mes "照原先的方式, 一天只能投资一次, 如果多支付一些Zeny的话, 一天可以投资两次.";
+		mes "Initially, you are able to invest just once but if you pay more money, you will be able to invest twice.";
 		if (.@Economy >= 100) {
 			mes " ";
-			mes "^ff0000目前商业发展度以经是100了, 你已经不需要再加入任何投资了.^000000";
+			mes "^ff0000The commercial growth level of our Castle is at it's highest, 100%. No more investments are needed. Just as I have expected from a great economist like you, Master.^000000";
 			close;
 		}
-		if (GetCastleData(strnpcinfo(2),4) >= 2) {
+		if (GetCastleData(strnpcinfo(2),CD_INVESTED_ECONOMY) >= 2) {
 			mes " ";
-			mes "^ff0000可是你已经在今天之内投资了两次, 再不能投资了.^000000 让发展度赶快上升, 期待着富贵的日子啰.";
+			mes "^ff0000You have already invested twice today. You cannot invest any more.^000000 I expect riches of the guild to grow at a high rate.";
 			close;
 		}
-		if (GetCastleData(strnpcinfo(2),4) == 0) {
+		if (GetCastleData(strnpcinfo(2),CD_INVESTED_ECONOMY) == 0) {
 			mes " ";
-			mes "现在需要的投资金额是 ^ff0000"+.@eco_invest+"^000000 金币, 请问你要投资吗?";
+			mes "The current investment amount required is ^ff0000"+.@eco_invest+"^000000 zeny. Will you invest?";
 		}
 		else {
 			mes " ";
-			mes "现在你已经投资一次了... 还要再投资吗? 还需要追加, ^ff0000"+.@eco_invest+"^000000 金币噢.";
+			mes "You've invested once today... if you wish to invest once more, ^ff0000"+.@eco_invest+"^000000 more zeny will be needed.";
 		}
 		next;
-		switch (select("对商业发展度投资:取消")) {
+		switch (select("Invest in commercial growth:Cancel")) {
 		case 1:
 			if (Zeny < .@eco_invest) {
 				mes "["+strnpcinfo(1)+"]";
-				mes "投资资金似乎不足喔. 等资金足够时在尝试看看.";
+				mes "I'm sorry but there is not enough zeny to invest. You will have to try again when you have the funds, Master.";
 				close;
 			}
 			set Zeny, Zeny - .@eco_invest;
-			SetCastleData strnpcinfo(2),4,GetCastleData(strnpcinfo(2),4)+1;
+			SetCastleData strnpcinfo(2),CD_INVESTED_ECONOMY,GetCastleData(strnpcinfo(2),CD_INVESTED_ECONOMY)+1;
 			mes "[ "+strnpcinfo(1)+"]";
-			mes "顺利地完成投资了! 期待着我们往后要面临的未来 ,明天的话发展度会上升.";
+			mes "We finished the investment safely. I expect that our growth level will be increased by tomorrow.";
 			close;
 		case 2:
 			mes "["+strnpcinfo(1)+"]";
-			mes "我将依照你的吩咐去执行, 是我的主人... 不需要太着急 ,我们会做得很好.";
+			mes "I'll do as you bid, my master... There is no hurry. We will do our best.";
 			close;
 		}
 	case 3:
-		set .@Defence,GetCastleData(strnpcinfo(2),3);
+		set .@Defence,GetCastleData(strnpcinfo(2),CD_CURRENT_DEFENSE);
 		if (.@Defence < 6) { set .@def_invest,10000; }
 		else if ((.@Defence >= 6) && (.@Defence <= 10)) { set .@def_invest,20000; }
 		else if ((.@Defence >= 11) && (.@Defence <= 15)) { set .@def_invest,40000; }
@@ -732,85 +724,85 @@ OnRecvCastle:
 		else if ((.@Defence >= 91) && (.@Defence <= 95)) { set .@def_invest,1720000; }
 		else if ((.@Defence >= 96) && (.@Defence <= 100)) { set .@def_invest,1910000; }
 		//Quadruple the cost of investing if you've already invested once.
-		if (GetCastleData(strnpcinfo(2),5)) {
+		if (GetCastleData(strnpcinfo(2),CD_INVESTED_DEFENSE)) {
 			set .@def_invest,.@def_invest*4;
 		}
 		mes "["+strnpcinfo(1)+"]";
-		mes "提高防御程度的话, 监护人和华丽金属的耐久度会增加, 考虑到往后的战争, 不得不投资啊.";
+		mes "If you raise Castle Defenses, the durability of Guardians and the Emperium will increase. Therefore, if you consider our coming battles, some investment in this area will be required.";
 		mes " ";
-		mes "照原先的方式, 一天只能投资一次, 如果多支付一些Zeny的话, 一天可以投资两次.";
+		mes "Originally you can invest just once but if you pay more money, you can invest twice.";
 		if (.@Defence >= 100) {
 			mes " ";
-			mes "^ff0000目前防御度以经是100了,你已经不需要再加入任何投资了.^000000";
+			mes "^ff0000But the Castle Defense level of our Castle is at it's highest, 100%. No more investments are needed. Just as I have expected from a great strategist like you, Master.^000000";
 			close;
 		}
-		if (GetCastleData(strnpcinfo(2),5) >= 2) {
+		if (GetCastleData(strnpcinfo(2),CD_INVESTED_DEFENSE) >= 2) {
 			mes " ";
-			mes "^ff0000可是你已经在今天之内投资了两次, 不能再投资了.^000000 让防御度赶快上升, 期待着富贵的日子啰.";
+			mes "^ff0000You have already invested twice today. You cannot invest any more.^000000 I expect the Defenses of the guild to grow at a high rate.";
 			close;
 		}
-		if (GetCastleData(strnpcinfo(2),5) == 0) {
+		if (GetCastleData(strnpcinfo(2),CD_INVESTED_DEFENSE) == 0) {
 			mes " ";
-			mes "现在需要的投资金额是 ^ff0000"+.@def_invest+"^000000 zeny, 请问你要投资吗?";
+			mes "The current investment amount required is ^ff0000"+.@def_invest+"^000000 zeny. Will you invest?";
 		}
 		else {
 			mes " ";
-			mes "现在你已经投资过一次了... 还要再投资吗? 还需要追加, ^ff0000"+.@def_invest+"^000000  zeny 噢.";
+			mes "You've invested once today... if you wish to invest once more, ^ff0000"+.@def_invest+"^000000 more zeny will be needed.";
 		}
 		next;
-		switch (select("对防御度 投资:取消")) {
+		switch (select("Invest in Castle Defenses.:Cancel")) {
 		case 1:
 			if (Zeny < .@def_invest) {
 				mes "["+strnpcinfo(1)+"]";
-				mes "投资资金似乎不足喔. 等资金足够时在尝试看看";
+				mes "I'm sorry but there is not enough zeny to invest. You will have to try again when you have the funds, Master.";
 				close;
 			}
 			set Zeny, Zeny - .@def_invest;
-			SetCastleData strnpcinfo(2),5,GetCastleData(strnpcinfo(2),5)+1;
+			SetCastleData strnpcinfo(2),CD_INVESTED_DEFENSE,GetCastleData(strnpcinfo(2),CD_INVESTED_DEFENSE)+1;
 			mes "[ "+strnpcinfo(1)+"]";
-			mes "利地完成投资了! 期待着我们往后要面临的未来, 明天的话防御度会上升.";
+			mes "We finished the investment safely. I expect that our Castle Defense level will be increased by tomorrow.";
 			close;
 		case 2:
 			mes "["+strnpcinfo(1)+"]";
-			mes "我将依照你的吩咐去执行, 是我的主人... 不需要太着急, 我们会做得很好.";
+			mes "I'll do as you bid, my master... There is no hurry. We will do our best.";
 			close;
 		}
 	case 4:
 		mes "["+strnpcinfo(1)+"]";
-		mes "请问你要设置监护人吗? 监护人即将成为, 我们公会城堡的忠诚守护者.";
-		mes "请选择要设置的监护人.";
+		mes "Will you summon a Guardian? It'll be a protector to defend us loyally.";
+		mes "Please select a guardian to defend us.";
 		next;
 		for( set .@i, 0; .@i <= 7 ; set .@i, .@i+1 ) {
-			if (.@guardiantype[.@i] == 1) { set .@type$,"士兵 监护人"; }
-			else if (.@guardiantype[.@i] == 2) { set .@type$,"弓箭手 监护人"; }
-			else { set .@type$,"骑士 监护人"; }
+			if (.@guardiantype[.@i] == 1) { set .@type$,"Guardian Soldier"; }
+			else if (.@guardiantype[.@i] == 2) { set .@type$,"Guardian Archer"; }
+			else { set .@type$,"Guardian Knight"; }
 			if (guardianinfo(strnpcinfo(2),.@i,0)) {
-				setarray .@gname$[.@i], .@type$ + " - 已设置 (" + guardianinfo(strnpcinfo(2),.@i,2) + "/" + guardianinfo(strnpcinfo(2),.@i,1) + ")";
+				setarray .@gname$[.@i], .@type$ + " - Implemented (" + guardianinfo(strnpcinfo(2),.@i,2) + "/" + guardianinfo(strnpcinfo(2),.@i,1) + ")";
 			}
 			else {
-				setarray .@gname$[.@i], .@type$ + " - 未设置";
+				setarray .@gname$[.@i], .@type$ + " - Not Implemented";
 			}
 		}
 		set .@menu$,.@gname$[0]+":"+.@gname$[1]+":"+.@gname$[2]+":"+.@gname$[3]+":"+.@gname$[4]+":"+.@gname$[5]+":"+.@gname$[6]+":"+.@gname$[7];
 		set .@GDnum,select(.@menu$)+9;
 		mes "["+strnpcinfo(1)+"]";
-		mes "确定要设置已选择的监护人吗? 设置时需要  10,000 zeny.";
+		mes "Will you summon the chosen guardian? 10,000 zeny are required to summon a Guardian.";
 		next;
-		switch (select("设置:取消")) {
+		switch (select("Summon:Cancel")) {
 		case 1:
 			if (getgdskilllv(.@GID,10002) == 0) {
 				mes "["+strnpcinfo(1)+"]";
-				mes "主人, 监护人设置已经被取消了, 如果想要设置监护人的话, 请先学会公会技能中 ^FF0000研究监护人^000000 的技能吧.";
+				mes "Master, we have not the resources to Summon the Guardian. If you want to accumulate them, you have to learn the Guild skill. We failed to summon the Guardian.";
 				close;
 			}
 			if (GetCastleData(strnpcinfo(2),.@GDnum) == 1) {
 				mes "["+strnpcinfo(1)+"]";
-				mes "主人... 选择监护人已经设置过了, 不能再设置了.";
+				mes "Master, you already have summoned that Guardian. We cannot summon another.";
 				close;
 			}
 			if (Zeny < 10000) {
 				mes "["+strnpcinfo(1)+"]";
-				mes "主人 ,你没有足够的资金可以设置监护人.";
+				mes "Well... I'm sorry but we don't have funds to summon the Guardian. We failed to summon the Guardian.";
 				close;
 			}
 			set Zeny, Zeny - 10000;
@@ -819,105 +811,105 @@ OnRecvCastle:
 			if (.@guardiantype[.@UseGID] == 1) { set .@type,1287; }
 			else if (.@guardiantype[.@UseGID] == 2) { set .@type,1285; }
 			else { set .@type,1286; }
-			guardian strnpcinfo(2),.@guardianposx[.@UseGID],.@guardianposy[.@UseGID],strmobinfo(2,.@type),.@type,"监护人#"+strnpcinfo(2)+"::OnGuardianDied",.@UseGID;
+			guardian strnpcinfo(2),.@guardianposx[.@UseGID],.@guardianposy[.@UseGID],strmobinfo(2,.@type),.@type,"Guardian#"+strnpcinfo(2)+"::OnGuardianDied",.@UseGID;
 			mes "["+strnpcinfo(1)+"]";
-			mes "完成监护人设置了, 现在开始已经有了, 保护我们公会城堡的强壮我军了.";
+			mes "We completed the summoning of the Guardian. Our defenses are now increased with it in place.";
 			close;
 		case 2:
 			mes "["+strnpcinfo(1)+"]";
-			mes "我已经按照你的吩咐做了, 如果资金上宽裕的话, 一定要设置监护人, 是较好的方案.";
+			mes "I did as you ordered. But please remember if you the have money to spare, it'll be better to set it up.";
 			close;
 		}
 	case 5:
-		if (GetCastleData(strnpcinfo(2),9) == 1) {
+		if (GetCastleData(strnpcinfo(2),CD_ENABLED_KAFRA) == 1) {
 			mes "["+strnpcinfo(1)+"]";
-			mes "我们正在招聘卡普拉员工... 还是你想解雇卡普拉员工?";
+			mes "We are currently hiring a Kafra Employee... Do you want to fire the Kafra Employee?";
 			next;
-			switch (select("解雇:取消")) {
+			switch (select("Fire:Cancel")) {
 			case 1:
 				cutin "kafra_01",2;
-				mes "[ 卡普拉 职员 ]";
-				mes "我做错了什么事吗? 如果我有做错事的话, 能请您原谅我, 再给我一次机会吗...";
+				mes "[ Hired Kafra Employee ]";
+				mes "I worked so hard... How can you do that, Master?... Please... Please reconsider... Check it again, Master... Please...";
 				next;
-				switch (select("解雇:取消")) {
+				switch (select("Fire:Cancel")) {
 				case 1:
-					mes "[ 卡普拉 职员 ]";
-					mes "不能够继续为您服务真是我最大的遗憾!";
+					mes "[ Hired Kafra Employee ]";
+					mes "Oh, my goodness! This is nonsense!";
 					next;
 					cutin "",255;
 					break;
 				case 2:
-					mes "[ 卡普拉 职员 ]";
-					mes "我会努力勤奋的为您服务的!";
+					mes "[ Hired Kafra Employee ]";
+					mes "I'll work hard for you... Thank you!";
 					close;
 				}
 				break;
 			case 2:
 				mes "["+strnpcinfo(1)+"]";
-				mes "主人, 我想我们应该要留下现在这位卡普拉职员, 因为她已经竭尽所能地为我们服务了.";
+				mes "She worked hard in my opinion. It was a good decision to keep her.";
 				close;
 			}
-			disablenpc "卡普拉 职员#"+strnpcinfo(2);
-			SetCastleData strnpcinfo(2),9,0;
+			disablenpc "Kafra Staff#"+strnpcinfo(2);
+			SetCastleData strnpcinfo(2),CD_ENABLED_KAFRA,0;
 			mes "["+strnpcinfo(1)+"]";
 			mes "....";
-			mes "卡普拉职员已经解雇了... 不过为了辛苦的会员着想, 雇用卡普拉职员为上策啊";
+			mes "I have discharged the Kafra Employee... But... are you unsatisfied with something?";
 			close;
 		}
 		mes "["+strnpcinfo(1)+"]";
-		mes "和卡普拉总公司订契约后, 想要在公会城堡里面, 雇用卡普拉职员吗?";
-		mes "^ff0000想要雇用的话,需要10,000 zeny. ";
+		mes "Will you contact the kafra Main Office and Hire a Employee for our Castle?";
+		mes "^ff0000 10,000 zeny is required for their services. ";
 		next;
 		switch (select("Hire.:Cancel")) {
 		case 1:
 			if (getgdskilllv(.@GID,10001) == 0) {
 				mes "["+strnpcinfo(1)+"]";
-				mes "主人 ,如今还没跟卡普拉总公司订契约状况 ,所以还不能雇用卡普拉职员 ,假如想要跟卡普拉总公司签订契约的话 ,先学会公会技能中 ^FF0000和卡普拉订契约^000000的技能吧.";
+				mes "Master, we can't hire a Kafra Employee because we don't have a contract with the Kafra Main Office. If you want to obtain a contract with the Kafra Main Office, you will need to learn the Guild skill first.";
 				close;
 			}
 			if (Zeny < 10000) {
 				mes "["+strnpcinfo(1)+"]";
-				mes "主人 ,你没有足够的资金可以雇用卡普拉职员.";
+				mes "Well... I'm sorry but we don't have enough funds to hire a Kafra Employee.";
 				close;
 			}
 			set Zeny, Zeny - 10000;
-			enablenpc "卡普拉 职员#"+strnpcinfo(2);
-			SetCastleData strnpcinfo(2),9,1;
+			enablenpc "Kafra Staff#"+strnpcinfo(2);
+			SetCastleData strnpcinfo(2),CD_ENABLED_KAFRA,1;
 			mes "["+strnpcinfo(1)+"]";
-			mes "成功的和卡普拉总公司签订契约了, 您雇用了一位卡普拉职员.";
+			mes "We obtained a contract with the kafra Main Office, and hired a Kafra Employee.";
 			next;
 			cutin "kafra_01",2;
-			mes "[ 卡普拉 职员 ]";
-			mes "你好吗? 我是总公司派来的卡普拉职员.";
-			mes "我将会竭尽所能地为您服务.";
+			mes "[ Hired Kafra Employee ]";
+			mes "How do you do? I was dispatched from the Main Office.";
+			mes "I'll do my best to not tarnish the reputation of the Guild.";
 			next;
 			cutin "",255;
 			mes "["+strnpcinfo(1)+"]";
-			mes "雇用的卡普拉职员将有 ^FF00001 个月的时间^000000 在此服务.";
-			mes "时间到了之后必须重新签订契约.";
+			mes "The Contract terms of the hired Kafra Employee are for 1 month and after this term, you will need to to pay an additional fee.";
+			mes "It will be useful for our members.";
 			close;
 		case 2:
 			mes "["+strnpcinfo(1)+"]";
-			mes "我已经按照你的吩咐做了 ,不过也要为了辛苦的会员着想,早日雇用卡普拉职员为上策啊.";
+			mes "I did as you ordered, but some of our members will be unhappy. It will be better to hire a Kafra Employee quickly.";
 			close;
 		}
 	case 6:
 		mes "["+strnpcinfo(1)+"]";
-		mes "要到我们生产品囤积的,真贵物品房间吗?";
-		mes "那个地方是为了我们的主人,的专属于你的地方... 除了你之外,其它人都不能其门而入.";
+		mes "Do you want to visit the room where our valuables are stored?";
+		mes "That room is restricted to you... you are the only one with access to it.";
 		next;
-		switch (select("要进入主人的房间.:取消")) {
+		switch (select("Go into Master's room.:Cancel")) {
 		case 1:
 			mes "["+strnpcinfo(1)+"]";
-			mes "我将会为你服务到秘密通道那里,请跟我来.";
-			mes "回来的时候按下秘密按钮即可.";
+			mes "I'll show you the secret path. Follow me...please.";
+			mes "When you want to return here, please press the secret switch.";
 			close2;
 			warp strnpcinfo(2),.@masterroom[0],.@masterroom[1];
 			end;
 		case 2:
 			mes "["+strnpcinfo(1)+"]";
-			mes "生产品一天只生产一次... 如没有即时收走的话,下一次就不能进来了.";
-			mes "所以说为了我们公会的发展,尽量花点时间去收取啊.";
+			mes "Goods are produced once a day... if you don't remove them in time, they will not be produced anymore.";
+			mes "Therefore, it will be better if you check up on them from time to time.";
 			close;
 		}
 	}
@@ -927,11 +919,11 @@ OnRecvCastle:
 //============================================================
 -	script	Lever#gd::gdlever	-1,{
 
-	set .@GID,GetCastleData(strnpcinfo(2),1);
+	set .@GID,GetCastleData(strnpcinfo(2),CD_GUILD_ID);
 
 	if (.@GID == 0) {
-		mes "[响亮的声音]";
-		mes "'克服严峻考验展现过人的勇气... 并且继续迈向另一个考验之路.'";
+		mes "[Ringing Voice]";
+		mes "'Those who overcome an ordeal shows a great deal of bravery... and will find their way to another ordeal.'";
 		close;
 	}
 
@@ -972,20 +964,20 @@ OnRecvCastle:
 		end;
 	}
 
-	mes "[响亮的声音]";
-	mes "'只有勇气的主人,才能接受考验啊.'";
+	mes "[Ringing Voice]";
+	mes "'Only the truly brave can take the test.'";
 	next;
 	mes " ";
-	mes "有小的拉杆 ,你要往下拉吗?";
+	mes "There's a small lever. Will you pull it?";
 	next;
-	if(select("我要拉:我不要拉.") == 1) {
+	if(select("Pull.:Don't pull.") == 1) {
 		if (getcharid(2) == .@GID) {
 			close2;
 			warp .@destination$,.@coordinates[0],.@coordinates[1];
 			end;
 		}
 		mes " ";
-		mes "什么都没有发生.";
+		mes "Nothing happened.";
 		close;
 	}
 	close;
@@ -1123,7 +1115,7 @@ OnSpawnGuardians:
 		else if (.@guardiantype[.@i] == 2) { set .@type,1285; }
 		else { set .@type,1286; }
 		if (GetCastleData(strnpcinfo(2),.@UseGID)) {
-			guardian strnpcinfo(2),.@guardianposx[.@i],.@guardianposy[.@i],strmobinfo(2,.@type),.@type,"监护人#"+strnpcinfo(2)+"::OnGuardianDied",.@i;
+			guardian strnpcinfo(2),.@guardianposx[.@i],.@guardianposy[.@i],strmobinfo(2,.@type),.@type,"Guardian#"+strnpcinfo(2)+"::OnGuardianDied",.@i;
 		}
 	}
 	end;
@@ -1141,13 +1133,13 @@ OnClock0001:
 	// Do nothing if this script is the template.
 	if (strnpcinfo(1) == "Gld_Trea_Spawn") end;
 	
-	set .@GID, GetCastleData(strnpcinfo(2),1);
+	set .@GID, GetCastleData(strnpcinfo(2),CD_GUILD_ID);
 	
 	// If there is no owner, do nothing.
 	if (!.@GID) end;
 
 	// Is there Economy in this castle?
-	set .@Treasure,GetCastleData(strnpcinfo(2),2)/5+4;
+	set .@Treasure,GetCastleData(strnpcinfo(2),CD_CURRENT_ECONOMY)/5+4;
 
 	// Set information
 	if (strnpcinfo(2) == "aldeg_cas01") { 
@@ -1257,19 +1249,19 @@ OnClock0001:
 
 	// Apply investment to Eco. and Def. Only happens if there were investments made.
 	// Permanent Development can only happen once per day.
-	if (GetCastleData(strnpcinfo(2),4)) {
-		set .@Economy,GetCastleData(strnpcinfo(2),2);
-		SetCastleData strnpcinfo(2),2,.@Economy + GetCastleData(strnpcinfo(2),4) + (rand(2) && getgdskilllv(.@GID,10014));
-		if (GetCastleData(strnpcinfo(2),2) > 100) SetCastleData strnpcinfo(2),2,100;
+	if (GetCastleData(strnpcinfo(2),CD_INVESTED_ECONOMY)) {
+		set .@Economy,GetCastleData(strnpcinfo(2),CD_CURRENT_ECONOMY);
+		SetCastleData strnpcinfo(2),CD_CURRENT_ECONOMY,.@Economy + GetCastleData(strnpcinfo(2),CD_INVESTED_ECONOMY) + (rand(2) && getgdskilllv(.@GID,10014));
+		if (GetCastleData(strnpcinfo(2),CD_CURRENT_ECONOMY) > 100) SetCastleData strnpcinfo(2),CD_CURRENT_ECONOMY,100;
 	}
-	if (GetCastleData(strnpcinfo(2),5)) {
-		set .@Defence,GetCastleData(strnpcinfo(2),3);
-		SetCastleData strnpcinfo(2),3,.@Defence + GetCastleData(strnpcinfo(2),5);
-		if (GetCastleData(strnpcinfo(2),3) > 100) SetCastleData strnpcinfo(2),3,100;
+	if (GetCastleData(strnpcinfo(2),CD_INVESTED_DEFENSE)) {
+		set .@Defence,GetCastleData(strnpcinfo(2),CD_CURRENT_DEFENSE);
+		SetCastleData strnpcinfo(2),CD_CURRENT_DEFENSE,.@Defence + GetCastleData(strnpcinfo(2),CD_INVESTED_DEFENSE);
+		if (GetCastleData(strnpcinfo(2),CD_CURRENT_DEFENSE) > 100) SetCastleData strnpcinfo(2),CD_CURRENT_DEFENSE,100;
 	}
 	// Reset daily investment limits.
-	setcastledata strnpcinfo(2),4,0;
-	setcastledata strnpcinfo(2),5,0;
+	setcastledata strnpcinfo(2),CD_INVESTED_ECONOMY,0;
+	setcastledata strnpcinfo(2),CD_INVESTED_DEFENSE,0;
 
 	// Spawn boxes in proper order.
 	for (set .@i,0; .@i < .@Treasure ; set .@i,.@i+1) {
@@ -1278,7 +1270,7 @@ OnClock0001:
 		set .@box,1 << .@i;
 		// Spawn or do not spawn chests if one already exists.
 		if ((getd("$@"+strnpcinfo(2)+"_treasure") & .@box) == 0) {
-			monster strnpcinfo(2),.@treasurex[.@i],.@treasurey[.@i],"公会宝箱",.@boxid,1,"宝箱#"+strnpcinfo(2)+"::OnTreasureDied"+.@i;
+			monster strnpcinfo(2),.@treasurex[.@i],.@treasurey[.@i],"Treasure Chest",.@boxid,1,"Treasure#"+strnpcinfo(2)+"::OnTreasureDied"+.@i;
 			setd "$@"+strnpcinfo(2)+"_treasure",getd("$@"+strnpcinfo(2)+"_treasure") | .@box;
 		}
 	}

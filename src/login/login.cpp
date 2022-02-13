@@ -98,6 +98,8 @@ struct online_login_data* login_add_online_user(int char_server, uint32 account_
 		}
 	}
 
+	accounts->enable_webtoken( accounts, account_id );
+
 	return p;
 }
 
@@ -117,6 +119,8 @@ void login_remove_online_user(uint32 account_id) {
 	if( p->waiting_disconnect != INVALID_TIMER ){
 		delete_timer( p->waiting_disconnect, login_waiting_disconnect_timer );
 	}
+
+	accounts->disable_webtoken( accounts, account_id );
 
 	online_db.erase( account_id );
 }
@@ -316,9 +320,14 @@ int login_mmo_auth(struct login_session_data* sd, bool isServer) {
 	// Account creation with _M/_F
 	if( login_config.new_account_flag ) {
 		if( len > 2 && strnlen(sd->passwd, NAME_LENGTH) > 0 && // valid user and password lengths
-			sd->passwdenc == 0 && // unencoded password
 			sd->userid[len-2] == '_' && memchr("FfMm", sd->userid[len-1], 4) ) // _M/_F suffix
 		{
+			// Encoded password
+			if( sd->passwdenc != 0 ){
+				ShowError( "Account '%s' could not be created because client side password encryption is enabled.\n", sd->userid );
+				return 0; // unregistered id
+			}
+
 			int result;
 			// remove the _M/_F suffix
 			len -= 2;
@@ -404,8 +413,11 @@ int login_mmo_auth(struct login_session_data* sd, bool isServer) {
 	safestrncpy(acc.last_ip, ip, sizeof(acc.last_ip));
 	acc.unban_time = 0;
 	acc.logincount++;
-
 	accounts->save(accounts, &acc);
+
+	if( login_config.use_web_auth_token ){
+		safestrncpy( sd->web_auth_token, acc.web_auth_token, WEB_AUTH_TOKEN_LENGTH );
+	}
 
 	if( sd->sex != 'S' && sd->account_id < START_ACCOUNT_NUM )
 		ShowWarning("Account %s has account id %d! Account IDs must be over %d to work properly!\n", sd->userid, sd->account_id, START_ACCOUNT_NUM);
@@ -632,6 +644,8 @@ bool login_config_read(const char* cfgName, bool normal) {
 			login_config.ip_sync_interval = (unsigned int)1000*60*atoi(w2); //w2 comes in minutes.
 		else if(!strcmpi(w1, "client_hash_check"))
 			login_config.client_hash_check = config_switch(w2);
+		else if(!strcmpi(w1, "use_web_auth_token"))
+			login_config.use_web_auth_token = config_switch(w2);
 		else if(!strcmpi(w1, "client_hash")) {
 			int group = 0;
 			char md5[33];
@@ -691,18 +705,6 @@ bool login_config_read(const char* cfgName, bool normal) {
 			}
 		}
 #endif
-
-//= 登录时[客户端]显示在线虚拟人数 ==========================================
-		else if(strcmpi(w1,"fake_user_head")==0)
-			login_config.fake_user_head = atoi(w2);
-
-		else if(strcmpi(w1,"fake_user_first")==0)
-			login_config.fake_user_first = atoi(w2);
-
-		else if(strcmpi(w1,"fake_user_second")==0)
-			login_config.fake_user_second = atoi(w2);
-//===========================================================================
-
 		else if(!strcmpi(w1, "import"))
 			login_config_read(w2, normal);
 		else {// try the account engines
@@ -758,6 +760,7 @@ void login_set_defaults() {
 	login_config.vip_sys.char_increase = MAX_CHAR_VIP;
 	login_config.vip_sys.group = 5;
 #endif
+	login_config.use_web_auth_token = true;
 
 	//other default conf
 	safestrncpy(login_config.loginconf_name, "conf/login_athena.conf", sizeof(login_config.loginconf_name));

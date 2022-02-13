@@ -1,11 +1,3 @@
-//============================================================
-//= rAthenaCN [飞空艇]汉化脚本 [ www.rAthenaCN.com ]
-//============================================================
-//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
-
 //===== rAthena Script ======================================= 
 //= Izlude Airport NPCs
 //===== By: ================================================== 
@@ -13,7 +5,7 @@
 //===== Current Version: =====================================
 //= 1.0
 //===== Compatible With: ===================================== 
-//= rAthena SVN
+//= rAthena Project
 //===== Description: ========================================= 
 //= Izlude Airport NPCs
 //===== Additional Comments: ================================= 
@@ -21,18 +13,21 @@
 //============================================================ 
 
 -	script	::Airship_Staff_izlude	-1,{
-	mes "[飞空艇职员]";
-	mes "欢迎光临!";
-	mes "我们航空公司随时提供给顾客便捷又舒适的旅行服务。";
-	mes "请问你需要什么样的服务呢？";
+	mes "[Airship Staff]";
+	mes "Welcome! Would you like";
+	mes "to board the Airship that";
+	mes "departs on the flight which stops";
+	mes "in Juno and Rachel?";
 	next;
-	if (select("我想搭乘前往朱诺/拉赫的飞空艇:取消") == 1) {
-		mes "[飞空艇职员]";
-		mes "搭乘飞空艇的费用是 1,200 Zeny";
-		mes "不过，如果你如果持有飞空艇免费搭乘卷的话，就能免费搭乘。";
-		mes "请你是否还想要搭乘飞空艇呢？";
+	if (select("Board the Airship to Juno/Rachel.:Cancel.") == 1) {
+		mes "[Airship Staff]";
+		mes "The boarding fee is";
+		mes "1,200 zeny. However, this";
+		mes "charged is waived if you use";
+		mes "a Free Ticket for Airship. Now,";
+		mes "would you still like to board?";
 		next;
-		if (select("是的:不要") == 1) {
+		if (select("Yes:No") == 1) {
 			if (countitem(7311) > 0) {
 				delitem 7311,1; //Free_Flying_Ship_Ticket
 				warp "airplane_01",244,58;
@@ -43,14 +38,16 @@
 				warp "airplane_01",244,58;
 				end;
 			}
-			mes "[飞空艇职员]";
-			mes "很抱歉，你身上并没有 1,200 Zeny 可用于支付飞空艇的搭乘费用！";
+			mes "[Airship Staff]";
+			mes "I'm sorry, but you don't";
+			mes "have 1,200 zeny to pay";
+			mes "for the boarding fee.";
 			close;
 		}
 	}
-	mes "[飞空艇职员]";
-	mes "感谢光临。";
-	mes "等你有需要的时候请再来找我吧";
-	mes "祝你有个美好的一天~";
+	mes "[Airship Staff]";
+	mes "Thank you and";
+	mes "please come again.";
+	mes "Have a good day~";
 	close;
 }

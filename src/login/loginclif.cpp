@@ -130,7 +130,7 @@ static void logclif_auth_ok(struct login_session_data* sd) {
 	WFIFOW(fd,44) = 0; // unknown
 	WFIFOB(fd,46) = sex_str2num(sd->sex);
 #if PACKETVER >= 20170315
-	memset(WFIFOP(fd,47),0,17); // Unknown
+	safestrncpy( WFIFOCP( fd, 47 ), sd->web_auth_token, WEB_AUTH_TOKEN_LENGTH ); // web authentication token
 #endif
 	for( i = 0, n = 0; i < ARRAYLENGTH(ch_server); ++i ) {
 		if( !session_isValid(ch_server[i].fd) )
@@ -139,11 +139,7 @@ static void logclif_auth_ok(struct login_session_data* sd) {
 		WFIFOL(fd,header+n*size) = htonl((subnet_char_ip) ? subnet_char_ip : ch_server[i].ip);
 		WFIFOW(fd,header+n*size+4) = ntows(htons(ch_server[i].port)); // [!] LE byte order here [!]
 		memcpy(WFIFOP(fd,header+n*size+6), ch_server[i].name, 20);
-		//= 原 rAthena 代码 =========================================================
-		//WFIFOW(fd,header+n*size+26) = login_get_usercount( ch_server[i].users );
-		//= 登录时[客户端]显示在线虚拟人数 ==========================================
-		WFIFOW(fd,header+n*size+26) = login_get_usercount( ch_server[i].users ) + login_config.fake_user_head + (login_config.fake_user_first + rand() % (login_config.fake_user_second - login_config.fake_user_first + 1));
-		//===========================================================================
+		WFIFOW(fd,header+n*size+26) = login_get_usercount( ch_server[i].users );
 		WFIFOW(fd,header+n*size+28) = ch_server[i].type;
 		WFIFOW(fd,header+n*size+30) = ch_server[i].new_;
 #if PACKETVER >= 20170315
@@ -461,6 +457,20 @@ static int logclif_parse_reqcharconnec(int fd, struct login_session_data *sd, ch
 	return 1;
 }
 
+int logclif_parse_otp_login( int fd, struct login_session_data* sd ){
+	RFIFOSKIP( fd, 68 );
+
+	WFIFOHEAD( fd, 34 );
+	WFIFOW( fd, 0 ) = 0xae3;
+	WFIFOW( fd, 2 ) = 34;
+	WFIFOL( fd, 4 ) = 0; // normal login
+	safestrncpy( WFIFOCP( fd, 8 ), "S1000", 6 );
+	safestrncpy( WFIFOCP( fd, 28 ), "token", 6 );
+	WFIFOSET( fd, 34 );
+
+	return 1;
+}
+
 /**
  * Entry point from client to log-server.
  * Function that checks incoming command, then splits it to the correct handler.
@@ -525,6 +535,10 @@ int logclif_parse(int fd) {
 			break;
 		// Sending request of the coding key
 		case 0x01db: next = logclif_parse_reqkey(fd, sd); break;
+		// OTP token login
+		case 0x0acf:
+			next = logclif_parse_otp_login( fd, sd );
+			break;
 		// Connection request of a char-server
 		case 0x2710: logclif_parse_reqcharconnec(fd,sd, ip); return 0; // processing will continue elsewhere
 		default:

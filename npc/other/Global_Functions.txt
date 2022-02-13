@@ -1,19 +1,5 @@
-//============================================================
-//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
-//============================================================
-//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
-
-//===== rAthena Script =======================================  
+//===== rAthena Script ======================================= 
 //= Global Functions
-//===== By: ================================================== 
-//= Lupus, kobra_k88
-//===== Current Version: ===================================== 
-//= 2.25
-//===== Compatible With: ===================================== 
-//= rAthena Project
 //===== Description: ========================================= 
 //= General script functions.
 //===== Additional Comments: ================================= 
@@ -60,6 +46,7 @@
 //= 2.26 Added "F_getpositionname". [Capuche]
 //= 2.27 Added "F_GetPlatinumSkills". [mazvi]
 //= 2.28 Added "close3". [Capuche]
+//= 2.29 Updated "F_IsCharm" to support all latest enchants [Everade]
 //============================================================ 
 
 //////////////////////////////////////////////////////////////////////////////////
@@ -274,7 +261,7 @@ function	script	F_Load2Skills	{
 // -- callfunc "F_GetArmorType",<item ID>
 //////////////////////////////////////////////////////////////////////////////////
 function	script	F_GetWeaponType	{
-	switch(getiteminfo(getarg(0),11)) {
+	switch(getiteminfo(getarg(0), ITEMINFO_VIEW)) {
 		case 1: return "Dagger"; break;
 		case 2: return "One-handed Sword"; break;
 		case 3: return "Two-handed Sword"; break;
@@ -302,7 +289,7 @@ function	script	F_GetWeaponType	{
 	end;
 }
 function	script	F_GetArmorType	{
-	switch(getiteminfo(getarg(0),5)) {
+	switch(getiteminfo(getarg(0), ITEMINFO_LOCATIONS)) {
 		case EQP_HEAD_LOW:
 			return "Lower Headgear";
 		case EQP_HAND_R:
@@ -645,27 +632,27 @@ function	script	F_CanChangeJob	{
 //////////////////////////////////////////////////////////////////////////////////
 function	script	F_getpositionname	{
 	switch( getarg(0,999) ) {
-		case EQI_ACC_L:		return "饰品[右]";
-		case EQI_ACC_R:		return "饰品[左]";
-		case EQI_SHOES:		return "鞋子";
-		case EQI_GARMENT:	return "披肩";
-		case EQI_HEAD_LOW:	return "头下";
-		case EQI_HEAD_MID:	return "头中";
-		case EQI_HEAD_TOP:	return "头上";
-		case EQI_ARMOR:		return "身体";
-		case EQI_HAND_L:	return "左手";
-		case EQI_HAND_R:	return "右手";
-		case EQI_COSTUME_HEAD_TOP:	return "时装头上";
-		case EQI_COSTUME_HEAD_MID:	return "时装头中";
-		case EQI_COSTUME_HEAD_LOW:	return "时装头下";
-		case EQI_COSTUME_GARMENT:	return "时装披肩";
-		case EQI_AMMO:			return "箭失/弹药";
-		case EQI_SHADOW_ARMOR:	return "时装/影子防具";
-		case EQI_SHADOW_WEAPON:	return "时装/影子武器";
-		case EQI_SHADOW_SHIELD:	return "时装/影子盾牌";
-		case EQI_SHADOW_SHOES:	return "时装/影子鞋子";
-		case EQI_SHADOW_ACC_R:	return "时装/影子饰品[左]";
-		case EQI_SHADOW_ACC_L:	return "时装/影子饰品[右]";
+		case EQI_ACC_L:		return "Accessory 1";
+		case EQI_ACC_R:		return "Accessory 2";
+		case EQI_SHOES:		return "Shoes";
+		case EQI_GARMENT:	return "Robe";
+		case EQI_HEAD_LOW:	return "Head 3";
+		case EQI_HEAD_MID:	return "Head 2";
+		case EQI_HEAD_TOP:	return "Head";
+		case EQI_ARMOR:		return "Body";
+		case EQI_HAND_L:	return "Left hand";
+		case EQI_HAND_R:	return "Right hand";
+		case EQI_COSTUME_HEAD_TOP:	return "Upper Costume Headgear";
+		case EQI_COSTUME_HEAD_MID:	return "Middle Costume Headgear";
+		case EQI_COSTUME_HEAD_LOW:	return "Lower Costume Headgear";
+		case EQI_COSTUME_GARMENT:	return "Costume Garment";
+		case EQI_AMMO:			return "Arrow/Ammunition";
+		case EQI_SHADOW_ARMOR:	return "Shadow Armor";
+		case EQI_SHADOW_WEAPON:	return "Shadow Weapon";
+		case EQI_SHADOW_SHIELD:	return "Shadow Shield";
+		case EQI_SHADOW_SHOES:	return "Shadow Shoes";
+		case EQI_SHADOW_ACC_R:	return "Shadow Accessory 2";
+		case EQI_SHADOW_ACC_L:	return "Shadow Accessory 1";
 		default:
 			return "Unknown";
 	}
@@ -779,5 +766,5 @@ function	script	close3	{
 //////////////////////////////////////////////////////////////////////////////////
 function	script	F_IsCharm	{
 	.@id = getarg(0);
-	return ((.@id >= 4700 && .@id < 5000) || (.@id >= 29000 && .@id <= 29162));
+	return ((.@id >= 4700 && .@id <= 4999) || (.@id >= 29000 && .@id <= 29689) || (.@id >= 310000 && .@id <= 311091 ));
 }

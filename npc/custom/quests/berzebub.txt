@@ -1,17 +1,11 @@
-//============================================================
-//= rAthenaCN [贝雷杰卡片任务]汉化脚本 [ www.rAthenaCN.com ]
-//============================================================
-//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
-
-//===== Hercules Script ======================================
+//===== rAthena Script =======================================
 //= Berzebub Card Quest
 //===== By: ==================================================
 //= jabs
 //===== Current Version: =====================================
 //= 1.1
+//===== Compatible With: =====================================
+//= rAthena Project
 //===== Description: =========================================
 //= Quest to get the Berzebub Card
 //===== Additional Comments: =================================
@@ -19,52 +13,52 @@
 //= 1.2 Optimized. [Euphy]
 //============================================================
 
-prontera,165,178,7	script	Old Woman	8_F_GRANDMOTHER,{
+prontera,165,178,8	script	Old Woman	103,{
 
-	setarray .@items[0],714,25,1061,100,1095,200,618,10,1551,2,1614,1,727,20;
+	setarray .@Items[0],714,25,1061,100,1095,200,618,10,1551,2,1614,1,727,20;
 	set .@n$,"[Old Woman]";
 
 	mes .@n$;
 	if(BerzQuest == 1) {
-		mes "嘿,我记得你,我已经告诉你,只能完成一次呀!";
+		mes "Hey, I remember you! I already told you that you may only complete this quest once.";
 		close; }
-	mes "你好,女士,当我在古城摘蘑菇的时候我发现一个真正漂亮的物品!";
+	mes "Greeting, lad. I found a really nifty item while I was picking mushrooms near Glast Heim.";
 	next;
-	if(select("继续说话:离开")==2) goto M_Leave;
-		
-		mes .@n$;
-		mes "我以前从来没有见过像这样的东西。我被告知它可以被在任何附魔与槽可用";
-	next;
-	mes .@n$;
-	mes "如果你有兴趣在这个东西,我将告诉你你需要我帮你做一个你自己的。我只能给你其中的一个角色,所以一旦你完成这个任务,你可能不会再做一次";
-	next;
-	if(select("告诉我关于他的:我不关心这些")==2) goto M_Leave;
+	if(select("Keep Talking:Leave")==2) goto M_Leave;
 
-		mes .@n$;
-		mes "我相信这个道具就叫他Berzebub 卡片,他能让你施法速度十分快";
+	mes .@n$;
+	mes "I have never seen an item like this before. I am told it can be placed inside any accessory with a slot available.";
 	next;
 	mes .@n$;
-	mes "我需要下列全部材料";
-	for(set .@i,0; .@i<getarraysize(.@items); set .@i,.@i+2) {
-		mes " ~ "+.@items[.@i+1]+"x "+getitemname(.@items[.@i]);
-		if (countitem(.@items[.@i]) < .@items[.@i+1]) set .@nr,1; }
+	mes "If you're interested in this item, I'll tell you what you need for me to make you one of your own. I can only give one of these to each player, so once you finish this quest, you may not do it again.";
 	next;
-	if(select("我已经有所有的材料了,我要制作!")==2) goto M_Leave;
+	if(select("Tell me more about it:Nah, I don't care about it")==2) goto M_Leave;
+
+	mes .@n$;
+	mes "I believe the item is called a ^FF0000Berzebub Card^000000. It makes you cast spells really fast!";
+	next;
+	mes .@n$;
+	mes "I need all of the following items:";
+	for(set .@i,0; .@i<getarraysize(.@Items); set .@i,.@i+2) {
+		mes " ~ "+.@Items[.@i+1]+"x "+getitemname(.@Items[.@i]);
+		if (countitem(.@Items[.@i]) < .@Items[.@i+1]) set .@nr,1; }
+	next;
+	if(select("I have all of that!:I'll get those ASAP")==2) goto M_Leave;
 
 	mes .@n$;
 	if (.@nr) {
-		mes "你撒谎,滚出去,还有这些废柴,你就像舞台上的小丑";
+		mes "You lie! Get out of here and get those items, you sorry excuse for a rock star.";
 		close; }
-	for(set .@i,0; .@i<getarraysize(.@items); set .@i,.@i+2)
-		delitem .@items[.@i], .@items[.@i+1];
+	for(set .@i,0; .@i<getarraysize(.@Items); set .@i,.@i+2)
+		delitem .@Items[.@i], .@Items[.@i+1];
 	getitem 4145,1;
-		 set BerzQuest, 1;
-		mes "恭喜你! 你带来了全部的材料,拿好你的Berzebub卡吧!";
-		 emotion ET_CONGRATULATION;
-		 close;
+	set BerzQuest, 1;
+	mes "Congratulations! You have all the items. Here is your ^FF0000Berzebub Card^000000, as promised.";
+	emotion ET_CONGRATULATION;
+	close;
 
 M_Leave:
-		 mes .@n$;
-		 mes "多么伟大的神器,我已经拥有";
+	mes .@n$;
+	mes "Such a great item I have right here...";
 	close;
 }

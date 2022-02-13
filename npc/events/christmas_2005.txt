@@ -43,14 +43,12 @@ xmas_in,89,92,5	script	Louise Kim#designer	714,{
 	mes "Guess who made it?";
 	mes "As you know, Antonio is hard to catch,";
 	mes "that's because I blowed some power in the hat. ";
-	mes "";
 	next;
 	mes "[Designer Louise Kim]";
 	mes "If you don't like your hat,";
 	mes "bring it to me.";
 	mes "I'll change it to brand new one.";
 	mes "Stylish Louise's hat.";
-	mes "";
 	emotion ET_THROB;
 	next;
 	if (countitem(2236) > 0) {
@@ -184,7 +182,6 @@ xmas_in,89,92,5	script	Louise Kim#designer	714,{
 		mes "think about it carefully.";
 		mes "You can get the better designed hat,";
 		mes "and I can show off my talent.";
-		mes "";
 		emotion ET_SMILE;
 		close;
 	}
@@ -269,7 +266,6 @@ prontera,155,285,3	script	Enjoy#enjoy	753,{
 			mes "[Enjoy]";
 			mes "If you are not with me, get away~!!";
 			mes "Get out of my sight!!!!";
-			mes "";
 			close;
 		case 3:
 			mes "[Enjoy]";
@@ -357,11 +353,9 @@ prontera,155,285,3	script	Enjoy#enjoy	753,{
 			mes "or who had to turn his/her back from kissing couples!!";
 			mes "What are you waiting for!!";
 			mes "Why do we have to be the victim!!";
-			mes "";
 			next;
 			mes "[Enjoy]";
 			mes "It's christmas season again!!";
-			mes "";
 			next;
 			mes "[Enjoy]";
 			mes "Are we the soldiers";
@@ -375,7 +369,6 @@ prontera,155,285,3	script	Enjoy#enjoy	753,{
 			mes "No need to envy!!";
 			mes "This christmas is for singles!! ";
 			mes "Yahoo~";
-			mes "";
 			next;
 			mes "[All]";
 			mes "Christmas for singles!!!";
@@ -392,7 +385,7 @@ prontera,155,285,3	script	Enjoy#enjoy	753,{
 			mes "[All]";
 			mes "Let's punish!!!!!";
 			emotion ET_GO;
-			emotion ET_GO,1;
+			emotion ET_GO, playerattached();
 			donpcevent "Happymerry#happymerry02::OnCommandEmotion";
 			donpcevent "Christ#christ02::OnCommandEmotion";
 			donpcevent "Mas#mas02::OnCommandEmotion";
@@ -459,7 +452,6 @@ prontera,155,285,3	script	Enjoy#enjoy	753,{
 		mes "Let's go for it!!!";
 		mes "Cheer up everybody!!!";
 		mes "Let's rock till you get happy~!";
-		mes "";
 		set christ_solo05,0;
 		close;
 	}
@@ -618,7 +610,6 @@ prontera,188,177,4	script	Happymerry#happymerry	869,{
 		mes "He help me last christmas,";
 		mes "when I failed refining my equips.";
 		mes "Oh, holy Enjoy~";
-		mes "";
 		next;
 		mes "[Happymerry]";
 		mes "Alright!I've been waiting for a year!!";
@@ -630,7 +621,6 @@ prontera,188,177,4	script	Happymerry#happymerry	869,{
 		mes "He's waiting for you!";
 		mes "Go ahead~";
 		mes "I'll follow you after contacting others.";
-		mes "";
 		next;
 		mes "[Happymerry]";
 		mes "Alright!";
@@ -676,7 +666,6 @@ prontera,62,339,3	script	Christ#christ	875,{
 		mes "Why do need to organize a party with priest?!";
 		mes "I don't need all that.";
 		mes "Only thing I need is this chubby Pecopeco~!";
-		mes "";
 		next;
 		mes "["+ strcharinfo(0) +"]";
 		mes "Um...";
@@ -737,7 +726,6 @@ prontera,62,339,3	script	Christ#christ	875,{
 		mes "Why do need to organize a party with priest?!";
 		mes "I don't need all that.";
 		mes "Only thing I need is this chubby Pecopeco~!";
-		mes "";
 		next;
 		mes "[Christ]";
 		mes "Who are you!";
@@ -848,7 +836,7 @@ prontera,35,209,5	script	Event#event	881,{
 		next;
 		mes "[Event]";
 		mes "...I love you too~!!!";
-		emotion ET_HUK,1;
+		emotion ET_HUK, playerattached();
 		next;
 		mes "["+ strcharinfo(0) +"]";
 		mes "(Oh,my..)";
@@ -857,10 +845,8 @@ prontera,35,209,5	script	Event#event	881,{
 		mes "It's ok, Tinybee. I'm not lonely at all.";
 		mes "I have Ms.Bathory and Ms.Orclady with me.";
 		mes "Hahahaha~~~";
-		mes "";
 		next;
 		mes "-He laughed talking to his right hand.-";
-		mes "";
 		//Emotion "Event#event" ET_KIK
 		emotion ET_CHUP;
 		next;
@@ -879,11 +865,9 @@ prontera,35,209,5	script	Event#event	881,{
 		mes "Don't be so lonely~.";
 		mes "I'll make your christmas unforgettably fantastic.";
 		mes "Let's go Tinybee.";
-		mes "";
 		next;
 		mes "-He kept talking to his right hand-";
 		mes "-and packed his stuff and bowed to Kafra.-";
-		mes "";
 		next;
 		mes "["+ strcharinfo(0) +"]";
 		mes "Finally!!! Done telling everyone!!";
@@ -916,7 +900,7 @@ prontera,35,209,5	script	Event#event	881,{
 		next;
 		mes "[Event]";
 		mes "...I love you too~!!!";
-		emotion ET_HUK,1;
+		emotion ET_HUK, playerattached();
 		next;
 		mes "["+ strcharinfo(0) +"]";
 		mes "(Oh.my~)";
@@ -925,10 +909,8 @@ prontera,35,209,5	script	Event#event	881,{
 		mes "It's ok Tinybee.I'm not lonely at all.";
 		mes "I have Ms.Bathory and Ms.Orclady with me.";
 		mes "Hahahaha~~~";
-		mes "";
 		next;
 		mes "-He laughed talking to his right hand.-";
-		mes "";
 		emotion ET_CHUP;
 		close;
 	}
@@ -942,7 +924,7 @@ prontera,156,242,0	script	Oholy#pron::OholyDup	79,{
 		mes "The Lord has come.";
 		specialeffect EF_GLORIA;
 		next;
-		if (Sex) {
+		if (Sex == SEX_MALE) {
 			mes "[Oholy]";
 			mes "Merry Christmas!";
 			mes "Dear brother, what comes in";
@@ -1411,7 +1393,7 @@ function	script	F_carol_devi	{
 			mes "Human?";
 			mes "Let go of me...right now!";
 			emotion ET_HUK;
-			emotion ET_HUK,1;
+			emotion ET_HUK, playerattached();
 			next;
 			mes "-Deviruchi quickly ran away-";
 			mes "-^4d4dffWhere Deviruchi is gone,-";
@@ -1434,7 +1416,7 @@ function	script	F_carol_devi	{
 			mes "Human?";
 			mes "Let go of me...right now!";
 			emotion ET_HUK;
-			emotion ET_HUK,1;
+			emotion ET_HUK, playerattached();
 			next;
 			mes "-Deviruchi ran away quickly-";
 			mes "-and mumbled something.-";
@@ -1443,7 +1425,7 @@ function	script	F_carol_devi	{
 			next;
 			mes "-You are now cursed!!!-";
 			sc_start SC_Curse,5000,0;
-			emotion ET_HUK,1;
+			emotion ET_HUK, playerattached();
 			close;
 		case 3:
 			mes "[Deviruchi]";
@@ -1451,7 +1433,7 @@ function	script	F_carol_devi	{
 			mes "Human?";
 			mes "Let go of me...right now!";
 			emotion ET_HUK;
-			emotion ET_HUK,1;
+			emotion ET_HUK, playerattached();
 			next;
 			mes "-Deviruchi ran away quickly-";
 			mes "-and mumbled something.-";
@@ -1460,7 +1442,7 @@ function	script	F_carol_devi	{
 			next;
 			mes "-You are blinded!!!-";
 			sc_start SC_Blind,5000,0;
-			emotion ET_HUK,1;
+			emotion ET_HUK, playerattached();
 			close;
 		case 4:
 			mes "[Deviruchi]";
@@ -1468,7 +1450,7 @@ function	script	F_carol_devi	{
 			mes "Human?";
 			mes "Let go of me...right now!";
 			emotion ET_HUK;
-			emotion ET_HUK,1;
+			emotion ET_HUK, playerattached();
 			next;
 			mes "-Deviruchi ran away quickly-";
 			mes "-and mumbled something.-";
@@ -1477,7 +1459,7 @@ function	script	F_carol_devi	{
 			next;
 			mes "-You are poisoned!!!-";
 			sc_start SC_Poison,5000,0;
-			emotion ET_HUK,1;
+			emotion ET_HUK, playerattached();
 			close;
 		}
 	}
@@ -1500,7 +1482,7 @@ function	script	F_carol_devi	{
 		mes "Human?";
 		mes "Let go of me...right now!";
 		emotion ET_HUK;
-		emotion ET_HUK,1;
+		emotion ET_HUK, playerattached();
 		next;
 		mes "-Deviruchi ran away quickly-";
 		mes "-and mumbled something.-";
@@ -1530,7 +1512,7 @@ function	script	F_carol_devi2	{
 	mes "Human?";
 	mes "Let go of me...right now!";
 	emotion ET_HUK;
-	emotion ET_HUK,1;
+	emotion ET_HUK, playerattached();
 	next;
 	mes "-Deviruchi ran away quickly-";
 	mes "-and mumbled something.-";

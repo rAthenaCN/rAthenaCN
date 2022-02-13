@@ -1,27 +1,21 @@
-//============================================================
-//= rAthenaCN [飞空艇]汉化脚本 [ www.rAthenaCN.com ]
-//============================================================
-//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
-
-//===== Hercules Script ======================================
+//===== rAthena Script ======================================= 
 //= Izlude Airport NPCs
-//===== By: ==================================================
-//= Hercules Dev Team
+//===== By: ================================================== 
+//= rAthena Dev Team
 //===== Current Version: =====================================
 //= 1.1
-//===== Description: =========================================
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
 //= [Official Conversion]
 //= Izlude Airport NPCs
-//===== Additional Comments: =================================
+//===== Additional Comments: ================================= 
 //= 1.0 Updated to match the new Izlude Map. [Masao]
 //= 1.1 Added Izlude duplicates. [Euphy]
-//============================================================
+//============================================================ 
 
-izlude,202,75,3	duplicate(Airship_Staff_izlude)	飞空艇 工作人员#izlude	90
-izlude_a,202,75,3	duplicate(Airship_Staff_izlude)	飞空艇 工作人员#izlude_a	90
-izlude_b,202,75,3	duplicate(Airship_Staff_izlude)	飞空艇 工作人员#izlude_b	90
-izlude_c,202,75,3	duplicate(Airship_Staff_izlude)	飞空艇 工作人员#izlude_c	90
-izlude_d,202,75,3	duplicate(Airship_Staff_izlude)	飞空艇 工作人员#izlude_d	90
+izlude,202,75,3	duplicate(Airship_Staff_izlude)	Airship Staff#izlude	90
+izlude_a,202,75,3	duplicate(Airship_Staff_izlude)	Airship Staff#izlude_a	90
+izlude_b,202,75,3	duplicate(Airship_Staff_izlude)	Airship Staff#izlude_b	90
+izlude_c,202,75,3	duplicate(Airship_Staff_izlude)	Airship Staff#izlude_c	90
+izlude_d,202,75,3	duplicate(Airship_Staff_izlude)	Airship Staff#izlude_d	90

@@ -85,7 +85,7 @@ beach_dun2,119,92,4	script	Fishing Novice#sp2	567,{
 		mes "Hmm! I know him...";
 		mes "Esseray... Esseray... hmm.";
 		next;
-		emotion ET_THINK,1;
+		emotion ET_THINK, playerattached();
 		emotion ET_THINK;
 		mes "..................";
 		next;
@@ -108,7 +108,7 @@ beach_dun2,119,92,4	script	Fishing Novice#sp2	567,{
 			mes "What?! He isn't?";
 			mes "Then where is Esseray from?";
 			next;
-			emotion ET_THINK,1;
+			emotion ET_THINK, playerattached();
 			emotion ET_THINK;
 			mes ".... .... .... ....";
 			next;
@@ -359,7 +359,7 @@ beach_dun2,119,92,4	script	Fishing Novice#sp2	567,{
 		next;
 		mes "If you don't... Remember last time you %$&*@*&%$...";
 		mes "- The letter is crumpled, so you can't read more. -";
-		mes "I'm still in the Schwaltzvalt Republic.";
+		mes "I'm still in the Schwarzwald Republic.";
 		mes "~ Nudor";
 		next;
 		mes "- You get an uneasy feeling from reading this letter. -";
@@ -450,7 +450,7 @@ beach_dun2,119,92,4	script	Fishing Novice#sp2	567,{
 		mes "Watch out!! A bunch of Golems are running after us!";
 		mes "We... have to run...!!!";
 		next;
-		emotion ET_HUK,1;
+		emotion ET_HUK, playerattached();
 		if(select("What?!:Um?") == 2) {
 			mes "- You look around, and -";
 			mes "- there is nothing behind you. -";
@@ -486,7 +486,7 @@ beach_dun2,119,92,4	script	Fishing Novice#sp2	567,{
 		mes "Good! You scared yet?";
 		next;
 		select("... ... ...");
-		emotion ET_THINK,1;
+		emotion ET_THINK, playerattached();
 		emotion ET_SORRY;
 		mes "[Nodor]";
 		mes "Sorry for scaring you!";
@@ -498,7 +498,7 @@ beach_dun2,119,92,4	script	Fishing Novice#sp2	567,{
 		mes "Or more powerful?";
 		next;
 		select("...? ...? ...?");
-		emotion ET_QUESTION,1;
+		emotion ET_QUESTION, playerattached();
 		mes "[Nodor]";
 		mes "Oh--- My--- (tut,tut,tut)!!";
 		next;
@@ -664,7 +664,7 @@ airplane,33,47,5	script	Nudor#sp2	729,{
 		}
 		next;
 		mes "[Nudor]";
-		if (Sex) mes "Did you know? You're really handsome~";
+		if (Sex == SEX_MALE) mes "Did you know? You're really handsome~";
 		else mes "I need to tell you, you are really... really~ beautiful.";
 		next;
 		mes "[Nudor]";

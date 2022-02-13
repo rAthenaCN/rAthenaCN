@@ -1,11 +1,3 @@
-//============================================================
-//= rAthenaCN [寻找宝物箱子]汉化脚本 [ www.rAthenaCN.com ]
-//============================================================
-//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
-
 //===== rAthena Script ======================================= 
 //= Find the Mushroom
 //===== By: ================================================== 
@@ -22,32 +14,32 @@
 //= 3.6a Slightly edited. [Euphy]
 //============================================================ 
 
-prontera,142,228,6	script	寻找宝物箱子	1084,{
-	mes "[ 寻找宝物箱子 ]";
+prontera,142,228,6	script	Find the Mushroom	1084,{
+	mes "[ Find The Mushroom ]";
 	if (.status == 1) {
 		.@count = mobcount( .event_map$, strnpcinfo(0) + "::OnMobKilled" );
 		if (.@count > 0) {
-			mes "现在有 " + .@count + " 宝物箱子出现在 " + .event_map$ + "!";
-			mes "找到宝物箱子并打开可获得 " + getitemname(.prize) + "!";
+			mes "There are " + .@count + " Mushrooms left in " + .event_map$ + "!";
+			mes "Find and kill the mushrooms to gain " + getitemname(.prize) + "!";
 			close;
 		}
 		.event_map$ = "";
 		.status = 0;
-		mes "所有的蘑菇都被砍掉了吗?";
+		mes "All the mushrooms are killed?";
 	}
-	mes "现在没有任何活动!";
+	mes "There is no event at the moment!";
 	if (.status || getgmlevel() < .GM) close;
-	mes "准备开始?";
+	mes "Start the event?";
 	next;
-	if (select("- 不要:- 是的") == 1) close;
+	if (select("- No:- Yes") == 1) close;
 	donpcevent strnpcinfo(0) + "::OnMinute10";
-	mes "[ 寻找宝物箱子 ]";
-	mes "开始!";
+	mes "[ Find The Mushroom ]";
+	mes "Event started!";
 	close;
 
 OnInit:
-	.prize = 12339;	// Reward item ID
-	.amount = 1;	// Reward item amount
+	.prize = 512;	// Reward item ID
+	.amount = 10;	// Reward item amount
 	.GM = 60;		// GM level required to access NPC
 	setarray .maps_list$[0],"izlude","geffen","morocc","prontera"; // Possible maps
 	end;
@@ -59,10 +51,10 @@ OnMinute10:	// Start time (every hour)
 	.event_map$ = .maps_list$[ rand(getarraysize(.maps_list$)) ];
 	.@label$ = strnpcinfo(0) + "::OnMobKilled";
 	killmonster .event_map$, .@label$;
-	monster .event_map$,0,0,"请不要碰我!",1084,.@spawn, .@label$;
-	announce "寻找宝物箱子 : 总共 " + .@spawn + " 个宝物箱子刷新在 " + .event_map$ + "!",0;
+	monster .event_map$,0,0,"Please don't kill me!",1084,.@spawn, .@label$;
+	announce "Find the Mushroom : Total of " + .@spawn + " Mushrooms have been spawned in " + .event_map$ + "!",0;
 	sleep 2500;
-	announce "寻找宝物箱子 : 你打开一个宝物箱子都会给你 " + getitemname(.prize) + "!",0;
+	announce "Find the Mushroom : Every Mushroom you kill will give you " + getitemname(.prize) + "!",0;
 	end;
 
 OnMobKilled:
@@ -71,9 +63,9 @@ OnMobKilled:
 	getitem .prize, .amount;
 	.@spawn = mobcount( .event_map$, strnpcinfo(0) + "::OnMobKilled" );
 	if (.@spawn > 0)
-		announce "[ " + strcharinfo(0) + " ] 已经打开宝物箱子, 现在还剩余 " + .@spawn + " 宝物箱子.",bc_map;
+		announce "[ " + strcharinfo(0) + " ] has killed a Mushroom. There are now " + .@spawn + " Mushroom(s) left.",bc_map;
 	else {
-		announce "寻找宝物箱子活动已经结束, 所有宝物箱子已全被打开.",0;
+		announce "The Find the Mushroom Event has ended. All the Mushrooms have been killed.",0;
 		.status = 0;
 		.event_map$ = "";
 	}

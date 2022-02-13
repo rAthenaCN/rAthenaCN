@@ -1,214 +1,279 @@
-//============================================================
-//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
-//============================================================
-//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
-
-//===== Hercules Script ======================================
+//===== rAthena Script ======================================= 
 //= Renters
-//===== By: ==================================================
-//= Hercules Dev Team
-//===== Current Version: =====================================
-//= 2.1
-//===== Description: =========================================
+//===== By: ================================================== 
+//= rAthena Dev Team
+//===== Current Version: ===================================== 
+//= 2.2
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
 //= [Official Conversion]
 //= Renewal-specific breeder NPCs.
-//===== Additional Comments: =================================
+//===== Additional Comments: ================================= 
 //= 2.1 Moved some renters to a separate renewal file. [Daegaladh]
 //= 2.2 Updated to match the official scripts. [Euphy]
-//============================================================
+//============================================================ 
 
-// Dragon Breeder
+// Dragon Breeder :: dragon
 //============================================================
-job3_rune01,88,62,5	script	坐骑龙饲养员	8W_SOLDIER,{
-	mes "[坐骑龙饲养员]";
+job3_rune01,88,62,5	script	Dragon Breeder	105,{
+	mes "[Dragon Breeder]";
 	if (Class == Job_Rune_Knight || Class == Job_Rune_Knight_T || Class == Job_Baby_Rune_Knight) {
-		mes "您好啊, 冒险者, 想弄条龙来骑骑吗?";
+		mes "Welcome. Would you like to rent a Dragon?";
 		next;
-		switch(select("是:否")) {
+		switch(select("Yes:No")) {
 		case 1:
 			//if (!getskilllv("RK_DRAGONTRAINING")) {
 			if (!getskilllv("KN_RIDING")) {
-				mes "[坐骑龙饲养员]";
-				mes "您得拿了驾驶执照(训龙术)我才敢给您租龙啊!";
+				mes "[Dragon Breeder]";
+				mes "Please learn how to ride a Dragon first.";
 				close;
 			}
-			else if (checkriding()) {
-				mes "[坐骑龙饲养员]";
-				mes "您这胯下不骑着一头吗?";
+			else if (checkdragon()) {
+				mes "[Dragon Breeder]";
+				mes "You already have a Dragon.";
 				close;
 			}
-			else if(ismounting()) {
-				mes "[坐骑龙饲养员]";
-				mes "冒险者, 我这小本生意, 不赊账!";
+			else if (ismounting()) {
+				mes "[Dragon Breeder]";
+				mes "Please remove your cash mount.";
 				close;
 			}
 			setdragon;
 			close;
 		case 2:
-			mes "[坐骑龙饲养员]";
-			mes "没事儿, 做不成生意做朋友嘛, 下次再来嘿!";
+			mes "[Dragon Breeder]";
+			mes "I see. Then have a great day.";
 			close;
 		}
 	}
-	mes "这位客官, 有什么事儿能帮您吗?";
-	mes "龙很暴躁的, 只有符文骑士才能驾驭得了啊!";
+	mes "What are you doing here?";
+	mes "Only Rune Knights can rent a Dragon.";
 	close;
 }
 
-// Dragon/Gryphon Master
+// Dragon/Gryphon Master :: dragon
 //============================================================
-prontera,130,213,5	script	兽骑管理员	8W_SOLDIER,{
-	mes "[兽骑管理员]";
+prontera,130,213,5	script	Riding Creature Master	105,{
+	mes "[Riding Creature Master]";
 	if (Class == Job_Rune_Knight || Class == Job_Rune_Knight_T || Class == Job_Baby_Rune_Knight) {
-		mes "你好啊, 冒险家, 想租用一头坐骑吗?";
+		mes "Welcome. Would you like to rent a Dragon?";
 		next;
-		switch(select("- 是:- 否")) {
+		switch(select("Yes:No")) {
 		case 1:
 			//if (!getskilllv("RK_DRAGONTRAINING")) {
 			if (!getskilllv("KN_RIDING")) {
-				mes "[兽骑管理员]";
-				mes "请先学会乘骑术, 好吗?";
+				mes "[Riding Creature Master]";
+				mes "Please learn how to ride a Dragon first.";
 				close;
 			}
-			else if (checkriding()) {
-				mes "[兽骑管理员]";
-				mes "你已经骑着一头了嘿......";
+			else if (checkdragon()) {
+				mes "[Riding Creature Master]";
+				mes "You already have a Dragon.";
 				close;
 			}
-			else if(ismounting()) {
-				mes "[兽骑管理员]";
-				mes "我们不打白条, 谢谢!";
+			else if (ismounting()) {
+				mes "[Riding Creature Master]";
+				mes "Please remove your cash mount.";
 				close;
 			}
 			setdragon;
 			close;
 		case 2:
-			mes "[兽骑管理员]";
-			mes "我知道了. 那么, 祝你好运!";
+			mes "[Riding Creature Master]";
+			mes "I see. Then have a great day.";
 			close;
 		}
 	}
 	if (Class == Job_Royal_Guard || Class == Job_Royal_Guard_T || Class == Job_Baby_Royal_Guard) {
-		mes "你好啊, 骚年, 想租用一头狮鹫吗?";
+		mes "Welcome. Would you like to rent a Gryphon?";
 		next;
-		switch(select("是:否")) {
+		switch(select("Yes:No")) {
 		case 1:
-			if(!getskilllv("KN_RIDING")) {
-				mes "[兽骑管理员]";
-				mes "请先学会乘骑术, 好吗?";
+			if (!getskilllv("KN_RIDING")) {
+				mes "[Riding Creature Master]";
+				mes "Please learn how to ride a Gryphon first.";
 				close;
 			}
 			else if (checkriding()) {
-				mes "[兽骑管理员]";
-				mes "你已经骑着一头了嘿......";
+				mes "[Riding Creature Master]";
+				mes "You already have a Gryphon.";
 				close;
 			}
-			else if(ismounting()) {
-				mes "[兽骑管理员]";
-				mes "我们不打白条, 谢谢!";
+			else if (ismounting()) {
+				mes "[Riding Creature Master]";
+				mes "Please remove your cash mount.";
 				close;
 			}
 			setriding;
 			close;
 		case 2:
-			mes "[狮鹫管理员]";
-			mes "我知道了. 那么, 祝你好运!";
+			mes "[Riding Creature Master]";
+			mes "I see. Then have a great day.";
 			close;
 		}
 	}
-	mes "我就是为 符文骑士 和 皇家卫士 提供坐骑的管理员啦!";
+	mes "I'm here to provide Rune Knights and Royal Guards with riding creatures.";
 	close;
 }
+geffen,100,55,3	duplicate(Riding Creature Master)	Riding Creature Master#2	105
+payon,166,102,5	duplicate(Riding Creature Master)	Riding Creature Master#3	105
+aldebaran,133,109,5	duplicate(Riding Creature Master)	Riding Creature Master#4	105
+yuno,171,187,3	duplicate(Riding Creature Master)	Riding Creature Master#5	105
+rachel,106,130,5	duplicate(Riding Creature Master)	Riding Creature Master#6	105
 
-// Peco removing NPC
+// Peco removing NPC :: dragon
 //============================================================
-prontera,125,208,5	script	大嘴鸟管理员	8W_SOLDIER,{
-	mes "[卫兵]";
-	mes "如果你苦恼于这只大嘴鸟硬是要你骑他,";
-	mes "不让你下来, ";
-	mes "那么来找我就对啦!";
+prontera,125,208,5	script	Peco Peco Remover	105,{
+	mes "[Soldier]";
+	mes "If you're unable to dismount from a Peco Peco";
+	mes "for some unknown reason,";
+	mes "please feel free to use my services.";
 	if (checkriding()) {
 		next;
-		mes "[卫兵]";
-		mes "你正骑着一只大嘴鸟嘿,";
-		mes "不想再骑了吗?";
+		mes "[Soldier]";
+		mes "You're riding a Peco Peco.";
+		mes "Would you like to dismount?";
 		next;
-		switch(select("- 是:- 否")) {
+		switch(select("Yes:No")) {
 		case 1:
 			setriding 0;
-			mes "[卫兵]";
-			mes "怎么样, ";
-			mes "脚踏实地的感觉?";
-			mes "HOLD住吗?";
+			mes "[Soldier]";
+			mes "Say, how does it feel to";
+			mes "step on the ground on your own";
+			mes "feet again?";
 			close;
 		case 2:
-			mes "[卫兵]";
-			mes "劝你别逗我玩,";
-			mes "我发起怒来自己都怕.";
+			mes "[Soldier]";
+			mes "I see. Please feel free to ask me";
+			mes "if you change your mind.";
 			close;
 		}
 	}
 	close;
 }
 
-// Magic Gear Renter
+// Mado Gear Renter :: madogear
 //============================================================
 -	script	::mgm	-1,{
-	mes "[机械师]";
+	mes "[Mado Gear Armorer]";
 	if (Class == Job_Mechanic || Class == Job_Mechanic_T || Class == Job_Baby_Mechanic) {
-		mes "你好啊, 机匠!";
-		mes "想租用一台手推车, 还是";
-		mes "租用一台高达?";
+		mes "Welcome, Mechanic.";
+		mes "Would you like to rent a Pushcart or";
+		mes "ride a Mado Gear?";
 		next;
-		switch(select("- 手推车:- 机甲:- 取消")) {
+		switch(select("Rent a Pushcart:Ride a Mado Gear:Buy Emergency Mado Gear:Upgrade Cooling Device:Cancel")) {
 		case 1:
 			if (checkcart()) {
-				mes "[机械师]";
-				mes "你已经有手推车了.";
+				mes "[Mado Gear Armorer]";
+				mes "I'm sorry, but you already";
+				mes "have a Pushcart.";
 				close;
 			}
 			setcart;
-			mes "[机械师]";
-			mes "没事儿别烦我. ";
+			mes "[Mado Gear Armorer]";
+			mes "There you go!";
 			close;
 		case 2:
 			if (checkmadogear()) {
-				mes "[机械师]";
-				mes "你已经坐在机甲里面了.";
+				mes "[Mado Gear Armorer]";
+				mes "I'm sorry, but you're already";
+				mes "riding a Mado Gear.";
 				close;
 			}
 			else if (!getskilllv("NC_MADOLICENCE")) {
-				mes "[机械师]";
-				mes "拿到了驾驶执照再来见我!";
+				mes "[Mado Gear Armorer]";
+				mes "Please learn the skill to get the Mado Gear License first.";
 				close;
 			}
 			else if(ismounting()) {
-				mes "[机械师]";
-				mes "最为商人系钱不够是耻辱?";
+				mes "[Mado Gear Armorer]";
+				mes "Please remove your cash mount.";
 				close;
 			}
 			setmadogear;
-			mes "[机械师]";
-			mes "质保三年, 记得带发票来找我!";
+			mes "[Mado Gear Armorer]";
+			mes "Have fun, and please come again!";
 			close;
 		case 3:
+			mes "[Mado Gear Armorer]";
+			mes "Emergency Mado Gear is really useful for emergency situations and it is sold at 1,000,000 Zeny.";
+			next;
+			if (select("Purchase:Cancel") == 2) {
+				mes "[Mado Gear Armorer]";
+				mes "I see. Please feel free to ask me";
+				mes "if you change your mind.";
+				close;
+			}
+			if (countitem(23277) > 0) {
+				mes "[Mado Gear Armorer]";
+				mes "I'm sorry, but you already have an Emergency Mado Gear.";
+				close;
+			}
+			if (Zeny < 1000000) {
+				mes "[Mado Gear Armorer]";
+				mes "I'm sorry, but you don't have enough Zeny to purchase the Emergency Mado Gear.";
+				close;
+			}
+			Zeny -= 1000000;
+			getitem 23277,1; //Mado_Box
+			mes "[Mado Gear Armorer]";
+			mes "There you go!";
+			close;
+		case 4:
+			mes "[Mado Gear Armorer]";
+			mes "Which device do you want to upgrade?";
+			next;
+			if (select("Cooling Device:High Quality Cooler") == 1) {
+				mes "[Mado Gear Armorer]";
+				mes "Upgrading Cooling Device to High Quality Cooler needs 1 Cooling Device and 2,000,000 Zeny.";
+				next;
+				.@itemid = 2804;
+				.@cost = 2000000;
+			} else {
+				mes "[Mado Gear Armorer]";
+				mes "Upgrading High Quality Cooler to Special Cooler needs 1 High Quality Cooler and 4,000,000 Zeny.";
+				next;
+				.@itemid = 2809;
+				.@cost = 4000000;
+			}
+			if (select("Upgrade:Cancel") == 2) {
+				mes "[Mado Gear Armorer]";
+				mes "I see. Please feel free to ask me";
+				mes "if you change your mind.";
+				close;
+			}
+			if (!countitem(.@itemid)) {
+				mes "[Mado Gear Armorer]";
+				mes "I'm sorry, but you don't have the " + getitemname(.@itemid) + ".";
+				close;
+			}
+			if (Zeny < .@cost) {
+				mes "[Mado Gear Armorer]";
+				mes "I'm sorry, but you don't have enough Zeny to upgrade the device.";
+				close;
+			}
+			Zeny -= .@cost;
+			delitem .@itemid,1;
+			getitem (.@itemid == 2804 ? 2809 : 2810),1; //High_Quality_Cooler,Special_Cooler
+			mes "[Mado Gear Armorer]";
+			mes "Here you are! Your very own " + getitemname(.@itemid) + ".";
+			close;
+		case 5:
 			close;
 		}
 	}
-	mes "我能帮到你吗?";
-	mes "机甲只给机匠用, 记住了!";
+	mes "How may I help you?";
+	mes "Mado Gears are only available for Mechanics.";
 	close;
 }
-prontera,163,178,3	duplicate(mgm)	魔导机械管理员#prt	8W_SOLDIER
-geffen,103,55,5	duplicate(mgm)	魔导机械管理员#gef	8W_SOLDIER
-payon,166,106,5	duplicate(mgm)	魔导机械管理员#pay	8W_SOLDIER
-aldebaran,133,112,5	duplicate(mgm)	魔导机械管理员#alde	8W_SOLDIER
-yuno,167,187,3	duplicate(mgm)	魔导机械管理员#yuno	8W_SOLDIER
-rachel,106,134,5	duplicate(mgm)	魔导机械管理员#ra	8W_SOLDIER
-dicastes01,187,207,3	duplicate(mgm)	魔导机械管理员#dic	8W_SOLDIER
-manuk,273,212,5	duplicate(mgm)	魔导机械管理员#man	8W_SOLDIER
-splendide,180,174,5	duplicate(mgm)	魔导机械管理员#spl	8W_SOLDIER
-mid_camp,242,243,3	duplicate(mgm)	魔导机械管理员#mid	8W_SOLDIER
+prontera,163,178,3	duplicate(mgm)	Mado Gear Armorer#prt	105
+geffen,103,55,5	duplicate(mgm)	Mado Gear Armorer#gef	105
+payon,166,106,5	duplicate(mgm)	Mado Gear Armorer#pay	105
+aldebaran,133,112,5	duplicate(mgm)	Mado Gear Armorer#alde	105
+yuno,167,187,3	duplicate(mgm)	Mado Gear Armorer#yuno	105
+rachel,106,134,5	duplicate(mgm)	Mado Gear Armorer#ra	105
+dicastes01,187,207,3	duplicate(mgm)	Mado Gear Armorer#dic	105
+manuk,273,212,5	duplicate(mgm)	Mado Gear Armorer#man	105
+splendide,180,174,5	duplicate(mgm)	Mado Gear Armorer#spl	105
+mid_camp,242,243,3	duplicate(mgm)	Mado Gear Armorer#mid	105

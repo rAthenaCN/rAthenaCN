@@ -1,19 +1,11 @@
-//============================================================
-//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
-//============================================================
-//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
-
-//===== rAthena Script =======================================  
+//===== rAthena Script ======================================= 
 //= Quest NPCs related to Umbala
 //===== By: ================================================== 
 //= sabernet09 & rAthena Team
 //===== Current Version: ===================================== 
 //= 2.2a
 //===== Compatible With: ===================================== 
-//= rAthena 7.15 +
+//= rAthena Project; 7.15 +
 //===== Description: ========================================= 
 //= [Official Conversion]
 //= Umbalian Language Quest, Umbala Skeletal Gate Quest,
@@ -49,702 +41,1286 @@
 
 // Umbalian Language Quest :: um_trans
 //============================================================
-um_in,39,122,5	script	雨檀族 酋长	4_M_UMCHIEF,{
-	switch(event_umbala) {
-	case 0:
-		mes "[卡乐喀坦]";
-		mes "呵呵, 是人类啊, 应该是第一次";
-		mes "来到雨檀族村落吧? 不管是谁";
-		mes "只要是第一次来的人类族, ";
-		mes "大部分都是那种脸";
+um_in,39,122,5	script	Utan Chief	784,{
+	if (event_umbala == 0) {
+		mes "[Karkatan]";
+		mes "Huh huh, a Rune-Midgartsian.";
+		mes "I guess this is your first";
+		mes "visit to my village, isn't it?";
 		next;
-		mes "[卡乐喀坦]";
-		mes "我是卡乐喀坦, 是雨檀族的酋长";
-		mes "村子里的所有事情都由我来决定, ";
-		mes "能够与我沟通都是因为, ";
-		mes "有一次进入这村子里的";
-		mes "一个人类族探险家的功劳";
+		mes "[Karkatan]";
+		mes "Everyone from Rune-Midgarts";
+		mes "that I've met had the same";
+		mes "same expression on their";
+		mes "face as you do right now";
+		mes "when they first came here.";
 		next;
-		mes "[卡乐喀坦]";
-		mes "很久之前的事了... 不知道";
-		mes "现在又跑去哪探险了, ";
-		mes "托他的福学了很多人类的语言和文化, ";
-		mes "之外也学了各种";
-		mes "东西...";
+		mes "[Karkatan]";
+		mes "Maybe it's because they cannot";
+		mes "communicate with us due to";
+		mes "the language barrier, so";
+		mes "they have no idea what's going";
+		mes "on. Yeah, I understand...";
+		mes "Anyway, welcome to my village.";
 		next;
-		mes "[卡乐喀坦]";
-		mes "在那之后我也教人类, ";
-		mes "学我们雨檀族的语言, ";
-		mes "不过, 不会随便告诉";
-		mes "任何人... 如果是坏人";
-		mes "学会我们的语言, ";
-		mes "可能会对我们种族";
-		mes "有很大的危险";
+		mes "[Karkatan]";
+		mes "My name is Karkatan, and I";
+		mes "am the chief of the Utan tribe.";
+		mes "You must be wondering how";
+		mes "I can speak your language.";
 		next;
-		mes "[卡乐喀坦]";
-		mes "如果你也想学的话, ";
-		mes "先去努力的了解些雨檀族";
-		mes "的文化吧, 就算是语言不通, ";
-		mes "也可以充分的感觉到";
-		mes "服装或面貌, 以及生活之类的";
+		mes "[Karkatan]";
+		mes "It was taught to me long ago";
+		mes "by an adventurer from your";
+		mes "land. It's been a long time,";
+		mes "and I do not know what has";
+		mes "become of him...";
 		next;
-		mes "[卡乐喀坦]";
-		mes "有了想要学习的心里打算之后";
-		mes "再来找我吧, 虽然外表也很重要, ";
-		mes "不过不要忘记, ";
-		mes "心里的决心才是更重要的...";
+		mes "[Karkatan]";
+		mes "Anyhow, I learned many things";
+		mes "about Rune-Midgartsian culture";
+		mes "and language.";
+		next;
+		mes "[Karkatan]";
+		mes "Sometimes, I teach the Utan";
+		mes "language, but I do not give";
+		mes "everyone that privilege.";
+		mes "If unscrupulous outsiders";
+		mes "learn the Utan language, they";
+		mes "may bring harm to my tribe.";
+		next;
+		mes "[Karkatan]";
+		mes "Before you can learn the Utan";
+		mes "language, first try to learn";
+		mes "Utan culture by exploring our";
+		mes "village.";
+		next;
+		mes "[Karkatan]";
+		mes "Although you are not able to";
+		mes "communicate with my people";
+		mes "right now, try to understand";
+		mes "our way of life through your";
+		mes "observations.";
+		next;
+		mes "[Karkatan]";
+		mes "Pay attention to the dress,";
+		mes "appearance and life style of the";
+		mes "local people. When you think";
+		mes "you understand enough about Utan";
+		mes "culture, come back to me and show me what you have learned.";
 		set event_umbala,1;
 		close;
-	case 1:
-		mes "[卡乐喀坦]";
-		mes "欧, 人类的后代啊, 村子里";
-		mes "都逛过了吗? 很好奇";
-		mes "你的感想是如何呢, ";
-		mes "也有第一次看过人类的雨檀族, ";
-		mes "所以也许会吓到";
-		mes "而躲起来";
+	}
+	else if (event_umbala == 1) {
+		mes "[Karkatan]";
+		mes "Oh, it's you again. So...";
+		mes "Have you learned about Utan";
+		mes "culture? I want to hear your";
+		mes "opinion, as well as your impression.";
 		next;
-		mes "[卡乐喀坦]";
-		mes "不过又有什么事情来找";
-		mes "我了呢? 逛村子看起来";
-		mes "应该没什么问题, 有什么";
-		mes "困难的事情吗?";
+		mes "[Karkatan]";
+		mes "There are still some villagers";
+		mes "who are very naive about Rune-Midgartsians.";
+		mes "Usually, they fear encounters";
+		mes "with your people and will";
+		mes "hide themselves.";
 		next;
-		switch (select("想要学习雨檀族的语言:汶巴巴 汶巴巴?:没什么事情")) {
+		mes "[Karkatan]";
+		mes "So...";
+		mes "May I help you with anything?";
+		mes "I assume you did not have much of";
+		mes "a problem looking around the";
+		mes "village, but it seems you have something to ask of me.";
+		next;
+		switch(select("I want to learn Utan language.:Umbabah Umbabah?:Nothing.")) {
 		case 1:
-			if(getequipid(1) != getequipid(9) && getequipid(1) != getequipid(10) && getequipid(9)==getequipid(10)) {
-				mes "[卡乐喀坦]";
-				mes "帅气的面具啊, 我们雨檀族";
-				mes "都喜欢面具, 隐藏着自己";
-				mes "原来的脸和表情, 我们";
-				mes "对于显露自己脸给别人看, ";
-				mes "都有着很多的想法";
+			if (isequipped(2278) || isequipped(2297) || isequipped(2288) || isequipped(2292) || isequipped(5005) || isequipped(2281) || isequipped(5043)) {
+				mes "[Karkatan]";
+				mes "Hmmm...That's an awesome mask";
+				mes "you're wearing. We Utans like";
+				mes "wearing masks to keep from";
+				mes "showing our facial expressions.";
 				next;
-				mes "[卡乐喀坦]";
-				mes "所以呢, 平时都戴着面具";
-				mes "跟别的朋友们聊天, ";
-				mes "带着面具反而";
-				mes "更能够传达真实的心, ";
-				mes "这是我们所相信的";
+				mes "[Karkatan]";
+				mes "That's why we wear masks all the";
+				mes "time. We believe that interaction";
+				mes "and treatment of other people";
+				mes "should not depend on how we look.";
 				next;
-				mes "[卡乐喀坦]";
-				mes "如果是你的话蛮有学";
-				mes "我们语言的价值, 好吧, ";
-				mes "已经答应过的教你说跟写, ";
-				mes "不过人类族听了 '雨檀语' 之后";
-				mes "为了学习必须要准备";
-				mes "几种东西...";
+				mes "[Karkatan]";
+				mes "Alright. I am sure you are";
+				mes "qualified to learn the Utan";
+				mes "language. I will teach you how";
+				mes "speak and to read in Utan from";
+				mes "now on.";
 				next;
-				mes "[卡乐喀坦]";
-				mes "对了, 需要纸, ";
-				mes "我也是学习人类族的语言时, ";
-				mes "跟人类拿了张纸才开始";
-				mes "学语言的, 去准备吧, ";
-				mes "^3377FF油纸^000000 10张, ";
-				mes "^3377FF光滑的纸^000000 5张";
+				mes "[Karkatan]";
+				mes "However, I need you to get some";
+				mes "items ready so that we may proceed";
+				mes "with the lessons. First, we need";
+				mes "two different kinds of paper.";
+				mes "^3377FF10 Oil Paper^000000 and ";
+				mes "^3377FF5 Slick Paper^000000.";
 				next;
-				mes "[卡乐喀坦]";
-				mes "再来, 还有两种, 需要";
-				mes "用什么写在纸上... 对了, ";
-				mes "^3377FF墨汁^000000 1个, ";
-				mes "^3377FF羽毛^000000 1个";
-				mes "等全部准备好了再教你";
+				mes "[Karkatan]";
+				mes "We'll also need something to";
+				mes "write with. Let's use";
+				mes "^3377FF1 Squid Ink^000000 and";
+				mes "^3377FF1 Feather of Birds^000000.";
+				mes "Please bring me those, and I will";
+				mes "teach you when you're ready.";
 				set event_umbala,2;
 				close;
 			}
-			mes "[卡乐喀坦]";
-			mes "你好像还不太了解, ";
-			mes "我们雨檀族啊...";
-			mes "不能因为文化不同及语言不通";
-			mes "的理由, 而放弃想要努力";
-			mes "学习的心";
-			next;
-			mes "[卡乐喀坦]";
-			mes "对, 连那种表情也会变成";
-			mes "雨檀族所害怕的对象, ";
-			mes "真正重要的并没有传达, ";
-			mes "而有时候以显露的外表";
-			mes "来判断所有的一切";
-			next;
-			mes "[卡乐喀坦]";
-			mes "再去逛逛吧, 还有, ";
-			mes "想学语言的话要知道, ";
-			mes "用什么方式说跟听, ";
-			mes "还有差不多准备好了的话, ";
-			mes "再来找我吧";
-			next;
-			mes "[卡乐喀坦]";
-			mes "总之我的面具怎么样呢? ";
-			mes "是今年雨檀族最流行的...";
-			mes "有没有很酷呢? 嗯? 嗯?";
-			close;
+			else {
+				mes "[Karkatan]";
+				mes "You don't seem to understand";
+				mes "our culture yet. You cannot";
+				mes "learn another language if you";
+				mes "do not understand the culture.";
+				next;
+				mes "[Karkatan]";
+				mes "When you have that expression on";
+				mes "your face, Utans will be";
+				mes "intimidated... Since we do";
+				mes "not show our faces to others,";
+				mes "we are actually very";
+				mes "vulnerable to facial expression.";
+				next;
+				mes "[Karkatan]";
+				mes "Go explore the village a little";
+				mes "longer. You can come back";
+				mes "anytime when you think you're ready.";
+				next;
+				mes "[Karkatan]";
+				mes "In any case, what do you think";
+				mes "about my mask? It's the current";
+				mes "trend among us Utans...don't you";
+				mes "think it's awesome?";
+				close;
+			}
 		case 2:
-			mes "[卡乐喀坦]";
-			mes "哈哈, 只是模仿声音";
-			mes "是不能传达任何意义的, ";
-			mes "所谓的语言不就是为了传达想法, ";
-			mes "而大家所定的约定吗?";
-			mes "你不这样觉得吗?";
+			mes "[Karkatan]";
+			mes "Haha~ When you're just imitating";
+			mes "the sound, you won't make any";
+			mes "sense. Language is a mutual system";
+			mes "for the communication of thoughts and feelings.";
 			next;
-			mes "[卡乐喀坦]";
-			mes "有时人类族好像忘了";
-			mes "那种约定的意义而";
-			mes "过生活, 真是遗憾, ";
-			mes "尽管是同类的人种, ";
-			mes "竟然还需要翻译啊...";
+			mes "[Karkatan]";
+			mes "I regret to say that it seems that";
+			mes "nowadays, all peoples are no";
+			mes "longer sensitive to other cultures";
+			mes "in that respect.";
 			next;
-			mes "[卡乐喀坦]";
-			mes "如果对我们的雨檀族还有";
-			mes "兴趣的话, 再努力的试着去了解吧, ";
-			mes "还有等你定下心之后";
-			mes "再来找我吧, ";
-			mes "不是声音, 我会教你真正的意义";
+			mes "[Karkatan]";
+			mes "I see people that despise or";
+			mes "ridicule others that do not";
+			mes "understand them. It's really";
+			mes "sad that such bigotry still exists...";
+			next;
+			mes "[Karkatan]";
+			mes "If you are interested in Utan";
+			mes "language, try to understand our";
+			mes "culture better and come back";
+			mes "when you're ready. I will";
+			mes "teach you the meanings of those sounds you are using.";
 			close;
 		case 3:
-			mes "[卡乐喀坦]";
-			mes "无所适事的也不错啊, ";
-			mes "不过定下一个目标, ";
-			mes "再去旅行会更有意义, ";
-			mes "而且会牢牢记在心里的";
+			mes "[Karkatan]";
+			mes "Sometimes it's good to wander";
+			mes "without purpose. But it's";
+			mes "better to set a goal for";
+			mes "a journey if you want to";
+			mes "learn something out of";
+			mes "the experience.";
 			close;
 		}
-	case 2:
-		if(countitem(7151)>=10 && countitem(7111)>=5 && countitem(1024)>=1 && countitem(916)>=1) {
-			mes "[卡乐喀坦]";
-			mes "好吧, 看来都准备好了啊...";
-			mes "那么现在开始教你, ";
-			mes "通过这过程之后你也可以, ";
-			mes "跟我们雨檀族对话了";
+	}
+	else if (event_umbala == 2) {
+		if ((countitem(7151) > 9) && (countitem(7111) > 4) && (countitem(1024) > 0) && (countitem(916) > 0)) {
+			mes "[Karkatan]";
+			mes "Okay, I guess we're good to go.";
+			mes "Let's get the lesson started.";
+			mes "I hope you will communicate better";
+			mes "with Utans when we are done.";
 			next;
-			mes "[卡乐喀坦]";
-			mes "...........";
+			mes "[Karkatan]";
+			mes "..............";
 			next;
-			mes "[卡乐喀坦]";
-			mes "...........";
-			mes "................";
-			next;
-			mes "[卡乐喀坦]";
-			mes "...........";
-			mes "................";
+			mes "[Karkatan]";
+			mes "..............";
 			mes ".....................";
 			next;
-			mes "[卡乐喀坦]";
-			mes "好, 结束了, 把目前烦闷";
-			mes "的心情甩掉, 偶而也跟";
-			mes "其他雨檀族人们聊聊天吧, ";
-			mes "聊天是很重要的";
-			delitem 7151,10;
-			delitem 7111,5;
-			delitem 1024,1;
-			delitem 916,1;
+			mes "[Karkatan]";
+			mes "..............";
+			mes ".....................";
+			mes "............................";
+			next;
+			mes "[Karkatan]";
+			mes "Alright, that's all. Just forget";
+			mes "about how you've felt about Utans";
+			mes "before you learned the language.";
+			mes "Now go try to talk to Utans.";
+			mes "Conversation is a very important method in understanding others.";
+			delitem 7151,10; //Oil_Paper
+			delitem 7111,5; //Smooth_Paper
+			delitem 1024,1; //Chinese_Ink
+			delitem 916,1; //Feather_Of_Birds
 			set event_umbala,3;
 			next;
-			mes "[卡乐喀坦]";
-			mes "那么, 如果有别的事情";
-			mes "再来找我吧, ";
-			mes "我会全心全意的帮你";
+			mes "[Karkatan]";
+			mes "Okay, if you have any business";
+			mes "in our village later, feel free";
+			mes "to talk to me. I will try to help";
+			mes "you as much as I can.";
+			close;
 		}
 		else {
-			mes "[卡乐喀坦]";
-			mes "看来还没准备好啊...";
-			mes "是不是忘记需要";
-			mes "的东西了呢? 再讲一次, ";
-			mes "不要忘记一定要带过来喔";
+			mes "[Karkatan]";
+			mes "I guess you are not ready yet...";
+			mes "Did you forget what items you";
+			mes "need? I will let you know";
+			mes "again, so please bring them";
+			mes "so that we can start the lesson.";
 			next;
-			mes "[卡乐喀坦]";
-			mes "^3377FF油纸^000000 10张, ";
-			mes "^3377FF光滑的纸^000000 5张, ";
-			mes "^3377FF墨汁^000000 1个, ";
-			mes "^3377FF羽毛^000000 1个, ";
-			mes "等全部准备好了再教你";
+			mes "[Karkatan]";
+			mes "^3377FF10 Oil Paper^000000,";
+			mes "^3377FF5 Slick Paper^000000,";
+			mes "^3377FF1 Squid Ink^000000,";
+			mes "^3377FF1 Feather of Birds^000000.";
+			mes "When you bring all of these,";
+			mes "I will teach you our language.";
+			close;
 		}
-		close;
-	default:	//3,6,7
-		mes "[卡乐喀坦]";
-		mes "还有什么事情要找我吗?";
-		mes "需要的话我也想为你介绍, ";
-		mes "村子里的环境, 不过以我的立场, ";
-		mes "是绝对不能离开这位子的";
-		next;
-		mes "[卡乐喀坦]";
-		mes "领导一个部落, ";
-		mes "并不是那么简单的事, ";
-		mes "如果你站在我的立场的话, ";
-		mes "多多少少会谅解的, ";
-		mes "自己去逛逛吧";
-		close;
-	case 4:
-		mes "[卡乐喀坦]";
-		mes "看来对普初恰乐坦";
-		mes "有什么要求啊, 不一定要";
-		mes "有我的允许也可以啊... ";
-		mes "如果他有那样说的话, ";
-		mes "我也得为他准备些什么了";
-		next;
-		mes "[卡乐喀坦]";
-		mes "不需要很多东西, ";
-		mes "只要有一个你们";
-		mes "人类族的面具就好了...";
-		mes "面具的话普初恰乐坦也应该会";
-		mes "相当的满足, 对吧?";
-		next;
-		mes "[卡乐喀坦]";
-		mes "^3377FF笑脸面具^000000 1个, ";
-		mes "对雨檀族来说收到面具";
-		mes "可以说是最大的光荣, ";
-		mes "我代替收下这就叫做, ";
-		mes "萨满教僧的特殊情况, 请你了解";
-		set event_umbala,5;
-		close;
-	case 5:
-		if(countitem(2278)) {
-			mes "[卡乐喀坦]";
-			mes "呵呵, 好像带来了";
-			delitem 2278,1;
-			set event_umbala,6;
+	}
+	else if (event_umbala >= 3) {
+		if (event_umbala == 4) {
+			mes "[Karkatan]";
+			mes "Puchuchartan must have sent you to";
+			mes "me. I need to check whether or not";
+			mes "you are qualified to request";
+			mes "her help...We Utans do not want";
+			mes "to help evil people.";
 			next;
-			mes "[卡乐喀坦]";
-			mes "我会通知他说答应帮你了, ";
-			mes "去找他聊聊吧, ";
-			mes "我也不知道他会给你人类族, ";
-			mes "什么样的帮助, 不过那能力";
-			mes "肯定会是个很大的帮助";
+			mes "[Karkatan]";
+			mes "Hmmmm....";
+			mes "It would be good to have a mask";
+			mes "that was made in Rune-Midgarts...";
+			next;
+			mes "[Karkatan]";
+			mes "I wish to have ^3377FF1 Mr. Smile^000000.";
+			mes "To Utans, receiving a mask as a";
+			mes "present is considered an";
+			mes "honor. Maybe Puchuchartan";
+			mes "wants you to show us your respect by doing so.";
+			set event_umbala,5;
+			close;
 		}
-		else {
-			mes "[卡乐喀坦]";
-			mes "^3377FF笑脸面具^000000 1个, ";
-			mes "对雨檀族来说收到面具";
-			mes "可以说是最大的光荣, ";
-			mes "我代替收下这就叫做, ";
-			mes "萨满教僧的特殊情况, 请你谅解";
-		}
-		close;
-	}
-}
-
-//====================================
-// 骷髅门
-//====================================
-umbala,221,193,1	script	 #骷髅门	111,{
-	if (event_umbala == 7) {
-		warp "um_in",32,71;
-		end;
-	}
-	mes "^3355FF门旁有着长相看起来";
-	mes "令人不悦的骷髅, 门锁的";
-	mes "紧紧的所以无法进去, ";
-	mes "感觉到里面有人的动静, ";
-	mes "看来好像有人在^000000";
-	next;
-	if(select("详细的观察骷髅:结束")==2) {
-		mes "^3355FF要敲打一个打不开的门, ";
-		mes "认为是一件很难的事情, 所以";
-		mes "就决定要放弃走过去了^000000";
-		close;
-	}
-	mes "^3355FF白骷髅的两眼空空的, ";
-	mes "仔细看看可以看到有个, ";
-	mes "魔力矿石般大的";
-	mes "磨碎痕迹, 对面的柱子上";
-	mes "也有骷髅, 那种痕迹";
-	mes "不太容易找得到^000000";
-	next;
-	setarray .@id,0,717,715,716;
-	for(set .@i,0; .@i<2; set .@i,.@i+1) {
-		set .@eye$,(.@i==0)? "左": "右";
-		mes "看到^3355FF" +.@eye$+ "眼孔了, ";
-		mes "要怎么办呢?^000000";
-		next;
-		set .@j,select("不动它:放入蓝色魔力矿石:放入黄色魔力矿石:放入红色魔力矿石")-1;
-		if(.@j==0) {
-			mes "^3355FF把" +.@eye$+ "眼孔放着不动^000000";
-		}
-		else {
-			if(countitem(.@id[.@j])<1) {
-				mes "现在所携带的物品里一个^3355FF" +getitemname(.@id[.@j])+ "";
-				mes "都没有, 没办法";
-				mes "只好把" +.@eye$+ "眼孔放着不动^000000";
+		else if (event_umbala == 5) {
+			if (countitem(2278) > 0) {
+				mes "[Karkatan]";
+				mes "Oh, you brought it! Yes, I've";
+				mes "always wished that I could have";
+				mes "this mask! This is truly an";
+				mes "honor! Thank you, adventurer";
+				mes "from Rune-Midgarts.";
+				next;
+				mes "[Karkatan]";
+				mes "I will tell Puchuchartan that I";
+				mes "confirmed your qualification.";
+				mes "Go and speak to her. Though I";
+				mes "am not sure what help she can give";
+				mes "you, I hope we will be able to return this favor.";
+				delitem 2278,1; //Mr_Smile
+				set event_umbala,6;
+				close;
 			}
 			else {
-				mes "把持有的^3355FF" +getitemname(.@id[.@j])+ "";
-				mes "插在骷髅的" +.@eye$+ "眼孔里^000000";
-				delitem .@id[.@j],1;
-				next;
-				set .@result,(.@i==0)? .@j: .@result+.@j*10;
-				mes "^3355FF魔力矿石发出滚动的声音, ";
-				mes "透过骷髅的嘴里出来了^000000";
-				getitem .@id[.@j],1;
+				mes "[Karkatan]";
+				mes "Did I tell you that you need";
+				mes "^3377FF1 Mr. Smile^000000?";
+				mes "Please bring that as proof";
+				mes "of your goodwill, as well";
+				mes "as your sense of honor.";
+				close;
 			}
 		}
-		next;
+		else {
+			mes "[Karkatan]";
+			mes "How's it going?";
+			mes "I wish I could guide you around";
+			mes "the village, but I cannot neglect";
+			mes "my duty as tribal chief.";
+			next;
+			mes "[Karkatan]";
+			mes "Leading a tribe is not as easy";
+			mes "as it looks. You would understand";
+			mes "if you were in the same position";
+			mes "as me. Anyway, I hope you will enjoy your time in our village.";
+			close;
+		}
 	}
-	mes "^3355FF................^000000";
-	next;
-	mes "^3355FF.......................";
-	mes ".......................^000000";
-	next;
-	mes "^3355FF.......................";
-	mes ".......................";
-	mes ".......................^000000";
-	next;
-	if((event_umbala<6 && .@result==33) || (event_umbala>=6 && .@result==13)) {
-		mes "^3355FF在骷髅的空眼孔里";
-		mes "有着吱喀的声音, 门就";
-		mes "打开了, 在门打开来的同时, ";
-		mes "不知不觉中我的脚步已经";
-		mes "走向建筑物里面了^000000";
-		close2;
-		warp "um_in",32,71;
-		end;
-	}
-	mes "^3355FF没有发生任何事情, ";
-	mes "感觉上骷髅在笑, ";
-	mes "不过认为就是心情上的关系吧^000000";
-	close;
 }
 
-//================================
-// 属性石任务
-//================================
-um_in,44,71,2	script	雨檀族 萨满	782,{
+// Create Essence/Dismantle Stone Quest :: um_npc
+//============================================================
+um_in,44,71,2	script	Utan Shaman	782,{
+	if (checkweight(908,600) == 0) {
+		mes "^3355FFWait a second!";
+		mes "Right now, you're carrying";
+		mes "too many things with you.";
+		mes "Please come back after";
+		mes "using the Kafra Service";
+		mes "to store some of your items.^000000";
+		close;
+	}
 	switch(event_umbala) {
 	default:
-		mes "[?????]";
-		mes "巴汶巴汶巴巴汶巴巴巴";
-		mes "汶巴汶巴…";
-		mes "汶巴巴汶巴巴巴汶";
-		mes "巴巴汶巴汶巴汶汶汶";
-		mes "汶巴汶巴巴汶...";
+		mes "[??????????]";
+		mes "Umbah umbah umbabah Utan umbah";
+		mes "Umbah mookala umbabah..";
+		mes "Umbabahumbah umbabah";
+		mes "Umbabah umbaba umbaumbah umbah";
+		mes "Hum umbah umbah.";
 		close2;
 		warp "umbala",217,186;
 		end;
 	case 3:
-		mes "[普初恰乐坦]";
-		mes "没想到人类会来到, ";
-		mes "我们雨檀族的村落..";
-		mes "还不知道大自然会对这样的变化, ";
-		mes "会下达什么样的话, ";
-		mes "还是一个未知数啊";
+		mes "[Puchuchartan]";
+		mes "I did not expect that even";
+		mes "more of you Rune-Midgartsians";
+		mes "would find my village. I am";
+		mes "afraid that Mother Earth may";
+		mes "be caused suffering because";
+		mes "of this...";
 		next;
-		mes "[普初恰乐坦]";
-		mes "你们人类是个可怕的种族...";
-		mes "只要是接触到的, ";
-		mes "就不择手段的想要拥有, ";
-		mes "为了去想要到达的场所, ";
-		mes "会付出任何的代价";
+		mes "[Puchuchartan]";
+		mes "You Rune-Midgartsians are a very";
+		mes "evil tribe...always accomplishing";
+		mes "your goals whether the means are";
+		mes "foul or fair, never hesitating to";
+		mes "ruin the property of others to get";
+		mes "what you want.";
 		next;
-		mes "[普初恰乐坦]";
-		mes "你们人类会带给我们";
-		mes "怎样的影响... 不过呢";
-		mes "我来找你, 我也是对你";
-		mes "有所要求啊";
+		mes "[Puchuchartan]";
+		mes "I am worried how continuing";
+		mes "contact with the outside world";
+		mes "will affect our future...";
 		next;
-		mes "[普初恰乐坦]";
-		mes "不过呢, 我的能力是留给";
-		mes "雨檀族的, 需要帮忙的话, ";
-		mes "去得到酋长的允许后再过来吧, ";
-		mes "还有, 不要对村民";
-		mes "讲太多的话...";
-		mes "我们都喜欢安安静静的过生活";
+		mes "[Puchuchartan]";
+		mes "No one from Rune-Midgarts has ";
+		mes "visited me without some purpose";
+		mes "and I do not think that you";
+		mes "are an exception.";
+		next;
+		mes "[Puchuchartan]";
+		mes "I only use my power for the";
+		mes "service of my tribe, and do not";
+		mes "give my aid to strangers. If you";
+		mes "really need my help, go ask for";
+		mes "the chief's permission.";
+		next;
+		mes "[Puchuchartan]";
+		mes "Also, I do not approve of";
+		mes "outsiders talking to the tribe";
+		mes "more than they have to...";
+		mes "We want to live a peaceful life, so do not disturb us.";
 		set event_umbala,4;
 		close;
 	case 4:
 	case 5:
-		mes "[普初恰乐坦]";
-		mes "我说过要得到酋长的允许, ";
-		mes "没得到允许的人, ";
-		mes "我不会给任何帮助的, ";
-		mes "虽然很辛苦的进来了... 出去吧";
+		mes "[Puchuchartan]";
+		mes "I already told you to get the";
+		mes "chief's approval. There is also";
+		mes "the matter of my own business to take care of.";
+		next;
+		mes "[Puchuchartan]";
+		mes "I know that you have gone through";
+		mes "many difficulties to come here,";
+		mes "but you have to leave now.";
 		close;
 	case 6:
-		mes "[普初恰乐坦]";
-		mes "看来得到允许了啊... 虽然有点不甘心, ";
-		mes "不过我还是帮你好了, 可是呢";
-		mes "是不是你需要的东西, ";
-		mes "你自己判断之后再做决定吧";
+		mes "[Puchuchartan]";
+		mes "I've heard from the chief that he";
+		mes "has given you his approval...";
+		mes "Although I do not like this, I";
+		mes "will keep my promise. But it's";
+		mes "your call if you really need my help or not.";
 		next;
-		mes "[普初恰乐坦]";
-		mes "搜集自然物里隐藏的力量, ";
-		mes "分享牢牢结合的力量, ";
-		mes "是我可以帮忙的能力, ";
-		mes "指的就是你们所说的, ";
-		mes "属性原石那些东西...";
+		mes "[Puchuchartan]";
+		mes "My power allows me to create rough";
+		mes "enchanted stones and to divide a";
+		mes "pure enchanted stone into rough";
+		mes "ones. So I may be able to help";
+		mes "you in this way.";
 		next;
-		mes "[普初恰乐坦]";
-		mes "暂时需要准备一下, ";
-		mes "所以说觉得有需要时, ";
-		mes "再找我讲话吧";
+		mes "[Puchuchartan]";
+		mes "So come and speak to me when";
+		mes "you think my power may be";
+		mes "of service to you.";
 		set event_umbala,7;
 		close;
 	case 7:
-		break;
+		mes "[Putsuchiritan]";
+		mes "I don't know whether my talents";
+		mes "will be useful to you, but I'll";
+		mes "help you anyway.";
+		next;
+		mes "[Putsuchiritan]";
+		mes "I can create elemental essence from natural objects,";
+		mes "or, dismantle elemental stones into their component essences.";
+		mes "Which would you like to do?";
 	}
-	mes "[普初恰乐坦]";
-	mes "需要帮助的人类啊...";
-	mes "虽然不知道我的能力对你";
-	mes "有没有帮助, 不过我还是会帮你的";
 	next;
-	mes "[普初恰乐坦]";
-	mes "那么, 你需要什么呢?";
-	mes "属性的结合, 属性的分解...";
-	mes "结合的话需要自然物, ";
-	mes "分解的话需要属性石";
+	mes "[Puchuchartan]";
+	mes "Rune-Midgartsian who has asked for";
+	mes "my help...Although I am not sure";
+	mes "if you really need my power, I";
+	mes "will try to provide my assistance.";
 	next;
-	switch (select("属性的结合:属性的分解:结束")) {
+	if (checkweight(1101,10) == 0) {
+		mes "[Puchuchartan]";
+		mes "Wait--!";
+		mes "something in your possession";
+		mes "is disturbing my peace of";
+		mes "mind. This will not do...";
+		next;
+		mes "[Puchuchartan]";
+		mes "Go leave your belongings";
+		mes "elsewhere, and only bring the";
+		mes "items that you need right now.";
+		next;
+		mes "[Puchuchartan]";
+		mes "If you refuse to do so,";
+		mes "I cannot do anything for you.";
+		mes "Get yourself ready and then";
+		mes "come back.";
+		close;
+	}
+	mes "[Puchuchartan]";
+	mes "Now, what do you wish to do?";
+	mes "My power allows me to create rough";
+	mes "enchanted stones and to divide a";
+	mes "pure enchanted stone into rough ones.";
+	next;
+	switch (select("Create rough enchanted stones:Divide a pure enchanted stone:Quit.")) {
 	case 1:
-		mes "[普初恰乐坦]";
-		mes "属性的结合...";
-		mes "你需要哪种属性的结合呢?";
-		mes "地, 水, 火, 风... 讲出";
-		mes "你现在所需要的属性吧";
+		mes "[Puchuchartan]";
+		mes "Do you wish to create rough";
+		mes "enchanted stones? Which";
+		mes "property do you wish to create?";
+		mes "Earth, Water, Fire, Wind...";
+		mes "...choose one.";
 		next;
-		switch (select("地属性:水属性:火属性:风属性")) {
+		switch (select("Earth:Water:Fire:Wind")) {
 		case 1:
-			if(countitem(947)<15) {
-				mes "[普初恰乐坦]";
-				mes "地属性... 需要充满着地的";
-				mes "力量的自然物, 活在森林里";
-				mes "充满着大地与树木力量的锹形虫...";
-				mes "需要那锹形虫的 ^3377FF硬角 15个^000000 ";
-			}
-			else {
-				set .@need,947;
-				set .@amount,15;
-				set .@gain,993;
-			}
+			set .@consume,947; //Horn
+			set .@amount,15; 
+			set .@success,993; //Yellow_Live
 			break;
 		case 2:
-			if(countitem(946)<20) {
-				mes "[普初恰乐坦]";
-				mes "水属性... 需要充满着";
-				mes "水的力量的自然物, 全身含着";
-				mes "水分, 并牢牢的遮住身体的蜗牛, ";
-				mes "需要那 ^3377FF蜗??20个^000000";
-			}
-			else {
-				set .@need,946;
-				set .@amount,20;
-				set .@gain,991;
-			}
+			set .@consume,946; //Snail's_Shell
+			set .@amount,20; 
+			set .@success,991; //Crystal_Blue
 			break;
 		case 3:
-			if(countitem(904)<20) {
-				mes "[普初恰乐坦]";
-				mes "火属性... 需要充满着";
-				mes "火的力量的自然物, 用全身";
-				mes "吸受着沙漠的热气而生活的";
-				mes "蝎子, 需要那^3377FF蝎子尾巴^000000";
-				mes "^3377FF20个^000000 ";
-			}
-			else {
-				set .@need,904;
-				set .@amount,20;
-				set .@gain,990;
-			}
+			set .@consume,904; //Scorpion's_Tail
+			set .@amount,20; 
+			set .@success,990; //Boody_Red
 			break;
 		case 4:
-			if(countitem(1013)<25) {
-				mes "[普初恰乐坦]";
-				mes "风属性... 需要充满着";
-				mes "风的力量的自然物, 用小小的翅膀";
-				mes "轻松的飞行的瓢虫, ";
-				mes "需要瓢虫的 ^3377FF彩色昆虫外壳^000000";
-				mes "^3377FF25个^000000";
-			}
-			else {
-				set .@need,1013;
-				set .@amount,25;
-				set .@gain,992;
-			}
+			set .@consume,1013; //Colorful_Shell
+			set .@amount,25; 
+			set .@success,992; //Wind_Of_Verdure
 			break;
 		}
-		if(.@need == 0) {
+		if (countitem(.@consume) >= .@amount) {
+			mes "[Puchuchartan]";
+			mes "I will try to amplify the hidden";
+			mes "power of natural objects in";
+			mes "order to create rough enchanted";
+			mes "stones. Choose one number from";
+			mes "'1' to '9.' If you wish to cancel";
+			mes "this request, enter '0.'";
 			next;
-			mes "[普初恰乐坦]";
-			mes "需要的自然物只有那个...";
-			mes "准备好之后再来吧, ";
-			mes "我总是会在这里的";
-			close;
-		}
-		mes "[普初恰乐坦]";
-		mes "随着大自然的能力, ";
-		mes "把那隐藏的力量之泉源集合在一起, ";
-		mes "从1到9中选一个";
-		mes "你喜欢的数位, ";
-		mes "如果不想要属性结合的话, ";
-		mes "就选择0 ";
-		while(1) {
+			while(1) {
+				input .@input,0,10;
+				if (.@input == 0) {
+					mes "[Puchuchartan]";
+					mes "I see. It's your call.";
+					mes "Come back when you need me.";
+					close;
+				}
+				else if (.@input > 9) {
+					mes "[Puchuchartan]";
+					mes "Remember to choose a number";
+					mes "from 1 to 9.";
+					next;
+				}
+				else {
+					break;
+				}
+			}
+			mes "[Puchuchartan]";
+			switch(.@success) {
+			case 990:
+				mes "I am putting these tails into a"; break;
+			case 991:
+				mes "I am putting these shells into a"; break;
+			case 992:
+				mes "I am putting these shells into a"; break;
+			case 993:
+				mes "I am putting these horns into a"; break;
+			}
+			mes "boiling pot, and casting a";
+			mes "sacred incantation. Remember";
+			mes "the number you entered.";
 			next;
-			input .@num;
-			if(.@num<=0) {
-				mes "[普初恰乐坦]";
-				mes "好像没希望了";
+			mes "[Puchuchartan]";
+			mes "Amba Omba Zatumba! Umba! Ti!";
+			mes "Umputaun Eulukaba! Umba! Ha!";
+			mes "Julu Humba Rulala! Umba! La!";
+			mes "Datuha Ombabalaka! Umba! Si!";
+			mes "Sunutaba Abulumba! Umba! Si!";
+			next;
+			if (rand(1,10) == 1) {
+				mes "[Puchuchartan]";
+				mes "I guess my power was not enough.";
+				mes "The natural power I gathered with";
+				mes "my spell lost focus and was scattered...";
+				delitem .@consume,.@amount;
+				getitem 910,1; //Garlet
+				next;
+				mes "[Puchuchartan]";
+				mes "It seems the spirits of nature";
+				mes "were not in harmony at the moment.";
+				mes "However, if you come back later,";
+				mes "I will try to help you. Of course,";
+				mes "there will still be the same possibility that I may fail.";
 				close;
 			}
-			if(.@num>9) {
-				mes "[普初恰乐坦]";
-				mes "数字选择错误";
-				continue;
+			else {
+				mes "[Puchuchartan]";
+				mes "Here's the enchanted stone you";
+				mes "wished to have. I created this";
+				mes "with a lot of effort, so make";
+				mes "good use of it.";
+				delitem .@consume,.@amount;
+				getitem .@success,1;
+				close;
 			}
-			break;
 		}
-		mes "[普初恰乐坦]";
-		switch(.@need) {
-			case 946: mes "把那些蜗?欠旁谡夥刑诘墓? "; break;
-			case 904: mes "把那些蝎子尾巴放在这沸腾的锅里, "; break;
-			case 947: mes "把那些硬角放在这沸腾的锅里, "; break;
-			default: mes "把那些彩色昆虫外壳放在这沸腾的锅里, "; break;
+		else {
+			mes "[Puchuchartan]";
+			switch (.@success) {
+			case 990:
+				mes "Fire property...";
+				mes "I will need natural";
+				mes "objects that are filled with";
+				mes "the spirit of fire.";
+				next;
+				mes "[Puchuchartan]";
+				mes "Scorpion which endures the";
+				mes "blazing heat of the desert";
+				mes "is brimming with fire energy.";
+				mes "I need ^3377FF20 Scorpion Tails^000000.";
+				break;
+			case 991:
+				mes "Water property...";
+				mes "I will need natural";
+				mes "objects that are filled with";
+				mes "the spirit of water.";
+				next;
+				mes "[Puchuchartan]";
+				mes "Ambernite...the spirit of";
+				mes "water is contained within its";
+				mes "protective shell...";
+				mes "I will need ^3377FF20 Snail's Shell.^000000";
+				break;
+			case 992:
+				mes "Wind property...";
+				mes "I will need natural";
+				mes "objects that are filled with";
+				mes "the spirit of wind.";
+				next;
+				mes "[Puchuchartan]";
+				mes "Stainer...the beetle";
+				mes "that flies through the sky";
+				mes "has the wind's spirit.";
+				mes "I need ^3377FF25 Rainbow Shells^000000.";
+				break;
+			case 993:
+				mes "Earth property...I need natural";
+				mes "objects that are filled with";
+				mes "the spirit of the Earth.";
+				next;
+				mes "[Puchuchartan]";
+				mes "Horn...that dwells in the forest";
+				mes "is filled with the spirits of";
+				mes "earth and wood...Horn...";
+				mes "I need ^3377FF15 Horn^000000 from Horns.";
+				break;
+			}
+			mes "[Puchuchartan]";
+			mes "That's all I need...";
+			mes "Come back when";
+			mes "you're ready.";
+			mes "I will be here.";
+			close;
 		}
-		mes "开始念神圣的咒语, ";
-		mes "要记住你所说的数字, ";
-		mes "否则, 也许不会起作用";
-		next;
-		mes "[普初恰乐坦]";
-		mes "Amba Omba Zatumba! Umba! Ti!";
-		mes "Umputaun Eulukaba! Umba! Ha!";
-		mes "Julu Humba Rulala! Umba! La!";
-		mes "Datuha Ombabalaka! Umba! Si!";
-		mes "Sunutaba Abulumba! Umba! Si!";
-		next;
-		delitem .@need,.@amount;
-		getitem .@gain,1;
-		mes "[普初恰乐坦]";
-		mes "你想要的属性原石在这里, ";
-		mes "只是从原本存在的东西";
-		mes "中所制成的, 好好的";
-		mes "用在需要的目的上吧";
-		close;
 	case 2:
-		mes "[普初恰乐坦]";
-		mes "属性的分解...";
-		mes "你需要哪种属性的分解呢?";
-		mes "地, 水, 火, 风...";
-		mes "讲出你现在所需要的属性吧";
+		mes "[Puchuchartan]";
+		mes "Do you wish to divide a pure";
+		mes "enchanted stone into rough ones?";
+		mes "Which property do you want to";
+		mes "divide? Earth, Water, Fire, Wind... ";
+		mes "Choose one.";
 		next;
-		switch (select("地属性:水属性:火属性:风属性")) {
+		switch(select("Earth:Water:Fire:Wind")) {
 		case 1:
-			if(countitem(997)==0) {
-				mes "[普初恰乐坦]";
-				mes "你想要地属性的分解吗...";
-				mes "需要一个盛满着大地之";
-				mes "天意的地属性石, ";
-				mes "^3377FF土灵原石, 1个^000000";
-			}
-			else {
-				set .@need,997;
-				set .@gain,993;
-			}
+			set .@divide,997; //Great_Nature
 			break;
 		case 2:
-			if(countitem(995)==0) {
-				mes "[普初恰乐坦]";
-				mes "你想要水属性的分解啊...";
-				mes "需要一个奔流的大洋神秘, ";
-				mes "结冰的水属性石, ";
-				mes "^3377水灵原石,  1个^000000";
-			}
-			else {
-				set .@need,995;
-				set .@gain,991;
-			}
+			set .@divide,995; //Mistic_Frozen
 			break;
 		case 3:
-			if(countitem(994)==0) {
-				mes "[普初恰乐坦]";
-				mes "你想要火属性的分解啊...";
-				mes "需要一个有着燃烧的, ";
-				mes "火焰之心的火属性石, ";
-				mes "^3377FF火灵原石, 1个^000000";
-			}
-			else {
-				set .@need,994;
-				set .@gain,990;
-			}
+			set .@divide,994; //Flame_Heart
 			break;
 		case 4:
-			if(countitem(996)==0) {
-				mes "[普初恰乐坦]";
-				mes "你想要风属性的分解啊...";
-				mes "需要一个隐藏着粗暴狂风";
-				mes "样子的风属性石, ";
-				mes "^3377FF风灵原石, 1个^000000";
-			}
-			else {
-				set .@need,996;
-				set .@gain,992;
-			}
+			set .@divide,996; //Rough_Wind
 			break;
 		}
+		mes "[Puchuchartan]";
+		mes "Please enter the";
+		mes "number of enchanted";
+		mes "stones that you wish";
+		mes "to divide. I can only";
+		mes "divide up to 10 at a time.";
 		next;
-		if(.@need == 0) {
-			mes "[普初恰乐坦]";
-			mes "需要的属性石只有那个...";
-			mes "准备好之后再来吧, ";
-			mes "我总是会在这里的";
-			close;
-		}
-		mes "[普初恰乐坦]";
-		switch(.@need) {
-			case 997: mes "将为你所带来的大地之天意, "; 	break;
-			case 995: mes "将为你所带来的大洋神秘, "; 	break;
-			case 994: mes "将为你所带来的火焰之心, "; 	break;
-			case 996: mes "将为你所带来的粗暴狂风, "; 	break;
-		}
-		mes "转变成在结合之前的样子, ";
-		mes "从1到9中选一个, ";
-		mes "你喜欢的数位, ";
-		mes "如果不想要属性的分解的话";
-		mes "就选择0";
-		while(1) {
-			next;
-			input .@num;
-			if(.@num<=0) {
-				mes "[普初恰乐坦]";
-				mes "好像没希望了";
+		input .@input,0,11;
+		if ((.@input > 0) && (.@input < 11)) {
+			if (countitem(.@divide) >= .@input) {
+				if (checkweight(908,(.@input * 30)) == 0) {
+					mes "[Puchuchartan]";
+					mes "You're carrying too";
+					mes "many items right now.";
+					mes "Put some of your stuff";
+					mes "in Kafra Storage, and then";
+					mes "come back to me, okay?";
+					close;
+				}
+				mes "[Puchuchartan]";
+				mes "I'll try to revert these";
+				mes "enchanted stones to their";
+				mes "rough forms. Enter a number";
+				mes "from 1 to 9, or enter 0 if";
+				mes "you decide to cancel.";
+				next;
+				while(1) {
+					input .@input2,0,10;
+					if (.@input2 == 0) {
+						mes "[Puchuchartan]";
+						mes "You want to cancel?";
+						mes "Well, if you change your";
+						mes "mind, feel free to come";
+						mes "ask me to help at any time.";
+						close;
+					}
+					else if (.@input2 > 9) {
+						mes "[Puchuchartan]";
+						mes "Hm? You need to enter";
+						mes "a number from 1 to 9.";
+						next;
+					}
+					else {
+						break;
+					}
+				}
+				mes "[Puchuchartan]";
+				mes "I will now chant the";
+				mes "sacred words. Remember";
+				mes "the number you entered!";
+				next;
+				mes "[Puchuchartan]";
+				mes "Umba Umba Kalapum! Umba! Ta!";
+				mes "Lukura Ukulele Um! Umba! Ka!";
+				mes "Abulaka Tabulakan! Umba! La!";
+				mes "Ombaludu Zan Kunu! Umba! Ku!";
+				mes "Kum Tum Lakulakun! Umba! Ha!";
+				next;
+				mes "[Puchuchartan]";
+				mes "Here's the rough enchanted stones";
+				mes "you wished to have. I created this";
+				mes "with a lot of effort, so make good";
+				mes "use of them.";
+				while(1) {
+					if (.@sha_man == .@input) {
+						break;
+					}
+					else {
+						set .@shaman_max,.@shaman_max + rand(6,10);
+						set .@sha_man,.@sha_man + 1;
+					}
+				}
+				switch(.@divide) {
+				case 994:
+					getitem 990,.@shaman_max; //Boody_Red
+					break;
+				case 995:
+					getitem 991,.@shaman_max; //Crystal_Blue
+					break;
+				case 996:
+					getitem 992,.@shaman_max; //Wind_Of_Verdure
+					break;
+				case 997: 
+					getitem 993,.@shaman_max; //Yellow_Live
+				}
+				delitem .@divide,.@input;
 				close;
 			}
-			if(.@num>9) {
-				mes "[普初恰乐坦]";
-				mes "要从1到 9之中选择, ";
-				mes "这很重要请选择, ";
-				mes "真正喜欢的数位吧";
-				continue;
+			else {
+				mes "[Puchuchartan]";
+				mes "So, you wish to have rough";
+				switch(.@divide) {
+				case 994:
+					mes "fire stones? Then I will need";
+					mes "you to bring "+input_want+" pure fire stone.";
+					break;
+				case 995:
+					mes "water stones? Then I'll need";
+					mes "you to bring "+input_want+" pure water stone.";
+					break;
+				case 996:
+					mes "wind stones? Then I will need";
+					mes "you to bring "+input_want+" pure wind stone.";
+					break;
+				case 997: 
+					mes "earth stones? Then I'll need";
+					mes "you to bring "+.@input+" pure earth stone.";
+					break;
+				}
+				mes "^3377FF"+.@input+" "+getitemname(.@divide)+"^000000.";
+				next;
+				mes "[Puchuchartan]";
+				mes "That's all I need...";
+				mes "Come back when";
+				mes "you're ready.";
+				mes "I will be here.";
+				close;
 			}
-			break;
 		}
-		set .@num,.@num+rand(5);
-		if(.@num>10)
-			set .@num,.@num-10;
-		if(.@num<5)
-			set .@num,.@num+5;
-		mes "[普初恰乐坦]";
-		mes "把这属性石放在地上, ";
-		mes "开始念神圣的咒语, ";
-		mes "要记住你所说的数字, ";
-		mes "否则, 也许无法";
-		mes "完全分解";
-		next;
-		mes "[普初恰乐坦]";
-		mes "Umba Umba Kalapum! Umba! Ta!";
-		mes "Lukura Ukulele Um! Umba! Ka!";
-		mes "Abulaka Tabulakan! Umba! La!";
-		mes "Ombaludu Zan Kunu! Umba! Ku!";
-		mes "Kum Tum Lakulakun! Umba! Ha!";
-		next;
-		delitem .@need,1;
-		getitem .@gain,.@num;
-		mes "[普初恰乐坦]";
-		mes "你想要的属性原石在这里, ";
-		mes "只是从原本存在的东西";
-		mes "中所制成的, 好好的";
-		mes "用在需要的目的上吧";
-		close;
+		else {
+			mes "[Puchuchartan]";
+			mes "Hm? You need to enter";
+			mes "a number from 1 to 10.";
+			close;
+		}
 	case 3:
-		mes "[普初恰乐坦]";
-		mes "不想要吗, 也许那";
-		mes "也会成为一个选择, ";
-		mes "如果以后有需要的话, ";
-		mes "再来找我吧";
+		mes "[Puchuchartan]";
+		mes "I see. It's your call.";
+		mes "Come back when you need me.";
 		close;
 	}
+}
+
+umbala,221,193,1	script	#Skulldoor	111,{
+	if (event_umbala >= 7) {
+		warp "um_in",32,71;
+		end;
+	}
+	else {
+		mes "^3355FFA human skull disturbingly";
+		mes "hangs beside the door. The door is";
+		mes "locked tight, so you can't get in.";
+		mes "As you peer through the keyhole,";
+		mes "you can see somebody moving inside the room.^000000";
+		next;
+		if (select("Examine the skull.:Quit.") == 1) {
+			mes "^3355FFYou see that the eye sockets";
+			mes "of the skull are empty.";
+			mes "How peculiar...";
+			mes "It seems that Gemstones";
+			mes "would fit perfectly inside of";
+			mes "them.^000000";
+			next;
+			mes "^3355FFYou see the left eye socket of the";
+			mes "skull. What do you want to do?^000000";
+			next;
+			switch(select("Leave it as it is.:Insert a Blue Gemstone.:Insert a Yellow Gemstone.:Insert a Red Gemstone.")) {
+			case 1:
+				mes "^3355FFYou left the eye socket as it was.^000000";
+				next;
+				break;
+			case 2:
+				set .@insert,717;
+				break;
+			case 3:
+				set .@insert,715;
+				break;
+			case 4:
+				set .@insert,716;
+				break;
+			}
+			if (.@insert) {
+				if (countitem(.@insert) > 0) {
+					mes "^3355FFYou inserted a "+getitemname(.@insert)+"";
+					mes "into the eye socket.^000000";
+					next;
+					mes "^3355FFThe gemstone rolled back out of";
+					mes "the mouth of the skull.^000000";
+					set .@skulldoor,.@skulldoor+1;
+					switch (.@insert) {
+					case 715: set .@skull,2; break;
+					case 716: set .@skull,3; break;
+					case 717: set .@skull,1; break;
+					}
+					delitem .@insert,1;
+					getitem .@insert,1;
+					next;
+				}
+				else {
+					mes "^3355FFYou forgot to carry "+getitemname(.@insert)+"";
+					mes "with you. So you couldn't do what you";
+					mes "had intended.^000000";
+					next;
+				}
+			}
+			mes "^3355FFYou see the right eye socket of";
+			mes "the skull. What do you want to do?^000000";
+			next;
+			switch(select("Leave it as it is.:Insert a Blue Gemstone.:Insert a Yellow Gemstone.:Insert a Red Gemstone.")) {
+			case 1:
+				mes "^3355FFYou left the eye socket as it was.^000000";
+				next;
+				break;
+			case 2:
+				set .@insert2,717;
+				break;
+			case 3:
+				set .@insert2,715;
+				break;
+			case 4:
+				set .@insert2,716;
+				break;
+			}
+			if (.@insert2) {
+				if (countitem(.@insert2) > 0) {
+					mes "^3355FFYou inserted a "+getitemname(.@insert2)+"";
+					mes "into the eye socket.^000000";
+					next;
+					mes "^3355FFThe gemstone rolled back out of";
+					mes "the mouth of the skull.^000000";
+					if (.@insert2 == .@insert) {
+						set .@skulldoor,.@skulldoor+1;
+					}
+					else {
+						set .@skulldoor,.@skulldoor+2;
+					}
+					delitem .@insert2,1;
+					getitem .@insert2,1;
+					next;
+				}
+				else {
+					mes "^3355FFYou forgot to carry "+getitemname(.@insert2)+"";
+					mes "with you. So you couldn't do what you";
+					mes "had intended.^000000";
+					next;
+				}
+			}
+			mes "^3355FF..............................^000000";
+			next;
+			mes "^3355FF..............................";
+			mes "..............................^000000";
+			next;
+			mes "^3355FF..............................";
+			mes "..............................";
+			mes "..............................^000000";
+			next;
+			switch(.@skulldoor) {
+			case 3:
+				if (rand(1,4) != 1) {
+					set .@skullopen,1;
+				}
+				break;
+			case 2:
+				if (rand(1,2) == 2) {
+					set .@skullopen,1;
+				}
+				break;
+			case 1:
+				if (rand(1,4) == 1) {
+					set .@skullopen,1;
+				}
+				break;
+			default:
+				break;
+			}
+			if (.@skullopen == 0) {
+				mes "^3355FFNothing happened.";
+				mes "You have the feeling that the";
+				mes "skull is grinning at you. But...";
+				mes "It's probably just a trick of the light.^000000";
+				close;
+			}
+			else {
+				mes "^3355FFSuddenly, a clicking sound comes";
+				mes "from the skull's eye sockets and";
+				mes "the door opens. Before you know";
+				mes "it, you walk inside as if guided";
+				mes "by an unseen force...^000000";
+				close2;
+				warp "um_in",32,71;
+				end;
+			}
+		}
+		mes "^3355FFYou decided to pass by the door.";
+		mes "It looks like it might be too hard to open.^000000";
+		close;
+	}
+}
+
+// Umbala Domestic Dispute Quest :: um_npc_ryu
+//============================================================ 
+um_in,139,48,5	script	Phrenetan	783,{
+	if (event_umbala >= 3) {
+		mes "[Phrenetan]";
+		mes "I am so sick and tired of";
+		mes "my husband!! It's like he";
+		mes "flirts with every girl";
+		mes "in the village!";
+		next;
+		mes "[Phrenetan]";
+		mes "If I see him flirting with";
+		mes "women again...I swear...";
+		mes "I will show him hell!!";
+		close;
+	}
+	if (BaseJob == Job_Novice && Upper != 2) {
+		mes "[Phrenetan]";
+		mes "Umba~ umbaumbah!";
+		mes "Umbah woomumum!";
+		mes "Umbah woomum umbabah!";
+		close;
+	}
+	if (um_wind <= 3 && (MISC_QUEST & 32768) == 0) {
+		if (um_wind == 0) set um_wind,1;
+		emotion ET_FRET;
+		mes "[Phrenetan]";
+		mes "Umbaumbah wooga wooga";
+		mes "Umbaumbabah babababah!";
+		mes "Umbaum!";
+		next;
+		emotion ET_O;
+		mes "[Phrenetan]";
+		mes "Umbah umbaumba umbah";
+		mes "Umbabababah wooga woo!";
+		mes "Wooga wooga umbabah umbaum!";
+		next;
+		emotion ET_GO;
+		close;
+	}
+	else if (um_wind == 6 || (MISC_QUEST & 32768)) {
+		emotion ET_FRET;
+		mes "[Phrenetan]";
+		mes "Umbabah! Umbaumbah.....";
+		mes "Umbaum Umbaum Wooga wooga!";
+		mes "Wooga umumum woombababap!!!!!";
+		next;
+		emotion ET_SWEAT;
+		close;
+	}
+	end;
+}
+
+um_in,144,45,5	script	Umpokoriohtan	789,{
+	if (event_umbala >= 3) {
+		if(rand(1,3) == 2) {
+			mes "[Umpokoriohtan]";
+			mes "Hey there, cool cat.";
+			mes "Don't mind the wife...";
+			mes "Much as I love her,";
+			mes "I know my obligations, ya dig?";
+			next;
+			mes "[Umpokoriohtan]";
+			mes "If a man's got plenty, he's";
+			mes "got to share it with those";
+			mes "that got nothing to give.";
+			next;
+			mes "[Umpokoriohtan]";
+			mes "If a man's hands are good";
+			mes "at healin', he's got to use";
+			mes "those hands to help folks live.";
+			next;
+			mes "[Umpokoriohtan]";
+			mes "If a man's lips be good at";
+			mes "singin', he's got to croon the";
+			mes "songs we like to hear so much.";
+			next;
+			mes "[Umpokoriohtan]";
+			mes "But if sweet lovin' is golden,";
+			mes "then baby...I got the Midas touch.";
+			next;
+			mes "[Umpokoriohtan]";
+			mes "Ooh...!";
+			mes "...........";
+			mes "My back--!";
+			mes "Simmer down, baby, your turn is comin' in a minute~";
+			emotion ET_ROCK, getnpcid(0, "Phrenetan");
+			emotion ET_SWEAT;
+			close;
+		}
+		else {
+			mes "[Umpokoriohtan]";
+			mes "Man...sometimes my wife can";
+			mes "be a lil' too rough, maybe";
+			mes "even hurtful. But that's cool...";
+			mes "it just means she's got fire.";
+			next;
+			mes "[Umpokoriohtan]";
+			mes "But someday, she'll have to";
+			mes "learn that I gots to share";
+			mes "this heart of mine with the ladies";
+			mes "who really need a dose of vitamin";
+			mes "lovin', ya dig? It's my obligation.";
+			next;
+			mes "[Umpokoriohtan]";
+			mes "Wainatan, Bertztan, Chabimatan...";
+			mes "Those pretty girls been waitin'";
+			mes "toooooo long. Don't worry,";
+			mes "big daddy's comin' soon.";
+			next;
+			mes "[Umpokoriohtan]";
+			mes "OOOH~! Phrenetan!";
+			mes "Baby, why you gotta be rough?";
+			mes "Hit me gently, ya dig??";
+			mes "I don't mean to hurt you~";
+			emotion ET_HUK, getnpcid(0, "Phrenetan");
+			emotion ET_KEK;
+			close;
+		}
+	}
+	emotion ET_SMILE;
+	mes "[Umpokoriohtan]";
+	mes "Umbaumbah...........";
+	mes "Umbahwooga woogawoo!";
+	mes "Umbah umumbabah umbawoo gaga.";
+	next;
+	emotion ET_FRET;
+	close;
+
+OnInit:
+	disablenpc "Umpokoriohtan";
+	end;
+}
+
+um_in,101,73,3	script	Wainatan	783,{
+	if (event_umbala >= 3) {
+		mes "[Wainatan]";
+		mes "I am sick and tired of this guy";
+		mes "who always appears at night and bugs the hell out of me...";
+		next;
+		mes "[Wainatan]";
+		mes "'Smooth operator that gets the";
+		mes "job done?' Oh my god...!";
+		mes "I hate him with a passion!";
+		mes "I wish Umpokoriohtan would";
+		mes "just drop dead.";
+		close;
+	}
+	if (um_wind == 1) {
+		if (gettime(DT_HOUR) > 18) {
+			set um_wind,2;
+			emotion ET_FRET;
+			mes "[Wainatan]";
+			mes "Umbaumbah umgagaga.";
+			mes "Umbaumbawoogawoo gababah.";
+			mes "Umbahumbabah gawoo.";
+			next;
+			emotion ET_O;
+			mes "[Wainatan]";
+			mes "Wooga wooga woogagagah";
+			mes "Wogagagah woogagagah";
+			mes "Gawoo gawoo gah.";
+			close;
+		}
+		else {
+			mes "[Wainatan]";
+			mes "Umbabah! Umbaumbah wooga";
+			mes "Woogawooga umbawooga umum.";
+			mes "Umbabababababababababah.";
+			close;
+		}
+	}
+	else {
+		mes "[Wainatan]";
+		mes "Umbaumbah umbaumbah umbah";
+		mes "Wooga wooga woogawooga wooga";
+		mes "Umumumum umumumum umum.";
+		close;
+	}
+}
+
+um_in,94,123,5	script	Bertztan	783,{
+	if (event_umbala >= 3) {
+		mes "[Bertztan]";
+		mes "...*Sigh* That sicko";
+		mes "Umpo-whatever! I told him";
+		mes "I don't like him, but he";
+		mes "just doesn't listen!";
+		mes "I wish...I wish he would";
+		mes "just disappear!";
+		close;
+	}
+	if (um_wind == 2) {
+		if (gettime(DT_HOUR) > 18) {
+			set um_wind,3;
+			emotion ET_FRET;
+			mes "[Bertztan]";
+			mes "Umbaumbah umgagaga.";
+			mes "Umbaumbawoogawoo gababah.";
+			mes "Umbahumbabah gawoo.";
+			next;
+			emotion ET_O;
+			mes "[Bertztan]";
+			mes "Wooga umbar umbar umbah!";
+			mes "Umbar woogagaga woo! Woo! Woo!";
+			mes "Wooga~ wooga~ Woo woo woo umbar.";
+			close;
+		}
+		else {
+			mes "[Bertztan]";
+			mes "Umbar woogaumbarumbah um!";
+			mes "Um~ wooga wooga umbarum.";
+			mes "Umbah...wooum.";
+			close;
+		}
+	}
+	else {
+		mes "[Bertztan]";
+		mes "Umbar wooga umbar umbah um!";
+		mes "Um~ woogawooga umbar um.";
+		mes "Umbah...wooum.";
+		close;
+	}
+}
+
+umbala,145,217,3	script	Chabimatan	783,{
+	if (event_umbala >= 3) {
+		mes "[Chabimatan]";
+		mes "...*Sigh* Umpokoriohtan seems";
+		mes "to be married. I have no";
+		mes "idea why he still flirts";
+		mes "with other women. Maybe he's";
+		mes "not very mature, or he's";
+		mes "irresponsible...";
+		next;
+		mes "[Chabimatan]";
+		mes "Well, whatever he is,";
+		mes "he's certainly not";
+		mes "romantic. Those pick-up";
+		mes "lines of his could";
+		mes "some work, maybe";
+		mes "even some clean up.";
+		close;
+	}
+	if (um_wind == 3) {
+		if (gettime(DT_HOUR) > 18) {
+			set um_wind,4;
+			emotion ET_FRET;
+			mes "[Chabimatan]";
+			mes "Umbabah umbarbar woogawooga um";
+			mes "Umbabah umbarbar woogawooga umbah";
+			mes "Umumum! Wooga!";
+			next;
+			emotion ET_O;
+			mes "[Chabimatan]";
+			mes "Umbabah~~~~~~~";
+			mes "Woogawooga umbar umbar woo!";
+			mes "Wooga umbar woogawoogagah.";
+			enablenpc "Umpokoriohtan";
+			enablenpc "#!@#$%";
+			close;
+		}
+		else {
+			mes "[Chabimatan]";
+			mes "Umbabah~~~~~~~";
+			mes "Woogawooga umbar umbar woo";
+			mes "woo woo! Nook nook~";
+			mes "Wooga umbar wooga umbar";
+			mes "wooga woogagah.";
+			close;
+		}
+	}
+	else {
+		mes "[Chabimatan]";
+		mes "Umbabah~~~~~~~";
+		mes "Woogawooga umbar umbar";
+		mes "woo woo woo nook nook.";
+		mes "Wooga umbar wooga umbar";
+		mes "wooga woogagah.";
+		close;
+	}
+}
+
+um_in,141,46,0	script	#!@#$%	-1,8,8,{
+OnInit:
+	disablenpc "#!@#$%";
+	end;
+
+OnTouch_:
+	if (um_wind == 4) {
+		set um_wind,5;
+		mes "^3355FFAs you enter the house";
+		mes "you happen to witness";
+		mes "Phrenetan beating a guy";
+		mes "mercilessly.^000000";
+		next;
+		emotion ET_FRET;
+		mes "[Phrenetan]";
+		mes "Umbaumbaumbaumbah!";
+		mes "Umbaumbahumbah!!";
+		mes "Umbaumbahumbah!!!!!!";
+		next;
+		mes "^3355FFYou were kicked out of the house";
+		mes "by Phrenetan.^000000";
+		next;
+		enablenpc "#unpc";
+		disablenpc "#!@#$%";
+		warp "umbala",94,181;
+	}
+	end;
+}
+
+umbala,94,181,0	script	#unpc	-1,1,1,{
+OnInit:
+	disablenpc "#unpc";
+	end;
+
+OnTouch_:
+	if (um_wind == 5) {
+		mes "^3355FFAs you realized what happened";
+		mes "after being kicked out of the";
+		mes "house, you see a leaf on the";
+		mes "ground near where you're standing.^000000";
+		next;
+		if (select("Take it.:Leave it.") == 1) {
+			close2;
+			set um_wind,0;
+			set MISC_QUEST,MISC_QUEST | 32768;
+			getitem 610,1; //Leaf_Of_Yggdrasil
+			disablenpc "#unpc";
+			end;
+		}
+		set um_wind,0;
+		set MISC_QUEST,MISC_QUEST | 32768;
+		mes "[" + strcharinfo(0) + "]";
+		mes "I am not supposed to take";
+		mes "what may belong to other people.";
+		next;
+		mes "[" + strcharinfo(0) + "]";
+		mes "Yeah, I'm a such good person.";
+		close2;
+		disablenpc "#unpc";
+	}
+	end;
 }
