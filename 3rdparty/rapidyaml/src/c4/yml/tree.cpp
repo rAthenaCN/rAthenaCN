@@ -354,7 +354,7 @@ void Tree::_free()
 
 C4_SUPPRESS_WARNING_GCC_PUSH
 #if defined(__GNUC__) && __GNUC__>= 8
-    C4_SUPPRESS_WARNING_GCC_WITH_PUSH("-Wclass-memaccess") // error: â€˜void* memset(void*, int, size_t)â€™ clearing an object of type â€˜class c4::yml::Treeâ€™ with no trivial copy-assignment; use assignment or value-initialization instead
+    C4_SUPPRESS_WARNING_GCC_WITH_PUSH("-Wclass-memaccess") // error: ¡®void* memset(void*, int, size_t)¡¯ clearing an object of type ¡®class c4::yml::Tree¡¯ with no trivial copy-assignment; use assignment or value-initialization instead
 #endif
 
 void Tree::_clear()
