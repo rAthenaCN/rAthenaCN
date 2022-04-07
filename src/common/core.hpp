@@ -4,6 +4,8 @@
 #ifndef CORE_HPP
 #define CORE_HPP
 
+#include "../config/rAthenaCN.hpp"
+
 /* so that developers with --enable-debug can raise signals from any section of the code they'd like */
 #ifdef DEBUG
 	#include <signal.h>
