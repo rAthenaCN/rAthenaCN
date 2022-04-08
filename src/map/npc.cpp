@@ -5632,6 +5632,12 @@ const char *npc_get_script_event_name(int npce_index)
 		return script_config.kill_pc_event_name;
 	case NPCE_KILLNPC:
 		return script_config.kill_mob_event_name;
+
+#ifdef rAthenaCN_NpcEvent
+	case NPCE_KILLMVP:
+		return script_config.kill_mvp_mob_event_name;
+#endif // rAthenaCN_NpcEvent
+
 	default:
 		ShowError("npc_get_script_event_name: npce_index is outside the array limits: %d (max: %d).\n", npce_index, NPCE_MAX);
 		return NULL;

@@ -1450,6 +1450,11 @@ enum npce_event : uint8 {
 	NPCE_DIE,
 	NPCE_KILLPC,
 	NPCE_KILLNPC,
+
+#ifdef rAthenaCN_NpcEvent
+	NPCE_KILLMVP,
+#endif // rAthenaCN_NpcEvent
+
 	NPCE_MAX
 };
 

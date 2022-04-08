@@ -1,8 +1,8 @@
-// Copyright (c) rAthena Dev Teams - Licensed under GNU GPL
+// Copyright (c) rAthenaCN Dev Teams - Licensed under GNU GPL
 // For more information, see LICENCE in the main folder
 
-#ifndef _RATHENA_CN_CONFIG_H_
-#define _RATHENA_CN_CONFIG_H_
+#ifndef _RATHENA_CN_CONFIG_HPP_
+#define _RATHENA_CN_CONFIG_HPP_
 
 #include "renewal.hpp"
 #include "packets.hpp"
@@ -11,6 +11,7 @@
 
 #ifdef rAthenaCN
 	#define rAthenaCN_Basic
+	#define rAthenaCN_NpcEvent
 #endif // rAthenaCN
 
 #ifdef rAthenaCN_Basic
@@ -27,5 +28,9 @@
 	#define rAthenaCN_Show_Version
 #endif // rAthenaCN_Basic
 
+#ifdef rAthenaCN_NpcEvent
+	// 杀死 MVP 魔物时触发事件 - OnPCKillMvpEvent
+	#define rAthenaCN_NpcEvent_KILLMVP
+#endif // rAthenaCN_NpcEvent
 
-#endif // _RATHENA_CN_CONFIG_H_
+#endif // _RATHENA_CN_CONFIG_HPP_

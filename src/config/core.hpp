@@ -91,6 +91,7 @@
 #include "./renewal.hpp"
 #include "./secure.hpp"
 #include "./classes/general.hpp"
+#include "./rAthenaCN.hpp"
 
 /**
  * Constants come last; so they process anything that could've been modified in early includes

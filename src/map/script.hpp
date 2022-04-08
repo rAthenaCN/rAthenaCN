@@ -165,6 +165,10 @@ struct Script_Config {
 	const char *baselvup_event_name;
 	const char *joblvup_event_name;
 
+#ifdef rAthenaCN_NpcEvent
+	const char* kill_mvp_mob_event_name;
+#endif // rAthenaCN_NpcEvent
+
 	// NPC related
 	const char* ontouch_event_name;
 	const char* ontouch2_event_name;
