@@ -1,0 +1,50 @@
+//===== rAthenaCN 汉化声明 ===================================
+//= 您可以随意转载和使用本汉化脚本. 若您使用、借鉴或复制了
+//= 此脚本中的汉化成果, 那么请在您的脚本中加上并保留这七行
+//= 汉化声明, 由衷感谢!
+//= 若您对这个脚本有更好的翻译建议, 或发现此脚本的汉化错误,
+//= 请前往 http://www.rAthenaCN.com 上报您发现的问题, 谢谢!
+//============================================================
+//
+//===== rAthenaCN Script =====================================
+//= 拓展事件测试脚本
+//===== Current Version: =====================================
+//= 1.0
+//===== Compatible With: =====================================
+//= rAthenaCN 开发团队
+//===== Description: =========================================
+//= 用来对 rAthenaCN 拓展事件进行测试的脚本, 从这里也可以学习
+//= 到这些拓展事件的使用方法.
+//============================================================
+
+-	script	EVENT_TEST_INIT	-1,{
+end;
+OnPCLoginEvent:
+	dispbottom "[事件演示] 已加载演示脚本, 若想关闭演示脚本, 请查看 npc/scripts_rAthenaCN.conf 配置文件";
+end;
+}
+
+-	script	MOB_KILL_EVENT	-1,{
+end;
+OnPCKillMvpEvent:
+	// OnPCKillMvpEvent 是与玩家关联的 (关联到给MVP带来最后一击的玩家)
+	// 死了一个MVP魔物的话, 此事件只会被触发一次
+	// 
+	// 参数说明
+	// -------------------------------------------------------
+	// killedrid 			为被杀死的MVP魔物的魔物编号(MobID)
+	// @mob_dead_x			魔物死亡时的X坐标
+	// @mob_dead_y			魔物死亡时的Y坐标
+	// @mob_lasthit_rid		给予MVP魔物最后一击的玩家RID(账号编号)
+	// @mob_lasthit_cid		给予MVP魔物最后一击的玩家角色编号
+	// @mob_mvp_rid			给予MVP魔物最大伤害的玩家RID(账号编号)
+	// @mob_mvp_cid			给予MVP魔物最大伤害的玩家角色编号
+	// -------------------------------------------------------
+	
+	announce "[事件演示] OnPCKillMvpEvent | 玩家 [" + strcharinfo(0, @mob_lasthit_cid) + "] 给予 MVP [" + strmobinfo(2, killedrid) + "] 最后一击!", bc_all,0xbbffb9;
+	announce "[事件演示] 玩家 [" + strcharinfo(0, @mob_mvp_cid) + "] 给予 MVP 的伤害最多! 位于 " + strcharinfo(3)+","+@mob_dead_x+","+@mob_dead_y + "", bc_all,0xbbffb9;
+end;
+OnNPCKillEvent:
+	dispbottom "[事件演示] OnNPCKillEvent | 杀死了位于 " + strcharinfo(3)+","+@mob_dead_x+","+@mob_dead_y + " 的魔物, 魔物编号为 " + killedrid + " !";
+end;
+}
