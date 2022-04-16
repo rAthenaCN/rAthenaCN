@@ -1429,6 +1429,13 @@ int char_make_new_char( struct char_session_data* sd, char* name_, int str, int 
 	normalize_name(name,TRIM_CHARS);
 	Sql_EscapeStringLen(sql_handle, esc_name, name, strnlen(name, NAME_LENGTH));
 
+#ifdef rAthenaCN_function_BanDoram
+	if (charserv_config.ban_doram_character && start_job == JOB_SUMMONER) {
+		ShowInfo("Player want to create a doram character '%s', Ban...\n", name);
+		return -2;
+	}
+#endif // rAthenaCN_function_BanDoram
+
 	memset(tmp_start_point, 0, MAX_STARTPOINT * sizeof(struct point));
 	memset(tmp_start_items, 0, MAX_STARTITEM * sizeof(struct startitem));
 	memcpy(tmp_start_point, charserv_config.start_point, MAX_STARTPOINT * sizeof(struct point));
@@ -2747,6 +2754,10 @@ void char_set_defaults(){
 	charserv_config.char_new = true;
 	charserv_config.char_new_display = 0;
 
+#ifdef rAthenaCN_function_BanDoram
+	charserv_config.ban_doram_character = false;
+#endif // rAthenaCN_function_BanDoram
+
 	charserv_config.char_config.name_ignoring_case = false; // Allow or not identical name for characters but with a different case by [Yor]
 	charserv_config.char_config.char_name_option = 0; // Option to know which letters/symbols are authorised in the name of a character (0: all, 1: only those in char_name_letters, 2: all EXCEPT those in char_name_letters) by [Yor]
 	safestrncpy(charserv_config.char_config.unknown_char_name,"Unknown",sizeof(charserv_config.char_config.unknown_char_name)); // Name to use when the requested name cannot be determined
@@ -3095,6 +3106,11 @@ bool char_config_read(const char* cfgName, bool normal){
 		} else if (strcmpi(w1, "import") == 0) {
 			char_config_read(w2, normal);
 		}
+#ifdef rAthenaCN_function_BanDoram
+		else if (strcmpi(w1, "ban_doram_character") == 0) {
+			charserv_config.ban_doram_character = (bool)config_switch(w2);
+		}
+#endif // rAthenaCN_function_BanDoram
 	}
 	fclose(fp);
 

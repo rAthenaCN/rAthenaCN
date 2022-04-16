@@ -167,6 +167,10 @@ struct CharServ_Config {
 	struct Pincode_Config pincode_config;
 #endif
 
+#ifdef rAthenaCN_function_BanDoram
+	bool ban_doram_character;
+#endif // rAthenaCN_function_BanDoram
+
 	int save_log; // show loading/saving messages
 	int log_char;	// loggin char or not [devil]
 	int log_inter;	// loggin inter or not [devil]

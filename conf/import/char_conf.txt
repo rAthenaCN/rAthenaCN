@@ -1,0 +1,7 @@
+// rAthenaCN char_athena.conf 自定义配置文件
+
+// 是否禁止创建杜兰族角色?
+// yes = 禁止创建
+//  no = 允许创建
+// 默认: no
+ban_doram_character: no
