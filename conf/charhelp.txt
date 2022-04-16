@@ -1,28 +1,28 @@
- 40:--- CHARACTER CMD ---
- 40:#statsall <char name> - Set all stats of a player to maximum.
- 40:#itemlist <char name> - Displays all items of a player.
- 40:#storagelist <char name> - Displays all items of a player's storage.
- 40:#stats <char name> - Displays a characters stats.
- 60:#option <char name> <param1> <param2> <param3> - Like @option command but only to target character.
- 50:#mountpeco <char name> - Give/remove to a player a peco (Class is required, but not skill).
- 50:#petrename <char name> - Re-enable pet rename to a player.
- 60:#save <char name> <map> <x> <y> - Changes the target players respawn point.
- 60:#baselvl/#blvl <char name> <#> - Change a characters base level.
- 60:#joblvl/#jlvl <char name> <#> - Change a characters job level.
- 60:#job/#jobchange <char name> <job ID> - Changes target characters job.
- 60:#zeny <char name> <amount> - Give/take a players Zeny
- 60:#cash <char name> <amount> - Give/take a player cash points
- 60:#points <char name> <amount> - Give/take a player Kafra points
- 60:#stpoint <char name> <amount> - Give/take a players stat points
- 60:#skpoint <char name> <amount> - give/take a players skill points
- 60:#skreset <char name> - Reset skills of a character.
- 60:#streset <char name> - Reset stats of a character.
- 60:#reset <char name> - Reset stats AND skills of a character.
- 60:#questskill <char name> <#> - Gives to a player the specified quest skill.
- 60:#lostskill <char name> <#> - Takes away the specified quest skill from the player.
- 60:#delitem <char name> <item_name_or_ID> <quantity> - Remove items from a character
- 50:#model <char name> <hair type> <hair color> <clothes color> - Changes a player's model
- 60:#disguise <char name> <monster_name_or_monster_ID> - Changes disguise of a player
- 60:#undisguise <char name> - Cancels disguise of a player
- 60:#changesex <char name> - Changes sex of a player (all characters of the account)
- 60:#warp/#rura+ <char name> <mapname> <x> <y> - Warps character to location of choice
+ 40:--- 角色指令 ---
+ 40:#statsall <角色名称> - 显示所有角色的状态.
+ 40:#itemlist <角色名称> - 显示一个登入ID所有的物品.
+ 40:#storagelist <角色名称> - 显示一个登入ID仓库中所有的物品.
+ 40:#stats <角色名称> - 显示一个角色的状态.
+ 60:#option <角色名称> <参数1> <参数2> <参数3> - 和 @option 命令相似, 但只套用于目标角色.
+ 50:#mountpeco <角色名称> - 立刻骑上大嘴鸟或立刻将大嘴鸟放生(会检查职业但不会检查技能).
+ 50:#petrename <角色名称> - 允许一个玩家角色重新命名自己的宠物.
+ 60:#save <角色名称> <地图名> <x坐标> <y坐标> - 改变玩家角色目前所存储的地图位置.
+ 60:#baselvl/#blvl <角色名称> <数字> - 改变一个角色的基本等级.
+ 60:#joblvl/#jlvl <角色名称> <数字> - 改变一个角色的职业等级.
+ 60:#job/#jobchange <角色名称> <职业ID> - 改变玩家角色的职业.
+ 60:#zeny <角色名称> <数量> - 增加/减少 一个角色的的RO币
+ 60:#cash <角色名称> <数量> - 增加/减少 一个角色的的cash点数
+ 60:#points <角色名称> <数量> - 增加/减少 一个角色的的卡普拉点数
+ 60:#stpoint <角色名称> <数量> - 增加/减少 一个角色的的素质点数
+ 60:#skpoint <角色名称> <数量> - 增加/减少 一个角色的技能点数
+ 60:#skreset <角色名称> - 重置一个角色的技能.
+ 60:#streset <角色名称> - 重置一个角色的素质.
+ 60:#reset <角色名称> - 重置一个角色的素质和技能.
+ 60:#questskill <角色名称> <#> - 给一个角色增加某项任务技能.
+ 60:#lostskill <角色名称> <#> - 减少一个角色的某项任务技能.
+ 60:#delitem <角色名称> <物品名称或ID> <数量> - 删除一个角色的某样物品, 或减少某样物品的数量
+ 50:#model <角色名称> <发型> <发色> <衣服染色> - 改变一个角色的外形
+ 60:#disguise <角色名称> <魔物名称或ID> - 伪装一个角色为一个魔物
+ 60:#undisguise <角色名称> - 解除一个角色的伪装
+ 60:#changesex <角色名称> - 改变一个玩家的性别 (登入ID内的所有角色)
+ 60:#warp/#rura+ <角色名称> <地图名> <x坐标> <y坐标> - 传送一个角色到指定的位置
