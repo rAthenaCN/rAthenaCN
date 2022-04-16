@@ -5838,7 +5838,7 @@ BUILDIN_FUNC(warpparty)
 			}
 			// Fall through
 		case WARPPARTY_RANDOMALLAREA:
-			if(!mapdata->flag[MF_NORETURN] && !mapdata->flag[MF_NOWARP] && pc_job_can_entermap((enum e_job)pl_sd->status.class_, m, pl_sd->group_level)){
+			if(!mapdata->flag[MF_NORETURN] && !mapdata->flag[MF_NOWARP] && pc_job_can_entermap((enum e_job)pl_sd->status.class_, m, pc_get_group_level(pl_sd))){
 				if (rx || ry) {
 					int x1 = x + rx, y1 = y + ry,
 						x0 = x - rx, y0 = y - ry,
@@ -5858,7 +5858,7 @@ BUILDIN_FUNC(warpparty)
 
 				ret = pc_setpos(pl_sd, mapindex, x, y, CLR_TELEPORT);
 			}
-		break;
+			break;
 		}
 
 		if( ret != SETPOS_OK ) {
@@ -5934,7 +5934,7 @@ BUILDIN_FUNC(warpguild)
 				pc_setpos(pl_sd,sd->status.save_point.map,sd->status.save_point.x,sd->status.save_point.y,CLR_TELEPORT);
 		break;
 		case 3: // m,x,y
-			if(!map_getmapflag(pl_sd->bl.m, MF_NORETURN) && !map_getmapflag(pl_sd->bl.m, MF_NOWARP) && pc_job_can_entermap((enum e_job)pl_sd->status.class_, m, pl_sd->group_level))
+			if(!map_getmapflag(pl_sd->bl.m, MF_NORETURN) && !map_getmapflag(pl_sd->bl.m, MF_NOWARP) && pc_job_can_entermap((enum e_job)pl_sd->status.class_, m, pc_get_group_level(pl_sd)))
 				pc_setpos(pl_sd,mapindex,x,y,CLR_TELEPORT);
 		break;
 		}
@@ -15210,8 +15210,8 @@ int atcommand_sub(struct script_state* st,int type) {
 		}
 
 		// Init Group ID, Level, & permissions
-		sd->group_id = sd->group_level = 99;
-		sd->permissions |= PC_PERM_ALLPERMISSION;
+		sd->group_id = 99;
+		pc_group_pc_load( sd );
 	}
 
 	if (!is_atcommand(fd, sd, cmd, type)) {
@@ -24105,7 +24105,7 @@ BUILDIN_FUNC(jobcanentermap) {
 		jobid = sd->status.class_;
 	}
 
-	script_pushint(st, pc_job_can_entermap((enum e_job)jobid, m, sd ? sd->group_level : 0));
+	script_pushint(st, pc_job_can_entermap((enum e_job)jobid, m, sd ? pc_get_group_level(sd) : 0));
 	return SCRIPT_CMD_SUCCESS;
 }
 
