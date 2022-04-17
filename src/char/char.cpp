@@ -52,7 +52,11 @@ struct fame_list smith_fame_list[MAX_FAME_LIST];
 struct fame_list chemist_fame_list[MAX_FAME_LIST];
 struct fame_list taekwon_fame_list[MAX_FAME_LIST];
 
-#define CHAR_MAX_MSG 300	//max number of msg_conf
+#ifndef rAthenaCN_Function_MsgConf
+	#define CHAR_MAX_MSG 300	//max number of msg_conf
+#else
+	#define CHAR_MAX_MSG ALL_EXTEND_MSG
+#endif // rAthenaCN_Function_MsgConf
 static char* msg_table[CHAR_MAX_MSG]; // Login Server messages_conf
 
 // check for exit signal
@@ -1429,12 +1433,12 @@ int char_make_new_char( struct char_session_data* sd, char* name_, int str, int 
 	normalize_name(name,TRIM_CHARS);
 	Sql_EscapeStringLen(sql_handle, esc_name, name, strnlen(name, NAME_LENGTH));
 
-#ifdef rAthenaCN_function_BanDoram
+#ifdef rAthenaCN_Function_BanDoram
 	if (charserv_config.ban_doram_character && start_job == JOB_SUMMONER) {
 		ShowInfo("Player want to create a doram character '%s', Ban...\n", name);
 		return -2;
 	}
-#endif // rAthenaCN_function_BanDoram
+#endif // rAthenaCN_Function_BanDoram
 
 	memset(tmp_start_point, 0, MAX_STARTPOINT * sizeof(struct point));
 	memset(tmp_start_items, 0, MAX_STARTITEM * sizeof(struct startitem));
@@ -2754,9 +2758,9 @@ void char_set_defaults(){
 	charserv_config.char_new = true;
 	charserv_config.char_new_display = 0;
 
-#ifdef rAthenaCN_function_BanDoram
+#ifdef rAthenaCN_Function_BanDoram
 	charserv_config.ban_doram_character = false;
-#endif // rAthenaCN_function_BanDoram
+#endif // rAthenaCN_Function_BanDoram
 
 	charserv_config.char_config.name_ignoring_case = false; // Allow or not identical name for characters but with a different case by [Yor]
 	charserv_config.char_config.char_name_option = 0; // Option to know which letters/symbols are authorised in the name of a character (0: all, 1: only those in char_name_letters, 2: all EXCEPT those in char_name_letters) by [Yor]
@@ -3106,11 +3110,11 @@ bool char_config_read(const char* cfgName, bool normal){
 		} else if (strcmpi(w1, "import") == 0) {
 			char_config_read(w2, normal);
 		}
-#ifdef rAthenaCN_function_BanDoram
+#ifdef rAthenaCN_Function_BanDoram
 		else if (strcmpi(w1, "ban_doram_character") == 0) {
 			charserv_config.ban_doram_character = (bool)config_switch(w2);
 		}
-#endif // rAthenaCN_function_BanDoram
+#endif // rAthenaCN_Function_BanDoram
 	}
 	fclose(fp);
 
@@ -3143,6 +3147,11 @@ void char_do_final_msg(void){
 	_do_final_msg(CHAR_MAX_MSG,msg_table);
 }
 
+#ifdef rAthenaCN_Function_MsgConf
+	const char* char_msg_txt_cn(int msg_number) {
+		return _msg_txt(msg_number + ALL_EXTEND_FIRST_MSG, CHAR_MAX_MSG, msg_table);
+	}
+#endif // rAthenaCN_Function_MsgConf
 
 void do_final(void)
 {

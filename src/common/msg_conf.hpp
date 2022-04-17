@@ -26,6 +26,11 @@ enum lang_types {
 	#define LANG_ENABLE 0x000
 #endif
 
+#ifdef rAthenaCN_Function_MsgConf
+	#define ALL_EXTEND_MSG 3000
+	#define ALL_EXTEND_FIRST_MSG 2000
+#endif // rAthenaCN_Function_MsgConf
+
 //read msg in table
 const char* _msg_txt(int msg_number,int size, char ** msg_table);
 //store msg from txtfile into msg_table

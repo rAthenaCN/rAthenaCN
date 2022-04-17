@@ -33,7 +33,11 @@
 
 using namespace rathena;
 
-#define LOGIN_MAX_MSG 30				/// Max number predefined in msg_conf
+#ifdef rAthenaCN_Function_MsgConf
+	#define LOGIN_MAX_MSG 30				/// Max number predefined in msg_conf
+#else
+	#define LOGIN_MAX_MSG ALL_EXTEND_MSG
+#endif // rAthenaCN_Function_MsgConf
 static char* msg_table[LOGIN_MAX_MSG];	/// Login Server messages_conf
 
 //definition of exported var declared in header
@@ -506,8 +510,11 @@ void login_do_final_msg(void){
 	_do_final_msg(LOGIN_MAX_MSG,msg_table);
 }
 
-
-
+#ifdef rAthenaCN_Function_MsgConf
+	const char* login_msg_txt_cn(int msg_number) {
+		return _msg_txt(msg_number + ALL_EXTEND_FIRST_MSG, LOGIN_MAX_MSG, msg_table);
+	}
+#endif // rAthenaCN_Function_MsgConf
 
 /// Set and read Configurations
 

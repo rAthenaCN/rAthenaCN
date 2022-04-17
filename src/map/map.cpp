@@ -123,7 +123,11 @@ static struct block_list *bl_list[BL_LIST_MAX];
 static int bl_list_count = 0;
 
 #ifndef MAP_MAX_MSG
+#ifndef rAthenaCN_Function_MsgConf
 	#define MAP_MAX_MSG 1550
+#else
+	#define MAP_MAX_MSG ALL_EXTEND_MSG
+#endif // rAthenaCN_Function_MsgConf
 #endif
 
 struct map_data map[MAX_MAP_PER_SERVER];
@@ -5067,6 +5071,24 @@ const char* map_msg_txt(struct map_session_data *sd, int msg_number){
 	return "??";
 }
 
+#ifdef rAthenaCN_Function_MsgConf
+	const char* map_msg_txt_cn(struct map_session_data *sd, int msg_number) {
+		struct msg_data *mdb;
+		uint8 lang = 0; //default
+		if (sd && sd->langtype) lang = sd->langtype;
+
+		if ((mdb = map_lang2msgdb(lang)) != NULL) {
+			const char *tmp = _msg_txt(msg_number + ALL_EXTEND_FIRST_MSG, MAP_MAX_MSG, mdb->msg);
+			if (strcmp(tmp, "??")) //to verify result
+				return tmp;
+			ShowDebug("Message #%d not found for langtype %d.\n", msg_number + ALL_EXTEND_FIRST_MSG, lang);
+		}
+		ShowDebug("Selected langtype %d not loaded, trying fallback...\n", lang);
+		if (lang != 0 && (mdb = map_lang2msgdb(0)) != NULL) //fallback
+			return _msg_txt(msg_number + ALL_EXTEND_FIRST_MSG, MAP_MAX_MSG, mdb->msg);
+		return "??";
+}
+#endif // rAthenaCN_Function_MsgConf
 
 /// Called when a terminate signal is received.
 void do_shutdown(void)

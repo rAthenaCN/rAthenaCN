@@ -10124,6 +10124,7 @@ void clif_name( struct block_list* src, struct block_list *bl, send_target targe
 
 				clif_send(&packet, sizeof(packet), src, target);
 			}else if( battle_config.show_mob_info ){
+#ifndef rAthenaCN_Function_MobInfo
 				PACKET_ZC_ACK_REQNAMEALL packet = { 0 };
 
 				packet.packet_id = HEADER_ZC_ACK_REQNAMEALL;
@@ -10149,6 +10150,105 @@ void clif_name( struct block_list* src, struct block_list *bl, send_target targe
 					*(str_p-3) = '\0'; //Remove trailing space + pipe.
 					safestrncpy( packet.party_name, mobhp, NAME_LENGTH );
 				}
+#else
+				PACKET_ZC_ACK_REQNAMEALL packet = { 0 };
+
+				packet.packet_id = HEADER_ZC_ACK_REQNAMEALL;
+				packet.gid = bl->id;
+				safestrncpy(packet.name, md->name, NAME_LENGTH);
+
+				int option = battle_config.show_mob_info;
+
+				char mobhp[50], *str_p = mobhp;
+
+				if (option & 4) {
+					str_p += sprintf(str_p, "Lv. %d | ", md->level);
+				}
+
+				if (option & 1) {
+					str_p += sprintf(str_p, "HP: %u/%u | ", md->status.hp, md->status.max_hp);
+				}
+
+				if (option & 2) {
+					str_p += sprintf(str_p, "HP: %u%% | ", get_percentage(md->status.hp, md->status.max_hp));
+				}
+
+				if (option & 8) {
+					str_p += sprintf(str_p, "NO.%d | ", md->mob_id);
+				}
+
+				if (str_p != mobhp) {
+					*(str_p - 3) = '\0';
+				}
+
+				if (strlen(mobhp) >= NAME_LENGTH - 1) {
+					memset(mobhp, 0, sizeof(mobhp));
+					str_p = &mobhp[0];
+
+					if (option & 4) {
+						str_p += sprintf(str_p, "Lv.%d ", md->level);
+					}
+
+					if (option & 1 || option & 2) {
+						str_p += sprintf(str_p, "HP:%u%% ", get_percentage(md->status.hp, md->status.max_hp));
+					}
+
+					if (option & 8) {
+						str_p += sprintf(str_p, "ID:%d ", md->mob_id);
+					}
+
+					if (str_p != mobhp) {
+						*(str_p - 1) = '\0';
+					}
+				}
+
+				char mobhp2[50], *str_p2 = mobhp2;
+
+				if (option & 16) {
+					char mobsize_fmt[100] = { 0 };
+					sprintf(mobsize_fmt, "%s", msg_txt_cn(NULL, 22));
+
+					char mobsize[50] = { 0 };
+					sprintf(mobsize, "%s", msg_txt_cn(NULL, 23 + md->status.size));
+
+					str_p2 += sprintf(str_p2, mobsize_fmt, mobsize);
+				}
+
+				if (option & 32) {
+					char mobrace_fmt[100] = { 0 };
+					sprintf(mobrace_fmt, "%s", msg_txt_cn(NULL, 26));
+
+					char mobrace[50] = { 0 };
+					sprintf(mobrace, "%s", msg_txt_cn(NULL, 27 + md->status.race));
+
+					if (option & 16) {
+						str_p2 += sprintf(str_p2, "%s ", str_p2);
+					}
+
+					str_p2 += sprintf(str_p2, mobrace_fmt, mobrace);
+				}
+
+				char mobhp3[50], *str_p3 = mobhp3;
+
+				if (option & 64) {
+					char mobele_fmt[100] = { 0 };
+					sprintf(mobele_fmt, "%s", msg_txt_cn(NULL, 51));
+
+					char mobele[50] = { 0 };
+					sprintf(mobele, "%s", msg_txt_cn(NULL, 52 + md->status.def_ele));
+
+					str_p3 += sprintf(str_p3, mobele_fmt, mobele, md->status.ele_lv);
+				}
+
+				if (str_p != mobhp)
+					safestrncpy(packet.party_name, mobhp, NAME_LENGTH);
+
+				if (str_p2 != mobhp2)
+					safestrncpy(packet.guild_name, mobhp2, NAME_LENGTH);
+
+				if (str_p3 != mobhp3)
+					safestrncpy(packet.position_name, mobhp3, NAME_LENGTH);
+#endif // rAthenaCN_Function_MobInfo
 
 				clif_send(&packet, sizeof(packet), src, target);
 			} else {

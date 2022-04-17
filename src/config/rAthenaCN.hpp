@@ -12,7 +12,7 @@
 #ifdef rAthenaCN
 	#define rAthenaCN_Basic					// rAthenaCN 基础配置
 	#define rAthenaCN_NpcEvent				// rAthenaCN 触发事件
-	#define rAthenaCN_function				// rAthenaCN 扩展功能
+	#define rAthenaCN_Function				// rAthenaCN 扩展功能
 #endif // rAthenaCN
 
 //======================================
@@ -35,10 +35,12 @@
 //======================================
 // rAthenaCN 扩展功能
 //======================================
-#ifdef rAthenaCN_function
+#ifdef rAthenaCN_Function
 	#if PACKETVER >= 20151001
-		#define rAthenaCN_function_BanDoram	// 是否禁止创建杜兰族角色
+		#define rAthenaCN_Function_BanDoram	// 禁止创建杜兰族角色
 	#endif // PACKETVER >= 20151001
-#endif // rAthenaCN_function
+	#define rAthenaCN_Function_MobInfo		// 显示魔物的扩展信息 (比如体型、种族、属性等)
+	#define rAthenaCN_Function_MsgConf		// 扩展信息配置文件 (Msg_conf) 的 ID 最大上限
+#endif // rAthenaCN_Function
 
 #endif // _RATHENA_CN_CONFIG_HPP_

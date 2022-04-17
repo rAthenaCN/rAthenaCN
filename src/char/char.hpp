@@ -167,9 +167,9 @@ struct CharServ_Config {
 	struct Pincode_Config pincode_config;
 #endif
 
-#ifdef rAthenaCN_function_BanDoram
+#ifdef rAthenaCN_Function_BanDoram
 	bool ban_doram_character;
-#endif // rAthenaCN_function_BanDoram
+#endif // rAthenaCN_Function_BanDoram
 
 	int save_log; // show loading/saving messages
 	int log_char;	// loggin char or not [devil]
@@ -331,5 +331,10 @@ int char_msg_config_read(const char *cfgName);
 const char* char_msg_txt(int msg_number);
 void char_do_final_msg(void);
 bool char_config_read(const char* cfgName, bool normal);
+
+#ifdef rAthenaCN_Function_MsgConf
+	#define msg_txt_cn(msg_number) char_msg_txt_cn(msg_number)
+	const char* char_msg_txt_cn(int msg_number);
+#endif // rAthenaCN_Function_MsgConf
 
 #endif /* CHAR_HPP */
