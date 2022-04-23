@@ -3987,6 +3987,65 @@ ACMD_FUNC(recallall)
 	return 0;
 }
 
+#ifdef rAthenaCN_AtCommand_RecallMap
+ACMD_FUNC(recallmap) {
+	struct map_session_data* pl_sd = nullptr;
+	struct s_mapiterator* iter = nullptr;
+	int count = 0;
+	char mapname[MAP_NAME_LENGTH_EXT] = { 0 };
+	unsigned short mapindex = 0;
+
+	nullpo_retr(-1, sd);
+
+	if (message == nullptr || message[0] == '\0') {
+		mapindex = sd->mapindex;
+	}
+
+	if (sscanf(message, "%15s[^\n]", mapname) == 1) {
+		mapindex = mapindex_name2id(mapname);
+		if (mapindex == 0)
+		{
+			sprintf(atcmd_output, msg_txt(sd, 1157), mapname); // Unknown map '%s'.
+			clif_displaymessage(fd, atcmd_output);
+			return -1;
+		}
+	}
+
+	if (sd->bl.m >= 0 && map_getmapflag(sd->bl.m, MF_NOWARPTO) && !pc_has_permission(sd, PC_PERM_WARP_ANYWHERE)) {
+		clif_displaymessage(fd, msg_txt(sd, 1032)); // You are not authorized to warp someone to your current map.
+		return -1;
+	}
+
+	iter = mapit_getallusers();
+	for (pl_sd = (TBL_PC*)mapit_first(iter); mapit_exists(iter); pl_sd = (TBL_PC*)mapit_next(iter))
+	{
+		if (sd->status.account_id != pl_sd->status.account_id && pc_get_group_level(sd) >= pc_get_group_level(pl_sd))
+		{
+			if (map_getmapdata(pl_sd->bl.m)->index != mapindex)
+				continue;
+			if (pl_sd->bl.m == sd->bl.m && pl_sd->bl.x == sd->bl.x && pl_sd->bl.y == sd->bl.y)
+				continue; // Don't waste time warping the character to the same place.
+			if (pl_sd->bl.m >= 0 && map_getmapflag(pl_sd->bl.m, MF_NOWARP) && !pc_has_permission(sd, PC_PERM_WARP_ANYWHERE))
+				count++;
+			else {
+				if (pc_setpos(pl_sd, sd->mapindex, sd->bl.x, sd->bl.y, CLR_RESPAWN) == SETPOS_AUTOTRADE) {
+					count++;
+				}
+			}
+		}
+	}
+	mapit_free(iter);
+
+	clif_displaymessage(fd, msg_txt_cn(sd, 16));
+	if (count) {
+		sprintf(atcmd_output, msg_txt(sd, 1033), count); // Because you are not authorized to warp from some maps, %d player(s) have not been recalled.
+		clif_displaymessage(fd, atcmd_output);
+	}
+
+	return 0;
+}
+#endif // rAthenaCN_AtCommand_RecallMap
+
 /*==========================================
  * Recall online characters of a guild to your location
  *------------------------------------------*/
@@ -10829,6 +10888,11 @@ void atcommand_basecommands(void) {
 		ACMD_DEF(broadcast), // + /b and /nb
 		ACMD_DEF(localbroadcast), // + /lb and /nlb
 		ACMD_DEF(recallall),
+
+#ifdef rAthenaCN_AtCommand_RecallMap
+		ACMD_DEF(recallmap),
+#endif // rAthenaCN_AtCommand_RecallMap	
+
 		ACMD_DEFR(reload,ATCMD_NOSCRIPT),
 		ACMD_DEF2("reloaditemdb", reload),
 		ACMD_DEF2("reloadmobdb", reload),

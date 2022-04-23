@@ -14,6 +14,7 @@
 	#define rAthenaCN_NpcEvent				// rAthenaCN 触发事件
 	#define rAthenaCN_Function				// rAthenaCN 扩展功能
 	#define rAthenaCN_Mapflag				// rAthenaCN 地图标记
+	#define rAthenaCN_AtCommand				// rAthenaCN 管理指令
 #endif // rAthenaCN
 
 //======================================
@@ -50,5 +51,12 @@
 #ifdef rAthenaCN_Mapflag
 	#define rAthenaCN_MapFlag_NoAutoLoot	// 此标记的地图上禁止玩家使用自动拾取功能
 #endif // rAthenaCN_Mapflag
+
+//======================================
+// rAthenaCN 管理指令
+//======================================
+#ifdef rAthenaCN_AtCommand
+	#define rAthenaCN_AtCommand_RecallMap	// 召唤当前(或指定)地图的玩家来到身边
+#endif // rAthenaCN_AtCommand
 
 #endif // _RATHENA_CN_CONFIG_HPP_
