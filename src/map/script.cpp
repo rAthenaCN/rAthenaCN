@@ -21631,6 +21631,28 @@ BUILDIN_FUNC(instance_list)
 	return SCRIPT_CMD_SUCCESS;
 }
 
+#ifdef rAthenaCN_ScriptCommand_InstanceUsers
+BUILDIN_FUNC(instance_users) {
+	struct instance_data *im = nullptr;
+	int i = 0, users = 0, instance_id = 0;
+
+	instance_id = script_getnum(st, 2);
+
+	std::shared_ptr<s_instance_data> idata = util::umap_find(instances, instance_id);
+
+	if (!idata || idata->state != INSTANCE_BUSY) {
+		script_pushint(st, 0);
+		return SCRIPT_CMD_SUCCESS;
+	}
+
+	for (const auto& it : idata->map)
+		users += max(map_getmapdata(it.m)->users, 0);
+
+	script_pushint(st, users);
+	return SCRIPT_CMD_SUCCESS;
+}
+#endif // rAthenaCN_ScriptCommand_InstanceUsers
+
 /*==========================================
  * Custom Fonts
  *------------------------------------------*/
@@ -26531,6 +26553,11 @@ struct script_function buildin_func[] = {
 	BUILDIN_DEF(instance_info,"si?"),
 	BUILDIN_DEF(instance_live_info,"i?"),
 	BUILDIN_DEF(instance_list, "s?"),
+
+#ifdef rAthenaCN_ScriptCommand_InstanceUsers
+	BUILDIN_DEF(instance_users,"i"),
+#endif // rAthenaCN_ScriptCommand_InstanceUsers
+
 	/**
 	 * 3rd-related
 	 **/
