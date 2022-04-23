@@ -4477,6 +4477,11 @@ ACMD_FUNC(mapinfo) {
 		strcat(atcmd_output, "  Displays Night |");
 	clif_displaymessage(fd, atcmd_output);
 
+#ifdef rAthenaCN_MapFlag_NoAutoLoot
+	if (map_getmapflag(m_id, MF_NOAUTOLOOT))
+		strcat(atcmd_output, " NoAutoLoot |");
+#endif // rAthenaCN_MapFlag_NoAutoLoot
+
 	strcpy(atcmd_output,msg_txt(sd,1050)); // Other Flags:
 	if (map_getmapflag(m_id, MF_NOBRANCH))
 		strcat(atcmd_output, " NoBranch |");

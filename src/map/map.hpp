@@ -645,6 +645,11 @@ enum e_mapflag : int16 {
 	MF_GVG_TE,
 	MF_HIDEMOBHPBAR,
 	MF_NOLOOT,
+
+#ifdef rAthenaCN_MapFlag_NoAutoLoot
+	MF_NOAUTOLOOT,
+#endif // rAthenaCN_MapFlag_NoAutoLoot
+
 	MF_NOEXP,
 	MF_PRIVATEAIRSHIP_SOURCE,
 	MF_PRIVATEAIRSHIP_DESTINATION,

@@ -525,6 +525,11 @@
 	export_constant(MF_GVG_TE);
 	export_constant(MF_HIDEMOBHPBAR);
 	export_constant(MF_NOLOOT);
+
+#ifdef rAthenaCN_MapFlag_NoAutoLoot
+	export_constant(MF_NOAUTOLOOT);
+#endif // rAthenaCN_MapFlag_NoAutoLoot
+
 	export_constant(MF_NOEXP);
 	export_constant(MF_PRIVATEAIRSHIP_SOURCE);
 	export_constant(MF_PRIVATEAIRSHIP_DESTINATION);

@@ -13,6 +13,7 @@
 	#define rAthenaCN_Basic					// rAthenaCN 基础配置
 	#define rAthenaCN_NpcEvent				// rAthenaCN 触发事件
 	#define rAthenaCN_Function				// rAthenaCN 扩展功能
+	#define rAthenaCN_Mapflag				// rAthenaCN 地图标记
 #endif // rAthenaCN
 
 //======================================
@@ -42,5 +43,12 @@
 	#define rAthenaCN_Function_MobInfo		// 显示魔物的扩展信息 (比如体型、种族、属性等)
 	#define rAthenaCN_Function_MsgConf		// 扩展信息配置文件 (Msg_conf) 的 ID 最大上限
 #endif // rAthenaCN_Function
+
+//======================================
+// rAthenaCN 地图标记
+//======================================
+#ifdef rAthenaCN_Mapflag
+	#define rAthenaCN_MapFlag_NoAutoLoot	// 此标记的地图上禁止玩家使用自动拾取功能
+#endif // rAthenaCN_Mapflag
 
 #endif // _RATHENA_CN_CONFIG_HPP_
