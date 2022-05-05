@@ -21653,6 +21653,18 @@ BUILDIN_FUNC(instance_users) {
 }
 #endif // rAthenaCN_ScriptCommand_InstanceUsers
 
+#ifdef rAthenaCN_ScriptCommand_MobRemove
+BUILDIN_FUNC(mobremove) {
+	struct block_list *bl = nullptr;
+	bl = map_id2bl(script_getnum(st, 2));
+
+	if (bl && bl->type == BL_MOB)
+		unit_free(bl, CLR_OUTSIGHT);
+
+	return SCRIPT_CMD_SUCCESS;
+}
+#endif // rAthenaCN_ScriptCommand_MobRemove
+
 /*==========================================
  * Custom Fonts
  *------------------------------------------*/
@@ -26557,6 +26569,10 @@ struct script_function buildin_func[] = {
 #ifdef rAthenaCN_ScriptCommand_InstanceUsers
 	BUILDIN_DEF(instance_users,"i"),
 #endif // rAthenaCN_ScriptCommand_InstanceUsers
+
+#ifdef rAthenaCN_ScriptCommand_MobRemove
+	BUILDIN_DEF(mobremove,"i"),
+#endif // rAthenaCN_ScriptCommand_MobRemove
 
 	/**
 	 * 3rd-related

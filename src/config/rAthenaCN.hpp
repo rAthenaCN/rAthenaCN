@@ -65,6 +65,7 @@
 //======================================
 #ifdef rAthenaCN_ScriptCommand
 	#define rAthenaCN_ScriptCommand_InstanceUsers	// 获取指定的副本实例中已经进入副本地图的人数
+	#define rAthenaCN_ScriptCommand_MobRemove		// 依据 GID 移除一个魔物单位 (仅仅移除魔物, 并非使其死亡)
 #endif // rAthenaCN_ScriptCommand
 
 
