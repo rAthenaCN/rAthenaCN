@@ -1154,6 +1154,7 @@ int mob_spawn (struct mob_data *md)
 
 	md->state.aggressive = status_has_mode(&md->status,MD_ANGRY)?1:0;
 	md->state.skillstate = MSS_IDLE;
+	md->ud.state.blockedmove = false;
 	md->next_walktime = tick+rnd()%1000+MIN_RANDOMWALKTIME;
 	md->last_linktime = tick;
 	md->dmgtick = tick - 5000;
@@ -1686,6 +1687,10 @@ static bool mob_ai_sub_hard(struct mob_data *md, t_tick tick)
 	if(md->bl.prev == nullptr || md->status.hp == 0)
 		return false;
 
+	// Monsters force-walked by script commands should not be searching for targets.
+	if (md->ud.state.force_walk)
+		return false;
+
 	if (DIFF_TICK(tick, md->last_thinktime) < MIN_MOBTHINKTIME)
 		return false;
 
@@ -2004,6 +2009,10 @@ static int mob_ai_sub_lazy(struct mob_data *md, va_list args)
 	if(md->bl.prev == NULL)
 		return 0;
 
+	// Monsters force-walked by script commands should not be searching for targets.
+	if (md->ud.state.force_walk)
+		return false;
+
 	t_tick tick = va_arg(args,t_tick);
 
 	if (battle_config.mob_ai&0x20 && map_getmapdata(md->bl.m)->users>0)
@@ -2197,11 +2206,6 @@ static void mob_item_drop(struct mob_data *md, struct item_drop_list *dlist, str
 		test_autoloot = test_autoloot && sd->bl.m == md->bl.m
 		&& check_distance_blxy(&sd->bl, dlist->x, dlist->y, AUTOLOOT_DISTANCE);
 #endif
-
-#ifdef rAthenaCN_MapFlag_NoAutoLoot
-	test_autoloot = test_autoloot && (sd && sd->bl.m >= 0 && !map_getmapflag(sd->bl.m, MF_NOAUTOLOOT));
-#endif // rAthenaCN_MapFlag_NoAutoLoot
-
 	if( test_autoloot ) {	//Autoloot.
 		struct party_data *p = party_search(sd->status.party_id);
 
@@ -3083,20 +3087,6 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 			pc_setparam(mvp_sd, SP_KILLEDRID, md->mob_id);
 			npc_script_event(mvp_sd, NPCE_KILLNPC); // PCKillNPC [Lance]
 		}
-
-#ifdef rAthenaCN_NpcEvent_KILLMVP
-		if (sd && md && status && status_has_mode(status, MD_MVP)) {
-			pc_setparam(sd, SP_KILLEDRID, md->mob_id);
-			pc_setreg(sd, add_str("@mob_dead_x"), (int)md->bl.x);
-			pc_setreg(sd, add_str("@mob_dead_y"), (int)md->bl.y);
-			pc_setreg(sd, add_str("@mob_lasthit_rid"), (int)sd->bl.id);
-			pc_setreg(sd, add_str("@mob_lasthit_cid"), (int)sd->status.char_id);
-			pc_setreg(sd, add_str("@mob_mvp_rid"), (int)(mvp_sd ? mvp_sd->bl.id : 0));
-			pc_setreg(sd, add_str("@mob_mvp_cid"), (int)(mvp_sd ? mvp_sd->status.char_id : 0));
-			npc_script_event(sd, NPCE_KILLMVP);
-		}
-#endif // rAthenaCN_NpcEvent_KILLMVP
-
 	}
 
 	if(md->deletetimer != INVALID_TIMER) {
