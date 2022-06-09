@@ -2206,6 +2206,11 @@ static void mob_item_drop(struct mob_data *md, struct item_drop_list *dlist, str
 		test_autoloot = test_autoloot && sd->bl.m == md->bl.m
 		&& check_distance_blxy(&sd->bl, dlist->x, dlist->y, AUTOLOOT_DISTANCE);
 #endif
+
+#ifdef rAthenaCN_MapFlag_NoAutoLoot
+	test_autoloot = test_autoloot && (sd && sd->bl.m >= 0 && !map_getmapflag(sd->bl.m, MF_NOAUTOLOOT));
+#endif // rAthenaCN_MapFlag_NoAutoLoot
+
 	if( test_autoloot ) {	//Autoloot.
 		struct party_data *p = party_search(sd->status.party_id);
 
@@ -3087,6 +3092,20 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 			pc_setparam(mvp_sd, SP_KILLEDRID, md->mob_id);
 			npc_script_event(mvp_sd, NPCE_KILLNPC); // PCKillNPC [Lance]
 		}
+
+#ifdef rAthenaCN_NpcEvent_KILLMVP
+		if (sd && md && status && status_has_mode(status, MD_MVP)) {
+			pc_setparam(sd, SP_KILLEDRID, md->mob_id);
+			pc_setreg(sd, add_str("@mob_dead_x"), (int)md->bl.x);
+			pc_setreg(sd, add_str("@mob_dead_y"), (int)md->bl.y);
+			pc_setreg(sd, add_str("@mob_lasthit_rid"), (int)sd->bl.id);
+			pc_setreg(sd, add_str("@mob_lasthit_cid"), (int)sd->status.char_id);
+			pc_setreg(sd, add_str("@mob_mvp_rid"), (int)(mvp_sd ? mvp_sd->bl.id : 0));
+			pc_setreg(sd, add_str("@mob_mvp_cid"), (int)(mvp_sd ? mvp_sd->status.char_id : 0));
+			npc_script_event(sd, NPCE_KILLMVP);
+		}
+#endif // rAthenaCN_NpcEvent_KILLMVP
+
 	}
 
 	if(md->deletetimer != INVALID_TIMER) {

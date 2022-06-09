@@ -22,7 +22,7 @@
 // rAthenaCN 基础配置
 //======================================
 #ifdef rAthenaCN_Basic
-	#define rAthenaCN_Version "v1.0.0"				// 定义 rAthenaCN 的版本号
+	#define rAthenaCN_Version "v2.0.0"				// 定义 rAthenaCN 的版本号
 	#define rAthenaCN_Show_Logo						// 在启动时显示 rAthenaCN 的 LOGO
 	#define rAthenaCN_Disclaimer					// 在启动时显示免责声明
 	#define rAthenaCN_Show_Version					// 在启动时显示 rAthenaCN 的版本号

@@ -266,6 +266,11 @@ struct Script_Config script_config = {
 	"OnPCLoadMapEvent", //loadmap_event_name
 	"OnPCBaseLvUpEvent", //baselvup_event_name
 	"OnPCJobLvUpEvent", //joblvup_event_name
+
+#ifdef rAthenaCN_NpcEvent
+	"OnPCKillMvpEvent",	//kill_mvp_mob_event_name
+#endif // rAthenaCN_NpcEvent
+
 	// NPC related
 	"OnTouch_",	//ontouch_event_name (runs on first visible char to enter area, picks another char if the first char leaves)
 	"OnTouch",	//ontouch2_event_name (run whenever a char walks into the OnTouch area)
@@ -21662,6 +21667,40 @@ BUILDIN_FUNC(instance_list)
 	return SCRIPT_CMD_SUCCESS;
 }
 
+#ifdef rAthenaCN_ScriptCommand_InstanceUsers
+BUILDIN_FUNC(instance_users) {
+	struct instance_data *im = nullptr;
+	int i = 0, users = 0, instance_id = 0;
+
+	instance_id = script_getnum(st, 2);
+
+	std::shared_ptr<s_instance_data> idata = util::umap_find(instances, instance_id);
+
+	if (!idata || idata->state != INSTANCE_BUSY) {
+		script_pushint(st, 0);
+		return SCRIPT_CMD_SUCCESS;
+	}
+
+	for (const auto& it : idata->map)
+		users += max(map_getmapdata(it.m)->users, 0);
+
+	script_pushint(st, users);
+	return SCRIPT_CMD_SUCCESS;
+}
+#endif // rAthenaCN_ScriptCommand_InstanceUsers
+
+#ifdef rAthenaCN_ScriptCommand_MobRemove
+BUILDIN_FUNC(mobremove) {
+	struct block_list *bl = nullptr;
+	bl = map_id2bl(script_getnum(st, 2));
+
+	if (bl && bl->type == BL_MOB)
+		unit_free(bl, CLR_OUTSIGHT);
+
+	return SCRIPT_CMD_SUCCESS;
+}
+#endif // rAthenaCN_ScriptCommand_MobRemove
+
 /*==========================================
  * Custom Fonts
  *------------------------------------------*/
@@ -26586,6 +26625,15 @@ struct script_function buildin_func[] = {
 	BUILDIN_DEF(instance_info,"si?"),
 	BUILDIN_DEF(instance_live_info,"i?"),
 	BUILDIN_DEF(instance_list, "s?"),
+
+#ifdef rAthenaCN_ScriptCommand_InstanceUsers
+	BUILDIN_DEF(instance_users,"i"),
+#endif // rAthenaCN_ScriptCommand_InstanceUsers
+
+#ifdef rAthenaCN_ScriptCommand_MobRemove
+	BUILDIN_DEF(mobremove,"i"),
+#endif // rAthenaCN_ScriptCommand_MobRemove
+
 	/**
 	 * 3rd-related
 	 **/
